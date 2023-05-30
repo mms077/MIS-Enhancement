@@ -105,11 +105,11 @@ page 50224 "Item Sizes"
     }
     trigger OnOpenPage()
     begin
-        FillSizesFromDesignDetails();
-        DeleteSizesNotInDesignDetails();
+        FillSizesFromDesignDetails(Rec."Item No.");
+        DeleteSizesNotInDesignDetails(Rec."Item No.");
     end;
 
-    procedure FillSizesFromDesignDetails()
+    procedure FillSizesFromDesignDetails(ItemNoPar: Code[20])
     var
         Item: Record Item;
         DesignDetail: Record "Design Detail";
@@ -121,7 +121,7 @@ page 50224 "Item Sizes"
     begin
         Clear(SizeFilter);
         Clear(PreviousSize);
-        if Item.Get(Rec."Item No.") then begin
+        if Item.Get(ItemNoPar) then begin
             Clear(DesignDetail);
             DesignDetail.SetCurrentKey("Size Code");
             DesignDetail.SetRange("Design Code", Item."Design Code");
@@ -167,7 +167,7 @@ page 50224 "Item Sizes"
             until ItemSizeTemporary.Next() = 0;
     end;
 
-    procedure DeleteSizesNotInDesignDetails()
+    procedure DeleteSizesNotInDesignDetails(ItemNoPar: Code[20])
     var
         Item: Record Item;
         DesignDetail: Record "Design Detail";
@@ -176,8 +176,8 @@ page 50224 "Item Sizes"
         ItemSize: Record "Item Size";
     begin
         Clear(ItemSize);
-        if Item.Get(Rec."Item No.") then begin
-            ItemSize.SetRange("Item No.", Rec."Item No.");
+        if Item.Get(ItemNoPar) then begin
+            ItemSize.SetRange("Item No.", ItemNoPar);
             if ItemSize.FindSet() then
                 repeat
                     Clear(DesignDetail);

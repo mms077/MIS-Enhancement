@@ -182,6 +182,9 @@ pageextension 50200 ItemCard extends "Item Card"
                         //Finished Item
                         Clear(ItemSizeRec);
                         ItemSizeRec.SetRange("Item No.", Rec."No.");
+                        //Fill Item Sizes
+                        ItemSizePage.FillSizesFromDesignDetails(Rec."No.");
+                        ItemSizePage.DeleteSizesNotInDesignDetails(Rec."No.");
                         ItemSizePage.SetTableView(ItemSizeRec);
                         ItemSizePage.Run();
                     end;

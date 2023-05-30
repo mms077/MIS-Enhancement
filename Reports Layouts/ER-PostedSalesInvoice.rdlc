@@ -2447,7 +2447,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!TotalAmount.Value + Last(Fields!TotalLineDiscountAmt.Value, "DataSet_Result")</Value>
+                                  <Value>=Last(Fields!ItemsLinesAmounts.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontWeight>Bold</FontWeight>
@@ -2500,7 +2500,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=IIF(Fields!TotalAmount.Value &lt;&gt; 0,
-Fields!DiscountLabel.Value &amp; " " &amp; Round((Last(Fields!TotalLineDiscountAmt.Value, "DataSet_Result")/ Fields!TotalAmount.Value) *100 ,0) &amp; "%",
+Fields!DiscountLabel.Value &amp; " " &amp; Round((Last(Fields!TotalLineDiscountAmt.Value, "DataSet_Result")/Last(Fields!ItemsLinesAmounts.Value)) *100 ,0) &amp; "%",
 Fields!DiscountLabel.Value &amp; "0%")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
@@ -2628,7 +2628,6 @@ Fields!VATLabel.Value &amp; "0% " &amp; Fields!BillTo_Currency.Value)</Value>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -2832,7 +2831,7 @@ Fields!VATLabel.Value &amp; "0% " &amp; Fields!BillTo_Currency.Value)</Value>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Gross_Total.Value - Last(Fields!GlAmount.Value, "DataSet_Result")</Value>
+                                  <Value>=Fields!Gross_Total.Value - Last(Fields!GlAmount.Value, "DataSet_Result") - Last(Fields!TotalLineDiscountAmt.Value, "DataSet_Result")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontWeight>Bold</FontWeight>
@@ -3016,7 +3015,7 @@ Fields!VATLabel.Value &amp; "0% " &amp; Fields!BillTo_Currency.Value)</Value>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Gross_Total.Value</Value>
+                                  <Value>=Fields!Gross_Total.Value - Last(Fields!GlAmount.Value, "DataSet_Result") - Last(Fields!TotalLineDiscountAmt.Value, "DataSet_Result") + Last(Fields!GlAmount.Value, "DataSet_Result")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontWeight>Bold</FontWeight>
@@ -3044,6 +3043,7 @@ Fields!VATLabel.Value &amp; "0% " &amp; Fields!BillTo_Currency.Value)</Value>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -4925,6 +4925,12 @@ C/HH/hA67/8AIVel0UAeaf8ADQfhf/oF+OP/AAgdd/8AkKj/AIaD8L/9Avxx/wCEDrv/AMhV6XRQB5p/
         </Field>
         <Field Name="Line_AmountFormat">
           <DataField>Line_AmountFormat</DataField>
+        </Field>
+        <Field Name="ItemsLinesAmounts">
+          <DataField>ItemsLinesAmounts</DataField>
+        </Field>
+        <Field Name="ItemsLinesAmountsFormat">
+          <DataField>ItemsLinesAmountsFormat</DataField>
         </Field>
         <Field Name="DepartmentName">
           <DataField>DepartmentName</DataField>

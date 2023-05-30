@@ -1,0 +1,7 @@
+{
+    "al-test-runner.sendDebugTelemetry": false,
+    "azureFunctions.deploySubpath": "PowerShell Script",
+    "azureFunctions.projectLanguage": "PowerShell",
+    "azureFunctions.projectRuntime": "~4",
+    "debug.internalConsoleOptions": "neverOpen"
+}

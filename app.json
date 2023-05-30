@@ -1,0 +1,61 @@
+{
+  "id": "7e779673-0dcf-4203-a446-b62151f37caf",
+  "name": "Master Item Structure - ER",
+  "publisher": "Exquitech",
+  "version": "1.0.0.433",
+  "brief": "Master Item Structure",
+  "description": "Related to Design Business",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "", 
+  "url": "",
+  "logo": "",
+  "dependencies": [       
+    {
+      "id": "2ea0f5f3-a7af-4869-a61e-e293acbb70d2",
+      "name": "Customer Form",
+      "publisher": "Exquitech-JS",
+      "version": "1.0.0.2"
+    },
+    {
+      "id": "6f416723-34f6-492f-8997-b627c7e05ce8",
+      "name": "Global Sync",
+      "publisher": "Exquitech",
+      "version": "1.0.0.86"
+    },
+    {
+      "id": "72711e17-9372-481a-a4a6-da050933dd9c",
+      "name": "Ledger Editor",
+      "publisher": "Exquitech",
+      "version": "1.0.0.5"
+    },
+    {
+      "id": "719139df-e871-457b-9033-6e1338f93430",
+      "name": "ZATCA E-Invoicing",
+      "publisher": "Exquitech",
+      "version": "1.0.0.4"
+    },
+    {
+      "id": "10cb69d9-bc8a-4d27-970a-9e110e9db2a5",
+      "name": "_Exclude_APIV2_",
+      "publisher": "Microsoft",
+      "version": "21.0.0.0"
+    }
+    ],
+  "screenshots": [],
+  "platform": "22.0.0.0",
+  "application": "22.0.54157.54644",
+  "idRanges": [
+    {
+      "from": 50200,
+      "to": 50700
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": false,
+    "includeSourceInSymbolFile": true
+  },
+  "runtime": "10.2",
+  "features": ["TranslationFile"]
+}

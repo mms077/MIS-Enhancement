@@ -21,6 +21,9 @@ report 50202 "RM Label Printing"
                     column(RM_Code; "Raw Material".Code)
                     {
                     }
+                    column(RM_Barcode; RM_Barcode)
+                    {
+                    }
                     column(RM_UOM; "Raw Material"."UOM Code")
                     {
                     }
@@ -30,7 +33,7 @@ report 50202 "RM Label Printing"
                     column(RM_ColorName; GlobalColor.Name)
                     {
                     }
-                    column(ItemReference_UniqueCode; GlobalItemReference."Unique Code")
+                    column(ItemReference_UniqueCode; ItemRef_Barcode)
                     {
                     }
                     column(ItemReference_UOM; GlobalItemReference."Unit of Measure")
@@ -68,7 +71,12 @@ report 50202 "RM Label Printing"
             end;
 
             trigger OnAfterGetRecord()
+
             var
+                RM_BarcodeString: Text;
+                ItemRef_BarcodeString: Text;
+                BarcodeSymbology: Enum "Barcode Symbology";
+                BarcodeFontProvider: Interface "Barcode Font Provider";
             begin
                 Clear(GlobalItem);
                 GlobalItem.Get("Raw Material"."Code");
@@ -79,6 +87,27 @@ report 50202 "RM Label Printing"
                 else
                     GlobalItemReference.SetRange("Unit of Measure", "Raw Material"."UOM Code");
                 if GlobalItemReference.FindFirst() then;
+
+                // Declare the barcode provider using the barcode provider interface and enum
+                BarcodeFontProvider := Enum::"Barcode Font Provider"::IDAutomation1D;
+                // Declare the font using the barcode symbology enum
+                BarcodeSymbology := Enum::"Barcode Symbology"::"Code39";
+
+                // Set data string source 
+                RM_BarcodeString := "Raw Material".Code;
+                // Validate the input. This method is not available for 2D provider
+                BarcodeFontProvider.ValidateInput(RM_BarcodeString, BarcodeSymbology);
+                // Encode the data string to the barcode font
+                RM_Barcode := BarcodeFontProvider.EncodeFont(RM_BarcodeString, BarcodeSymbology);
+
+                ItemRef_BarcodeString := GlobalItemReference."Unique Code";
+
+                // Validate the input. This method is not available for 2D provider
+                BarcodeFontProvider.ValidateInput(ItemRef_BarcodeString, BarcodeSymbology);
+
+                // Encode the data string to the barcode font
+                ItemRef_Barcode := BarcodeFontProvider.EncodeFont(ItemRef_BarcodeString, BarcodeSymbology);
+
             end;
         }
     }
@@ -130,7 +159,7 @@ report 50202 "RM Label Printing"
                             ItemUOM: Record "Item Unit of Measure";
                             ItemUOMPage: Page "Item Units of Measure";
                         begin
-                            ItemUOM.SetRange("Item No.", "Raw Material Code");
+                            ItemUOM.SetFilter("Item No.", "Raw Material Code");
                             if ItemUOM.FindSet() then begin
                                 ItemUOMPage.SetTableView(ItemUOM);
                                 ItemUOMPage.LookupMode(true);
@@ -177,4 +206,6 @@ report 50202 "RM Label Printing"
         PrintBCContainingUOM: Boolean;
         "Barcode UOM": Code[10];
         "Raw Material Code": Code[20];
+        RM_Barcode: Text;
+        ItemRef_Barcode: Text;
 }

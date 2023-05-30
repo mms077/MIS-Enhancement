@@ -7,6 +7,7 @@
         <DataProvider>SQL</DataProvider>
         <ConnectString />
       </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
       <rd:DataSourceID>b2eaaacb-aac0-469f-8a80-95c14ea9d83a</rd:DataSourceID>
     </DataSource>
   </DataSources>
@@ -18,12 +19,12 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>6.30011cm</Width>
+                  <Width>9cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>9cm</Height>
+                  <Height>6.3cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -33,12 +34,12 @@
                               <TablixBody>
                                 <TablixColumns>
                                   <TablixColumn>
-                                    <Width>6.30011cm</Width>
+                                    <Width>9cm</Width>
                                   </TablixColumn>
                                 </TablixColumns>
                                 <TablixRows>
                                   <TablixRow>
-                                    <Height>9cm</Height>
+                                    <Height>6.3cm</Height>
                                     <TablixCells>
                                       <TablixCell>
                                         <CellContents>
@@ -64,14 +65,34 @@
                                                   </Paragraph>
                                                 </Paragraphs>
                                                 <rd:DefaultName>Textbox1</rd:DefaultName>
-                                                <Top>2.73398cm</Top>
-                                                <Left>0.00038cm</Left>
+                                                <Top>2cm</Top>
+                                                <Left>0cm</Left>
                                                 <Height>0.85cm</Height>
-                                                <Width>2.23305cm</Width>
+                                                <Width>3cm</Width>
                                                 <Style>
                                                   <Border>
                                                     <Style>Solid</Style>
                                                   </Border>
+                                                  <TopBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </TopBorder>
+                                                  <BottomBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </BottomBorder>
+                                                  <LeftBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </LeftBorder>
+                                                  <RightBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </RightBorder>
                                                   <VerticalAlign>Middle</VerticalAlign>
                                                   <PaddingLeft>2pt</PaddingLeft>
                                                   <PaddingRight>2pt</PaddingRight>
@@ -99,15 +120,35 @@
                                                   </Paragraph>
                                                 </Paragraphs>
                                                 <rd:DefaultName>Textbox1</rd:DefaultName>
-                                                <Top>1.74623cm</Top>
+                                                <Top>1cm</Top>
                                                 <Left>0cm</Left>
-                                                <Height>0.98775cm</Height>
-                                                <Width>6.29992cm</Width>
+                                                <Height>1cm</Height>
+                                                <Width>9cm</Width>
                                                 <ZIndex>1</ZIndex>
                                                 <Style>
                                                   <Border>
                                                     <Style>Solid</Style>
                                                   </Border>
+                                                  <TopBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </TopBorder>
+                                                  <BottomBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </BottomBorder>
+                                                  <LeftBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </LeftBorder>
+                                                  <RightBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </RightBorder>
                                                   <VerticalAlign>Middle</VerticalAlign>
                                                   <PaddingLeft>2pt</PaddingLeft>
                                                   <PaddingRight>2pt</PaddingRight>
@@ -135,15 +176,35 @@
                                                   </Paragraph>
                                                 </Paragraphs>
                                                 <rd:DefaultName>Variant_ItemSize</rd:DefaultName>
-                                                <Top>2.73398cm</Top>
-                                                <Left>4.32343cm</Left>
+                                                <Top>2cm</Top>
+                                                <Left>6cm</Left>
                                                 <Height>0.85cm</Height>
-                                                <Width>1.97687cm</Width>
+                                                <Width>3cm</Width>
                                                 <ZIndex>2</ZIndex>
                                                 <Style>
                                                   <Border>
                                                     <Style>Solid</Style>
                                                   </Border>
+                                                  <TopBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </TopBorder>
+                                                  <BottomBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </BottomBorder>
+                                                  <LeftBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </LeftBorder>
+                                                  <RightBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </RightBorder>
                                                   <VerticalAlign>Middle</VerticalAlign>
                                                   <PaddingLeft>2pt</PaddingLeft>
                                                   <PaddingRight>2pt</PaddingRight>
@@ -170,89 +231,20 @@
                                                   </Paragraph>
                                                 </Paragraphs>
                                                 <rd:DefaultName>Variant_ItemSize</rd:DefaultName>
-                                                <Top>2.73398cm</Top>
-                                                <Left>2.23343cm</Left>
+                                                <Top>2cm</Top>
+                                                <Left>3cm</Left>
                                                 <Height>0.85cm</Height>
-                                                <Width>2.09cm</Width>
+                                                <Width>3cm</Width>
                                                 <ZIndex>3</ZIndex>
                                                 <Style>
                                                   <Border>
                                                     <Style>Solid</Style>
                                                   </Border>
-                                                  <VerticalAlign>Middle</VerticalAlign>
-                                                  <PaddingLeft>2pt</PaddingLeft>
-                                                  <PaddingRight>2pt</PaddingRight>
-                                                  <PaddingTop>2pt</PaddingTop>
-                                                  <PaddingBottom>2pt</PaddingBottom>
-                                                </Style>
-                                              </Textbox>
-                                              <Textbox Name="Textbox11">
-                                                <CanGrow>true</CanGrow>
-                                                <KeepTogether>true</KeepTogether>
-                                                <Paragraphs>
-                                                  <Paragraph>
-                                                    <TextRuns>
-                                                      <TextRun>
-                                                        <Value>="*" + Fields!RM_Code.Value + "*"</Value>
-                                                        <Style>
-                                                          <FontFamily>IDAutomationC39M</FontFamily>
-                                                        </Style>
-                                                      </TextRun>
-                                                    </TextRuns>
-                                                    <Style>
-                                                      <TextAlign>Center</TextAlign>
-                                                    </Style>
-                                                  </Paragraph>
-                                                </Paragraphs>
-                                                <rd:DefaultName>Textbox8</rd:DefaultName>
-                                                <Top>3.58398cm</Top>
-                                                <Left>0.00043cm</Left>
-                                                <Height>1.82308cm</Height>
-                                                <Width>6.29992cm</Width>
-                                                <ZIndex>4</ZIndex>
-                                                <Style>
-                                                  <Border>
+                                                  <TopBorder>
+                                                    <Color>Black</Color>
                                                     <Style>Solid</Style>
-                                                  </Border>
-                                                  <BottomBorder>
-                                                    <Style>None</Style>
-                                                  </BottomBorder>
-                                                  <VerticalAlign>Bottom</VerticalAlign>
-                                                  <PaddingLeft>2pt</PaddingLeft>
-                                                  <PaddingRight>2pt</PaddingRight>
-                                                  <PaddingTop>2pt</PaddingTop>
-                                                  <PaddingBottom>2pt</PaddingBottom>
-                                                </Style>
-                                              </Textbox>
-                                              <Textbox Name="Textbox1">
-                                                <CanGrow>true</CanGrow>
-                                                <KeepTogether>true</KeepTogether>
-                                                <Paragraphs>
-                                                  <Paragraph>
-                                                    <TextRuns>
-                                                      <TextRun>
-                                                        <Value>=Fields!RM_Code.Value</Value>
-                                                        <Style>
-                                                          <FontFamily>OCR A Extended</FontFamily>
-                                                          <FontSize>8pt</FontSize>
-                                                        </Style>
-                                                      </TextRun>
-                                                    </TextRuns>
-                                                    <Style>
-                                                      <TextAlign>Center</TextAlign>
-                                                    </Style>
-                                                  </Paragraph>
-                                                </Paragraphs>
-                                                <rd:DefaultName>Textbox1</rd:DefaultName>
-                                                <Top>5.40706cm</Top>
-                                                <Left>0.00024cm</Left>
-                                                <Height>0.48331cm</Height>
-                                                <Width>6.29987cm</Width>
-                                                <ZIndex>5</ZIndex>
-                                                <Style>
-                                                  <Border>
-                                                    <Style>None</Style>
-                                                  </Border>
+                                                    <Width>1pt</Width>
+                                                  </TopBorder>
                                                   <BottomBorder>
                                                     <Color>Black</Color>
                                                     <Style>Solid</Style>
@@ -268,11 +260,63 @@
                                                     <Style>Solid</Style>
                                                     <Width>1pt</Width>
                                                   </RightBorder>
-                                                  <VerticalAlign>Top</VerticalAlign>
+                                                  <VerticalAlign>Middle</VerticalAlign>
                                                   <PaddingLeft>2pt</PaddingLeft>
                                                   <PaddingRight>2pt</PaddingRight>
                                                   <PaddingTop>2pt</PaddingTop>
                                                   <PaddingBottom>2pt</PaddingBottom>
+                                                </Style>
+                                              </Textbox>
+                                              <Textbox Name="Textbox11">
+                                                <KeepTogether>true</KeepTogether>
+                                                <Paragraphs>
+                                                  <Paragraph>
+                                                    <TextRuns>
+                                                      <TextRun>
+                                                        <Value>=Fields!RM_Barcode.Value</Value>
+                                                        <Style>
+                                                          <FontFamily>IDAutomationHC39S</FontFamily>
+                                                          <FontSize>14pt</FontSize>
+                                                          <FontWeight>ExtraLight</FontWeight>
+                                                        </Style>
+                                                      </TextRun>
+                                                    </TextRuns>
+                                                    <Style>
+                                                      <TextAlign>Center</TextAlign>
+                                                    </Style>
+                                                  </Paragraph>
+                                                </Paragraphs>
+                                                <rd:DefaultName>Textbox8</rd:DefaultName>
+                                                <Top>2.85cm</Top>
+                                                <Left>0cm</Left>
+                                                <Height>1.7cm</Height>
+                                                <Width>9cm</Width>
+                                                <ZIndex>4</ZIndex>
+                                                <Style>
+                                                  <Border>
+                                                    <Style>Solid</Style>
+                                                  </Border>
+                                                  <TopBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </TopBorder>
+                                                  <BottomBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </BottomBorder>
+                                                  <LeftBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </LeftBorder>
+                                                  <RightBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </RightBorder>
+                                                  <VerticalAlign>Middle</VerticalAlign>
                                                 </Style>
                                               </Textbox>
                                               <Textbox Name="Textbox4">
@@ -295,95 +339,20 @@
                                                   </Paragraph>
                                                 </Paragraphs>
                                                 <rd:DefaultName>Textbox1</rd:DefaultName>
-                                                <Top>0.75848cm</Top>
-                                                <Left>0.00043cm</Left>
-                                                <Height>0.98775cm</Height>
-                                                <Width>6.29992cm</Width>
-                                                <ZIndex>6</ZIndex>
+                                                <Top>0cm</Top>
+                                                <Left>0cm</Left>
+                                                <Height>1cm</Height>
+                                                <Width>9cm</Width>
+                                                <ZIndex>5</ZIndex>
                                                 <Style>
                                                   <Border>
                                                     <Style>Solid</Style>
                                                   </Border>
-                                                  <VerticalAlign>Middle</VerticalAlign>
-                                                  <PaddingLeft>2pt</PaddingLeft>
-                                                  <PaddingRight>2pt</PaddingRight>
-                                                  <PaddingTop>2pt</PaddingTop>
-                                                  <PaddingBottom>2pt</PaddingBottom>
-                                                </Style>
-                                              </Textbox>
-                                              <Textbox Name="Textbox12">
-                                                <CanGrow>true</CanGrow>
-                                                <KeepTogether>true</KeepTogether>
-                                                <Paragraphs>
-                                                  <Paragraph>
-                                                    <TextRuns>
-                                                      <TextRun>
-                                                        <Value>="*" + Fields!ItemReference_UniqueCode.Value + "*"</Value>
-                                                        <Style>
-                                                          <FontFamily>IDAutomationC39M</FontFamily>
-                                                        </Style>
-                                                      </TextRun>
-                                                    </TextRuns>
-                                                    <Style>
-                                                      <TextAlign>Center</TextAlign>
-                                                    </Style>
-                                                  </Paragraph>
-                                                </Paragraphs>
-                                                <rd:DefaultName>Textbox8</rd:DefaultName>
-                                                <Top>5.89037cm</Top>
-                                                <Left>0.00067cm</Left>
-                                                <Height>1.82308cm</Height>
-                                                <Width>6.29992cm</Width>
-                                                <ZIndex>7</ZIndex>
-                                                <Visibility>
-                                                  <Hidden>=IIF(Fields!PrintBCContainingUOM.Value=true,false,true)</Hidden>
-                                                </Visibility>
-                                                <Style>
-                                                  <Border>
+                                                  <TopBorder>
+                                                    <Color>Black</Color>
                                                     <Style>Solid</Style>
-                                                  </Border>
-                                                  <BottomBorder>
-                                                    <Style>None</Style>
-                                                  </BottomBorder>
-                                                  <VerticalAlign>Bottom</VerticalAlign>
-                                                  <PaddingLeft>2pt</PaddingLeft>
-                                                  <PaddingRight>2pt</PaddingRight>
-                                                  <PaddingTop>2pt</PaddingTop>
-                                                  <PaddingBottom>2pt</PaddingBottom>
-                                                </Style>
-                                              </Textbox>
-                                              <Textbox Name="Textbox5">
-                                                <CanGrow>true</CanGrow>
-                                                <KeepTogether>true</KeepTogether>
-                                                <Paragraphs>
-                                                  <Paragraph>
-                                                    <TextRuns>
-                                                      <TextRun>
-                                                        <Value>=Fields!ItemReference_UniqueCode.Value</Value>
-                                                        <Style>
-                                                          <FontFamily>OCR A Extended</FontFamily>
-                                                          <FontSize>8pt</FontSize>
-                                                        </Style>
-                                                      </TextRun>
-                                                    </TextRuns>
-                                                    <Style>
-                                                      <TextAlign>Center</TextAlign>
-                                                    </Style>
-                                                  </Paragraph>
-                                                </Paragraphs>
-                                                <rd:DefaultName>Textbox1</rd:DefaultName>
-                                                <Top>7.71345cm</Top>
-                                                <Left>0.00048cm</Left>
-                                                <Height>0.48331cm</Height>
-                                                <Width>6.29987cm</Width>
-                                                <ZIndex>8</ZIndex>
-                                                <Visibility>
-                                                  <Hidden>=IIF(Fields!PrintBCContainingUOM.Value=true,false,true)</Hidden>
-                                                </Visibility>
-                                                <Style>
-                                                  <Border>
-                                                    <Style>None</Style>
-                                                  </Border>
+                                                    <Width>1pt</Width>
+                                                  </TopBorder>
                                                   <BottomBorder>
                                                     <Color>Black</Color>
                                                     <Style>Solid</Style>
@@ -399,7 +368,66 @@
                                                     <Style>Solid</Style>
                                                     <Width>1pt</Width>
                                                   </RightBorder>
-                                                  <VerticalAlign>Top</VerticalAlign>
+                                                  <VerticalAlign>Middle</VerticalAlign>
+                                                  <PaddingLeft>2pt</PaddingLeft>
+                                                  <PaddingRight>2pt</PaddingRight>
+                                                  <PaddingTop>2pt</PaddingTop>
+                                                  <PaddingBottom>2pt</PaddingBottom>
+                                                </Style>
+                                              </Textbox>
+                                              <Textbox Name="Textbox12">
+                                                <CanGrow>true</CanGrow>
+                                                <KeepTogether>true</KeepTogether>
+                                                <Paragraphs>
+                                                  <Paragraph>
+                                                    <TextRuns>
+                                                      <TextRun>
+                                                        <Value>=Fields!ItemReference_UniqueCode.Value</Value>
+                                                        <Style>
+                                                          <FontFamily>IDAutomationHC39S</FontFamily>
+                                                          <FontSize>14pt</FontSize>
+                                                        </Style>
+                                                      </TextRun>
+                                                    </TextRuns>
+                                                    <Style>
+                                                      <TextAlign>Center</TextAlign>
+                                                    </Style>
+                                                  </Paragraph>
+                                                </Paragraphs>
+                                                <rd:DefaultName>Textbox8</rd:DefaultName>
+                                                <Top>4.55cm</Top>
+                                                <Left>0cm</Left>
+                                                <Height>1.75cm</Height>
+                                                <Width>9cm</Width>
+                                                <ZIndex>6</ZIndex>
+                                                <Visibility>
+                                                  <Hidden>=IIF(Fields!PrintBCContainingUOM.Value=true,false,true)</Hidden>
+                                                </Visibility>
+                                                <Style>
+                                                  <Border>
+                                                    <Style>Solid</Style>
+                                                  </Border>
+                                                  <TopBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </TopBorder>
+                                                  <BottomBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </BottomBorder>
+                                                  <LeftBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </LeftBorder>
+                                                  <RightBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </RightBorder>
+                                                  <VerticalAlign>Middle</VerticalAlign>
                                                   <PaddingLeft>2pt</PaddingLeft>
                                                   <PaddingRight>2pt</PaddingRight>
                                                   <PaddingTop>2pt</PaddingTop>
@@ -440,8 +468,8 @@
                               <DataSetName>DataSet_Result</DataSetName>
                               <Top>0cm</Top>
                               <Left>0cm</Left>
-                              <Height>9cm</Height>
-                              <Width>6.30011cm</Width>
+                              <Height>6.3cm</Height>
+                              <Width>9cm</Width>
                               <Style>
                                 <Border />
                               </Style>
@@ -482,8 +510,8 @@
             <DataSetName>DataSet_Result</DataSetName>
             <Top>0cm</Top>
             <Left>0cm</Left>
-            <Height>9cm</Height>
-            <Width>6.30011cm</Width>
+            <Height>6.3cm</Height>
+            <Width>9cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -491,15 +519,15 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>9cm</Height>
+        <Height>6.3cm</Height>
         <Style />
       </Body>
-      <Width>6.30011cm</Width>
+      <Width>9cm</Width>
       <Page>
-        <PageHeight>9.4cm</PageHeight>
-        <PageWidth>6.8cm</PageWidth>
-        <LeftMargin>0cm</LeftMargin>
-        <RightMargin>0.4cm</RightMargin>
+        <PageHeight>6.7cm</PageHeight>
+        <PageWidth>9.4cm</PageWidth>
+        <LeftMargin>0.2cm</LeftMargin>
+        <RightMargin>0.2cm</RightMargin>
         <TopMargin>0.2cm</TopMargin>
         <BottomMargin>0.2cm</BottomMargin>
         <ColumnSpacing>1.27cm</ColumnSpacing>
@@ -554,6 +582,9 @@ End Function
         </Field>
         <Field Name="RM_Code">
           <DataField>RM_Code</DataField>
+        </Field>
+        <Field Name="RM_Barcode">
+          <DataField>RM_Barcode</DataField>
         </Field>
         <Field Name="RM_UOM">
           <DataField>RM_UOM</DataField>

@@ -11,202 +11,6 @@
       <rd:DataSourceID>fb5418a2-fb6f-4dce-8566-d05f45bd5bbd</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="Company_Picture">
-          <DataField>Company_Picture</DataField>
-        </Field>
-        <Field Name="Company_Capital">
-          <DataField>Company_Capital</DataField>
-        </Field>
-        <Field Name="Company_CapitalFormat">
-          <DataField>Company_CapitalFormat</DataField>
-        </Field>
-        <Field Name="Company_Vat">
-          <DataField>Company_Vat</DataField>
-        </Field>
-        <Field Name="Comapny_Phone">
-          <DataField>Comapny_Phone</DataField>
-        </Field>
-        <Field Name="Company_Email">
-          <DataField>Company_Email</DataField>
-        </Field>
-        <Field Name="Company_Address">
-          <DataField>Company_Address</DataField>
-        </Field>
-        <Field Name="Company_Bank_Account">
-          <DataField>Company_Bank_Account</DataField>
-        </Field>
-        <Field Name="Company_SWIFT">
-          <DataField>Company_SWIFT</DataField>
-        </Field>
-        <Field Name="Company_IBAN">
-          <DataField>Company_IBAN</DataField>
-        </Field>
-        <Field Name="Company_CR_No">
-          <DataField>Company_CR_No</DataField>
-        </Field>
-        <Field Name="Company_City">
-          <DataField>Company_City</DataField>
-        </Field>
-        <Field Name="CapitalLabel">
-          <DataField>CapitalLabel</DataField>
-        </Field>
-        <Field Name="VATCodeLabel">
-          <DataField>VATCodeLabel</DataField>
-        </Field>
-        <Field Name="AddressLabel">
-          <DataField>AddressLabel</DataField>
-        </Field>
-        <Field Name="BankAccountLabel">
-          <DataField>BankAccountLabel</DataField>
-        </Field>
-        <Field Name="SWIFTLabel">
-          <DataField>SWIFTLabel</DataField>
-        </Field>
-        <Field Name="LCY_Code">
-          <DataField>LCY_Code</DataField>
-        </Field>
-        <Field Name="LCY">
-          <DataField>LCY</DataField>
-        </Field>
-        <Field Name="CustNoLbl">
-          <DataField>CustNoLbl</DataField>
-        </Field>
-        <Field Name="Customer_No_">
-          <DataField>Customer_No_</DataField>
-        </Field>
-        <Field Name="CustNamelbl">
-          <DataField>CustNamelbl</DataField>
-        </Field>
-        <Field Name="Customer_Name">
-          <DataField>Customer_Name</DataField>
-        </Field>
-        <Field Name="CurrencyLbl">
-          <DataField>CurrencyLbl</DataField>
-        </Field>
-        <Field Name="BeginBalOrigLbl">
-          <DataField>BeginBalOrigLbl</DataField>
-        </Field>
-        <Field Name="Net_Change_Orig_Lbl">
-          <DataField>Net_Change_Orig_Lbl</DataField>
-        </Field>
-        <Field Name="Date_Range">
-          <DataField>Date_Range</DataField>
-        </Field>
-        <Field Name="FromDate">
-          <DataField>FromDate</DataField>
-        </Field>
-        <Field Name="Debit_Orig_Lbl">
-          <DataField>Debit_Orig_Lbl</DataField>
-        </Field>
-        <Field Name="Credit_Orig_Lbl">
-          <DataField>Credit_Orig_Lbl</DataField>
-        </Field>
-        <Field Name="End_Bal_Orig_Lbl">
-          <DataField>End_Bal_Orig_Lbl</DataField>
-        </Field>
-        <Field Name="ToDate">
-          <DataField>ToDate</DataField>
-        </Field>
-        <Field Name="AccountLbl">
-          <DataField>AccountLbl</DataField>
-        </Field>
-        <Field Name="HideCust">
-          <DataField>HideCust</DataField>
-        </Field>
-        <Field Name="TitleLbl">
-          <DataField>TitleLbl</DataField>
-        </Field>
-        <Field Name="BeginBalLbl">
-          <DataField>BeginBalLbl</DataField>
-        </Field>
-        <Field Name="NetChangeLbl">
-          <DataField>NetChangeLbl</DataField>
-        </Field>
-        <Field Name="EndingBalLbl">
-          <DataField>EndingBalLbl</DataField>
-        </Field>
-        <Field Name="DebitLbl">
-          <DataField>DebitLbl</DataField>
-        </Field>
-        <Field Name="Creditlbl">
-          <DataField>Creditlbl</DataField>
-        </Field>
-        <Field Name="ShowOpening">
-          <DataField>ShowOpening</DataField>
-        </Field>
-        <Field Name="CurrencyCode">
-          <DataField>CurrencyCode</DataField>
-        </Field>
-        <Field Name="Line_Currency">
-          <DataField>Line_Currency</DataField>
-        </Field>
-        <Field Name="Begin_Bal_Orig">
-          <DataField>Begin_Bal_Orig</DataField>
-        </Field>
-        <Field Name="Begin_Bal_OrigFormat">
-          <DataField>Begin_Bal_OrigFormat</DataField>
-        </Field>
-        <Field Name="Debit_Orig">
-          <DataField>Debit_Orig</DataField>
-        </Field>
-        <Field Name="Debit_OrigFormat">
-          <DataField>Debit_OrigFormat</DataField>
-        </Field>
-        <Field Name="Credit_Orig">
-          <DataField>Credit_Orig</DataField>
-        </Field>
-        <Field Name="Credit_OrigFormat">
-          <DataField>Credit_OrigFormat</DataField>
-        </Field>
-        <Field Name="End_Bal_Orig">
-          <DataField>End_Bal_Orig</DataField>
-        </Field>
-        <Field Name="End_Bal_OrigFormat">
-          <DataField>End_Bal_OrigFormat</DataField>
-        </Field>
-        <Field Name="BeginBalLCY">
-          <DataField>BeginBalLCY</DataField>
-        </Field>
-        <Field Name="BeginBalLCYFormat">
-          <DataField>BeginBalLCYFormat</DataField>
-        </Field>
-        <Field Name="DebitLCY">
-          <DataField>DebitLCY</DataField>
-        </Field>
-        <Field Name="DebitLCYFormat">
-          <DataField>DebitLCYFormat</DataField>
-        </Field>
-        <Field Name="CreditLCY">
-          <DataField>CreditLCY</DataField>
-        </Field>
-        <Field Name="CreditLCYFormat">
-          <DataField>CreditLCYFormat</DataField>
-        </Field>
-        <Field Name="EndBalLCY">
-          <DataField>EndBalLCY</DataField>
-        </Field>
-        <Field Name="EndBalLCYFormat">
-          <DataField>EndBalLCYFormat</DataField>
-        </Field>
-        <Field Name="TotalCurrLbl">
-          <DataField>TotalCurrLbl</DataField>
-        </Field>
-        <Field Name="EndTotalLCY">
-          <DataField>EndTotalLCY</DataField>
-        </Field>
-        <Field Name="EndTotalLCYFormat">
-          <DataField>EndTotalLCYFormat</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -4472,12 +4276,6 @@
       </Page>
     </ReportSection>
   </ReportSections>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -4517,4 +4315,200 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Company_Picture">
+          <DataField>Company_Picture</DataField>
+        </Field>
+        <Field Name="Company_Capital">
+          <DataField>Company_Capital</DataField>
+        </Field>
+        <Field Name="Company_CapitalFormat">
+          <DataField>Company_CapitalFormat</DataField>
+        </Field>
+        <Field Name="Company_Vat">
+          <DataField>Company_Vat</DataField>
+        </Field>
+        <Field Name="Comapny_Phone">
+          <DataField>Comapny_Phone</DataField>
+        </Field>
+        <Field Name="Company_Email">
+          <DataField>Company_Email</DataField>
+        </Field>
+        <Field Name="Company_Address">
+          <DataField>Company_Address</DataField>
+        </Field>
+        <Field Name="Company_Bank_Account">
+          <DataField>Company_Bank_Account</DataField>
+        </Field>
+        <Field Name="Company_SWIFT">
+          <DataField>Company_SWIFT</DataField>
+        </Field>
+        <Field Name="Company_IBAN">
+          <DataField>Company_IBAN</DataField>
+        </Field>
+        <Field Name="Company_CR_No">
+          <DataField>Company_CR_No</DataField>
+        </Field>
+        <Field Name="Company_City">
+          <DataField>Company_City</DataField>
+        </Field>
+        <Field Name="CapitalLabel">
+          <DataField>CapitalLabel</DataField>
+        </Field>
+        <Field Name="VATCodeLabel">
+          <DataField>VATCodeLabel</DataField>
+        </Field>
+        <Field Name="AddressLabel">
+          <DataField>AddressLabel</DataField>
+        </Field>
+        <Field Name="BankAccountLabel">
+          <DataField>BankAccountLabel</DataField>
+        </Field>
+        <Field Name="SWIFTLabel">
+          <DataField>SWIFTLabel</DataField>
+        </Field>
+        <Field Name="LCY_Code">
+          <DataField>LCY_Code</DataField>
+        </Field>
+        <Field Name="LCY">
+          <DataField>LCY</DataField>
+        </Field>
+        <Field Name="CustNoLbl">
+          <DataField>CustNoLbl</DataField>
+        </Field>
+        <Field Name="Customer_No_">
+          <DataField>Customer_No_</DataField>
+        </Field>
+        <Field Name="CustNamelbl">
+          <DataField>CustNamelbl</DataField>
+        </Field>
+        <Field Name="Customer_Name">
+          <DataField>Customer_Name</DataField>
+        </Field>
+        <Field Name="CurrencyLbl">
+          <DataField>CurrencyLbl</DataField>
+        </Field>
+        <Field Name="BeginBalOrigLbl">
+          <DataField>BeginBalOrigLbl</DataField>
+        </Field>
+        <Field Name="Net_Change_Orig_Lbl">
+          <DataField>Net_Change_Orig_Lbl</DataField>
+        </Field>
+        <Field Name="Date_Range">
+          <DataField>Date_Range</DataField>
+        </Field>
+        <Field Name="FromDate">
+          <DataField>FromDate</DataField>
+        </Field>
+        <Field Name="Debit_Orig_Lbl">
+          <DataField>Debit_Orig_Lbl</DataField>
+        </Field>
+        <Field Name="Credit_Orig_Lbl">
+          <DataField>Credit_Orig_Lbl</DataField>
+        </Field>
+        <Field Name="End_Bal_Orig_Lbl">
+          <DataField>End_Bal_Orig_Lbl</DataField>
+        </Field>
+        <Field Name="ToDate">
+          <DataField>ToDate</DataField>
+        </Field>
+        <Field Name="AccountLbl">
+          <DataField>AccountLbl</DataField>
+        </Field>
+        <Field Name="HideCust">
+          <DataField>HideCust</DataField>
+        </Field>
+        <Field Name="TitleLbl">
+          <DataField>TitleLbl</DataField>
+        </Field>
+        <Field Name="BeginBalLbl">
+          <DataField>BeginBalLbl</DataField>
+        </Field>
+        <Field Name="NetChangeLbl">
+          <DataField>NetChangeLbl</DataField>
+        </Field>
+        <Field Name="EndingBalLbl">
+          <DataField>EndingBalLbl</DataField>
+        </Field>
+        <Field Name="DebitLbl">
+          <DataField>DebitLbl</DataField>
+        </Field>
+        <Field Name="Creditlbl">
+          <DataField>Creditlbl</DataField>
+        </Field>
+        <Field Name="ShowOpening">
+          <DataField>ShowOpening</DataField>
+        </Field>
+        <Field Name="CurrencyCode">
+          <DataField>CurrencyCode</DataField>
+        </Field>
+        <Field Name="Line_Currency">
+          <DataField>Line_Currency</DataField>
+        </Field>
+        <Field Name="Begin_Bal_Orig">
+          <DataField>Begin_Bal_Orig</DataField>
+        </Field>
+        <Field Name="Begin_Bal_OrigFormat">
+          <DataField>Begin_Bal_OrigFormat</DataField>
+        </Field>
+        <Field Name="Debit_Orig">
+          <DataField>Debit_Orig</DataField>
+        </Field>
+        <Field Name="Debit_OrigFormat">
+          <DataField>Debit_OrigFormat</DataField>
+        </Field>
+        <Field Name="Credit_Orig">
+          <DataField>Credit_Orig</DataField>
+        </Field>
+        <Field Name="Credit_OrigFormat">
+          <DataField>Credit_OrigFormat</DataField>
+        </Field>
+        <Field Name="End_Bal_Orig">
+          <DataField>End_Bal_Orig</DataField>
+        </Field>
+        <Field Name="End_Bal_OrigFormat">
+          <DataField>End_Bal_OrigFormat</DataField>
+        </Field>
+        <Field Name="BeginBalLCY">
+          <DataField>BeginBalLCY</DataField>
+        </Field>
+        <Field Name="BeginBalLCYFormat">
+          <DataField>BeginBalLCYFormat</DataField>
+        </Field>
+        <Field Name="DebitLCY">
+          <DataField>DebitLCY</DataField>
+        </Field>
+        <Field Name="DebitLCYFormat">
+          <DataField>DebitLCYFormat</DataField>
+        </Field>
+        <Field Name="CreditLCY">
+          <DataField>CreditLCY</DataField>
+        </Field>
+        <Field Name="CreditLCYFormat">
+          <DataField>CreditLCYFormat</DataField>
+        </Field>
+        <Field Name="EndBalLCY">
+          <DataField>EndBalLCY</DataField>
+        </Field>
+        <Field Name="EndBalLCYFormat">
+          <DataField>EndBalLCYFormat</DataField>
+        </Field>
+        <Field Name="TotalCurrLbl">
+          <DataField>TotalCurrLbl</DataField>
+        </Field>
+        <Field Name="EndTotalLCY">
+          <DataField>EndTotalLCY</DataField>
+        </Field>
+        <Field Name="EndTotalLCYFormat">
+          <DataField>EndTotalLCYFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

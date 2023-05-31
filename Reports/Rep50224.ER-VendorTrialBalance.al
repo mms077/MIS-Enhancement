@@ -3,7 +3,7 @@ report 50224 "ER - Vendor Trial Balance"
     ApplicationArea = All;
     Caption = 'ER - Vendor Trial Balance';
     DefaultLayout = RDLC;
-    RDLCLayout = 'Reports Layouts/CustomVendorTrialBalance.rdl';
+    RDLCLayout = 'Reports Layouts/ER-VendorTrialBalance.rdl';
     UsageCategory = ReportsAndAnalysis;
     dataset
     {

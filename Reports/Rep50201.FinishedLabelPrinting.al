@@ -34,9 +34,10 @@ report 50201 "Finished Label Printing"
             }
             column(EANEncodedText; EANEncodedText)
             {
-
             }
-
+            column(UniqueCodeBarcode; UniqueCodeBarcode)
+            {
+            }
             //Item Columns + 
             column(Item_Description; GlobalItem.Description)
             {
@@ -152,7 +153,8 @@ report 50201 "Finished Label Printing"
             var
                 BarcodeSymbology: Enum "Barcode Symbology";
                 BarcodeFontProvider: Interface "Barcode Font Provider";
-                BarcodeString: Text;
+                EANBarcodeString: Text;
+                UCBarcodeString: Text;
             begin
                 BarcodeFontProvider := Enum::"Barcode Font Provider"::IDAutomation1D;
                 BarcodeSymbology := Enum::"Barcode Symbology"::Code39;
@@ -177,10 +179,15 @@ report 50201 "Finished Label Printing"
                 GlobalReference.SetRange("Item No.", ItemReference."Item No.");
                 GlobalReference.SetFilter("Variant Code", '');
                 if GlobalReference.FindFirst() then begin
-                    BarcodeString := GlobalReference."Reference No.";
-                    BarcodeFontProvider.ValidateInput(BarcodeString, BarcodeSymbology);
-                    EANEncodedText := BarcodeFontProvider.EncodeFont(BarcodeString, BarcodeSymbology)
+                    EANBarcodeString := GlobalReference."Reference No.";
+                    BarcodeFontProvider.ValidateInput(EANBarcodeString, BarcodeSymbology);
+                    EANEncodedText := BarcodeFontProvider.EncodeFont(EANBarcodeString, BarcodeSymbology)
                 end;
+
+                UCBarcodeString := GlobalReference."Reference No.";
+                BarcodeFontProvider.ValidateInput(UCBarcodeString, BarcodeSymbology);
+                UniqueCodeBarcode := BarcodeFontProvider.EncodeFont(UCBarcodeString, BarcodeSymbology)
+
             end;
 
         }
@@ -214,4 +221,5 @@ report 50201 "Finished Label Printing"
         GlobalFit: Record Fit;
         GlobalReference: Record "Item Reference";
         EANEncodedText: Text[250];
+        UniqueCodeBarcode: Text[250];
 }

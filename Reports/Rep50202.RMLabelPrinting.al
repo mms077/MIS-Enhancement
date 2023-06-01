@@ -93,18 +93,17 @@ report 50202 "RM Label Printing"
                 // Declare the font using the barcode symbology enum
                 BarcodeSymbology := Enum::"Barcode Symbology"::"Code39";
 
-                // Set data string source 
+                // Set data string source "Raw Material".Code
                 RM_BarcodeString := "Raw Material".Code;
-                // Validate the input. This method is not available for 2D provider
+                // Validate the input.
                 BarcodeFontProvider.ValidateInput(RM_BarcodeString, BarcodeSymbology);
                 // Encode the data string to the barcode font
                 RM_Barcode := BarcodeFontProvider.EncodeFont(RM_BarcodeString, BarcodeSymbology);
-
+                
+                // Set data string source GlobalItemReference."Unique Code"
                 ItemRef_BarcodeString := GlobalItemReference."Unique Code";
-
-                // Validate the input. This method is not available for 2D provider
+                // Validate the input.
                 BarcodeFontProvider.ValidateInput(ItemRef_BarcodeString, BarcodeSymbology);
-
                 // Encode the data string to the barcode font
                 ItemRef_Barcode := BarcodeFontProvider.EncodeFont(ItemRef_BarcodeString, BarcodeSymbology);
 

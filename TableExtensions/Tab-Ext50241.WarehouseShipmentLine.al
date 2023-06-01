@@ -1,0 +1,86 @@
+tableextension 50241 "Warehouse Shipment Line" extends "Warehouse Shipment Line"
+{
+    fields
+    {
+        field(50200; Size; Code[50])
+        {
+            Caption = 'Size';
+
+            TableRelation = "Item Size"."Item Size Code" where("Item No." = field("No."));
+        }
+        field(50201; Fit; Code[50])
+        {
+            Caption = 'Fit';
+
+            TableRelation = "Item Fit"."Fit Code" where("Item No." = field("No."));
+        }
+        field(50202; Color; Integer)
+        {
+            Caption = 'Color';
+
+            TableRelation = "Item Color"."Color ID" where("Item No." = field("No."));
+        }
+        field(50203; "Assembly No."; Code[20])
+        {
+            Editable = false;
+        }
+        field(50204; Cut; Code[50])
+        {
+            Caption = 'Cut';
+
+            TableRelation = "Item Cut"."Cut Code" where("Item No." = field("No."));
+        }
+        field(50205; Tonality; Code[50])
+        {
+            Caption = 'Tonality';
+
+            Editable = false;
+        }
+        field(50206; "Parameters Header ID"; Integer)
+        {
+            Caption = 'Parameters Header ID';
+
+            Editable = false;
+        }
+        field(50207; "Needed RM Batch"; Integer)
+        {
+            Caption = 'Needed RM Batch';
+
+            Editable = false;
+        }
+        field(50208; "Allocation Code"; Code[50])
+        {
+            Caption = 'Allocation Code';
+            Editable = false;
+        }
+        field(50209; "Allocation Type"; Option)
+        {
+            OptionMembers = " ","Department","Position","Staff";
+            Editable = false;
+        }
+        field(50210; "Parent Parameter Header ID"; Integer)
+        {
+            Caption = 'Parent Parameters Header ID';
+
+            Editable = false;
+        }
+        field(50211; "Control Number"; Text[150])
+        {
+            Caption = 'Control Number';
+            Editable = false;
+        }
+        field(50215; "Extra Charge %"; Decimal)
+        {
+            TableRelation = Size."Extra Charge %" where(Code = field(Size));
+            ValidateTableRelation = false;
+        }
+        field(50216; "Extra Charge Amount"; Decimal)
+        {
+            Editable = false;
+        }
+        field(50217; "Qty Assignment Wizard Id"; Integer)
+        {
+            Editable = false;
+        }
+    }
+}

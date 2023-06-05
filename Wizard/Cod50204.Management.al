@@ -179,10 +179,8 @@ codeunit 50204 Management
                             of
                             ActionName::"Refresh Line":
                                 begin
-                                    Message('Parent Param Header ID %1', SalesLinePar."Parent Parameter Header ID");
                                     ParamHeader.Get(SalesLinePar."Parent Parameter Header ID");
                                     ParamHeader.SetRange("ID", SalesLinePar."Parent Parameter Header ID");
-                                    Message('ParamHeader Count %1', ParamHeader.Count);
                                     //Add it in HERE
                                     if ParamHeader.FindSet() then begin
                                             CoppiedParamHeader.init();
@@ -236,29 +234,29 @@ codeunit 50204 Management
                         Commit();
                         Clear(Step1_1);
                         Clear(QtyAssignmentWizard);
-                        // Case ActionName
-                        //     of
-                        //     ActionName::"Refresh Line":
-                        //         begin
-                        //             // QtyAssignmentWizard.SetRange("Parent Header ID", ParamHeader.ID);
-                        //             // if QtyAssignmentWizard.FindSet() then
-                        //             //     repeat
-                        //             //         QtyAssignmentWizard.Delete();
-                        //             //     until QtyAssignmentWizard.Next() = 0;
-
-                        //             CreateQtyAssignmentWizard(ParamHeader, ActionName::"Refresh Line");
-                        //             Step1_1.SetTableView(QtyAssignmentWizard);
-                        //             Step1_1.SetParameterHeaderID(ParamHeader.ID);
-                        //         end;
-                        //     ActionName::"Create Line", ActionName::"Load Line":
-                        //         begin
+                        Case ActionName
+                            of
+                            ActionName::"Refresh Line":
+                                begin
+                                    QtyAssignmentWizard.SetRange("Parent Header ID", ParamHeader.ID);
+                                    if QtyAssignmentWizard.FindSet() then
+                                        repeat
+                                            QtyAssignmentWizard.Delete();
+                                        until QtyAssignmentWizard.Next() = 0;
+                                    commIT();
+                                    CreateQtyAssignmentWizard(ParamHeader, ActionName::"Refresh Line");
+                                    commit();
+                                    Step1_1.SetTableView(QtyAssignmentWizard);
+                                    Step1_1.SetParameterHeaderID(ParamHeader.ID);
+                                end;
+                            ActionName::"Create Line", ActionName::"Load Line":
+                                begin
                                     QtyAssignmentWizard.SetRange("Parent Header ID", ParamHeader.ID);
                                     QtyAssignmentWizard.FindSet();
                                     Step1_1.SetTableView(QtyAssignmentWizard);//QtyAssignmentWizard
                                     Step1_1.SetParameterHeaderID(ParamHeader.ID);
-                                //end;
-                        //End;
-                        Message('Step1_1.RunModal()');
+                                end;
+                        End;
                         Step1_1.RunModal();
                         if Step1_1.Next() then begin
                             //if the item is finished
@@ -283,8 +281,8 @@ codeunit 50204 Management
                         Commit();
                         Clear(Step2);
                         Clear(DesignSecParamLines);
-                        if ActionName <> ActionName::"Refresh Line" then
-                            DesignSecParamLines.SetRange("Header ID", ParamHeader.ID);
+                        //if ActionName <> ActionName::"Refresh Line" then
+                        DesignSecParamLines.SetRange("Header ID", ParamHeader.ID);
                         Step2.SetTableView(DesignSecParamLines);
                         Step2.SetParameterHeaderID(ParamHeader.ID);
                         Step2.RunModal();
@@ -332,13 +330,26 @@ codeunit 50204 Management
                         Step4.SetParameterHeaderID(ParamHeader.ID);
                         Step4.RunModal();
                         if Step4.Finish() then begin
+                            Case 
+                            ActionName
+                            of 
+                                ActionName::"Refresh Line":
+                                    begin
+                                        DeleteSalesLine(ParamHeader);
+                                        Commit();
+                                    end;
+                            End;
                             DeleteUnselectedBranding(ParamHeader.ID);
                             //Create Design Section Set
+                            commit();
                             MasterItem.GenerateDesignSectionSetID(ParamHeader);
+                            commit();
                             //Create Item Features Set
                             MasterItem.GenerateItemFeatureSetID(ParamHeader);
+                            commit();
                             //Create Item Brandings Set
                             MasterItem.GenerateItemBrandingSetID(ParamHeader);
+                            Commit();
                             //Transfer the data from the parent parameter to the children
                             MasterItem.TransferParameterDataToChildren(ParamHeader, ChildParameterHeaderPar);
 
@@ -738,7 +749,7 @@ codeunit 50204 Management
             until Branding.Next() = 0;
     end;
 
-    procedure DeleteSalesLine(DesignSecParHeader: Record "Parameter Header")
+    procedure DeleteSalesLine(var DesignSecParHeader: Record "Parameter Header")
     var
         SalesLineLoc: Record "Sales Line";
     begin

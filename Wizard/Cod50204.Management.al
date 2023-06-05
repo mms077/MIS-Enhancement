@@ -183,18 +183,18 @@ codeunit 50204 Management
                                     ParamHeader.SetRange("ID", SalesLinePar."Parent Parameter Header ID");
                                     //Add it in HERE
                                     if ParamHeader.FindSet() then begin
-                                            CoppiedParamHeader.init();
-                                            CoppiedParamHeader.ID := ParamHeader.ID;
-                                            CoppiedParamHeader."Item No." := ParamHeader."Item No.";
-                                            CoppiedParamHeader."Item Description" := ParamHeader."Item Description";
-                                            CoppiedParamHeader."Item Color Id" := ParamHeader."Item Color Id";
-                                            CoppiedParamHeader."Item Color Name" := ParamHeader."Item Color Name";
-                                            CoppiedParamHeader."Tonality Code" := ParamHeader."Tonality Code";
-                                            CoppiedParamHeader."Sales Line Quantity" := ParamHeader."Sales Line Quantity";
-                                            CoppiedParamHeader."Sales Line UOM" := ParamHeader."Sales Line UOM";
-                                            CoppiedParamHeader."Sales Line Location Code" := ParamHeader."Sales Line Location Code";
-                                            ParamHeader.Delete();
-                                            CoppiedParamHeader.Insert();
+                                        CoppiedParamHeader.init();
+                                        CoppiedParamHeader.ID := ParamHeader.ID;
+                                        CoppiedParamHeader."Item No." := ParamHeader."Item No.";
+                                        CoppiedParamHeader."Item Description" := ParamHeader."Item Description";
+                                        CoppiedParamHeader."Item Color Id" := ParamHeader."Item Color Id";
+                                        CoppiedParamHeader."Item Color Name" := ParamHeader."Item Color Name";
+                                        CoppiedParamHeader."Tonality Code" := ParamHeader."Tonality Code";
+                                        CoppiedParamHeader."Sales Line Quantity" := ParamHeader."Sales Line Quantity";
+                                        CoppiedParamHeader."Sales Line UOM" := ParamHeader."Sales Line UOM";
+                                        CoppiedParamHeader."Sales Line Location Code" := ParamHeader."Sales Line Location Code";
+                                        ParamHeader.Delete();
+                                        CoppiedParamHeader.Insert();
                                     end;
                                     Commit();
                                     CoppiedParamHeader.GET(CoppiedParamHeader.ID);
@@ -208,10 +208,23 @@ codeunit 50204 Management
                                         CreateQtyAssignmentWizard(CoppiedParamHeader, ActionName::"Refresh Line");
                                     end else
                                         Done := true;
-                                    //CopyParameterHeader(ParamHeader, CoppiedParamHeader);
-                                    // ParamHeader.DeleteAll();
-                                    //ParamHeader.TransferFields(CoppiedParamHeader);
                                 end;
+                            ActionName::"Create Line", ActionName::"Load Line":
+                                begin
+                                    if SalesLinePar."Parent Parameter Header ID" <> 0 then
+                                        ParamHeader.Get(SalesLinePar."Parent Parameter Header ID");
+                                    Step1.SetRecord(ParamHeader);
+                                    Step1.SetTableView(ParamHeader);
+                                    Step1.SetParameterHeaderID(ParamHeader.ID);
+                                    Step1.RunModal();
+                                    if Step1.Continue() then begin
+                                        State := State::"Qty Assignment";
+                                        Step1.GetRecord(ParamHeader);
+                                        CreateQtyAssignmentWizard(ParamHeader, ActionName::"Refresh Line");
+                                    end else
+                                        Done := true;
+                                end;
+
 
                         End;
 
@@ -330,9 +343,9 @@ codeunit 50204 Management
                         Step4.SetParameterHeaderID(ParamHeader.ID);
                         Step4.RunModal();
                         if Step4.Finish() then begin
-                            Case 
+                            Case
                             ActionName
-                            of 
+                            of
                                 ActionName::"Refresh Line":
                                     begin
                                         DeleteSalesLine(ParamHeader);

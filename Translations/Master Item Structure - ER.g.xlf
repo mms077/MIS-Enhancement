@@ -13328,6 +13328,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Quote Subform - Action Load Line - Method OnAction - NamedType Text001</note>
         </trans-unit>
+        <trans-unit id="PageExtension 416138076 - Action 3107379909 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 416138076">
+          <source>Refresh Line</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Quote Subform - Action Refresh Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 416138076 - Action 3107379909 - Method 1377591017 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 416138076">
+          <source>With Staff,Without Staff,Just Create Variant</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Quote Subform - Action Refresh Line - Method OnAction - NamedType Text000</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 416138076 - Action 3107379909 - Method 1377591017 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 416138076">
+          <source>Choose one of the following options:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Quote Subform - Action Refresh Line - Method OnAction - NamedType Text001</note>
+        </trans-unit>
         <trans-unit id="PageExtension 416138076 - Control 2877273694 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 416138076">
           <source>Color Name</source>
           <note from="Developer" annotates="general" priority="2"></note>

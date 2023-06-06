@@ -277,7 +277,7 @@ pageextension 50219 "Sales Quote Subform" extends "Sales Quote Subform"
                     trigger OnAction()
                     var
                         Management: Codeunit Management;
-                        State: Option "Start","Departments","Positions","Staff","Staff Sizes","Header Parameters 0","Header Parameters","Qty Assignment","Lines Parameters","Features Parameters","Branding Parameters";
+                        State: Option "Start","Departments","Positions","Staff","Staff Sizes","Header Parameters 0","Copy Parameters","Header Parameters","Qty Assignment","Lines Parameters","Features Parameters","Branding Parameters";
                         SalesHeader: Record "Sales Header";
                         Options: Text[250];
                         Selected: Integer;
@@ -290,7 +290,7 @@ pageextension 50219 "Sales Quote Subform" extends "Sales Quote Subform"
                         if SalesHeader.get(Rec."Document Type", Rec."Document No.") then begin
                             SalesHeader.TestField(Status, SalesHeader.Status::Open);
                             if Rec."Parent Parameter Header ID" <> 0 then
-                                Management.RunTheProcess(ActionName::"Refresh Line",State::"Header Parameters", SalesHeader, Process::"Assignment", Rec, '')
+                                Management.RunTheProcess(ActionName::"Refresh Line",State::"Copy Parameters", SalesHeader, Process::"Assignment", Rec, '')
                             else
                                 Management.RunTheProcess(ActionName::"Create Line",State::Start, SalesHeader, Process::"Assignment", SalesLine, '');//If the user Clicked Refresh Line Without Loading the Line
                         end;

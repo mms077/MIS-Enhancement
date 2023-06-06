@@ -282,11 +282,8 @@ codeunit 50201 MasterItem
                                                              + Format(DesignSecParHeader."Design Sections Set ID") + '-'
                                                              + Format(DesignSecParHeader."Item Features Set ID") + '-'
                                                              + Format(DesignSecParHeader."Item Brandings Set ID");
-            IF NOT DesignSecParHeader.INSERT(TRUE) THEN BEGIN
-                DesignSecParHeader.MODIFY(TRUE); // here it would stop and show the error
-            END;
-            // DesignSecParHeader.Modify();
-            // commit();
+            DesignSecParHeader.MODIFY(TRUE);
+
         end;
     end;
 
@@ -371,7 +368,6 @@ codeunit 50201 MasterItem
         Clear(DesignSectionParHeaderLoc);
         DesignSectionParHeaderLoc.Get(DesignSectionParHeader.ID);
 
-
         DesignSectionParHeaderLoc."Design Sections Set ID" := DesignSectSet."Design Section Set ID";
         DesignSectionParHeaderLoc."Variance Combination Text" := DesignSectionParHeader."Item Size" + '-'
                                                              + DesignSectionParHeader."Item Fit" + '-'
@@ -381,11 +377,7 @@ codeunit 50201 MasterItem
                                                              + Format(DesignSectionParHeader."Design Sections Set ID") + '-'
                                                              + Format(DesignSectionParHeader."Item Features Set ID") + '-'
                                                              + Format(DesignSectionParHeader."Item Brandings Set ID");
-        // DesignSectionParHeader.Modify(true);
-        //IF NOT DesignSectionParHeader.INSERT(TRUE) THEN BEGIN
-        DesignSectionParHeaderLoc.MODIFY(TRUE); // here it would stop and show the error
-                                                // END;
-        Commit();
+        DesignSectionParHeaderLoc.MODIFY(TRUE);
     end;
 
     procedure AssignItemFeatureSet(var DesignSectionParHeader: Record "Parameter Header"; ItemFeaturesSet: Record "Item Features Set"; VarianceCombination: Text[2048])

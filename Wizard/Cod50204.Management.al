@@ -1,6 +1,6 @@
 codeunit 50204 Management
 {
-    procedure RunTheProcess(State: Option "Start","Departments","Positions","Staff","Staff Sizes","Header Parameters 0","Header Parameters","Qty Assignment","Lines Parameters","Features Parameters","Branding Parameters";
+    procedure RunTheProcess(ActionName: Option "Create Line","Load Line","Refresh Line"; State: Option "Start","Departments","Positions","Staff","Staff Sizes","Header Parameters 0","Copy Parameters","Header Parameters","Qty Assignment","Lines Parameters","Features Parameters","Branding Parameters";
                              SalesHeader: Record "Sales header"; Process: Option "Old Way","Assignment","Just Create Variant"; var SalesLinePar: Record "Sales Line"; ItemNo: Code[20])
     var
         Step0: Page "Departments Wizard";//Departments
@@ -33,6 +33,7 @@ codeunit 50204 Management
         ChildrenParameterHeader: Record "Parameter Header";
         SalesLinesToDelete: Record "Sales Line";
         ChildParameterHeaderPar: Record "Parameter Header";
+        CoppiedParamHeader: Record "Parameter Header";
     begin
         Done := false; //Not Done
         repeat //State machine loop
@@ -168,181 +169,399 @@ codeunit 50204 Management
                         end else
                             Done := true;
                     end;
+                state::"Copy Parameters":
+                    begin
+                        ParamHeader.Get(SalesLinePar."Parent Parameter Header ID");
+                        ParamHeader.SetRange("ID", SalesLinePar."Parent Parameter Header ID");
+                        if ParamHeader.FindSet() then begin
+                            CoppiedParamHeader.init();
+                            if LastDesiSecParHeader.FindLast() then
+                                CoppiedParamHeader.ID := LastDesiSecParHeader.ID + 1
+                            else
+                                CoppiedParamHeader.ID := 1;
+                            CoppiedParamHeader."Item No." := ParamHeader."Item No.";
+                            CoppiedParamHeader."Item Description" := ParamHeader."Item Description";
+                            CoppiedParamHeader."Customer No." := SalesHeader."Sell-to Customer No.";
+                            CoppiedParamHeader."Sales Line Document No." := SalesHeader."No.";
+                            CoppiedParamHeader."Item Color Id" := ParamHeader."Item Color Id";
+                            CoppiedParamHeader."Item Color Name" := ParamHeader."Item Color Name";
+                            CoppiedParamHeader."Tonality Code" := ParamHeader."Tonality Code";
+                            CoppiedParamHeader."Sales Line Quantity" := ParamHeader."Sales Line Quantity";
+                            CoppiedParamHeader."Sales Line UOM" := ParamHeader."Sales Line UOM";
+                            CoppiedParamHeader."Sales Line Location Code" := ParamHeader."Sales Line Location Code";
+                            ParamHeader.Delete();
+                            CoppiedParamHeader.Insert(true);
+                        end;
+                        Commit();
+                        state := State::"Header Parameters";
+                    end;
                 State::"Header Parameters":
                     begin
                         Commit();
                         Clear(Step1);
-                        //If load from Sales Line 
-                        if SalesLinePar."Parent Parameter Header ID" <> 0 then
-                            ParamHeader.Get(SalesLinePar."Parent Parameter Header ID");
-                        Step1.SetRecord(ParamHeader);
-                        Step1.SetTableView(ParamHeader);
-                        Step1.SetParameterHeaderID(ParamHeader.ID);
-                        Step1.RunModal();
-                        if Step1.Continue() then begin
-                            State := State::"Qty Assignment";
-                            Step1.GetRecord(ParamHeader);
-                            CreateQtyAssignmentWizard(ParamHeader);
-                        end else
-                            Done := true;
+                        Case ActionName
+                            of
+                            ActionName::"Refresh Line":
+                                begin
+                                    CoppiedParamHeader.GET(CoppiedParamHeader.ID);
+                                    Step1.SetRecord(CoppiedParamHeader);
+                                    Step1.SetTableView(CoppiedParamHeader);
+                                    Step1.SetParameterHeaderID(CoppiedParamHeader.ID);
+                                    CreateDesignSectionParameterLines(CoppiedParamHeader);
+                                    commit();
+                                    Step1.RunModal();
+                                    if Step1.Continue() then begin
+                                        State := State::"Qty Assignment";
+                                        Step1.GetRecord(CoppiedParamHeader);
+                                        CreateQtyAssignmentWizard(CoppiedParamHeader);
+                                    end else
+                                        Done := true;
+                                end;
+                            ActionName::"Create Line", ActionName::"Load Line":
+                                begin
+                                    if SalesLinePar."Parent Parameter Header ID" <> 0 then
+                                        ParamHeader.Get(SalesLinePar."Parent Parameter Header ID");
+                                    Step1.SetRecord(ParamHeader);
+                                    Step1.SetTableView(ParamHeader);
+                                    Step1.SetParameterHeaderID(ParamHeader.ID);
+                                    Step1.RunModal();
+                                    if Step1.Continue() then begin
+                                        State := State::"Qty Assignment";
+                                        Step1.GetRecord(ParamHeader);
+                                        CreateQtyAssignmentWizard(ParamHeader);
+                                    end else
+                                        Done := true;
+                                end;
+                        End;
                     end;
                 State::"Qty Assignment":
                     begin
                         Commit();
                         Clear(Step1_1);
                         Clear(QtyAssignmentWizard);
-                        QtyAssignmentWizard.SetRange("Parent Header ID", ParamHeader.ID);
-                        QtyAssignmentWizard.FindSet();
-                        Step1_1.SetTableView(QtyAssignmentWizard);
-                        Step1_1.SetParameterHeaderID(ParamHeader.ID);
-                        Step1_1.RunModal();
-                        if Step1_1.Next() then begin
-                            //if the item is finished
-                            if IsRawMaterial(ParamHeader."Item No.") = false then begin
-                                State := State::"Lines Parameters";
-                                //Step1_1.GetRecord(ParamHeader);
-                                CreateDesignSectionParameterLines(ParamHeader);
-                            end else begin
-                                //if the item is raw material
-                                //Create Variant for each child
-                                CreateVariantForEachChild(QtyAssignmentWizard, ParamHeader);
-                                State := State::Start;
-                            end;
-                        end else
-                            if Step1_1.Back() then
-                                State := State::"Header Parameters"
-                            else
-                                Done := true;
+                        Case ActionName
+                            of
+                            ActionName::"Refresh Line":
+                                begin
+                                    QtyAssignmentWizard.SetRange("Parent Header ID", CoppiedParamHeader.ID);
+                                    CreateQtyAssignmentWizard(CoppiedParamHeader);
+                                    commit();
+                                    Step1_1.SetTableView(QtyAssignmentWizard);
+                                    Step1_1.SetParameterHeaderID(CoppiedParamHeader.ID);
+                                    Step1_1.RunModal();
+                                    if Step1_1.Next() then begin
+                                        //if the item is finished
+                                        if IsRawMaterial(CoppiedParamHeader."Item No.") = false then begin
+                                            State := State::"Lines Parameters";
+                                            //Step1_1.GetRecord(ParamHeader);
+                                            CreateDesignSectionParameterLines(CoppiedParamHeader);
+                                        end else begin
+                                            //if the item is raw material
+                                            //Create Variant for each child
+                                            CreateVariantForEachChild(QtyAssignmentWizard, CoppiedParamHeader);
+                                            State := State::Start;
+                                        end;
+                                    end else
+                                        if Step1_1.Back() then
+                                            State := State::"Header Parameters"
+                                        else
+                                            Done := true;
+                                end;
+                            ActionName::"Create Line", ActionName::"Load Line":
+                                begin
+                                    QtyAssignmentWizard.SetRange("Parent Header ID", ParamHeader.ID);
+                                    QtyAssignmentWizard.FindSet();
+                                    Step1_1.SetTableView(QtyAssignmentWizard);//QtyAssignmentWizard
+                                    Step1_1.SetParameterHeaderID(ParamHeader.ID);
+                                    Step1_1.RunModal();
+                                    if Step1_1.Next() then begin
+                                        //if the item is finished
+                                        if IsRawMaterial(ParamHeader."Item No.") = false then begin
+                                            State := State::"Lines Parameters";
+                                            //Step1_1.GetRecord(ParamHeader);
+                                            CreateDesignSectionParameterLines(ParamHeader);
+                                        end else begin
+                                            //if the item is raw material
+                                            //Create Variant for each child
+                                            CreateVariantForEachChild(QtyAssignmentWizard, ParamHeader);
+                                            State := State::Start;
+                                        end;
+                                    end else
+                                        if Step1_1.Back() then
+                                            State := State::"Header Parameters"
+                                        else
+                                            Done := true;
+                                end;
+                        End;
+
                     end;
                 State::"Lines Parameters":
                     begin
                         Commit();
                         Clear(Step2);
                         Clear(DesignSecParamLines);
-                        DesignSecParamLines.SetRange("Header ID", ParamHeader.ID);
-                        Step2.SetTableView(DesignSecParamLines);
-                        Step2.SetParameterHeaderID(ParamHeader.ID);
-                        Step2.RunModal();
-                        if Step2.Next() then begin
-                            State := State::"Features Parameters";
-                            CreateItemFeaturesParameterLines(ParamHeader);
-                        end else
-                            if Step2.Back() then
-                                State := State::"Qty Assignment"
-                            else
-                                if Step2.Next() then
-                                    State := State::"Features Parameters"
-                                else
-                                    Done := true;
+                        case ActionName of
+                            ActionName::"Refresh Line":
+                                begin
+                                    DesignSecParamLines.SetRange("Header ID", CoppiedParamHeader.ID);
+                                    Step2.SetTableView(DesignSecParamLines);
+                                    Step2.SetParameterHeaderID(CoppiedParamHeader.ID);
+                                    Step2.RunModal();
+                                    if Step2.Next() then begin
+                                        State := State::"Features Parameters";
+                                        CreateItemFeaturesParameterLines(CoppiedParamHeader);
+                                    end else
+                                        if Step2.Back() then
+                                            State := State::"Qty Assignment"
+                                        else
+                                            if Step2.Next() then
+                                                State := State::"Features Parameters"
+                                            else
+                                                Done := true;
+                                end;
+                            ActionName::"Create Line", ActionName::"Load Line":
+                                begin
+                                    DesignSecParamLines.SetRange("Header ID", ParamHeader.ID);
+                                    Step2.SetTableView(DesignSecParamLines);
+                                    Step2.SetParameterHeaderID(ParamHeader.ID);
+                                    Step2.RunModal();
+                                    if Step2.Next() then begin
+                                        State := State::"Features Parameters";
+                                        CreateItemFeaturesParameterLines(ParamHeader);
+                                    end else
+                                        if Step2.Back() then
+                                            State := State::"Qty Assignment"
+                                        else
+                                            if Step2.Next() then
+                                                State := State::"Features Parameters"
+                                            else
+                                                Done := true;
+                                end;
+                        END;
                     end;
                 State::"Features Parameters":
                     begin
                         Commit();
                         Clear(Step3);
                         Clear(ItemFeaturesParamLine);
-                        ItemFeaturesParamLine.SetRange("Header ID", ParamHeader.ID);
-                        Step3.SetTableView(ItemFeaturesParamLine);
-                        Step3.SetParameterHeaderID(ParamHeader.ID);
-                        Step3.RunModal();
-                        if Step3.Next() then begin
-                            State := State::"Branding Parameters";
-                            CreateItemBrandingParameterLines(ParamHeader);
-                        end else
-                            if Step3.Back() then begin
-                                State := State::"Lines Parameters";
-                                //Delete Sales Line already created
-                                DeleteSalesLine(ParamHeader);
-                            end
-                            else
-                                Done := true;
+                        case ActionName
+                        of
+                            ActionName::"Refresh Line":
+                                begin
+                                    ItemFeaturesParamLine.SetRange("Header ID", CoppiedParamHeader.ID);
+                                    Step3.SetTableView(ItemFeaturesParamLine);
+                                    Step3.SetParameterHeaderID(CoppiedParamHeader.ID);
+                                    Step3.RunModal();
+                                    if Step3.Next() then begin
+                                        State := State::"Branding Parameters";
+                                        CreateItemBrandingParameterLines(CoppiedParamHeader);
+                                    end else
+                                        if Step3.Back() then begin
+                                            State := State::"Lines Parameters";
+                                            //Delete Sales Line already created
+                                            DeleteSalesLine(CoppiedParamHeader);
+                                        end
+                                        else
+                                            Done := true;
+
+                                end;
+                            ActionName::"Create Line", ActionName::"Load Line":
+                                begin
+                                    ItemFeaturesParamLine.SetRange("Header ID", ParamHeader.ID);
+                                    Step3.SetTableView(ItemFeaturesParamLine);
+                                    Step3.SetParameterHeaderID(ParamHeader.ID);
+                                    Step3.RunModal();
+                                    if Step3.Next() then begin
+                                        State := State::"Branding Parameters";
+                                        CreateItemBrandingParameterLines(ParamHeader);
+                                    end else
+                                        if Step3.Back() then begin
+                                            State := State::"Lines Parameters";
+                                            //Delete Sales Line already created
+                                            DeleteSalesLine(ParamHeader);
+                                        end
+                                        else
+                                            Done := true;
+                                end;
+                        end;
                     end;
                 State::"Branding Parameters":
                     begin
                         Commit();
                         Clear(Step4);
                         Clear(ItemBrandingParamLine);
-                        ItemBrandingParamLine.SetRange("Header ID", ParamHeader.ID);
-                        Step4.SetTableView(ItemBrandingParamLine);
-                        Step4.SetParameterHeaderID(ParamHeader.ID);
-                        Step4.RunModal();
-                        if Step4.Finish() then begin
-                            DeleteUnselectedBranding(ParamHeader.ID);
-                            //Create Design Section Set
-                            MasterItem.GenerateDesignSectionSetID(ParamHeader);
-                            //Create Item Features Set
-                            MasterItem.GenerateItemFeatureSetID(ParamHeader);
-                            //Create Item Brandings Set
-                            MasterItem.GenerateItemBrandingSetID(ParamHeader);
-                            //Transfer the data from the parent parameter to the children
-                            MasterItem.TransferParameterDataToChildren(ParamHeader, ChildParameterHeaderPar);
-
-                            //Create Plotting Files for each child
-                            Clear(QtyAssignmentWizard);
-                            QtyAssignmentWizard.SetRange("Parent Header ID", ParamHeader.ID);
-                            if QtyAssignmentWizard.FindSet() then
-                                repeat
-                                    Clear(ChildrenParameterHeader);
-                                    ChildrenParameterHeader.Get(QtyAssignmentWizard."Header Id");
-                                    MasterItem.CreateDesignPlotting(ChildrenParameterHeader);
-                                until QtyAssignmentWizard.Next() = 0;
-
-                            if (Process = Process::"Just Create Variant") then begin
-                                //Create Variant for each child
-                                CreateVariantForEachChild(QtyAssignmentWizard, ParamHeader);
-                                State := State::Start;
-                            end else
-                                //Multiple Sales Line
-                                if Process = Process::"Old Way" then begin
-                                    //Update Parameter Header for each Staff Size
-                                    UpdateParameterHeaderPerStaffSize(ParamHeader, SalesHeader);
-                                    ParamHeaderPerStaffSize.SetRange("Staff Sizes Parameter Header", ParamHeader.ID);
-                                    if ParamHeaderPerStaffSize.FindSet() then
-                                        repeat
-                                            //Create Variant Per Staff Size
-                                            VariantCode := MasterItem.CreateVariant(ParamHeaderPerStaffSize);
-                                            //CreateSalesLine;
-                                            Clear(QtyAssignmentWizard);
-                                            CreateSalesLine(ParamHeaderPerStaffSize, SalesHeader, VariantCode, ParamHeaderPerStaffSize."Sales Line Quantity", ParamHeader, QtyAssignmentWizard);
-                                            //Create Needed Raw Material
-                                            CreateNeededRawMaterial(ParamHeaderPerStaffSize);
-                                            //Create Assembly
-                                            CreateAssemblyOrder(NeededRawMaterial, ParamHeader, ParamHeader);
-                                        until ParamHeaderPerStaffSize.Next() = 0;
-                                    Done := true;
-                                end else
-                                    if Process = Process::"Assignment" then begin
-                                        //Delete Old Sales lines to create new ones
-                                        if SalesLinePar."Parent Parameter Header ID" <> 0 then begin
-                                            SalesLinesToDelete.SetRange("Parent Parameter Header ID", SalesLinePar."Parent Parameter Header ID");
-                                            if SalesLinesToDelete.FindSet() then
-                                                SalesLinesToDelete.DeleteAll(true);
-                                        end;
-                                        //Create Variant for each child
+                        case ActionName of
+                            ActionName::"Create Line", ActionName::"Load Line":
+                                begin
+                                    ItemBrandingParamLine.SetRange("Header ID", ParamHeader.ID);
+                                    Step4.SetTableView(ItemBrandingParamLine);
+                                    Step4.SetParameterHeaderID(ParamHeader.ID);
+                                    Step4.RunModal();
+                                    if Step4.Finish() then begin
+                                        DeleteUnselectedBranding(ParamHeader.ID);
+                                        //Create Design Section Set
+                                        MasterItem.GenerateDesignSectionSetID(ParamHeader);
+                                        //Create Item Features Set
+                                        MasterItem.GenerateItemFeatureSetID(ParamHeader);
+                                        //Create Item Brandings Set
+                                        MasterItem.GenerateItemBrandingSetID(ParamHeader);
+                                        //Transfer the data from the parent parameter to the children
+                                        MasterItem.TransferParameterDataToChildren(ParamHeader, ChildParameterHeaderPar);
+                                        //Create Plotting Files for each child
                                         Clear(QtyAssignmentWizard);
                                         QtyAssignmentWizard.SetRange("Parent Header ID", ParamHeader.ID);
                                         if QtyAssignmentWizard.FindSet() then
                                             repeat
                                                 Clear(ChildrenParameterHeader);
                                                 ChildrenParameterHeader.Get(QtyAssignmentWizard."Header Id");
-                                                //VariantCode := MasterItem.CreateVariant(ChildrenParameterHeader);
-                                                //Update The parameters Headers Related to Qty Assignment
-                                                //UpdateDesignFeatureBrandingParamLines(ParamHeader, ChildrenParameterHeader);
-                                                //CreateSalesLine + Needed Raw Materials + Assembly
-                                                CreateMultipleSalesLines(ChildrenParameterHeader, SalesHeader, VariantCode, ParamHeader, QtyAssignmentWizard, true);
-                                                //Update parameter header to the line (Remove the Assigned Qty)
-                                                ChildrenParameterHeader."Sales Line Quantity" := ChildrenParameterHeader."Sales Line Quantity" - ChildrenParameterHeader."Quantity To Assign";
-                                                ChildrenParameterHeader."Quantity To Assign" := 0;
-                                                ChildrenParameterHeader.Modify();
+                                                MasterItem.CreateDesignPlotting(ChildrenParameterHeader);
                                             until QtyAssignmentWizard.Next() = 0;
-                                        Done := true;
-                                    end;
-                        end else
-                            if Step4.Back() then begin
-                                State := State::"Features Parameters";
-                                //Delete Sales Line already created
-                                DeleteSalesLine(ParamHeader);
-                            end else
-                                Done := true;
+
+                                        if (Process = Process::"Just Create Variant") then begin
+                                            //Create Variant for each child
+                                            CreateVariantForEachChild(QtyAssignmentWizard, ParamHeader);
+                                            State := State::Start;
+                                        end else
+                                            //Multiple Sales Line
+                                            if Process = Process::"Old Way" then begin
+                                                //Update Parameter Header for each Staff Size
+                                                UpdateParameterHeaderPerStaffSize(ParamHeader, SalesHeader);
+                                                ParamHeaderPerStaffSize.SetRange("Staff Sizes Parameter Header", ParamHeader.ID);
+                                                if ParamHeaderPerStaffSize.FindSet() then
+                                                    repeat
+                                                        //Create Variant Per Staff Size
+                                                        VariantCode := MasterItem.CreateVariant(ParamHeaderPerStaffSize);
+                                                        //CreateSalesLine;
+                                                        Clear(QtyAssignmentWizard);
+                                                        CreateSalesLine(ParamHeaderPerStaffSize, SalesHeader, VariantCode, ParamHeaderPerStaffSize."Sales Line Quantity", ParamHeader, QtyAssignmentWizard);
+                                                        //Create Needed Raw Material
+                                                        CreateNeededRawMaterial(ParamHeaderPerStaffSize);
+                                                        //Create Assembly
+                                                        CreateAssemblyOrder(NeededRawMaterial, ParamHeader, ParamHeader);
+                                                    until ParamHeaderPerStaffSize.Next() = 0;
+                                                Done := true;
+                                            end else
+                                                if Process = Process::"Assignment" then begin
+                                                    //Delete Old Sales lines to create new ones
+                                                    if SalesLinePar."Parent Parameter Header ID" <> 0 then begin
+                                                        SalesLinesToDelete.SetRange("Parent Parameter Header ID", SalesLinePar."Parent Parameter Header ID");
+                                                        if SalesLinesToDelete.FindSet() then
+                                                            SalesLinesToDelete.DeleteAll(true);
+                                                    end;
+                                                    //Create Variant for each child
+                                                    Clear(QtyAssignmentWizard);
+                                                    QtyAssignmentWizard.SetRange("Parent Header ID", ParamHeader.ID);
+                                                    if QtyAssignmentWizard.FindSet() then
+                                                        repeat
+                                                            Clear(ChildrenParameterHeader);
+                                                            ChildrenParameterHeader.Get(QtyAssignmentWizard."Header Id");
+                                                            //VariantCode := MasterItem.CreateVariant(ChildrenParameterHeader);
+                                                            //Update The parameters Headers Related to Qty Assignment
+                                                            //UpdateDesignFeatureBrandingParamLines(ParamHeader, ChildrenParameterHeader);
+                                                            //CreateSalesLine + Needed Raw Materials + Assembly
+                                                            CreateMultipleSalesLines(ChildrenParameterHeader, SalesHeader, VariantCode, ParamHeader, QtyAssignmentWizard, true);
+                                                            //Update parameter header to the line (Remove the Assigned Qty)
+                                                            ChildrenParameterHeader."Sales Line Quantity" := ChildrenParameterHeader."Sales Line Quantity" - ChildrenParameterHeader."Quantity To Assign";
+                                                            ChildrenParameterHeader."Quantity To Assign" := 0;
+                                                            ChildrenParameterHeader.Modify();
+                                                        until QtyAssignmentWizard.Next() = 0;
+                                                    Done := true;
+                                                end;
+                                    end else
+                                        if Step4.Back() then begin
+                                            State := State::"Features Parameters";
+                                            //Delete Sales Line already created
+                                            DeleteSalesLine(ParamHeader);
+                                        end else
+                                            Done := true;
+                                end;
+
+                            ActionName::"Refresh Line":
+                                begin
+                                    ItemBrandingParamLine.SetRange("Header ID", CoppiedParamHeader.ID);
+                                    Step4.SetTableView(ItemBrandingParamLine);
+                                    Step4.SetParameterHeaderID(CoppiedParamHeader.ID);
+                                    Step4.RunModal();
+                                    if Step4.Finish() then begin
+                                        //DeleteSalesLine(CoppiedParamHeader);
+                                        DeleteUnselectedBranding(CoppiedParamHeader.ID);
+                                        //Create Design Section Set
+                                        MasterItem.GenerateDesignSectionSetID(CoppiedParamHeader);
+                                        //Create Item Features Set
+                                        MasterItem.GenerateItemFeatureSetID(CoppiedParamHeader);
+                                        //Create Item Brandings Set
+                                        MasterItem.GenerateItemBrandingSetID(CoppiedParamHeader);
+                                        //Transfer the data from the parent parameter to the children
+                                        MasterItem.TransferParameterDataToChildren(CoppiedParamHeader, ChildParameterHeaderPar);
+                                        //Create Plotting Files for each child
+                                        Clear(QtyAssignmentWizard);
+                                        QtyAssignmentWizard.SetRange("Parent Header ID", CoppiedParamHeader.ID);
+                                        if QtyAssignmentWizard.FindSet() then
+                                            repeat
+                                                Clear(ChildrenParameterHeader);
+                                                ChildrenParameterHeader.Get(QtyAssignmentWizard."Header Id");
+                                                MasterItem.CreateDesignPlotting(ChildrenParameterHeader);
+                                            until QtyAssignmentWizard.Next() = 0;
+
+                                        if (Process = Process::"Just Create Variant") then begin
+                                            //Create Variant for each child
+                                            CreateVariantForEachChild(QtyAssignmentWizard, CoppiedParamHeader);
+                                            State := State::Start;
+                                        end else
+                                            //Multiple Sales Line
+                                            if Process = Process::"Old Way" then begin
+                                                //Update Parameter Header for each Staff Size
+                                                UpdateParameterHeaderPerStaffSize(CoppiedParamHeader, SalesHeader);
+                                                ParamHeaderPerStaffSize.SetRange("Staff Sizes Parameter Header", CoppiedParamHeader.ID);
+                                                if ParamHeaderPerStaffSize.FindSet() then
+                                                    repeat
+                                                        //Create Variant Per Staff Size
+                                                        VariantCode := MasterItem.CreateVariant(ParamHeaderPerStaffSize);
+                                                        //CreateSalesLine;
+                                                        Clear(QtyAssignmentWizard);
+                                                        CreateSalesLine(ParamHeaderPerStaffSize, SalesHeader, VariantCode, ParamHeaderPerStaffSize."Sales Line Quantity", CoppiedParamHeader, QtyAssignmentWizard);
+                                                        //Create Needed Raw Material
+                                                        CreateNeededRawMaterial(ParamHeaderPerStaffSize);
+                                                        //Create Assembly
+                                                        CreateAssemblyOrder(NeededRawMaterial, CoppiedParamHeader, CoppiedParamHeader);
+                                                    until ParamHeaderPerStaffSize.Next() = 0;
+                                                Done := true;
+                                            end else
+                                                if Process = Process::"Assignment" then begin
+                                                    //Delete Old Sales lines to create new ones
+                                                    if SalesLinePar."Parent Parameter Header ID" <> 0 then begin
+                                                        SalesLinesToDelete.SetRange("Parent Parameter Header ID", SalesLinePar."Parent Parameter Header ID");
+                                                        if SalesLinesToDelete.FindSet() then
+                                                            SalesLinesToDelete.DeleteAll(true);
+                                                    end;
+                                                    //Create Variant for each child
+                                                    Clear(QtyAssignmentWizard);
+                                                    QtyAssignmentWizard.SetRange("Parent Header ID", CoppiedParamHeader.ID);
+                                                    if QtyAssignmentWizard.FindSet() then
+                                                        repeat
+                                                            Clear(ChildrenParameterHeader);
+                                                            ChildrenParameterHeader.Get(QtyAssignmentWizard."Header Id");
+                                                            //VariantCode := MasterItem.CreateVariant(ChildrenParameterHeader);
+                                                            //Update The parameters Headers Related to Qty Assignment
+                                                            //UpdateDesignFeatureBrandingParamLines(ParamHeader, ChildrenParameterHeader);
+                                                            //CreateSalesLine + Needed Raw Materials + Assembly
+                                                            CreateMultipleSalesLines(ChildrenParameterHeader, SalesHeader, VariantCode, CoppiedParamHeader, QtyAssignmentWizard, true);
+                                                            //Update parameter header to the line (Remove the Assigned Qty)
+                                                            ChildrenParameterHeader."Sales Line Quantity" := ChildrenParameterHeader."Sales Line Quantity" - ChildrenParameterHeader."Quantity To Assign";
+                                                            ChildrenParameterHeader."Quantity To Assign" := 0;
+                                                            ChildrenParameterHeader.Modify();
+                                                        until QtyAssignmentWizard.Next() = 0;
+                                                    Done := true;
+                                                end;
+                                    end else
+                                        if Step4.Back() then begin
+                                            State := State::"Features Parameters";
+                                            //Delete Sales Line already created
+                                            DeleteSalesLine(CoppiedParamHeader);
+                                        end else
+                                            Done := true;
+                                end;
+                        end;
                     end;
             end;
         until Done;
@@ -672,7 +891,7 @@ codeunit 50204 Management
             until Branding.Next() = 0;
     end;
 
-    procedure DeleteSalesLine(DesignSecParHeader: Record "Parameter Header")
+    procedure DeleteSalesLine(var DesignSecParHeader: Record "Parameter Header")
     var
         SalesLineLoc: Record "Sales Line";
     begin
@@ -1962,7 +2181,7 @@ codeunit 50204 Management
     begin
         Clear(QtyAssignmentWizard);
         QtyAssignmentWizard.SetRange("Parent Header Id", ParamHeaderPar.ID);
-        if QtyAssignmentWizard.FindFirst() then
+        if QtyAssignmentWizard.FindFirst() then//Check if there is already a Qty Assignment Wizard for this Parameter Header
             exit
         else begin
             NewParameterHeader.Init();
@@ -2146,6 +2365,27 @@ codeunit 50204 Management
                 VariantCode := MasterItem.CreateVariant(ChildrenParameterHeader);
                 Message('The Variant code is %1', VariantCode);
             until QtyAssignmentWizard.Next() = 0;
+    end;
+
+
+    procedure CopyParameterHeader(ParamHeader: Record "Parameter Header"; CoppiedParamHeader: Record "Parameter Header")
+    var
+        IDCopy: Integer;
+    begin
+        if ParamHeader.FindSet() then begin
+            CoppiedParamHeader.init();
+            CoppiedParamHeader.ID := ParamHeader.ID;
+            CoppiedParamHeader."Item No." := ParamHeader."Item No.";
+            CoppiedParamHeader."Item Description" := ParamHeader."Item Description";
+            CoppiedParamHeader."Item Color Id" := ParamHeader."Item Color Id";
+            CoppiedParamHeader."Item Color Name" := ParamHeader."Item Color Name";
+            CoppiedParamHeader."Tonality Code" := ParamHeader."Tonality Code";
+            CoppiedParamHeader."Sales Line Quantity" := ParamHeader."Sales Line Quantity";
+            CoppiedParamHeader."Sales Line UOM" := ParamHeader."Sales Line UOM";
+            CoppiedParamHeader."Sales Line Location Code" := ParamHeader."Sales Line Location Code";
+            ParamHeader.Delete();
+            CoppiedParamHeader.Insert();
+        end;
     end;
 
     var

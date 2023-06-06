@@ -246,10 +246,11 @@ pageextension 50202 "Sales Order Subform" extends "Sales Order Subform"
                         Text001: Label 'Choose one of the following options:';
                         Process: Option "Old Way","Assignment","Just Create Variant";
                         SalesLine: Record "Sales Line";
+                        ActionName:Option "Create Line","Load Line","Refresh Line";
                     begin
                         if SalesHeader.get(Rec."Document Type", Rec."Document No.") then begin
                             SalesHeader.TestField(Status, SalesHeader.Status::Open);
-                            Management.RunTheProcess(State::Start, SalesHeader, Process::"Assignment", SalesLine, '')
+                            Management.RunTheProcess(ActionName::"Create Line",State::Start, SalesHeader, Process::"Assignment", SalesLine, '')
                         end;
                     end;
                 }
@@ -269,10 +270,11 @@ pageextension 50202 "Sales Order Subform" extends "Sales Order Subform"
                         Text001: Label 'Choose one of the following options:';
                         Process: Option "Old Way","Assignment","Just Create Variant";
                         SalesLine: Record "Sales Line";
+                        ActionName:Option "Create Line","Load Line","Refresh Line";
                     begin
                         if SalesHeader.get(Rec."Document Type", Rec."Document No.") then begin
                             SalesHeader.TestField(Status, SalesHeader.Status::Open);
-                            Management.RunTheProcess(State::Start, SalesHeader, Process::"Just Create Variant", SalesLine, '')
+                            Management.RunTheProcess(ActionName::"Create Line",State::Start, SalesHeader, Process::"Just Create Variant", SalesLine, '')
                         end;
                     end;
                 }

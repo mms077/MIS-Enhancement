@@ -158,7 +158,7 @@ report 50216 "ER - Customer Statement"
                 end;
 
 
-                AmountInWordsFunction(TotalAMT, G_CurrencyCode);
+                AmountInWordsFunction(tot, G_CurrencyCode);
             end;
         }
     }

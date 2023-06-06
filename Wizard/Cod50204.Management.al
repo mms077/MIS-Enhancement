@@ -169,12 +169,16 @@ codeunit 50204 Management
                         end else
                             Done := true;
                     end;
-                state::"Copy Parameters"://Copy the record of ParamHeader that belong to the Sales Line to a new record and Incerementing the ID 
+                state::"Copy Parameters":
                     begin
                         ParamHeader.Get(SalesLinePar."Parent Parameter Header ID");
                         ParamHeader.SetRange("ID", SalesLinePar."Parent Parameter Header ID");
                         if ParamHeader.FindSet() then begin
                             CoppiedParamHeader.init();
+                            if LastDesiSecParHeader.FindLast() then
+                                CoppiedParamHeader.ID := LastDesiSecParHeader.ID + 1
+                            else
+                                CoppiedParamHeader.ID := 1;
                             CoppiedParamHeader."Item No." := ParamHeader."Item No.";
                             CoppiedParamHeader."Item Description" := ParamHeader."Item Description";
                             CoppiedParamHeader."Customer No." := SalesHeader."Sell-to Customer No.";

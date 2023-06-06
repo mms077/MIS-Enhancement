@@ -83,6 +83,7 @@ codeunit 50206 CeeAnt
     begin//Copy Records from Source Item to Target Item that are selected
         CopyCuts(SourceItem."No.", TargetItem."No.", CopyItemBuffer.Cuts);
         CopyColors(SourceItem."No.", TargetItem."No.", CopyItemBuffer.Colors);
+        CopyDesignSectionColor(SourceItem."No.", TargetItem."No.", CopyItemBuffer.Colors);
         CopyDesignSectionRM(SourceItem."No.", TargetItem."No.", CopyItemBuffer."Design Section RM");
         CopySizes(SourceItem."No.", TargetItem."No.", CopyItemBuffer.Sizes);
         CopyFits(SourceItem."No.", TargetItem."No.", CopyItemBuffer.Fits);
@@ -115,6 +116,14 @@ codeunit 50206 CeeAnt
         G_CICU.CopyItemRelatedTable(DATABASE::"Item Design Section RM", ItemDesignSectionRM.FieldNo("Item No."), FromItemNo, ToItemNo);
     end;
 
+    local procedure CopyDesignSectionColor(FromItemNo: Code[20]; ToItemNo: Code[20]; Selected: Boolean)
+    var
+        ItemDesignSectionColor: Record "Item Design Section Color";
+    begin
+        if not Selected then
+            exit;
+        G_CICU.CopyItemRelatedTable(DATABASE::"Item Design Section Color", ItemDesignSectionColor.FieldNo("Item No."), FromItemNo, ToItemNo);
+    end;
     local procedure CopySizes(FromItemNo: Code[20]; ToItemNo: Code[20]; Selected: Boolean)
     var
         ItemSize: Record "Item Size";

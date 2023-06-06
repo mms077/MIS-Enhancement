@@ -260,7 +260,7 @@ report 50232 "ER - Customer Statement(Dim)"
                     OweUsLabel := 'You owe us';
                 end;
 
-                AmountInWordsFunction(TotalAMT, G_CurrencyCode);
+                AmountInWordsFunction(tot, G_CurrencyCode);
 
             end;
 

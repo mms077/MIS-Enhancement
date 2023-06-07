@@ -192,10 +192,10 @@ report 50224 "ER - Vendor Trial Balance"
                     if Vend.FindFirst() then begin
                         Vend.CalcFields("Net Change", "Net Change (LCY)", "Credit Amount", "Credit Amount (LCY)", "Debit Amount", "Debit Amount (LCY)");
 
-                        DebiOrig := Vend."Debit Amount";
-                        DebitLCY := Vend."Debit Amount (LCY)";
-                        CreditOrig := Vend."Credit Amount";
-                        CreditLCY := Vend."Credit Amount (LCY)";
+                        DebiOrig := Vend."Credit Amount";
+                        DebitLCY := Vend."Credit Amount (LCY)";
+                        CreditOrig := Vend."Debit Amount";
+                        CreditLCY := Vend."Debit Amount (LCY)";
 
                     end;
 
@@ -235,8 +235,6 @@ report 50224 "ER - Vendor Trial Balance"
 
         }
     }
-
-
 
     requestpage
     {

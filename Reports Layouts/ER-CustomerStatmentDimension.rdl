@@ -3327,7 +3327,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=First(Fields!OweUsLabel.Value, "DataSet_Result") &amp; " " &amp; Fields!AmountinWords.Value &amp; " " &amp; First(Fields!OnlyLabel.Value, "DataSet_Result")</Value>
+                                                    <Value>=Fields!OweUsLabel.Value &amp; " " &amp; Fields!AmountinWords.Value &amp; " " &amp; First(Fields!OnlyLabel.Value, "DataSet_Result")</Value>
                                                     <Style>
                                                       <FontFamily>Segoe UI</FontFamily>
                                                       <FontSize>8pt</FontSize>
@@ -3348,6 +3348,7 @@
                                             </Style>
                                           </Textbox>
                                           <ColSpan>6</ColSpan>
+                                          <rd:Selected>true</rd:Selected>
                                         </CellContents>
                                       </TablixCell>
                                       <TablixCell />
@@ -3892,7 +3893,6 @@
                             </Border>
                           </Style>
                         </Rectangle>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>

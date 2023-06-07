@@ -63,8 +63,9 @@ pageextension 50218 "Item List" extends "Item List"
                     SalesHeader: Record "Sales Header";
                     Process: Option "Old Way","Assignment","Just Create Variant";
                     SalesLine: Record "Sales Line";
+                    ActionName:Option "Create Line","Load Line","Refresh Line";
                 begin
-                    Management.RunTheProcess(State::Start, SalesHeader, Process::"Just Create Variant", SalesLine, '')
+                    Management.RunTheProcess(ActionName::"Create Line",State::Start, SalesHeader, Process::"Just Create Variant", SalesLine, '')
                 end;
             }
         }

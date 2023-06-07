@@ -12808,6 +12808,66 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Company Information - Control RIB. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2394472684 - Control 3857907682 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3872257548">
+          <source>Specifies if the selected data type is also copied to the new item.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CopyItem - Control Colors - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2394472684 - Control 3857907682 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3872257548">
+          <source>Item Colors</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CopyItem - Control Colors - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2394472684 - Control 3069436083 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3872257548">
+          <source>Specifies if the selected data type is also copied to the new item.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CopyItem - Control Cuts - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2394472684 - Control 3069436083 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3872257548">
+          <source>Item Cuts</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CopyItem - Control Cuts - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2394472684 - Control 1963185968 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3872257548">
+          <source>Specifies if the selected data type is also copied to the new item.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CopyItem - Control Design Section RM - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2394472684 - Control 1963185968 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3872257548">
+          <source>Item Design Section RM</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CopyItem - Control Design Section RM - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2394472684 - Control 3650642145 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3872257548">
+          <source>Specifies if the selected data type is also copied to the new item.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CopyItem - Control Features - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2394472684 - Control 3650642145 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3872257548">
+          <source>Item Features</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CopyItem - Control Features - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2394472684 - Control 2001920188 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3872257548">
+          <source>Specifies if the selected data type is also copied to the new item.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CopyItem - Control Fits - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2394472684 - Control 2001920188 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3872257548">
+          <source>Item Fits</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CopyItem - Control Fits - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2394472684 - Control 403259402 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3872257548">
+          <source>Specifies if the selected data type is also copied to the new item.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CopyItem - Control Sizes - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2394472684 - Control 403259402 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3872257548">
+          <source>Item Sizes</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CopyItem - Control Sizes - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 523354100 - Action 663099901 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 523354100">
           <source>Branding</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -13328,6 +13388,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Quote Subform - Action Load Line - Method OnAction - NamedType Text001</note>
         </trans-unit>
+        <trans-unit id="PageExtension 416138076 - Action 3107379909 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 416138076">
+          <source>Refresh Line</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Quote Subform - Action Refresh Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 416138076 - Action 3107379909 - Method 1377591017 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 416138076">
+          <source>With Staff,Without Staff,Just Create Variant</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Quote Subform - Action Refresh Line - Method OnAction - NamedType Text000</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 416138076 - Action 3107379909 - Method 1377591017 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 416138076">
+          <source>Choose one of the following options:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Quote Subform - Action Refresh Line - Method OnAction - NamedType Text001</note>
+        </trans-unit>
         <trans-unit id="PageExtension 416138076 - Control 2877273694 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 416138076">
           <source>Color Name</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -13537,6 +13612,36 @@
           <source>RIB</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Company Information - Field RIB - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1654136332 - Field 3857907682 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1654136332">
+          <source>Colors</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Copy Item Buffer - Field Colors - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1654136332 - Field 3069436083 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1654136332">
+          <source>Cuts</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Copy Item Buffer - Field Cuts - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1654136332 - Field 1963185968 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1654136332">
+          <source>Design Section RM</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Copy Item Buffer - Field Design Section RM - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1654136332 - Field 3650642145 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1654136332">
+          <source>Features</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Copy Item Buffer - Field Features - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1654136332 - Field 2001920188 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1654136332">
+          <source>Fits</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Copy Item Buffer - Field Fits - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1654136332 - Field 403259402 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1654136332">
+          <source>Sizes</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Copy Item Buffer - Field Sizes - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1994964448 - Field 1259926770 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
           <source>Branding Code</source>

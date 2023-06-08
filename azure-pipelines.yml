@@ -12,7 +12,7 @@ steps:
     targetType: 'inline'
     script: |
       cd $(Pipeline.Workspace)
-      git clone --mirror https://$(GITHUBPAT)@github.com/OussamaSabbouhExquitechGitHub/MIS-Enhancement.git
+      git clone --bare https://$(GITHUBPAT)@github.com/OussamaSabbouhExquitechGitHub/MIS-Enhancement.git
       cd MIS-Enhancement.git
       git push --mirror https://PAT:$(DEVOPSPAT)@dev.azure.com/exquitechcloud/Emile%20Rassam/_git/MIS-Enhancement
   displayName: 'Mirror GitHub Repo to Azure DevOps'

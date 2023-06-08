@@ -3043,7 +3043,6 @@ Fields!VATLabel.Value &amp; "0% " &amp; Fields!BillTo_Currency.Value)</Value>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -3073,7 +3072,11 @@ Fields!VATLabel.Value &amp; "0% " &amp; Fields!BillTo_Currency.Value)</Value>
                     <TablixMember />
                     <TablixMember />
                     <TablixMember />
-                    <TablixMember />
+                    <TablixMember>
+                      <Visibility>
+                        <Hidden>=Not(First(Fields!ShowLocalVAT.Value, "DataSet_Result"))</Hidden>
+                      </Visibility>
+                    </TablixMember>
                     <TablixMember />
                     <TablixMember />
                     <TablixMember />
@@ -4607,6 +4610,9 @@ C/HH/hA67/8AIVel0UAeaf8ADQfhf/oF+OP/AAgdd/8AkKj/AIaD8L/9Avxx/wCEDrv/AMhV6XRQB5p/
         </Field>
         <Field Name="ShowNotice">
           <DataField>ShowNotice</DataField>
+        </Field>
+        <Field Name="ShowLocalVAT">
+          <DataField>ShowLocalVAT</DataField>
         </Field>
         <Field Name="Sales_Invoice_No">
           <DataField>Sales_Invoice_No</DataField>

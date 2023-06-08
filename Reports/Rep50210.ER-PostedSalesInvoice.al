@@ -80,6 +80,10 @@ report 50210 "ER - Posted Sales Invoice"
             {
 
             }
+            column(ShowLocalVAT; ShowLocalVAT)
+            {
+
+            }
             #endregion
 
             #region //Invoice Header
@@ -652,6 +656,11 @@ report 50210 "ER - Posted Sales Invoice"
                         ApplicationArea = All;
                         Caption = 'Show Notice';
                     }
+                    field(ShowLocalVAT; ShowLocalVAT)
+                    {
+                        ApplicationArea = All;
+                        Caption = 'Show Local VAT';
+                    }
                 }
                 group(LanguageSelection)
                 {
@@ -874,6 +883,7 @@ report 50210 "ER - Posted Sales Invoice"
         GlobalBalanceDue: Decimal;
         GlAmount: Decimal;
         GL_Line:Boolean;
+        ShowLocalVAT: Boolean;
         LocalVatAmount: Decimal;
         VAT_Percentage: Decimal;
         SelectedLanguage: Code[10];

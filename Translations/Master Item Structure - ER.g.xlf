@@ -7903,6 +7903,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice - NamedType VATLabel</note>
         </trans-unit>
+        <trans-unit id="Report 2674555262 - Control 3482449519 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Local VAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice - Control ShowLocalVAT - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 2674555262 - Control 3983266635 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Show Notice</source>
           <note from="Developer" annotates="general" priority="2"></note>

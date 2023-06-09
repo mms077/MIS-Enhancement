@@ -89,10 +89,17 @@ codeunit 50206 CeeAnt
         CopyFits(SourceItem."No.", TargetItem."No.", CopyItemBuffer.Fits);
         CopyFeatures(SourceItem."No.", TargetItem."No.", CopyItemBuffer.Features);
     end;
+
     local procedure CopyCuts(FromItemNo: Code[20]; ToItemNo: Code[20]; Selected: Boolean)
     var
         ItemCut: Record "Item Cut";
     begin
+        //incase record had previously deleted item
+        ItemCut.SetRange("Item No.", ToItemNo);
+        if ItemCut.FindSet() then
+            //delete rows in range
+            ItemCut.DeleteAll();
+        Clear(ItemCut);
         if not Selected then
             exit;
         G_CICU.CopyItemRelatedTable(DATABASE::"Item Cut", ItemCut.FieldNo("Item No."), FromItemNo, ToItemNo);
@@ -102,6 +109,11 @@ codeunit 50206 CeeAnt
     var
         ItemColor: Record "Item Color";
     begin
+        //incase record had previously deleted item
+        ItemColor.SetRange("Item No.", ToItemNo);
+        if ItemColor.FindSet() then
+            //delete rows in range
+            ItemColor.DeleteAll();
         if not Selected then
             exit;
         G_CICU.CopyItemRelatedTable(DATABASE::"Item Color", ItemColor.FieldNo("Item No."), FromItemNo, ToItemNo);
@@ -111,6 +123,11 @@ codeunit 50206 CeeAnt
     var
         ItemDesignSectionRM: Record "Item Design Section RM";
     begin
+        //incase record had previously deleted item
+        ItemDesignSectionRM.SetRange("Item No.", ToItemNo);
+        if ItemDesignSectionRM.FindSet() then
+            //delete rows in range
+            ItemDesignSectionRM.DeleteAll();
         if not Selected then
             exit;
         G_CICU.CopyItemRelatedTable(DATABASE::"Item Design Section RM", ItemDesignSectionRM.FieldNo("Item No."), FromItemNo, ToItemNo);
@@ -120,14 +137,25 @@ codeunit 50206 CeeAnt
     var
         ItemDesignSectionColor: Record "Item Design Section Color";
     begin
+        //incase record had previously deleted item
+        ItemDesignSectionColor.SetRange("Item No.", ToItemNo);
+        if ItemDesignSectionColor.FindSet() then
+            //delete rows in range
+            ItemDesignSectionColor.DeleteAll();
         if not Selected then
             exit;
         G_CICU.CopyItemRelatedTable(DATABASE::"Item Design Section Color", ItemDesignSectionColor.FieldNo("Item No."), FromItemNo, ToItemNo);
     end;
+
     local procedure CopySizes(FromItemNo: Code[20]; ToItemNo: Code[20]; Selected: Boolean)
     var
         ItemSize: Record "Item Size";
     begin
+        //incase record had previously deleted item
+        ItemSize.SetRange("Item No.", ToItemNo);
+        if ItemSize.FindSet() then
+            //delete rows in range
+            ItemSize.DeleteAll();
         if not Selected then
             exit;
         G_CICU.CopyItemRelatedTable(DATABASE::"Item Size", ItemSize.FieldNo("Item No."), FromItemNo, ToItemNo);
@@ -137,6 +165,11 @@ codeunit 50206 CeeAnt
     var
         ItemFit: Record "Item Fit";
     begin
+        //incase record had previously deleted item
+        ItemFit.SetRange("Item No.", ToItemNo);
+        if ItemFit.FindSet() then
+            //delete rows in range
+            ItemFit.DeleteAll();
         if not Selected then
             exit;
         G_CICU.CopyItemRelatedTable(DATABASE::"Item Fit", ItemFit.FieldNo("Item No."), FromItemNo, ToItemNo);
@@ -146,6 +179,11 @@ codeunit 50206 CeeAnt
     var
         ItemFeature: Record "Item Feature";
     begin
+        //incase record had previously deleted item
+        ItemFeature.SetRange("Item No.", ToItemNo);
+        if ItemFeature.FindSet() then
+            //delete rows in range
+            ItemFeature.DeleteAll();
         if not Selected then
             exit;
         G_CICU.CopyItemRelatedTable(DATABASE::"Item Feature", ItemFeature.FieldNo("Item No."), FromItemNo, ToItemNo);

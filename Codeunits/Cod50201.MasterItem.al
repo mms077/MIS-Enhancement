@@ -256,10 +256,12 @@ codeunit 50201 MasterItem
         DesignSectionParLines: Record "Design Section Param Lines";
         DesignSectionsSet: Record "Design Sections Set";
         Number: Integer;
+        DesignSecParHeaderLoc: Record "Parameter Header";
     begin
         Clear(DesignSectionParLines);
         DesignSectionParLines.SetCurrentKey("Header ID", "Design Section Code", "Color ID");
         DesignSectionParLines.SetRange("Header ID", DesignSecParamLines."Header ID");
+        DesignSecParHeaderLoc.get(DesignSecParHeader."ID");
         if DesignSectionParLines.FindFirst() then begin
             if DesignSectionsSet.FindLast() then
                 Number := DesignSectionsSet."Design Section Set ID" + 1
@@ -273,8 +275,8 @@ codeunit 50201 MasterItem
                 DesignSectionsSet."Color Id" := DesignSectionParLines."Color ID";
                 DesignSectionsSet.Insert();
             until DesignSectionParLines.Next() = 0;
-            DesignSecParHeader."Design Sections Set ID" := DesignSectionsSet."Design Section Set ID";
-            DesignSecParHeader."Variance Combination Text" := DesignSecParHeader."Item Size" + '-'
+            DesignSecParHeaderLoc."Design Sections Set ID" := DesignSectionsSet."Design Section Set ID";
+            DesignSecParHeaderLoc."Variance Combination Text" := DesignSecParHeader."Item Size" + '-'
                                                              + DesignSecParHeader."Item Fit" + '-'
                                                              + Format(DesignSecParHeader."Item Color Id") + '-'
                                                              + DesignSecParHeader."Item Cut" + '-'
@@ -282,7 +284,7 @@ codeunit 50201 MasterItem
                                                              + Format(DesignSecParHeader."Design Sections Set ID") + '-'
                                                              + Format(DesignSecParHeader."Item Features Set ID") + '-'
                                                              + Format(DesignSecParHeader."Item Brandings Set ID");
-            DesignSecParHeader.MODIFY(TRUE);
+            DesignSecParHeaderLoc.MODIFY(TRUE);
 
         end;
     end;
@@ -331,10 +333,12 @@ codeunit 50201 MasterItem
         ItemBrandingsParLines: Record "Item Branding Param Lines";
         ItemBrandingsSet: Record "Item Brandings Set";
         Number: Integer;
+        DesignSecParHeaderLoc: Record "Parameter Header";
     begin
         Clear(ItemBrandingsParLines);
         ItemBrandingsParLines.SetCurrentKey("Header ID", Code);
         ItemBrandingsParLines.SetRange("Header ID", ItemBrandingParamLines."Header ID");
+        DesignSecParHeaderLoc.get(DesignSecParHeader.ID);
         if ItemBrandingsParLines.FindFirst() then begin
             if ItemBrandingsSet.FindLast() then
                 Number := ItemBrandingsSet."Item Branding Set ID" + 1
@@ -348,8 +352,8 @@ codeunit 50201 MasterItem
                 ItemBrandingsSet."Company Name" := CompanyName;
                 ItemBrandingsSet.Insert();
             until ItemBrandingsParLines.Next() = 0;
-            DesignSecParHeader."Item Brandings Set ID" := ItemBrandingsSet."Item Branding Set ID";
-            DesignSecParHeader."Variance Combination Text" := DesignSecParHeader."Item Size" + '-'
+            DesignSecParHeaderLoc."Item Brandings Set ID" := ItemBrandingsSet."Item Branding Set ID";
+            DesignSecParHeaderLoc."Variance Combination Text" := DesignSecParHeader."Item Size" + '-'
                                                              + DesignSecParHeader."Item Fit" + '-'
                                                              + Format(DesignSecParHeader."Item Color Id") + '-'
                                                              + DesignSecParHeader."Item Cut" + '-'
@@ -357,7 +361,7 @@ codeunit 50201 MasterItem
                                                              + Format(DesignSecParHeader."Design Sections Set ID") + '-'
                                                              + Format(DesignSecParHeader."Item Features Set ID") + '-'
                                                              + Format(DesignSecParHeader."Item Brandings Set ID");
-            DesignSecParHeader.Modify();
+            DesignSecParHeaderLoc.Modify();
         end;
     end;
 

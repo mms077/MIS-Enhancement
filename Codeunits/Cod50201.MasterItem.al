@@ -377,7 +377,7 @@ codeunit 50201 MasterItem
                                                              + Format(DesignSectionParHeader."Design Sections Set ID") + '-'
                                                              + Format(DesignSectionParHeader."Item Features Set ID") + '-'
                                                              + Format(DesignSectionParHeader."Item Brandings Set ID");
-        DesignSectionParHeaderLoc.MODIFY(TRUE);
+        DesignSectionParHeaderLoc.MODIFY();
     end;
 
     procedure AssignItemFeatureSet(var DesignSectionParHeader: Record "Parameter Header"; ItemFeaturesSet: Record "Item Features Set"; VarianceCombination: Text[2048])
@@ -398,9 +398,12 @@ codeunit 50201 MasterItem
     end;
 
     procedure AssignItemBrandingSet(var DesignSectionParHeader: Record "Parameter Header"; ItemBrandingsSet: Record "Item Brandings Set"; VarianceCombination: Text[2048])
+    var 
+        DesignSectionParHeaderLoc: Record "Parameter Header";
     begin
-        DesignSectionParHeader."Item Brandings Set ID" := ItemBrandingsSet."Item Branding Set ID";
-        DesignSectionParHeader."Variance Combination Text" := DesignSectionParHeader."Item Size" + '-'
+        DesignSectionParHeaderLoc.get(DesignSectionParHeader.ID);
+        DesignSectionParHeaderLoc."Item Brandings Set ID" := ItemBrandingsSet."Item Branding Set ID";
+        DesignSectionParHeaderLoc."Variance Combination Text" := DesignSectionParHeader."Item Size" + '-'
                                                              + DesignSectionParHeader."Item Fit" + '-'
                                                              + Format(DesignSectionParHeader."Item Color Id") + '-'
                                                              + DesignSectionParHeader."Item Cut" + '-'
@@ -408,7 +411,7 @@ codeunit 50201 MasterItem
                                                              + Format(DesignSectionParHeader."Design Sections Set ID") + '-'
                                                              + Format(DesignSectionParHeader."Item Features Set ID") + '-'
                                                              + Format(DesignSectionParHeader."Item Brandings Set ID");
-        DesignSectionParHeader.Modify();
+        DesignSectionParHeaderLoc.Modify();
     end;
 
     procedure CreateVariant(DesignSectionParHeader: Record "Parameter Header"): Code[10]

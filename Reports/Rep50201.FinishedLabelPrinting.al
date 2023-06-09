@@ -184,7 +184,7 @@ report 50201 "Finished Label Printing"
                     EANEncodedText := BarcodeFontProvider.EncodeFont(EANBarcodeString, BarcodeSymbology)
                 end;
 
-                UCBarcodeString := GlobalReference."Reference No.";
+                UCBarcodeString := "Unique Code";
                 BarcodeFontProvider.ValidateInput(UCBarcodeString, BarcodeSymbology);
                 UniqueCodeBarcode := BarcodeFontProvider.EncodeFont(UCBarcodeString, BarcodeSymbology)
 

@@ -225,16 +225,23 @@ report 50224 "ER - Vendor Trial Balance"
             }
 
             trigger OnAfterGetRecord()
+            var
+                L_Vendor: Record Vendor;
             begin
 
-                Vendor.CalcFields(Balance);
-                if (Vendor.Balance = 0) and (HideCust) then
+                L_Vendor.Get(Vendor."No.");
+                L_Vendor.SetFilter("Date Filter", Format(FromDate) + '..' + Format(ToDate));
+
+                L_Vendor.CalcFields("Net Change", Balance,"Credit Amount", "Debit Amount");
+                if (L_Vendor.Balance = 0) and (L_Vendor."Net Change" = 0) and (L_Vendor."Credit Amount" = 0) and (L_Vendor."Debit Amount" = 0) and (HideCust) then
                     CurrReport.Skip();
 
             end;
 
         }
     }
+
+
 
     requestpage
     {

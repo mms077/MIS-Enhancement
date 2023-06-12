@@ -225,12 +225,25 @@ report 50225 "ER - Customer Trial Balance"
                 end;
             }
 
+            // trigger OnAfterGetRecord()
+            // begin
+
+            //     Customer.CalcFields(Balance);
+            //     if (Customer.Balance = 0) and (HideCust) then
+            //         CurrReport.Skip();
+            // end;
             trigger OnAfterGetRecord()
+            var
+                L_Customer: Record Customer;
             begin
 
-                Customer.CalcFields(Balance);
-                if (Customer.Balance = 0) and (HideCust) then
+                L_Customer.Get(Customer."No.");
+                L_Customer.SetFilter("Date Filter", Format(FromDate) + '..' + Format(ToDate));
+
+                L_Customer.CalcFields("Net Change", Balance,"Credit Amount", "Debit Amount");
+                if (L_Customer.Balance = 0) and (L_Customer."Net Change" = 0) and (L_Customer."Credit Amount" = 0) and (L_Customer."Debit Amount" = 0) and (HideCust) then
                     CurrReport.Skip();
+
             end;
 
         }

@@ -30,6 +30,20 @@ page 50207 "ER - Sales Lines"
                 field("No."; Rec."No.")
                 {
                 }
+                field("Variant Code"; Rec."Variant Code")
+                {
+                }
+                field("Design Sections Set"; Rec."Design Sections Set")
+                {
+
+                }
+                field("Item Features Set"; Rec."Item Features Set")
+                {
+
+                }
+                field("Item Brandings Set"; Rec."Item Brandings Set")
+                {
+                }
                 field("Location Code"; Rec."Location Code")
                 {
                 }
@@ -361,9 +375,6 @@ page 50207 "ER - Sales Lines"
                 {
                 }
                 field("Returns Deferral Start Date"; Rec."Returns Deferral Start Date")
-                {
-                }
-                field("Variant Code"; Rec."Variant Code")
                 {
                 }
                 field("Bin Code"; Rec."Bin Code")

@@ -163,6 +163,18 @@ pageextension 50219 "Sales Quote Subform" extends "Sales Quote Subform"
             {
                 ApplicationArea = all;
             }
+            field("Design Sections Set"; Rec."Design Sections Set")
+            {
+                ApplicationArea = all;
+            }
+            field("Item Features Set"; Rec."Item Features Set")
+            {
+                ApplicationArea = all;
+            }
+            field("Item Brandings Set"; Rec."Item Brandings Set")
+            {
+                ApplicationArea = all;
+            }
         }
         addafter("No.")
         {

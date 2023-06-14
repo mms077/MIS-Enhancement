@@ -126,5 +126,26 @@ tableextension 50206 "Sales Line Archive" extends "Sales Line Archive"
             CalcFormula = lookup(Position."Sorting Number" where(Code = field("Position Code")));
             Editable = false;
         }
+        field(50225; "Design Sections Set"; Integer)
+        {
+            Caption = 'Design Sections Set';
+            Editable = false;
+            FieldClass = FlowField;
+            CalcFormula = lookup("Item Variant"."Design Sections Set ID" where("Item No." = field("No."), "Code" = field("Variant Code")));
+        }
+        field(50226; "Item Features Set"; Integer)
+        {
+            Caption = 'Item Features Set';
+            Editable = false;
+            FieldClass = FlowField;
+            CalcFormula = lookup("Item Variant"."Item Features Set ID" where("Item No." = field("No."), "Code" = field("Variant Code")));
+        }
+        field(50227; "Item Brandings Set"; Integer)
+        {
+            Caption = 'Item Brandings Set';
+            Editable = false;
+            FieldClass = FlowField;
+            CalcFormula = lookup("Item Variant"."Item Brandings Set ID" where("Item No." = field("No."), "Code" = field("Variant Code")));
+        }
     }
 }

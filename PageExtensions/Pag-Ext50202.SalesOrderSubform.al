@@ -169,6 +169,18 @@ pageextension 50202 "Sales Order Subform" extends "Sales Order Subform"
             {
                 ApplicationArea = all;
             }
+            field("Design Sections Set"; Rec."Design Sections Set")
+            {
+                ApplicationArea = all;
+            }
+            field("Item Features Set"; Rec."Item Features Set")
+            {
+                ApplicationArea = all;
+            }
+            field("Item Brandings Set"; Rec."Item Brandings Set")
+            {
+                ApplicationArea = all;
+            }
         }
         addafter("No.")
         {

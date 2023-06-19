@@ -71,6 +71,12 @@ report 50234 "Standard Purchase"
             # endregion
 
             #region Labels
+            column(CostCenterLabel;CostCenterLabel){}
+            column(AccountManagerLabel;AccountManagerLabel){}
+            column(ShippingMethodLabel;ShippingMethodLabel){}
+            column(RequestedByLabel;RequestedByLabel){}
+            column(FinancialControllerLabel;FinancialControllerLabel){}
+            column(ManigingDirectorLabel;ManigingDirectorLabel){}
             column(DateLabel; DateLabel) { }
             column(OrderNoLabel; OrderNoLabel) { }
             column(PurchaseOrderLabel; PurchaseOrderLabel) { }
@@ -303,6 +309,15 @@ report 50234 "Standard Purchase"
     end;
 
 
+    procedure GetDimenstion5(var DimSetID:Integer)
+    var
+        DimSet: Record "Dimension Set Entry" temporary;
+    begin
+        DimensionManagment_CU.GetDimensionSet(DimSet,DimSetID);
+        DimSet.
+    end;    
+
+
 
     var
         CompanyInformation: Record "Company Information";
@@ -310,6 +325,7 @@ report 50234 "Standard Purchase"
         G_Customer: Record Customer;
         G_Vendor: Record Vendor;
         PaymentTerms: Record "Payment Terms";
+        DimensionManagment_CU:codeunit DimensionManagement;
 
         TotalDiscountAmount: Decimal;
         TotalAmountExcludingVAT: Decimal;
@@ -374,6 +390,7 @@ report 50234 "Standard Purchase"
         ShipToPhoneLabel: Label 'Phone';
         ShipToEmailLabel: Label 'Email';
         ShipToContactLabel: Label 'Contact';
+        CostCenterLabel: Label 'Cost Center';
         DateLabel: Label 'Date: ';
         EmailIDCaptionLbl: Label 'Email';
         FormNoLabel: Label 'Form #:';
@@ -381,6 +398,11 @@ report 50234 "Standard Purchase"
         IssueDateFooterLabel: Label 'Issue Date:';
         IssueDateValueLabel: Label 'Jan 23';
         RevisionDateLabel: Label 'Revision Date:';
+        AccountManagerLabel: Label 'Account Manager';
+        ShippingMethodLabel: Label 'Shipping Method';
+        RequestedByLabel: Label 'Requested By';
+        FinancialControllerLabel: Label 'Financial Controller';
+        ManigingDirectorLabel: Label 'Managing Director';
         SupplyTheFollowingGoodsLabel: label 'Please supply the following Goods and/or Services';
         ThankYouForYourPromptLabel: label 'Thank you for your prompt handling of this order, please acknowledge receipt and acceptance.';
         TermsAndCondLabel: label 'Terms and Conditions';

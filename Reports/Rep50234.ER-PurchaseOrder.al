@@ -3,6 +3,7 @@ report 50234 "Standard Purchase"
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
     DefaultLayout = RDLC;
+    EnableHyperlinks=true;
     RDLCLayout = 'Reports Layouts/ER-PurchaseOrder.rdlc';
     Caption = 'ER - Purchase Order';
 
@@ -192,6 +193,9 @@ report 50234 "Standard Purchase"
             column(BarcodeText; BarcodeText) { }
             column(AmountinWords; AmountinWords) { }
             column(VAT_Percentage;VAT_Percentage) { }
+            column(ContactPerson;ContactPerson) { }
+            column(ShipmentMethodDesc;ShipmentMethodDesc){}
+            column(URL;URL){}
             dataitem("Purchase Line"; "Purchase Line")
             {
                 DataItemLink = "Document Type" = FIELD("Document Type"), "Document No." = FIELD("No.");
@@ -204,10 +208,12 @@ report 50234 "Standard Purchase"
                 column(DiscountPercent; "Line Discount %") { }
                 column(Amount; "Line Amount") { }
                 column(TotalAmountExcludingVAT; TotalAmountExcludingVAT) { }
+                column(DimVal5;DimVal5){}
                 //column(TotalDiscountAmount; TotalDiscountAmount) { }
 
                 trigger OnAfterGetRecord()
                 begin
+                    GetDimenstion5("Purchase Line"."Dimension Set ID");
                     TotalDiscountAmount := TotalDiscountAmount + "Line Discount Amount";
                     VAT_Amount := VAT_Amount + "Amount Including VAT" - Amount;
                     TotalAmountExcludingVAT := TotalAmountExcludingVAT + Amount;
@@ -275,6 +281,36 @@ report 50234 "Standard Purchase"
                 end;
 
 
+                //Shipment Method
+                if "Purchase Header"."Shipment Method Code" <> '' then begin
+                    ShipmentMethod.GET("Purchase Header"."Shipment Method Code");
+                    ShipmentMethodDesc := ShipmentMethod.Description;
+                end
+                else
+                    ShipmentMethodDesc := '';
+
+                //Contact Person
+                if "Purchase Header"."Pay-to Contact" <> '' then begin
+                    Contact.Reset();
+                    if Contact.GET("Purchase Header"."Pay-to Contact")then
+                        ContactPerson := Contact.Name
+                    else
+                        ContactPerson := '';
+                    
+                    // G_Customer.RESET;
+                    // G_Customer.GET("Purchase Header"."Sell-to Customer No.");
+                    // ShiptoContact := G_Customer.Contact;
+                end
+                // else begin
+                //     if "Ship-to Name" <> '' then begin
+                //         ShiptoContact := CompanyInformation.Contact;
+                //     end
+                //     else begin
+                //         ShiptoContact := '';
+                //     end;
+                // end;
+
+
             end;
         }
 
@@ -314,7 +350,9 @@ report 50234 "Standard Purchase"
         DimSet: Record "Dimension Set Entry" temporary;
     begin
         DimensionManagment_CU.GetDimensionSet(DimSet,DimSetID);
-        DimSet.
+        DimSet.SetRange("Dimension Code", '5');
+        if DimSet.FindSet() then
+            DimVal5 := DimSet."Dimension Value Code";
     end;    
 
 
@@ -326,11 +364,14 @@ report 50234 "Standard Purchase"
         G_Vendor: Record Vendor;
         PaymentTerms: Record "Payment Terms";
         DimensionManagment_CU:codeunit DimensionManagement;
+        Contact: Record Contact;
 
         TotalDiscountAmount: Decimal;
         TotalAmountExcludingVAT: Decimal;
+        ShipmentMethod: Record "Shipment Method";
         PaymetTermsDesc: Text[100];
-
+        ShipmentMethodDesc: Text[100];
+        ContactPerson: Text[100];
 
         AmountinWords: Text[250];
         VendorName: Text[100];
@@ -352,6 +393,7 @@ report 50234 "Standard Purchase"
         VAT_Percentage: Decimal;
 
         CompanyAddress: Text[250];
+        DimVal5: Code[20];
 
         PurchaseOrderLabel: Label 'Purchase Order';
         NoLabel: Label 'No.';
@@ -439,7 +481,7 @@ report 50234 "Standard Purchase"
         TermsAndCondLabel_24: Label '24.	Any variation, including any additional terms and conditions, to the contract shall only be binding when agreed in writing and signed by customer.';
         TermsAndCondLabel_25: Label '25.	If the Supplier fails to make delivery; fails to perform within the time specified in the PO; delivers non-conforming Goods or material; fails to make progress so as to endanger performance of the PO; then Customer may cancel the PO or part thereof and the Supplier shall be liable for all costs incurred by the Customer in purchasing similar Goods/material elsewhere.';
         TermsAndCondLabel_26: Label '26.	The termination of any P.O shall not affect any obligation of the Parties incurred before the termination date. Notwithstanding the termination or expiration of the P.O, the terms of this P.O which by their context, intent and meaning are intended to survive the termination or expiration of the P.O shall survive any termination or expiration of the P.O.';
-
+        URL:label 'https://www.google.com/';
 
 }
 

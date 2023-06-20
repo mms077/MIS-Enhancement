@@ -12768,6 +12768,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Standard Purchase - NamedType UnitOfMeasureLabel</note>
         </trans-unit>
+        <trans-unit id="Report 149855644 - NamedType 3003898253" size-unit="char" translate="yes" xml:space="preserve">
+          <source>https://www.google.com/</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Standard Purchase - NamedType URL</note>
+        </trans-unit>
         <trans-unit id="Report 149855644 - NamedType 3794146812" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Code</source>
           <note from="Developer" annotates="general" priority="2"></note>

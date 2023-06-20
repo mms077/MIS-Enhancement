@@ -2745,7 +2745,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value />
+                                                    <Value>=Fields!ContactPerson.Value</Value>
                                                     <Style>
                                                       <FontFamily>Segoe UI</FontFamily>
                                                       <FontSize>8pt</FontSize>
@@ -4152,7 +4152,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value />
+                                                    <Value>=Fields!ShipmentMethodDesc.Value</Value>
                                                     <Style>
                                                       <FontFamily>Segoe UI</FontFamily>
                                                       <FontSize>8pt</FontSize>
@@ -4783,7 +4783,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value />
+                                                    <Value>=Fields!DimVal5.Value</Value>
                                                     <Style>
                                                       <FontFamily>Segoe UI</FontFamily>
                                                       <FontSize>8pt</FontSize>
@@ -5772,7 +5772,7 @@ Fields!VATLabel.Value &amp; "[0%]")</Value>
                               <Top>14.24716cm</Top>
                               <Left>0.07744cm</Left>
                               <Height>0.6cm</Height>
-                              <Width>18.88123cm</Width>
+                              <Width>18.88122cm</Width>
                               <ZIndex>8</ZIndex>
                               <Style>
                                 <Border>
@@ -5831,8 +5831,49 @@ Fields!VATLabel.Value &amp; "[0%]")</Value>
               </Border>
             </Style>
           </Tablix>
+          <Textbox Name="Textbox157">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Terms And Cond</Value>
+                    <Style>
+                      <FontStyle>Italic</FontStyle>
+                      <TextDecoration>Underline</TextDecoration>
+                      <Color>Blue</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox157</rd:DefaultName>
+            <ActionInfo>
+              <Actions>
+                <Action>
+                  <Hyperlink>https://www.bing.com/</Hyperlink>
+                </Action>
+              </Actions>
+            </ActionInfo>
+            <Top>28.43871cm</Top>
+            <Left>9.96385cm</Left>
+            <Height>0.6cm</Height>
+            <Width>2.7866cm</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
-        <Height>28.18529cm</Height>
+        <Height>29.03871cm</Height>
         <Style />
       </Body>
       <Width>19cm</Width>
@@ -6750,6 +6791,15 @@ End Function
         <Field Name="VAT_PercentageFormat">
           <DataField>VAT_PercentageFormat</DataField>
         </Field>
+        <Field Name="ContactPerson">
+          <DataField>ContactPerson</DataField>
+        </Field>
+        <Field Name="ShipmentMethodDesc">
+          <DataField>ShipmentMethodDesc</DataField>
+        </Field>
+        <Field Name="URL">
+          <DataField>URL</DataField>
+        </Field>
         <Field Name="No_">
           <DataField>No_</DataField>
         </Field>
@@ -6788,6 +6838,9 @@ End Function
         </Field>
         <Field Name="TotalAmountExcludingVATFormat">
           <DataField>TotalAmountExcludingVATFormat</DataField>
+        </Field>
+        <Field Name="DimVal5">
+          <DataField>DimVal5</DataField>
         </Field>
       </Fields>
       <Query>

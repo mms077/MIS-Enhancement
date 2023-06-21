@@ -35,13 +35,13 @@ pageextension 50218 "Item List" extends "Item List"
         {
             Visible = CostVisible;
         }
-        addafter(Description)
-        {
-            field("Description 2"; Rec."Description 2")
-            {
-                ApplicationArea = all;
-            }
-        }
+        /* addafter(Description)
+         {
+             field("Description 2"; Rec."Description 2")
+             {
+                 ApplicationArea = all;
+             }
+         }*/
     }
 
     actions

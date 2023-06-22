@@ -35,13 +35,13 @@ pageextension 50218 "Item List" extends "Item List"
         {
             Visible = CostVisible;
         }
-        addafter(Description)
-        {
-            field("Description 2"; Rec."Description 2")
-            {
-                ApplicationArea = all;
-            }
-        }
+        /* addafter(Description)
+         {
+             field("Description 2"; Rec."Description 2")
+             {
+                 ApplicationArea = all;
+             }
+         }*/
     }
 
     actions
@@ -63,9 +63,8 @@ pageextension 50218 "Item List" extends "Item List"
                     SalesHeader: Record "Sales Header";
                     Process: Option "Old Way","Assignment","Just Create Variant";
                     SalesLine: Record "Sales Line";
-                    ActionName:Option "Create Line","Load Line","Refresh Line";
                 begin
-                    Management.RunTheProcess(ActionName::"Create Line",State::Start, SalesHeader, Process::"Just Create Variant", SalesLine, '')
+                    Management.RunTheProcess(State::Start, SalesHeader, Process::"Just Create Variant", SalesLine, '')
                 end;
             }
         }

@@ -3173,6 +3173,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Workflow User Names - ER - Field Full Name - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3924101863 - Method 602896260 - NamedType 672599587" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No related raw materials found for this item and variant</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit EventSubscribers - Method CreateAssemblyOrderNeededRawMaterial - NamedType Txt001</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3924101863 - Method 2140798701 - NamedType 672599587" size-unit="char" translate="yes" xml:space="preserve">
           <source>You must set a posting date for prepayment to post it and continue the process</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -6629,7 +6634,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Trial Balance - Control HideCust - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 2704385374 - Control 244877475 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Show Opening Balance</source>
+          <source>With Opening Balance</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Trial Balance - Control Show opening balance - Property Caption</note>
         </trans-unit>
@@ -10814,7 +10819,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Trial Balance - Control HideCust - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 3137650822 - Control 244877475 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Show Opening Balance</source>
+          <source>With Opening Balance</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Trial Balance - Control Show opening balance - Property Caption</note>
         </trans-unit>
@@ -12758,6 +12763,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Assembly Order - Action Assembly Approval - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1662713252 - Action 3435572484 - Method 1377591017 - NamedType 672599587" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 1662713252">
+          <source>Dashboard Created Successfully</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Assembly Order - Action Create Dashboard - Method OnAction - NamedType Txt001</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1119230149 - NamedType 672599587" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 1119230149">
           <source>The Assembly Orders should have same Item No. to group them</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -13392,21 +13402,6 @@
           <source>Choose one of the following options:</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Quote Subform - Action Load Line - Method OnAction - NamedType Text001</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 416138076 - Action 3107379909 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 416138076">
-          <source>Refresh Line</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Quote Subform - Action Refresh Line - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 416138076 - Action 3107379909 - Method 1377591017 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 416138076">
-          <source>With Staff,Without Staff,Just Create Variant</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Quote Subform - Action Refresh Line - Method OnAction - NamedType Text000</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 416138076 - Action 3107379909 - Method 1377591017 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 416138076">
-          <source>Choose one of the following options:</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Quote Subform - Action Refresh Line - Method OnAction - NamedType Text001</note>
         </trans-unit>
         <trans-unit id="PageExtension 416138076 - Control 2877273694 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 416138076">
           <source>Color Name</source>
@@ -14318,10 +14313,25 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Purch. Cr. Memo Line - Field Department Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 518488723 - Field 1473066374 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 518488723">
+          <source>Design Sections Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Purch. Cr. Memo Line - Field Design Sections Set - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 518488723 - Field 3720880453 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 518488723">
           <source>Fit</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Purch. Cr. Memo Line - Field Fit - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 518488723 - Field 3472051833 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 518488723">
+          <source>Item Brandings Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Purch. Cr. Memo Line - Field Item Brandings Set - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 518488723 - Field 3683951220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 518488723">
+          <source>Item Features Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Purch. Cr. Memo Line - Field Item Features Set - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 518488723 - Field 906775052 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 518488723">
           <source>Needed RM Batch</source>
@@ -14393,10 +14403,25 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Purch. Inv. Line - Field Department Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2575310733 - Field 1473066374 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2575310733">
+          <source>Design Sections Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Purch. Inv. Line - Field Design Sections Set - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2575310733 - Field 3720880453 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2575310733">
           <source>Fit</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Purch. Inv. Line - Field Fit - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2575310733 - Field 3472051833 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2575310733">
+          <source>Item Brandings Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Purch. Inv. Line - Field Item Brandings Set - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2575310733 - Field 3683951220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2575310733">
+          <source>Item Features Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Purch. Inv. Line - Field Item Features Set - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2575310733 - Field 906775052 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2575310733">
           <source>Needed RM Batch</source>
@@ -14473,10 +14498,25 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Purch. Rcpt. Line - Field Department Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 959319265 - Field 1473066374 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 959319265">
+          <source>Design Sections Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Purch. Rcpt. Line - Field Design Sections Set - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 959319265 - Field 3720880453 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 959319265">
           <source>Fit</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Purch. Rcpt. Line - Field Fit - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 959319265 - Field 3472051833 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 959319265">
+          <source>Item Brandings Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Purch. Rcpt. Line - Field Item Brandings Set - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 959319265 - Field 3683951220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 959319265">
+          <source>Item Features Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Purch. Rcpt. Line - Field Item Features Set - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 959319265 - Field 906775052 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 959319265">
           <source>Needed RM Batch</source>
@@ -14568,10 +14608,25 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Purchase Line - Field Department Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1519909599 - Field 1473066374 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1519909599">
+          <source>Design Sections Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Purchase Line - Field Design Sections Set - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1519909599 - Field 3720880453 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1519909599">
           <source>Fit</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Purchase Line - Field Fit - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1519909599 - Field 3472051833 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1519909599">
+          <source>Item Brandings Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Purchase Line - Field Item Brandings Set - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1519909599 - Field 3683951220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1519909599">
+          <source>Item Features Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Purchase Line - Field Item Features Set - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1519909599 - Field 906775052 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1519909599">
           <source>Needed RM Batch</source>
@@ -14633,10 +14688,25 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Purchase Line Archive - Field Department Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2809873457 - Field 1473066374 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2809873457">
+          <source>Design Sections Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Purchase Line Archive - Field Design Sections Set - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2809873457 - Field 3720880453 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2809873457">
           <source>Fit</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Purchase Line Archive - Field Fit - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2809873457 - Field 3472051833 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2809873457">
+          <source>Item Brandings Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Purchase Line Archive - Field Item Brandings Set - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2809873457 - Field 3683951220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2809873457">
+          <source>Item Features Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Purchase Line Archive - Field Item Features Set - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2809873457 - Field 906775052 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2809873457">
           <source>Needed RM Batch</source>
@@ -14758,6 +14828,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Return Receipt Line - Field Department Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1173465396 - Field 1473066374 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1173465396">
+          <source>Design Sections Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Return Receipt Line - Field Design Sections Set - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1173465396 - Field 4249973359 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1173465396">
           <source>Extra Charge %</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -14772,6 +14847,16 @@
           <source>Fit</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Return Receipt Line - Field Fit - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1173465396 - Field 3472051833 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1173465396">
+          <source>Item Brandings Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Return Receipt Line - Field Item Brandings Set - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1173465396 - Field 3683951220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1173465396">
+          <source>Item Features Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Return Receipt Line - Field Item Features Set - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1173465396 - Field 906775052 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1173465396">
           <source>Needed RM Batch</source>
@@ -14853,10 +14938,25 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Return Shipment Line - Field Department Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 4118213496 - Field 1473066374 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4118213496">
+          <source>Design Sections Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Return Shipment Line - Field Design Sections Set - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 4118213496 - Field 3720880453 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4118213496">
           <source>Fit</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Return Shipment Line - Field Fit - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4118213496 - Field 3472051833 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4118213496">
+          <source>Item Brandings Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Return Shipment Line - Field Item Brandings Set - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4118213496 - Field 3683951220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4118213496">
+          <source>Item Features Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Return Shipment Line - Field Item Features Set - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 4118213496 - Field 906775052 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4118213496">
           <source>Needed RM Batch</source>
@@ -14983,6 +15083,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Cr.Memo Line - ER - Field Department Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2596562811 - Field 1473066374 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3059602325">
+          <source>Design Sections Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Cr.Memo Line - ER - Field Design Sections Set - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2596562811 - Field 4249973359 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3059602325">
           <source>Extra Charge %</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -15007,6 +15112,16 @@
           <source>IC Parent Parameter Header ID</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Cr.Memo Line - ER - Field IC Parent Parameter Header ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2596562811 - Field 3472051833 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3059602325">
+          <source>Item Brandings Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Cr.Memo Line - ER - Field Item Brandings Set - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2596562811 - Field 3683951220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3059602325">
+          <source>Item Features Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Cr.Memo Line - ER - Field Item Features Set - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2596562811 - Field 906775052 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3059602325">
           <source>Needed RM Batch</source>
@@ -15208,6 +15323,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Invoice Line - ER - Field Department Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2297860855 - Field 1473066374 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2079186865">
+          <source>Design Sections Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Invoice Line - ER - Field Design Sections Set - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2297860855 - Field 4249973359 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2079186865">
           <source>Extra Charge %</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -15232,6 +15352,16 @@
           <source>IC Parent Parameter Header ID</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Invoice Line - ER - Field IC Parent Parameter Header ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2297860855 - Field 3472051833 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2079186865">
+          <source>Item Brandings Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Invoice Line - ER - Field Item Brandings Set - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2297860855 - Field 3683951220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2079186865">
+          <source>Item Features Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Invoice Line - ER - Field Item Features Set - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2297860855 - Field 906775052 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2079186865">
           <source>Needed RM Batch</source>
@@ -15323,6 +15453,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Line - Field Department Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2574427010 - Field 1473066374 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2574427010">
+          <source>Design Sections Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Line - Field Design Sections Set - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2574427010 - Field 4249973359 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2574427010">
           <source>Extra Charge %</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -15347,6 +15482,16 @@
           <source>IC Parent Parameter Header ID</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Line - Field IC Parent Parameter Header ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2574427010 - Field 3472051833 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2574427010">
+          <source>Item Brandings Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Line - Field Item Brandings Set - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2574427010 - Field 3683951220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2574427010">
+          <source>Item Features Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Line - Field Item Features Set - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2574427010 - Field 906775052 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2574427010">
           <source>Needed RM Batch</source>
@@ -15433,6 +15578,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Line Archive - Field Department Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2903552224 - Field 1473066374 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2903552224">
+          <source>Design Sections Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Line Archive - Field Design Sections Set - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2903552224 - Field 4249973359 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2903552224">
           <source>Extra Charge %</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -15457,6 +15607,16 @@
           <source>IC Parent Parameter Header ID</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Line Archive - Field IC Parent Parameter Header ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2903552224 - Field 3472051833 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2903552224">
+          <source>Item Brandings Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Line Archive - Field Item Brandings Set - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2903552224 - Field 3683951220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2903552224">
+          <source>Item Features Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Line Archive - Field Item Features Set - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2903552224 - Field 906775052 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2903552224">
           <source>Needed RM Batch</source>
@@ -15583,6 +15743,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Shipment Line - Field Department Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1114148978 - Field 1473066374 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1114148978">
+          <source>Design Sections Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Shipment Line - Field Design Sections Set - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1114148978 - Field 4249973359 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1114148978">
           <source>Extra Charge %</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -15607,6 +15772,16 @@
           <source>IC Parent Parameter Header ID</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Shipment Line - Field IC Parent Parameter Header ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1114148978 - Field 3472051833 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1114148978">
+          <source>Item Brandings Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Shipment Line - Field Item Brandings Set - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1114148978 - Field 3683951220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1114148978">
+          <source>Item Features Set</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Shipment Line - Field Item Features Set - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1114148978 - Field 906775052 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1114148978">
           <source>Needed RM Batch</source>

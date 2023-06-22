@@ -163,6 +163,18 @@ pageextension 50219 "Sales Quote Subform" extends "Sales Quote Subform"
             {
                 ApplicationArea = all;
             }
+            field("Design Sections Set"; Rec."Design Sections Set")
+            {
+                ApplicationArea = all;
+            }
+            field("Item Features Set"; Rec."Item Features Set")
+            {
+                ApplicationArea = all;
+            }
+            field("Item Brandings Set"; Rec."Item Brandings Set")
+            {
+                ApplicationArea = all;
+            }
         }
         addafter("No.")
         {
@@ -225,6 +237,7 @@ pageextension 50219 "Sales Quote Subform" extends "Sales Quote Subform"
                     trigger OnAction()
                     var
                         Management: Codeunit Management;
+                        State: Option "Start","Departments","Positions","Staff","Staff Sizes","Header Parameters 0","Header Parameters","Qty Assignment","Lines Parameters","Features Parameters","Branding Parameters";
                         SalesHeader: Record "Sales Header";
                         Options: Text[250];
                         Selected: Integer;
@@ -232,11 +245,10 @@ pageextension 50219 "Sales Quote Subform" extends "Sales Quote Subform"
                         Text001: Label 'Choose one of the following options:';
                         Process: Option "Old Way","Assignment","Just Create Variant";
                         SalesLine: Record "Sales Line";
-                        ActionName: Option "Create Line","Load Line","Refresh Line";
                     begin
                         if SalesHeader.get(Rec."Document Type", Rec."Document No.") then begin
                             SalesHeader.TestField(Status, SalesHeader.Status::Open);
-                            Management.RunTheProcess(ActionName::"Create Line", State::Start, SalesHeader, Process::"Assignment", SalesLine, '')
+                            Management.RunTheProcess(State::Start, SalesHeader, Process::"Assignment", SalesLine, '')
                         end;
                     end;
                 }
@@ -248,6 +260,7 @@ pageextension 50219 "Sales Quote Subform" extends "Sales Quote Subform"
                     trigger OnAction()
                     var
                         Management: Codeunit Management;
+                        State: Option "Start","Departments","Positions","Staff","Staff Sizes","Header Parameters 0","Header Parameters","Qty Assignment","Lines Parameters","Features Parameters","Branding Parameters";
                         SalesHeader: Record "Sales Header";
                         Options: Text[250];
                         Selected: Integer;
@@ -255,45 +268,16 @@ pageextension 50219 "Sales Quote Subform" extends "Sales Quote Subform"
                         Text001: Label 'Choose one of the following options:';
                         Process: Option "Old Way","Assignment","Just Create Variant";
                         SalesLine: Record "Sales Line";
-                        ActionName: Option "Create Line","Load Line","Refresh Line";
                     begin
                         if SalesHeader.get(Rec."Document Type", Rec."Document No.") then begin
                             SalesHeader.TestField(Status, SalesHeader.Status::Open);
                             if Rec."Parent Parameter Header ID" <> 0 then
-                                Management.RunTheProcess(ActionName::"Load Line", State::"Header Parameters", SalesHeader, Process::"Assignment", Rec, '')
+                                Management.RunTheProcess(State::"Header Parameters", SalesHeader, Process::"Assignment", Rec, '')
                             else
-                                Management.RunTheProcess(ActionName::"Create Line", State::Start, SalesHeader, Process::"Assignment", SalesLine, '');//If the user Clicked Refresh Line Without Loading the Line
+                                Management.RunTheProcess(State::Start, SalesHeader, Process::"Assignment", SalesLine, '');
                         end;
                     end;
                 }
-
-                action("Refresh Line")
-                {
-                    ApplicationArea = All;
-                    Caption = 'Refresh Line';
-                    Image = Refresh;
-                    trigger OnAction()
-                    var
-                        Management: Codeunit Management;
-                        SalesHeader: Record "Sales Header";
-                        Options: Text[250];
-                        Selected: Integer;
-                        Text000: Label 'With Staff,Without Staff,Just Create Variant';
-                        Text001: Label 'Choose one of the following options:';
-                        Process: Option "Old Way","Assignment","Just Create Variant";
-                        SalesLine: Record "Sales Line";
-                        ActionName: Option "Create Line","Load Line","Refresh Line";
-                    begin
-                        if SalesHeader.get(Rec."Document Type", Rec."Document No.") then begin
-                            SalesHeader.TestField(Status, SalesHeader.Status::Open);
-                            if Rec."Parent Parameter Header ID" <> 0 then
-                                Management.RunTheProcess(ActionName::"Refresh Line", State::"Copy Parameters", SalesHeader, Process::"Assignment", Rec, '')
-                            else
-                                Management.RunTheProcess(ActionName::"Create Line", State::Start, SalesHeader, Process::"Assignment", SalesLine, '');//If the user Clicked Refresh Line Without Loading the Line
-                        end;
-                    end;
-                }
-
                 action("Create Variant")
                 {
                     ApplicationArea = All;
@@ -306,11 +290,10 @@ pageextension 50219 "Sales Quote Subform" extends "Sales Quote Subform"
                         SalesHeader: Record "Sales Header";
                         Process: Option "Old Way","Assignment","Just Create Variant";
                         SalesLine: Record "Sales Line";
-                        ActionName: Option "Create Line","Load Line","Refresh Line";
                     begin
                         if SalesHeader.get(Rec."Document Type", Rec."Document No.") then begin
                             SalesHeader.TestField(Status, SalesHeader.Status::Open);
-                            Management.RunTheProcess(ActionName::"Create Line", State::Start, SalesHeader, Process::"Just Create Variant", SalesLine, '')
+                            Management.RunTheProcess(State::Start, SalesHeader, Process::"Just Create Variant", SalesLine, '')
                         end;
                     end;
                 }
@@ -405,5 +388,4 @@ pageextension 50219 "Sales Quote Subform" extends "Sales Quote Subform"
         TonalityCode: Code[50];
         //CurrentActivity: Text[100];
         PriceVisible: Boolean;
-        State: Option "Start","Departments","Positions","Staff","Staff Sizes","Header Parameters 0","Copy Parameters","Header Parameters","Qty Assignment","Lines Parameters","Features Parameters","Branding Parameters";
 }

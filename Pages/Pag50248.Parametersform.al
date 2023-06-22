@@ -127,7 +127,7 @@ page 50248 "Parameters Form"
                 Image = Action;
                 trigger OnAction()
                 begin
-                    UpdateParameterLinesFromSet();
+                    UpdateParameterLinesFromSet(Rec);
                 end;
             }
             action("Update BULK Parameters Lines from Set")
@@ -500,7 +500,7 @@ page 50248 "Parameters Form"
         Message('Done');
     end;
 
-    procedure UpdateParameterLinesFromSet()
+    procedure UpdateParameterLinesFromSet(var ParameterHeaderPar: Record "Parameter Header")
     var
         DesignSectionSet: Record "Design Sections Set";
         ItemFeatureSet: Record "Item Features Set";
@@ -514,7 +514,7 @@ page 50248 "Parameters Form"
         MasterItemCU: Codeunit MasterItem;
     begin
         Clear(ParameterHeader);
-        ParameterHeader.SetRange(ID, Rec.ID);
+        ParameterHeader.SetRange(ID, ParameterHeaderPar.ID);
         if ParameterHeader.FindFirst() then
             if ParameterHeader."Design Sections Set ID" <> 0 then begin
                 Clear(DesSecSetParLines);
@@ -569,7 +569,6 @@ page 50248 "Parameters Form"
                     ItemBrandParLines.Insert(true);
                 until ItemBrandingSet.Next() = 0;
         end;
-        Message('Done');
     end;
 
     var

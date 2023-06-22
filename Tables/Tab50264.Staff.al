@@ -59,4 +59,40 @@ table 50264 Staff
             Clustered = true;
         }
     }
+    trigger OnDelete()
+    var
+        StaffSizes: Record "Staff Sizes";
+        StaffMeasurements: Record "Staff Measurements";
+    begin
+        Delete_Related_StaffSizes();
+        Delete_Related_StaffMeasurements();
+    end;
+
+
+    procedure Delete_Related_StaffSizes()
+    var
+        StaffSizes: Record "Staff Sizes";
+    begin
+        StaffSizes.SetRange(StaffSizes."Staff Code", Rec.Code);
+        StaffSizes.SetRange(StaffSizes."Position Code", Rec."Position Code");
+        StaffSizes.SetRange(StaffSizes."Customer No.", Rec."Customer No.");
+        StaffSizes.SetRange(StaffSizes."Department Code", Rec."Department Code");
+        if (StaffSizes.FindSet()) then begin
+            StaffSizes.DeleteAll();
+        end;
+    end;
+
+
+    procedure Delete_Related_StaffMeasurements()
+    var
+        StaffMeasurements: Record "Staff Measurements";
+    begin
+        StaffMeasurements.SetRange(StaffMeasurements."Staff Code", Rec.Code);
+        StaffMeasurements.SetRange(StaffMeasurements."Position Code", Rec."Position Code");
+        StaffMeasurements.SetRange(StaffMeasurements."Customer No.", Rec."Customer No.");
+        StaffMeasurements.SetRange(StaffMeasurements."Department Code", Rec."Department Code");
+        if (StaffMeasurements.FindSet()) then begin
+            StaffMeasurements.DeleteAll();
+        end;
+    end;
 }

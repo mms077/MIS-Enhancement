@@ -237,10 +237,8 @@ codeunit 50201 MasterItem
         //Not found similar combination
         if (SameCombination = false)
         //Just if the loop exit before comparing them
-        and (VarianceCombination <> VarianceCombinationDesignSet) then begin
-            //DesignSectionParameterLines.SetRange("Header ID", DesignSecLinesParHeader."ID");
-            CreateNewDesignSectionSet(DesignSectionParameterLines, VarianceCombination, DesignSecLinesParHeader);
-        end
+        and (VarianceCombination <> VarianceCombinationDesignSet) then
+            CreateNewDesignSectionSet(DesignSectionParameterLines, VarianceCombination, DesignSecLinesParHeader)
         else
             if Assigned = false then begin
                 SameCombination := true;
@@ -251,7 +249,7 @@ codeunit 50201 MasterItem
     end;
 
     //Parameter passed by reference "var DesignSecParHeader" so we can modify it
-    procedure CreateNewDesignSectionSet(var DesignSecParamLines: Record "Design Section Param Lines"; var VarianceCombinationPar: Text[2048]; var DesignSecParHeader: Record "Parameter Header")
+    procedure CreateNewDesignSectionSet(DesignSecParamLines: Record "Design Section Param Lines"; VarianceCombinationPar: Text[2048]; var DesignSecParHeader: Record "Parameter Header")
     var
         DesignSectionParLines: Record "Design Section Param Lines";
         DesignSectionsSet: Record "Design Sections Set";
@@ -282,8 +280,7 @@ codeunit 50201 MasterItem
                                                              + Format(DesignSecParHeader."Design Sections Set ID") + '-'
                                                              + Format(DesignSecParHeader."Item Features Set ID") + '-'
                                                              + Format(DesignSecParHeader."Item Brandings Set ID");
-            DesignSecParHeader.MODIFY(TRUE);
-
+            DesignSecParHeader.Modify();
         end;
     end;
 
@@ -292,11 +289,8 @@ codeunit 50201 MasterItem
         ItemFeaturesParLines: Record "Item Features Param Lines";
         ItemFeaturesSet: Record "Item Features Set";
         Number: Integer;
-        DesignSecParHeaderLoc: Record "Parameter Header";
     begin
         Clear(ItemFeaturesParLines);
-        clear(DesignSecParHeaderLoc);
-        DesignSecParHeaderLoc.Get(DesignSecParHeader.ID);
         ItemFeaturesParLines.SetCurrentKey("Header ID", "Feature Name", "Value", "Color ID");
         ItemFeaturesParLines.SetRange("Header ID", ItemFeaturesParamLines."Header ID");
         if ItemFeaturesParLines.FindFirst() then begin
@@ -313,8 +307,8 @@ codeunit 50201 MasterItem
                 ItemFeaturesSet."Color Id" := ItemFeaturesParLines."Color ID";
                 ItemFeaturesSet.Insert();
             until ItemFeaturesParLines.Next() = 0;
-            DesignSecParHeaderLoc."Item Features Set ID" := ItemFeaturesSet."Item Feature Set ID";
-            DesignSecParHeaderLoc."Variance Combination Text" := DesignSecParHeader."Item Size" + '-'
+            DesignSecParHeader."Item Features Set ID" := ItemFeaturesSet."Item Feature Set ID";
+            DesignSecParHeader."Variance Combination Text" := DesignSecParHeader."Item Size" + '-'
                                                              + DesignSecParHeader."Item Fit" + '-'
                                                              + Format(DesignSecParHeader."Item Color Id") + '-'
                                                              + DesignSecParHeader."Item Cut" + '-'
@@ -322,7 +316,7 @@ codeunit 50201 MasterItem
                                                              + Format(DesignSecParHeader."Design Sections Set ID") + '-'
                                                              + Format(DesignSecParHeader."Item Features Set ID") + '-'
                                                              + Format(DesignSecParHeader."Item Brandings Set ID");
-            DesignSecParHeaderLoc.Modify();
+            DesignSecParHeader.Modify();
         end;
     end;
 
@@ -361,15 +355,10 @@ codeunit 50201 MasterItem
         end;
     end;
 
-    procedure AssignDesiSecSet(var DesignSectionParHeader: Record "Parameter Header"; Var DesignSectSet: Record "Design Sections Set"; Var VarianceCombination: Text[2048])
-    var
-        DesignSectionParHeaderLoc: Record "Parameter Header";
+    procedure AssignDesiSecSet(var DesignSectionParHeader: Record "Parameter Header"; DesignSectSet: Record "Design Sections Set"; VarianceCombination: Text[2048])
     begin
-        Clear(DesignSectionParHeaderLoc);
-        DesignSectionParHeaderLoc.Get(DesignSectionParHeader.ID);
-
-        DesignSectionParHeaderLoc."Design Sections Set ID" := DesignSectSet."Design Section Set ID";
-        DesignSectionParHeaderLoc."Variance Combination Text" := DesignSectionParHeader."Item Size" + '-'
+        DesignSectionParHeader."Design Sections Set ID" := DesignSectSet."Design Section Set ID";
+        DesignSectionParHeader."Variance Combination Text" := DesignSectionParHeader."Item Size" + '-'
                                                              + DesignSectionParHeader."Item Fit" + '-'
                                                              + Format(DesignSectionParHeader."Item Color Id") + '-'
                                                              + DesignSectionParHeader."Item Cut" + '-'
@@ -377,16 +366,13 @@ codeunit 50201 MasterItem
                                                              + Format(DesignSectionParHeader."Design Sections Set ID") + '-'
                                                              + Format(DesignSectionParHeader."Item Features Set ID") + '-'
                                                              + Format(DesignSectionParHeader."Item Brandings Set ID");
-        DesignSectionParHeaderLoc.MODIFY(TRUE);
+        DesignSectionParHeader.Modify();
     end;
 
     procedure AssignItemFeatureSet(var DesignSectionParHeader: Record "Parameter Header"; ItemFeaturesSet: Record "Item Features Set"; VarianceCombination: Text[2048])
-    var
-        DesignSectionParHeaderLoc: Record "Parameter Header";
     begin
-        DesignSectionParHeaderLoc.get(DesignSectionParHeader.ID);
-        DesignSectionParHeaderLoc."Item Features Set ID" := ItemFeaturesSet."Item Feature Set ID";
-        DesignSectionParHeaderLoc."Variance Combination Text" := DesignSectionParHeader."Item Size" + '-'
+        DesignSectionParHeader."Item Features Set ID" := ItemFeaturesSet."Item Feature Set ID";
+        DesignSectionParHeader."Variance Combination Text" := DesignSectionParHeader."Item Size" + '-'
                                                              + DesignSectionParHeader."Item Fit" + '-'
                                                              + Format(DesignSectionParHeader."Item Color Id") + '-'
                                                              + DesignSectionParHeader."Item Cut" + '-'
@@ -394,7 +380,7 @@ codeunit 50201 MasterItem
                                                              + Format(DesignSectionParHeader."Design Sections Set ID") + '-'
                                                              + Format(DesignSectionParHeader."Item Features Set ID") + '-'
                                                              + Format(DesignSectionParHeader."Item Brandings Set ID");
-        DesignSectionParHeaderLoc.Modify();
+        DesignSectionParHeader.Modify();
     end;
 
     procedure AssignItemBrandingSet(var DesignSectionParHeader: Record "Parameter Header"; ItemBrandingsSet: Record "Item Brandings Set"; VarianceCombination: Text[2048])

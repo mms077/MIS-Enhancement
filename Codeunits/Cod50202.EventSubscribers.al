@@ -689,6 +689,9 @@ codeunit 50202 EventSubscribers
     begin
         AssemblyHeader.CalcFields("Assemble to Order");
         if not AssemblyHeader."Assemble to Order" then begin
+            //Mandatory fields before creating assembly order lines
+            AssemblyHeader.TestField("Location Code");
+            AssemblyHeader.TestField(Quantity);
             CreateAssemblyOrderNeededRawMaterial(AssemblyHeader);
             IsHandled := true;
         end;

@@ -12763,6 +12763,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Assembly Order - Action Assembly Approval - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1662713252 - Action 3435572484 - Method 1377591017 - NamedType 672599587" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 1662713252">
+          <source>Dashboard Created Successfully</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Assembly Order - Action Create Dashboard - Method OnAction - NamedType Txt001</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1119230149 - NamedType 672599587" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 1119230149">
           <source>The Assembly Orders should have same Item No. to group them</source>
           <note from="Developer" annotates="general" priority="2"></note>

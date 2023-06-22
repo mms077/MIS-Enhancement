@@ -142,7 +142,12 @@ pageextension 50207 "Assembly Order" extends "Assembly Order"
                     CUManagement: Codeunit Management;
                     Txt001: Label 'Dashboard Created Successfully';
                 begin
+                    //Change Status Released
+                    Rec.TestField(Status, Rec.Status::Released);
+                    //Create Dashboard
                     CUManagement.CreateCuttingSheetDashboard(Rec, '');
+                    //Create Parameter Header for the assembly
+                    CUManagement.CreateParameterHeaderForAssembly(Rec);
                     Message(Txt001);
                 end;
             }

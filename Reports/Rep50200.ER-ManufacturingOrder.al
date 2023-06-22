@@ -713,7 +713,8 @@ report 50200 "ER - Manufacturing Order"
                     WeekNumber := 0;
                     AssembleOrderToLink.SetRange("Assembly Document Type", "Assembly Header"."Document Type");
                     AssembleOrderToLink.SetRange("Assembly Document No.", "Assembly Header"."No.");
-                    if AssembleOrderToLink.FindFirst() then
+                    if AssembleOrderToLink.FindFirst() then begin
+                        #region Assemble To Order
                         if GlobalSalesHeader.GET(AssembleOrderToLink."Document Type", AssembleOrderToLink."Document No.") then begin
                             if (GlobalSalesHeader."Order Type" = GlobalSalesHeader."Order Type"::"Re-order") or (GlobalSalesHeader."Order Type" = GlobalSalesHeader."Order Type"::"Re-order & New order") then
                                 OrderType := true
@@ -785,6 +786,19 @@ report 50200 "ER - Manufacturing Order"
                                 if GlobalICCustomerProject.Get(GlobalSalesHeader."IC Customer Project Code", GlobalSalesHeader."IC Source No.") then;
                             end;
                         end;
+                        #endregion
+                    end else begin
+                        //Assemble To Stock
+                        #region Assemble To Stock
+                        if GlobalParameters.GET("Assembly Header"."Parameters Header ID") then begin
+                            if Fit.Get(GlobalParameters."Item Fit") then;
+                            if Size.Get(GlobalParameters."Item Size") then;
+                            if Color.Get(GlobalParameters."Item Color ID") then;
+                            if Tonality.Get(GlobalParameters."Tonality Code") then;
+                            if Cut.Get(GlobalParameters."Item Cut") then;
+                        end;
+                        #endregion
+                    end;
                     Clear(GlobalItem);
                     Clear(GlobalItemCategory);
                     Clear(GlobalItemVariant);

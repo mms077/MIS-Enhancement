@@ -252,6 +252,7 @@ page 50291 "Cutting Sheet Dashboard"
 
     trigger OnOpenPage()
     begin
+        Rec.FilterGroup(2);
         Rec.SetFilter(Quantity, '>0');
         Rec.SetFilter("Assembly No.", '<>AQ*');
     end;

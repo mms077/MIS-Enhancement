@@ -25,7 +25,7 @@
                   <Width>4.12109cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.281cm</Width>
+                  <Width>1.71133cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.45216cm</Width>
@@ -40,16 +40,16 @@
                   <Width>2.45216cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.62855cm</Width>
-                </TablixColumn>
-                <TablixColumn>
                   <Width>2.45216cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.45216cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.70607cm</Width>
+                  <Width>2.45216cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.45216cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -1925,8 +1925,9 @@
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
             <Top>0.635cm</Top>
+            <Left>0cm</Left>
             <Height>2.978cm</Height>
-            <Width>28.49122cm</Width>
+            <Width>28.49125cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3760,6 +3761,7 @@
               </SortExpression>
             </SortExpressions>
             <Top>4.06492cm</Top>
+            <Left>0cm</Left>
             <Height>3cm</Height>
             <Width>28.49128cm</Width>
             <ZIndex>1</ZIndex>
@@ -3773,7 +3775,7 @@
         <Height>7.62909cm</Height>
         <Style />
       </Body>
-      <Width>28.49131cm</Width>
+      <Width>28.49128cm</Width>
       <Page>
         <PageHeader>
           <Height>4.47732cm</Height>
@@ -3785,6 +3787,8 @@
               <Value>=First(Fields!Company_Picture.Value, "DataSet_Result")</Value>
               <MIMEType>image/bmp</MIMEType>
               <Sizing>FitProportional</Sizing>
+              <Top>0cm</Top>
+              <Left>0cm</Left>
               <Height>1.11105cm</Height>
               <Width>7.43231cm</Width>
               <Style>
@@ -3845,6 +3849,8 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
+                  <Top>0cm</Top>
+                  <Left>0cm</Left>
                   <Height>0.4cm</Height>
                   <Width>7.7cm</Width>
                   <Style>
@@ -3877,6 +3883,7 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>0.854cm</Top>
+                  <Left>0cm</Left>
                   <Height>0.4cm</Height>
                   <Width>7.7cm</Width>
                   <ZIndex>1</ZIndex>
@@ -3910,6 +3917,7 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>1.2635cm</Top>
+                  <Left>0cm</Left>
                   <Height>0.4cm</Height>
                   <Width>7.7cm</Width>
                   <ZIndex>2</ZIndex>
@@ -3943,6 +3951,7 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>1.673cm</Top>
+                  <Left>0cm</Left>
                   <Height>0.4cm</Height>
                   <Width>7.7cm</Width>
                   <ZIndex>3</ZIndex>
@@ -3976,6 +3985,7 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>2.11249cm</Top>
+                  <Left>0cm</Left>
                   <Height>0.4cm</Height>
                   <Width>7.7cm</Width>
                   <ZIndex>4</ZIndex>
@@ -4009,6 +4019,7 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>2.52023cm</Top>
+                  <Left>0cm</Left>
                   <Height>0.4cm</Height>
                   <Width>7.7cm</Width>
                   <ZIndex>5</ZIndex>
@@ -4042,6 +4053,7 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>2.92797cm</Top>
+                  <Left>0cm</Left>
                   <Height>0.4cm</Height>
                   <Width>7.7cm</Width>
                   <ZIndex>6</ZIndex>
@@ -4075,6 +4087,7 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>0.42974cm</Top>
+                  <Left>0cm</Left>
                   <Height>0.4cm</Height>
                   <Width>7.7cm</Width>
                   <ZIndex>7</ZIndex>
@@ -4092,6 +4105,7 @@
               </ReportItems>
               <KeepTogether>true</KeepTogether>
               <Top>1.14935cm</Top>
+              <Left>0cm</Left>
               <Height>3.32797cm</Height>
               <Width>7.7cm</Width>
               <ZIndex>2</ZIndex>
@@ -4102,6 +4116,7 @@
               </Style>
             </Rectangle>
             <Textbox Name="Textbox72">
+              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -4113,16 +4128,14 @@
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
+                  <Style />
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.08124cm</Top>
-              <Left>13.77835cm</Left>
-              <Height>0.6cm</Height>
-              <Width>14.71296cm</Width>
+              <Top>3.04729cm</Top>
+              <Left>20.79128cm</Left>
+              <Height>0.5cm</Height>
+              <Width>7.7cm</Width>
               <ZIndex>3</ZIndex>
               <Style>
                 <Border>
@@ -4136,6 +4149,7 @@
               </Style>
             </Textbox>
             <Textbox Name="Textbox73">
+              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -4147,16 +4161,14 @@
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
+                  <Style />
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.68124cm</Top>
-              <Left>13.77826cm</Left>
-              <Height>0.6cm</Height>
-              <Width>14.71296cm</Width>
+              <Top>3.56748cm</Top>
+              <Left>20.79128cm</Left>
+              <Height>0.5cm</Height>
+              <Width>7.7cm</Width>
               <ZIndex>4</ZIndex>
               <Style>
                 <Border>
@@ -4170,6 +4182,7 @@
               </Style>
             </Textbox>
             <Textbox Name="Textbox74">
+              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -4181,54 +4194,18 @@
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
+                  <Style />
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.46807cm</Top>
-              <Left>13.77832cm</Left>
-              <Height>0.6cm</Height>
-              <Width>14.71296cm</Width>
+              <Top>2.51201cm</Top>
+              <Left>20.79128cm</Left>
+              <Height>0.5cm</Height>
+              <Width>7.7cm</Width>
               <ZIndex>5</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Fields!AccountLbl.Value="",true,false)</Hidden>
               </Visibility>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <VerticalAlign>Top</VerticalAlign>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox78">
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=First(Fields!VendorFilters.Value, "DataSet_Result")</Value>
-                      <Style>
-                        <FontFamily>Segoe UI</FontFamily>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.28124cm</Top>
-              <Left>13.77826cm</Left>
-              <Height>0.6cm</Height>
-              <Width>14.71299cm</Width>
-              <ZIndex>6</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -4267,6 +4244,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox15</rd:DefaultName>
+              <Top>0cm</Top>
               <Left>13.4747cm</Left>
               <Height>0.6cm</Height>
               <Width>2.39183cm</Width>
@@ -4462,9 +4440,6 @@ End Function
         </Field>
         <Field Name="ShowOpening">
           <DataField>ShowOpening</DataField>
-        </Field>
-        <Field Name="VendorFilters">
-          <DataField>VendorFilters</DataField>
         </Field>
         <Field Name="CurrencyCode">
           <DataField>CurrencyCode</DataField>

@@ -128,6 +128,29 @@ pageextension 50207 "Assembly Order" extends "Assembly Order"
                     Report.Run(Report::"ER - Manufacturing Order", true, true, AssemblHeader);
                 end;
             }
+            action("Create Dashboard")
+            {
+                ApplicationArea = all;
+                Image = CreateDocument;
+                Enabled = Rec."Assemble to Order" = false;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                trigger OnAction()
+                var
+                    CUManagement: Codeunit Management;
+                    Txt001: Label 'Dashboard Created Successfully';
+                begin
+                    //Change Status Released
+                    Rec.TestField(Status, Rec.Status::Released);
+                    //Create Dashboard
+                    CUManagement.CreateCuttingSheetDashboard(Rec, '');
+                    //Create Parameter Header for the assembly
+                    CUManagement.CreateParameterHeaderForAssembly(Rec);
+                    Message(Txt001);
+                end;
+            }
             action("Dashboard")
             {
                 ApplicationArea = all;

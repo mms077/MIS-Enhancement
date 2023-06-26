@@ -7,6 +7,7 @@
         <DataProvider>SQL</DataProvider>
         <ConnectString />
       </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
       <rd:DataSourceID>b2eaaacb-aac0-469f-8a80-95c14ea9d83a</rd:DataSourceID>
     </DataSource>
   </DataSources>
@@ -18,19 +19,18 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>6.30011cm</Width>
+                  <Width>9cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>9cm</Height>
+                  <Height>6.5cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
                         <Rectangle Name="Rectangle4">
                           <ReportItems>
                             <Textbox Name="Textbox21">
-                              <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
@@ -38,8 +38,8 @@
                                     <TextRun>
                                       <Value>=Fields!Item_Description.Value</Value>
                                       <Style>
-                                        <FontFamily>Gill Sans Std</FontFamily>
-                                        <FontSize>8pt</FontSize>
+                                        <FontFamily>Calibri</FontFamily>
+                                        <FontSize>9pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -49,10 +49,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox1</rd:DefaultName>
-                              <Top>0.75848cm</Top>
-                              <Left>0.00043cm</Left>
-                              <Height>0.98775cm</Height>
-                              <Width>6.29992cm</Width>
+                              <Top>0cm</Top>
+                              <Left>0cm</Left>
+                              <Height>0.9cm</Height>
+                              <Width>9cm</Width>
                               <Style>
                                 <Border>
                                   <Style>Solid</Style>
@@ -65,7 +65,6 @@
                               </Style>
                             </Textbox>
                             <Textbox Name="Textbox22">
-                              <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
@@ -73,8 +72,8 @@
                                     <TextRun>
                                       <Value EvaluationMode="Constant">SECTIONS SET</Value>
                                       <Style>
-                                        <FontFamily>Gill Sans Std</FontFamily>
-                                        <FontSize>6pt</FontSize>
+                                        <FontFamily>Calibri</FontFamily>
+                                        <FontSize>8pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                         <Color>White</Color>
                                       </Style>
@@ -86,15 +85,18 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox4</rd:DefaultName>
-                              <Top>7.19901cm</Top>
-                              <Left>0.00047cm</Left>
+                              <Top>6.05cm</Top>
+                              <Left>0cm</Left>
                               <Height>0.45cm</Height>
-                              <Width>2.09cm</Width>
+                              <Width>2cm</Width>
                               <ZIndex>1</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>Solid</Style>
                                 </Border>
+                                <LeftBorder>
+                                  <Color>White</Color>
+                                </LeftBorder>
                                 <BackgroundColor>Black</BackgroundColor>
                                 <VerticalAlign>Middle</VerticalAlign>
                                 <PaddingLeft>2pt</PaddingLeft>
@@ -104,7 +106,6 @@
                               </Style>
                             </Textbox>
                             <Textbox Name="Textbox23">
-                              <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
@@ -112,7 +113,7 @@
                                     <TextRun>
                                       <Value>=Fields!Variant_DesignSectionsSet.Value</Value>
                                       <Style>
-                                        <FontFamily>Gill Sans Std</FontFamily>
+                                        <FontFamily>Calibri</FontFamily>
                                         <FontSize>7pt</FontSize>
                                       </Style>
                                     </TextRun>
@@ -123,10 +124,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox4</rd:DefaultName>
-                              <Top>7.64901cm</Top>
-                              <Left>0.00047cm</Left>
-                              <Height>0.50619cm</Height>
-                              <Width>2.09cm</Width>
+                              <Top>6.05cm</Top>
+                              <Left>2cm</Left>
+                              <Height>0.45cm</Height>
+                              <Width>1cm</Width>
                               <ZIndex>2</ZIndex>
                               <Style>
                                 <Border>
@@ -140,7 +141,6 @@
                               </Style>
                             </Textbox>
                             <Textbox Name="Textbox24">
-                              <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
@@ -148,8 +148,8 @@
                                     <TextRun>
                                       <Value EvaluationMode="Constant">FEATURES SET</Value>
                                       <Style>
-                                        <FontFamily>Gill Sans Std</FontFamily>
-                                        <FontSize>6pt</FontSize>
+                                        <FontFamily>Calibri</FontFamily>
+                                        <FontSize>8pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                         <Color>White</Color>
                                       </Style>
@@ -161,10 +161,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox4</rd:DefaultName>
-                              <Top>7.19901cm</Top>
-                              <Left>2.09047cm</Left>
+                              <Top>6.05cm</Top>
+                              <Left>3cm</Left>
                               <Height>0.45cm</Height>
-                              <Width>2.09cm</Width>
+                              <Width>2cm</Width>
                               <ZIndex>3</ZIndex>
                               <Style>
                                 <Border>
@@ -182,7 +182,6 @@
                               </Style>
                             </Textbox>
                             <Textbox Name="Textbox25">
-                              <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
@@ -190,7 +189,7 @@
                                     <TextRun>
                                       <Value>=Fields!Variant_ItemFeaturesSet.Value</Value>
                                       <Style>
-                                        <FontFamily>Gill Sans Std</FontFamily>
+                                        <FontFamily>Calibri</FontFamily>
                                         <FontSize>7pt</FontSize>
                                       </Style>
                                     </TextRun>
@@ -201,10 +200,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox4</rd:DefaultName>
-                              <Top>7.64901cm</Top>
-                              <Left>2.09047cm</Left>
-                              <Height>0.50619cm</Height>
-                              <Width>2.09cm</Width>
+                              <Top>6.05cm</Top>
+                              <Left>5cm</Left>
+                              <Height>0.45cm</Height>
+                              <Width>1cm</Width>
                               <ZIndex>4</ZIndex>
                               <Style>
                                 <Border>
@@ -218,7 +217,6 @@
                               </Style>
                             </Textbox>
                             <Textbox Name="Textbox26">
-                              <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
@@ -226,8 +224,8 @@
                                     <TextRun>
                                       <Value EvaluationMode="Constant">BRANDING SET</Value>
                                       <Style>
-                                        <FontFamily>Gill Sans Std</FontFamily>
-                                        <FontSize>6pt</FontSize>
+                                        <FontFamily>Calibri</FontFamily>
+                                        <FontSize>8pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                         <Color>White</Color>
                                       </Style>
@@ -239,10 +237,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox4</rd:DefaultName>
-                              <Top>7.19901cm</Top>
-                              <Left>4.18047cm</Left>
+                              <Top>6.05cm</Top>
+                              <Left>6cm</Left>
                               <Height>0.45cm</Height>
-                              <Width>2.11997cm</Width>
+                              <Width>2cm</Width>
                               <ZIndex>5</ZIndex>
                               <Style>
                                 <Border>
@@ -260,7 +258,6 @@
                               </Style>
                             </Textbox>
                             <Textbox Name="Textbox27">
-                              <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
@@ -268,7 +265,7 @@
                                     <TextRun>
                                       <Value>=Fields!Variant_ItemBrandingsSet.Value</Value>
                                       <Style>
-                                        <FontFamily>Gill Sans Std</FontFamily>
+                                        <FontFamily>Calibri</FontFamily>
                                         <FontSize>7pt</FontSize>
                                       </Style>
                                     </TextRun>
@@ -279,10 +276,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox4</rd:DefaultName>
-                              <Top>7.64901cm</Top>
-                              <Left>4.18047cm</Left>
-                              <Height>0.50619cm</Height>
-                              <Width>2.11997cm</Width>
+                              <Top>6.05cm</Top>
+                              <Left>8cm</Left>
+                              <Height>0.45cm</Height>
+                              <Width>1cm</Width>
                               <ZIndex>6</ZIndex>
                               <Style>
                                 <Border>
@@ -296,7 +293,6 @@
                               </Style>
                             </Textbox>
                             <Textbox Name="Textbox28">
-                              <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
@@ -304,7 +300,8 @@
                                     <TextRun>
                                       <Value>=Fields!EANEncodedText.Value</Value>
                                       <Style>
-                                        <FontFamily>IDAutomationC39M</FontFamily>
+                                        <FontFamily>IDAutomationHC39S</FontFamily>
+                                        <FontSize>11pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -314,10 +311,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox8</rd:DefaultName>
-                              <Top>4.44623cm</Top>
-                              <Left>0.00054cm</Left>
-                              <Height>1cm</Height>
-                              <Width>6.29997cm</Width>
+                              <Top>3.6cm</Top>
+                              <Left>0cm</Left>
+                              <Height>1.2cm</Height>
+                              <Width>9cm</Width>
                               <ZIndex>7</ZIndex>
                               <Style>
                                 <Border>
@@ -329,20 +326,20 @@
                                 <VerticalAlign>Bottom</VerticalAlign>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
+                                <PaddingTop>1pt</PaddingTop>
+                                <PaddingBottom>1pt</PaddingBottom>
                               </Style>
                             </Textbox>
                             <Textbox Name="Textbox29">
-                              <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>="*" + Fields!UniqueCode.Value +  "*"</Value>
+                                      <Value>=Fields!UniqueCodeBarcode.Value</Value>
                                       <Style>
-                                        <FontFamily>IDAutomationC39M</FontFamily>
+                                        <FontFamily>IDAutomationHC39S</FontFamily>
+                                        <FontSize>11pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -352,10 +349,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox8</rd:DefaultName>
-                              <Top>5.82262cm</Top>
-                              <Left>0.00052cm</Left>
-                              <Height>1cm</Height>
-                              <Width>6.29997cm</Width>
+                              <Top>4.8cm</Top>
+                              <Left>0cm</Left>
+                              <Height>1.25cm</Height>
+                              <Width>9cm</Width>
                               <ZIndex>8</ZIndex>
                               <Style>
                                 <Border>
@@ -367,12 +364,11 @@
                                 <VerticalAlign>Bottom</VerticalAlign>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
+                                <PaddingTop>1pt</PaddingTop>
+                                <PaddingBottom>1.75pt</PaddingBottom>
                               </Style>
                             </Textbox>
                             <Textbox Name="Textbox30">
-                              <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
@@ -380,8 +376,8 @@
                                     <TextRun>
                                       <Value>Allocation</Value>
                                       <Style>
-                                        <FontFamily>Gill Sans Std</FontFamily>
-                                        <FontSize>6pt</FontSize>
+                                        <FontFamily>Calibri</FontFamily>
+                                        <FontSize>8pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                         <Color>White</Color>
                                       </Style>
@@ -393,15 +389,18 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox1</rd:DefaultName>
-                              <Top>1.74623cm</Top>
-                              <Left>0.00043cm</Left>
+                              <Top>0.9cm</Top>
+                              <Left>0cm</Left>
                               <Height>0.45cm</Height>
-                              <Width>1.33858cm</Width>
+                              <Width>1.425cm</Width>
                               <ZIndex>9</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>Solid</Style>
                                 </Border>
+                                <TopBorder>
+                                  <Color>White</Color>
+                                </TopBorder>
                                 <BottomBorder>
                                   <Color>White</Color>
                                 </BottomBorder>
@@ -414,7 +413,6 @@
                               </Style>
                             </Textbox>
                             <Textbox Name="Textbox31">
-                              <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
@@ -422,8 +420,8 @@
                                     <TextRun>
                                       <Value EvaluationMode="Constant">Customer</Value>
                                       <Style>
-                                        <FontFamily>Gill Sans Std</FontFamily>
-                                        <FontSize>6pt</FontSize>
+                                        <FontFamily>Calibri</FontFamily>
+                                        <FontSize>8pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                         <Color>White</Color>
                                       </Style>
@@ -435,10 +433,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox1</rd:DefaultName>
-                              <Top>2.19623cm</Top>
-                              <Left>0.00043cm</Left>
+                              <Top>1.35cm</Top>
+                              <Left>0cm</Left>
                               <Height>0.45cm</Height>
-                              <Width>1.33858cm</Width>
+                              <Width>1.425cm</Width>
                               <ZIndex>10</ZIndex>
                               <Style>
                                 <Border>
@@ -459,7 +457,6 @@
                               </Style>
                             </Textbox>
                             <Textbox Name="Textbox32">
-                              <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
@@ -467,8 +464,8 @@
                                     <TextRun>
                                       <Value>Project</Value>
                                       <Style>
-                                        <FontFamily>Gill Sans Std</FontFamily>
-                                        <FontSize>6pt</FontSize>
+                                        <FontFamily>Calibri</FontFamily>
+                                        <FontSize>8pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                         <Color>White</Color>
                                       </Style>
@@ -480,10 +477,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox1</rd:DefaultName>
-                              <Top>2.64623cm</Top>
-                              <Left>0.00043cm</Left>
+                              <Top>1.8cm</Top>
+                              <Left>0cm</Left>
                               <Height>0.45cm</Height>
-                              <Width>1.33858cm</Width>
+                              <Width>1.425cm</Width>
                               <ZIndex>11</ZIndex>
                               <Style>
                                 <Border>
@@ -499,48 +496,11 @@
                                 <VerticalAlign>Middle</VerticalAlign>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
-                              </Style>
-                            </Textbox>
-                            <Textbox Name="Variant_ItemSize7">
-                              <CanGrow>true</CanGrow>
-                              <KeepTogether>true</KeepTogether>
-                              <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value>=Fields!Variant_ColorName.Value</Value>
-                                      <Style>
-                                        <FontFamily>Gill Sans Std</FontFamily>
-                                        <FontSize>7pt</FontSize>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style>
-                                    <TextAlign>Center</TextAlign>
-                                  </Style>
-                                </Paragraph>
-                              </Paragraphs>
-                              <rd:DefaultName>Variant_ItemSize</rd:DefaultName>
-                              <Top>3.54623cm</Top>
-                              <Left>1.33901cm</Left>
-                              <Height>0.45cm</Height>
-                              <Width>2.97517cm</Width>
-                              <ZIndex>12</ZIndex>
-                              <Style>
-                                <Border>
-                                  <Style>Solid</Style>
-                                </Border>
-                                <VerticalAlign>Middle</VerticalAlign>
-                                <PaddingLeft>2pt</PaddingLeft>
-                                <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
+                                <PaddingTop>1pt</PaddingTop>
+                                <PaddingBottom>1pt</PaddingBottom>
                               </Style>
                             </Textbox>
                             <Textbox Name="Textbox34">
-                              <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
@@ -548,8 +508,8 @@
                                     <TextRun>
                                       <Value>Color</Value>
                                       <Style>
-                                        <FontFamily>Gill Sans Std</FontFamily>
-                                        <FontSize>6pt</FontSize>
+                                        <FontFamily>Calibri</FontFamily>
+                                        <FontSize>8pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                         <Color>White</Color>
                                       </Style>
@@ -561,11 +521,11 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox1</rd:DefaultName>
-                              <Top>3.54623cm</Top>
-                              <Left>0.00043cm</Left>
+                              <Top>2.7cm</Top>
+                              <Left>0cm</Left>
                               <Height>0.45cm</Height>
-                              <Width>1.33858cm</Width>
-                              <ZIndex>13</ZIndex>
+                              <Width>1.425cm</Width>
+                              <ZIndex>12</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>Solid</Style>
@@ -585,7 +545,6 @@
                               </Style>
                             </Textbox>
                             <Textbox Name="Textbox35">
-                              <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
@@ -593,6 +552,7 @@
                                     <TextRun>
                                       <Value EvaluationMode="Constant" />
                                       <Style>
+                                        <FontFamily>Calibri</FontFamily>
                                         <FontSize>7pt</FontSize>
                                       </Style>
                                     </TextRun>
@@ -603,11 +563,11 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox5</rd:DefaultName>
-                              <Top>1.74623cm</Top>
-                              <Left>1.33901cm</Left>
+                              <Top>0.9cm</Top>
+                              <Left>1.425cm</Left>
                               <Height>0.45cm</Height>
-                              <Width>4.96139cm</Width>
-                              <ZIndex>14</ZIndex>
+                              <Width>7.575cm</Width>
+                              <ZIndex>13</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>Solid</Style>
@@ -620,7 +580,6 @@
                               </Style>
                             </Textbox>
                             <Textbox Name="SalesLine_CustomerName">
-                              <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
@@ -628,6 +587,7 @@
                                     <TextRun>
                                       <Value EvaluationMode="Constant" />
                                       <Style>
+                                        <FontFamily>Calibri</FontFamily>
                                         <FontSize>7pt</FontSize>
                                       </Style>
                                     </TextRun>
@@ -638,11 +598,11 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>SalesLine_CustomerName</rd:DefaultName>
-                              <Top>2.19623cm</Top>
-                              <Left>1.33901cm</Left>
+                              <Top>1.35cm</Top>
+                              <Left>1.425cm</Left>
                               <Height>0.45cm</Height>
-                              <Width>4.96139cm</Width>
-                              <ZIndex>15</ZIndex>
+                              <Width>7.575cm</Width>
+                              <ZIndex>14</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>Solid</Style>
@@ -655,7 +615,6 @@
                               </Style>
                             </Textbox>
                             <Textbox Name="Textbox36">
-                              <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
@@ -663,6 +622,7 @@
                                     <TextRun>
                                       <Value />
                                       <Style>
+                                        <FontFamily>Calibri</FontFamily>
                                         <FontSize>8pt</FontSize>
                                       </Style>
                                     </TextRun>
@@ -673,11 +633,11 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox5</rd:DefaultName>
-                              <Top>2.64623cm</Top>
-                              <Left>1.33901cm</Left>
+                              <Top>1.8cm</Top>
+                              <Left>1.425cm</Left>
                               <Height>0.45cm</Height>
-                              <Width>2.97517cm</Width>
-                              <ZIndex>16</ZIndex>
+                              <Width>4.925cm</Width>
+                              <ZIndex>15</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>Solid</Style>
@@ -690,7 +650,6 @@
                               </Style>
                             </Textbox>
                             <Textbox Name="Textbox38">
-                              <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
@@ -698,8 +657,8 @@
                                     <TextRun>
                                       <Value EvaluationMode="Constant">Fit</Value>
                                       <Style>
-                                        <FontFamily>Gill Sans Std</FontFamily>
-                                        <FontSize>6pt</FontSize>
+                                        <FontFamily>Calibri</FontFamily>
+                                        <FontSize>8pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                         <Color>White</Color>
                                       </Style>
@@ -711,11 +670,11 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox1</rd:DefaultName>
-                              <Top>3.99623cm</Top>
-                              <Left>0.00043cm</Left>
+                              <Top>3.15cm</Top>
+                              <Left>0cm</Left>
                               <Height>0.45cm</Height>
-                              <Width>1.33858cm</Width>
-                              <ZIndex>17</ZIndex>
+                              <Width>1.425cm</Width>
+                              <ZIndex>16</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>Solid</Style>
@@ -732,7 +691,6 @@
                               </Style>
                             </Textbox>
                             <Textbox Name="Textbox39">
-                              <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
@@ -740,8 +698,8 @@
                                     <TextRun>
                                       <Value EvaluationMode="Constant">Cut</Value>
                                       <Style>
-                                        <FontFamily>Gill Sans Std</FontFamily>
-                                        <FontSize>6pt</FontSize>
+                                        <FontFamily>Calibri</FontFamily>
+                                        <FontSize>8pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                         <Color>White</Color>
                                       </Style>
@@ -753,164 +711,11 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox1</rd:DefaultName>
-                              <Top>3.99623cm</Top>
-                              <Left>3.18021cm</Left>
+                              <Top>3.15cm</Top>
+                              <Left>4.5cm</Left>
                               <Height>0.45cm</Height>
-                              <Width>0.67007cm</Width>
-                              <ZIndex>18</ZIndex>
-                              <Style>
-                                <Border>
-                                  <Style>Solid</Style>
-                                </Border>
-                                <BackgroundColor>Black</BackgroundColor>
-                                <VerticalAlign>Middle</VerticalAlign>
-                                <PaddingLeft>2pt</PaddingLeft>
-                                <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
-                              </Style>
-                            </Textbox>
-                            <Textbox Name="Textbox40">
-                              <CanGrow>true</CanGrow>
-                              <KeepTogether>true</KeepTogether>
-                              <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value EvaluationMode="Constant">Size</Value>
-                                      <Style>
-                                        <FontFamily>Gill Sans Std</FontFamily>
-                                        <FontSize>7pt</FontSize>
-                                        <FontWeight>Bold</FontWeight>
-                                        <Color>White</Color>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style>
-                                    <TextAlign>Center</TextAlign>
-                                  </Style>
-                                </Paragraph>
-                              </Paragraphs>
-                              <rd:DefaultName>Textbox1</rd:DefaultName>
-                              <Top>2.64623cm</Top>
-                              <Left>4.31418cm</Left>
-                              <Height>0.9cm</Height>
-                              <Width>0.67006cm</Width>
-                              <ZIndex>19</ZIndex>
-                              <Style>
-                                <Border>
-                                  <Style>Solid</Style>
-                                </Border>
-                                <BottomBorder>
-                                  <Color>White</Color>
-                                </BottomBorder>
-                                <BackgroundColor>Black</BackgroundColor>
-                                <VerticalAlign>Middle</VerticalAlign>
-                                <PaddingLeft>2pt</PaddingLeft>
-                                <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
-                                <WritingMode>Rotate270</WritingMode>
-                              </Style>
-                            </Textbox>
-                            <Textbox Name="Textbox41">
-                              <CanGrow>true</CanGrow>
-                              <KeepTogether>true</KeepTogether>
-                              <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value>=Fields!Variant_ItemSize.Value</Value>
-                                      <Style>
-                                        <FontFamily>Gill Sans Std</FontFamily>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style>
-                                    <TextAlign>Center</TextAlign>
-                                  </Style>
-                                </Paragraph>
-                              </Paragraphs>
-                              <rd:DefaultName>Textbox1</rd:DefaultName>
-                              <Top>2.64623cm</Top>
-                              <Left>4.98424cm</Left>
-                              <Height>0.9cm</Height>
-                              <Width>1.31616cm</Width>
-                              <ZIndex>20</ZIndex>
-                              <Style>
-                                <Border>
-                                  <Style>Solid</Style>
-                                </Border>
-                                <VerticalAlign>Middle</VerticalAlign>
-                                <PaddingLeft>2pt</PaddingLeft>
-                                <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
-                              </Style>
-                            </Textbox>
-                            <Textbox Name="Variant_ItemSize4">
-                              <CanGrow>true</CanGrow>
-                              <KeepTogether>true</KeepTogether>
-                              <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value>=Fields!Variant_ItemCut.Value</Value>
-                                      <Style>
-                                        <FontFamily>Gill Sans Std</FontFamily>
-                                        <FontSize>7pt</FontSize>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style>
-                                    <TextAlign>Center</TextAlign>
-                                  </Style>
-                                </Paragraph>
-                              </Paragraphs>
-                              <rd:DefaultName>Variant_ItemSize</rd:DefaultName>
-                              <Top>3.99623cm</Top>
-                              <Left>3.85028cm</Left>
-                              <Height>0.45cm</Height>
-                              <Width>2.45012cm</Width>
-                              <ZIndex>21</ZIndex>
-                              <Style>
-                                <Border>
-                                  <Style>Solid</Style>
-                                </Border>
-                                <VerticalAlign>Middle</VerticalAlign>
-                                <PaddingLeft>2pt</PaddingLeft>
-                                <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
-                              </Style>
-                            </Textbox>
-                            <Textbox Name="Textbox42">
-                              <CanGrow>true</CanGrow>
-                              <KeepTogether>true</KeepTogether>
-                              <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value EvaluationMode="Constant">Ton.</Value>
-                                      <Style>
-                                        <FontFamily>Gill Sans Std</FontFamily>
-                                        <FontSize>6pt</FontSize>
-                                        <FontWeight>Bold</FontWeight>
-                                        <Color>White</Color>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style>
-                                    <TextAlign>Left</TextAlign>
-                                  </Style>
-                                </Paragraph>
-                              </Paragraphs>
-                              <rd:DefaultName>Textbox1</rd:DefaultName>
-                              <Top>3.54984cm</Top>
-                              <Left>4.31418cm</Left>
-                              <Height>0.45cm</Height>
-                              <Width>0.67007cm</Width>
-                              <ZIndex>22</ZIndex>
+                              <Width>0.65cm</Width>
+                              <ZIndex>17</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>Solid</Style>
@@ -926,16 +731,49 @@
                                 <PaddingBottom>2pt</PaddingBottom>
                               </Style>
                             </Textbox>
-                            <Textbox Name="Variant_ItemSize8">
-                              <CanGrow>true</CanGrow>
+                            <Textbox Name="Textbox41">
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=Fields!Variant_Tonality.Value</Value>
+                                      <Value>=Fields!Variant_ItemSize.Value</Value>
                                       <Style>
-                                        <FontFamily>Gill Sans Std</FontFamily>
+                                        <FontFamily>Calibri</FontFamily>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Center</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox1</rd:DefaultName>
+                              <Top>1.8cm</Top>
+                              <Left>7cm</Left>
+                              <Height>0.9cm</Height>
+                              <Width>2cm</Width>
+                              <ZIndex>18</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>Solid</Style>
+                                </Border>
+                                <VerticalAlign>Middle</VerticalAlign>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="Variant_ItemSize4">
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!Variant_ItemCut.Value</Value>
+                                      <Style>
+                                        <FontFamily>Calibri</FontFamily>
                                         <FontSize>7pt</FontSize>
                                       </Style>
                                     </TextRun>
@@ -946,11 +784,87 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Variant_ItemSize</rd:DefaultName>
-                              <Top>3.55345cm</Top>
-                              <Left>4.98425cm</Left>
-                              <Height>0.44639cm</Height>
-                              <Width>1.31615cm</Width>
-                              <ZIndex>23</ZIndex>
+                              <Top>3.15cm</Top>
+                              <Left>5.15cm</Left>
+                              <Height>0.45cm</Height>
+                              <Width>3.85cm</Width>
+                              <ZIndex>19</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>Solid</Style>
+                                </Border>
+                                <VerticalAlign>Middle</VerticalAlign>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="Textbox42">
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>Tonality</Value>
+                                      <Style>
+                                        <FontFamily>Calibri</FontFamily>
+                                        <FontSize>8pt</FontSize>
+                                        <FontWeight>Bold</FontWeight>
+                                        <Color>White</Color>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Left</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox1</rd:DefaultName>
+                              <Top>2.7cm</Top>
+                              <Left>5.82361cm</Left>
+                              <Height>0.45cm</Height>
+                              <Width>1.17639cm</Width>
+                              <ZIndex>20</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>Solid</Style>
+                                </Border>
+                                <TopBorder>
+                                  <Color>Black</Color>
+                                </TopBorder>
+                                <BackgroundColor>Black</BackgroundColor>
+                                <VerticalAlign>Middle</VerticalAlign>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="Variant_ItemSize8">
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!Variant_Tonality.Value</Value>
+                                      <Style>
+                                        <FontFamily>Calibri</FontFamily>
+                                        <FontSize>7pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Center</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Variant_ItemSize</rd:DefaultName>
+                              <Top>2.7cm</Top>
+                              <Left>7cm</Left>
+                              <Height>0.45cm</Height>
+                              <Width>2cm</Width>
+                              <ZIndex>21</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>Solid</Style>
@@ -963,7 +877,6 @@
                               </Style>
                             </Textbox>
                             <Textbox Name="Variant_ItemSize9">
-                              <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
@@ -971,7 +884,7 @@
                                     <TextRun>
                                       <Value>=Fields!Variant_ItemFit.Value</Value>
                                       <Style>
-                                        <FontFamily>Gill Sans Std</FontFamily>
+                                        <FontFamily>Calibri</FontFamily>
                                         <FontSize>7pt</FontSize>
                                       </Style>
                                     </TextRun>
@@ -982,11 +895,11 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Variant_ItemSize</rd:DefaultName>
-                              <Top>3.99623cm</Top>
-                              <Left>1.33901cm</Left>
-                              <Height>0.44639cm</Height>
-                              <Width>1.8412cm</Width>
-                              <ZIndex>24</ZIndex>
+                              <Top>3.15cm</Top>
+                              <Left>1.425cm</Left>
+                              <Height>0.45cm</Height>
+                              <Width>3.075cm</Width>
+                              <ZIndex>22</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>Solid</Style>
@@ -999,7 +912,6 @@
                               </Style>
                             </Textbox>
                             <Textbox Name="Textbox43">
-                              <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
@@ -1007,8 +919,8 @@
                                     <TextRun>
                                       <Value>UOM</Value>
                                       <Style>
-                                        <FontFamily>Gill Sans Std</FontFamily>
-                                        <FontSize>6pt</FontSize>
+                                        <FontFamily>Calibri</FontFamily>
+                                        <FontSize>8pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                         <Color>White</Color>
                                       </Style>
@@ -1020,11 +932,11 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox1</rd:DefaultName>
-                              <Top>3.09623cm</Top>
-                              <Left>0.00043cm</Left>
+                              <Top>2.25cm</Top>
+                              <Left>0cm</Left>
                               <Height>0.45cm</Height>
-                              <Width>1.33858cm</Width>
-                              <ZIndex>25</ZIndex>
+                              <Width>1.425cm</Width>
+                              <ZIndex>23</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>Solid</Style>
@@ -1044,7 +956,6 @@
                               </Style>
                             </Textbox>
                             <Textbox Name="Textbox44">
-                              <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
@@ -1052,7 +963,7 @@
                                     <TextRun>
                                       <Value>=Fields!UnitofMeasure.Value</Value>
                                       <Style>
-                                        <FontFamily>Gill Sans Std</FontFamily>
+                                        <FontFamily>Calibri</FontFamily>
                                         <FontSize>7pt</FontSize>
                                       </Style>
                                     </TextRun>
@@ -1063,11 +974,11 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox1</rd:DefaultName>
-                              <Top>3.09623cm</Top>
-                              <Left>1.33901cm</Left>
+                              <Top>2.25cm</Top>
+                              <Left>1.425cm</Left>
                               <Height>0.45cm</Height>
-                              <Width>2.97517cm</Width>
-                              <ZIndex>26</ZIndex>
+                              <Width>4.925cm</Width>
+                              <ZIndex>24</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>Solid</Style>
@@ -1079,17 +990,16 @@
                                 <PaddingBottom>2pt</PaddingBottom>
                               </Style>
                             </Textbox>
-                            <Textbox Name="Textbox1">
-                              <CanGrow>true</CanGrow>
+                            <Textbox Name="Variant_ItemSize7">
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=Fields!EAN_Number.Value</Value>
+                                      <Value>=Fields!Variant_ColorName.Value</Value>
                                       <Style>
-                                        <FontFamily>OCR A Extended</FontFamily>
-                                        <FontSize>8pt</FontSize>
+                                        <FontFamily>Calibri</FontFamily>
+                                        <FontSize>7pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -1098,46 +1008,35 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <rd:DefaultName>Textbox1</rd:DefaultName>
-                              <Top>5.44623cm</Top>
-                              <Left>0.00054cm</Left>
-                              <Height>0.37639cm</Height>
-                              <Width>6.29995cm</Width>
-                              <ZIndex>27</ZIndex>
+                              <rd:DefaultName>Variant_ItemSize</rd:DefaultName>
+                              <Top>2.7cm</Top>
+                              <Left>1.425cm</Left>
+                              <Height>0.45cm</Height>
+                              <Width>4.39861cm</Width>
+                              <ZIndex>25</ZIndex>
                               <Style>
                                 <Border>
-                                  <Style>None</Style>
+                                  <Style>Solid</Style>
                                 </Border>
-                                <TopBorder>
-                                  <Style>None</Style>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Style>Solid</Style>
-                                </BottomBorder>
-                                <LeftBorder>
-                                  <Style>Solid</Style>
-                                </LeftBorder>
-                                <RightBorder>
-                                  <Style>Solid</Style>
-                                </RightBorder>
-                                <VerticalAlign>Top</VerticalAlign>
+                                <VerticalAlign>Middle</VerticalAlign>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
                                 <PaddingBottom>2pt</PaddingBottom>
                               </Style>
                             </Textbox>
-                            <Textbox Name="Textbox2">
-                              <CanGrow>true</CanGrow>
+                            <Textbox Name="Textbox40">
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=Fields!UniqueCode.Value</Value>
+                                      <Value EvaluationMode="Constant">Size</Value>
                                       <Style>
-                                        <FontFamily>OCR A Extended</FontFamily>
+                                        <FontFamily>Gill Sans Std</FontFamily>
                                         <FontSize>8pt</FontSize>
+                                        <FontWeight>Bold</FontWeight>
+                                        <Color>White</Color>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -1147,32 +1046,28 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox1</rd:DefaultName>
-                              <Top>6.82262cm</Top>
-                              <Left>0.00052cm</Left>
-                              <Height>0.37639cm</Height>
-                              <Width>6.29995cm</Width>
-                              <ZIndex>28</ZIndex>
+                              <Top>1.8cm</Top>
+                              <Left>6.35cm</Left>
+                              <Height>0.9cm</Height>
+                              <Width>0.65cm</Width>
+                              <ZIndex>26</ZIndex>
                               <Style>
                                 <Border>
-                                  <Style>None</Style>
+                                  <Style>Solid</Style>
                                 </Border>
                                 <TopBorder>
-                                  <Style>None</Style>
+                                  <Color>White</Color>
                                 </TopBorder>
                                 <BottomBorder>
-                                  <Style>Solid</Style>
+                                  <Color>White</Color>
                                 </BottomBorder>
-                                <LeftBorder>
-                                  <Style>Solid</Style>
-                                </LeftBorder>
-                                <RightBorder>
-                                  <Style>Solid</Style>
-                                </RightBorder>
-                                <VerticalAlign>Top</VerticalAlign>
+                                <BackgroundColor>Black</BackgroundColor>
+                                <VerticalAlign>Middle</VerticalAlign>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
                                 <PaddingBottom>2pt</PaddingBottom>
+                                <WritingMode>Rotate270</WritingMode>
                               </Style>
                             </Textbox>
                           </ReportItems>
@@ -1183,7 +1078,6 @@
                             </Border>
                           </Style>
                         </Rectangle>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -1213,8 +1107,8 @@
             <DataSetName>DataSet_Result</DataSetName>
             <Top>0cm</Top>
             <Left>0cm</Left>
-            <Height>9cm</Height>
-            <Width>6.30011cm</Width>
+            <Height>6.5cm</Height>
+            <Width>9cm</Width>
             <Style>
               <Border>
                 <Color>White</Color>
@@ -1235,16 +1129,19 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>9cm</Height>
+        <Height>6.5cm</Height>
         <Style />
       </Body>
-      <Width>6.30011cm</Width>
+      <Width>9cm</Width>
       <Page>
-        <PageHeight>9.4cm</PageHeight>
-        <PageWidth>6.8cm</PageWidth>
-        <RightMargin>0.4cm</RightMargin>
-        <TopMargin>0.2cm</TopMargin>
-        <BottomMargin>0.2cm</BottomMargin>
+        <PageHeight>6.7cm</PageHeight>
+        <PageWidth>9.4cm</PageWidth>
+        <InteractiveHeight>6.5cm</InteractiveHeight>
+        <InteractiveWidth>9cm</InteractiveWidth>
+        <LeftMargin>0.2cm</LeftMargin>
+        <RightMargin>0.2cm</RightMargin>
+        <TopMargin>0.1cm</TopMargin>
+        <BottomMargin>0.1cm</BottomMargin>
         <ColumnSpacing>1.27cm</ColumnSpacing>
         <Style />
       </Page>
@@ -1315,6 +1212,9 @@ End Function
         </Field>
         <Field Name="EANEncodedText">
           <DataField>EANEncodedText</DataField>
+        </Field>
+        <Field Name="UniqueCodeBarcode">
+          <DataField>UniqueCodeBarcode</DataField>
         </Field>
         <Field Name="Item_Description">
           <DataField>Item_Description</DataField>

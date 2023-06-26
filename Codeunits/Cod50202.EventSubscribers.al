@@ -683,6 +683,71 @@ codeunit 50202 EventSubscribers
                 ManagementCU.CreateAssemblyOrder(NeededRawMaterial, ParameterHeader, ParameterHeader);
         end;
     end;
+
+    [EventSubscriber(ObjectType::Table, database::"Assembly Header", 'OnValidateVariantCodeOnBeforeUpdateAssemblyLines', '', false, false)]
+    local procedure OnValidateVariantCodeOnBeforeUpdateAssemblyLines(var AssemblyHeader: Record "Assembly Header"; xAssemblyHeader: Record "Assembly Header"; CurrentFieldNo: Integer; CurrentFieldNum: Integer; var IsHandled: Boolean)
+    begin
+        AssemblyHeader.CalcFields("Assemble to Order");
+        if not AssemblyHeader."Assemble to Order" then begin
+            //Mandatory fields before creating assembly order lines
+            AssemblyHeader.TestField("Location Code");
+            AssemblyHeader.TestField(Quantity);
+            CreateAssemblyOrderNeededRawMaterial(AssemblyHeader);
+            IsHandled := true;
+        end;
+    end;
+
+    procedure CreateAssemblyOrderNeededRawMaterial(var AssemblyHeaderPar: Record "Assembly Header")
+    var
+        ItemVariantLoc: Record "Item Variant";
+        Txt001: Label 'No related raw materials found for this item and variant';
+        PostedAssemblyHeader: Record "Posted Assembly Header";
+        PostedAssemblyLine: Record "Posted Assembly Line";
+        AssemblyLine: Record "Assembly Line";
+        QtyRate: Decimal;
+    begin
+        //Delete old lines
+        Clear(AssemblyLine);
+        AssemblyLine.SetRange("Document Type", AssemblyHeaderPar."Document Type");
+        AssemblyLine.SetRange("Document No.", AssemblyHeaderPar."No.");
+        if AssemblyLine.FindSet() then
+            AssemblyLine.DeleteAll(true);
+
+        //Create new lines
+        Clear(ItemVariantLoc);
+        if ItemVariantLoc.Get(AssemblyHeaderPar."Item No.", AssemblyHeaderPar."Variant Code") then begin
+            Clear(PostedAssemblyHeader);
+            PostedAssemblyHeader.SetRange("Item No.", ItemVariantLoc."Item No.");
+            PostedAssemblyHeader.SetRange("Variant Code", ItemVariantLoc."Code");
+            if PostedAssemblyHeader.FindLast() then begin
+                Clear(PostedAssemblyLine);
+                PostedAssemblyLine.SetRange("Document No.", PostedAssemblyHeader."No.");
+                if PostedAssemblyLine.FindSet() then
+                    repeat
+                        #region[Create Assembly Line]
+                        Clear(AssemblyLine);
+                        AssemblyLine.Init();
+                        AssemblyLine."Document Type" := AssemblyHeaderPar."Document Type";
+                        AssemblyLine."Document No." := AssemblyHeaderPar."No.";
+                        AssemblyLine."Line No." := PostedAssemblyLine."Line No.";
+                        AssemblyLine.Validate(Type, PostedAssemblyLine.Type);
+                        AssemblyLine.Validate("No.", PostedAssemblyLine."No.");
+                        //Raw Material Variant Code
+                        AssemblyLine.Validate("Variant Code", PostedAssemblyLine."Variant Code");
+                        AssemblyLine.Validate("Location Code", AssemblyHeaderPar."Location Code");
+                        //Calculate Quantity Rate
+                        AssemblyLine.Validate("Quantity Per", PostedAssemblyLine."Quantity per");
+                        AssemblyLine.Validate("Quantity", PostedAssemblyLine."Quantity per" * AssemblyHeaderPar.Quantity);
+                        AssemblyLine.Validate("Unit of Measure Code", PostedAssemblyLine."Unit of Measure Code");
+                        AssemblyLine.Validate(Reserve, AssemblyLine.Reserve::Always);
+                        AssemblyLine.Insert(true);
+                        AssemblyLine.AutoReserve();
+                    #endregion[Create Assembly Line]   
+                    until PostedAssemblyLine.Next() = 0;
+            end else
+                Message(Txt001);
+        end;
+    end;
     #endregion
     #region [Journal]
     //TODO

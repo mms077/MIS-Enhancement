@@ -6,7 +6,7 @@
             "request": "launch",
             "type": "al",
             "environmentType": "Sandbox",
-            "environmentName": "Copy_140623",
+            "environmentName": "WMS_140623",
             "startupObjectId": 902,
             "startupObjectType": "Page",
             "breakOnError": true,

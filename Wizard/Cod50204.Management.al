@@ -2148,6 +2148,35 @@ codeunit 50204 Management
             until QtyAssignmentWizard.Next() = 0;
     end;
 
+    procedure CreateParameterHeaderForAssembly(var AssemblyHeaderPar: Record "Assembly Header")
+    var
+        ParameterHeader: Record "Parameter Header";
+        ItemVariantLoc: Record "Item Variant";
+        ParameterFormPage: Page "Parameters Form";
+    begin
+        Clear(ItemVariantLoc);
+        if ItemVariantLoc.Get(AssemblyHeaderPar."Item No.", AssemblyHeaderPar."Variant Code") then;
+        ParameterHeader.Init();
+        ParameterHeader."Item No." := AssemblyHeaderPar."Item No.";
+        ParameterHeader."Sales Line Quantity" := AssemblyHeaderPar.Quantity;
+        ParameterHeader."Quantity To Assign" := AssemblyHeaderPar.Quantity;
+        ParameterHeader."Item Size" := ItemVariantLoc."Item Size";
+        ParameterHeader."Item Fit" := ItemVariantLoc."Item Fit";
+        ParameterHeader."Item Cut" := ItemVariantLoc."Item Cut Code";
+        ParameterHeader."Item Color ID" := ItemVariantLoc."Item Color ID";
+        ParameterHeader."Tonality Code" := ItemVariantLoc."Tonality Code";
+        ParameterHeader."Sales Line UOM" := AssemblyHeaderPar."Unit of Measure Code";
+        ParameterHeader."Design Sections Set ID" := ItemVariantLoc."Design Sections Set ID";
+        ParameterHeader."Item Features Set ID" := ItemVariantLoc."Item Features Set ID";
+        ParameterHeader."Item Brandings Set ID" := ItemVariantLoc."Item Brandings Set ID";
+        ParameterHeader."Variance Combination Text" := ItemVariantLoc."Variance Combination Text";
+        ParameterHeader.Insert(true);
+        AssemblyHeaderPar."Parameters Header ID" := ParameterHeader.ID;
+        AssemblyHeaderPar.Modify(true);
+        //Update Parameter Lines from Set (Design Section, Item Features, Item Brandings)
+        ParameterFormPage.UpdateParameterLinesFromSet(ParameterHeader);
+    end;
+
     var
         SalesLineGlobal: Record "Sales Line";
         NeededRawMaterial: Record "Needed Raw Material";

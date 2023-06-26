@@ -3,7 +3,7 @@ report 50234 "Standard Purchase"
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
     DefaultLayout = RDLC;
-    EnableHyperlinks=true;
+    EnableHyperlinks = true;
     RDLCLayout = 'Reports Layouts/ER-PurchaseOrder.rdlc';
     Caption = 'ER - Purchase Order';
 
@@ -72,12 +72,12 @@ report 50234 "Standard Purchase"
             # endregion
 
             #region Labels
-            column(CostCenterLabel;CostCenterLabel){}
-            column(AccountManagerLabel;AccountManagerLabel){}
-            column(ShippingMethodLabel;ShippingMethodLabel){}
-            column(RequestedByLabel;RequestedByLabel){}
-            column(FinancialControllerLabel;FinancialControllerLabel){}
-            column(ManigingDirectorLabel;ManigingDirectorLabel){}
+            column(CostCenterLabel; CostCenterLabel) { }
+            column(AccountManagerLabel; AccountManagerLabel) { }
+            column(ShippingMethodLabel; ShippingMethodLabel) { }
+            column(RequestedByLabel; RequestedByLabel) { }
+            column(FinancialControllerLabel; FinancialControllerLabel) { }
+            column(ManigingDirectorLabel; ManigingDirectorLabel) { }
             column(DateLabel; DateLabel) { }
             column(OrderNoLabel; OrderNoLabel) { }
             column(PurchaseOrderLabel; PurchaseOrderLabel) { }
@@ -179,7 +179,7 @@ report 50234 "Standard Purchase"
             column(DeliveryDate; "Expected Receipt Date") { }
             column(ShipToPhone; ShiptoPhone) { }
             column(ShipToEmail; ShiptoEmail) { }
-
+            column(VendFinNO_VAT; VendFinNO_VAT) { }
 
             #endregion
 
@@ -192,10 +192,10 @@ report 50234 "Standard Purchase"
 
             column(BarcodeText; BarcodeText) { }
             column(AmountinWords; AmountinWords) { }
-            column(VAT_Percentage;VAT_Percentage) { }
-            column(ContactPerson;ContactPerson) { }
-            column(ShipmentMethodDesc;ShipmentMethodDesc){}
-            column(URL;URL){}
+            column(VAT_Percentage; VAT_Percentage) { }
+            column(ContactPerson; ContactPerson) { }
+            column(ShipmentMethodDesc; ShipmentMethodDesc) { }
+            column(URL; URL) { }
             dataitem("Purchase Line"; "Purchase Line")
             {
                 DataItemLink = "Document Type" = FIELD("Document Type"), "Document No." = FIELD("No.");
@@ -208,7 +208,7 @@ report 50234 "Standard Purchase"
                 column(DiscountPercent; "Line Discount %") { }
                 column(Amount; "Line Amount") { }
                 column(TotalAmountExcludingVAT; TotalAmountExcludingVAT) { }
-                column(DimVal5;DimVal5){}
+                column(DimVal5; DimVal5) { }
                 //column(TotalDiscountAmount; TotalDiscountAmount) { }
 
                 trigger OnAfterGetRecord()
@@ -236,6 +236,7 @@ report 50234 "Standard Purchase"
                 VendorPhone := G_Vendor."Phone No.";
                 vendorEmail := G_Vendor."E-Mail";
                 VendorContact := G_Vendor.Contact;
+                VendFinNO_VAT := G_Vendor."VAT Registration No.";
 
                 //Pay to Vendor
                 G_Vendor.Reset();
@@ -292,11 +293,11 @@ report 50234 "Standard Purchase"
                 //Contact Person
                 if "Purchase Header"."Pay-to Contact" <> '' then begin
                     Contact.Reset();
-                    if Contact.GET("Purchase Header"."Pay-to Contact")then
+                    if Contact.GET("Purchase Header"."Pay-to Contact") then
                         ContactPerson := Contact.Name
                     else
                         ContactPerson := '';
-                    
+
                     // G_Customer.RESET;
                     // G_Customer.GET("Purchase Header"."Sell-to Customer No.");
                     // ShiptoContact := G_Customer.Contact;
@@ -345,15 +346,18 @@ report 50234 "Standard Purchase"
     end;
 
 
-    procedure GetDimenstion5(var DimSetID:Integer)
+    procedure GetDimenstion5(var DimSetID: Integer)
     var
-        DimSet: Record "Dimension Set Entry" temporary;
+        DimSet: Record "Dimension Set Entry";
     begin
-        DimensionManagment_CU.GetDimensionSet(DimSet,DimSetID);
-        DimSet.SetRange("Dimension Code", '5');
-        if DimSet.FindSet() then
-            DimVal5 := DimSet."Dimension Value Code";
-    end;    
+        //DimensionManagment_CU.GetDimensionSet(DimSet,DimSetID);
+        DimSet.SetRange("Dimension Set ID", DimSetID);
+        DimSet.SetRange("Global Dimension No.", 5);
+        if DimSet.FindSet() then begin
+            DimSet.calcFields("Dimension Value Name");
+            DimVal5 := DimSet."Dimension Value Name";
+        end
+    end;
 
 
 
@@ -363,7 +367,7 @@ report 50234 "Standard Purchase"
         G_Customer: Record Customer;
         G_Vendor: Record Vendor;
         PaymentTerms: Record "Payment Terms";
-        DimensionManagment_CU:codeunit DimensionManagement;
+        DimensionManagment_CU: codeunit DimensionManagement;
         Contact: Record Contact;
 
         TotalDiscountAmount: Decimal;
@@ -394,7 +398,7 @@ report 50234 "Standard Purchase"
 
         CompanyAddress: Text[250];
         DimVal5: Code[20];
-
+        VendFinNO_VAT: Text[20];
         PurchaseOrderLabel: Label 'Purchase Order';
         NoLabel: Label 'No.';
         DescriptionLabel: Label 'Description';
@@ -436,9 +440,9 @@ report 50234 "Standard Purchase"
         DateLabel: Label 'Date: ';
         EmailIDCaptionLbl: Label 'Email';
         FormNoLabel: Label 'Form #:';
-        FormNoValueLabel: label 'ER\LB\AVER\BS-PO\100';
+        FormNoValueLabel: label 'ER\LB\AVER\PUR-PO\100';
         IssueDateFooterLabel: Label 'Issue Date:';
-        IssueDateValueLabel: Label 'Jan 23';
+        IssueDateValueLabel: Label 'August 21';
         RevisionDateLabel: Label 'Revision Date:';
         AccountManagerLabel: Label 'Account Manager';
         ShippingMethodLabel: Label 'Shipping Method';
@@ -481,7 +485,7 @@ report 50234 "Standard Purchase"
         TermsAndCondLabel_24: Label '24.	Any variation, including any additional terms and conditions, to the contract shall only be binding when agreed in writing and signed by customer.';
         TermsAndCondLabel_25: Label '25.	If the Supplier fails to make delivery; fails to perform within the time specified in the PO; delivers non-conforming Goods or material; fails to make progress so as to endanger performance of the PO; then Customer may cancel the PO or part thereof and the Supplier shall be liable for all costs incurred by the Customer in purchasing similar Goods/material elsewhere.';
         TermsAndCondLabel_26: Label '26.	The termination of any P.O shall not affect any obligation of the Parties incurred before the termination date. Notwithstanding the termination or expiration of the P.O, the terms of this P.O which by their context, intent and meaning are intended to survive the termination or expiration of the P.O shall survive any termination or expiration of the P.O.';
-        URL:label 'https://www.google.com/';
+        URL: label 'https://www.google.com/';
 
 }
 

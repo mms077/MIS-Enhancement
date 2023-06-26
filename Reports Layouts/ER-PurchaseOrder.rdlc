@@ -74,6 +74,7 @@
                               <Width>1pt</Width>
                             </RightBorder>
                             <BackgroundColor>LightGrey</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                           </Style>
@@ -1326,7 +1327,7 @@
             <PageBreak>
               <BreakLocation>Start</BreakLocation>
             </PageBreak>
-            <Top>17.48529cm</Top>
+            <Top>18.12029cm</Top>
             <Height>10.7cm</Height>
             <Width>19cm</Width>
             <Style>
@@ -1344,7 +1345,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>17.48529cm</Height>
+                  <Height>18.02216cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -2702,7 +2703,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=First(Fields!AccountManagerLabel.Value, "DataSet_Result")</Value>
+                                                    <Value>=First(Fields!FinancialNoLabel.Value, "DataSet_Result")</Value>
                                                     <Style>
                                                       <FontFamily>Segoe UI</FontFamily>
                                                       <FontSize>8pt</FontSize>
@@ -2745,7 +2746,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!ContactPerson.Value</Value>
+                                                    <Value>=Fields!VendFinNO_VAT.Value</Value>
                                                     <Style>
                                                       <FontFamily>Segoe UI</FontFamily>
                                                       <FontSize>8pt</FontSize>
@@ -2816,7 +2817,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=First(Fields!FinancialNoLabel.Value, "DataSet_Result")</Value>
+                                                    <Value />
                                                     <Style>
                                                       <FontFamily>Segoe UI</FontFamily>
                                                       <FontSize>8pt</FontSize>
@@ -3637,7 +3638,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=First(Fields!TermsLabel.Value, "DataSet_Result")</Value>
+                                                    <Value />
                                                     <Style>
                                                       <FontFamily>Segoe UI</FontFamily>
                                                       <FontSize>8pt</FontSize>
@@ -5545,7 +5546,7 @@ Fields!VATLabel.Value &amp; "[0%]")</Value>
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox8</rd:DefaultName>
-                              <Top>15.83543cm</Top>
+                              <Top>14.88293cm</Top>
                               <Left>10.86688cm</Left>
                               <Height>1.5793cm</Height>
                               <Width>8.13312cm</Width>
@@ -5769,7 +5770,7 @@ Fields!VATLabel.Value &amp; "[0%]")</Value>
                                   <TablixMember />
                                 </TablixMembers>
                               </TablixRowHierarchy>
-                              <Top>14.24716cm</Top>
+                              <Top>17.42216cm</Top>
                               <Left>0.07744cm</Left>
                               <Height>0.6cm</Height>
                               <Width>18.88122cm</Width>
@@ -5822,7 +5823,7 @@ Fields!VATLabel.Value &amp; "[0%]")</Value>
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
-            <Height>17.48529cm</Height>
+            <Height>18.02216cm</Height>
             <Width>19cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
@@ -5831,49 +5832,8 @@ Fields!VATLabel.Value &amp; "[0%]")</Value>
               </Border>
             </Style>
           </Tablix>
-          <Textbox Name="Textbox157">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Terms And Cond</Value>
-                    <Style>
-                      <FontStyle>Italic</FontStyle>
-                      <TextDecoration>Underline</TextDecoration>
-                      <Color>Blue</Color>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox157</rd:DefaultName>
-            <ActionInfo>
-              <Actions>
-                <Action>
-                  <Hyperlink>https://www.bing.com/</Hyperlink>
-                </Action>
-              </Actions>
-            </ActionInfo>
-            <Top>28.43871cm</Top>
-            <Left>9.96385cm</Left>
-            <Height>0.6cm</Height>
-            <Width>2.7866cm</Width>
-            <ZIndex>2</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
         </ReportItems>
-        <Height>29.03871cm</Height>
+        <Height>28.90642cm</Height>
         <Style />
       </Body>
       <Width>19cm</Width>
@@ -6757,6 +6717,9 @@ End Function
         </Field>
         <Field Name="ShipToEmail">
           <DataField>ShipToEmail</DataField>
+        </Field>
+        <Field Name="VendFinNO_VAT">
+          <DataField>VendFinNO_VAT</DataField>
         </Field>
         <Field Name="VAT_Amount">
           <DataField>VAT_Amount</DataField>

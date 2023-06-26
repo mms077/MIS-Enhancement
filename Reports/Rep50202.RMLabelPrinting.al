@@ -107,7 +107,7 @@ report 50202 "RM Label Printing"
 
                 // Encode the data string to the barcode font
                 ItemRef_Barcode := BarcodeFontProvider.EncodeFont(ItemRef_BarcodeString, BarcodeSymbology);
-                
+
             end;
         }
     }

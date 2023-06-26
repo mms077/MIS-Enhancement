@@ -2447,7 +2447,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Last(Fields!ItemsLinesAmounts.Value)</Value>
+                                  <Value>=Last(Fields!ItemsLinesAmounts.Value)+Last(Fields!TotalLineDiscountAmt.Value, "DataSet_Result")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontWeight>Bold</FontWeight>
@@ -2831,7 +2831,7 @@ Fields!VATLabel.Value &amp; "0% " &amp; Fields!BillTo_Currency.Value)</Value>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Gross_Total.Value - Last(Fields!GlAmount.Value, "DataSet_Result") - Last(Fields!TotalLineDiscountAmt.Value, "DataSet_Result")</Value>
+                                  <Value>=Fields!Gross_Total.Value - Last(Fields!GlAmount.Value, "DataSet_Result")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontWeight>Bold</FontWeight>
@@ -3015,7 +3015,7 @@ Fields!VATLabel.Value &amp; "0% " &amp; Fields!BillTo_Currency.Value)</Value>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Gross_Total.Value - Last(Fields!GlAmount.Value, "DataSet_Result") - Last(Fields!TotalLineDiscountAmt.Value, "DataSet_Result") + Last(Fields!GlAmount.Value, "DataSet_Result")</Value>
+                                  <Value>=Fields!Gross_Total.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontWeight>Bold</FontWeight>
@@ -3043,6 +3043,7 @@ Fields!VATLabel.Value &amp; "0% " &amp; Fields!BillTo_Currency.Value)</Value>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>

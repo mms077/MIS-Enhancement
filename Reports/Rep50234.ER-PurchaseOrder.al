@@ -440,7 +440,7 @@ report 50234 "Standard Purchase"
         DateLabel: Label 'Date: ';
         EmailIDCaptionLbl: Label 'Email';
         FormNoLabel: Label 'Form #:';
-        FormNoValueLabel: label 'ER\LB\AVER\PUR-PO\100';
+        FormNoValueLabel: label 'ER\LB\AVER\BS-PO\100';
         IssueDateFooterLabel: Label 'Issue Date:';
         IssueDateValueLabel: Label 'August 21';
         RevisionDateLabel: Label 'Revision Date:';

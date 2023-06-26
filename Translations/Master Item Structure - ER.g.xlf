@@ -12459,7 +12459,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report Standard Purchase - NamedType FormNoLabel</note>
         </trans-unit>
         <trans-unit id="Report 149855644 - NamedType 3984890214" size-unit="char" translate="yes" xml:space="preserve">
-          <source>ER\LB\AVER\BS-PO\100</source>
+          <source>ER\LB\AVER\PUR-PO\100</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Standard Purchase - NamedType FormNoValueLabel</note>
         </trans-unit>
@@ -12479,7 +12479,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report Standard Purchase - NamedType IssueDateLabel</note>
         </trans-unit>
         <trans-unit id="Report 149855644 - NamedType 1870104324" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Jan 23</source>
+          <source>August 21</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Standard Purchase - NamedType IssueDateValueLabel</note>
         </trans-unit>

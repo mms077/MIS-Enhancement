@@ -12358,11 +12358,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Standard Purchase - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Report 149855644 - NamedType 2905355384" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Account Manager</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Standard Purchase - NamedType AccountManagerLabel</note>
-        </trans-unit>
         <trans-unit id="Report 149855644 - NamedType 2797193676" size-unit="char" translate="yes" xml:space="preserve">
           <source>Address</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -12397,11 +12392,6 @@
           <source>Contact</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Standard Purchase - NamedType ContactLabel</note>
-        </trans-unit>
-        <trans-unit id="Report 149855644 - NamedType 1737465258" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Cost Center</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Standard Purchase - NamedType CostCenterLabel</note>
         </trans-unit>
         <trans-unit id="Report 149855644 - NamedType 1353665870" size-unit="char" translate="yes" xml:space="preserve">
           <source>Date: </source>
@@ -12443,11 +12433,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Standard Purchase - NamedType EmailLabel</note>
         </trans-unit>
-        <trans-unit id="Report 149855644 - NamedType 2030154341" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Financial Controller</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Standard Purchase - NamedType FinancialControllerLabel</note>
-        </trans-unit>
         <trans-unit id="Report 149855644 - NamedType 4113998602" size-unit="char" translate="yes" xml:space="preserve">
           <source>Financial No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -12479,14 +12464,9 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report Standard Purchase - NamedType IssueDateLabel</note>
         </trans-unit>
         <trans-unit id="Report 149855644 - NamedType 1870104324" size-unit="char" translate="yes" xml:space="preserve">
-          <source>August 21</source>
+          <source>Jan 23</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Standard Purchase - NamedType IssueDateValueLabel</note>
-        </trans-unit>
-        <trans-unit id="Report 149855644 - NamedType 2906832902" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Managing Director</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Standard Purchase - NamedType ManigingDirectorLabel</note>
         </trans-unit>
         <trans-unit id="Report 149855644 - NamedType 1167766121" size-unit="char" translate="yes" xml:space="preserve">
           <source>No.</source>
@@ -12533,20 +12513,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Standard Purchase - NamedType QuantityLabel</note>
         </trans-unit>
-        <trans-unit id="Report 149855644 - NamedType 3597854327" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Requested By</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Standard Purchase - NamedType RequestedByLabel</note>
-        </trans-unit>
         <trans-unit id="Report 149855644 - NamedType 2129571611" size-unit="char" translate="yes" xml:space="preserve">
           <source>Revision Date:</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Standard Purchase - NamedType RevisionDateLabel</note>
-        </trans-unit>
-        <trans-unit id="Report 149855644 - NamedType 3909110565" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Shipping Method</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Standard Purchase - NamedType ShippingMethodLabel</note>
         </trans-unit>
         <trans-unit id="Report 149855644 - NamedType 345634209" size-unit="char" translate="yes" xml:space="preserve">
           <source>Contact</source>
@@ -12767,11 +12737,6 @@
           <source>Unit of Measure</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Standard Purchase - NamedType UnitOfMeasureLabel</note>
-        </trans-unit>
-        <trans-unit id="Report 149855644 - NamedType 3003898253" size-unit="char" translate="yes" xml:space="preserve">
-          <source>https://www.google.com/</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Standard Purchase - NamedType URL</note>
         </trans-unit>
         <trans-unit id="Report 149855644 - NamedType 3794146812" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Code</source>

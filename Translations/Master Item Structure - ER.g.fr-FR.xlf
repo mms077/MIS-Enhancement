@@ -7658,7 +7658,7 @@
         </trans-unit>
         <trans-unit id="Report 2674555262 - NamedType 1597748765" translate="yes" xml:space="preserve">
           <source>Billing Address</source>
-          <target state="translated" state-qualifier="id-match">Address</target>
+          <target state="translated" state-qualifier="id-match">Adresse</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice - NamedType BillingAddressLabel</note>
         </trans-unit>
         <trans-unit id="Report 2674555262 - NamedType 3269756997" translate="yes" xml:space="preserve">
@@ -7858,7 +7858,7 @@
         </trans-unit>
         <trans-unit id="Report 2674555262 - NamedType 3024073662" translate="yes" xml:space="preserve">
           <source>Shiping Info</source>
-          <target state="translated" state-qualifier="id-match">Adresse de Livaraison</target>
+          <target state="translated" state-qualifier="id-match">Adresse de Livraison</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice - NamedType ShippingInfoLabel</note>
         </trans-unit>
         <trans-unit id="Report 2674555262 - NamedType 2452442881" translate="yes" xml:space="preserve">

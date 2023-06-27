@@ -374,19 +374,13 @@ report 50234 "Standard Purchase"
         ShipToPhoneLabel: Label 'Phone';
         ShipToEmailLabel: Label 'Email';
         ShipToContactLabel: Label 'Contact';
-        CostCenterLabel: Label 'Cost Center';
         DateLabel: Label 'Date: ';
         EmailIDCaptionLbl: Label 'Email';
         FormNoLabel: Label 'Form #:';
         FormNoValueLabel: label 'ER\LB\AVER\BS-PO\100';
         IssueDateFooterLabel: Label 'Issue Date:';
-        IssueDateValueLabel: Label 'August 21';
+        IssueDateValueLabel: Label 'Jan 23';
         RevisionDateLabel: Label 'Revision Date:';
-        AccountManagerLabel: Label 'Account Manager';
-        ShippingMethodLabel: Label 'Shipping Method';
-        RequestedByLabel: Label 'Requested By';
-        FinancialControllerLabel: Label 'Financial Controller';
-        ManigingDirectorLabel: Label 'Managing Director';
         SupplyTheFollowingGoodsLabel: label 'Please supply the following Goods and/or Services';
         ThankYouForYourPromptLabel: label 'Thank you for your prompt handling of this order, please acknowledge receipt and acceptance.';
         TermsAndCondLabel: label 'Terms and Conditions';
@@ -423,7 +417,7 @@ report 50234 "Standard Purchase"
         TermsAndCondLabel_24: Label '24.	Any variation, including any additional terms and conditions, to the contract shall only be binding when agreed in writing and signed by customer.';
         TermsAndCondLabel_25: Label '25.	If the Supplier fails to make delivery; fails to perform within the time specified in the PO; delivers non-conforming Goods or material; fails to make progress so as to endanger performance of the PO; then Customer may cancel the PO or part thereof and the Supplier shall be liable for all costs incurred by the Customer in purchasing similar Goods/material elsewhere.';
         TermsAndCondLabel_26: Label '26.	The termination of any P.O shall not affect any obligation of the Parties incurred before the termination date. Notwithstanding the termination or expiration of the P.O, the terms of this P.O which by their context, intent and meaning are intended to survive the termination or expiration of the P.O shall survive any termination or expiration of the P.O.';
-        URL: label 'https://www.google.com/';
+
 
 }
 

@@ -688,7 +688,7 @@ codeunit 50202 EventSubscribers
     local procedure OnValidateVariantCodeOnBeforeUpdateAssemblyLines(var AssemblyHeader: Record "Assembly Header"; xAssemblyHeader: Record "Assembly Header"; CurrentFieldNo: Integer; CurrentFieldNum: Integer; var IsHandled: Boolean)
     begin
         AssemblyHeader.CalcFields("Assemble to Order");
-        if not AssemblyHeader."Assemble to Order" then begin
+        if (not AssemblyHeader."Assemble to Order") and (not (AssemblyHeader."Document Type" = AssemblyHeader."Document Type"::Quote)) then begin
             //Mandatory fields before creating assembly order lines
             AssemblyHeader.TestField("Location Code");
             AssemblyHeader.TestField(Quantity);

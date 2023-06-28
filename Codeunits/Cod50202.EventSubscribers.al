@@ -684,11 +684,22 @@ codeunit 50202 EventSubscribers
         end;
     end;
 
+    [EventSubscriber(ObjectType::Table, database::"Assemble-to-Order Link", 'OnUpdateAsmOnBeforeSynchronizeAsmFromSalesLine', '', false, false)]
+    local procedure OnUpdateAsmOnBeforeSynchronizeAsmFromSalesLine(var AssembleToOrderLink: Record "Assemble-to-Order Link"; var AssemblyHeader: Record "Assembly Header"; SalesLine: Record "Sales Line")
+    begin
+        AssemblyHeader."Parent Parameter Header ID" := SalesLine."Parent Parameter Header ID";
+        AssemblyHeader."Parameters Header ID" := SalesLine."Parameters Header ID";
+    end;
+
     [EventSubscriber(ObjectType::Table, database::"Assembly Header", 'OnValidateVariantCodeOnBeforeUpdateAssemblyLines', '', false, false)]
     local procedure OnValidateVariantCodeOnBeforeUpdateAssemblyLines(var AssemblyHeader: Record "Assembly Header"; xAssemblyHeader: Record "Assembly Header"; CurrentFieldNo: Integer; CurrentFieldNum: Integer; var IsHandled: Boolean)
     begin
-        AssemblyHeader.CalcFields("Assemble to Order");
-        if (not AssemblyHeader."Assemble to Order") and (not (AssemblyHeader."Document Type" = AssemblyHeader."Document Type"::Quote)) then begin
+        //in some case even if the assembly is assembly to order, assemble to order is false (example intercompany case when validate Sales line field Qty to assemble)
+        /*AssemblyHeader.CalcFields("Assemble to Order");
+        if (not AssemblyHeader."Assemble to Order") and (not (AssemblyHeader."Document Type" = AssemblyHeader."Document Type"::Quote)) then begin*/
+
+        //based on the parameter header the assembly is assemble to order or not
+        if (AssemblyHeader."Parameters Header ID" = 0) and (not (AssemblyHeader."Document Type" = AssemblyHeader."Document Type"::Quote)) then begin
             //Mandatory fields before creating assembly order lines
             AssemblyHeader.TestField("Location Code");
             AssemblyHeader.TestField(Quantity);

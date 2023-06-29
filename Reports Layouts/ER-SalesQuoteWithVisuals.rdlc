@@ -438,7 +438,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=First(Fields!ColorLabel.Value, "DataSet_Result")</Value>
+                                  <Value>=IIF(First(Fields!ShowColor.Value, "DataSet_Result"),First(Fields!ColorLabel.Value, "DataSet_Result"),IIF(First(Fields!ShowSize.Value, "DataSet_Result"),First(Fields!SizeLabel.Value, "DataSet_Result"),""))</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -1781,7 +1781,8 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!ColorName.Value</Value>
+                                  <Value>=IIF(First(Fields!ShowColor.Value, "DataSet_Result"),Fields!ColorName.Value,
+IIF(First(Fields!ShowSize.Value, "DataSet_Result"),Fields!SizeName.Value,""))</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -2248,7 +2249,7 @@
                 <TablixMember />
                 <TablixMember>
                   <Visibility>
-                    <Hidden>=IIF(Fields!ShowColor.Value,false,true)</Hidden>
+                    <Hidden>=IIF(Fields!ShowColor.Value,false,IIF(Fields!ShowSize.Value,false,true))</Hidden>
                   </Visibility>
                 </TablixMember>
                 <TablixMember />
@@ -2617,7 +2618,6 @@ Fields!VATLabel.Value &amp; "0%")</Value>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -5625,6 +5625,9 @@ End Function
         <Field Name="ShowColor">
           <DataField>ShowColor</DataField>
         </Field>
+        <Field Name="ShowSize">
+          <DataField>ShowSize</DataField>
+        </Field>
         <Field Name="TotalStaff">
           <DataField>TotalStaff</DataField>
         </Field>
@@ -5862,6 +5865,9 @@ End Function
         <Field Name="ColorLabel">
           <DataField>ColorLabel</DataField>
         </Field>
+        <Field Name="SizeLabel">
+          <DataField>SizeLabel</DataField>
+        </Field>
         <Field Name="HsCodeLabel">
           <DataField>HsCodeLabel</DataField>
         </Field>
@@ -6023,6 +6029,9 @@ End Function
         </Field>
         <Field Name="ColorName">
           <DataField>ColorName</DataField>
+        </Field>
+        <Field Name="SizeName">
+          <DataField>SizeName</DataField>
         </Field>
         <Field Name="TotalStaffing">
           <DataField>TotalStaffing</DataField>

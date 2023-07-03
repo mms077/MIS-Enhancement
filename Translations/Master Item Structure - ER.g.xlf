@@ -3173,11 +3173,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Workflow User Names - ER - Field Full Name - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Codeunit 3924101863 - Method 602896260 - NamedType 672599587" size-unit="char" translate="yes" xml:space="preserve">
-          <source>No related raw materials found for this item and variant</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit EventSubscribers - Method CreateAssemblyOrderNeededRawMaterial - NamedType Txt001</note>
-        </trans-unit>
         <trans-unit id="Codeunit 3924101863 - Method 2140798701 - NamedType 672599587" size-unit="char" translate="yes" xml:space="preserve">
           <source>You must set a posting date for prepayment to post it and continue the process</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -10819,7 +10814,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Trial Balance - Control HideCust - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 3137650822 - Control 244877475 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Show Opening Balance</source>
+          <source>With Opening Balance</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Trial Balance - Control Show opening balance - Property Caption</note>
         </trans-unit>
@@ -12762,11 +12757,6 @@
           <source>Assembly Approval</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Assembly Order - Action Assembly Approval - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1662713252 - Action 3435572484 - Method 1377591017 - NamedType 672599587" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 1662713252">
-          <source>Dashboard Created Successfully</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Assembly Order - Action Create Dashboard - Method OnAction - NamedType Txt001</note>
         </trans-unit>
         <trans-unit id="PageExtension 1119230149 - NamedType 672599587" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 1119230149">
           <source>The Assembly Orders should have same Item No. to group them</source>

@@ -12103,11 +12103,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - NamedType SignatureValueLabel</note>
         </trans-unit>
-        <trans-unit id="Report 280137910 - NamedType 2171960165" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Size</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - NamedType SizeLabel</note>
-        </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 3716247268" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sizes</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -12367,11 +12362,6 @@
           <source>Show Item Color</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - Control ShowColor - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 280137910 - Control 3178558954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Show Item Size</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - Control ShowSize - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 149855644 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ER - Purchase Order</source>

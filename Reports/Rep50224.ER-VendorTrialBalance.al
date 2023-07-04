@@ -121,8 +121,6 @@ report 50224 "ER - Vendor Trial Balance"
             { }
             column(ShowOpening; ShowOpening)
             { }
-            column(VendorFilters;VendorFilters)
-            { }
 
             dataitem(TempCurrencyTotal; "AC Currency Total")
             {
@@ -180,8 +178,8 @@ report 50224 "ER - Vendor Trial Balance"
 
                     if Vend.FindFirst() then begin
                         Vend.CalcFields("Net Change", "Net Change (LCY)");
-                        BeginBalOrig := - Vend."Net Change";
-                        BeginBalLCY := - Vend."Net Change (LCY)";
+                        BeginBalOrig := Vend."Net Change";
+                        BeginBalLCY := Vend."Net Change (LCY)";
                     end;
 
                     // Movement Orig/LCY
@@ -194,24 +192,17 @@ report 50224 "ER - Vendor Trial Balance"
                     if Vend.FindFirst() then begin
                         Vend.CalcFields("Net Change", "Net Change (LCY)", "Credit Amount", "Credit Amount (LCY)", "Debit Amount", "Debit Amount (LCY)");
 
-                        DebiOrig := Vend."Debit Amount";
-                        DebitLCY := Vend."Debit Amount (LCY)";
-                        CreditOrig := Vend."Credit Amount";
-                        CreditLCY := Vend."Credit Amount (LCY)";
+                        DebiOrig := Vend."Credit Amount";
+                        DebitLCY := Vend."Credit Amount (LCY)";
+                        CreditOrig := Vend."Debit Amount";
+                        CreditLCY := Vend."Debit Amount (LCY)";
 
                     end;
 
-                    // Ending Orig/LCY 
-                    if ShowOpening then begin
-                        EndBalOrig := BeginBalOrig + DebiOrig - CreditOrig;
-                        EndBalLCY := BeginBalLCY + DebitLCY - CreditLCY;
-                    end
-                    else begin
-                        EndBalOrig := DebiOrig - CreditOrig;
-                        EndBalLCY := DebitLCY - CreditLCY;
-                    end;
+                    // Ending Orig/LCY              
 
-
+                    EndBalOrig := BeginBalOrig + DebiOrig - CreditOrig;
+                    EndBalLCY := BeginBalLCY + DebitLCY - CreditLCY;
 
                     EndTotalLCY += EndBalLCY;
 
@@ -240,9 +231,8 @@ report 50224 "ER - Vendor Trial Balance"
 
                 L_Vendor.Get(Vendor."No.");
                 L_Vendor.SetFilter("Date Filter", Format(FromDate) + '..' + Format(ToDate));
-                VendorFilters:=Vendor.GetFilters();
 
-                L_Vendor.CalcFields("Net Change", Balance, "Credit Amount", "Debit Amount");
+                L_Vendor.CalcFields("Net Change", Balance,"Credit Amount", "Debit Amount");
                 if (L_Vendor.Balance = 0) and (L_Vendor."Net Change" = 0) and (L_Vendor."Credit Amount" = 0) and (L_Vendor."Debit Amount" = 0) and (HideCust) then
                     CurrReport.Skip();
 
@@ -269,7 +259,7 @@ report 50224 "ER - Vendor Trial Balance"
                     field("Show opening balance"; ShowOpening)
                     {
                         ApplicationArea = all;
-                        Caption = 'With Opening Balance';
+                        Caption = 'Show Opening Balance';
                     }
                     field(FromDate; FromDate)
                     {
@@ -364,7 +354,6 @@ report 50224 "ER - Vendor Trial Balance"
         AddressLabel: Label 'Address';
         BankAccountLabel: Label 'Bank Account';
         SWIFTLabel: Label 'SWIFT';
-        VendorFilters:Text[250];
         BeginBalOrig: Decimal;
         DebiOrig: Decimal;
         CreditOrig: Decimal;

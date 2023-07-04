@@ -2,7 +2,6 @@ report 50215 "ER-Credit Note"
 {
     DefaultLayout = RDLC;
     RDLCLayout = 'Reports Layouts/ER-CreditNote.rdl';
-    ApplicationArea = All;
     EnableHyperlinks = true;
     PreviewMode = PrintLayout;
     UsageCategory = ReportsAndAnalysis;

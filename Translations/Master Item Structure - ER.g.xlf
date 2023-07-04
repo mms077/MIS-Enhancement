@@ -9663,11 +9663,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Sales Quote With Visuals - NamedType SignatureValueLabel</note>
         </trans-unit>
-        <trans-unit id="Report 2733876863 - NamedType 2171960165" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Size</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Sales Quote With Visuals - NamedType SizeLabel</note>
-        </trans-unit>
         <trans-unit id="Report 2733876863 - NamedType 3716247268" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sizes</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -9857,11 +9852,6 @@
           <source>Show Item Color</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Sales Quote With Visuals - Control ShowColor - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 2733876863 - Control 3178558954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Show Item Size</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Sales Quote With Visuals - Control ShowSize - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 3439068417 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ER - Statement Of Account</source>

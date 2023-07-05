@@ -1,5 +1,6 @@
 codeunit 50202 EventSubscribers
 {
+    Permissions = tabledata "Bank Account Ledger Entry" = m;
     #region [Document Attachment]
     //Add Documents To Plotting File / Branding / Design  / Item Color / Item Design Section Color / Branding Details / Item Variant +
     [EventSubscriber(ObjectType::Page, Page::"Document Attachment Factbox", 'OnBeforeDrillDown', '', false, false)]
@@ -962,4 +963,37 @@ codeunit 50202 EventSubscribers
             GLEntry."Original Credit Amount - ER" := ABS(GLEntry."Original Amount - ER");*/
     end;
     #endregion
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"G/L Entry-Edit", 'OnBeforeGLLedgEntryModify', '', false, false)]
+    local procedure OnBeforeGLLedgEntryModify(var GLEntry: Record "G/L Entry")
+    var
+        CustLedgerEntries: Record "Cust. Ledger Entry";
+        VendLedgerEntries: Record "Vendor Ledger Entry";
+        BankLedgerEntries: Record "Bank Account Ledger Entry";
+    begin
+        CustLedgerEntries.setrange("Entry No.", GLEntry."Entry No.");
+        if CustLedgerEntries.FindFirst() then begin
+            CustLedgerEntries.Description := GLEntry.Description;
+            CustLedgerEntries.Modify();
+
+        end
+        else begin
+            VendLedgerEntries.setrange("Entry No.", GLEntry."Entry No.");
+            if VendLedgerEntries.FindFirst() then begin
+                VendLedgerEntries.Description := GLEntry.Description;
+                VendLedgerEntries.Modify();
+
+            end
+            else begin
+                BankLedgerEntries.setrange("Entry No.", GLEntry."Entry No.");
+                if BankLedgerEntries.FindFirst() then begin
+                    BankLedgerEntries.Description := GLEntry.Description;
+                    BankLedgerEntries.Modify();
+                end;
+            end;
+
+        end;
+    end;
+
+
 }

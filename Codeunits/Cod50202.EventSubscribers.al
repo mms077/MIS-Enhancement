@@ -971,22 +971,19 @@ codeunit 50202 EventSubscribers
         VendLedgerEntries: Record "Vendor Ledger Entry";
         BankLedgerEntries: Record "Bank Account Ledger Entry";
     begin
-        CustLedgerEntries.setrange("Entry No.", GLEntry."Entry No.");
-        if CustLedgerEntries.FindFirst() then begin
+
+        if CustLedgerEntries.Get(GLEntry."Entry No.") then begin
             CustLedgerEntries.Description := GLEntry.Description;
             CustLedgerEntries.Modify();
-
         end
         else begin
-            VendLedgerEntries.setrange("Entry No.", GLEntry."Entry No.");
-            if VendLedgerEntries.FindFirst() then begin
+            if VendLedgerEntries.Get(GLEntry."Entry No.") then begin
                 VendLedgerEntries.Description := GLEntry.Description;
                 VendLedgerEntries.Modify();
 
             end
             else begin
-                BankLedgerEntries.setrange("Entry No.", GLEntry."Entry No.");
-                if BankLedgerEntries.FindFirst() then begin
+                if BankLedgerEntries.Get(GLEntry."Entry No.") then begin
                     BankLedgerEntries.Description := GLEntry.Description;
                     BankLedgerEntries.Modify();
                 end;

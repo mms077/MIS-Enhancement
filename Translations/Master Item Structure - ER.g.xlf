@@ -10819,7 +10819,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Trial Balance - Control HideCust - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 3137650822 - Control 244877475 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Show Opening Balance</source>
+          <source>With Opening Balance</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Trial Balance - Control Show opening balance - Property Caption</note>
         </trans-unit>

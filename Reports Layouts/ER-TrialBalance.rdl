@@ -3381,7 +3381,7 @@
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>=IIF(Fields!G_L_Account___Account_Type_.Value&lt;&gt;"0","Bold","Normal")</FontWeight>
-                                    <Format>0.00;-0.00;''</Format>
+                                    <Format>#,0.00;-#,0.00;''</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3448,7 +3448,7 @@
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>=IIF(Fields!G_L_Account___Account_Type_.Value&lt;&gt;"0","Bold","Normal")</FontWeight>
-                                    <Format>0.00;-0.00;''</Format>
+                                    <Format>#,0.00;-#,0.00;''</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3515,7 +3515,7 @@
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>=IIF(Fields!G_L_Account___Account_Type_.Value&lt;&gt;"0","Bold","Normal")</FontWeight>
-                                    <Format>0.00;-0.00;''</Format>
+                                    <Format>#,0.00;-#,0.00;''</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3582,7 +3582,7 @@
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>=IIF(Fields!G_L_Account___Account_Type_.Value&lt;&gt;"0","Bold","Normal")</FontWeight>
-                                    <Format>0.00;-0.00;''</Format>
+                                    <Format>#,0.00;-#,0.00;''</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4734,7 +4734,6 @@
                             <PaddingRight>3pt</PaddingRight>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>

@@ -6,25 +6,23 @@ pageextension 50254 PaymentJournal extends "Payment Journal"
     }
 
     actions
+
     {
 
-        /*modify("Post and &Print")
+        addafter(Preview)
+
         {
-             Visible = false;
 
-
-
-        }*/
-        addafter("Post and &Print")
-        {
             action("Post and &Print New")
             {
-                ApplicationArea = Basic, Suite, all;
+                ApplicationArea = All;
+
                 Caption = 'Post and &Print';
                 Image = PostPrint;
-                ShortCutKey = 'Shift+F9';
-                PromotedCategory = Process;
+                PromotedCategory = Category8;
                 Promoted = true;
+                Ellipsis = true;
+                ShortCutKey = 'Shift+F9';
                 ToolTip = 'Finalize and prepare to print the document or journal. The values and quantities are posted to the related accounts. A report request window where you can specify what to include on the print-out.';
                 trigger OnAction()
                 begin
@@ -36,7 +34,17 @@ pageextension 50254 PaymentJournal extends "Payment Journal"
                     SetJobQueueVisibility();
                     CurrPage.Update(false);
                 end;
+
             }
+
+
+        }
+        modify("Post and &Print")
+        {
+            Visible = false;
+
+
+
         }
 
     }

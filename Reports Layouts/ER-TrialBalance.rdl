@@ -11,6 +11,214 @@
       <rd:DataSourceID>7cb87dba-96b7-47fc-b90f-2d9e1f8764ea</rd:DataSourceID>
     </DataSource>
   </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+      <Fields>
+        <Field Name="Company_Picture">
+          <DataField>Company_Picture</DataField>
+        </Field>
+        <Field Name="Company_Capital">
+          <DataField>Company_Capital</DataField>
+        </Field>
+        <Field Name="Company_CapitalFormat">
+          <DataField>Company_CapitalFormat</DataField>
+        </Field>
+        <Field Name="Company_Vat">
+          <DataField>Company_Vat</DataField>
+        </Field>
+        <Field Name="Comapny_Phone">
+          <DataField>Comapny_Phone</DataField>
+        </Field>
+        <Field Name="Company_Email">
+          <DataField>Company_Email</DataField>
+        </Field>
+        <Field Name="Company_Address">
+          <DataField>Company_Address</DataField>
+        </Field>
+        <Field Name="Company_Bank_Account">
+          <DataField>Company_Bank_Account</DataField>
+        </Field>
+        <Field Name="Company_SWIFT">
+          <DataField>Company_SWIFT</DataField>
+        </Field>
+        <Field Name="Company_IBAN">
+          <DataField>Company_IBAN</DataField>
+        </Field>
+        <Field Name="Company_CR_No">
+          <DataField>Company_CR_No</DataField>
+        </Field>
+        <Field Name="Company_City">
+          <DataField>Company_City</DataField>
+        </Field>
+        <Field Name="STRSUBSTNO_Text000_PeriodText_">
+          <DataField>STRSUBSTNO_Text000_PeriodText_</DataField>
+        </Field>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="PeriodText">
+          <DataField>PeriodText</DataField>
+        </Field>
+        <Field Name="G_L_Account__TABLECAPTION__________GLFilter">
+          <DataField>G_L_Account__TABLECAPTION__________GLFilter</DataField>
+        </Field>
+        <Field Name="GLFilter">
+          <DataField>GLFilter</DataField>
+        </Field>
+        <Field Name="G_L_Account_No_">
+          <DataField>G_L_Account_No_</DataField>
+        </Field>
+        <Field Name="Trial_BalanceCaption">
+          <DataField>Trial_BalanceCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Net_ChangeCaption">
+          <DataField>Net_ChangeCaption</DataField>
+        </Field>
+        <Field Name="BalanceCaption">
+          <DataField>BalanceCaption</DataField>
+        </Field>
+        <Field Name="G_L_Account___No__Caption">
+          <DataField>G_L_Account___No__Caption</DataField>
+        </Field>
+        <Field Name="PADSTR_____G_L_Account__Indentation___2___G_L_Account__NameCaption">
+          <DataField>PADSTR_____G_L_Account__Indentation___2___G_L_Account__NameCaption</DataField>
+        </Field>
+        <Field Name="G_L_Account___Net_Change_Caption">
+          <DataField>G_L_Account___Net_Change_Caption</DataField>
+        </Field>
+        <Field Name="G_L_Account___Net_Change__Control22Caption">
+          <DataField>G_L_Account___Net_Change__Control22Caption</DataField>
+        </Field>
+        <Field Name="G_L_Account___Balance_at_Date_Caption">
+          <DataField>G_L_Account___Balance_at_Date_Caption</DataField>
+        </Field>
+        <Field Name="G_L_Account___Balance_at_Date__Control24Caption">
+          <DataField>G_L_Account___Balance_at_Date__Control24Caption</DataField>
+        </Field>
+        <Field Name="EndingBalanceCaption">
+          <DataField>EndingBalanceCaption</DataField>
+        </Field>
+        <Field Name="PageGroupNo">
+          <DataField>PageGroupNo</DataField>
+        </Field>
+        <Field Name="FromDate">
+          <DataField>FromDate</DataField>
+        </Field>
+        <Field Name="FromDateLbl">
+          <DataField>FromDateLbl</DataField>
+        </Field>
+        <Field Name="ToDate">
+          <DataField>ToDate</DataField>
+        </Field>
+        <Field Name="ToDateLbl">
+          <DataField>ToDateLbl</DataField>
+        </Field>
+        <Field Name="AmountsInText">
+          <DataField>AmountsInText</DataField>
+        </Field>
+        <Field Name="LCY_Code">
+          <DataField>LCY_Code</DataField>
+        </Field>
+        <Field Name="CapitalLabel">
+          <DataField>CapitalLabel</DataField>
+        </Field>
+        <Field Name="VATCodeLabel">
+          <DataField>VATCodeLabel</DataField>
+        </Field>
+        <Field Name="AddressLabel">
+          <DataField>AddressLabel</DataField>
+        </Field>
+        <Field Name="BankAccountLabel">
+          <DataField>BankAccountLabel</DataField>
+        </Field>
+        <Field Name="SWIFTLabel">
+          <DataField>SWIFTLabel</DataField>
+        </Field>
+        <Field Name="TotalCaption">
+          <DataField>TotalCaption</DataField>
+        </Field>
+        <Field Name="TotalEndingBalance">
+          <DataField>TotalEndingBalance</DataField>
+        </Field>
+        <Field Name="TotalEndingBalanceFormat">
+          <DataField>TotalEndingBalanceFormat</DataField>
+        </Field>
+        <Field Name="TotalMovementBalance">
+          <DataField>TotalMovementBalance</DataField>
+        </Field>
+        <Field Name="TotalMovementBalanceFormat">
+          <DataField>TotalMovementBalanceFormat</DataField>
+        </Field>
+        <Field Name="TotalOpeningBalance">
+          <DataField>TotalOpeningBalance</DataField>
+        </Field>
+        <Field Name="TotalOpeningBalanceFormat">
+          <DataField>TotalOpeningBalanceFormat</DataField>
+        </Field>
+        <Field Name="ShowOpening">
+          <DataField>ShowOpening</DataField>
+        </Field>
+        <Field Name="G_L_Account___No__">
+          <DataField>G_L_Account___No__</DataField>
+        </Field>
+        <Field Name="PADSTR_____G_L_Account__Indentation___2___G_L_Account__Name">
+          <DataField>PADSTR_____G_L_Account__Indentation___2___G_L_Account__Name</DataField>
+        </Field>
+        <Field Name="G_L_Account___Net_Change_">
+          <DataField>G_L_Account___Net_Change_</DataField>
+        </Field>
+        <Field Name="G_L_Account___Net_Change_Format">
+          <DataField>G_L_Account___Net_Change_Format</DataField>
+        </Field>
+        <Field Name="G_L_Account___Net_Change__Control22">
+          <DataField>G_L_Account___Net_Change__Control22</DataField>
+        </Field>
+        <Field Name="G_L_Account___Net_Change__Control22Format">
+          <DataField>G_L_Account___Net_Change__Control22Format</DataField>
+        </Field>
+        <Field Name="G_L_Account___Balance_at_Date_">
+          <DataField>G_L_Account___Balance_at_Date_</DataField>
+        </Field>
+        <Field Name="G_L_Account___Balance_at_Date_Format">
+          <DataField>G_L_Account___Balance_at_Date_Format</DataField>
+        </Field>
+        <Field Name="G_L_Account___Balance_at_Date__Control24">
+          <DataField>G_L_Account___Balance_at_Date__Control24</DataField>
+        </Field>
+        <Field Name="G_L_Account___Balance_at_Date__Control24Format">
+          <DataField>G_L_Account___Balance_at_Date__Control24Format</DataField>
+        </Field>
+        <Field Name="G_L_Ending_Balance">
+          <DataField>G_L_Ending_Balance</DataField>
+        </Field>
+        <Field Name="G_L_Ending_BalanceFormat">
+          <DataField>G_L_Ending_BalanceFormat</DataField>
+        </Field>
+        <Field Name="G_L_Ending_Balance_Control24">
+          <DataField>G_L_Ending_Balance_Control24</DataField>
+        </Field>
+        <Field Name="G_L_Ending_Balance_Control24Format">
+          <DataField>G_L_Ending_Balance_Control24Format</DataField>
+        </Field>
+        <Field Name="G_L_Account___Account_Type_">
+          <DataField>G_L_Account___Account_Type_</DataField>
+        </Field>
+        <Field Name="No__of_Blank_Lines">
+          <DataField>No__of_Blank_Lines</DataField>
+        </Field>
+        <Field Name="BlankLineNo">
+          <DataField>BlankLineNo</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -3376,12 +3584,12 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Code.BlankNegAndZero(Fields!G_L_Account___Net_Change_.Value)</Value>
+                                  <Value>=Code.BlankZero(Fields!G_L_Account___Net_Change_.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>=IIF(Fields!G_L_Account___Account_Type_.Value&lt;&gt;"0","Bold","Normal")</FontWeight>
-                                    <Format>=Fields!G_L_Account___Net_Change_Format.Value</Format>
+                                    <Format>0.00;-0.00;''</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3390,6 +3598,9 @@
                           </Paragraphs>
                           <ZIndex>21</ZIndex>
                           <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
                             <BackgroundColor>=iif(Code.GetRowColor() = TRUE, "#EBEBEB", "White")</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>3pt</PaddingLeft>
@@ -3440,12 +3651,12 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Code.BlankNegAndZero(Fields!G_L_Account___Net_Change__Control22.Value)</Value>
+                                  <Value>=Code.BlankZero(Fields!G_L_Account___Net_Change__Control22.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>=IIF(Fields!G_L_Account___Account_Type_.Value&lt;&gt;"0","Bold","Normal")</FontWeight>
-                                    <Format>=Fields!G_L_Account___Net_Change__Control22Format.Value</Format>
+                                    <Format>0.00;-0.00;''</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3454,6 +3665,9 @@
                           </Paragraphs>
                           <ZIndex>20</ZIndex>
                           <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
                             <BackgroundColor>=iif(Code.GetRowColor() = TRUE, "#EBEBEB", "White")</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>3pt</PaddingLeft>
@@ -3504,12 +3718,12 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Code.BlankNegAndZero(Fields!G_L_Account___Balance_at_Date_.Value)</Value>
+                                  <Value>=Code.BlankZero(Fields!G_L_Account___Balance_at_Date_.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>=IIF(Fields!G_L_Account___Account_Type_.Value&lt;&gt;"0","Bold","Normal")</FontWeight>
-                                    <Format>=Fields!G_L_Account___Balance_at_Date_Format.Value</Format>
+                                    <Format>0.00;-0.00;''</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3518,6 +3732,9 @@
                           </Paragraphs>
                           <ZIndex>19</ZIndex>
                           <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
                             <BackgroundColor>=iif(Code.GetRowColor() = TRUE, "#EBEBEB", "White")</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>3pt</PaddingLeft>
@@ -3568,12 +3785,12 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Code.BlankNegAndZero(Fields!G_L_Account___Balance_at_Date__Control24.Value)</Value>
+                                  <Value>=Code.BlankZero(Fields!G_L_Account___Balance_at_Date__Control24.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>=IIF(Fields!G_L_Account___Account_Type_.Value&lt;&gt;"0","Bold","Normal")</FontWeight>
-                                    <Format>=Fields!G_L_Account___Balance_at_Date__Control24Format.Value</Format>
+                                    <Format>0.00;-0.00;''</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3582,6 +3799,9 @@
                           </Paragraphs>
                           <ZIndex>18</ZIndex>
                           <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
                             <BackgroundColor>=iif(Code.GetRowColor() = TRUE, "#EBEBEB", "White")</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>3pt</PaddingLeft>
@@ -3633,12 +3853,12 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Code.BlankNegAndZero(Fields!G_L_Ending_Balance.Value)</Value>
+                                  <Value>=Code.BlankZero(Fields!G_L_Ending_Balance.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>=IIF(Fields!G_L_Account___Account_Type_.Value&lt;&gt;"0","Bold","Normal")</FontWeight>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>#,0.00;-#,0.00;''</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3701,12 +3921,12 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Code.BlankNegAndZero(Fields!G_L_Ending_Balance_Control24.Value)</Value>
+                                  <Value>=Code.BlankZero(Fields!G_L_Ending_Balance_Control24.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>=IIF(Fields!G_L_Account___Account_Type_.Value&lt;&gt;"0","Bold","Normal")</FontWeight>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>#,0.00;-#,0.00;''</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4383,7 +4603,7 @@
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>#,0.00;-#,0.00;''</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4447,7 +4667,7 @@
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>#,0.00;-#,0.00;''</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4511,7 +4731,7 @@
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>#,0.00;-#,0.00;''</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4575,7 +4795,7 @@
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>#,0.00;-#,0.00;''</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4639,7 +4859,7 @@
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>#,0.00;-#,0.00;''</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4703,7 +4923,7 @@
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>#,0.00;-#,0.00;''</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4722,6 +4942,7 @@
                             <PaddingRight>3pt</PaddingRight>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -4764,7 +4985,6 @@
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
             <Top>4.42893cm</Top>
-            <Left>0cm</Left>
             <Height>0.45861cm</Height>
             <Width>27.46341cm</Width>
             <ZIndex>1</ZIndex>
@@ -4949,9 +5169,7 @@
               <Value>=First(Fields!Company_Picture.Value, "DataSet_Result")</Value>
               <MIMEType>image/jpeg</MIMEType>
               <Sizing>FitProportional</Sizing>
-              <Top>0cm</Top>
-              <Left>0cm</Left>
-              <Height>0.86424cm</Height>
+              <Height>1.17157cm</Height>
               <Width>6.69317cm</Width>
               <ZIndex>5</ZIndex>
               <Style>
@@ -4961,7 +5179,6 @@
               </Style>
             </Image>
             <Textbox Name="Textbox3">
-              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -4978,8 +5195,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.88053cm</Top>
-              <Left>0cm</Left>
+              <Top>1.17157cm</Top>
               <Height>0.4cm</Height>
               <Width>7.7cm</Width>
               <ZIndex>6</ZIndex>
@@ -4990,12 +5206,9 @@
                 <VerticalAlign>Top</VerticalAlign>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
             <Textbox Name="Textbox4">
-              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -5012,8 +5225,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.73453cm</Top>
-              <Left>0cm</Left>
+              <Top>2.02557cm</Top>
               <Height>0.4cm</Height>
               <Width>7.7cm</Width>
               <ZIndex>7</ZIndex>
@@ -5024,12 +5236,9 @@
                 <VerticalAlign>Top</VerticalAlign>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
             <Textbox Name="Textbox5">
-              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -5046,8 +5255,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.14403cm</Top>
-              <Left>0cm</Left>
+              <Top>2.43507cm</Top>
               <Height>0.4cm</Height>
               <Width>7.7cm</Width>
               <ZIndex>8</ZIndex>
@@ -5058,12 +5266,9 @@
                 <VerticalAlign>Top</VerticalAlign>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
             <Textbox Name="Textbox6">
-              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -5080,8 +5285,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.55353cm</Top>
-              <Left>0cm</Left>
+              <Top>2.84457cm</Top>
               <Height>0.4cm</Height>
               <Width>7.7cm</Width>
               <ZIndex>9</ZIndex>
@@ -5092,12 +5296,9 @@
                 <VerticalAlign>Top</VerticalAlign>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
             <Textbox Name="Textbox11">
-              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -5114,8 +5315,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.96127cm</Top>
-              <Left>0cm</Left>
+              <Top>3.25231cm</Top>
               <Height>0.4cm</Height>
               <Width>7.7cm</Width>
               <ZIndex>10</ZIndex>
@@ -5126,12 +5326,9 @@
                 <VerticalAlign>Top</VerticalAlign>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
             <Textbox Name="Textbox12">
-              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -5148,8 +5345,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.36901cm</Top>
-              <Left>0cm</Left>
+              <Top>3.66005cm</Top>
               <Height>0.4cm</Height>
               <Width>7.7cm</Width>
               <ZIndex>11</ZIndex>
@@ -5160,12 +5356,9 @@
                 <VerticalAlign>Top</VerticalAlign>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
             <Textbox Name="Textbox16">
-              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -5182,8 +5375,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.77675cm</Top>
-              <Left>0cm</Left>
+              <Top>4.06779cm</Top>
               <Height>0.4cm</Height>
               <Width>7.7cm</Width>
               <ZIndex>12</ZIndex>
@@ -5194,8 +5386,6 @@
                 <VerticalAlign>Top</VerticalAlign>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
             <Textbox Name="FromDateLbl">
@@ -5405,7 +5595,6 @@
               </Style>
             </Textbox>
             <Textbox Name="Textbox17">
-              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -5422,8 +5611,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.31581cm</Top>
-              <Left>0cm</Left>
+              <Top>1.60685cm</Top>
               <Height>0.4cm</Height>
               <Width>7.7cm</Width>
               <ZIndex>19</ZIndex>
@@ -5434,8 +5622,6 @@
                 <VerticalAlign>Top</VerticalAlign>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
           </ReportItems>
@@ -5453,6 +5639,12 @@
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
   <Code>
     Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
@@ -5504,212 +5696,4 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>97c2726a-a59d-4c8b-a9f6-9342c3a58452</rd:ReportID>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Fields>
-        <Field Name="Company_Picture">
-          <DataField>Company_Picture</DataField>
-        </Field>
-        <Field Name="Company_Capital">
-          <DataField>Company_Capital</DataField>
-        </Field>
-        <Field Name="Company_CapitalFormat">
-          <DataField>Company_CapitalFormat</DataField>
-        </Field>
-        <Field Name="Company_Vat">
-          <DataField>Company_Vat</DataField>
-        </Field>
-        <Field Name="Comapny_Phone">
-          <DataField>Comapny_Phone</DataField>
-        </Field>
-        <Field Name="Company_Email">
-          <DataField>Company_Email</DataField>
-        </Field>
-        <Field Name="Company_Address">
-          <DataField>Company_Address</DataField>
-        </Field>
-        <Field Name="Company_Bank_Account">
-          <DataField>Company_Bank_Account</DataField>
-        </Field>
-        <Field Name="Company_SWIFT">
-          <DataField>Company_SWIFT</DataField>
-        </Field>
-        <Field Name="Company_IBAN">
-          <DataField>Company_IBAN</DataField>
-        </Field>
-        <Field Name="Company_CR_No">
-          <DataField>Company_CR_No</DataField>
-        </Field>
-        <Field Name="Company_City">
-          <DataField>Company_City</DataField>
-        </Field>
-        <Field Name="STRSUBSTNO_Text000_PeriodText_">
-          <DataField>STRSUBSTNO_Text000_PeriodText_</DataField>
-        </Field>
-        <Field Name="COMPANYNAME">
-          <DataField>COMPANYNAME</DataField>
-        </Field>
-        <Field Name="PeriodText">
-          <DataField>PeriodText</DataField>
-        </Field>
-        <Field Name="G_L_Account__TABLECAPTION__________GLFilter">
-          <DataField>G_L_Account__TABLECAPTION__________GLFilter</DataField>
-        </Field>
-        <Field Name="GLFilter">
-          <DataField>GLFilter</DataField>
-        </Field>
-        <Field Name="G_L_Account_No_">
-          <DataField>G_L_Account_No_</DataField>
-        </Field>
-        <Field Name="Trial_BalanceCaption">
-          <DataField>Trial_BalanceCaption</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENOCaption">
-          <DataField>CurrReport_PAGENOCaption</DataField>
-        </Field>
-        <Field Name="Net_ChangeCaption">
-          <DataField>Net_ChangeCaption</DataField>
-        </Field>
-        <Field Name="BalanceCaption">
-          <DataField>BalanceCaption</DataField>
-        </Field>
-        <Field Name="G_L_Account___No__Caption">
-          <DataField>G_L_Account___No__Caption</DataField>
-        </Field>
-        <Field Name="PADSTR_____G_L_Account__Indentation___2___G_L_Account__NameCaption">
-          <DataField>PADSTR_____G_L_Account__Indentation___2___G_L_Account__NameCaption</DataField>
-        </Field>
-        <Field Name="G_L_Account___Net_Change_Caption">
-          <DataField>G_L_Account___Net_Change_Caption</DataField>
-        </Field>
-        <Field Name="G_L_Account___Net_Change__Control22Caption">
-          <DataField>G_L_Account___Net_Change__Control22Caption</DataField>
-        </Field>
-        <Field Name="G_L_Account___Balance_at_Date_Caption">
-          <DataField>G_L_Account___Balance_at_Date_Caption</DataField>
-        </Field>
-        <Field Name="G_L_Account___Balance_at_Date__Control24Caption">
-          <DataField>G_L_Account___Balance_at_Date__Control24Caption</DataField>
-        </Field>
-        <Field Name="EndingBalanceCaption">
-          <DataField>EndingBalanceCaption</DataField>
-        </Field>
-        <Field Name="PageGroupNo">
-          <DataField>PageGroupNo</DataField>
-        </Field>
-        <Field Name="FromDate">
-          <DataField>FromDate</DataField>
-        </Field>
-        <Field Name="FromDateLbl">
-          <DataField>FromDateLbl</DataField>
-        </Field>
-        <Field Name="ToDate">
-          <DataField>ToDate</DataField>
-        </Field>
-        <Field Name="ToDateLbl">
-          <DataField>ToDateLbl</DataField>
-        </Field>
-        <Field Name="AmountsInText">
-          <DataField>AmountsInText</DataField>
-        </Field>
-        <Field Name="LCY_Code">
-          <DataField>LCY_Code</DataField>
-        </Field>
-        <Field Name="CapitalLabel">
-          <DataField>CapitalLabel</DataField>
-        </Field>
-        <Field Name="VATCodeLabel">
-          <DataField>VATCodeLabel</DataField>
-        </Field>
-        <Field Name="AddressLabel">
-          <DataField>AddressLabel</DataField>
-        </Field>
-        <Field Name="BankAccountLabel">
-          <DataField>BankAccountLabel</DataField>
-        </Field>
-        <Field Name="SWIFTLabel">
-          <DataField>SWIFTLabel</DataField>
-        </Field>
-        <Field Name="TotalCaption">
-          <DataField>TotalCaption</DataField>
-        </Field>
-        <Field Name="TotalEndingBalance">
-          <DataField>TotalEndingBalance</DataField>
-        </Field>
-        <Field Name="TotalEndingBalanceFormat">
-          <DataField>TotalEndingBalanceFormat</DataField>
-        </Field>
-        <Field Name="TotalMovementBalance">
-          <DataField>TotalMovementBalance</DataField>
-        </Field>
-        <Field Name="TotalMovementBalanceFormat">
-          <DataField>TotalMovementBalanceFormat</DataField>
-        </Field>
-        <Field Name="TotalOpeningBalance">
-          <DataField>TotalOpeningBalance</DataField>
-        </Field>
-        <Field Name="TotalOpeningBalanceFormat">
-          <DataField>TotalOpeningBalanceFormat</DataField>
-        </Field>
-        <Field Name="ShowOpening">
-          <DataField>ShowOpening</DataField>
-        </Field>
-        <Field Name="G_L_Account___No__">
-          <DataField>G_L_Account___No__</DataField>
-        </Field>
-        <Field Name="PADSTR_____G_L_Account__Indentation___2___G_L_Account__Name">
-          <DataField>PADSTR_____G_L_Account__Indentation___2___G_L_Account__Name</DataField>
-        </Field>
-        <Field Name="G_L_Account___Net_Change_">
-          <DataField>G_L_Account___Net_Change_</DataField>
-        </Field>
-        <Field Name="G_L_Account___Net_Change_Format">
-          <DataField>G_L_Account___Net_Change_Format</DataField>
-        </Field>
-        <Field Name="G_L_Account___Net_Change__Control22">
-          <DataField>G_L_Account___Net_Change__Control22</DataField>
-        </Field>
-        <Field Name="G_L_Account___Net_Change__Control22Format">
-          <DataField>G_L_Account___Net_Change__Control22Format</DataField>
-        </Field>
-        <Field Name="G_L_Account___Balance_at_Date_">
-          <DataField>G_L_Account___Balance_at_Date_</DataField>
-        </Field>
-        <Field Name="G_L_Account___Balance_at_Date_Format">
-          <DataField>G_L_Account___Balance_at_Date_Format</DataField>
-        </Field>
-        <Field Name="G_L_Account___Balance_at_Date__Control24">
-          <DataField>G_L_Account___Balance_at_Date__Control24</DataField>
-        </Field>
-        <Field Name="G_L_Account___Balance_at_Date__Control24Format">
-          <DataField>G_L_Account___Balance_at_Date__Control24Format</DataField>
-        </Field>
-        <Field Name="G_L_Ending_Balance">
-          <DataField>G_L_Ending_Balance</DataField>
-        </Field>
-        <Field Name="G_L_Ending_BalanceFormat">
-          <DataField>G_L_Ending_BalanceFormat</DataField>
-        </Field>
-        <Field Name="G_L_Ending_Balance_Control24">
-          <DataField>G_L_Ending_Balance_Control24</DataField>
-        </Field>
-        <Field Name="G_L_Ending_Balance_Control24Format">
-          <DataField>G_L_Ending_Balance_Control24Format</DataField>
-        </Field>
-        <Field Name="G_L_Account___Account_Type_">
-          <DataField>G_L_Account___Account_Type_</DataField>
-        </Field>
-        <Field Name="No__of_Blank_Lines">
-          <DataField>No__of_Blank_Lines</DataField>
-        </Field>
-        <Field Name="BlankLineNo">
-          <DataField>BlankLineNo</DataField>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-    </DataSet>
-  </DataSets>
 </Report>

@@ -8,24 +8,28 @@ pageextension 50255 CashReceipt extends "Cash Receipt Journal"
     actions
     {
 
-        /*modify("Post and &Print")
+        modify("Post and &Print")
         {
-             Visible = false;
+            Visible = false;
 
 
 
-        }*/
-        addafter("Post and &Print")
+        }
+
+        addafter(Preview)
+
         {
+
             action("Post and &Print New")
             {
-                ApplicationArea = Basic, Suite, all;
+                ApplicationArea = All;
 
                 Caption = 'Post and &Print';
                 Image = PostPrint;
-                ShortCutKey = 'Shift+F9';
-                PromotedCategory = Process;
+                PromotedCategory = Category6;
                 Promoted = true;
+                Ellipsis = true;
+                ShortCutKey = 'Shift+F9';
                 ToolTip = 'Finalize and prepare to print the document or journal. The values and quantities are posted to the related accounts. A report request window where you can specify what to include on the print-out.';
                 trigger OnAction()
                 begin

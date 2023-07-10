@@ -12818,6 +12818,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Account List - Action ER - Bank Account Statement - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2423017943 - Action 979575244 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1638686336">
+          <source>Finalize and prepare to print the document or journal. The values and quantities are posted to the related accounts. A report request window where you can specify what to include on the print-out.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CashReceipt - Action Post and &amp;Print New - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2423017943 - Action 979575244 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1638686336">
+          <source>Post and &amp;Print</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CashReceipt - Action Post and &amp;Print New - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3105459369 - Action 3439068417 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3105459369">
           <source>ER - Statement Of Account</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -13002,6 +13012,16 @@
           <source>Item Features</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ItemCard - Action Item Features - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3961762325 - Action 979575244 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3196174509">
+          <source>Finalize and prepare to print the document or journal. The values and quantities are posted to the related accounts. A report request window where you can specify what to include on the print-out.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PaymentJournal - Action Post and &amp;Print New - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3961762325 - Action 979575244 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3196174509">
+          <source>Post and &amp;Print</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PaymentJournal - Action Post and &amp;Print New - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 2557560783 - Action 1914989163 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2557560783">
           <source>Arabic Return Invoice</source>

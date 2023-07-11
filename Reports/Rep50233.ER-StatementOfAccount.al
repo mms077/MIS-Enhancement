@@ -299,8 +299,6 @@ report 50233 "ER - Statement Of Account"
                 {
 
                 }
-                column(Document_No_; "Document No.") { }
-                column(Posting_Date; "Posting Date") { }
                 column(Source_No_; "Source No.")
                 {
 

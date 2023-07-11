@@ -297,6 +297,7 @@
               <TablixColumns>
                 <TablixColumn>
                   <Width>1.95367cm</Width>
+                  <Width>1.95367cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.17516cm</Width>
@@ -311,10 +312,10 @@
                   <Width>2.28067cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.45cm</Width>
+                  <Width>1.942cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.45cm</Width>
+                  <Width>2.23833cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.942cm</Width>
@@ -2772,6 +2773,7 @@
                 <TablixMember>
                   <TablixHeader>
                     <Size>1.74454cm</Size>
+                    <Size>1.74454cm</Size>
                     <CellContents>
                       <Textbox Name="Textbox176">
                         <CanGrow>true</CanGrow>
@@ -2824,6 +2826,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
+                        <Size>1.79633cm</Size>
                         <Size>1.79633cm</Size>
                         <CellContents>
                           <Textbox Name="Textbox186">

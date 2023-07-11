@@ -3,6 +3,7 @@ report 50234 "Standard Purchase"
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
     DefaultLayout = RDLC;
+    EnableHyperlinks = true;
     RDLCLayout = 'Reports Layouts/ER-PurchaseOrder.rdlc';
     Caption = 'ER - Purchase Order';
 
@@ -71,6 +72,12 @@ report 50234 "Standard Purchase"
             # endregion
 
             #region Labels
+            column(CostCenterLabel; CostCenterLabel) { }
+            column(AccountManagerLabel; AccountManagerLabel) { }
+            column(ShippingMethodLabel; ShippingMethodLabel) { }
+            column(RequestedByLabel; RequestedByLabel) { }
+            column(FinancialControllerLabel; FinancialControllerLabel) { }
+            column(ManigingDirectorLabel; ManigingDirectorLabel) { }
             column(DateLabel; DateLabel) { }
             column(OrderNoLabel; OrderNoLabel) { }
             column(PurchaseOrderLabel; PurchaseOrderLabel) { }
@@ -172,7 +179,7 @@ report 50234 "Standard Purchase"
             column(DeliveryDate; "Expected Receipt Date") { }
             column(ShipToPhone; ShiptoPhone) { }
             column(ShipToEmail; ShiptoEmail) { }
-
+            column(VendFinNO_VAT; VendFinNO_VAT) { }
 
             #endregion
 
@@ -200,6 +207,7 @@ report 50234 "Standard Purchase"
                 column(DiscountPercent; "Line Discount %") { }
                 column(Amount; "Line Amount") { }
                 column(TotalAmountExcludingVAT; TotalAmountExcludingVAT) { }
+                column(DimVal5; DimVal5) { }
                 //column(TotalDiscountAmount; TotalDiscountAmount) { }
 
                 trigger OnAfterGetRecord()
@@ -228,6 +236,7 @@ report 50234 "Standard Purchase"
                 VendorPhone := G_Vendor."Phone No.";
                 vendorEmail := G_Vendor."E-Mail";
                 VendorContact := G_Vendor.Contact;
+                VendFinNO_VAT := G_Vendor."VAT Registration No.";
 
                 //Pay to Vendor
                 G_Vendor.Reset();
@@ -273,6 +282,36 @@ report 50234 "Standard Purchase"
                 end;
 
 
+                //Shipment Method
+                if "Purchase Header"."Shipment Method Code" <> '' then begin
+                    ShipmentMethod.GET("Purchase Header"."Shipment Method Code");
+                    ShipmentMethodDesc := ShipmentMethod.Description;
+                end
+                else
+                    ShipmentMethodDesc := '';
+
+                //Contact Person
+                if "Purchase Header"."Pay-to Contact" <> '' then begin
+                    Contact.Reset();
+                    if Contact.GET("Purchase Header"."Pay-to Contact") then
+                        ContactPerson := Contact.Name
+                    else
+                        ContactPerson := '';
+
+                    // G_Customer.RESET;
+                    // G_Customer.GET("Purchase Header"."Sell-to Customer No.");
+                    // ShiptoContact := G_Customer.Contact;
+                end
+                // else begin
+                //     if "Ship-to Name" <> '' then begin
+                //         ShiptoContact := CompanyInformation.Contact;
+                //     end
+                //     else begin
+                //         ShiptoContact := '';
+                //     end;
+                // end;
+
+
             end;
         }
 
@@ -307,6 +346,20 @@ report 50234 "Standard Purchase"
     end;
 
 
+    procedure GetDimenstion5(var DimSetID: Integer)
+    var
+        DimSet: Record "Dimension Set Entry";
+    begin
+        //DimensionManagment_CU.GetDimensionSet(DimSet,DimSetID);
+        DimSet.SetRange("Dimension Set ID", DimSetID);
+        DimSet.SetRange("Global Dimension No.", 5);
+        if DimSet.FindSet() then begin
+            DimSet.calcFields("Dimension Value Name");
+            DimVal5 := DimSet."Dimension Value Name";
+        end
+    end;
+
+
 
     var
         CompanyInformation: Record "Company Information";
@@ -314,11 +367,15 @@ report 50234 "Standard Purchase"
         G_Customer: Record Customer;
         G_Vendor: Record Vendor;
         PaymentTerms: Record "Payment Terms";
+        DimensionManagment_CU: codeunit DimensionManagement;
+        Contact: Record Contact;
 
         TotalDiscountAmount: Decimal;
         TotalAmountExcludingVAT: Decimal;
+        ShipmentMethod: Record "Shipment Method";
         PaymetTermsDesc: Text[100];
-
+        ShipmentMethodDesc: Text[100];
+        ContactPerson: Text[100];
 
         AmountinWords: Text[250];
         VendorName: Text[100];
@@ -340,7 +397,8 @@ report 50234 "Standard Purchase"
         VAT_Percentage: Decimal;
 
         CompanyAddress: Text[250];
-
+        DimVal5: Code[20];
+        VendFinNO_VAT: Text[20];
         PurchaseOrderLabel: Label 'Purchase Order';
         NoLabel: Label 'No.';
         DescriptionLabel: Label 'Description';
@@ -378,13 +436,19 @@ report 50234 "Standard Purchase"
         ShipToPhoneLabel: Label 'Phone';
         ShipToEmailLabel: Label 'Email';
         ShipToContactLabel: Label 'Contact';
+        CostCenterLabel: Label 'Cost Center';
         DateLabel: Label 'Date: ';
         EmailIDCaptionLbl: Label 'Email';
         FormNoLabel: Label 'Form #:';
         FormNoValueLabel: label 'ER\LB\AVER\BS-PO\100';
         IssueDateFooterLabel: Label 'Issue Date:';
-        IssueDateValueLabel: Label 'Jan 23';
+        IssueDateValueLabel: Label 'August 21';
         RevisionDateLabel: Label 'Revision Date:';
+        AccountManagerLabel: Label 'Account Manager';
+        ShippingMethodLabel: Label 'Shipping Method';
+        RequestedByLabel: Label 'Requested By';
+        FinancialControllerLabel: Label 'Financial Controller';
+        ManigingDirectorLabel: Label 'Managing Director';
         SupplyTheFollowingGoodsLabel: label 'Please supply the following Goods and/or Services';
         ThankYouForYourPromptLabel: label 'Thank you for your prompt handling of this order, please acknowledge receipt and acceptance.';
         TermsAndCondLabel: label 'Terms and Conditions';

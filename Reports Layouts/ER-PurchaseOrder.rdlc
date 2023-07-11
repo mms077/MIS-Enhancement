@@ -6318,6 +6318,12 @@ End Function
         <Field Name="VAT_PercentageFormat">
           <DataField>VAT_PercentageFormat</DataField>
         </Field>
+        <Field Name="ContactPerson">
+          <DataField>ContactPerson</DataField>
+        </Field>
+        <Field Name="ShipmentMethodDesc">
+          <DataField>ShipmentMethodDesc</DataField>
+        </Field>
         <Field Name="No_">
           <DataField>No_</DataField>
         </Field>

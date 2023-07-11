@@ -195,7 +195,6 @@ report 50234 "Standard Purchase"
             column(VAT_Percentage; VAT_Percentage) { }
             column(ContactPerson; ContactPerson) { }
             column(ShipmentMethodDesc; ShipmentMethodDesc) { }
-            column(URL; URL) { }
             dataitem("Purchase Line"; "Purchase Line")
             {
                 DataItemLink = "Document Type" = FIELD("Document Type"), "Document No." = FIELD("No.");
@@ -213,6 +212,7 @@ report 50234 "Standard Purchase"
 
                 trigger OnAfterGetRecord()
                 begin
+                    Clear(DimVal5);
                     GetDimenstion5("Purchase Line"."Dimension Set ID");
                     TotalDiscountAmount := TotalDiscountAmount + "Line Discount Amount";
                     VAT_Amount := VAT_Amount + "Amount Including VAT" - Amount;
@@ -485,7 +485,6 @@ report 50234 "Standard Purchase"
         TermsAndCondLabel_24: Label '24.	Any variation, including any additional terms and conditions, to the contract shall only be binding when agreed in writing and signed by customer.';
         TermsAndCondLabel_25: Label '25.	If the Supplier fails to make delivery; fails to perform within the time specified in the PO; delivers non-conforming Goods or material; fails to make progress so as to endanger performance of the PO; then Customer may cancel the PO or part thereof and the Supplier shall be liable for all costs incurred by the Customer in purchasing similar Goods/material elsewhere.';
         TermsAndCondLabel_26: Label '26.	The termination of any P.O shall not affect any obligation of the Parties incurred before the termination date. Notwithstanding the termination or expiration of the P.O, the terms of this P.O which by their context, intent and meaning are intended to survive the termination or expiration of the P.O shall survive any termination or expiration of the P.O.';
-        URL: label 'https://www.google.com/';
 
 }
 

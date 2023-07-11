@@ -6763,9 +6763,6 @@ End Function
         <Field Name="ShipmentMethodDesc">
           <DataField>ShipmentMethodDesc</DataField>
         </Field>
-        <Field Name="URL">
-          <DataField>URL</DataField>
-        </Field>
         <Field Name="No_">
           <DataField>No_</DataField>
         </Field>

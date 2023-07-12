@@ -19,16 +19,13 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.25cm</Width>
+                  <Width>1.95367cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.25cm</Width>
+                  <Width>1.9325cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.45cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>2.45cm</Width>
+                  <Width>2.28067cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.45cm</Width>
@@ -37,10 +34,13 @@
                   <Width>2.45cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.45cm</Width>
+                  <Width>1.942cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.45cm</Width>
+                  <Width>2.23833cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.94483cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -1628,7 +1628,7 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>2.25cm</Size>
+                    <Size>1.74454cm</Size>
                     <CellContents>
                       <Textbox Name="Textbox176">
                         <CanGrow>true</CanGrow>
@@ -1681,7 +1681,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>2.25cm</Size>
+                        <Size>1.79633cm</Size>
                         <CellContents>
                           <Textbox Name="Textbox186">
                             <CanGrow>true</CanGrow>
@@ -1734,9 +1734,9 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>2cm</Size>
+                            <Size>1.29504cm</Size>
                             <CellContents>
-                              <Textbox Name="Textbox191">
+                              <Textbox Name="Textbox12">
                                 <CanGrow>true</CanGrow>
                                 <KeepTogether>true</KeepTogether>
                                 <Paragraphs>
@@ -1756,7 +1756,7 @@
                                     </Style>
                                   </Paragraph>
                                 </Paragraphs>
-                                <rd:DefaultName>Textbox191</rd:DefaultName>
+                                <rd:DefaultName>Textbox12</rd:DefaultName>
                                 <Style>
                                   <Border>
                                     <Color>LightGrey</Color>
@@ -1789,9 +1789,9 @@
                           <TablixMembers>
                             <TablixMember>
                               <TablixHeader>
-                                <Size>2cm</Size>
+                                <Size>1.87209cm</Size>
                                 <CellContents>
-                                  <Textbox Name="Textbox196">
+                                  <Textbox Name="Textbox19">
                                     <CanGrow>true</CanGrow>
                                     <KeepTogether>true</KeepTogether>
                                     <Paragraphs>
@@ -1811,7 +1811,7 @@
                                         </Style>
                                       </Paragraph>
                                     </Paragraphs>
-                                    <rd:DefaultName>Textbox196</rd:DefaultName>
+                                    <rd:DefaultName>Textbox19</rd:DefaultName>
                                     <Style>
                                       <Border>
                                         <Color>LightGrey</Color>
@@ -1842,7 +1842,121 @@
                                 </CellContents>
                               </TablixHeader>
                               <TablixMembers>
-                                <TablixMember />
+                                <TablixMember>
+                                  <TablixHeader>
+                                    <Size>1.95cm</Size>
+                                    <CellContents>
+                                      <Textbox Name="Textbox191">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value />
+                                                <Style>
+                                                  <FontFamily>Segoe UI</FontFamily>
+                                                  <FontSize>8pt</FontSize>
+                                                  <FontWeight>Bold</FontWeight>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>Textbox191</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Color>LightGrey</Color>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <TopBorder>
+                                            <Color>Black</Color>
+                                            <Style>Solid</Style>
+                                            <Width>1pt</Width>
+                                          </TopBorder>
+                                          <BottomBorder>
+                                            <Color>Black</Color>
+                                            <Style>None</Style>
+                                            <Width>1pt</Width>
+                                          </BottomBorder>
+                                          <LeftBorder>
+                                            <Color>Black</Color>
+                                            <Style>Solid</Style>
+                                            <Width>1pt</Width>
+                                          </LeftBorder>
+                                          <BackgroundColor>LightGrey</BackgroundColor>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixHeader>
+                                  <TablixMembers>
+                                    <TablixMember>
+                                      <TablixHeader>
+                                        <Size>1.85cm</Size>
+                                        <CellContents>
+                                          <Textbox Name="Textbox196">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value />
+                                                    <Style>
+                                                      <FontFamily>Segoe UI</FontFamily>
+                                                      <FontSize>8pt</FontSize>
+                                                      <FontWeight>Bold</FontWeight>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style>
+                                                  <TextAlign>Center</TextAlign>
+                                                </Style>
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>Textbox196</rd:DefaultName>
+                                            <Style>
+                                              <Border>
+                                                <Color>LightGrey</Color>
+                                                <Style>Solid</Style>
+                                              </Border>
+                                              <TopBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </TopBorder>
+                                              <BottomBorder>
+                                                <Color>Black</Color>
+                                                <Style>None</Style>
+                                                <Width>1pt</Width>
+                                              </BottomBorder>
+                                              <LeftBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </LeftBorder>
+                                              <BackgroundColor>LightGrey</BackgroundColor>
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixHeader>
+                                      <TablixMembers>
+                                        <TablixMember />
+                                      </TablixMembers>
+                                    </TablixMember>
+                                  </TablixMembers>
+                                </TablixMember>
                               </TablixMembers>
                             </TablixMember>
                           </TablixMembers>
@@ -1855,7 +1969,7 @@
                 </TablixMember>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>2.25cm</Size>
+                    <Size>1.74454cm</Size>
                     <CellContents>
                       <Textbox Name="Textbox177">
                         <CanGrow>true</CanGrow>
@@ -1904,7 +2018,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>2.25cm</Size>
+                        <Size>1.79633cm</Size>
                         <CellContents>
                           <Textbox Name="Textbox187">
                             <CanGrow>true</CanGrow>
@@ -1953,16 +2067,16 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>2cm</Size>
+                            <Size>1.29504cm</Size>
                             <CellContents>
-                              <Textbox Name="Textbox192">
+                              <Textbox Name="Textbox14">
                                 <CanGrow>true</CanGrow>
                                 <KeepTogether>true</KeepTogether>
                                 <Paragraphs>
                                   <Paragraph>
                                     <TextRuns>
                                       <TextRun>
-                                        <Value>=First(Fields!Dim1Label.Value, "DataSet_Result")</Value>
+                                        <Value>DocNo</Value>
                                         <Style>
                                           <FontFamily>Segoe UI</FontFamily>
                                           <FontSize>8pt</FontSize>
@@ -1975,7 +2089,7 @@
                                     </Style>
                                   </Paragraph>
                                 </Paragraphs>
-                                <rd:DefaultName>Textbox192</rd:DefaultName>
+                                <rd:DefaultName>Textbox14</rd:DefaultName>
                                 <Style>
                                   <Border>
                                     <Color>LightGrey</Color>
@@ -2004,16 +2118,16 @@
                           <TablixMembers>
                             <TablixMember>
                               <TablixHeader>
-                                <Size>2cm</Size>
+                                <Size>1.87209cm</Size>
                                 <CellContents>
-                                  <Textbox Name="Textbox197">
+                                  <Textbox Name="Textbox20">
                                     <CanGrow>true</CanGrow>
                                     <KeepTogether>true</KeepTogether>
                                     <Paragraphs>
                                       <Paragraph>
                                         <TextRuns>
                                           <TextRun>
-                                            <Value>=First(Fields!Dim2Label.Value, "DataSet_Result")</Value>
+                                            <Value>P.Date</Value>
                                             <Style>
                                               <FontFamily>Segoe UI</FontFamily>
                                               <FontSize>8pt</FontSize>
@@ -2026,7 +2140,7 @@
                                         </Style>
                                       </Paragraph>
                                     </Paragraphs>
-                                    <rd:DefaultName>Textbox197</rd:DefaultName>
+                                    <rd:DefaultName>Textbox20</rd:DefaultName>
                                     <Style>
                                       <Border>
                                         <Color>LightGrey</Color>
@@ -2053,7 +2167,113 @@
                                 </CellContents>
                               </TablixHeader>
                               <TablixMembers>
-                                <TablixMember />
+                                <TablixMember>
+                                  <TablixHeader>
+                                    <Size>1.95cm</Size>
+                                    <CellContents>
+                                      <Textbox Name="Textbox192">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=First(Fields!Dim1Label.Value, "DataSet_Result")</Value>
+                                                <Style>
+                                                  <FontFamily>Segoe UI</FontFamily>
+                                                  <FontSize>8pt</FontSize>
+                                                  <FontWeight>Bold</FontWeight>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>Textbox192</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Color>LightGrey</Color>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <BottomBorder>
+                                            <Color>Black</Color>
+                                            <Style>Solid</Style>
+                                            <Width>1pt</Width>
+                                          </BottomBorder>
+                                          <LeftBorder>
+                                            <Color>Black</Color>
+                                            <Style>Solid</Style>
+                                            <Width>1pt</Width>
+                                          </LeftBorder>
+                                          <BackgroundColor>LightGrey</BackgroundColor>
+                                          <VerticalAlign>Middle</VerticalAlign>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixHeader>
+                                  <TablixMembers>
+                                    <TablixMember>
+                                      <TablixHeader>
+                                        <Size>1.85cm</Size>
+                                        <CellContents>
+                                          <Textbox Name="Textbox197">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>=First(Fields!Dim2Label.Value, "DataSet_Result")</Value>
+                                                    <Style>
+                                                      <FontFamily>Segoe UI</FontFamily>
+                                                      <FontSize>8pt</FontSize>
+                                                      <FontWeight>Bold</FontWeight>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style>
+                                                  <TextAlign>Center</TextAlign>
+                                                </Style>
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>Textbox197</rd:DefaultName>
+                                            <Style>
+                                              <Border>
+                                                <Color>LightGrey</Color>
+                                                <Style>Solid</Style>
+                                              </Border>
+                                              <BottomBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </BottomBorder>
+                                              <LeftBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </LeftBorder>
+                                              <BackgroundColor>LightGrey</BackgroundColor>
+                                              <VerticalAlign>Middle</VerticalAlign>
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixHeader>
+                                      <TablixMembers>
+                                        <TablixMember />
+                                      </TablixMembers>
+                                    </TablixMember>
+                                  </TablixMembers>
+                                </TablixMember>
                               </TablixMembers>
                             </TablixMember>
                           </TablixMembers>
@@ -2092,7 +2312,7 @@
                           <TablixMembers>
                             <TablixMember>
                               <TablixHeader>
-                                <Size>2.25cm</Size>
+                                <Size>1.74454cm</Size>
                                 <CellContents>
                                   <Textbox Name="Textbox178">
                                     <CanGrow>true</CanGrow>
@@ -2144,7 +2364,7 @@
                               <TablixMembers>
                                 <TablixMember>
                                   <TablixHeader>
-                                    <Size>2.25cm</Size>
+                                    <Size>1.79633cm</Size>
                                     <CellContents>
                                       <Textbox Name="Name">
                                         <CanGrow>true</CanGrow>
@@ -2196,16 +2416,16 @@
                                   <TablixMembers>
                                     <TablixMember>
                                       <TablixHeader>
-                                        <Size>2cm</Size>
+                                        <Size>1.29504cm</Size>
                                         <CellContents>
-                                          <Textbox Name="Textbox193">
+                                          <Textbox Name="LCY_Code">
                                             <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value />
+                                                    <Value>=Fields!Document_No_.Value</Value>
                                                     <Style>
                                                       <FontFamily>Segoe UI</FontFamily>
                                                       <FontSize>8pt</FontSize>
@@ -2216,7 +2436,7 @@
                                                 <Style />
                                               </Paragraph>
                                             </Paragraphs>
-                                            <rd:DefaultName>Textbox193</rd:DefaultName>
+                                            <rd:DefaultName>LCY_Code</rd:DefaultName>
                                             <Style>
                                               <Border>
                                                 <Style>None</Style>
@@ -2248,27 +2468,30 @@
                                       <TablixMembers>
                                         <TablixMember>
                                           <TablixHeader>
-                                            <Size>2cm</Size>
+                                            <Size>1.87209cm</Size>
                                             <CellContents>
-                                              <Textbox Name="Textbox198">
+                                              <Textbox Name="LCY_Code1">
                                                 <CanGrow>true</CanGrow>
                                                 <KeepTogether>true</KeepTogether>
                                                 <Paragraphs>
                                                   <Paragraph>
                                                     <TextRuns>
                                                       <TextRun>
-                                                        <Value />
+                                                        <Value>=Fields!Posting_Date.Value</Value>
                                                         <Style>
                                                           <FontFamily>Segoe UI</FontFamily>
                                                           <FontSize>8pt</FontSize>
                                                           <FontWeight>Bold</FontWeight>
+                                                          <Format>d</Format>
                                                         </Style>
                                                       </TextRun>
                                                     </TextRuns>
-                                                    <Style />
+                                                    <Style>
+                                                      <TextAlign>Center</TextAlign>
+                                                    </Style>
                                                   </Paragraph>
                                                 </Paragraphs>
-                                                <rd:DefaultName>Textbox198</rd:DefaultName>
+                                                <rd:DefaultName>LCY_Code1</rd:DefaultName>
                                                 <Style>
                                                   <Border>
                                                     <Style>None</Style>
@@ -2295,10 +2518,119 @@
                                                   <PaddingBottom>5pt</PaddingBottom>
                                                 </Style>
                                               </Textbox>
+                                              <rd:Selected>true</rd:Selected>
                                             </CellContents>
                                           </TablixHeader>
                                           <TablixMembers>
-                                            <TablixMember />
+                                            <TablixMember>
+                                              <TablixHeader>
+                                                <Size>1.95cm</Size>
+                                                <CellContents>
+                                                  <Textbox Name="Textbox193">
+                                                    <CanGrow>true</CanGrow>
+                                                    <KeepTogether>true</KeepTogether>
+                                                    <Paragraphs>
+                                                      <Paragraph>
+                                                        <TextRuns>
+                                                          <TextRun>
+                                                            <Value />
+                                                            <Style>
+                                                              <FontFamily>Segoe UI</FontFamily>
+                                                              <FontSize>8pt</FontSize>
+                                                              <FontWeight>Bold</FontWeight>
+                                                            </Style>
+                                                          </TextRun>
+                                                        </TextRuns>
+                                                        <Style />
+                                                      </Paragraph>
+                                                    </Paragraphs>
+                                                    <rd:DefaultName>Textbox193</rd:DefaultName>
+                                                    <Style>
+                                                      <Border>
+                                                        <Style>None</Style>
+                                                      </Border>
+                                                      <TopBorder>
+                                                        <Color>Black</Color>
+                                                        <Style>Solid</Style>
+                                                        <Width>1pt</Width>
+                                                      </TopBorder>
+                                                      <BottomBorder>
+                                                        <Color>DimGray</Color>
+                                                        <Style>Solid</Style>
+                                                        <Width>1pt</Width>
+                                                      </BottomBorder>
+                                                      <RightBorder>
+                                                        <Color>Black</Color>
+                                                        <Style>Solid</Style>
+                                                        <Width>1pt</Width>
+                                                      </RightBorder>
+                                                      <VerticalAlign>Middle</VerticalAlign>
+                                                      <PaddingLeft>2pt</PaddingLeft>
+                                                      <PaddingRight>2pt</PaddingRight>
+                                                      <PaddingTop>2pt</PaddingTop>
+                                                      <PaddingBottom>5pt</PaddingBottom>
+                                                    </Style>
+                                                  </Textbox>
+                                                </CellContents>
+                                              </TablixHeader>
+                                              <TablixMembers>
+                                                <TablixMember>
+                                                  <TablixHeader>
+                                                    <Size>1.85cm</Size>
+                                                    <CellContents>
+                                                      <Textbox Name="Textbox198">
+                                                        <CanGrow>true</CanGrow>
+                                                        <KeepTogether>true</KeepTogether>
+                                                        <Paragraphs>
+                                                          <Paragraph>
+                                                            <TextRuns>
+                                                              <TextRun>
+                                                                <Value />
+                                                                <Style>
+                                                                  <FontFamily>Segoe UI</FontFamily>
+                                                                  <FontSize>8pt</FontSize>
+                                                                  <FontWeight>Bold</FontWeight>
+                                                                </Style>
+                                                              </TextRun>
+                                                            </TextRuns>
+                                                            <Style />
+                                                          </Paragraph>
+                                                        </Paragraphs>
+                                                        <rd:DefaultName>Textbox198</rd:DefaultName>
+                                                        <Style>
+                                                          <Border>
+                                                            <Style>None</Style>
+                                                          </Border>
+                                                          <TopBorder>
+                                                            <Color>Black</Color>
+                                                            <Style>Solid</Style>
+                                                            <Width>1pt</Width>
+                                                          </TopBorder>
+                                                          <BottomBorder>
+                                                            <Color>DimGray</Color>
+                                                            <Style>Solid</Style>
+                                                            <Width>1pt</Width>
+                                                          </BottomBorder>
+                                                          <RightBorder>
+                                                            <Color>Black</Color>
+                                                            <Style>Solid</Style>
+                                                            <Width>1pt</Width>
+                                                          </RightBorder>
+                                                          <VerticalAlign>Middle</VerticalAlign>
+                                                          <PaddingLeft>2pt</PaddingLeft>
+                                                          <PaddingRight>2pt</PaddingRight>
+                                                          <PaddingTop>2pt</PaddingTop>
+                                                          <PaddingBottom>5pt</PaddingBottom>
+                                                        </Style>
+                                                      </Textbox>
+                                                    </CellContents>
+                                                  </TablixHeader>
+                                                  <TablixMembers>
+                                                    <TablixMember />
+                                                  </TablixMembers>
+                                                </TablixMember>
+                                              </TablixMembers>
+                                            </TablixMember>
                                           </TablixMembers>
                                         </TablixMember>
                                       </TablixMembers>
@@ -2309,7 +2641,7 @@
                             </TablixMember>
                             <TablixMember>
                               <TablixHeader>
-                                <Size>2.25cm</Size>
+                                <Size>1.74454cm</Size>
                                 <CellContents>
                                   <Textbox Name="Group1">
                                     <CanGrow>true</CanGrow>
@@ -2360,7 +2692,7 @@
                               <TablixMembers>
                                 <TablixMember>
                                   <TablixHeader>
-                                    <Size>2.25cm</Size>
+                                    <Size>1.79633cm</Size>
                                     <CellContents>
                                       <Textbox Name="Textbox189">
                                         <CanGrow>true</CanGrow>
@@ -2411,16 +2743,16 @@
                                   <TablixMembers>
                                     <TablixMember>
                                       <TablixHeader>
-                                        <Size>2cm</Size>
+                                        <Size>1.29504cm</Size>
                                         <CellContents>
-                                          <Textbox Name="Textbox194">
+                                          <Textbox Name="Textbox16">
                                             <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!Dim1Value.Value</Value>
+                                                    <Value />
                                                     <Style>
                                                       <FontFamily>Segoe UI</FontFamily>
                                                       <FontSize>8pt</FontSize>
@@ -2432,7 +2764,7 @@
                                                 </Style>
                                               </Paragraph>
                                             </Paragraphs>
-                                            <rd:DefaultName>Textbox194</rd:DefaultName>
+                                            <rd:DefaultName>Textbox16</rd:DefaultName>
                                             <Style>
                                               <Border>
                                                 <Style>None</Style>
@@ -2459,16 +2791,16 @@
                                       <TablixMembers>
                                         <TablixMember>
                                           <TablixHeader>
-                                            <Size>2cm</Size>
+                                            <Size>1.87209cm</Size>
                                             <CellContents>
-                                              <Textbox Name="Textbox199">
+                                              <Textbox Name="Textbox24">
                                                 <CanGrow>true</CanGrow>
                                                 <KeepTogether>true</KeepTogether>
                                                 <Paragraphs>
                                                   <Paragraph>
                                                     <TextRuns>
                                                       <TextRun>
-                                                        <Value>=Fields!Dim2Value.Value</Value>
+                                                        <Value />
                                                         <Style>
                                                           <FontFamily>Segoe UI</FontFamily>
                                                           <FontSize>8pt</FontSize>
@@ -2480,7 +2812,7 @@
                                                     </Style>
                                                   </Paragraph>
                                                 </Paragraphs>
-                                                <rd:DefaultName>Textbox199</rd:DefaultName>
+                                                <rd:DefaultName>Textbox24</rd:DefaultName>
                                                 <Style>
                                                   <Border>
                                                     <Style>None</Style>
@@ -2506,7 +2838,107 @@
                                           </TablixHeader>
                                           <TablixMembers>
                                             <TablixMember>
-                                              <Group Name="Details" />
+                                              <TablixHeader>
+                                                <Size>1.95cm</Size>
+                                                <CellContents>
+                                                  <Textbox Name="Textbox194">
+                                                    <CanGrow>true</CanGrow>
+                                                    <KeepTogether>true</KeepTogether>
+                                                    <Paragraphs>
+                                                      <Paragraph>
+                                                        <TextRuns>
+                                                          <TextRun>
+                                                            <Value>=Fields!Dim1Value.Value</Value>
+                                                            <Style>
+                                                              <FontFamily>Segoe UI</FontFamily>
+                                                              <FontSize>8pt</FontSize>
+                                                            </Style>
+                                                          </TextRun>
+                                                        </TextRuns>
+                                                        <Style>
+                                                          <TextAlign>Center</TextAlign>
+                                                        </Style>
+                                                      </Paragraph>
+                                                    </Paragraphs>
+                                                    <rd:DefaultName>Textbox194</rd:DefaultName>
+                                                    <Style>
+                                                      <Border>
+                                                        <Style>None</Style>
+                                                      </Border>
+                                                      <LeftBorder>
+                                                        <Color>Black</Color>
+                                                        <Style>Solid</Style>
+                                                        <Width>1pt</Width>
+                                                      </LeftBorder>
+                                                      <RightBorder>
+                                                        <Color>Black</Color>
+                                                        <Style>Solid</Style>
+                                                        <Width>1pt</Width>
+                                                      </RightBorder>
+                                                      <VerticalAlign>Middle</VerticalAlign>
+                                                      <PaddingLeft>2pt</PaddingLeft>
+                                                      <PaddingRight>2pt</PaddingRight>
+                                                      <PaddingTop>2pt</PaddingTop>
+                                                      <PaddingBottom>2pt</PaddingBottom>
+                                                    </Style>
+                                                  </Textbox>
+                                                </CellContents>
+                                              </TablixHeader>
+                                              <TablixMembers>
+                                                <TablixMember>
+                                                  <TablixHeader>
+                                                    <Size>1.85cm</Size>
+                                                    <CellContents>
+                                                      <Textbox Name="Textbox199">
+                                                        <CanGrow>true</CanGrow>
+                                                        <KeepTogether>true</KeepTogether>
+                                                        <Paragraphs>
+                                                          <Paragraph>
+                                                            <TextRuns>
+                                                              <TextRun>
+                                                                <Value>=Fields!Dim2Value.Value</Value>
+                                                                <Style>
+                                                                  <FontFamily>Segoe UI</FontFamily>
+                                                                  <FontSize>8pt</FontSize>
+                                                                </Style>
+                                                              </TextRun>
+                                                            </TextRuns>
+                                                            <Style>
+                                                              <TextAlign>Center</TextAlign>
+                                                            </Style>
+                                                          </Paragraph>
+                                                        </Paragraphs>
+                                                        <rd:DefaultName>Textbox199</rd:DefaultName>
+                                                        <Style>
+                                                          <Border>
+                                                            <Style>None</Style>
+                                                          </Border>
+                                                          <LeftBorder>
+                                                            <Color>Black</Color>
+                                                            <Style>Solid</Style>
+                                                            <Width>1pt</Width>
+                                                          </LeftBorder>
+                                                          <RightBorder>
+                                                            <Color>Black</Color>
+                                                            <Style>Solid</Style>
+                                                            <Width>1pt</Width>
+                                                          </RightBorder>
+                                                          <VerticalAlign>Middle</VerticalAlign>
+                                                          <PaddingLeft>2pt</PaddingLeft>
+                                                          <PaddingRight>2pt</PaddingRight>
+                                                          <PaddingTop>2pt</PaddingTop>
+                                                          <PaddingBottom>2pt</PaddingBottom>
+                                                        </Style>
+                                                      </Textbox>
+                                                    </CellContents>
+                                                  </TablixHeader>
+                                                  <TablixMembers>
+                                                    <TablixMember>
+                                                      <Group Name="Details" />
+                                                    </TablixMember>
+                                                  </TablixMembers>
+                                                </TablixMember>
+                                              </TablixMembers>
                                             </TablixMember>
                                           </TablixMembers>
                                         </TablixMember>
@@ -2530,7 +2962,7 @@
                 </TablixMember>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>2.25cm</Size>
+                    <Size>1.74454cm</Size>
                     <CellContents>
                       <Textbox Name="Textbox180">
                         <CanGrow>true</CanGrow>
@@ -2570,7 +3002,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>2.25cm</Size>
+                        <Size>1.79633cm</Size>
                         <CellContents>
                           <Textbox Name="Textbox190">
                             <CanGrow>true</CanGrow>
@@ -2610,9 +3042,9 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>2cm</Size>
+                            <Size>1.29504cm</Size>
                             <CellContents>
-                              <Textbox Name="Textbox195">
+                              <Textbox Name="Textbox18">
                                 <CanGrow>true</CanGrow>
                                 <KeepTogether>true</KeepTogether>
                                 <Paragraphs>
@@ -2629,7 +3061,7 @@
                                     <Style />
                                   </Paragraph>
                                 </Paragraphs>
-                                <rd:DefaultName>Textbox195</rd:DefaultName>
+                                <rd:DefaultName>Textbox18</rd:DefaultName>
                                 <Style>
                                   <Border>
                                     <Style>None</Style>
@@ -2650,9 +3082,9 @@
                           <TablixMembers>
                             <TablixMember>
                               <TablixHeader>
-                                <Size>2cm</Size>
+                                <Size>1.87209cm</Size>
                                 <CellContents>
-                                  <Textbox Name="Textbox200">
+                                  <Textbox Name="Textbox25">
                                     <CanGrow>true</CanGrow>
                                     <KeepTogether>true</KeepTogether>
                                     <Paragraphs>
@@ -2669,7 +3101,7 @@
                                         <Style />
                                       </Paragraph>
                                     </Paragraphs>
-                                    <rd:DefaultName>Textbox200</rd:DefaultName>
+                                    <rd:DefaultName>Textbox25</rd:DefaultName>
                                     <Style>
                                       <Border>
                                         <Style>None</Style>
@@ -2688,7 +3120,91 @@
                                 </CellContents>
                               </TablixHeader>
                               <TablixMembers>
-                                <TablixMember />
+                                <TablixMember>
+                                  <TablixHeader>
+                                    <Size>1.95cm</Size>
+                                    <CellContents>
+                                      <Textbox Name="Textbox195">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value />
+                                                <Style>
+                                                  <FontFamily>Segoe UI</FontFamily>
+                                                  <FontSize>8pt</FontSize>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style />
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>Textbox195</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>None</Style>
+                                          </Border>
+                                          <TopBorder>
+                                            <Color>Black</Color>
+                                            <Style>Solid</Style>
+                                            <Width>1pt</Width>
+                                          </TopBorder>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixHeader>
+                                  <TablixMembers>
+                                    <TablixMember>
+                                      <TablixHeader>
+                                        <Size>1.85cm</Size>
+                                        <CellContents>
+                                          <Textbox Name="Textbox200">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value />
+                                                    <Style>
+                                                      <FontFamily>Segoe UI</FontFamily>
+                                                      <FontSize>8pt</FontSize>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>Textbox200</rd:DefaultName>
+                                            <Style>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
+                                              <TopBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </TopBorder>
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixHeader>
+                                      <TablixMembers>
+                                        <TablixMember />
+                                      </TablixMembers>
+                                    </TablixMember>
+                                  </TablixMembers>
+                                </TablixMember>
                               </TablixMembers>
                             </TablixMember>
                           </TablixMembers>
@@ -3573,6 +4089,12 @@ End Function
         <Field Name="Description">
           <DataField>Description</DataField>
         </Field>
+        <Field Name="Document_No_">
+          <DataField>Document_No_</DataField>
+        </Field>
+        <Field Name="Posting_Date">
+          <DataField>Posting_Date</DataField>
+        </Field>
         <Field Name="Source_No_">
           <DataField>Source_No_</DataField>
         </Field>
@@ -3607,6 +4129,7 @@ End Function
           <DataField>Global_Dimension_1_Code</DataField>
         </Field>
         <Field Name="Global_Dimension_2_Code">
+        
           <DataField>Global_Dimension_2_Code</DataField>
         </Field>
         <Field Name="Dim1Value">

@@ -11,6 +11,7 @@ report 50233 "ER - Statement Of Account"
         {
             PrintOnlyIfDetail = true;
             DataItemTableView = sorting("No.") WHERE("Account Type" = CONST(Posting));
+            RequestFilterFields = "Date Filter";
             #region Company Information
             Column(CompanyCity; G_RecCompanyInformation.City)
             {
@@ -269,6 +270,8 @@ report 50233 "ER - Statement Of Account"
             {
 
             }
+            column(NetChange; "Net Change") { }
+            column(Additional_Currency_Net_Change; "Additional-Currency Net Change") { }
 
             column(Dim1Label; SelectedDimensions[1])
             {
@@ -278,6 +281,9 @@ report 50233 "ER - Statement Of Account"
             {
 
             }
+            column(Date_Range; format(FromDate) + '..' + format(ToDate))
+            { }
+            column(FromDate; Format(FromDate)) { }
 
             dataitem("G/L Entry"; "G/L Entry")
             {
@@ -299,6 +305,8 @@ report 50233 "ER - Statement Of Account"
                 {
 
                 }
+                column(Document_No_; "Document No.") { }
+                column(Posting_Date; "Posting Date") { }
                 column(Source_No_; "Source No.")
                 {
 
@@ -417,6 +425,7 @@ report 50233 "ER - Statement Of Account"
                 var
                     MyFieldRef: FieldRef;
                     GLEntryRecref: RecordRef;
+
                     RecID: RecordID;
                 begin
                     GLEntryRecref.OPEN(17);
@@ -448,13 +457,21 @@ report 50233 "ER - Statement Of Account"
                 end;
             }
 
-            // trigger OnAfterGetRecord()
-            // begin
-            //     if Account_Type = Account_Type::"G/L Account" then
-            //         Account_Id := "No."
-            //     else
-            //         Account_Id := "No." + "Account Type";
-            // end;
+            trigger OnAfterGetRecord()
+            var
+
+            begin
+                //Date := "G/L Account"."Date Filter";
+                // CalcFields("Net Change", "Balance at Date", "Additional-Currency Net Change");
+                GLAccount.Reset();
+                GLAccount.SetFilter("Date Filter", '<' + format("G/L Account".GetRangeMin("Date Filter")));
+                if GLAccount.FindFirst() then begin
+                    GLAccount.CalcFields("Net Change", "Additional-Currency Net Change");
+                    NetChange := GLAccount."Net Change";
+
+                end;
+
+            end;
         }
     }
     requestpage
@@ -719,6 +736,7 @@ report 50233 "ER - Statement Of Account"
         SourceNo_Label: Label 'Source No.';
         Curr_Label: Label 'Curr.';
         Entry_Label: Label 'Entry';
+        GLAccount: Record "G/L Account";
         OrigCurrBalance_Label: Label 'Orig Curr Balance';
         LCYCurrBalance_Label: Label 'LCY Currency Balance';
         ACYCurrBalance_Label: Label 'ACY Currency Balance';
@@ -738,6 +756,7 @@ report 50233 "ER - Statement Of Account"
         #region Group by shortcuts
         DimensionsArray: array[8] of Boolean;
         SelectedDimensions: array[2] of Text;
+        Date: Date;
         SelectedDimensionsNB: array[2] of Integer;
         Dim1ID: Integer;
         Dim2ID: Integer;
@@ -746,4 +765,5 @@ report 50233 "ER - Statement Of Account"
         #endregion
         TimeNow: Text[25];
         x: Integer;
+        NetChange: Decimal;
 }

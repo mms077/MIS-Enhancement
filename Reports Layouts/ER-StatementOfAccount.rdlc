@@ -11,283 +11,6 @@
       <rd:DataSourceID>0fa73733-dfc9-439e-bdef-3a9d665b0d3c</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="CompanyCity">
-          <DataField>CompanyCity</DataField>
-        </Field>
-        <Field Name="Capital_Label">
-          <DataField>Capital_Label</DataField>
-        </Field>
-        <Field Name="AddressLabel">
-          <DataField>AddressLabel</DataField>
-        </Field>
-        <Field Name="TLabel">
-          <DataField>TLabel</DataField>
-        </Field>
-        <Field Name="ELabel">
-          <DataField>ELabel</DataField>
-        </Field>
-        <Field Name="VATCodeLabel">
-          <DataField>VATCodeLabel</DataField>
-        </Field>
-        <Field Name="Company_Picture">
-          <DataField>Company_Picture</DataField>
-        </Field>
-        <Field Name="Company_Address">
-          <DataField>Company_Address</DataField>
-        </Field>
-        <Field Name="Company_Name">
-          <DataField>Company_Name</DataField>
-        </Field>
-        <Field Name="Comapny_City">
-          <DataField>Comapny_City</DataField>
-        </Field>
-        <Field Name="Company_CRNumber">
-          <DataField>Company_CRNumber</DataField>
-        </Field>
-        <Field Name="Company_Capital">
-          <DataField>Company_Capital</DataField>
-        </Field>
-        <Field Name="Company_CapitalFormat">
-          <DataField>Company_CapitalFormat</DataField>
-        </Field>
-        <Field Name="Company_Vat">
-          <DataField>Company_Vat</DataField>
-        </Field>
-        <Field Name="Comapny_Phone">
-          <DataField>Comapny_Phone</DataField>
-        </Field>
-        <Field Name="Company_Fax">
-          <DataField>Company_Fax</DataField>
-        </Field>
-        <Field Name="Company_Email">
-          <DataField>Company_Email</DataField>
-        </Field>
-        <Field Name="BankAccLabel">
-          <DataField>BankAccLabel</DataField>
-        </Field>
-        <Field Name="SWIFTLabel">
-          <DataField>SWIFTLabel</DataField>
-        </Field>
-        <Field Name="IBANLabel">
-          <DataField>IBANLabel</DataField>
-        </Field>
-        <Field Name="Company_Bank_Account">
-          <DataField>Company_Bank_Account</DataField>
-        </Field>
-        <Field Name="Company_SWIFT">
-          <DataField>Company_SWIFT</DataField>
-        </Field>
-        <Field Name="Company_IBAN">
-          <DataField>Company_IBAN</DataField>
-        </Field>
-        <Field Name="Company_CityAndZip">
-          <DataField>Company_CityAndZip</DataField>
-        </Field>
-        <Field Name="FullyPaidLabel">
-          <DataField>FullyPaidLabel</DataField>
-        </Field>
-        <Field Name="LCY_Code">
-          <DataField>LCY_Code</DataField>
-        </Field>
-        <Field Name="StatementOfAccountLabel">
-          <DataField>StatementOfAccountLabel</DataField>
-        </Field>
-        <Field Name="PrintedOnLabel">
-          <DataField>PrintedOnLabel</DataField>
-        </Field>
-        <Field Name="PageLabel">
-          <DataField>PageLabel</DataField>
-        </Field>
-        <Field Name="OfLabel">
-          <DataField>OfLabel</DataField>
-        </Field>
-        <Field Name="Filter1">
-          <DataField>Filter1</DataField>
-        </Field>
-        <Field Name="Filter2">
-          <DataField>Filter2</DataField>
-        </Field>
-        <Field Name="NumberOfDimensions">
-          <DataField>NumberOfDimensions</DataField>
-        </Field>
-        <Field Name="AccountNo_Label">
-          <DataField>AccountNo_Label</DataField>
-        </Field>
-        <Field Name="Account_Type">
-          <DataField>Account_Type</DataField>
-        </Field>
-        <Field Name="AccountName_Label">
-          <DataField>AccountName_Label</DataField>
-        </Field>
-        <Field Name="SourceNo_Label">
-          <DataField>SourceNo_Label</DataField>
-        </Field>
-        <Field Name="Curr_Label">
-          <DataField>Curr_Label</DataField>
-        </Field>
-        <Field Name="Entry_Label">
-          <DataField>Entry_Label</DataField>
-        </Field>
-        <Field Name="OrigCurrBalance_Label">
-          <DataField>OrigCurrBalance_Label</DataField>
-        </Field>
-        <Field Name="LCYCurrBalance_Label">
-          <DataField>LCYCurrBalance_Label</DataField>
-        </Field>
-        <Field Name="ACYCurrBalance_Label">
-          <DataField>ACYCurrBalance_Label</DataField>
-        </Field>
-        <Field Name="Debit_Label">
-          <DataField>Debit_Label</DataField>
-        </Field>
-        <Field Name="Credit_Label">
-          <DataField>Credit_Label</DataField>
-        </Field>
-        <Field Name="Balance_Label">
-          <DataField>Balance_Label</DataField>
-        </Field>
-        <Field Name="No">
-          <DataField>No</DataField>
-        </Field>
-        <Field Name="Name">
-          <DataField>Name</DataField>
-        </Field>
-        <Field Name="G_CurrencyCode">
-          <DataField>G_CurrencyCode</DataField>
-        </Field>
-        <Field Name="Debit_Amount">
-          <DataField>Debit_Amount</DataField>
-        </Field>
-        <Field Name="Debit_AmountFormat">
-          <DataField>Debit_AmountFormat</DataField>
-        </Field>
-        <Field Name="Credit_Amount">
-          <DataField>Credit_Amount</DataField>
-        </Field>
-        <Field Name="Credit_AmountFormat">
-          <DataField>Credit_AmountFormat</DataField>
-        </Field>
-        <Field Name="Balance">
-          <DataField>Balance</DataField>
-        </Field>
-        <Field Name="BalanceFormat">
-          <DataField>BalanceFormat</DataField>
-        </Field>
-        <Field Name="Add__Currency_Debit_Amount">
-          <DataField>Add__Currency_Debit_Amount</DataField>
-        </Field>
-        <Field Name="Add__Currency_Debit_AmountFormat">
-          <DataField>Add__Currency_Debit_AmountFormat</DataField>
-        </Field>
-        <Field Name="Add__Currency_Credit_Amount">
-          <DataField>Add__Currency_Credit_Amount</DataField>
-        </Field>
-        <Field Name="Add__Currency_Credit_AmountFormat">
-          <DataField>Add__Currency_Credit_AmountFormat</DataField>
-        </Field>
-        <Field Name="Add__Currency_Balance">
-          <DataField>Add__Currency_Balance</DataField>
-        </Field>
-        <Field Name="Add__Currency_BalanceFormat">
-          <DataField>Add__Currency_BalanceFormat</DataField>
-        </Field>
-        <Field Name="FormLabel">
-          <DataField>FormLabel</DataField>
-        </Field>
-        <Field Name="FormValue">
-          <DataField>FormValue</DataField>
-        </Field>
-        <Field Name="IssueDateLabel">
-          <DataField>IssueDateLabel</DataField>
-        </Field>
-        <Field Name="IssueDateValue">
-          <DataField>IssueDateValue</DataField>
-        </Field>
-        <Field Name="RevisionDateLabel">
-          <DataField>RevisionDateLabel</DataField>
-        </Field>
-        <Field Name="Global_Dimension_1_Filter">
-          <DataField>Global_Dimension_1_Filter</DataField>
-        </Field>
-        <Field Name="Global_Dimension_2_Filter">
-          <DataField>Global_Dimension_2_Filter</DataField>
-        </Field>
-        <Field Name="TimeNow">
-          <DataField>TimeNow</DataField>
-        </Field>
-        <Field Name="Dim1Label">
-          <DataField>Dim1Label</DataField>
-        </Field>
-        <Field Name="Dim2Label">
-          <DataField>Dim2Label</DataField>
-        </Field>
-        <Field Name="Account_Id">
-          <DataField>Account_Id</DataField>
-        </Field>
-        <Field Name="Entry_No">
-          <DataField>Entry_No</DataField>
-        </Field>
-        <Field Name="Description">
-          <DataField>Description</DataField>
-        </Field>
-        <Field Name="Document_No_">
-          <DataField>Document_No_</DataField>
-        </Field>
-        <Field Name="Posting_Date">
-          <DataField>Posting_Date</DataField>
-        </Field>
-        <Field Name="Source_No_">
-          <DataField>Source_No_</DataField>
-        </Field>
-        <Field Name="Entry_Debit_Amount">
-          <DataField>Entry_Debit_Amount</DataField>
-        </Field>
-        <Field Name="Entry_Debit_AmountFormat">
-          <DataField>Entry_Debit_AmountFormat</DataField>
-        </Field>
-        <Field Name="Entry_Credit_Amount">
-          <DataField>Entry_Credit_Amount</DataField>
-        </Field>
-        <Field Name="Entry_Credit_AmountFormat">
-          <DataField>Entry_Credit_AmountFormat</DataField>
-        </Field>
-        <Field Name="Entry_Add__Currency_Debit_Amount">
-          <DataField>Entry_Add__Currency_Debit_Amount</DataField>
-        </Field>
-        <Field Name="Entry_Add__Currency_Debit_AmountFormat">
-          <DataField>Entry_Add__Currency_Debit_AmountFormat</DataField>
-        </Field>
-        <Field Name="Entry_Add__Currency_Credit_Amount">
-          <DataField>Entry_Add__Currency_Credit_Amount</DataField>
-        </Field>
-        <Field Name="Entry_Add__Currency_Credit_AmountFormat">
-          <DataField>Entry_Add__Currency_Credit_AmountFormat</DataField>
-        </Field>
-        <Field Name="Shortcut_Dimension_3_Code">
-          <DataField>Shortcut_Dimension_3_Code</DataField>
-        </Field>
-        <Field Name="Global_Dimension_1_Code">
-          <DataField>Global_Dimension_1_Code</DataField>
-        </Field>
-        <Field Name="Global_Dimension_2_Code">
-          <DataField>Global_Dimension_2_Code</DataField>
-        </Field>
-        <Field Name="Dim1Value">
-          <DataField>Dim1Value</DataField>
-        </Field>
-        <Field Name="Dim2Value">
-          <DataField>Dim2Value</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -296,7 +19,6 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.95367cm</Width>
                   <Width>1.95367cm</Width>
                 </TablixColumn>
                 <TablixColumn>
@@ -312,10 +34,10 @@
                   <Width>2.28067cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.942cm</Width>
+                  <Width>2.45cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.23833cm</Width>
+                  <Width>2.45cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.942cm</Width>
@@ -1246,24 +968,22 @@
                             <PaddingBottom>5pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Debit_Amount">
+                        <Textbox Name="Textbox7">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Entry_Debit_Amount.Value)</Value>
+                                  <Value />
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Format>#,0.00</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1272,7 +992,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Debit_Amount</rd:DefaultName>
+                          <rd:DefaultName>Textbox7</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -1298,19 +1018,18 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Credit_Amount">
+                        <Textbox Name="Textbox10">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Entry_Credit_Amount.Value)</Value>
+                                  <Value />
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Format>#,0.00</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1319,7 +1038,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Credit_Amount</rd:DefaultName>
+                          <rd:DefaultName>Textbox10</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -1345,14 +1064,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Balance">
+                        <Textbox Name="Balance2">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Entry_Debit_Amount.Value) - Sum(Fields!Entry_Credit_Amount.Value)</Value>
+                                  <Value>=Fields!NetChange.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -1397,19 +1116,18 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Add__Currency_Debit_Amount">
+                        <Textbox Name="Textbox15">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Entry_Add__Currency_Debit_Amount.Value)</Value>
+                                  <Value />
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Format>#,0.00</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1418,7 +1136,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Add__Currency_Debit_Amount</rd:DefaultName>
+                          <rd:DefaultName>Textbox15</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -1444,19 +1162,18 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Add__Currency_Credit_Amount">
+                        <Textbox Name="Textbox18">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Entry_Add__Currency_Credit_Amount.Value)</Value>
+                                  <Value />
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Format>#,0.00</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1465,7 +1182,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Add__Currency_Credit_Amount</rd:DefaultName>
+                          <rd:DefaultName>Textbox18</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -1491,14 +1208,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Add__Currency_Balance">
+                        <Textbox Name="Balance3">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Entry_Add__Currency_Debit_Amount.Value) - Sum(Fields!Entry_Add__Currency_Credit_Amount.Value)</Value>
+                                  <Value>=Fields!NetChange.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -1512,7 +1229,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Add__Currency_Balance</rd:DefaultName>
+                          <rd:DefaultName>Balance</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -1539,6 +1256,7 @@
                             <PaddingBottom>5pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -2100,17 +1818,19 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox73">
+                        <Textbox Name="Debit_Amount">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Sum(Fields!Entry_Debit_Amount.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Format>#,0.00</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2119,7 +1839,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox73</rd:DefaultName>
+                          <rd:DefaultName>Debit_Amount</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -2129,27 +1849,35 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </TopBorder>
+                            <BottomBorder>
+                              <Color>DimGray</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
+                            <PaddingBottom>5pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox74">
+                        <Textbox Name="Credit_Amount">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Sum(Fields!Entry_Credit_Amount.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Format>#,0.00</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2158,7 +1886,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox74</rd:DefaultName>
+                          <rd:DefaultName>Credit_Amount</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -2168,17 +1896,23 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </TopBorder>
+                            <BottomBorder>
+                              <Color>DimGray</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
+                            <PaddingBottom>5pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Balance2">
+                        <Textbox Name="Balance">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -2230,17 +1964,19 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox76">
+                        <Textbox Name="Add__Currency_Debit_Amount">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Sum(Fields!Entry_Add__Currency_Debit_Amount.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Format>#,0.00</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2249,7 +1985,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox76</rd:DefaultName>
+                          <rd:DefaultName>Add__Currency_Debit_Amount</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -2259,27 +1995,35 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </TopBorder>
+                            <BottomBorder>
+                              <Color>DimGray</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
+                            <PaddingBottom>5pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox77">
+                        <Textbox Name="Add__Currency_Credit_Amount">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Sum(Fields!Entry_Add__Currency_Credit_Amount.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Format>#,0.00</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2288,7 +2032,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox77</rd:DefaultName>
+                          <rd:DefaultName>Add__Currency_Credit_Amount</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -2298,17 +2042,23 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </TopBorder>
+                            <BottomBorder>
+                              <Color>DimGray</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
+                            <PaddingBottom>5pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Add__Currency_Balance2">
+                        <Textbox Name="Add__Currency_Balance">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -2773,7 +2523,6 @@
                 <TablixMember>
                   <TablixHeader>
                     <Size>1.74454cm</Size>
-                    <Size>1.74454cm</Size>
                     <CellContents>
                       <Textbox Name="Textbox176">
                         <CanGrow>true</CanGrow>
@@ -2826,7 +2575,6 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>1.79633cm</Size>
                         <Size>1.79633cm</Size>
                         <CellContents>
                           <Textbox Name="Textbox186">
@@ -4511,7 +4259,7 @@
                       <Value>="Filter" &amp; ": " &amp; Fields!GLNoFilter.Value</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>6pt</FontSize>
+                        <FontSize>9pt</FontSize>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -4657,12 +4405,6 @@
       </Page>
     </ReportSection>
   </ReportSections>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -4702,4 +4444,305 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="CompanyCity">
+          <DataField>CompanyCity</DataField>
+        </Field>
+        <Field Name="Capital_Label">
+          <DataField>Capital_Label</DataField>
+        </Field>
+        <Field Name="AddressLabel">
+          <DataField>AddressLabel</DataField>
+        </Field>
+        <Field Name="TLabel">
+          <DataField>TLabel</DataField>
+        </Field>
+        <Field Name="ELabel">
+          <DataField>ELabel</DataField>
+        </Field>
+        <Field Name="VATCodeLabel">
+          <DataField>VATCodeLabel</DataField>
+        </Field>
+        <Field Name="Company_Picture">
+          <DataField>Company_Picture</DataField>
+        </Field>
+        <Field Name="Company_Address">
+          <DataField>Company_Address</DataField>
+        </Field>
+        <Field Name="Company_Name">
+          <DataField>Company_Name</DataField>
+        </Field>
+        <Field Name="Comapny_City">
+          <DataField>Comapny_City</DataField>
+        </Field>
+        <Field Name="Company_CRNumber">
+          <DataField>Company_CRNumber</DataField>
+        </Field>
+        <Field Name="Company_Capital">
+          <DataField>Company_Capital</DataField>
+        </Field>
+        <Field Name="Company_CapitalFormat">
+          <DataField>Company_CapitalFormat</DataField>
+        </Field>
+        <Field Name="Company_Vat">
+          <DataField>Company_Vat</DataField>
+        </Field>
+        <Field Name="Comapny_Phone">
+          <DataField>Comapny_Phone</DataField>
+        </Field>
+        <Field Name="Company_Fax">
+          <DataField>Company_Fax</DataField>
+        </Field>
+        <Field Name="Company_Email">
+          <DataField>Company_Email</DataField>
+        </Field>
+        <Field Name="BankAccLabel">
+          <DataField>BankAccLabel</DataField>
+        </Field>
+        <Field Name="SWIFTLabel">
+          <DataField>SWIFTLabel</DataField>
+        </Field>
+        <Field Name="IBANLabel">
+          <DataField>IBANLabel</DataField>
+        </Field>
+        <Field Name="Company_Bank_Account">
+          <DataField>Company_Bank_Account</DataField>
+        </Field>
+        <Field Name="Company_SWIFT">
+          <DataField>Company_SWIFT</DataField>
+        </Field>
+        <Field Name="Company_IBAN">
+          <DataField>Company_IBAN</DataField>
+        </Field>
+        <Field Name="Company_CityAndZip">
+          <DataField>Company_CityAndZip</DataField>
+        </Field>
+        <Field Name="FullyPaidLabel">
+          <DataField>FullyPaidLabel</DataField>
+        </Field>
+        <Field Name="LCY_Code">
+          <DataField>LCY_Code</DataField>
+        </Field>
+        <Field Name="StatementOfAccountLabel">
+          <DataField>StatementOfAccountLabel</DataField>
+        </Field>
+        <Field Name="PrintedOnLabel">
+          <DataField>PrintedOnLabel</DataField>
+        </Field>
+        <Field Name="PageLabel">
+          <DataField>PageLabel</DataField>
+        </Field>
+        <Field Name="OfLabel">
+          <DataField>OfLabel</DataField>
+        </Field>
+        <Field Name="Filter1">
+          <DataField>Filter1</DataField>
+        </Field>
+        <Field Name="Filter2">
+          <DataField>Filter2</DataField>
+        </Field>
+        <Field Name="NumberOfDimensions">
+          <DataField>NumberOfDimensions</DataField>
+        </Field>
+        <Field Name="AccountNo_Label">
+          <DataField>AccountNo_Label</DataField>
+        </Field>
+        <Field Name="Account_Type">
+          <DataField>Account_Type</DataField>
+        </Field>
+        <Field Name="AccountName_Label">
+          <DataField>AccountName_Label</DataField>
+        </Field>
+        <Field Name="SourceNo_Label">
+          <DataField>SourceNo_Label</DataField>
+        </Field>
+        <Field Name="Curr_Label">
+          <DataField>Curr_Label</DataField>
+        </Field>
+        <Field Name="Entry_Label">
+          <DataField>Entry_Label</DataField>
+        </Field>
+        <Field Name="OrigCurrBalance_Label">
+          <DataField>OrigCurrBalance_Label</DataField>
+        </Field>
+        <Field Name="LCYCurrBalance_Label">
+          <DataField>LCYCurrBalance_Label</DataField>
+        </Field>
+        <Field Name="ACYCurrBalance_Label">
+          <DataField>ACYCurrBalance_Label</DataField>
+        </Field>
+        <Field Name="Debit_Label">
+          <DataField>Debit_Label</DataField>
+        </Field>
+        <Field Name="Credit_Label">
+          <DataField>Credit_Label</DataField>
+        </Field>
+        <Field Name="Balance_Label">
+          <DataField>Balance_Label</DataField>
+        </Field>
+        <Field Name="No">
+          <DataField>No</DataField>
+        </Field>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+        </Field>
+        <Field Name="G_CurrencyCode">
+          <DataField>G_CurrencyCode</DataField>
+        </Field>
+        <Field Name="Debit_Amount">
+          <DataField>Debit_Amount</DataField>
+        </Field>
+        <Field Name="Debit_AmountFormat">
+          <DataField>Debit_AmountFormat</DataField>
+        </Field>
+        <Field Name="Credit_Amount">
+          <DataField>Credit_Amount</DataField>
+        </Field>
+        <Field Name="Credit_AmountFormat">
+          <DataField>Credit_AmountFormat</DataField>
+        </Field>
+        <Field Name="Balance">
+          <DataField>Balance</DataField>
+        </Field>
+        <Field Name="BalanceFormat">
+          <DataField>BalanceFormat</DataField>
+        </Field>
+        <Field Name="Add__Currency_Debit_Amount">
+          <DataField>Add__Currency_Debit_Amount</DataField>
+        </Field>
+        <Field Name="Add__Currency_Debit_AmountFormat">
+          <DataField>Add__Currency_Debit_AmountFormat</DataField>
+        </Field>
+        <Field Name="Add__Currency_Credit_Amount">
+          <DataField>Add__Currency_Credit_Amount</DataField>
+        </Field>
+        <Field Name="Add__Currency_Credit_AmountFormat">
+          <DataField>Add__Currency_Credit_AmountFormat</DataField>
+        </Field>
+        <Field Name="Add__Currency_Balance">
+          <DataField>Add__Currency_Balance</DataField>
+        </Field>
+        <Field Name="Add__Currency_BalanceFormat">
+          <DataField>Add__Currency_BalanceFormat</DataField>
+        </Field>
+        <Field Name="FormLabel">
+          <DataField>FormLabel</DataField>
+        </Field>
+        <Field Name="FormValue">
+          <DataField>FormValue</DataField>
+        </Field>
+        <Field Name="IssueDateLabel">
+          <DataField>IssueDateLabel</DataField>
+        </Field>
+        <Field Name="IssueDateValue">
+          <DataField>IssueDateValue</DataField>
+        </Field>
+        <Field Name="RevisionDateLabel">
+          <DataField>RevisionDateLabel</DataField>
+        </Field>
+        <Field Name="Global_Dimension_1_Filter">
+          <DataField>Global_Dimension_1_Filter</DataField>
+        </Field>
+        <Field Name="Global_Dimension_2_Filter">
+          <DataField>Global_Dimension_2_Filter</DataField>
+        </Field>
+        <Field Name="TimeNow">
+          <DataField>TimeNow</DataField>
+        </Field>
+        <Field Name="NetChange">
+          <DataField>NetChange</DataField>
+        </Field>
+        <Field Name="NetChangeFormat">
+          <DataField>NetChangeFormat</DataField>
+        </Field>
+        <Field Name="Additional_Currency_Net_Change">
+          <DataField>Additional_Currency_Net_Change</DataField>
+        </Field>
+        <Field Name="Additional_Currency_Net_ChangeFormat">
+          <DataField>Additional_Currency_Net_ChangeFormat</DataField>
+        </Field>
+        <Field Name="Dim1Label">
+          <DataField>Dim1Label</DataField>
+        </Field>
+        <Field Name="Dim2Label">
+          <DataField>Dim2Label</DataField>
+        </Field>
+        <Field Name="Date_Range">
+          <DataField>Date_Range</DataField>
+        </Field>
+        <Field Name="FromDate">
+          <DataField>FromDate</DataField>
+        </Field>
+        <Field Name="Account_Id">
+          <DataField>Account_Id</DataField>
+        </Field>
+        <Field Name="DateFilter">
+          <DataField>DateFilter</DataField>
+        </Field>
+        <Field Name="GLNoFilter">
+          <DataField>GLNoFilter</DataField>
+        </Field>
+        <Field Name="Entry_No">
+          <DataField>Entry_No</DataField>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+        </Field>
+        <Field Name="Document_No_">
+          <DataField>Document_No_</DataField>
+        </Field>
+        <Field Name="Posting_Date">
+          <DataField>Posting_Date</DataField>
+        </Field>
+        <Field Name="Source_No_">
+          <DataField>Source_No_</DataField>
+        </Field>
+        <Field Name="Entry_Debit_Amount">
+          <DataField>Entry_Debit_Amount</DataField>
+        </Field>
+        <Field Name="Entry_Debit_AmountFormat">
+          <DataField>Entry_Debit_AmountFormat</DataField>
+        </Field>
+        <Field Name="Entry_Credit_Amount">
+          <DataField>Entry_Credit_Amount</DataField>
+        </Field>
+        <Field Name="Entry_Credit_AmountFormat">
+          <DataField>Entry_Credit_AmountFormat</DataField>
+        </Field>
+        <Field Name="Entry_Add__Currency_Debit_Amount">
+          <DataField>Entry_Add__Currency_Debit_Amount</DataField>
+        </Field>
+        <Field Name="Entry_Add__Currency_Debit_AmountFormat">
+          <DataField>Entry_Add__Currency_Debit_AmountFormat</DataField>
+        </Field>
+        <Field Name="Entry_Add__Currency_Credit_Amount">
+          <DataField>Entry_Add__Currency_Credit_Amount</DataField>
+        </Field>
+        <Field Name="Entry_Add__Currency_Credit_AmountFormat">
+          <DataField>Entry_Add__Currency_Credit_AmountFormat</DataField>
+        </Field>
+        <Field Name="Shortcut_Dimension_3_Code">
+          <DataField>Shortcut_Dimension_3_Code</DataField>
+        </Field>
+        <Field Name="Global_Dimension_1_Code">
+          <DataField>Global_Dimension_1_Code</DataField>
+        </Field>
+        <Field Name="Global_Dimension_2_Code">
+          <DataField>Global_Dimension_2_Code</DataField>
+        </Field>
+        <Field Name="Dim1Value">
+          <DataField>Dim1Value</DataField>
+        </Field>
+        <Field Name="Dim2Value">
+          <DataField>Dim2Value</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

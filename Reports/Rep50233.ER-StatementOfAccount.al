@@ -16,6 +16,7 @@ report 50233 "ER - Statement Of Account"
             {
 
             }
+
             Column(Capital_Label; Capital_Label)
             {
 
@@ -288,6 +289,8 @@ report 50233 "ER - Statement Of Account"
                 {
 
                 }
+                column(DateFilter; DateFilter) { }
+                column(GLNoFilter; GLNoFilter) { }
                 column(Entry_No; "Entry No.")
                 {
 
@@ -297,9 +300,7 @@ report 50233 "ER - Statement Of Account"
 
                 }
                 column(Document_No_; "Document No.") { }
-
                 column(Posting_Date; "Posting Date") { }
-
                 column(Source_No_; "Source No.")
                 {
 
@@ -565,6 +566,14 @@ report 50233 "ER - Statement Of Account"
                 }
             }
         }
+        trigger OnAfterGetRecord()
+        var
+            myInt: Integer;
+
+        begin
+
+
+        end;
     }
 
     trigger OnPreReport()
@@ -573,7 +582,8 @@ report 50233 "ER - Statement Of Account"
         //x: Integer;
         L_RecDimensions: Record Dimension;
     begin
-
+        GLNoFilter := "G/L Entry".GetFilters;
+        DateFilter := "G/L Entry".GetFilter("Posting Date");
         G_RecGnrlLedgSetup.Get();
         G_RecCompanyInformation.Get();
         G_RecCompanyInformation.CalcFields(Picture);
@@ -689,6 +699,8 @@ report 50233 "ER - Statement Of Account"
         #region HeaderLabels
         AddressLabel: Label 'Address';
         Capital_Label: Label 'Capital';
+        GLNoFilter: Text[100];
+        DateFilter: Text[100];
         VATCodeLabel: Label 'VAT Code';
         FullyPaidLabel: Label 'Fully Paid';
         TLabel: Label 'T:';

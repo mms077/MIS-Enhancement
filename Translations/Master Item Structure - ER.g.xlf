@@ -6634,7 +6634,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Trial Balance - Control HideCust - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 2704385374 - Control 244877475 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>With Opening Balance</source>
+          <source>Show Opening Balance</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Trial Balance - Control Show opening balance - Property Caption</note>
         </trans-unit>
@@ -9663,11 +9663,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Sales Quote With Visuals - NamedType SignatureValueLabel</note>
         </trans-unit>
-        <trans-unit id="Report 2733876863 - NamedType 2171960165" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Size</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Sales Quote With Visuals - NamedType SizeLabel</note>
-        </trans-unit>
         <trans-unit id="Report 2733876863 - NamedType 3716247268" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sizes</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -9857,11 +9852,6 @@
           <source>Show Item Color</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Sales Quote With Visuals - Control ShowColor - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 2733876863 - Control 3178558954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Show Item Size</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Sales Quote With Visuals - Control ShowSize - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 3439068417 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ER - Statement Of Account</source>
@@ -10124,7 +10114,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Trial Balance - Control HideNull - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 2962059618 - Control 244877475 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Show Opening Balance</source>
+          <source>With Opening Balance</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Trial Balance - Control Show opening balance - Property Caption</note>
         </trans-unit>
@@ -10829,7 +10819,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Trial Balance - Control HideCust - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 3137650822 - Control 244877475 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>With Opening Balance</source>
+          <source>Show Opening Balance</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Trial Balance - Control Show opening balance - Property Caption</note>
         </trans-unit>
@@ -12103,6 +12093,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - NamedType SignatureValueLabel</note>
         </trans-unit>
+        <trans-unit id="Report 280137910 - NamedType 2171960165" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Size</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - NamedType SizeLabel</note>
+        </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 3716247268" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sizes</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -12362,6 +12357,11 @@
           <source>Show Item Color</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - Control ShowColor - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 280137910 - Control 3178558954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Item Size</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - Control ShowSize - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 149855644 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ER - Purchase Order</source>
@@ -12818,6 +12818,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Account List - Action ER - Bank Account Statement - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2423017943 - Action 979575244 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1638686336">
+          <source>Finalize and prepare to print the document or journal. The values and quantities are posted to the related accounts. A report request window where you can specify what to include on the print-out.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CashReceipt - Action Post and &amp;Print New - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2423017943 - Action 979575244 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1638686336">
+          <source>Post and &amp;Print</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CashReceipt - Action Post and &amp;Print New - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3105459369 - Action 3439068417 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3105459369">
           <source>ER - Statement Of Account</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -13002,6 +13012,16 @@
           <source>Item Features</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ItemCard - Action Item Features - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3961762325 - Action 979575244 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3196174509">
+          <source>Finalize and prepare to print the document or journal. The values and quantities are posted to the related accounts. A report request window where you can specify what to include on the print-out.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PaymentJournal - Action Post and &amp;Print New - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3961762325 - Action 979575244 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3196174509">
+          <source>Post and &amp;Print</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PaymentJournal - Action Post and &amp;Print New - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 2557560783 - Action 1914989163 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2557560783">
           <source>Arabic Return Invoice</source>

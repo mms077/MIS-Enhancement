@@ -270,7 +270,7 @@ report 50233 "ER - Statement Of Account"
             {
 
             }
-            column(NetChange; "Net Change") { }
+
             column(Additional_Currency_Net_Change; "Additional-Currency Net Change") { }
 
             column(Dim1Label; SelectedDimensions[1])
@@ -287,7 +287,7 @@ report 50233 "ER - Statement Of Account"
 
             dataitem("G/L Entry"; "G/L Entry")
             {
-                DataItemLink = "G/L Account No." = FIELD("No.");//, "Posting Date" = FIELD("Date Filter"), "Global Dimension 1 Code" = FIELD("Global Dimension 1 Filter"), "Global Dimension 2 Code" = FIELD("Global Dimension 2 Filter"), "Business Unit Code" = FIELD("Business Unit Filter");
+                DataItemLink = "G/L Account No." = FIELD("No."), "Posting Date" = FIELD("Date Filter");// "Global Dimension 1 Code" = FIELD("Global Dimension 1 Filter"), "Global Dimension 2 Code" = FIELD("Global Dimension 2 Filter"), "Business Unit Code" = FIELD("Business Unit Filter");
                 DataItemLinkReference = "G/L Account";
                 DataItemTableView = SORTING("G/L Account No.", "Posting Date");
                 RequestFilterFields = "G/L Account No.", "Posting Date"; //"Global Dimension 1 Code", "Global Dimension 2 Code", "Shortcut Dimension 3 Code", "Shortcut Dimension 4 Code", "Shortcut Dimension 5 Code", "Shortcut Dimension 6 Code", "Shortcut Dimension 7 Code", "Shortcut Dimension 8 Code";
@@ -305,6 +305,7 @@ report 50233 "ER - Statement Of Account"
                 {
 
                 }
+                column(NetChange; NetChange) { }
                 column(Document_No_; "Document No.") { }
                 column(Posting_Date; "Posting Date") { }
                 column(Source_No_; "Source No.")
@@ -455,23 +456,32 @@ report 50233 "ER - Statement Of Account"
                         Dim1Value := '';
 
                 end;
+
             }
 
             trigger OnAfterGetRecord()
             var
-
+                GlCode: code[20];
+                Date: Record Date;
             begin
+                //NetChange := 0;
                 //Date := "G/L Account"."Date Filter";
                 // CalcFields("Net Change", "Balance at Date", "Additional-Currency Net Change");
-                GLAccount.Reset();
-                GLAccount.SetFilter("Date Filter", '<' + format("G/L Account".GetRangeMin("Date Filter")));
-                if GLAccount.FindFirst() then begin
-                    GLAccount.CalcFields("Net Change", "Additional-Currency Net Change");
-                    NetChange := GLAccount."Net Change";
 
-                end;
+
+                //GlCode := "G/L Entry"."G/L Account No.";
+                //SetFilter("No.", GlCode);
+                // IF DateFilter <> '' THEN BEGIN
+                //SetFilter("No.", GlCode);
+                SetRange("Date Filter", 0D, GETRANGEMIN("Date Filter") - 1);
+
+                CalcFields("Net Change");
+                NetChange := "Net Change";
+                SETFILTER("Date Filter", DateFilter);
+
 
             end;
+
         }
     }
     requestpage
@@ -596,9 +606,11 @@ report 50233 "ER - Statement Of Account"
         i: Integer;
         //x: Integer;
         L_RecDimensions: Record Dimension;
+
     begin
         GLNoFilter := "G/L Entry".GetFilters;
-        DateFilter := "G/L Entry".GetFilter("Posting Date");
+        PostDateFilter := "G/L Entry".GetFilter("Posting Date");
+        DateFilter := "G/L Account".GETFILTER("Date Filter");
         G_RecGnrlLedgSetup.Get();
         G_RecCompanyInformation.Get();
         G_RecCompanyInformation.CalcFields(Picture);
@@ -766,4 +778,5 @@ report 50233 "ER - Statement Of Account"
         TimeNow: Text[25];
         x: Integer;
         NetChange: Decimal;
+        PostDateFilter: text;
 }

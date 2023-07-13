@@ -4,13 +4,212 @@
   <DataSources>
     <DataSource Name="DataSource">
       <ConnectionProperties>
-        <DataProvider>SQL</DataProvider>
+        <DataProvider>SQL </DataProvider>
         <ConnectString />
       </ConnectionProperties>
       <rd:SecurityType>None</rd:SecurityType>
       <rd:DataSourceID>fb5418a2-fb6f-4dce-8566-d05f45bd5bbd</rd:DataSourceID>
     </DataSource>
   </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+      <Fields>
+        <Field Name="Company_Picture">
+          <DataField>Company_Picture</DataField>
+        </Field>
+        <Field Name="Company_Capital">
+          <DataField>Company_Capital</DataField>
+        </Field>
+        <Field Name="Company_CapitalFormat">
+          <DataField>Company_CapitalFormat</DataField>
+        </Field>
+        <Field Name="Company_Vat">
+          <DataField>Company_Vat</DataField>
+        </Field>
+        <Field Name="Comapny_Phone">
+          <DataField>Comapny_Phone</DataField>
+        </Field>
+        <Field Name="Company_Email">
+          <DataField>Company_Email</DataField>
+        </Field>
+        <Field Name="Company_Address">
+          <DataField>Company_Address</DataField>
+        </Field>
+        <Field Name="Company_Bank_Account">
+          <DataField>Company_Bank_Account</DataField>
+        </Field>
+        <Field Name="Company_SWIFT">
+          <DataField>Company_SWIFT</DataField>
+        </Field>
+        <Field Name="Company_IBAN">
+          <DataField>Company_IBAN</DataField>
+        </Field>
+        <Field Name="Company_CR_No">
+          <DataField>Company_CR_No</DataField>
+        </Field>
+        <Field Name="Company_City">
+          <DataField>Company_City</DataField>
+        </Field>
+        <Field Name="CapitalLabel">
+          <DataField>CapitalLabel</DataField>
+        </Field>
+        <Field Name="VATCodeLabel">
+          <DataField>VATCodeLabel</DataField>
+        </Field>
+        <Field Name="AddressLabel">
+          <DataField>AddressLabel</DataField>
+        </Field>
+        <Field Name="BankAccountLabel">
+          <DataField>BankAccountLabel</DataField>
+        </Field>
+        <Field Name="SWIFTLabel">
+          <DataField>SWIFTLabel</DataField>
+        </Field>
+        <Field Name="LCY_Code">
+          <DataField>LCY_Code</DataField>
+        </Field>
+        <Field Name="LCY">
+          <DataField>LCY</DataField>
+        </Field>
+        <Field Name="CustNoLbl">
+          <DataField>CustNoLbl</DataField>
+        </Field>
+        <Field Name="Customer_No_">
+          <DataField>Customer_No_</DataField>
+        </Field>
+        <Field Name="CustNamelbl">
+          <DataField>CustNamelbl</DataField>
+        </Field>
+        <Field Name="Customer_Name">
+          <DataField>Customer_Name</DataField>
+        </Field>
+        <Field Name="CurrencyLbl">
+          <DataField>CurrencyLbl</DataField>
+        </Field>
+        <Field Name="BeginBalOrigLbl">
+          <DataField>BeginBalOrigLbl</DataField>
+        </Field>
+        <Field Name="Net_Change_Orig_Lbl">
+          <DataField>Net_Change_Orig_Lbl</DataField>
+        </Field>
+        <Field Name="Date_Range">
+          <DataField>Date_Range</DataField>
+        </Field>
+        <Field Name="FromDate">
+          <DataField>FromDate</DataField>
+        </Field>
+        <Field Name="Debit_Orig_Lbl">
+          <DataField>Debit_Orig_Lbl</DataField>
+        </Field>
+        <Field Name="Credit_Orig_Lbl">
+          <DataField>Credit_Orig_Lbl</DataField>
+        </Field>
+        <Field Name="End_Bal_Orig_Lbl">
+          <DataField>End_Bal_Orig_Lbl</DataField>
+        </Field>
+        <Field Name="ToDate">
+          <DataField>ToDate</DataField>
+        </Field>
+        <Field Name="AccountLbl">
+          <DataField>AccountLbl</DataField>
+        </Field>
+        <Field Name="HideCust">
+          <DataField>HideCust</DataField>
+        </Field>
+        <Field Name="TitleLbl">
+          <DataField>TitleLbl</DataField>
+        </Field>
+        <Field Name="BeginBalLbl">
+          <DataField>BeginBalLbl</DataField>
+        </Field>
+        <Field Name="NetChangeLbl">
+          <DataField>NetChangeLbl</DataField>
+        </Field>
+        <Field Name="EndingBalLbl">
+          <DataField>EndingBalLbl</DataField>
+        </Field>
+        <Field Name="DebitLbl">
+          <DataField>DebitLbl</DataField>
+        </Field>
+        <Field Name="Creditlbl">
+          <DataField>Creditlbl</DataField>
+        </Field>
+        <Field Name="ShowOpening">
+          <DataField>ShowOpening</DataField>
+        </Field>
+        <Field Name="CustFilters">
+          <DataField>CustFilters</DataField>
+        </Field>
+        <Field Name="CurrencyCode">
+          <DataField>CurrencyCode</DataField>
+        </Field>
+        <Field Name="Line_Currency">
+          <DataField>Line_Currency</DataField>
+        </Field>
+        <Field Name="Begin_Bal_Orig">
+          <DataField>Begin_Bal_Orig</DataField>
+        </Field>
+        <Field Name="Begin_Bal_OrigFormat">
+          <DataField>Begin_Bal_OrigFormat</DataField>
+        </Field>
+        <Field Name="Debit_Orig">
+          <DataField>Debit_Orig</DataField>
+        </Field>
+        <Field Name="Debit_OrigFormat">
+          <DataField>Debit_OrigFormat</DataField>
+        </Field>
+        <Field Name="Credit_Orig">
+          <DataField>Credit_Orig</DataField>
+        </Field>
+        <Field Name="Credit_OrigFormat">
+          <DataField>Credit_OrigFormat</DataField>
+        </Field>
+        <Field Name="End_Bal_Orig">
+          <DataField>End_Bal_Orig</DataField>
+        </Field>
+        <Field Name="End_Bal_OrigFormat">
+          <DataField>End_Bal_OrigFormat</DataField>
+        </Field>
+        <Field Name="BeginBalLCY">
+          <DataField>BeginBalLCY</DataField>
+        </Field>
+        <Field Name="BeginBalLCYFormat">
+          <DataField>BeginBalLCYFormat</DataField>
+        </Field>
+        <Field Name="DebitLCY">
+          <DataField>DebitLCY</DataField>
+        </Field>
+        <Field Name="DebitLCYFormat">
+          <DataField>DebitLCYFormat</DataField>
+        </Field>
+        <Field Name="CreditLCY">
+          <DataField>CreditLCY</DataField>
+        </Field>
+        <Field Name="CreditLCYFormat">
+          <DataField>CreditLCYFormat</DataField>
+        </Field>
+        <Field Name="EndBalLCY">
+          <DataField>EndBalLCY</DataField>
+        </Field>
+        <Field Name="EndBalLCYFormat">
+          <DataField>EndBalLCYFormat</DataField>
+        </Field>
+        <Field Name="TotalCurrLbl">
+          <DataField>TotalCurrLbl</DataField>
+        </Field>
+        <Field Name="EndTotalLCY">
+          <DataField>EndTotalLCY</DataField>
+        </Field>
+        <Field Name="EndTotalLCYFormat">
+          <DataField>EndTotalLCYFormat</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -1925,7 +2124,6 @@
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
             <Top>0.635cm</Top>
-            <Left>0cm</Left>
             <Height>2.978cm</Height>
             <Width>28.49125cm</Width>
             <Style>
@@ -3761,7 +3959,6 @@
               </SortExpression>
             </SortExpressions>
             <Top>4.06492cm</Top>
-            <Left>0cm</Left>
             <Height>3cm</Height>
             <Width>28.49128cm</Width>
             <ZIndex>1</ZIndex>
@@ -3787,8 +3984,6 @@
               <Value>=First(Fields!Company_Picture.Value, "DataSet_Result")</Value>
               <MIMEType>image/bmp</MIMEType>
               <Sizing>FitProportional</Sizing>
-              <Top>0cm</Top>
-              <Left>0cm</Left>
               <Height>1.11105cm</Height>
               <Width>7.43231cm</Width>
               <Style>
@@ -3849,8 +4044,6 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
-                  <Top>0cm</Top>
-                  <Left>0cm</Left>
                   <Height>0.4cm</Height>
                   <Width>7.7cm</Width>
                   <Style>
@@ -3883,7 +4076,6 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>0.82225cm</Top>
-                  <Left>0cm</Left>
                   <Height>0.4cm</Height>
                   <Width>7.7cm</Width>
                   <ZIndex>1</ZIndex>
@@ -3917,7 +4109,6 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>1.23175cm</Top>
-                  <Left>0cm</Left>
                   <Height>0.4cm</Height>
                   <Width>7.7cm</Width>
                   <ZIndex>2</ZIndex>
@@ -3951,7 +4142,6 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>1.64125cm</Top>
-                  <Left>0cm</Left>
                   <Height>0.4cm</Height>
                   <Width>7.7cm</Width>
                   <ZIndex>3</ZIndex>
@@ -3985,7 +4175,6 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>2.04899cm</Top>
-                  <Left>0cm</Left>
                   <Height>0.4cm</Height>
                   <Width>7.7cm</Width>
                   <ZIndex>4</ZIndex>
@@ -4019,7 +4208,6 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>2.45673cm</Top>
-                  <Left>0cm</Left>
                   <Height>0.4cm</Height>
                   <Width>7.7cm</Width>
                   <ZIndex>5</ZIndex>
@@ -4053,7 +4241,6 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>2.86447cm</Top>
-                  <Left>0cm</Left>
                   <Height>0.4cm</Height>
                   <Width>7.7cm</Width>
                   <ZIndex>6</ZIndex>
@@ -4087,7 +4274,6 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>0.39799cm</Top>
-                  <Left>0cm</Left>
                   <Height>0.4cm</Height>
                   <Width>7.7cm</Width>
                   <ZIndex>7</ZIndex>
@@ -4105,7 +4291,6 @@
               </ReportItems>
               <KeepTogether>true</KeepTogether>
               <Top>1.14935cm</Top>
-              <Left>0cm</Left>
               <Height>3.67722cm</Height>
               <Width>7.7cm</Width>
               <ZIndex>2</ZIndex>
@@ -4116,7 +4301,6 @@
               </Style>
             </Rectangle>
             <Textbox Name="Textbox72">
-              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -4128,14 +4312,16 @@
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style />
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.04729cm</Top>
-              <Left>20.79128cm</Left>
-              <Height>0.5cm</Height>
-              <Width>7.7cm</Width>
+              <Top>2.34582cm</Top>
+              <Left>15.80009cm</Left>
+              <Height>0.6cm</Height>
+              <Width>12.69116cm</Width>
               <ZIndex>3</ZIndex>
               <Style>
                 <Border>
@@ -4149,7 +4335,6 @@
               </Style>
             </Textbox>
             <Textbox Name="Textbox73">
-              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -4161,14 +4346,16 @@
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style />
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.56748cm</Top>
-              <Left>20.79128cm</Left>
-              <Height>0.5cm</Height>
-              <Width>7.7cm</Width>
+              <Top>2.99834cm</Top>
+              <Left>15.80012cm</Left>
+              <Height>0.6cm</Height>
+              <Width>12.69116cm</Width>
               <ZIndex>4</ZIndex>
               <Style>
                 <Border>
@@ -4182,7 +4369,6 @@
               </Style>
             </Textbox>
             <Textbox Name="Textbox74">
-              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -4194,18 +4380,54 @@
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style />
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.51201cm</Top>
-              <Left>20.79128cm</Left>
-              <Height>0.5cm</Height>
-              <Width>7.7cm</Width>
+              <Top>1.74582cm</Top>
+              <Left>15.80009cm</Left>
+              <Height>0.6cm</Height>
+              <Width>12.69116cm</Width>
               <ZIndex>5</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Fields!AccountLbl.Value="",true,false)</Hidden>
               </Visibility>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Top</VerticalAlign>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox78">
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!CustFilters.Value, "DataSet_Result")</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>3.59834cm</Top>
+              <Left>15.80009cm</Left>
+              <Height>0.6cm</Height>
+              <Width>12.69116cm</Width>
+              <ZIndex>6</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -4244,7 +4466,6 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox15</rd:DefaultName>
-              <Top>0cm</Top>
               <Left>13.4747cm</Left>
               <Height>0.6cm</Height>
               <Width>2.39183cm</Width>
@@ -4276,6 +4497,12 @@
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -4315,200 +4542,4 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Fields>
-        <Field Name="Company_Picture">
-          <DataField>Company_Picture</DataField>
-        </Field>
-        <Field Name="Company_Capital">
-          <DataField>Company_Capital</DataField>
-        </Field>
-        <Field Name="Company_CapitalFormat">
-          <DataField>Company_CapitalFormat</DataField>
-        </Field>
-        <Field Name="Company_Vat">
-          <DataField>Company_Vat</DataField>
-        </Field>
-        <Field Name="Comapny_Phone">
-          <DataField>Comapny_Phone</DataField>
-        </Field>
-        <Field Name="Company_Email">
-          <DataField>Company_Email</DataField>
-        </Field>
-        <Field Name="Company_Address">
-          <DataField>Company_Address</DataField>
-        </Field>
-        <Field Name="Company_Bank_Account">
-          <DataField>Company_Bank_Account</DataField>
-        </Field>
-        <Field Name="Company_SWIFT">
-          <DataField>Company_SWIFT</DataField>
-        </Field>
-        <Field Name="Company_IBAN">
-          <DataField>Company_IBAN</DataField>
-        </Field>
-        <Field Name="Company_CR_No">
-          <DataField>Company_CR_No</DataField>
-        </Field>
-        <Field Name="Company_City">
-          <DataField>Company_City</DataField>
-        </Field>
-        <Field Name="CapitalLabel">
-          <DataField>CapitalLabel</DataField>
-        </Field>
-        <Field Name="VATCodeLabel">
-          <DataField>VATCodeLabel</DataField>
-        </Field>
-        <Field Name="AddressLabel">
-          <DataField>AddressLabel</DataField>
-        </Field>
-        <Field Name="BankAccountLabel">
-          <DataField>BankAccountLabel</DataField>
-        </Field>
-        <Field Name="SWIFTLabel">
-          <DataField>SWIFTLabel</DataField>
-        </Field>
-        <Field Name="LCY_Code">
-          <DataField>LCY_Code</DataField>
-        </Field>
-        <Field Name="LCY">
-          <DataField>LCY</DataField>
-        </Field>
-        <Field Name="CustNoLbl">
-          <DataField>CustNoLbl</DataField>
-        </Field>
-        <Field Name="Customer_No_">
-          <DataField>Customer_No_</DataField>
-        </Field>
-        <Field Name="CustNamelbl">
-          <DataField>CustNamelbl</DataField>
-        </Field>
-        <Field Name="Customer_Name">
-          <DataField>Customer_Name</DataField>
-        </Field>
-        <Field Name="CurrencyLbl">
-          <DataField>CurrencyLbl</DataField>
-        </Field>
-        <Field Name="BeginBalOrigLbl">
-          <DataField>BeginBalOrigLbl</DataField>
-        </Field>
-        <Field Name="Net_Change_Orig_Lbl">
-          <DataField>Net_Change_Orig_Lbl</DataField>
-        </Field>
-        <Field Name="Date_Range">
-          <DataField>Date_Range</DataField>
-        </Field>
-        <Field Name="FromDate">
-          <DataField>FromDate</DataField>
-        </Field>
-        <Field Name="Debit_Orig_Lbl">
-          <DataField>Debit_Orig_Lbl</DataField>
-        </Field>
-        <Field Name="Credit_Orig_Lbl">
-          <DataField>Credit_Orig_Lbl</DataField>
-        </Field>
-        <Field Name="End_Bal_Orig_Lbl">
-          <DataField>End_Bal_Orig_Lbl</DataField>
-        </Field>
-        <Field Name="ToDate">
-          <DataField>ToDate</DataField>
-        </Field>
-        <Field Name="AccountLbl">
-          <DataField>AccountLbl</DataField>
-        </Field>
-        <Field Name="HideCust">
-          <DataField>HideCust</DataField>
-        </Field>
-        <Field Name="TitleLbl">
-          <DataField>TitleLbl</DataField>
-        </Field>
-        <Field Name="BeginBalLbl">
-          <DataField>BeginBalLbl</DataField>
-        </Field>
-        <Field Name="NetChangeLbl">
-          <DataField>NetChangeLbl</DataField>
-        </Field>
-        <Field Name="EndingBalLbl">
-          <DataField>EndingBalLbl</DataField>
-        </Field>
-        <Field Name="DebitLbl">
-          <DataField>DebitLbl</DataField>
-        </Field>
-        <Field Name="Creditlbl">
-          <DataField>Creditlbl</DataField>
-        </Field>
-        <Field Name="ShowOpening">
-          <DataField>ShowOpening</DataField>
-        </Field>
-        <Field Name="CurrencyCode">
-          <DataField>CurrencyCode</DataField>
-        </Field>
-        <Field Name="Line_Currency">
-          <DataField>Line_Currency</DataField>
-        </Field>
-        <Field Name="Begin_Bal_Orig">
-          <DataField>Begin_Bal_Orig</DataField>
-        </Field>
-        <Field Name="Begin_Bal_OrigFormat">
-          <DataField>Begin_Bal_OrigFormat</DataField>
-        </Field>
-        <Field Name="Debit_Orig">
-          <DataField>Debit_Orig</DataField>
-        </Field>
-        <Field Name="Debit_OrigFormat">
-          <DataField>Debit_OrigFormat</DataField>
-        </Field>
-        <Field Name="Credit_Orig">
-          <DataField>Credit_Orig</DataField>
-        </Field>
-        <Field Name="Credit_OrigFormat">
-          <DataField>Credit_OrigFormat</DataField>
-        </Field>
-        <Field Name="End_Bal_Orig">
-          <DataField>End_Bal_Orig</DataField>
-        </Field>
-        <Field Name="End_Bal_OrigFormat">
-          <DataField>End_Bal_OrigFormat</DataField>
-        </Field>
-        <Field Name="BeginBalLCY">
-          <DataField>BeginBalLCY</DataField>
-        </Field>
-        <Field Name="BeginBalLCYFormat">
-          <DataField>BeginBalLCYFormat</DataField>
-        </Field>
-        <Field Name="DebitLCY">
-          <DataField>DebitLCY</DataField>
-        </Field>
-        <Field Name="DebitLCYFormat">
-          <DataField>DebitLCYFormat</DataField>
-        </Field>
-        <Field Name="CreditLCY">
-          <DataField>CreditLCY</DataField>
-        </Field>
-        <Field Name="CreditLCYFormat">
-          <DataField>CreditLCYFormat</DataField>
-        </Field>
-        <Field Name="EndBalLCY">
-          <DataField>EndBalLCY</DataField>
-        </Field>
-        <Field Name="EndBalLCYFormat">
-          <DataField>EndBalLCYFormat</DataField>
-        </Field>
-        <Field Name="TotalCurrLbl">
-          <DataField>TotalCurrLbl</DataField>
-        </Field>
-        <Field Name="EndTotalLCY">
-          <DataField>EndTotalLCY</DataField>
-        </Field>
-        <Field Name="EndTotalLCYFormat">
-          <DataField>EndTotalLCYFormat</DataField>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-    </DataSet>
-  </DataSets>
 </Report>

@@ -306,6 +306,7 @@ report 50233 "ER - Statement Of Account"
 
                 }
                 column(NetChange; NetChange) { }
+                column(NetChangeAcy; NetChangeAcy) { }
                 column(Document_No_; "Document No.") { }
                 column(Posting_Date; "Posting Date") { }
                 column(Source_No_; "Source No.")
@@ -475,8 +476,9 @@ report 50233 "ER - Statement Of Account"
                 //SetFilter("No.", GlCode);
                 SetRange("Date Filter", 0D, GETRANGEMIN("Date Filter") - 1);
 
-                CalcFields("Net Change");
+                CalcFields("Net Change", "Additional-Currency Net Change");
                 NetChange := "Net Change";
+                NetChangeAcy := "Additional-Currency Net Change";
                 SETFILTER("Date Filter", DateFilter);
 
 
@@ -779,4 +781,5 @@ report 50233 "ER - Statement Of Account"
         x: Integer;
         NetChange: Decimal;
         PostDateFilter: text;
+        NetChangeAcy: Decimal;
 }

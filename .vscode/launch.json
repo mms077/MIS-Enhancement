@@ -1,9 +1,4 @@
-
-
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
         {
@@ -11,15 +6,32 @@
             "request": "launch",
             "type": "al",
             "environmentType": "Sandbox",
-            "environmentName": "UAT_220623",
-            "startupObjectId": 50201,
+            "environmentName": "WMS_140623",
+            "startupObjectId": 902,
             "startupObjectType": "Page",
-            "breakOnError": "All",
+            "breakOnError": true,
             "launchBrowser": true,
-            "enableLongRunningSqlStatements": true,
-            "enableSqlInformationDebugger": true,
             "schemaUpdateMode": "ForceSync",
+            "enableLongRunningSqlStatements": true,
+            "enableSqlInformationDebugger": true
+        },
+        {
+            "name": "snapshotInitialize: MyServer",
+            "type": "al",
+            "request": "snapshotInitialize",
+            "environmentType": "Production",
+            "environmentName": "Production",
+            "tenant": "c2f8c1dc-1645-49aa-9793-f6098a0f4d92",
+            "breakOnNext": "WebClient",
+            "executionContext": "DebugAndProfile"
+        },
+        {
+            "name": "Attach to PowerShell Functions",
+            "type": "PowerShell",
+            "request": "attach",
+            "customPipeName": "AzureFunctionsPSWorker",
+            "runspaceId": 1,
+            "preLaunchTask": "func: host start"
         }
-        
     ]
 }

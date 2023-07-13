@@ -1161,6 +1161,8 @@
                                 </TablixMembers>
                               </TablixRowHierarchy>
                               <DataSetName>DataSet_Result</DataSetName>
+                              <Top>0cm</Top>
+                              <Left>0cm</Left>
                               <Height>3cm</Height>
                               <Width>19cm</Width>
                               <Style>
@@ -1856,7 +1858,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!Description.Value</Value>
+                                                    <Value>=IIF(Fields!Document_Type.Value = "Invoice", LCase(Fields!External_Document_No.Value), LCase(Fields!Description.Value))</Value>
                                                     <Style>
                                                       <FontFamily>Segoe UI</FontFamily>
                                                       <FontSize>8pt</FontSize>
@@ -2548,6 +2550,8 @@
             <PageBreak>
               <BreakLocation>StartAndEnd</BreakLocation>
             </PageBreak>
+            <Top>0cm</Top>
+            <Left>0cm</Left>
             <Height>6.14854cm</Height>
             <Width>19cm</Width>
             <Style>

@@ -9615,12 +9615,12 @@
         </trans-unit>
         <trans-unit id="Report 2733876863 - NamedType 1651657815" translate="yes" xml:space="preserve">
           <source>7- PAGES |</source>
-          <target state="translated" state-qualifier="id-match">7- PAGES |</target>
+          <target state="translated" state-qualifier="id-match">7 PAGES |</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Sales Quote With Visuals - NamedType PageLabeFR</note>
         </trans-unit>
         <trans-unit id="Report 2733876863 - NamedType 2114161126" translate="yes" xml:space="preserve">
           <source>CE DEVIS EST COMPOSÉ DE 2 PAGES, CONDITIONS GÉNÉRALES DE VENTE INCLUSES.</source>
-          <target state="translated" state-qualifier="id-match">CE DEVIS EST COMPOSÉ DE 2 PAGES, CONDITIONS GÉNÉRALES DE VENTE INCLUSES.</target>
+          <target state="translated" state-qualifier="id-match">CEVIS EST COMPOSÉ DE 2 PAGES, CONDITIONS GÉNÉRALES DE VENTE INCLUSES.</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Sales Quote With Visuals - NamedType PageLabelValueFR</note>
         </trans-unit>
         <trans-unit id="Report 2733876863 - NamedType 435495042" translate="yes" xml:space="preserve">
@@ -12050,7 +12050,7 @@
         </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 2114161126" translate="yes" xml:space="preserve">
           <source>CE DEVIS EST COMPOSÉ DE 2 PAGES, CONDITIONS GÉNÉRALES DE VENTE INCLUSES.</source>
-          <target state="translated" state-qualifier="id-match">CE DEVIS EST COMPOSÉ DE 2 PAGES, CONDITIONS GÉNÉRALES DE VENTE INCLUSES.</target>
+          <target state="translated" state-qualifier="id-match">CEVIS EST COMPOSÉ DE 2 PAGES, CONDITIONS GÉNÉRALES DE VENTE INCLUSES.</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - NamedType PageLabelValueFR</note>
         </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 435495042" translate="yes" xml:space="preserve">

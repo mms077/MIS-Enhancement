@@ -216,7 +216,7 @@ report 50225 "ER - Customer Trial Balance"
 
                     // If no balance in currency skip currency
 
-                    if (BeginBalOrig = 0) and (DebiOrig = 0) and (CreditOrig = 0) and (EndBalOrig = 0) then begin
+                    if (BeginBalLCY = 0) and (DebitLCY = 0) and (CreditLCY = 0) and (EndBalLCY = 0) then begin
                         CurrReport.Skip();
                     end;
 
@@ -248,10 +248,9 @@ report 50225 "ER - Customer Trial Balance"
                 L_Customer.SetFilter("Date Filter", Format(FromDate) + '..' + Format(ToDate));
                 CustFilters := Customer.GetFilters();
 
-                L_Customer.CalcFields("Net Change", Balance, "Credit Amount", "Debit Amount");
-                if (L_Customer.Balance = 0) and (L_Customer."Net Change" = 0) and (L_Customer."Credit Amount" = 0) and (L_Customer."Debit Amount" = 0) and (HideCust) then
+                L_Customer.CalcFields("Net Change (LCY)", "Balance (LCY)", "Credit Amount (LCY)", "Debit Amount (LCY)");
+                if (L_Customer."Balance (LCY)" = 0) and (L_Customer."Net Change (LCY)" = 0) and (L_Customer."Credit Amount (LCY)" = 0) and (L_Customer."Debit Amount (LCY)" = 0) and (HideCust) then
                     CurrReport.Skip();
-
             end;
 
         }

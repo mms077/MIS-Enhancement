@@ -252,6 +252,7 @@ report 50228 "ER - Trial Balance"
                         // BeginningBalance := L_GL_Acc."Net Change";
                         BeginningBalanceDebit := L_GL_Acc."Debit Amount";
                         BeginningBalanceCredit := L_GL_Acc."Credit Amount";
+                        BeginBalanceTot:=BeginningBalanceDebit-BeginningBalanceCredit;
 
                         TotalOpeningBalance := TotalOpeningBalance+BeginningBalanceDebit+BeginningBalanceCredit;
                     end;
@@ -299,6 +300,7 @@ report 50228 "ER - Trial Balance"
                         BeginningBalanceCredit := L_GL_Acc."Add.-Currency Credit Amount";
                         BeginningBalanceDebit := L_GL_Acc."Add.-Currency Debit Amount";
                         TotalOpeningBalance := TotalOpeningBalance+BeginningBalanceCredit+BeginningBalanceDebit;
+                        BeginBalanceTot:=BeginningBalanceDebit-BeginningBalanceCredit;
                     end;
 
                     // Ending Amount
@@ -316,6 +318,19 @@ report 50228 "ER - Trial Balance"
                     end;
 
                 end;
+
+                if BeginBalanceTot<0 then begin
+                    BeginningBalanceDebit := 0;
+                    BeginningBalanceCredit := -BeginBalanceTot;
+                end
+                else begin
+                    BeginningBalanceDebit := BeginBalanceTot;
+                    BeginningBalanceCredit := 0;
+                end;
+
+
+
+
                 if EndingBalance>0 then begin
                     EndingBalanceDebit := EndingBalance;
                     EndingBalanceCredit := 0;
@@ -423,6 +438,7 @@ report 50228 "ER - Trial Balance"
         TotalEndingBalance: Decimal;
         ShowinACY: Boolean;
         MovementDebit: Decimal;
+        BeginBalanceTot: Decimal;
         MovementCredit: Decimal;
         EndingBalanceCredit: Decimal;
         EndingBalanceDebit: Decimal;

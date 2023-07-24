@@ -243,9 +243,13 @@ report 50228 "ER - Trial Balance"
                     L_GL_Acc.SetFilter("No.", "G/L Account"."No.");
                     L_GL_Acc.SetFilter("Date Filter", '<' + CopyStr(DateFilter, 1, 8));
                     if L_GL_Acc.FindFirst() then begin
-                        L_GL_Acc.CalcFields("Net Change");
-                        BeginningBalance := L_GL_Acc."Net Change";
-                        TotalOpeningBalance += BeginningBalance;
+                        L_GL_Acc.CalcFields("Debit Amount", "Credit Amount");
+                        // BeginningBalance := L_GL_Acc."Net Change";
+                        BeginningBalanceDebit := L_GL_Acc."Debit Amount";
+                        BeginningBalanceCredit := L_GL_Acc."Credit Amount";
+                        BeginBalanceTot:=BeginningBalanceDebit-BeginningBalanceCredit;
+
+                        TotalOpeningBalance := TotalOpeningBalance+BeginningBalanceDebit+BeginningBalanceCredit;
                     end;
 
                     // Ending Amount
@@ -282,9 +286,12 @@ report 50228 "ER - Trial Balance"
                     L_GL_Acc.SetFilter("No.", "G/L Account"."No.");
                     L_GL_Acc.SetFilter("Date Filter", '<' + CopyStr(DateFilter, 1, 8));
                     if L_GL_Acc.FindFirst() then begin
-                        L_GL_Acc.CalcFields("Additional-Currency Net Change");
-                        BeginningBalance := L_GL_Acc."Additional-Currency Net Change";
-                        TotalOpeningBalance += BeginningBalance;
+                        L_GL_Acc.CalcFields("Add.-Currency Credit Amount", "Add.-Currency Debit Amount");
+                        //BeginningBalance := L_GL_Acc."Additional-Currency Net Change";
+                        BeginningBalanceCredit := L_GL_Acc."Add.-Currency Credit Amount";
+                        BeginningBalanceDebit := L_GL_Acc."Add.-Currency Debit Amount";
+                        TotalOpeningBalance := TotalOpeningBalance+BeginningBalanceCredit+BeginningBalanceDebit;
+                        BeginBalanceTot:=BeginningBalanceDebit-BeginningBalanceCredit;
                     end;
 
                     // Ending Amount
@@ -300,6 +307,28 @@ report 50228 "ER - Trial Balance"
                     end;
 
                 end;
+
+                if BeginBalanceTot<0 then begin
+                    BeginningBalanceDebit := 0;
+                    BeginningBalanceCredit := -BeginBalanceTot;
+                end
+                else begin
+                    BeginningBalanceDebit := BeginBalanceTot;
+                    BeginningBalanceCredit := 0;
+                end;
+
+
+
+
+                if EndingBalance>0 then begin
+                    EndingBalanceDebit := EndingBalance;
+                    EndingBalanceCredit := 0;
+                end
+                else begin
+                    EndingBalanceCredit := -EndingBalance;
+                    EndingBalanceDebit := 0;
+                end;
+
 
 
                 if HideNull then begin
@@ -397,6 +426,13 @@ report 50228 "ER - Trial Balance"
         TotalMovementBalance: Decimal;
         TotalEndingBalance: Decimal;
         ShowinACY: Boolean;
+        MovementDebit: Decimal;
+        BeginBalanceTot: Decimal;
+        MovementCredit: Decimal;
+        EndingBalanceCredit: Decimal;
+        EndingBalanceDebit: Decimal;
+        BeginningBalanceDebit: Decimal;
+        BeginningBalanceCredit: Decimal;
         HideNull: Boolean;
         TotalCaption: Label 'Total';
         CapitalLabel: Label 'Capital';

@@ -252,9 +252,12 @@ report 50228 "ER - Trial Balance"
                         L_GL_Acc.CalcFields("Debit Amount", "Credit Amount");
                         //MovementBalance := L_GL_Acc."Net Change";
                         MovementDebit := L_GL_Acc."Debit Amount";
-                        MovementTotalDebit := MovementTotalDebit + MovementDebit;
+                        //MovementTotalDebit := MovementTotalDebit + MovementDebit;
                         MovementCredit := L_GL_Acc."Credit Amount";
-                        MovementTotalCredit := MovementTotalCredit + MovementCredit;
+                        if "G/L Account"."Account Type" = AccountTypeEnum::Posting then begin
+                            MovementTotalCredit := MovementTotalCredit + MovementCredit;
+                            MovementTotalDebit := MovementTotalDebit + MovementDebit;
+                        end;
                         TotalMovementBalance := TotalMovementBalance + MovementDebit + MovementCredit;
                     end;
 
@@ -301,9 +304,11 @@ report 50228 "ER - Trial Balance"
                         //L_GL_Acc.CalcFields("Additional-Currency Net Change");
                         L_GL_Acc.CalcFields("Add.-Currency Debit Amount", "Add.-Currency Credit Amount");
                         MovementDebit := L_GL_Acc."Add.-Currency Debit Amount";
-                        MovementTotalDebit := MovementTotalDebit + MovementDebit;
                         MovementCredit := L_GL_Acc."Add.-Currency Credit Amount";
-                        MovementTotalCredit := MovementTotalCredit + MovementCredit;
+                        if "G/L Account"."Account Type" = AccountTypeEnum::Posting then begin
+                            MovementTotalCredit := MovementTotalCredit + MovementCredit;
+                            MovementTotalDebit := MovementTotalDebit + MovementDebit;
+                        end;
                         TotalMovementBalance := MovementDebit + MovementCredit;
                     end;
 
@@ -365,6 +370,8 @@ report 50228 "ER - Trial Balance"
                     if "G/L Account"."Account Type" = AccountTypeEnum::Posting then
                         EndingBalanceTotalCredit := EndingBalanceTotalCredit - EndingBalance
                 end;
+
+
 
 
 

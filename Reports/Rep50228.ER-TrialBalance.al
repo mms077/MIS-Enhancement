@@ -161,24 +161,24 @@ report 50228 "ER - Trial Balance"
                 column(PADSTR_____G_L_Account__Indentation___2___G_L_Account__Name; PadStr('', "G/L Account".Indentation * 2) + "G/L Account".Name)
                 {
                 }
-                column(G_L_Account___Net_Change_; BeginningBalanceDebit)
+                column(G_L_Account___Net_Change_; BeginningBalance)
                 {
                 }
-                column(G_L_Account___Net_Change__Control22; BeginningBalanceCredit)
-                {
-                    AutoFormatType = 1;
-                }
-                column(G_L_Account___Balance_at_Date_; MovementDebit)
-                {
-                }
-                column(G_L_Account___Balance_at_Date__Control24; MovementCredit)
+                column(G_L_Account___Net_Change__Control22; -BeginningBalance)
                 {
                     AutoFormatType = 1;
                 }
-                column(G_L_Ending_Balance; EndingBalanceDebit)
+                column(G_L_Account___Balance_at_Date_; MovementBalance)
                 {
                 }
-                column(G_L_Ending_Balance_Control24; EndingBalanceCredit)
+                column(G_L_Account___Balance_at_Date__Control24; -MovementBalance)
+                {
+                    AutoFormatType = 1;
+                }
+                column(G_L_Ending_Balance; EndingBalance)
+                {
+                }
+                column(G_L_Ending_Balance_Control24; -EndingBalance)
                 {
                 }
                 column(G_L_Account___Account_Type_; Format("G/L Account"."Account Type", 0, 2))
@@ -216,12 +216,9 @@ report 50228 "ER - Trial Balance"
                 OpeningDate: Text;
                 EndingDate: Text;
             begin
-                
-                MovementDebit := 0;
-                MovementCredit := 0;
-                BeginningBalanceCredit := 0;
-                BeginningBalanceDebit := 0;
-                
+
+                BeginningBalance := 0;
+                MovementBalance := 0;
                 EndingBalance := 0;
                 DateFilter := "G/L Account".GetFilter("Date Filter");
 
@@ -235,11 +232,9 @@ report 50228 "ER - Trial Balance"
                     L_GL_Acc.SetFilter("No.", "G/L Account"."No.");
                     L_GL_Acc.SetFilter("Date Filter", DateFilter);
                     if L_GL_Acc.FindFirst() then begin
-                        L_GL_Acc.CalcFields("Debit Amount", "Credit Amount");
-                        //MovementBalance := L_GL_Acc."Net Change";
-                        MovementDebit := L_GL_Acc."Debit Amount";
-                        MovementCredit := L_GL_Acc."Credit Amount";
-                        TotalMovementBalance := TotalMovementBalance + MovementDebit + MovementCredit;
+                        L_GL_Acc.CalcFields("Net Change");
+                        MovementBalance := L_GL_Acc."Net Change";
+                        TotalMovementBalance += MovementBalance;
                     end;
 
                     // Opening Amount
@@ -263,11 +258,9 @@ report 50228 "ER - Trial Balance"
                     L_GL_Acc.SetFilter("No.", "G/L Account"."No.");
                     L_GL_Acc.SetFilter("Date Filter", CopyStr(DateFilter, 11, 18));
                     if L_GL_Acc.FindFirst() then begin
-                        L_GL_Acc.CalcFields("Debit Amount", "Credit Amount");
-                        if ShowOpening then
-                            EndingBalance := -BeginningBalanceCredit+BeginningBalanceDebit + MovementDebit - MovementCredit
-                        else
-                            EndingBalance := MovementDebit - MovementCredit;
+                        L_GL_Acc.CalcFields("Net Change");
+                        //EndingBalance := L_GL_Acc."Net Change" + BeginningBalance + MovementBalance;
+                        EndingBalance := BeginningBalance + MovementBalance;
                         TotalEndingBalance += EndingBalance;
                     end;
                 end
@@ -282,11 +275,9 @@ report 50228 "ER - Trial Balance"
                     L_GL_Acc.SetFilter("No.", "G/L Account"."No.");
                     L_GL_Acc.SetFilter("Date Filter", DateFilter);
                     if L_GL_Acc.FindFirst() then begin
-                        //L_GL_Acc.CalcFields("Additional-Currency Net Change");
-                        L_GL_Acc.CalcFields("Add.-Currency Debit Amount", "Add.-Currency Credit Amount");
-                        MovementDebit := L_GL_Acc."Add.-Currency Debit Amount";
-                        MovementCredit := L_GL_Acc."Add.-Currency Credit Amount";
-                        TotalMovementBalance := MovementDebit + MovementCredit;
+                        L_GL_Acc.CalcFields("Additional-Currency Net Change");
+                        MovementBalance := L_GL_Acc."Additional-Currency Net Change";
+                        TotalMovementBalance += MovementBalance;
                     end;
 
                     // Opening Amount
@@ -309,11 +300,9 @@ report 50228 "ER - Trial Balance"
                     L_GL_Acc.SetFilter("No.", "G/L Account"."No.");
                     L_GL_Acc.SetFilter("Date Filter", CopyStr(DateFilter, 11, 18));
                     if L_GL_Acc.FindFirst() then begin
-                        L_GL_Acc.CalcFields("Add.-Currency Debit Amount", "Add.-Currency Credit Amount");
-                        if ShowOpening then
-                            EndingBalance := -BeginningBalanceCredit+BeginningBalanceDebit + MovementDebit - MovementCredit
-                        else
-                            EndingBalance := MovementDebit - MovementCredit;
+                        L_GL_Acc.CalcFields("Additional-Currency Net Change");
+                        //EndingBalance := L_GL_Acc."Additional-Currency Net Change" + BeginningBalance + MovementBalance;
+                        EndingBalance := BeginningBalance + MovementBalance;
                         TotalEndingBalance += EndingBalance;
                     end;
 
@@ -343,7 +332,7 @@ report 50228 "ER - Trial Balance"
 
 
                 if HideNull then begin
-                    if (MovementDebit = 0) and (MovementCredit = 0) and (BeginningBalanceCredit = 0) and (BeginningBalanceDebit=0) and (EndingBalance = 0) then
+                    if (MovementBalance = 0) and (BeginningBalance = 0) and (EndingBalance = 0) then
                         CurrReport.Skip();
                 end;
 
@@ -387,7 +376,7 @@ report 50228 "ER - Trial Balance"
                     field("Show opening balance"; ShowOpening)
                     {
                         ApplicationArea = all;
-                        Caption = 'With Opening Balance';
+                        Caption = 'Show Opening Balance';
                     }
                 }
             }
@@ -470,8 +459,8 @@ report 50228 "ER - Trial Balance"
         PageGroupNo: Integer;
         ChangeGroupNo: Boolean;
         BlankLineNo: Integer;
-        //BeginningBalance: Decimal;
-        //MovementBalance: Decimal;
+        BeginningBalance: Decimal;
+        MovementBalance: Decimal;
         EndingBalance: Decimal;
         FromDate: Text;
         ToDate: Text;

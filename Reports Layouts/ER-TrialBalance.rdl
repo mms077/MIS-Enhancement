@@ -4390,7 +4390,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!G_L_Account___Net_Change_.Value)</Value>
+                                  <Value>=LAST(Fields!BeginBalanceTotalDebit.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -4454,7 +4454,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!G_L_Account___Net_Change__Control22.Value)</Value>
+                                  <Value>=LAST(Fields!BeginBalanceTotalCredit.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -4518,7 +4518,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!G_L_Account___Balance_at_Date_.Value)</Value>
+                                  <Value>=LAST(Fields!MovementTotalDebit.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -4582,7 +4582,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!G_L_Account___Balance_at_Date__Control24.Value)</Value>
+                                  <Value>=Last(Fields!MovementTotalCredit.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -4646,7 +4646,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!G_L_Ending_Balance.Value)</Value>
+                                  <Value>=LAST(Fields!EndingBalanceTotalDebit.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -4710,7 +4710,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!G_L_Ending_Balance_Control24.Value)</Value>
+                                  <Value>=LAST(Fields!EndingBalanceTotalCredit.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -5673,11 +5673,47 @@ End Function
         <Field Name="G_L_Ending_Balance_Control24Format">
           <DataField>G_L_Ending_Balance_Control24Format</DataField>
         </Field>
+        <Field Name="EndingBalanceTotalCredit">
+          <DataField>EndingBalanceTotalCredit</DataField>
+        </Field>
+        <Field Name="EndingBalanceTotalCreditFormat">
+          <DataField>EndingBalanceTotalCreditFormat</DataField>
+        </Field>
+        <Field Name="EndingBalanceTotalDebit">
+          <DataField>EndingBalanceTotalDebit</DataField>
+        </Field>
+        <Field Name="EndingBalanceTotalDebitFormat">
+          <DataField>EndingBalanceTotalDebitFormat</DataField>
+        </Field>
         <Field Name="G_L_Account___Account_Type_">
           <DataField>G_L_Account___Account_Type_</DataField>
         </Field>
         <Field Name="No__of_Blank_Lines">
           <DataField>No__of_Blank_Lines</DataField>
+        </Field>
+        <Field Name="BeginBalanceTotalCredit">
+          <DataField>BeginBalanceTotalCredit</DataField>
+        </Field>
+        <Field Name="BeginBalanceTotalCreditFormat">
+          <DataField>BeginBalanceTotalCreditFormat</DataField>
+        </Field>
+        <Field Name="BeginBalanceTotalDebit">
+          <DataField>BeginBalanceTotalDebit</DataField>
+        </Field>
+        <Field Name="BeginBalanceTotalDebitFormat">
+          <DataField>BeginBalanceTotalDebitFormat</DataField>
+        </Field>
+        <Field Name="MovementTotalCredit">
+          <DataField>MovementTotalCredit</DataField>
+        </Field>
+        <Field Name="MovementTotalCreditFormat">
+          <DataField>MovementTotalCreditFormat</DataField>
+        </Field>
+        <Field Name="MovementTotalDebit">
+          <DataField>MovementTotalDebit</DataField>
+        </Field>
+        <Field Name="MovementTotalDebitFormat">
+          <DataField>MovementTotalDebitFormat</DataField>
         </Field>
         <Field Name="BlankLineNo">
           <DataField>BlankLineNo</DataField>

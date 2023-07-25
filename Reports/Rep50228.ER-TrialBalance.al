@@ -161,7 +161,21 @@ report 50228 "ER - Trial Balance"
                 column(PADSTR_____G_L_Account__Indentation___2___G_L_Account__Name; PadStr('', "G/L Account".Indentation * 2) + "G/L Account".Name)
                 {
                 }
-                column(G_L_Ending_Balance; EndingBalance)
+                column(G_L_Account___Net_Change_; BeginningBalanceDebit)
+                {
+                }
+                column(G_L_Account___Net_Change__Control22; BeginningBalanceCredit)
+                {
+                    AutoFormatType = 1;
+                }
+                column(G_L_Account___Balance_at_Date_; MovementDebit)
+                {
+                }
+                column(G_L_Account___Balance_at_Date__Control24; MovementCredit)
+                {
+                    AutoFormatType = 1;
+                }
+                column(G_L_Ending_Balance; EndingBalanceDebit)
                 {
                 }
                 column(G_L_Ending_Balance_Control24; EndingBalanceCredit)
@@ -412,7 +426,7 @@ report 50228 "ER - Trial Balance"
                     field("Show opening balance"; ShowOpening)
                     {
                         ApplicationArea = all;
-                        Caption = 'Show Opening Balance';
+                        Caption = 'With Opening Balance';
                     }
                 }
             }

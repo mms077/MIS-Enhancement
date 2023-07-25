@@ -13063,16 +13063,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Invoice Subform - Control ColorName - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 1379883806 - Control 3068680635 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1379883806">
-          <source>Department Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Invoice Subform - Control Department Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1379883806 - Control 3493435768 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1379883806">
-          <source>Position Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Invoice Subform - Control Position Code - Property Caption</note>
-        </trans-unit>
         <trans-unit id="PageExtension 1379883806 - Control 2504801539 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1379883806">
           <source>Tonality</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -13232,26 +13222,6 @@
           <source>IC Customer Name</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order - Control ICCustomerName - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 4117186890 - Control 3751959505 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4117186890">
-          <source>Allocation No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order Archive Subform - Control Allocation No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 4117186890 - Control 3619812860 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4117186890">
-          <source>Allocation Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order Archive Subform - Control Allocation Type - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 4117186890 - Control 3068680635 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4117186890">
-          <source>Department Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order Archive Subform - Control Department Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 4117186890 - Control 3493435768 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4117186890">
-          <source>Position Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order Archive Subform - Control Position Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3332899200 - Action 1592124705 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3332899200">
           <source>ER Reports</source>

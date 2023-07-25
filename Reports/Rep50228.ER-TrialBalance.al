@@ -161,20 +161,6 @@ report 50228 "ER - Trial Balance"
                 column(PADSTR_____G_L_Account__Indentation___2___G_L_Account__Name; PadStr('', "G/L Account".Indentation * 2) + "G/L Account".Name)
                 {
                 }
-                column(G_L_Account___Net_Change_; BeginningBalance)
-                {
-                }
-                column(G_L_Account___Net_Change__Control22; -BeginningBalance)
-                {
-                    AutoFormatType = 1;
-                }
-                column(G_L_Account___Balance_at_Date_; MovementBalance)
-                {
-                }
-                column(G_L_Account___Balance_at_Date__Control24; -MovementBalance)
-                {
-                    AutoFormatType = 1;
-                }
                 column(G_L_Ending_Balance; EndingBalance)
                 {
                 }

@@ -346,7 +346,7 @@ report 50228 "ER - Trial Balance"
                     BeginningBalanceDebit := 0;
                     BeginningBalanceCredit := -BeginBalanceTot;
                     if "G/L Account"."Account Type" = AccountTypeEnum::Posting then
-                        BeginBalanceTotalCredit := BeginBalanceTotalCredit + BeginBalanceTot
+                        BeginBalanceTotalCredit := BeginBalanceTotalCredit - BeginBalanceTot
                 end
                 else begin
                     BeginningBalanceDebit := BeginBalanceTot;
@@ -368,7 +368,7 @@ report 50228 "ER - Trial Balance"
                     EndingBalanceCredit := -EndingBalance;
                     EndingBalanceDebit := 0;
                     if "G/L Account"."Account Type" = AccountTypeEnum::Posting then
-                        EndingBalanceTotalCredit := EndingBalanceTotalCredit + EndingBalance
+                        EndingBalanceTotalCredit := EndingBalanceTotalCredit - EndingBalance
                 end;
 
 

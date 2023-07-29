@@ -612,7 +612,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!PageLabelValueFR.Value</Value>
+                                  <Value>=First(Fields!PageLabelValueFR.Value, "DataSet_Result")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -644,7 +644,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -5478,6 +5477,9 @@ End Function
         <Field Name="ShowColor">
           <DataField>ShowColor</DataField>
         </Field>
+        <Field Name="ShowSize">
+          <DataField>ShowSize</DataField>
+        </Field>
         <Field Name="TotalStaff">
           <DataField>TotalStaff</DataField>
         </Field>
@@ -5715,6 +5717,9 @@ End Function
         <Field Name="ColorLabel">
           <DataField>ColorLabel</DataField>
         </Field>
+        <Field Name="SizeLabel">
+          <DataField>SizeLabel</DataField>
+        </Field>
         <Field Name="HsCodeLabel">
           <DataField>HsCodeLabel</DataField>
         </Field>
@@ -5906,6 +5911,9 @@ End Function
         </Field>
         <Field Name="ColorName">
           <DataField>ColorName</DataField>
+        </Field>
+        <Field Name="SizeName">
+          <DataField>SizeName</DataField>
         </Field>
         <Field Name="TotalStaffing">
           <DataField>TotalStaffing</DataField>

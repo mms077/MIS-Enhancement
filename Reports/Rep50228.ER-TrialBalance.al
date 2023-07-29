@@ -181,12 +181,26 @@ report 50228 "ER - Trial Balance"
                 column(G_L_Ending_Balance_Control24; EndingBalanceCredit)
                 {
                 }
+                column(EndingBalanceTotalCredit; EndingBalanceTotalCredit)
+                {
+                }
+                column(EndingBalanceTotalDebit; EndingBalanceTotalDebit)
+                {
+                }
                 column(G_L_Account___Account_Type_; Format("G/L Account"."Account Type", 0, 2))
                 {
                 }
                 column(No__of_Blank_Lines; "G/L Account"."No. of Blank Lines")
                 {
                 }
+                column(BeginBalanceTotalCredit; BeginBalanceTotalCredit)
+                { }
+                column(BeginBalanceTotalDebit; BeginBalanceTotalDebit)
+                { }
+                column(MovementTotalCredit; MovementTotalCredit)
+                { }
+                column(MovementTotalDebit; MovementTotalDebit)
+                { }
                 dataitem(BlankLineRepeater; "Integer")
                 {
                     DataItemTableView = SORTING(Number);
@@ -216,12 +230,12 @@ report 50228 "ER - Trial Balance"
                 OpeningDate: Text;
                 EndingDate: Text;
             begin
-                
+
                 MovementDebit := 0;
                 MovementCredit := 0;
                 BeginningBalanceCredit := 0;
                 BeginningBalanceDebit := 0;
-                
+                BeginBalanceTot := 0;
                 EndingBalance := 0;
                 DateFilter := "G/L Account".GetFilter("Date Filter");
 
@@ -238,7 +252,12 @@ report 50228 "ER - Trial Balance"
                         L_GL_Acc.CalcFields("Debit Amount", "Credit Amount");
                         //MovementBalance := L_GL_Acc."Net Change";
                         MovementDebit := L_GL_Acc."Debit Amount";
+                        //MovementTotalDebit := MovementTotalDebit + MovementDebit;
                         MovementCredit := L_GL_Acc."Credit Amount";
+                        if "G/L Account"."Account Type" = AccountTypeEnum::Posting then begin
+                            MovementTotalCredit := MovementTotalCredit + MovementCredit;
+                            MovementTotalDebit := MovementTotalDebit + MovementDebit;
+                        end;
                         TotalMovementBalance := TotalMovementBalance + MovementDebit + MovementCredit;
                     end;
 
@@ -252,8 +271,9 @@ report 50228 "ER - Trial Balance"
                         // BeginningBalance := L_GL_Acc."Net Change";
                         BeginningBalanceDebit := L_GL_Acc."Debit Amount";
                         BeginningBalanceCredit := L_GL_Acc."Credit Amount";
+                        BeginBalanceTot := BeginningBalanceDebit - BeginningBalanceCredit;
 
-                        TotalOpeningBalance := TotalOpeningBalance+BeginningBalanceDebit+BeginningBalanceCredit;
+                        TotalOpeningBalance := TotalOpeningBalance + BeginningBalanceDebit + BeginningBalanceCredit;
                     end;
 
                     // Ending Amount
@@ -264,7 +284,7 @@ report 50228 "ER - Trial Balance"
                     if L_GL_Acc.FindFirst() then begin
                         L_GL_Acc.CalcFields("Debit Amount", "Credit Amount");
                         if ShowOpening then
-                            EndingBalance := -BeginningBalanceCredit+BeginningBalanceDebit + MovementDebit - MovementCredit
+                            EndingBalance := -BeginningBalanceCredit + BeginningBalanceDebit + MovementDebit - MovementCredit
                         else
                             EndingBalance := MovementDebit - MovementCredit;
                         TotalEndingBalance += EndingBalance;
@@ -285,6 +305,10 @@ report 50228 "ER - Trial Balance"
                         L_GL_Acc.CalcFields("Add.-Currency Debit Amount", "Add.-Currency Credit Amount");
                         MovementDebit := L_GL_Acc."Add.-Currency Debit Amount";
                         MovementCredit := L_GL_Acc."Add.-Currency Credit Amount";
+                        if "G/L Account"."Account Type" = AccountTypeEnum::Posting then begin
+                            MovementTotalCredit := MovementTotalCredit + MovementCredit;
+                            MovementTotalDebit := MovementTotalDebit + MovementDebit;
+                        end;
                         TotalMovementBalance := MovementDebit + MovementCredit;
                     end;
 
@@ -298,7 +322,8 @@ report 50228 "ER - Trial Balance"
                         //BeginningBalance := L_GL_Acc."Additional-Currency Net Change";
                         BeginningBalanceCredit := L_GL_Acc."Add.-Currency Credit Amount";
                         BeginningBalanceDebit := L_GL_Acc."Add.-Currency Debit Amount";
-                        TotalOpeningBalance := TotalOpeningBalance+BeginningBalanceCredit+BeginningBalanceDebit;
+                        TotalOpeningBalance := TotalOpeningBalance + BeginningBalanceCredit + BeginningBalanceDebit;
+                        BeginBalanceTot := BeginningBalanceDebit - BeginningBalanceCredit;
                     end;
 
                     // Ending Amount
@@ -309,27 +334,56 @@ report 50228 "ER - Trial Balance"
                     if L_GL_Acc.FindFirst() then begin
                         L_GL_Acc.CalcFields("Add.-Currency Debit Amount", "Add.-Currency Credit Amount");
                         if ShowOpening then
-                            EndingBalance := -BeginningBalanceCredit+BeginningBalanceDebit + MovementDebit - MovementCredit
+                            EndingBalance := -BeginningBalanceCredit + BeginningBalanceDebit + MovementDebit - MovementCredit
                         else
                             EndingBalance := MovementDebit - MovementCredit;
                         TotalEndingBalance += EndingBalance;
                     end;
 
                 end;
-                if EndingBalance>0 then begin
-                    EndingBalanceDebit := EndingBalance;
-                    EndingBalanceCredit := 0;
+
+                if BeginBalanceTot < 0 then begin
+                    BeginningBalanceDebit := 0;
+                    BeginningBalanceCredit := -BeginBalanceTot;
+                    if "G/L Account"."Account Type" = AccountTypeEnum::Posting then
+                        BeginBalanceTotalCredit := BeginBalanceTotalCredit - BeginBalanceTot
                 end
                 else begin
-                    EndingBalanceCredit := -EndingBalance;
-                    EndingBalanceDebit := 0;
+                    BeginningBalanceDebit := BeginBalanceTot;
+                    BeginningBalanceCredit := 0;
+                    if "G/L Account"."Account Type" = AccountTypeEnum::Posting then
+                        BeginBalanceTotalDebit := BeginBalanceTotalDebit + BeginBalanceTot
                 end;
 
 
 
+
+                if EndingBalance > 0 then begin
+                    EndingBalanceDebit := EndingBalance;
+                    EndingBalanceCredit := 0;
+                    if "G/L Account"."Account Type" = AccountTypeEnum::Posting then
+                        EndingBalanceTotalDebit := EndingBalanceTotalDebit + EndingBalance
+                end
+                else begin
+                    EndingBalanceCredit := -EndingBalance;
+                    EndingBalanceDebit := 0;
+                    if "G/L Account"."Account Type" = AccountTypeEnum::Posting then
+                        EndingBalanceTotalCredit := EndingBalanceTotalCredit - EndingBalance
+                end;
+
+
+
+
+
                 if HideNull then begin
-                    if (MovementDebit = 0) and (MovementCredit = 0) and (BeginningBalanceCredit = 0) and (BeginningBalanceDebit=0) and (EndingBalance = 0) then
-                        CurrReport.Skip();
+                    if (MovementDebit = 0) and (MovementCredit = 0) and (BeginningBalanceCredit = 0) and (BeginningBalanceDebit = 0) and (EndingBalance = 0) then
+                        CurrReport.Skip()
+                    else begin
+                        if ShowOpening = false then begin
+                            if (MovementDebit = 0) and (MovementCredit = 0) and (EndingBalance = 0) then
+                                CurrReport.Skip()
+                        end;
+                    end;
                 end;
 
 
@@ -417,12 +471,14 @@ report 50228 "ER - Trial Balance"
     end;
 
     var
+        AccountTypeEnum: Enum "G/L Account Type";
         ShowOpening: Boolean;
         TotalOpeningBalance: Decimal;
         TotalMovementBalance: Decimal;
         TotalEndingBalance: Decimal;
         ShowinACY: Boolean;
         MovementDebit: Decimal;
+        BeginBalanceTot: Decimal;
         MovementCredit: Decimal;
         EndingBalanceCredit: Decimal;
         EndingBalanceDebit: Decimal;
@@ -456,6 +512,12 @@ report 50228 "ER - Trial Balance"
         BlankLineNo: Integer;
         //BeginningBalance: Decimal;
         //MovementBalance: Decimal;
+        BeginBalanceTotalDebit: Decimal;
+        BeginBalanceTotalCredit: Decimal;
+        EndingBalanceTotalDebit: Decimal;
+        EndingBalanceTotalCredit: Decimal;
+        MovementTotalDebit: Decimal;
+        MovementTotalCredit: Decimal;
         EndingBalance: Decimal;
         FromDate: Text;
         ToDate: Text;

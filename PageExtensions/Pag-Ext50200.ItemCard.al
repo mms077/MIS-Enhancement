@@ -124,21 +124,32 @@ pageextension 50200 ItemCard extends "Item Card"
                         Clear(DesignDetails);
                         Clear(ItemDesignSectionRM);
                         DesignDetails.SetRange("Design Code", Rec."Design Code");
-                        if DesignDetails.FindSet() then
+                        if DesignDetails.FindFirst() then
+                            //if DesignDetails.FindSet() then
                             repeat
                                 RMCategoryDesignSec.SetRange("Design Section Code", DesignDetails."Design Section Code");
                                 RMCategoryDesignSec.SetRange("Design Type", Design.Type);
                                 if RMCategoryDesignSec.FindFirst() then begin
-                                    RMCategoryDesignSec.CalcFields("RM Category Count By DS");
-                                    if RMCategoryDesignSec."RM Category Count By DS" > 1 then begin
+                                    DesignDetails.CalcFields("Section Composition");
+                                    if (DesignDetails."Section Composition" <> DesignDetails."Section Composition"::Accessories) and (DesignDetails."Section Composition" <> DesignDetails."Section Composition"::Fabrics) then begin
+                                        RMCategoryDesignSec.CalcFields("RM Category Count By DS");
+                                        //Delete it on trm and accessories
+                                        If RMCategoryDesignSec."RM Category Count By DS" > 1 then begin
+                                            Clear(ItemDesignSectionRM);
+                                            ItemDesignSectionRM.Init();
+                                            ItemDesignSectionRM."Item No." := Rec."No.";
+                                            ItemDesignSectionRM."Design Section Code" := DesignDetails."Design Section Code";
+                                            if ItemDesignSectionRM.Insert(true) then;
+                                        end
+                                    end
+                                    else begin
                                         Clear(ItemDesignSectionRM);
                                         ItemDesignSectionRM.Init();
                                         ItemDesignSectionRM."Item No." := Rec."No.";
                                         ItemDesignSectionRM."Design Section Code" := DesignDetails."Design Section Code";
                                         if ItemDesignSectionRM.Insert(true) then;
                                     end;
-                                end;
-
+                                end
                             until DesignDetails.Next() = 0;
                     end;
                 end;

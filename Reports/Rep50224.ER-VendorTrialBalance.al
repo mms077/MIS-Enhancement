@@ -217,7 +217,7 @@ report 50224 "ER - Vendor Trial Balance"
 
                     // If no balance in currency skip currency
 
-                    if (BeginBalOrig = 0) and (DebiOrig = 0) and (CreditOrig = 0) and (EndBalOrig = 0) then begin
+                    if (BeginBalLCY = 0) and (DebitLCY = 0) and (CreditLCY = 0) and (EndBalLCY = 0) then begin
                         CurrReport.Skip();
                     end;
 
@@ -228,8 +228,6 @@ report 50224 "ER - Vendor Trial Balance"
                     end
                     else
                         TempCurrency := TempCurrencyTotal.CurrencyCode;
-
-
                 end;
             }
 
@@ -242,10 +240,9 @@ report 50224 "ER - Vendor Trial Balance"
                 L_Vendor.SetFilter("Date Filter", Format(FromDate) + '..' + Format(ToDate));
                 VendorFilters:=Vendor.GetFilters();
 
-                L_Vendor.CalcFields("Net Change", Balance, "Credit Amount", "Debit Amount");
-                if (L_Vendor.Balance = 0) and (L_Vendor."Net Change" = 0) and (L_Vendor."Credit Amount" = 0) and (L_Vendor."Debit Amount" = 0) and (HideCust) then
+                L_Vendor.CalcFields("Net Change (LCY)", "Balance (LCY)" , "Credit Amount (LCY)", "Debit Amount (LCY)");
+                if (L_Vendor."Balance (LCY)" = 0) and (L_Vendor."Net Change (LCY)" = 0) and (L_Vendor."Credit Amount (LCY)" = 0) and (L_Vendor."Debit Amount (LCY)" = 0) and (HideCust) then
                     CurrReport.Skip();
-
             end;
 
         }

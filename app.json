@@ -2,7 +2,7 @@
   "id": "7e779673-0dcf-4203-a446-b62151f37caf",
   "name": "Master Item Structure - ER",
   "publisher": "Exquitech",
-  "version": "1.0.0.453",
+  "version": "1.0.0.458",
   "brief": "Master Item Structure",
   "description": "Related to Design Business",
   "privacyStatement": "",
@@ -25,9 +25,9 @@
     },
     {
       "id": "72711e17-9372-481a-a4a6-da050933dd9c",
-      "name": "Ledger Editor",
+      "name": "Exquitech Editor",
       "publisher": "Exquitech",
-      "version": "1.0.0.5"
+      "version": "1.0.0.11"
     },
     {
       "id": "719139df-e871-457b-9033-6e1338f93430",

@@ -9153,6 +9153,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Sales - Confirmation - NamedType ClosingLbl</note>
         </trans-unit>
+        <trans-unit id="Report 3661504396 - NamedType 2966004221" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Color</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Sales - Confirmation - NamedType colorLabel</note>
+        </trans-unit>
         <trans-unit id="Report 3661504396 - NamedType 3280613231" size-unit="char" translate="yes" xml:space="preserve">
           <source>Account No.</source>
           <note from="Developer" annotates="general" priority="2"></note>

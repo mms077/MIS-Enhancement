@@ -3288,56 +3288,6 @@
           <note from="Developer" annotates="general" priority="2">%1 number of unlicensed records</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Record Deletion Mgt. - Method SuggestUnlicensedPartnerOrCustomRecordsToDelete - NamedType RecordsSuggestedMsg</note>
         </trans-unit>
-        <trans-unit id="Codeunit 3887473944 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Worksheet Name                     #1##########\\</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Req. Wksh.-Make Quote - NamedType Text000</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3887473944 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Checking worksheet lines           #2######\</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Req. Wksh.-Make Quote - NamedType Text001</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3887473944 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Creating purchase orders           #3######\</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Req. Wksh.-Make Quote - NamedType Text002</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3887473944 - NamedType 95063322" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Creating purchase lines            #4######\</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Req. Wksh.-Make Quote - NamedType Text003</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3887473944 - NamedType 732759939" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Updating worksheet lines           #5######</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Req. Wksh.-Make Quote - NamedType Text004</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3887473944 - NamedType 1370456556" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Deleting worksheet lines           #5######</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Req. Wksh.-Make Quote - NamedType Text005</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3887473944 - NamedType 2008153173" size-unit="char" translate="yes" xml:space="preserve">
-          <source>%1 on sales order %2 is already associated with purchase order %3.</source>
-          <note from="Developer" annotates="general" priority="2">%1 = number of item, %2 = number of document, %3 = number of purchase order</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Req. Wksh.-Make Quote - NamedType Text006</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3887473944 - NamedType 3283546407" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The combination of dimensions used in %1 %2, %3, %4 is blocked. %5</source>
-          <note from="Developer" annotates="general" priority="2">%1 = table caption, %2 = worksheet template name, %3 = journal batch name, %4 = number of line, %5 = error of dimension combination</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Req. Wksh.-Make Quote - NamedType Text008</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3887473944 - NamedType 3921243024" size-unit="char" translate="yes" xml:space="preserve">
-          <source>A dimension used in %1 %2, %3, %4 has caused an error. %5</source>
-          <note from="Developer" annotates="general" priority="2">%1 = table caption, %2 = worksheet template name, %3 = journal batch name, %4 = number of line, %5 = error of dimension posting value</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Req. Wksh.-Make Quote - NamedType Text009</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3887473944 - NamedType 1664139952" size-unit="char" translate="yes" xml:space="preserve">
-          <source>must match %1 on Sales Order %2, Line %3</source>
-          <note from="Developer" annotates="general" priority="2">%1 = field caption, %2 = number of document, %3 = number of line</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Req. Wksh.-Make Quote - NamedType Text010</note>
-        </trans-unit>
         <trans-unit id="Page 3983627931 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Assembly Lines - ER</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -13113,16 +13063,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Invoice Subform - Control ColorName - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 1379883806 - Control 3068680635 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1379883806">
-          <source>Department Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Invoice Subform - Control Department Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1379883806 - Control 3493435768 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1379883806">
-          <source>Position Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Invoice Subform - Control Position Code - Property Caption</note>
-        </trans-unit>
         <trans-unit id="PageExtension 1379883806 - Control 2504801539 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1379883806">
           <source>Tonality</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -13182,16 +13122,6 @@
           <source>Edit in Excel</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Prices - Action EditInExcel - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 4079168524 - Action 1147374323 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2459894850">
-          <source>Use a batch job to help you create actual supply orders from the order proposals.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ReqWorkSheet - Action CarryOutActionMessageForQuote - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 4079168524 - Action 1147374323 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2459894850">
-          <source>Carry &amp;Out Action Message</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ReqWorkSheet - Action CarryOutActionMessageForQuote - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 1118401208 - Control 390392087 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4145206282">
           <source>Cutting Sheet Workflow to be used on the cutting sheet scanning</source>

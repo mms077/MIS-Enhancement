@@ -371,7 +371,7 @@ report 50217 "ER - Vendor Statement"
                                 G_PageCurrList.SetSelectionFilter(G_TempCurrencyTotal);
                                 if G_TempCurrencyTotal.FindFirst() then
                                     repeat
-                                            SelectedCurrencies := SelectedCurrencies + G_TempCurrencyTotal.CurrencyCode + '|';
+                                        SelectedCurrencies := SelectedCurrencies + G_TempCurrencyTotal.CurrencyCode + '|';
                                     until G_TempCurrencyTotal.Next() = 0;
                                 SelectedCurrencies := DelChr(SelectedCurrencies, '>', '|');
                             end;
@@ -450,10 +450,10 @@ report 50217 "ER - Vendor Statement"
         L_AmountCalculated := TotalGained;
         if L_AmountCalculated < 0 then begin
             L_AmountCalculated := L_AmountCalculated * -1;
-            AmountInWordsFunction(L_AmountCalculated, G_CurrentCurrency);
+            AmountInWordsFunction(L_AmountCalculated, CurrencyCodeChosen);
             WhoOwesWhom := WeOweYouLabel;
         end else begin
-            AmountInWordsFunction(L_AmountCalculated, G_CurrentCurrency);
+            AmountInWordsFunction(L_AmountCalculated, CurrencyCodeChosen);
             WhoOwesWhom := YouOweUsLabel;
         end
     end;
@@ -605,7 +605,7 @@ report 50217 "ER - Vendor Statement"
         SelectedVendorNo: Code[20];//For Filtering
         CityAndZip: Text[250];
         CompanyAddress: Text[250];
-       //G_filteringCurrency: Code[10];
+        //G_filteringCurrency: Code[10];
         AccountNumberLabel: Label 'Account';
         WhoOwesWhom: Text[250];
         FromDateLabel: Label 'From Date';

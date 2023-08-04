@@ -445,15 +445,24 @@ report 50217 "ER - Vendor Statement"
     procedure PrintAmountInWords(CurrencyCodeChosen: Code[10]; TotalGained: Decimal)//Choose the correct lable to print alongside converting negative values to positive values
     var
         L_AmountCalculated: Decimal;
+        AmounInWordsCurr: Code[10];
     begin//Slight Optimize needed
         G_TempCurrencyTotal.get(CurrencyCodeChosen);
         L_AmountCalculated := TotalGained;
         if L_AmountCalculated < 0 then begin
             L_AmountCalculated := L_AmountCalculated * -1;
-            AmountInWordsFunction(L_AmountCalculated, CurrencyCodeChosen);
+            if CurrencyCodeChosen = '''''' then
+                AmounInWordsCurr := GeneralLedgerSetup."LCY Code"
+            else
+                AmounInWordsCurr := CurrencyCodeChosen;
+            AmountInWordsFunction(L_AmountCalculated, AmounInWordsCurr);
             WhoOwesWhom := WeOweYouLabel;
         end else begin
-            AmountInWordsFunction(L_AmountCalculated, CurrencyCodeChosen);
+            if CurrencyCodeChosen = '''''' then
+                AmounInWordsCurr := GeneralLedgerSetup."LCY Code"
+            else
+                AmounInWordsCurr := CurrencyCodeChosen;
+            AmountInWordsFunction(L_AmountCalculated, AmounInWordsCurr);
             WhoOwesWhom := YouOweUsLabel;
         end
     end;

@@ -1957,6 +1957,71 @@
                 <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
+            <Textbox Name="Textbox7">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!PageLabel.Value, "DataSet_Result") &amp; " " &amp; Globals!PageNumber &amp; " " &amp; First(Fields!OfLabel.Value, "DataSet_Result") &amp; " " &amp; Globals!TotalPages</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>2.51653cm</Top>
+              <Left>12.42006cm</Left>
+              <Height>0.36472cm</Height>
+              <Width>6.73334cm</Width>
+              <ZIndex>14</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox11">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!PrintedOnLabel.Value, "DataSet_Result") &amp; " " &amp; First(Fields!TimeNow.Value, "DataSet_Result")</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox2</rd:DefaultName>
+              <Top>2.91653cm</Top>
+              <Left>12.42006cm</Left>
+              <Height>0.45cm</Height>
+              <Width>6.73334cm</Width>
+              <ZIndex>15</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
           </ReportItems>
           <Style>
             <Border>
@@ -2133,6 +2198,12 @@ End Function
         <Field Name="Company_Picture">
           <DataField>Company_Picture</DataField>
         </Field>
+        <Field Name="PageLabel">
+          <DataField>PageLabel</DataField>
+        </Field>
+        <Field Name="OfLabel">
+          <DataField>OfLabel</DataField>
+        </Field>
         <Field Name="Company_Capital">
           <DataField>Company_Capital</DataField>
         </Field>
@@ -2141,6 +2212,12 @@ End Function
         </Field>
         <Field Name="Company_Vat">
           <DataField>Company_Vat</DataField>
+        </Field>
+        <Field Name="PrintedOnLabel">
+          <DataField>PrintedOnLabel</DataField>
+        </Field>
+        <Field Name="TimeNow">
+          <DataField>TimeNow</DataField>
         </Field>
         <Field Name="Comapny_Phone">
           <DataField>Comapny_Phone</DataField>

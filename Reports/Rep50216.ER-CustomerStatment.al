@@ -13,6 +13,14 @@ report 50216 "ER - Customer Statement"
             DataItemTableView = sorting(CurrencyCode);
             PrintOnlyIfDetail = false;
             column(CurrencyCode; CurrencyCode) { }
+            column(PrintedOnLabel; PrintedOnLabel)
+            {
+
+            }
+            column(TimeNow; TimeNow)
+            {
+
+            }
             column(Curr; G_CurrencyCode) { }
             column(AmountinWords; AmountinWords) { }
             column(CityPostal; CityPostal) { }
@@ -100,7 +108,7 @@ report 50216 "ER - Customer Statement"
                     CustLedEntry.SetCurrentKey("Posting Date");
                     SetRange("Posting Date", FromDate, ToDate);
                     SetRange("Customer No.", G_CustNo);
-                    SetRange("Currency Code",  "Currency Table".CurrencyCode);//
+                    SetRange("Currency Code", "Currency Table".CurrencyCode);//
                 end;
             }
 
@@ -147,7 +155,7 @@ report 50216 "ER - Customer Statement"
                     until L_CustomerLedgerEntry.Next() = 0;
                 end;
 
-                tot:=TotalAMT;
+                tot := TotalAMT;
 
                 if tot < 0 then begin
                     OweUsLabel := 'We owe you';
@@ -289,6 +297,7 @@ report 50216 "ER - Customer Statement"
         CompanyAddress := CompanyInformation.Address;
         CityPostal := CompanyInformation.City + ' ' + CompanyInformation."Post Code";
         CompanyInformation.CalcFields(Picture);
+        TimeNow := Format(System.CurrentDateTime());
     end;
 
     trigger OnInitReport()
@@ -580,6 +589,12 @@ report 50216 "ER - Customer Statement"
         OnesText: array[20] of Text[30];
         TensText: array[10] of Text[30];
         ExponentText: array[5] of Text[30];
+
+        
+        TimeNow: Text[25];
+         PrintedOnLabel: Label 'Printed On:';
+        PageLabel: Label 'Page';
+        OfLabel: Label 'of';
 }
 
 

@@ -58,7 +58,7 @@ report 50202 "RM Label Printing"
 
                 trigger OnPreDataItem();
                 begin
-                    NoOfLoops := ABS(NoOfCopies) + 1;
+                    NoOfLoops := NumberOfCopies();
                     CopyText := '';
                     SETRANGE(Number, 1, NoOfLoops);
                     OutputNo := 1;
@@ -93,20 +93,29 @@ report 50202 "RM Label Printing"
                 // Declare the font using the barcode symbology enum
                 BarcodeSymbology := Enum::"Barcode Symbology"::"Code39";
 
-                // Set data string source 
+                // Set data string source "Raw Material".Code
                 RM_BarcodeString := "Raw Material".Code;
-                // Validate the input. This method is not available for 2D provider
+                // Validate the input.
                 BarcodeFontProvider.ValidateInput(RM_BarcodeString, BarcodeSymbology);
                 // Encode the data string to the barcode font
                 RM_Barcode := BarcodeFontProvider.EncodeFont(RM_BarcodeString, BarcodeSymbology);
 
-                ItemRef_BarcodeString := GlobalItemReference."Unique Code";
 
-                // Validate the input. This method is not available for 2D provider
-                BarcodeFontProvider.ValidateInput(ItemRef_BarcodeString, BarcodeSymbology);
 
-                // Encode the data string to the barcode font
-                ItemRef_Barcode := BarcodeFontProvider.EncodeFont(ItemRef_BarcodeString, BarcodeSymbology);
+                if "Barcode UOM" <> '' then begin
+                    if GlobalItemReference.FindSet() then begin
+                        ItemRef_BarcodeString := GlobalItemReference."Unique Code";
+
+                        // Validate the input. This method is not available for 2D provider
+                        BarcodeFontProvider.ValidateInput(ItemRef_BarcodeString, BarcodeSymbology);
+
+                        // Encode the data string to the barcode font
+                        ItemRef_Barcode := BarcodeFontProvider.EncodeFont(ItemRef_BarcodeString, BarcodeSymbology);
+                    end
+                    else
+                        Error('No Item Reference Found.');
+
+                end;
 
             end;
         }
@@ -192,6 +201,14 @@ report 50202 "RM Label Printing"
         if PrintBCContainingUOM then
             if "Barcode UOM" = '' then
                 Error(Txt001);
+    end;
+
+    procedure NumberOfCopies(): Integer;
+    var
+        myInt: Integer;
+    begin
+        NoOfLoops := ABS(NoOfCopies) + 1;
+        exit(NoOfLoops);
     end;
 
     var

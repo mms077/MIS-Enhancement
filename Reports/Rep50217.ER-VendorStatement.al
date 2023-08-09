@@ -22,6 +22,14 @@ report 50217 "ER - Vendor Statement"
             // column(Total; Total)
             // {
             // }
+            column(PrintedOnLabel; PrintedOnLabel)
+            {
+
+            }
+            column(TimeNow; TimeNow)
+            {
+
+            }
             column(Company_Picture; CompanyInformation.Picture)
             {
 
@@ -371,7 +379,7 @@ report 50217 "ER - Vendor Statement"
                                 G_PageCurrList.SetSelectionFilter(G_TempCurrencyTotal);
                                 if G_TempCurrencyTotal.FindFirst() then
                                     repeat
-                                            SelectedCurrencies := SelectedCurrencies + G_TempCurrencyTotal.CurrencyCode + '|';
+                                        SelectedCurrencies := SelectedCurrencies + G_TempCurrencyTotal.CurrencyCode + '|';
                                     until G_TempCurrencyTotal.Next() = 0;
                                 SelectedCurrencies := DelChr(SelectedCurrencies, '>', '|');
                             end;
@@ -407,6 +415,7 @@ report 50217 "ER - Vendor Statement"
         CityAndZip := companyInformation.City + ' ' + companyInformation."Post Code";
         CompanyInformation.CalcFields(Picture);
         G_RecVendor.Get(SelectedVendorNo);
+        TimeNow := Format(System.CurrentDateTime());
     end;
 
     procedure CalculateBeforeTotal(SelectedCurrency: Code[10])//Calculate the total before the Selected Time Period
@@ -445,15 +454,24 @@ report 50217 "ER - Vendor Statement"
     procedure PrintAmountInWords(CurrencyCodeChosen: Code[10]; TotalGained: Decimal)//Choose the correct lable to print alongside converting negative values to positive values
     var
         L_AmountCalculated: Decimal;
+        AmounInWordsCurr: Code[10];
     begin//Slight Optimize needed
         G_TempCurrencyTotal.get(CurrencyCodeChosen);
         L_AmountCalculated := TotalGained;
         if L_AmountCalculated < 0 then begin
             L_AmountCalculated := L_AmountCalculated * -1;
-            AmountInWordsFunction(L_AmountCalculated, G_CurrentCurrency);
+            if CurrencyCodeChosen = '''''' then
+                AmounInWordsCurr := GeneralLedgerSetup."LCY Code"
+            else
+                AmounInWordsCurr := CurrencyCodeChosen;
+            AmountInWordsFunction(L_AmountCalculated, AmounInWordsCurr);
             WhoOwesWhom := WeOweYouLabel;
         end else begin
-            AmountInWordsFunction(L_AmountCalculated, G_CurrentCurrency);
+            if CurrencyCodeChosen = '''''' then
+                AmounInWordsCurr := GeneralLedgerSetup."LCY Code"
+            else
+                AmounInWordsCurr := CurrencyCodeChosen;
+            AmountInWordsFunction(L_AmountCalculated, AmounInWordsCurr);
             WhoOwesWhom := YouOweUsLabel;
         end
     end;
@@ -605,7 +623,7 @@ report 50217 "ER - Vendor Statement"
         SelectedVendorNo: Code[20];//For Filtering
         CityAndZip: Text[250];
         CompanyAddress: Text[250];
-       //G_filteringCurrency: Code[10];
+        //G_filteringCurrency: Code[10];
         AccountNumberLabel: Label 'Account';
         WhoOwesWhom: Text[250];
         FromDateLabel: Label 'From Date';
@@ -684,5 +702,9 @@ report 50217 "ER - Vendor Statement"
         Text060: Label 'MILLION';
         Text061: Label 'BILLION';
 
+
+        PageLabel: Label 'Page';
+        OfLabel: Label 'of';
+        TimeNow: Text[25];
     #endregion
 }

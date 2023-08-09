@@ -6208,6 +6208,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement - Control RequestCurrency - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 1882754797 - Control 2598613329 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement - Control CustNum - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 1187795502 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ER - Customer Statement(Dimension)</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -10823,20 +10828,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Statement - Control SelectedCurrencies - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Report 498905365 - Control 3577178040 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the Vendor No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Statement - Control SelectedVendorNo - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Report 498905365 - Control 3577178040 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Vendor No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Statement - Control SelectedVendorNo - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Report 498905365 - Control 2565971985 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the ending date for the report.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Statement - Control To Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 498905365 - Control 2214728318 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Vendor No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Statement - Control VendNumber - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 498905365 - Control 2214728318 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Statement - Control VendNumber - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 3137650822 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ER - Vendor Trial Balance</source>

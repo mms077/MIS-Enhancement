@@ -475,7 +475,7 @@ report 50233 "ER - Statement Of Account"
                 // IF DateFilter <> '' THEN BEGIN
                 //SetFilter("No.", GlCode);
                 SetRange("Date Filter", 0D, GETRANGEMIN("Date Filter") - 1);
-
+            
                 CalcFields("Net Change", "Additional-Currency Net Change");
                 NetChange := "Net Change";
                 NetChangeAcy := "Additional-Currency Net Change";

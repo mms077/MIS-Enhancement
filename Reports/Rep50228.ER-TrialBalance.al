@@ -19,6 +19,16 @@ report 50228 "ER - Trial Balance"
             {
 
             }
+            column(PageLabel; PageLabel) { }
+            column(OfLabel; OfLabel) { }
+            column(TimeNow; TimeNow)
+            {
+
+            }
+            column(PrintedOnLabel; PrintedOnLabel)
+            {
+
+            }
             column(Company_Capital; CompanyInformation.Capital)
             {
 
@@ -467,7 +477,7 @@ report 50228 "ER - Trial Balance"
             AmountsInText := 'Amounts are in ' + GLS."LCY Code"
         else
             AmountsInText := 'Amounts are in ' + GLS."Additional Reporting Currency";
-
+        TimeNow := Format(System.CurrentDateTime());
     end;
 
     var
@@ -481,6 +491,7 @@ report 50228 "ER - Trial Balance"
         BeginBalanceTot: Decimal;
         MovementCredit: Decimal;
         EndingBalanceCredit: Decimal;
+        PrintedOnLabel: Label 'Printed On:';
         EndingBalanceDebit: Decimal;
         BeginningBalanceDebit: Decimal;
         BeginningBalanceCredit: Decimal;
@@ -520,9 +531,12 @@ report 50228 "ER - Trial Balance"
         MovementTotalCredit: Decimal;
         EndingBalance: Decimal;
         FromDate: Text;
+        PageLabel: Label 'Page';
+        OfLabel: Label 'of';
         ToDate: Text;
         GLS: Record "General Ledger Setup";
         AmountsInText: Text;
+        TimeNow: Text[25];
 
     protected var
         GLFilter: Text;

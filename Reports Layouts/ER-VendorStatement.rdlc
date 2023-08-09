@@ -11,241 +11,6 @@
       <rd:DataSourceID>bbb22fe7-4d8d-4866-b778-d7567d9e1f75</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="CurrencyCode">
-          <DataField>CurrencyCode</DataField>
-        </Field>
-        <Field Name="Company_Picture">
-          <DataField>Company_Picture</DataField>
-        </Field>
-        <Field Name="Company_Capital">
-          <DataField>Company_Capital</DataField>
-        </Field>
-        <Field Name="Company_CapitalFormat">
-          <DataField>Company_CapitalFormat</DataField>
-        </Field>
-        <Field Name="Company_Vat">
-          <DataField>Company_Vat</DataField>
-        </Field>
-        <Field Name="Comapny_Phone">
-          <DataField>Comapny_Phone</DataField>
-        </Field>
-        <Field Name="Company_Email">
-          <DataField>Company_Email</DataField>
-        </Field>
-        <Field Name="Company_Address">
-          <DataField>Company_Address</DataField>
-        </Field>
-        <Field Name="Company_Address2">
-          <DataField>Company_Address2</DataField>
-        </Field>
-        <Field Name="Company_Bank_Account">
-          <DataField>Company_Bank_Account</DataField>
-        </Field>
-        <Field Name="Company_SWIFT">
-          <DataField>Company_SWIFT</DataField>
-        </Field>
-        <Field Name="Company_IBAN">
-          <DataField>Company_IBAN</DataField>
-        </Field>
-        <Field Name="Company_CityAndZip">
-          <DataField>Company_CityAndZip</DataField>
-        </Field>
-        <Field Name="LCY_Code">
-          <DataField>LCY_Code</DataField>
-        </Field>
-        <Field Name="AccountNumberLabel">
-          <DataField>AccountNumberLabel</DataField>
-        </Field>
-        <Field Name="FromDateLabel">
-          <DataField>FromDateLabel</DataField>
-        </Field>
-        <Field Name="ToDateLabel">
-          <DataField>ToDateLabel</DataField>
-        </Field>
-        <Field Name="Capital_Label">
-          <DataField>Capital_Label</DataField>
-        </Field>
-        <Field Name="VendorStatementLabel">
-          <DataField>VendorStatementLabel</DataField>
-        </Field>
-        <Field Name="VendorLabel">
-          <DataField>VendorLabel</DataField>
-        </Field>
-        <Field Name="AddressLabel">
-          <DataField>AddressLabel</DataField>
-        </Field>
-        <Field Name="PhoneLabel">
-          <DataField>PhoneLabel</DataField>
-        </Field>
-        <Field Name="VATCodeLabel">
-          <DataField>VATCodeLabel</DataField>
-        </Field>
-        <Field Name="VatRegNoLabel">
-          <DataField>VatRegNoLabel</DataField>
-        </Field>
-        <Field Name="DocumentNoLabel">
-          <DataField>DocumentNoLabel</DataField>
-        </Field>
-        <Field Name="dateLabel">
-          <DataField>dateLabel</DataField>
-        </Field>
-        <Field Name="dueDateLabel">
-          <DataField>dueDateLabel</DataField>
-        </Field>
-        <Field Name="CurrencyLabel">
-          <DataField>CurrencyLabel</DataField>
-        </Field>
-        <Field Name="TransactionDescLabel">
-          <DataField>TransactionDescLabel</DataField>
-        </Field>
-        <Field Name="DebitLabel">
-          <DataField>DebitLabel</DataField>
-        </Field>
-        <Field Name="CreditLabel">
-          <DataField>CreditLabel</DataField>
-        </Field>
-        <Field Name="RemAmtLabel">
-          <DataField>RemAmtLabel</DataField>
-        </Field>
-        <Field Name="BalanceLabel">
-          <DataField>BalanceLabel</DataField>
-        </Field>
-        <Field Name="FullyPaidLabel">
-          <DataField>FullyPaidLabel</DataField>
-        </Field>
-        <Field Name="TotalLabel">
-          <DataField>TotalLabel</DataField>
-        </Field>
-        <Field Name="WeOweYouLabel">
-          <DataField>WeOweYouLabel</DataField>
-        </Field>
-        <Field Name="OnlyLabel">
-          <DataField>OnlyLabel</DataField>
-        </Field>
-        <Field Name="FromDate">
-          <DataField>FromDate</DataField>
-        </Field>
-        <Field Name="FormNo">
-          <DataField>FormNo</DataField>
-        </Field>
-        <Field Name="IssueDate">
-          <DataField>IssueDate</DataField>
-        </Field>
-        <Field Name="ToDate">
-          <DataField>ToDate</DataField>
-        </Field>
-        <Field Name="SelectedVendorNo">
-          <DataField>SelectedVendorNo</DataField>
-        </Field>
-        <Field Name="VendorNoLabel">
-          <DataField>VendorNoLabel</DataField>
-        </Field>
-        <Field Name="VendorNo">
-          <DataField>VendorNo</DataField>
-        </Field>
-        <Field Name="VendorName">
-          <DataField>VendorName</DataField>
-        </Field>
-        <Field Name="G_CurrentCurrency">
-          <DataField>G_CurrentCurrency</DataField>
-        </Field>
-        <Field Name="G_TempTotal">
-          <DataField>G_TempTotal</DataField>
-        </Field>
-        <Field Name="G_TempTotalFormat">
-          <DataField>G_TempTotalFormat</DataField>
-        </Field>
-        <Field Name="G_BeforeTotal">
-          <DataField>G_BeforeTotal</DataField>
-        </Field>
-        <Field Name="G_BeforeTotalFormat">
-          <DataField>G_BeforeTotalFormat</DataField>
-        </Field>
-        <Field Name="AmountinWords">
-          <DataField>AmountinWords</DataField>
-        </Field>
-        <Field Name="WhoOwesWhom">
-          <DataField>WhoOwesWhom</DataField>
-        </Field>
-        <Field Name="VendorAddress">
-          <DataField>VendorAddress</DataField>
-        </Field>
-        <Field Name="VendordVatRegNo">
-          <DataField>VendordVatRegNo</DataField>
-        </Field>
-        <Field Name="VendorPhoneNo">
-          <DataField>VendorPhoneNo</DataField>
-        </Field>
-        <Field Name="RevisionDateLabel">
-          <DataField>RevisionDateLabel</DataField>
-        </Field>
-        <Field Name="FormNoLabel">
-          <DataField>FormNoLabel</DataField>
-        </Field>
-        <Field Name="IssueDateLabel">
-          <DataField>IssueDateLabel</DataField>
-        </Field>
-        <Field Name="External_Document_No">
-          <DataField>External_Document_No</DataField>
-        </Field>
-        <Field Name="Document_Type">
-          <DataField>Document_Type</DataField>
-        </Field>
-        <Field Name="Currency_Code">
-          <DataField>Currency_Code</DataField>
-        </Field>
-        <Field Name="Description">
-          <DataField>Description</DataField>
-        </Field>
-        <Field Name="DebitAmount">
-          <DataField>DebitAmount</DataField>
-        </Field>
-        <Field Name="DebitAmountFormat">
-          <DataField>DebitAmountFormat</DataField>
-        </Field>
-        <Field Name="CreditAmount">
-          <DataField>CreditAmount</DataField>
-        </Field>
-        <Field Name="CreditAmountFormat">
-          <DataField>CreditAmountFormat</DataField>
-        </Field>
-        <Field Name="RemainingAmount">
-          <DataField>RemainingAmount</DataField>
-        </Field>
-        <Field Name="RemainingAmountFormat">
-          <DataField>RemainingAmountFormat</DataField>
-        </Field>
-        <Field Name="Amount">
-          <DataField>Amount</DataField>
-        </Field>
-        <Field Name="AmountFormat">
-          <DataField>AmountFormat</DataField>
-        </Field>
-        <Field Name="Document_No_">
-          <DataField>Document_No_</DataField>
-        </Field>
-        <Field Name="PostingDate">
-          <DataField>PostingDate</DataField>
-        </Field>
-        <Field Name="DueDate">
-          <DataField>DueDate</DataField>
-        </Field>
-        <Field Name="TotalPerCurrency">
-          <DataField>TotalPerCurrency</DataField>
-        </Field>
-        <Field Name="TotalPerCurrencyFormat">
-          <DataField>TotalPerCurrencyFormat</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -2810,41 +2575,6 @@
                 </Border>
               </Style>
             </Textbox>
-            <Textbox Name="Textbox2">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Format(Now(), "dd/MM/yyyy hh:mm")</Value>
-                      <Style>
-                        <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox2</rd:DefaultName>
-              <Left>14.96542cm</Left>
-              <Height>0.6cm</Height>
-              <Width>4.03458cm</Width>
-              <ZIndex>2</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
             <Textbox Name="Textbox3">
               <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
@@ -2868,7 +2598,7 @@
               <Top>1cm</Top>
               <Height>0.25cm</Height>
               <Width>6cm</Width>
-              <ZIndex>3</ZIndex>
+              <ZIndex>2</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -2899,7 +2629,7 @@
               <Left>0.01229cm</Left>
               <Height>0.25cm</Height>
               <Width>6cm</Width>
-              <ZIndex>4</ZIndex>
+              <ZIndex>3</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -2930,7 +2660,7 @@
               <Left>0.01229cm</Left>
               <Height>0.25cm</Height>
               <Width>6cm</Width>
-              <ZIndex>5</ZIndex>
+              <ZIndex>4</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -2961,7 +2691,7 @@
               <Left>0.01229cm</Left>
               <Height>0.25cm</Height>
               <Width>6cm</Width>
-              <ZIndex>6</ZIndex>
+              <ZIndex>5</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -2992,7 +2722,7 @@
               <Left>0.00911cm</Left>
               <Height>0.25cm</Height>
               <Width>6cm</Width>
-              <ZIndex>7</ZIndex>
+              <ZIndex>6</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -3023,7 +2753,7 @@
               <Left>0.01229cm</Left>
               <Height>0.25cm</Height>
               <Width>6cm</Width>
-              <ZIndex>8</ZIndex>
+              <ZIndex>7</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -3055,7 +2785,7 @@
               <Left>7.5cm</Left>
               <Height>0.65cm</Height>
               <Width>4cm</Width>
-              <ZIndex>9</ZIndex>
+              <ZIndex>8</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -3092,7 +2822,7 @@
               <Left>14.96542cm</Left>
               <Height>0.6cm</Height>
               <Width>4.03458cm</Width>
-              <ZIndex>10</ZIndex>
+              <ZIndex>9</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -3101,6 +2831,39 @@
                 <PaddingRight>2pt</PaddingRight>
                 <PaddingTop>2pt</PaddingTop>
                 <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox9">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!PrintedOnLabel.Value, "DataSet_Result") &amp; " " &amp; First(Fields!TimeNow.Value, "DataSet_Result")</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox2</rd:DefaultName>
+              <Top>0.11472cm</Top>
+              <Left>14.96542cm</Left>
+              <Height>0.45cm</Height>
+              <Width>4cm</Width>
+              <ZIndex>10</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Top</VerticalAlign>
               </Style>
             </Textbox>
           </ReportItems>
@@ -3240,12 +3003,6 @@
       </Page>
     </ReportSection>
   </ReportSections>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -3285,4 +3042,245 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="CurrencyCode">
+          <DataField>CurrencyCode</DataField>
+        </Field>
+        <Field Name="PrintedOnLabel">
+          <DataField>PrintedOnLabel</DataField>
+        </Field>
+        <Field Name="TimeNow">
+          <DataField>TimeNow</DataField>
+        </Field>
+        <Field Name="Company_Picture">
+          <DataField>Company_Picture</DataField>
+        </Field>
+        <Field Name="Company_Capital">
+          <DataField>Company_Capital</DataField>
+        </Field>
+        <Field Name="Company_CapitalFormat">
+          <DataField>Company_CapitalFormat</DataField>
+        </Field>
+        <Field Name="Company_Vat">
+          <DataField>Company_Vat</DataField>
+        </Field>
+        <Field Name="Comapny_Phone">
+          <DataField>Comapny_Phone</DataField>
+        </Field>
+        <Field Name="Company_Email">
+          <DataField>Company_Email</DataField>
+        </Field>
+        <Field Name="Company_Address">
+          <DataField>Company_Address</DataField>
+        </Field>
+        <Field Name="Company_Address2">
+          <DataField>Company_Address2</DataField>
+        </Field>
+        <Field Name="Company_Bank_Account">
+          <DataField>Company_Bank_Account</DataField>
+        </Field>
+        <Field Name="Company_SWIFT">
+          <DataField>Company_SWIFT</DataField>
+        </Field>
+        <Field Name="Company_IBAN">
+          <DataField>Company_IBAN</DataField>
+        </Field>
+        <Field Name="Company_CityAndZip">
+          <DataField>Company_CityAndZip</DataField>
+        </Field>
+        <Field Name="LCY_Code">
+          <DataField>LCY_Code</DataField>
+        </Field>
+        <Field Name="AccountNumberLabel">
+          <DataField>AccountNumberLabel</DataField>
+        </Field>
+        <Field Name="FromDateLabel">
+          <DataField>FromDateLabel</DataField>
+        </Field>
+        <Field Name="ToDateLabel">
+          <DataField>ToDateLabel</DataField>
+        </Field>
+        <Field Name="Capital_Label">
+          <DataField>Capital_Label</DataField>
+        </Field>
+        <Field Name="VendorStatementLabel">
+          <DataField>VendorStatementLabel</DataField>
+        </Field>
+        <Field Name="VendorLabel">
+          <DataField>VendorLabel</DataField>
+        </Field>
+        <Field Name="AddressLabel">
+          <DataField>AddressLabel</DataField>
+        </Field>
+        <Field Name="PhoneLabel">
+          <DataField>PhoneLabel</DataField>
+        </Field>
+        <Field Name="VATCodeLabel">
+          <DataField>VATCodeLabel</DataField>
+        </Field>
+        <Field Name="VatRegNoLabel">
+          <DataField>VatRegNoLabel</DataField>
+        </Field>
+        <Field Name="DocumentNoLabel">
+          <DataField>DocumentNoLabel</DataField>
+        </Field>
+        <Field Name="dateLabel">
+          <DataField>dateLabel</DataField>
+        </Field>
+        <Field Name="dueDateLabel">
+          <DataField>dueDateLabel</DataField>
+        </Field>
+        <Field Name="CurrencyLabel">
+          <DataField>CurrencyLabel</DataField>
+        </Field>
+        <Field Name="TransactionDescLabel">
+          <DataField>TransactionDescLabel</DataField>
+        </Field>
+        <Field Name="DebitLabel">
+          <DataField>DebitLabel</DataField>
+        </Field>
+        <Field Name="CreditLabel">
+          <DataField>CreditLabel</DataField>
+        </Field>
+        <Field Name="RemAmtLabel">
+          <DataField>RemAmtLabel</DataField>
+        </Field>
+        <Field Name="BalanceLabel">
+          <DataField>BalanceLabel</DataField>
+        </Field>
+        <Field Name="FullyPaidLabel">
+          <DataField>FullyPaidLabel</DataField>
+        </Field>
+        <Field Name="TotalLabel">
+          <DataField>TotalLabel</DataField>
+        </Field>
+        <Field Name="WeOweYouLabel">
+          <DataField>WeOweYouLabel</DataField>
+        </Field>
+        <Field Name="OnlyLabel">
+          <DataField>OnlyLabel</DataField>
+        </Field>
+        <Field Name="FromDate">
+          <DataField>FromDate</DataField>
+        </Field>
+        <Field Name="FormNo">
+          <DataField>FormNo</DataField>
+        </Field>
+        <Field Name="IssueDate">
+          <DataField>IssueDate</DataField>
+        </Field>
+        <Field Name="ToDate">
+          <DataField>ToDate</DataField>
+        </Field>
+        <Field Name="SelectedVendorNo">
+          <DataField>SelectedVendorNo</DataField>
+        </Field>
+        <Field Name="VendorNoLabel">
+          <DataField>VendorNoLabel</DataField>
+        </Field>
+        <Field Name="VendorNo">
+          <DataField>VendorNo</DataField>
+        </Field>
+        <Field Name="VendorName">
+          <DataField>VendorName</DataField>
+        </Field>
+        <Field Name="G_CurrentCurrency">
+          <DataField>G_CurrentCurrency</DataField>
+        </Field>
+        <Field Name="G_TempTotal">
+          <DataField>G_TempTotal</DataField>
+        </Field>
+        <Field Name="G_TempTotalFormat">
+          <DataField>G_TempTotalFormat</DataField>
+        </Field>
+        <Field Name="G_BeforeTotal">
+          <DataField>G_BeforeTotal</DataField>
+        </Field>
+        <Field Name="G_BeforeTotalFormat">
+          <DataField>G_BeforeTotalFormat</DataField>
+        </Field>
+        <Field Name="AmountinWords">
+          <DataField>AmountinWords</DataField>
+        </Field>
+        <Field Name="WhoOwesWhom">
+          <DataField>WhoOwesWhom</DataField>
+        </Field>
+        <Field Name="VendorAddress">
+          <DataField>VendorAddress</DataField>
+        </Field>
+        <Field Name="VendordVatRegNo">
+          <DataField>VendordVatRegNo</DataField>
+        </Field>
+        <Field Name="VendorPhoneNo">
+          <DataField>VendorPhoneNo</DataField>
+        </Field>
+        <Field Name="RevisionDateLabel">
+          <DataField>RevisionDateLabel</DataField>
+        </Field>
+        <Field Name="FormNoLabel">
+          <DataField>FormNoLabel</DataField>
+        </Field>
+        <Field Name="IssueDateLabel">
+          <DataField>IssueDateLabel</DataField>
+        </Field>
+        <Field Name="External_Document_No">
+          <DataField>External_Document_No</DataField>
+        </Field>
+        <Field Name="Document_Type">
+          <DataField>Document_Type</DataField>
+        </Field>
+        <Field Name="Currency_Code">
+          <DataField>Currency_Code</DataField>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+        </Field>
+        <Field Name="DebitAmount">
+          <DataField>DebitAmount</DataField>
+        </Field>
+        <Field Name="DebitAmountFormat">
+          <DataField>DebitAmountFormat</DataField>
+        </Field>
+        <Field Name="CreditAmount">
+          <DataField>CreditAmount</DataField>
+        </Field>
+        <Field Name="CreditAmountFormat">
+          <DataField>CreditAmountFormat</DataField>
+        </Field>
+        <Field Name="RemainingAmount">
+          <DataField>RemainingAmount</DataField>
+        </Field>
+        <Field Name="RemainingAmountFormat">
+          <DataField>RemainingAmountFormat</DataField>
+        </Field>
+        <Field Name="Amount">
+          <DataField>Amount</DataField>
+        </Field>
+        <Field Name="AmountFormat">
+          <DataField>AmountFormat</DataField>
+        </Field>
+        <Field Name="Document_No_">
+          <DataField>Document_No_</DataField>
+        </Field>
+        <Field Name="PostingDate">
+          <DataField>PostingDate</DataField>
+        </Field>
+        <Field Name="DueDate">
+          <DataField>DueDate</DataField>
+        </Field>
+        <Field Name="TotalPerCurrency">
+          <DataField>TotalPerCurrency</DataField>
+        </Field>
+        <Field Name="TotalPerCurrencyFormat">
+          <DataField>TotalPerCurrencyFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

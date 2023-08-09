@@ -22,6 +22,14 @@ report 50217 "ER - Vendor Statement"
             // column(Total; Total)
             // {
             // }
+            column(PrintedOnLabel; PrintedOnLabel)
+            {
+
+            }
+            column(TimeNow; TimeNow)
+            {
+
+            }
             column(Company_Picture; CompanyInformation.Picture)
             {
 
@@ -407,6 +415,7 @@ report 50217 "ER - Vendor Statement"
         CityAndZip := companyInformation.City + ' ' + companyInformation."Post Code";
         CompanyInformation.CalcFields(Picture);
         G_RecVendor.Get(SelectedVendorNo);
+        TimeNow := Format(System.CurrentDateTime());
     end;
 
     procedure CalculateBeforeTotal(SelectedCurrency: Code[10])//Calculate the total before the Selected Time Period
@@ -693,5 +702,9 @@ report 50217 "ER - Vendor Statement"
         Text060: Label 'MILLION';
         Text061: Label 'BILLION';
 
+
+        PageLabel: Label 'Page';
+        OfLabel: Label 'of';
+        TimeNow: Text[25];
     #endregion
 }

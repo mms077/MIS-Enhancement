@@ -4850,36 +4850,6 @@
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
             </Textbox>
-            <Textbox Name="ExecutionTimeTextBox">
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>="Printed On: " &amp; Format(Now(), "MM/dd/yyyy hh:mm")</Value>
-                      <Style>
-                        <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>8pt</FontSize>
-                        <Format>D</Format>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <Top>0.00718in</Top>
-              <Left>20.78561cm</Left>
-              <Height>0.423cm</Height>
-              <Width>6.67778cm</Width>
-              <ZIndex>2</ZIndex>
-              <Style>
-                <VerticalAlign>Middle</VerticalAlign>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-              </Style>
-            </Textbox>
             <Textbox Name="UserIdTextBox">
               <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
@@ -4903,7 +4873,7 @@
               <Left>20.78561cm</Left>
               <Height>0.423cm</Height>
               <Width>6.67778cm</Width>
-              <ZIndex>3</ZIndex>
+              <ZIndex>2</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
                 <PaddingLeft>2pt</PaddingLeft>
@@ -4948,7 +4918,7 @@
               <Left>20.78561cm</Left>
               <Height>0.423cm</Height>
               <Width>6.67778cm</Width>
-              <ZIndex>4</ZIndex>
+              <ZIndex>3</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -4962,7 +4932,7 @@
               <Sizing>FitProportional</Sizing>
               <Height>1.17157cm</Height>
               <Width>6.69317cm</Width>
-              <ZIndex>5</ZIndex>
+              <ZIndex>4</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -4989,7 +4959,7 @@
               <Top>1.17157cm</Top>
               <Height>0.4cm</Height>
               <Width>7.7cm</Width>
-              <ZIndex>6</ZIndex>
+              <ZIndex>5</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -5019,7 +4989,7 @@
               <Top>2.02557cm</Top>
               <Height>0.4cm</Height>
               <Width>7.7cm</Width>
-              <ZIndex>7</ZIndex>
+              <ZIndex>6</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -5049,7 +5019,7 @@
               <Top>2.43507cm</Top>
               <Height>0.4cm</Height>
               <Width>7.7cm</Width>
-              <ZIndex>8</ZIndex>
+              <ZIndex>7</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -5079,7 +5049,7 @@
               <Top>2.84457cm</Top>
               <Height>0.4cm</Height>
               <Width>7.7cm</Width>
-              <ZIndex>9</ZIndex>
+              <ZIndex>8</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -5109,7 +5079,7 @@
               <Top>3.25231cm</Top>
               <Height>0.4cm</Height>
               <Width>7.7cm</Width>
-              <ZIndex>10</ZIndex>
+              <ZIndex>9</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -5139,7 +5109,7 @@
               <Top>3.66005cm</Top>
               <Height>0.4cm</Height>
               <Width>7.7cm</Width>
-              <ZIndex>11</ZIndex>
+              <ZIndex>10</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -5169,7 +5139,7 @@
               <Top>4.06779cm</Top>
               <Height>0.4cm</Height>
               <Width>7.7cm</Width>
-              <ZIndex>12</ZIndex>
+              <ZIndex>11</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -5202,7 +5172,7 @@
               <Left>22.46339cm</Left>
               <Height>0.6cm</Height>
               <Width>2.5cm</Width>
-              <ZIndex>13</ZIndex>
+              <ZIndex>12</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -5236,7 +5206,7 @@
               <Left>24.96339cm</Left>
               <Height>0.6cm</Height>
               <Width>2.5cm</Width>
-              <ZIndex>14</ZIndex>
+              <ZIndex>13</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -5270,7 +5240,7 @@
               <Left>22.46339cm</Left>
               <Height>0.6cm</Height>
               <Width>2.5cm</Width>
-              <ZIndex>15</ZIndex>
+              <ZIndex>14</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -5304,7 +5274,7 @@
               <Left>24.96339cm</Left>
               <Height>0.6cm</Height>
               <Width>2.5cm</Width>
-              <ZIndex>16</ZIndex>
+              <ZIndex>15</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -5338,7 +5308,7 @@
               <Left>22.46339cm</Left>
               <Height>0.6cm</Height>
               <Width>5cm</Width>
-              <ZIndex>17</ZIndex>
+              <ZIndex>16</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -5374,7 +5344,7 @@
               <Left>9.05954cm</Left>
               <Height>1.27072cm</Height>
               <Width>18.40385cm</Width>
-              <ZIndex>18</ZIndex>
+              <ZIndex>17</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -5405,7 +5375,7 @@
               <Top>1.60685cm</Top>
               <Height>0.4cm</Height>
               <Width>7.7cm</Width>
-              <ZIndex>19</ZIndex>
+              <ZIndex>18</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -5413,6 +5383,37 @@
                 <VerticalAlign>Top</VerticalAlign>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox18">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!PrintedOnLabel.Value, "DataSet_Result") &amp; " " &amp; First(Fields!TimeNow.Value, "DataSet_Result")</Value>
+                      <Style>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox2</rd:DefaultName>
+              <Top>0cm</Top>
+              <Left>23.46339cm</Left>
+              <Height>0.40596cm</Height>
+              <Width>4cm</Width>
+              <ZIndex>19</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
               </Style>
             </Textbox>
           </ReportItems>
@@ -5486,6 +5487,18 @@ End Function
       <Fields>
         <Field Name="Company_Picture">
           <DataField>Company_Picture</DataField>
+        </Field>
+        <Field Name="PageLabel">
+          <DataField>PageLabel</DataField>
+        </Field>
+        <Field Name="OfLabel">
+          <DataField>OfLabel</DataField>
+        </Field>
+        <Field Name="TimeNow">
+          <DataField>TimeNow</DataField>
+        </Field>
+        <Field Name="PrintedOnLabel">
+          <DataField>PrintedOnLabel</DataField>
         </Field>
         <Field Name="Company_Capital">
           <DataField>Company_Capital</DataField>

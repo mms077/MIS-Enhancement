@@ -20,6 +20,14 @@ report 50224 "ER - Vendor Trial Balance"
             {
 
             }
+            column(PrintedOnLabel; PrintedOnLabel)
+            {
+
+            }
+            column(TimeNow; TimeNow)
+            {
+
+            }
             column(Company_Vat; compInfoRec."VAT Registration No.")
             {
 
@@ -121,7 +129,7 @@ report 50224 "ER - Vendor Trial Balance"
             { }
             column(ShowOpening; ShowOpening)
             { }
-            column(VendorFilters;VendorFilters)
+            column(VendorFilters; VendorFilters)
             { }
 
             dataitem(TempCurrencyTotal; "AC Currency Total")
@@ -180,8 +188,8 @@ report 50224 "ER - Vendor Trial Balance"
 
                     if Vend.FindFirst() then begin
                         Vend.CalcFields("Net Change", "Net Change (LCY)");
-                        BeginBalOrig := - Vend."Net Change";
-                        BeginBalLCY := - Vend."Net Change (LCY)";
+                        BeginBalOrig := -Vend."Net Change";
+                        BeginBalLCY := -Vend."Net Change (LCY)";
                     end;
 
                     // Movement Orig/LCY
@@ -238,9 +246,9 @@ report 50224 "ER - Vendor Trial Balance"
 
                 L_Vendor.Get(Vendor."No.");
                 L_Vendor.SetFilter("Date Filter", Format(FromDate) + '..' + Format(ToDate));
-                VendorFilters:=Vendor.GetFilters();
+                VendorFilters := Vendor.GetFilters();
 
-                L_Vendor.CalcFields("Net Change (LCY)", "Balance (LCY)" , "Credit Amount (LCY)", "Debit Amount (LCY)");
+                L_Vendor.CalcFields("Net Change (LCY)", "Balance (LCY)", "Credit Amount (LCY)", "Debit Amount (LCY)");
                 if (L_Vendor."Balance (LCY)" = 0) and (L_Vendor."Net Change (LCY)" = 0) and (L_Vendor."Credit Amount (LCY)" = 0) and (L_Vendor."Debit Amount (LCY)" = 0) and (HideCust) then
                     CurrReport.Skip();
             end;
@@ -317,7 +325,7 @@ report 50224 "ER - Vendor Trial Balance"
         TempCurrencyTotal.Init();
         TempCurrencyTotal.CurrencyCode := '''''';
         if TempCurrencyTotal.Insert() then;
-
+        TimeNow := Format(System.CurrentDateTime());
     end;
 
     trigger OnInitReport()
@@ -361,7 +369,7 @@ report 50224 "ER - Vendor Trial Balance"
         AddressLabel: Label 'Address';
         BankAccountLabel: Label 'Bank Account';
         SWIFTLabel: Label 'SWIFT';
-        VendorFilters:Text[250];
+        VendorFilters: Text[250];
         BeginBalOrig: Decimal;
         DebiOrig: Decimal;
         CreditOrig: Decimal;
@@ -374,4 +382,10 @@ report 50224 "ER - Vendor Trial Balance"
         HideCust: Boolean;
         CompanyAddress: Text[250];
         AccountLbl: Text[250];
+
+        
+        TimeNow: Text[25];
+         PrintedOnLabel: Label 'Printed On:';
+        PageLabel: Label 'Page';
+        OfLabel: Label 'of';
 }

@@ -5273,6 +5273,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Bank Acc. Statement - NamedType CapitalLabel</note>
         </trans-unit>
+        <trans-unit id="Report 3472570818 - NamedType 598845625" size-unit="char" translate="yes" xml:space="preserve">
+          <source>of</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Bank Acc. Statement - NamedType OfLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3472570818 - NamedType 266656143" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Bank Acc. Statement - NamedType PageLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3472570818 - NamedType 406901249" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Printed On:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Bank Acc. Statement - NamedType PrintedOnLabel</note>
+        </trans-unit>
         <trans-unit id="Report 3472570818 - NamedType 3869443955" size-unit="char" translate="yes" xml:space="preserve">
           <source>SWIFT</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -5918,10 +5933,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement - NamedType IssueDateValueLabel</note>
         </trans-unit>
+        <trans-unit id="Report 1882754797 - NamedType 598845625" size-unit="char" translate="yes" xml:space="preserve">
+          <source>of</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement - NamedType OfLabel</note>
+        </trans-unit>
         <trans-unit id="Report 1882754797 - NamedType 3013844566" size-unit="char" translate="yes" xml:space="preserve">
           <source>only</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement - NamedType OnlyLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1882754797 - NamedType 266656143" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement - NamedType PageLabel</note>
         </trans-unit>
         <trans-unit id="Report 1882754797 - NamedType 2374422568" size-unit="char" translate="yes" xml:space="preserve">
           <source>Phone Number</source>
@@ -5932,6 +5957,11 @@
           <source>Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement - NamedType PostingDateLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1882754797 - NamedType 406901249" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Printed On:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement - NamedType PrintedOnLabel</note>
         </trans-unit>
         <trans-unit id="Report 1882754797 - NamedType 2446969282" size-unit="char" translate="yes" xml:space="preserve">
           <source>Rem Amt.</source>
@@ -6293,10 +6323,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement(Dim) - NamedType IssueDateValueLabel</note>
         </trans-unit>
+        <trans-unit id="Report 1187795502 - NamedType 598845625" size-unit="char" translate="yes" xml:space="preserve">
+          <source>of</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement(Dim) - NamedType OfLabel</note>
+        </trans-unit>
         <trans-unit id="Report 1187795502 - NamedType 3013844566" size-unit="char" translate="yes" xml:space="preserve">
           <source>only</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement(Dim) - NamedType OnlyLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1187795502 - NamedType 266656143" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement(Dim) - NamedType PageLabel</note>
         </trans-unit>
         <trans-unit id="Report 1187795502 - NamedType 2374422568" size-unit="char" translate="yes" xml:space="preserve">
           <source>Phone Number</source>
@@ -6307,6 +6347,11 @@
           <source>Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement(Dim) - NamedType PostingDateLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1187795502 - NamedType 406901249" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Printed On:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement(Dim) - NamedType PrintedOnLabel</note>
         </trans-unit>
         <trans-unit id="Report 1187795502 - NamedType 2446969282" size-unit="char" translate="yes" xml:space="preserve">
           <source>Rem Amt.</source>
@@ -6637,6 +6682,21 @@
           <source>Net Change Original</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Trial Balance - NamedType NetOrigLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2704385374 - NamedType 598845625" size-unit="char" translate="yes" xml:space="preserve">
+          <source>of</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Trial Balance - NamedType OfLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 2704385374 - NamedType 266656143" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Trial Balance - NamedType PageLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 2704385374 - NamedType 406901249" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Printed On:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Trial Balance - NamedType PrintedOnLabel</note>
         </trans-unit>
         <trans-unit id="Report 2704385374 - NamedType 3869443955" size-unit="char" translate="yes" xml:space="preserve">
           <source>SWIFT</source>
@@ -10138,10 +10198,25 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Trial Balance - NamedType Net_ChangeCaptionLbl</note>
         </trans-unit>
+        <trans-unit id="Report 2962059618 - NamedType 598845625" size-unit="char" translate="yes" xml:space="preserve">
+          <source>of</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Trial Balance - NamedType OfLabel</note>
+        </trans-unit>
         <trans-unit id="Report 2962059618 - NamedType 94175705" size-unit="char" translate="yes" xml:space="preserve">
           <source>Name</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Trial Balance - NamedType PADSTR_____G_L_Account__Indentation___2___G_L_Account__NameCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2962059618 - NamedType 266656143" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Trial Balance - NamedType PageLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 2962059618 - NamedType 406901249" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Printed On:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Trial Balance - NamedType PrintedOnLabel</note>
         </trans-unit>
         <trans-unit id="Report 2962059618 - NamedType 3869443955" size-unit="char" translate="yes" xml:space="preserve">
           <source>SWIFT</source>
@@ -10453,10 +10528,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Statement - NamedType IssueDateLabel</note>
         </trans-unit>
+        <trans-unit id="Report 498905365 - NamedType 598845625" size-unit="char" translate="yes" xml:space="preserve">
+          <source>of</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Statement - NamedType OfLabel</note>
+        </trans-unit>
         <trans-unit id="Report 498905365 - NamedType 3013844566" size-unit="char" translate="yes" xml:space="preserve">
           <source>only.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Statement - NamedType OnlyLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 498905365 - NamedType 266656143" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Statement - NamedType PageLabel</note>
         </trans-unit>
         <trans-unit id="Report 498905365 - NamedType 4065549182" size-unit="char" translate="yes" xml:space="preserve">
           <source>Phone Number</source>
@@ -10837,6 +10922,21 @@
           <source>Net Change Original</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Trial Balance - NamedType NetOrigLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3137650822 - NamedType 598845625" size-unit="char" translate="yes" xml:space="preserve">
+          <source>of</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Trial Balance - NamedType OfLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3137650822 - NamedType 266656143" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Trial Balance - NamedType PageLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3137650822 - NamedType 406901249" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Printed On:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Trial Balance - NamedType PrintedOnLabel</note>
         </trans-unit>
         <trans-unit id="Report 3137650822 - NamedType 3869443955" size-unit="char" translate="yes" xml:space="preserve">
           <source>SWIFT</source>
@@ -13112,16 +13212,6 @@
           <source>Color Name</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Invoice Subform - Control ColorName - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1379883806 - Control 3068680635 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1379883806">
-          <source>Department Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Invoice Subform - Control Department Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1379883806 - Control 3493435768 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1379883806">
-          <source>Position Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Invoice Subform - Control Position Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 1379883806 - Control 2504801539 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1379883806">
           <source>Tonality</source>

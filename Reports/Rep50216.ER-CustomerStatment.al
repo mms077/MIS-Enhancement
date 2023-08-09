@@ -203,10 +203,11 @@ report 50216 "ER - Customer Statement"
                         end;
 
                     }
-                    field("Customer No."; G_CustNo)
+                    field(CustNum; CustNum)
                     {
                         ApplicationArea = All;
                         TableRelation = Customer."No.";
+                        Caption = 'Customer No.';
                         trigger OnValidate()
                         begin
                             if G_CustNo = '' then begin
@@ -590,11 +591,29 @@ report 50216 "ER - Customer Statement"
         TensText: array[10] of Text[30];
         ExponentText: array[5] of Text[30];
 
-        
+
         TimeNow: Text[25];
-         PrintedOnLabel: Label 'Printed On:';
+        PrintedOnLabel: Label 'Printed On:';
         PageLabel: Label 'Page';
         OfLabel: Label 'of';
+        CustNum: Code[50];
+
+    procedure NumberOfCopies(): Integer;
+    var
+        myInt: Integer;
+    begin
+        // NoOfLoops := ABS(NoOfCopies) + 1;
+        //exit(NoOfLoops);
+    end;
+
+    procedure SetCust(CustNo: Code[50]): Code[50];
+    var
+        myInt: Integer;
+
+    begin
+        CustNum := CustNo;
+        exit(CustNum);
+    end;
 }
 
 

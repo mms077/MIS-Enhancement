@@ -341,7 +341,7 @@ report 50217 "ER - Vendor Statement"
                                 Error(Text000, "From Date", "To Date");
                         end;
                     }
-                    field(SelectedVendorNo; SelectedVendorNo)
+                    field(VendNumber; VendNumber)
                     {
                         ApplicationArea = Basic, Suite;
                         ToolTip = 'Specifies the Vendor No.';
@@ -706,5 +706,14 @@ report 50217 "ER - Vendor Statement"
         PageLabel: Label 'Page';
         OfLabel: Label 'of';
         TimeNow: Text[25];
+        VendNumber: Code[50];
     #endregion
+    procedure SetVendNo(VendNo: Code[50]): Code[50];
+    var
+        myInt: Integer;
+
+    begin
+        VendNumber := VendNo;
+        exit(VendNumber);
+    end;
 }

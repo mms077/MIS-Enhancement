@@ -365,4 +365,13 @@ report 50218 "ER - Bank Acc. Statement"
         PrintedOnLabel: Label 'Printed On:';
         PageLabel: Label 'Page';
         OfLabel: Label 'of';
+        BankAccNum: Code[50];
+
+    procedure SetBankAcc(BankAcc: Code[50]): Code[50]
+    var
+        myInt: Integer;
+    begin
+        BankAccNum := BankAcc;
+        exit(BankAccNum);
+    end;
 }

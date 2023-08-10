@@ -1,15 +1,7 @@
 codeunit 50208 "Make Job Queue Status Ready"
 {
     trigger OnRun()
-    begin
-
-
-    end;
-
-
-    procedure MakeStatusReady()
     var
-        myInt: Integer;
         JobQSelection: Record "Job Queue Selection";
     begin
 
@@ -26,6 +18,9 @@ codeunit 50208 "Make Job Queue Status Ready"
                     until jobQEntry.Next() = 0;
             until JobQSelection.Next() = 0;
     end;
+
+
+   
 
     var
         myInt: Integer;

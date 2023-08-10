@@ -41,8 +41,8 @@ page 50329 "Job Queue Selection"
                     jobQEntry: Record "Job Queue Entry";
                     MakeStatusReady: Codeunit "Make Job Queue Status Ready";
                 begin
-                    MakeStatusReady.MakeStatusReady();
-                  
+                    MakeStatusReady.Run();
+
                 end;
             }
         }

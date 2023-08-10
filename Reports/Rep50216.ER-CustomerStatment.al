@@ -13,6 +13,14 @@ report 50216 "ER - Customer Statement"
             DataItemTableView = sorting(CurrencyCode);
             PrintOnlyIfDetail = false;
             column(CurrencyCode; CurrencyCode) { }
+            column(PrintedOnLabel; PrintedOnLabel)
+            {
+
+            }
+            column(TimeNow; TimeNow)
+            {
+
+            }
             column(Curr; G_CurrencyCode) { }
             column(AmountinWords; AmountinWords) { }
             column(CityPostal; CityPostal) { }
@@ -99,8 +107,8 @@ report 50216 "ER - Customer Statement"
                 begin
                     CustLedEntry.SetCurrentKey("Posting Date");
                     SetRange("Posting Date", FromDate, ToDate);
-                    SetRange("Customer No.", G_CustNo);
-                    SetRange("Currency Code",  "Currency Table".CurrencyCode);//
+                    SetRange("Customer No.", CustNum);
+                    SetRange("Currency Code", "Currency Table".CurrencyCode);//
                 end;
             }
 
@@ -137,7 +145,7 @@ report 50216 "ER - Customer Statement"
                 clear(TotalAMT);
                 TotalAMT := TotalBefore;
                 L_CustomerLedgerEntry.Reset();
-                L_CustomerLedgerEntry.SetRange("Customer No.", G_CustNo);
+                L_CustomerLedgerEntry.SetRange("Customer No.", CustNum);
                 L_CustomerLedgerEntry.SetRange("Currency Code", "Currency Table".CurrencyCode);
                 L_CustomerLedgerEntry.SetRange("Posting Date", fromDate, toDate);
                 if L_CustomerLedgerEntry.Findfirst() then begin // Check if during those specifed date there is a transaction in each currency
@@ -147,7 +155,7 @@ report 50216 "ER - Customer Statement"
                     until L_CustomerLedgerEntry.Next() = 0;
                 end;
 
-                tot:=TotalAMT;
+                tot := TotalAMT;
 
                 if tot < 0 then begin
                     OweUsLabel := 'We owe you';
@@ -195,13 +203,14 @@ report 50216 "ER - Customer Statement"
                         end;
 
                     }
-                    field("Customer No."; G_CustNo)
+                    field(CustNum; CustNum)
                     {
                         ApplicationArea = All;
                         TableRelation = Customer."No.";
+                        Caption = 'Customer No.';
                         trigger OnValidate()
                         begin
-                            if G_CustNo = '' then begin
+                            if CustNum = '' then begin
                                 Error(SselectCustLabel);
                                 exit;
                             end;
@@ -264,7 +273,7 @@ report 50216 "ER - Customer Statement"
                 if toDate = 0D then begin
                     Error(Text003);
                 end;
-                if G_CustNo = '' then begin
+                if CustNum = '' then begin
                     Error(SselectCustLabel);
                 end
             end;
@@ -285,10 +294,11 @@ report 50216 "ER - Customer Statement"
     begin
         GeneralLedgerSetup.Get();
         CompanyInformation.Get();
-        CustomerInformation.Get(G_CustNo);
+        CustomerInformation.Get(CustNum);
         CompanyAddress := CompanyInformation.Address;
         CityPostal := CompanyInformation.City + ' ' + CompanyInformation."Post Code";
         CompanyInformation.CalcFields(Picture);
+        TimeNow := Format(System.CurrentDateTime());
     end;
 
     trigger OnInitReport()
@@ -324,7 +334,7 @@ report 50216 "ER - Customer Statement"
         if Ccode = GeneralLedgerSetup."LCY Code" then
             Ccode := '';
         L_CustomerLedgerEntry.Reset();
-        L_CustomerLedgerEntry.SetRange("Customer No.", G_CustNo);
+        L_CustomerLedgerEntry.SetRange("Customer No.", CustNum);
         L_CustomerLedgerEntry.SetRange("Currency Code", Ccode);
         L_CustomerLedgerEntry.SetRange("Posting Date", 0D, fromDate - 1);
 
@@ -580,6 +590,30 @@ report 50216 "ER - Customer Statement"
         OnesText: array[20] of Text[30];
         TensText: array[10] of Text[30];
         ExponentText: array[5] of Text[30];
+
+
+        TimeNow: Text[25];
+        PrintedOnLabel: Label 'Printed On:';
+        PageLabel: Label 'Page';
+        OfLabel: Label 'of';
+        CustNum: Code[50];
+
+    procedure NumberOfCopies(): Integer;
+    var
+        myInt: Integer;
+    begin
+        // NoOfLoops := ABS(NoOfCopies) + 1;
+        //exit(NoOfLoops);
+    end;
+
+    procedure SetCust(CustNo: Code[50]): Code[50];
+    var
+        myInt: Integer;
+
+    begin
+        CustNum := CustNo;
+        exit(CustNum);
+    end;
 }
 
 

@@ -1,5 +1,6 @@
 codeunit 50202 EventSubscribers
 {
+    Permissions = tabledata "Bank Account Ledger Entry" = m;
     #region [Document Attachment]
     //Add Documents To Plotting File / Branding / Design  / Item Color / Item Design Section Color / Branding Details / Item Variant +
     [EventSubscriber(ObjectType::Page, Page::"Document Attachment Factbox", 'OnBeforeDrillDown', '', false, false)]
@@ -962,4 +963,34 @@ codeunit 50202 EventSubscribers
             GLEntry."Original Credit Amount - ER" := ABS(GLEntry."Original Amount - ER");*/
     end;
     #endregion
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"G/L Entry-Edit", 'OnBeforeGLLedgEntryModify', '', false, false)]
+    local procedure OnBeforeGLLedgEntryModify(var GLEntry: Record "G/L Entry")
+    var
+        CustLedgerEntries: Record "Cust. Ledger Entry";
+        VendLedgerEntries: Record "Vendor Ledger Entry";
+        BankLedgerEntries: Record "Bank Account Ledger Entry";
+    begin
+
+        if CustLedgerEntries.Get(GLEntry."Entry No.") then begin
+            CustLedgerEntries.Description := GLEntry.Description;
+            CustLedgerEntries.Modify();
+        end
+        else begin
+            if VendLedgerEntries.Get(GLEntry."Entry No.") then begin
+                VendLedgerEntries.Description := GLEntry.Description;
+                VendLedgerEntries.Modify();
+
+            end
+            else begin
+                if BankLedgerEntries.Get(GLEntry."Entry No.") then begin
+                    BankLedgerEntries.Description := GLEntry.Description;
+                    BankLedgerEntries.Modify();
+                end;
+            end;
+
+        end;
+    end;
+
+
 }

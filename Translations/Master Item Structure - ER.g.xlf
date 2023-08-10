@@ -3288,6 +3288,56 @@
           <note from="Developer" annotates="general" priority="2">%1 number of unlicensed records</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Record Deletion Mgt. - Method SuggestUnlicensedPartnerOrCustomRecordsToDelete - NamedType RecordsSuggestedMsg</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3887473944 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Worksheet Name                     #1##########\\</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Req. Wksh.-Make Quote - NamedType Text000</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3887473944 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Checking worksheet lines           #2######\</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Req. Wksh.-Make Quote - NamedType Text001</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3887473944 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Creating purchase orders           #3######\</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Req. Wksh.-Make Quote - NamedType Text002</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3887473944 - NamedType 95063322" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Creating purchase lines            #4######\</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Req. Wksh.-Make Quote - NamedType Text003</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3887473944 - NamedType 732759939" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Updating worksheet lines           #5######</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Req. Wksh.-Make Quote - NamedType Text004</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3887473944 - NamedType 1370456556" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Deleting worksheet lines           #5######</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Req. Wksh.-Make Quote - NamedType Text005</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3887473944 - NamedType 2008153173" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 on sales order %2 is already associated with purchase order %3.</source>
+          <note from="Developer" annotates="general" priority="2">%1 = number of item, %2 = number of document, %3 = number of purchase order</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Req. Wksh.-Make Quote - NamedType Text006</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3887473944 - NamedType 3283546407" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The combination of dimensions used in %1 %2, %3, %4 is blocked. %5</source>
+          <note from="Developer" annotates="general" priority="2">%1 = table caption, %2 = worksheet template name, %3 = journal batch name, %4 = number of line, %5 = error of dimension combination</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Req. Wksh.-Make Quote - NamedType Text008</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3887473944 - NamedType 3921243024" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A dimension used in %1 %2, %3, %4 has caused an error. %5</source>
+          <note from="Developer" annotates="general" priority="2">%1 = table caption, %2 = worksheet template name, %3 = journal batch name, %4 = number of line, %5 = error of dimension posting value</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Req. Wksh.-Make Quote - NamedType Text009</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3887473944 - NamedType 1664139952" size-unit="char" translate="yes" xml:space="preserve">
+          <source>must match %1 on Sales Order %2, Line %3</source>
+          <note from="Developer" annotates="general" priority="2">%1 = field caption, %2 = number of document, %3 = number of line</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Req. Wksh.-Make Quote - NamedType Text010</note>
+        </trans-unit>
         <trans-unit id="Page 3983627931 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Assembly Lines - ER</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -5223,6 +5273,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Bank Acc. Statement - NamedType CapitalLabel</note>
         </trans-unit>
+        <trans-unit id="Report 3472570818 - NamedType 598845625" size-unit="char" translate="yes" xml:space="preserve">
+          <source>of</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Bank Acc. Statement - NamedType OfLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3472570818 - NamedType 266656143" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Bank Acc. Statement - NamedType PageLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3472570818 - NamedType 406901249" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Printed On:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Bank Acc. Statement - NamedType PrintedOnLabel</note>
+        </trans-unit>
         <trans-unit id="Report 3472570818 - NamedType 3869443955" size-unit="char" translate="yes" xml:space="preserve">
           <source>SWIFT</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -5868,10 +5933,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement - NamedType IssueDateValueLabel</note>
         </trans-unit>
+        <trans-unit id="Report 1882754797 - NamedType 598845625" size-unit="char" translate="yes" xml:space="preserve">
+          <source>of</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement - NamedType OfLabel</note>
+        </trans-unit>
         <trans-unit id="Report 1882754797 - NamedType 3013844566" size-unit="char" translate="yes" xml:space="preserve">
           <source>only</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement - NamedType OnlyLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1882754797 - NamedType 266656143" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement - NamedType PageLabel</note>
         </trans-unit>
         <trans-unit id="Report 1882754797 - NamedType 2374422568" size-unit="char" translate="yes" xml:space="preserve">
           <source>Phone Number</source>
@@ -5882,6 +5957,11 @@
           <source>Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement - NamedType PostingDateLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1882754797 - NamedType 406901249" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Printed On:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement - NamedType PrintedOnLabel</note>
         </trans-unit>
         <trans-unit id="Report 1882754797 - NamedType 2446969282" size-unit="char" translate="yes" xml:space="preserve">
           <source>Rem Amt.</source>
@@ -6128,6 +6208,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement - Control RequestCurrency - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 1882754797 - Control 2598613329 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement - Control CustNum - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 1187795502 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ER - Customer Statement(Dimension)</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -6243,10 +6328,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement(Dim) - NamedType IssueDateValueLabel</note>
         </trans-unit>
+        <trans-unit id="Report 1187795502 - NamedType 598845625" size-unit="char" translate="yes" xml:space="preserve">
+          <source>of</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement(Dim) - NamedType OfLabel</note>
+        </trans-unit>
         <trans-unit id="Report 1187795502 - NamedType 3013844566" size-unit="char" translate="yes" xml:space="preserve">
           <source>only</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement(Dim) - NamedType OnlyLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1187795502 - NamedType 266656143" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement(Dim) - NamedType PageLabel</note>
         </trans-unit>
         <trans-unit id="Report 1187795502 - NamedType 2374422568" size-unit="char" translate="yes" xml:space="preserve">
           <source>Phone Number</source>
@@ -6257,6 +6352,11 @@
           <source>Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement(Dim) - NamedType PostingDateLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1187795502 - NamedType 406901249" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Printed On:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement(Dim) - NamedType PrintedOnLabel</note>
         </trans-unit>
         <trans-unit id="Report 1187795502 - NamedType 2446969282" size-unit="char" translate="yes" xml:space="preserve">
           <source>Rem Amt.</source>
@@ -6588,6 +6688,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Trial Balance - NamedType NetOrigLbl</note>
         </trans-unit>
+        <trans-unit id="Report 2704385374 - NamedType 598845625" size-unit="char" translate="yes" xml:space="preserve">
+          <source>of</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Trial Balance - NamedType OfLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 2704385374 - NamedType 266656143" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Trial Balance - NamedType PageLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 2704385374 - NamedType 406901249" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Printed On:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Trial Balance - NamedType PrintedOnLabel</note>
+        </trans-unit>
         <trans-unit id="Report 2704385374 - NamedType 3869443955" size-unit="char" translate="yes" xml:space="preserve">
           <source>SWIFT</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -6634,7 +6749,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Trial Balance - Control HideCust - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 2704385374 - Control 244877475 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Show Opening Balance</source>
+          <source>With Opening Balance</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Trial Balance - Control Show opening balance - Property Caption</note>
         </trans-unit>
@@ -9153,6 +9268,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Sales - Confirmation - NamedType ClosingLbl</note>
         </trans-unit>
+        <trans-unit id="Report 3661504396 - NamedType 2966004221" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Color</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Sales - Confirmation - NamedType colorLabel</note>
+        </trans-unit>
         <trans-unit id="Report 3661504396 - NamedType 3280613231" size-unit="char" translate="yes" xml:space="preserve">
           <source>Account No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -9663,6 +9783,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Sales Quote With Visuals - NamedType SignatureValueLabel</note>
         </trans-unit>
+        <trans-unit id="Report 2733876863 - NamedType 2171960165" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Size</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Sales Quote With Visuals - NamedType SizeLabel</note>
+        </trans-unit>
         <trans-unit id="Report 2733876863 - NamedType 3716247268" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sizes</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -9852,6 +9977,11 @@
           <source>Show Item Color</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Sales Quote With Visuals - Control ShowColor - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2733876863 - Control 3178558954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Item Size</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Sales Quote With Visuals - Control ShowSize - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 3439068417 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ER - Statement Of Account</source>
@@ -10073,10 +10203,25 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Trial Balance - NamedType Net_ChangeCaptionLbl</note>
         </trans-unit>
+        <trans-unit id="Report 2962059618 - NamedType 598845625" size-unit="char" translate="yes" xml:space="preserve">
+          <source>of</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Trial Balance - NamedType OfLabel</note>
+        </trans-unit>
         <trans-unit id="Report 2962059618 - NamedType 94175705" size-unit="char" translate="yes" xml:space="preserve">
           <source>Name</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Trial Balance - NamedType PADSTR_____G_L_Account__Indentation___2___G_L_Account__NameCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2962059618 - NamedType 266656143" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Trial Balance - NamedType PageLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 2962059618 - NamedType 406901249" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Printed On:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Trial Balance - NamedType PrintedOnLabel</note>
         </trans-unit>
         <trans-unit id="Report 2962059618 - NamedType 3869443955" size-unit="char" translate="yes" xml:space="preserve">
           <source>SWIFT</source>
@@ -10114,7 +10259,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Trial Balance - Control HideNull - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 2962059618 - Control 244877475 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Show Opening Balance</source>
+          <source>With Opening Balance</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Trial Balance - Control Show opening balance - Property Caption</note>
         </trans-unit>
@@ -10388,10 +10533,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Statement - NamedType IssueDateLabel</note>
         </trans-unit>
+        <trans-unit id="Report 498905365 - NamedType 598845625" size-unit="char" translate="yes" xml:space="preserve">
+          <source>of</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Statement - NamedType OfLabel</note>
+        </trans-unit>
         <trans-unit id="Report 498905365 - NamedType 3013844566" size-unit="char" translate="yes" xml:space="preserve">
           <source>only.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Statement - NamedType OnlyLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 498905365 - NamedType 266656143" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Statement - NamedType PageLabel</note>
         </trans-unit>
         <trans-unit id="Report 498905365 - NamedType 4065549182" size-unit="char" translate="yes" xml:space="preserve">
           <source>Phone Number</source>
@@ -10673,20 +10828,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Statement - Control SelectedCurrencies - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Report 498905365 - Control 3577178040 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the Vendor No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Statement - Control SelectedVendorNo - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Report 498905365 - Control 3577178040 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Vendor No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Statement - Control SelectedVendorNo - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Report 498905365 - Control 2565971985 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the ending date for the report.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Statement - Control To Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 498905365 - Control 2214728318 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Vendor No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Statement - Control VendNumber - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 498905365 - Control 2214728318 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Statement - Control VendNumber - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 3137650822 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ER - Vendor Trial Balance</source>
@@ -10773,6 +10928,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Trial Balance - NamedType NetOrigLbl</note>
         </trans-unit>
+        <trans-unit id="Report 3137650822 - NamedType 598845625" size-unit="char" translate="yes" xml:space="preserve">
+          <source>of</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Trial Balance - NamedType OfLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3137650822 - NamedType 266656143" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Trial Balance - NamedType PageLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3137650822 - NamedType 406901249" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Printed On:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Trial Balance - NamedType PrintedOnLabel</note>
+        </trans-unit>
         <trans-unit id="Report 3137650822 - NamedType 3869443955" size-unit="char" translate="yes" xml:space="preserve">
           <source>SWIFT</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -10819,7 +10989,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Trial Balance - Control HideCust - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 3137650822 - Control 244877475 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Show Opening Balance</source>
+          <source>With Opening Balance</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Trial Balance - Control Show opening balance - Property Caption</note>
         </trans-unit>
@@ -12093,6 +12263,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - NamedType SignatureValueLabel</note>
         </trans-unit>
+        <trans-unit id="Report 280137910 - NamedType 2171960165" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Size</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - NamedType SizeLabel</note>
+        </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 3716247268" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sizes</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -12352,6 +12527,11 @@
           <source>Show Item Color</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - Control ShowColor - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 280137910 - Control 3178558954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Item Size</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - Control ShowSize - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 149855644 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ER - Purchase Order</source>
@@ -12808,6 +12988,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Account List - Action ER - Bank Account Statement - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2423017943 - Action 979575244 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1638686336">
+          <source>Finalize and prepare to print the document or journal. The values and quantities are posted to the related accounts. A report request window where you can specify what to include on the print-out.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CashReceipt - Action Post and &amp;Print New - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2423017943 - Action 979575244 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1638686336">
+          <source>Post and &amp;Print</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CashReceipt - Action Post and &amp;Print New - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3105459369 - Action 3439068417 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3105459369">
           <source>ER - Statement Of Account</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -12993,6 +13183,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ItemCard - Action Item Features - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3961762325 - Action 979575244 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3196174509">
+          <source>Finalize and prepare to print the document or journal. The values and quantities are posted to the related accounts. A report request window where you can specify what to include on the print-out.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PaymentJournal - Action Post and &amp;Print New - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3961762325 - Action 979575244 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3196174509">
+          <source>Post and &amp;Print</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PaymentJournal - Action Post and &amp;Print New - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2557560783 - Action 1914989163 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2557560783">
           <source>Arabic Return Invoice</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -13077,6 +13277,16 @@
           <source>Edit in Excel</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Prices - Action EditInExcel - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4079168524 - Action 1147374323 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2459894850">
+          <source>Use a batch job to help you create actual supply orders from the order proposals.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ReqWorkSheet - Action CarryOutActionMessageForQuote - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4079168524 - Action 1147374323 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2459894850">
+          <source>Carry &amp;Out Action Message</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ReqWorkSheet - Action CarryOutActionMessageForQuote - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 1118401208 - Control 390392087 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4145206282">
           <source>Cutting Sheet Workflow to be used on the cutting sheet scanning</source>
@@ -13177,6 +13387,26 @@
           <source>IC Customer Name</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order - Control ICCustomerName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4117186890 - Control 3751959505 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4117186890">
+          <source>Allocation No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order Archive Subform - Control Allocation No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4117186890 - Control 3619812860 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4117186890">
+          <source>Allocation Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order Archive Subform - Control Allocation Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4117186890 - Control 3068680635 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4117186890">
+          <source>Department Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order Archive Subform - Control Department Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4117186890 - Control 3493435768 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4117186890">
+          <source>Position Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order Archive Subform - Control Position Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3332899200 - Action 1592124705 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3332899200">
           <source>ER Reports</source>

@@ -72,6 +72,11 @@ page 50247 "Item Design Section Colors"
                         Color: Record Color;
                         ColorFilterText: Text[10000];
                         ItemDesignSecRM: Record "Item Design Section RM";
+
+                        //Item Color Edit July 2023
+                        RMCategoryDesignSections: Record "RM Category Design Section";
+                        Item: Record Item;
+                        Design: Record Design;
                     begin
                         Clear(ItemDesignSecRM);
                         ItemDesignSecRM.SetRange("Item No.", Rec."Item No.");
@@ -93,8 +98,48 @@ page 50247 "Item Design Section Colors"
                                 ColorFilterText := DELCHR("ColorFilterText", '>', '|');
                                 Clear(Color);
                                 Color.SetFilter("ID", ColorFilterText);
-                            end;
+                            end
+                            //incase of no Item Design Section Raw Material
+                        end
+                        else begin
+                            clear(RawMaterial);
+                            clear(RMCategoryDesignSections);
+                            clear(Item);
+                            clear(Design);
+                            Item.Get(Rec."Item No.");
+                            Design.Get(Item."Design Code");
+                            RMCategoryDesignSections.SetRange("Design Type", Design.Type);
+                            RMCategoryDesignSections.SetRange("Design Section Code", Rec."Design Section Code");
+                            if RMCategoryDesignSections.FindSet() then begin
+                                //add loop here to go through all the RM Categories but i think it is not needed.
+                                //needs checking because i do not like how the loop is working -Cee
+                                repeat
+                                    Clear(RawMaterial);
+                                    RawMaterial.SetCurrentKey("Color ID");
+                                    RawMaterial.SetFilter("Raw Material Category", RMCategoryDesignSections."RM Category Code");
+                                    if RawMaterial.FindSet() then begin
+                                        repeat
+                                            ColorTemp.Init();
+                                            ColorTemp.ID := RawMaterial."Color ID";
+                                            if ColorTemp.Insert() then;
+                                        until RawMaterial.Next() = 0;
+                                        if ColorTemp.FindSet() then
+                                            repeat
+                                                ColorFilterText := ColorFilterText + Format(ColorTemp.ID) + '|';
+                                            until ColorTemp.Next() = 0;
+                                        ColorFilterText := DELCHR("ColorFilterText", '>', '|');
+                                        Clear(Color);
+                                        Color.SetFilter("ID", ColorFilterText);
+                                    end
+                                until RMCategoryDesignSections.Next() = 0;
+                                ColorFilterText := DELCHR("ColorFilterText", '>', '|');
+                                Clear(Color);
+                                Color.SetFilter("ID", ColorFilterText);
+                            end
                         end;
+
+
+
                         if Color.FindSet() then begin
                             ColorPage.SetTableView(Color);
                             ColorPage.LookupMode(true);

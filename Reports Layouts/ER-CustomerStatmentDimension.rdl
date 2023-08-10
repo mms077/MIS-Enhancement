@@ -3348,7 +3348,6 @@
                                             </Style>
                                           </Textbox>
                                           <ColSpan>6</ColSpan>
-                                          <rd:Selected>true</rd:Selected>
                                         </CellContents>
                                       </TablixCell>
                                       <TablixCell />
@@ -4279,6 +4278,39 @@
                 </Border>
               </Style>
             </Textbox>
+            <Textbox Name="Textbox10">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!PrintedOnLabel.Value, "DataSet_Result") &amp; " " &amp; First(Fields!TimeNow.Value, "DataSet_Result")</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox2</rd:DefaultName>
+              <Top>1.02cm</Top>
+              <Left>15cm</Left>
+              <Height>0.45cm</Height>
+              <Width>4cm</Width>
+              <ZIndex>11</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Top</VerticalAlign>
+              </Style>
+            </Textbox>
           </ReportItems>
           <Style>
             <Border>
@@ -4455,6 +4487,15 @@ End Function
       <Fields>
         <Field Name="CurrencyCode">
           <DataField>CurrencyCode</DataField>
+        </Field>
+        <Field Name="TimeNow">
+          <DataField>TimeNow</DataField>
+        </Field>
+        <Field Name="PageLabel">
+          <DataField>PageLabel</DataField>
+        </Field>
+        <Field Name="PrintedOnLabel">
+          <DataField>PrintedOnLabel</DataField>
         </Field>
         <Field Name="Curr">
           <DataField>Curr</DataField>

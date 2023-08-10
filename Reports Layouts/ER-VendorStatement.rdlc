@@ -1161,8 +1161,6 @@
                                 </TablixMembers>
                               </TablixRowHierarchy>
                               <DataSetName>DataSet_Result</DataSetName>
-                              <Top>0cm</Top>
-                              <Left>0cm</Left>
                               <Height>3cm</Height>
                               <Width>19cm</Width>
                               <Style>
@@ -1858,7 +1856,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=IIF(Fields!Document_Type.Value = "Invoice", LCase(Fields!External_Document_No.Value), LCase(Fields!Description.Value))</Value>
+                                                    <Value>=Fields!Description.Value</Value>
                                                     <Style>
                                                       <FontFamily>Segoe UI</FontFamily>
                                                       <FontSize>8pt</FontSize>
@@ -2368,7 +2366,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!TotalLabel.Value &amp; " " &amp; Fields!G_CurrentCurrency.Value</Value>
+                                                    <Value>=Fields!TotalLabel.Value &amp; " " &amp; Fields!G_CurrentCurrency.Value &amp; "  " &amp; Format(Fields!TotalPerCurrency.Value,"#,0.00")</Value>
                                                     <Style>
                                                       <FontFamily>Segoe UI</FontFamily>
                                                       <FontSize>8pt</FontSize>
@@ -2387,57 +2385,19 @@
                                                 <Style>None</Style>
                                               </Border>
                                               <TopBorder>
-                                                <Color>Black</Color>
                                                 <Style>Solid</Style>
-                                                <Width>1pt</Width>
                                               </TopBorder>
+                                              <VerticalAlign>Middle</VerticalAlign>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>3pt</PaddingRight>
                                               <PaddingTop>2pt</PaddingTop>
                                               <PaddingBottom>2pt</PaddingBottom>
                                             </Style>
                                           </Textbox>
+                                          <ColSpan>2</ColSpan>
                                         </CellContents>
                                       </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="Textbox58">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value>=Fields!TotalPerCurrency.Value</Value>
-                                                    <Style>
-                                                      <FontFamily>Segoe UI</FontFamily>
-                                                      <FontSize>8pt</FontSize>
-                                                      <FontWeight>Bold</FontWeight>
-                                                      <Format>#,0.00;- #,0.00</Format>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style>
-                                                  <TextAlign>Right</TextAlign>
-                                                </Style>
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>Textbox54</rd:DefaultName>
-                                            <Style>
-                                              <Border>
-                                                <Style>None</Style>
-                                              </Border>
-                                              <TopBorder>
-                                                <Style>Solid</Style>
-                                              </TopBorder>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>5pt</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
+                                      <TablixCell />
                                     </TablixCells>
                                   </TablixRow>
                                 </TablixRows>
@@ -2550,8 +2510,6 @@
             <PageBreak>
               <BreakLocation>StartAndEnd</BreakLocation>
             </PageBreak>
-            <Top>0cm</Top>
-            <Left>0cm</Left>
             <Height>6.14854cm</Height>
             <Width>19cm</Width>
             <Style>
@@ -2617,41 +2575,6 @@
                 </Border>
               </Style>
             </Textbox>
-            <Textbox Name="Textbox2">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Format(Now(), "dd/MM/yyyy hh:mm")</Value>
-                      <Style>
-                        <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox2</rd:DefaultName>
-              <Left>14.96542cm</Left>
-              <Height>0.6cm</Height>
-              <Width>4.03458cm</Width>
-              <ZIndex>2</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
             <Textbox Name="Textbox3">
               <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
@@ -2675,7 +2598,7 @@
               <Top>1cm</Top>
               <Height>0.25cm</Height>
               <Width>6cm</Width>
-              <ZIndex>3</ZIndex>
+              <ZIndex>2</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -2706,7 +2629,7 @@
               <Left>0.01229cm</Left>
               <Height>0.25cm</Height>
               <Width>6cm</Width>
-              <ZIndex>4</ZIndex>
+              <ZIndex>3</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -2737,7 +2660,7 @@
               <Left>0.01229cm</Left>
               <Height>0.25cm</Height>
               <Width>6cm</Width>
-              <ZIndex>5</ZIndex>
+              <ZIndex>4</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -2768,7 +2691,7 @@
               <Left>0.01229cm</Left>
               <Height>0.25cm</Height>
               <Width>6cm</Width>
-              <ZIndex>6</ZIndex>
+              <ZIndex>5</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -2799,7 +2722,7 @@
               <Left>0.00911cm</Left>
               <Height>0.25cm</Height>
               <Width>6cm</Width>
-              <ZIndex>7</ZIndex>
+              <ZIndex>6</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -2830,7 +2753,7 @@
               <Left>0.01229cm</Left>
               <Height>0.25cm</Height>
               <Width>6cm</Width>
-              <ZIndex>8</ZIndex>
+              <ZIndex>7</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -2862,7 +2785,7 @@
               <Left>7.5cm</Left>
               <Height>0.65cm</Height>
               <Width>4cm</Width>
-              <ZIndex>9</ZIndex>
+              <ZIndex>8</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -2899,7 +2822,7 @@
               <Left>14.96542cm</Left>
               <Height>0.6cm</Height>
               <Width>4.03458cm</Width>
-              <ZIndex>10</ZIndex>
+              <ZIndex>9</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -2908,6 +2831,39 @@
                 <PaddingRight>2pt</PaddingRight>
                 <PaddingTop>2pt</PaddingTop>
                 <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox9">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!PrintedOnLabel.Value, "DataSet_Result") &amp; " " &amp; First(Fields!TimeNow.Value, "DataSet_Result")</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox2</rd:DefaultName>
+              <Top>0.11472cm</Top>
+              <Left>14.96542cm</Left>
+              <Height>0.45cm</Height>
+              <Width>4cm</Width>
+              <ZIndex>10</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Top</VerticalAlign>
               </Style>
             </Textbox>
           </ReportItems>
@@ -3091,6 +3047,12 @@ End Function
       <Fields>
         <Field Name="CurrencyCode">
           <DataField>CurrencyCode</DataField>
+        </Field>
+        <Field Name="PrintedOnLabel">
+          <DataField>PrintedOnLabel</DataField>
+        </Field>
+        <Field Name="TimeNow">
+          <DataField>TimeNow</DataField>
         </Field>
         <Field Name="Company_Picture">
           <DataField>Company_Picture</DataField>

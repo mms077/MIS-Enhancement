@@ -4,7 +4,7 @@
   <DataSources>
     <DataSource Name="DataSource">
       <ConnectionProperties>
-        <DataProvider>SQL</DataProvider>
+        <DataProvider>SQL </DataProvider>
         <ConnectString />
       </ConnectionProperties>
       <rd:SecurityType>None</rd:SecurityType>
@@ -1925,7 +1925,6 @@
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
             <Top>0.635cm</Top>
-            <Left>0cm</Left>
             <Height>2.978cm</Height>
             <Width>28.49125cm</Width>
             <Style>
@@ -3761,7 +3760,6 @@
               </SortExpression>
             </SortExpressions>
             <Top>4.06492cm</Top>
-            <Left>0cm</Left>
             <Height>3cm</Height>
             <Width>28.49128cm</Width>
             <ZIndex>1</ZIndex>
@@ -3787,8 +3785,6 @@
               <Value>=First(Fields!Company_Picture.Value, "DataSet_Result")</Value>
               <MIMEType>image/bmp</MIMEType>
               <Sizing>FitProportional</Sizing>
-              <Top>0cm</Top>
-              <Left>0cm</Left>
               <Height>1.11105cm</Height>
               <Width>7.43231cm</Width>
               <Style>
@@ -3849,8 +3845,6 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
-                  <Top>0cm</Top>
-                  <Left>0cm</Left>
                   <Height>0.4cm</Height>
                   <Width>7.7cm</Width>
                   <Style>
@@ -3883,7 +3877,6 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>0.82225cm</Top>
-                  <Left>0cm</Left>
                   <Height>0.4cm</Height>
                   <Width>7.7cm</Width>
                   <ZIndex>1</ZIndex>
@@ -3917,7 +3910,6 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>1.23175cm</Top>
-                  <Left>0cm</Left>
                   <Height>0.4cm</Height>
                   <Width>7.7cm</Width>
                   <ZIndex>2</ZIndex>
@@ -3951,7 +3943,6 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>1.64125cm</Top>
-                  <Left>0cm</Left>
                   <Height>0.4cm</Height>
                   <Width>7.7cm</Width>
                   <ZIndex>3</ZIndex>
@@ -3985,7 +3976,6 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>2.04899cm</Top>
-                  <Left>0cm</Left>
                   <Height>0.4cm</Height>
                   <Width>7.7cm</Width>
                   <ZIndex>4</ZIndex>
@@ -4019,7 +4009,6 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>2.45673cm</Top>
-                  <Left>0cm</Left>
                   <Height>0.4cm</Height>
                   <Width>7.7cm</Width>
                   <ZIndex>5</ZIndex>
@@ -4053,7 +4042,6 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>2.86447cm</Top>
-                  <Left>0cm</Left>
                   <Height>0.4cm</Height>
                   <Width>7.7cm</Width>
                   <ZIndex>6</ZIndex>
@@ -4087,7 +4075,6 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>0.39799cm</Top>
-                  <Left>0cm</Left>
                   <Height>0.4cm</Height>
                   <Width>7.7cm</Width>
                   <ZIndex>7</ZIndex>
@@ -4105,7 +4092,6 @@
               </ReportItems>
               <KeepTogether>true</KeepTogether>
               <Top>1.14935cm</Top>
-              <Left>0cm</Left>
               <Height>3.67722cm</Height>
               <Width>7.7cm</Width>
               <ZIndex>2</ZIndex>
@@ -4116,7 +4102,6 @@
               </Style>
             </Rectangle>
             <Textbox Name="Textbox72">
-              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -4128,14 +4113,16 @@
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style />
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.04729cm</Top>
-              <Left>20.79128cm</Left>
-              <Height>0.5cm</Height>
-              <Width>7.7cm</Width>
+              <Top>2.34582cm</Top>
+              <Left>15.80009cm</Left>
+              <Height>0.6cm</Height>
+              <Width>12.69116cm</Width>
               <ZIndex>3</ZIndex>
               <Style>
                 <Border>
@@ -4149,7 +4136,6 @@
               </Style>
             </Textbox>
             <Textbox Name="Textbox73">
-              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -4161,14 +4147,16 @@
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style />
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.56748cm</Top>
-              <Left>20.79128cm</Left>
-              <Height>0.5cm</Height>
-              <Width>7.7cm</Width>
+              <Top>2.99834cm</Top>
+              <Left>15.80012cm</Left>
+              <Height>0.6cm</Height>
+              <Width>12.69116cm</Width>
               <ZIndex>4</ZIndex>
               <Style>
                 <Border>
@@ -4182,7 +4170,6 @@
               </Style>
             </Textbox>
             <Textbox Name="Textbox74">
-              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -4194,14 +4181,16 @@
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style />
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.51201cm</Top>
-              <Left>20.79128cm</Left>
-              <Height>0.5cm</Height>
-              <Width>7.7cm</Width>
+              <Top>1.74582cm</Top>
+              <Left>15.80009cm</Left>
+              <Height>0.6cm</Height>
+              <Width>12.69116cm</Width>
               <ZIndex>5</ZIndex>
               <Visibility>
                 <Hidden>=IIF(Fields!AccountLbl.Value="",true,false)</Hidden>
@@ -4215,6 +4204,71 @@
                 <PaddingRight>2pt</PaddingRight>
                 <PaddingTop>2pt</PaddingTop>
                 <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox78">
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!CustFilters.Value, "DataSet_Result")</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>3.59834cm</Top>
+              <Left>15.80009cm</Left>
+              <Height>0.6cm</Height>
+              <Width>12.69116cm</Width>
+              <ZIndex>6</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Top</VerticalAlign>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox69">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!PrintedOnLabel.Value, "DataSet_Result") &amp; " " &amp; First(Fields!TimeNow.Value, "DataSet_Result")</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox2</rd:DefaultName>
+              <Top>4.19834cm</Top>
+              <Left>15.80012cm</Left>
+              <Height>0.45cm</Height>
+              <Width>12.69113cm</Width>
+              <ZIndex>7</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Top</VerticalAlign>
               </Style>
             </Textbox>
           </ReportItems>
@@ -4244,7 +4298,6 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox15</rd:DefaultName>
-              <Top>0cm</Top>
               <Left>13.4747cm</Left>
               <Height>0.6cm</Height>
               <Width>2.39183cm</Width>
@@ -4326,6 +4379,12 @@ End Function
         </Field>
         <Field Name="Company_CapitalFormat">
           <DataField>Company_CapitalFormat</DataField>
+        </Field>
+        <Field Name="PrintedOnLabel">
+          <DataField>PrintedOnLabel</DataField>
+        </Field>
+        <Field Name="TimeNow">
+          <DataField>TimeNow</DataField>
         </Field>
         <Field Name="Company_Vat">
           <DataField>Company_Vat</DataField>
@@ -4440,6 +4499,9 @@ End Function
         </Field>
         <Field Name="ShowOpening">
           <DataField>ShowOpening</DataField>
+        </Field>
+        <Field Name="CustFilters">
+          <DataField>CustFilters</DataField>
         </Field>
         <Field Name="CurrencyCode">
           <DataField>CurrencyCode</DataField>

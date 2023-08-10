@@ -107,7 +107,7 @@ report 50216 "ER - Customer Statement"
                 begin
                     CustLedEntry.SetCurrentKey("Posting Date");
                     SetRange("Posting Date", FromDate, ToDate);
-                    SetRange("Customer No.", G_CustNo);
+                    SetRange("Customer No.", CustNum);
                     SetRange("Currency Code", "Currency Table".CurrencyCode);//
                 end;
             }
@@ -145,7 +145,7 @@ report 50216 "ER - Customer Statement"
                 clear(TotalAMT);
                 TotalAMT := TotalBefore;
                 L_CustomerLedgerEntry.Reset();
-                L_CustomerLedgerEntry.SetRange("Customer No.", G_CustNo);
+                L_CustomerLedgerEntry.SetRange("Customer No.", CustNum);
                 L_CustomerLedgerEntry.SetRange("Currency Code", "Currency Table".CurrencyCode);
                 L_CustomerLedgerEntry.SetRange("Posting Date", fromDate, toDate);
                 if L_CustomerLedgerEntry.Findfirst() then begin // Check if during those specifed date there is a transaction in each currency
@@ -210,7 +210,7 @@ report 50216 "ER - Customer Statement"
                         Caption = 'Customer No.';
                         trigger OnValidate()
                         begin
-                            if G_CustNo = '' then begin
+                            if CustNum = '' then begin
                                 Error(SselectCustLabel);
                                 exit;
                             end;
@@ -273,7 +273,7 @@ report 50216 "ER - Customer Statement"
                 if toDate = 0D then begin
                     Error(Text003);
                 end;
-                if G_CustNo = '' then begin
+                if CustNum = '' then begin
                     Error(SselectCustLabel);
                 end
             end;
@@ -294,7 +294,7 @@ report 50216 "ER - Customer Statement"
     begin
         GeneralLedgerSetup.Get();
         CompanyInformation.Get();
-        CustomerInformation.Get(G_CustNo);
+        CustomerInformation.Get(CustNum);
         CompanyAddress := CompanyInformation.Address;
         CityPostal := CompanyInformation.City + ' ' + CompanyInformation."Post Code";
         CompanyInformation.CalcFields(Picture);
@@ -334,7 +334,7 @@ report 50216 "ER - Customer Statement"
         if Ccode = GeneralLedgerSetup."LCY Code" then
             Ccode := '';
         L_CustomerLedgerEntry.Reset();
-        L_CustomerLedgerEntry.SetRange("Customer No.", G_CustNo);
+        L_CustomerLedgerEntry.SetRange("Customer No.", CustNum);
         L_CustomerLedgerEntry.SetRange("Currency Code", Ccode);
         L_CustomerLedgerEntry.SetRange("Posting Date", 0D, fromDate - 1);
 

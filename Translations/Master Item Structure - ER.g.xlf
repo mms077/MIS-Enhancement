@@ -1698,6 +1698,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Item Size - Field US - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2565812202 - Field 2686962215 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>id</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Job Queue Selection - Field id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2565812202 - Field 3333605940 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Job Queue Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Job Queue Selection - Field Job Queue Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2565812202 - Field 3953239477 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Job Queue Id</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Job Queue Selection - Field Job Queue Id - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2043821806 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Measurement</source>
           <note from="Developer" annotates="general" priority="2"></note>

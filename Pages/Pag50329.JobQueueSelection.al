@@ -1,7 +1,6 @@
 page 50329 "Job Queue Selection"
 {
     PageType = List;
-    //ApplicationArea = All;
     UsageCategory = Lists;
     SourceTable = "Job Queue Selection";
 

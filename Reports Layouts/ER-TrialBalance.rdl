@@ -4845,7 +4845,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>="Printed On: " &amp; Format(Now(), "MM/dd/yyyy hh:mm")</Value>
+                      <Value>=Globals!ExecutionTime</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>

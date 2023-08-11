@@ -64,6 +64,17 @@ pageextension 50225 "Posted Sales Invoice Subform" extends "Posted Sales Invoice
             {
                 ApplicationArea = all;
             }
+
+            field("Department Code"; rec."Department Code")
+            {
+                ApplicationArea = All;
+                Caption = 'Department Code';
+            }
+            field("Position Code"; rec."Position Code")
+            {
+                ApplicationArea = All;
+                Caption = 'Position Code';
+            }
             field("Assembly No."; Rec."Assembly No.")
             {
                 ApplicationArea = all;

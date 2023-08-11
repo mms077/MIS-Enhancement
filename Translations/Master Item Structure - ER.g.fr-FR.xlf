@@ -11525,17 +11525,17 @@
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 193543411" translate="yes" xml:space="preserve">
           <source>Bank Account</source>
-          <target state="translated" state-qualifier="id-match">Compte Bancaire</target>
+          <target state="translated" state-qualifier="id-match">Compte bancaire</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ReturnInvoice - NamedType BankAccountLabel</note>
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 1597748765" translate="yes" xml:space="preserve">
           <source>Billing Address</source>
-          <target state="translated" state-qualifier="id-match">Adresse</target>
+          <target state="translated" state-qualifier="id-match">adresse de facturation</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ReturnInvoice - NamedType BillingAddressLabel</note>
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 3269756997" translate="yes" xml:space="preserve">
           <source>Billing Info</source>
-          <target state="translated" state-qualifier="id-match">Adresse de Facturation</target>
+          <target state="translated" state-qualifier="id-match">Info de facturation</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ReturnInvoice - NamedType BillingInfoLabel</note>
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 786862521" translate="yes" xml:space="preserve">
@@ -11550,7 +11550,7 @@
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 1014129422" translate="yes" xml:space="preserve">
           <source>Carrier</source>
-          <target state="translated" state-qualifier="id-match">Transporté par</target>
+          <target state="translated" state-qualifier="id-match">Transporteuse</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ReturnInvoice - NamedType CarrierLabel</note>
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 3532085133" translate="yes" xml:space="preserve">
@@ -11565,17 +11565,17 @@
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 2035604559" translate="yes" xml:space="preserve">
           <source>Customer Name</source>
-          <target state="translated" state-qualifier="id-match">Client</target>
+          <target state="translated" state-qualifier="id-match">Nom du client</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ReturnInvoice - NamedType CustomerNameLabel</note>
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 3782834533" translate="yes" xml:space="preserve">
           <source>Discount</source>
-          <target state="translated" state-qualifier="id-match">Escompte</target>
+          <target state="translated" state-qualifier="id-match">Rabais</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ReturnInvoice - NamedType DiscountLabel</note>
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 2707488584" translate="yes" xml:space="preserve">
           <source>Due Balance</source>
-          <target state="translated" state-qualifier="id-match">Balance à payer</target>
+          <target state="translated" state-qualifier="id-match">Solde dû</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ReturnInvoice - NamedType DueBalanceLabel</note>
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 4094371370" translate="yes" xml:space="preserve">
@@ -11585,7 +11585,7 @@
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 2155856219" translate="yes" xml:space="preserve">
           <source>Fiscal Code</source>
-          <target state="translated" state-qualifier="id-match">Code Fiscal</target>
+          <target state="translated" state-qualifier="id-match">Fiscal Code</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ReturnInvoice - NamedType FiscalCodeLabel</note>
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 1443428313" translate="yes" xml:space="preserve">
@@ -11600,7 +11600,7 @@
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 1582087610" translate="yes" xml:space="preserve">
           <source>Gross Total</source>
-          <target state="translated" state-qualifier="id-match">Total T.T.C</target>
+          <target state="translated" state-qualifier="id-match">Total brut</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ReturnInvoice - NamedType GrossTotalLabel</note>
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 3971409636" translate="yes" xml:space="preserve">
@@ -11610,7 +11610,7 @@
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 4192338629" translate="yes" xml:space="preserve">
           <source>Invoice Date</source>
-          <target state="translated" state-qualifier="id-match">Date:</target>
+          <target state="translated" state-qualifier="id-match">Date de facture</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ReturnInvoice - NamedType InvoiceDateLabel</note>
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 1215198615" translate="yes" xml:space="preserve">
@@ -11625,7 +11625,7 @@
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 1633833466" translate="yes" xml:space="preserve">
           <source>Item Code</source>
-          <target state="translated" state-qualifier="id-match">Code Produit</target>
+          <target state="translated" state-qualifier="id-match">Code de l'article</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ReturnInvoice - NamedType ItemCodeLabel</note>
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 170677738" translate="yes" xml:space="preserve">
@@ -11640,7 +11640,7 @@
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 3672978075" translate="yes" xml:space="preserve">
           <source>Payment Terms</source>
-          <target state="translated" state-qualifier="id-match">Modalité de paiement</target>
+          <target state="translated" state-qualifier="id-match">Modalités de paiement</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ReturnInvoice - NamedType PaymentTermsLabel</note>
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 1648314782" translate="yes" xml:space="preserve">
@@ -11650,12 +11650,12 @@
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 406901249" translate="yes" xml:space="preserve">
           <source>Printed On</source>
-          <target state="translated" state-qualifier="id-match">Imprimé le</target>
+          <target state="translated" state-qualifier="id-match">Imprimé sur</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ReturnInvoice - NamedType PrintedOnLabel</note>
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 1610958335" translate="yes" xml:space="preserve">
           <source>Product</source>
-          <target state="translated" state-qualifier="id-match">Description</target>
+          <target state="translated" state-qualifier="id-match">Produit</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ReturnInvoice - NamedType ProductLabel</note>
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 3271423869" translate="yes" xml:space="preserve">
@@ -11665,22 +11665,22 @@
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 3354546703" translate="yes" xml:space="preserve">
           <source>Purchase Order Ref.</source>
-          <target state="translated" state-qualifier="id-match">Bon de commande</target>
+          <target state="translated" state-qualifier="id-match">Réf. commande achat</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ReturnInvoice - NamedType PurchOrderRefLabel</note>
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 402906126" translate="yes" xml:space="preserve">
           <source>Quantity</source>
-          <target state="translated" state-qualifier="id-match">Qté</target>
+          <target state="translated" state-qualifier="id-match">Quantité</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ReturnInvoice - NamedType QtyLabel</note>
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 48610953" translate="yes" xml:space="preserve">
           <source>Receiver Contact</source>
-          <target state="translated" state-qualifier="id-match">Contact</target>
+          <target state="translated" state-qualifier="id-match">Contact du récepteur</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ReturnInvoice - NamedType ReceiverContactLabel</note>
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 700163860" translate="yes" xml:space="preserve">
           <source>Receiver Name</source>
-          <target state="translated" state-qualifier="id-match">Reçeveur</target>
+          <target state="translated" state-qualifier="id-match">Nom du récepteur</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ReturnInvoice - NamedType ReceiverNameLabel</note>
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 1820535737" translate="yes" xml:space="preserve">
@@ -11690,7 +11690,7 @@
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 2129571611" translate="yes" xml:space="preserve">
           <source>Revision Date</source>
-          <target state="translated" state-qualifier="id-match">Date de Révision</target>
+          <target state="translated" state-qualifier="id-match">Date de révision</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ReturnInvoice - NamedType RevisionDateLabel</note>
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 3976215121" translate="yes" xml:space="preserve">
@@ -11700,22 +11700,22 @@
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 4137252625" translate="yes" xml:space="preserve">
           <source>Return Invoice</source>
-          <target state="translated" state-qualifier="id-match">Facture Retour</target>
+          <target state="translated" state-qualifier="id-match">Facture retour</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ReturnInvoice - NamedType SalesInvoiceLabel</note>
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 2756669582" translate="yes" xml:space="preserve">
           <source>Shiping Address</source>
-          <target state="translated" state-qualifier="id-match">adresse</target>
+          <target state="translated" state-qualifier="id-match">adresse de livraison</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ReturnInvoice - NamedType ShippingAddressLabel</note>
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 3024073662" translate="yes" xml:space="preserve">
           <source>Shiping Info</source>
-          <target state="translated" state-qualifier="id-match">Adresse de Livaraison</target>
+          <target state="translated" state-qualifier="id-match">Informations expédition</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ReturnInvoice - NamedType ShippingInfoLabel</note>
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 2452442881" translate="yes" xml:space="preserve">
           <source>Shiping Mode</source>
-          <target state="translated" state-qualifier="id-match">Mode de transport</target>
+          <target state="translated" state-qualifier="id-match">Mode d'expédition</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ReturnInvoice - NamedType ShippingModeLabel</note>
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 2527174619" translate="yes" xml:space="preserve">
@@ -11735,27 +11735,27 @@
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 4249629696" translate="yes" xml:space="preserve">
           <source>Total</source>
-          <target state="translated" state-qualifier="id-match">Total H.T</target>
+          <target state="translated" state-qualifier="id-match">Totale</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ReturnInvoice - NamedType TotalLabel</note>
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 3908922203" translate="yes" xml:space="preserve">
           <source>Total Price</source>
-          <target state="translated" state-qualifier="id-match">P.T</target>
+          <target state="translated" state-qualifier="id-match">Prix ​​total</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ReturnInvoice - NamedType TotalPriceLabel</note>
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 2821200415" translate="yes" xml:space="preserve">
           <source>Unit Price</source>
-          <target state="translated" state-qualifier="id-match">P.U</target>
+          <target state="translated" state-qualifier="id-match">Prix ​​unitaire</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ReturnInvoice - NamedType UnitPriceLabel</note>
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 3794146812" translate="yes" xml:space="preserve">
           <source>VAT Code</source>
-          <target state="translated" state-qualifier="id-match">Numero TVA</target>
+          <target state="translated" state-qualifier="id-match">Code de la TVA</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ReturnInvoice - NamedType VATCodeLabel</note>
         </trans-unit>
         <trans-unit id="Report 3446667901 - NamedType 3239557063" translate="yes" xml:space="preserve">
           <source>VAT</source>
-          <target state="translated" state-qualifier="id-match">TVA</target>
+          <target state="translated" state-qualifier="id-match">T.V.A.</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ReturnInvoice - NamedType VATLabel</note>
         </trans-unit>
         <trans-unit id="Report 3446667901 - Control 4041197032 - Property 2879900210" translate="yes" xml:space="preserve">

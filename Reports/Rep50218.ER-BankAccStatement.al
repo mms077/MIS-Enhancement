@@ -22,21 +22,11 @@ report 50218 "ER - Bank Acc. Statement"
                 {
 
                 }
-                column(PageLabel; PageLabel) { }
-                column(OfLabel; OfLabel) { }
                 column(Company_Capital; compInfoRec.Capital)
                 {
 
                 }
                 column(Company_Vat; compInfoRec."VAT Registration No.")
-                {
-
-                }
-                column(PrintedOnLabel; PrintedOnLabel)
-                {
-
-                }
-                column(TimeNow; TimeNow)
                 {
 
                 }
@@ -310,7 +300,6 @@ report 50218 "ER - Bank Acc. Statement"
         if FromDate > ToDate then Error(Text001);
         Clear(Today_);
         Today_ := Today;
-        TimeNow := Format(System.CurrentDateTime());
 
     end;
 
@@ -359,19 +348,4 @@ report 50218 "ER - Bank Acc. Statement"
         BankAccountLabel: Label 'Bank Account';
         SWIFTLabel: Label 'SWIFT';
         BeforeAmtInWords: text;
-
-
-        TimeNow: Text[25];
-        PrintedOnLabel: Label 'Printed On:';
-        PageLabel: Label 'Page';
-        OfLabel: Label 'of';
-        BankAccNum: Code[50];
-
-    procedure SetBankAcc(BankAcc: Code[50]): Code[50]
-    var
-        myInt: Integer;
-    begin
-        BankAccNum := BankAcc;
-        exit(BankAccNum);
-    end;
 }

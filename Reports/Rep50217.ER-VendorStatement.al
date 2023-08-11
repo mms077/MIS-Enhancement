@@ -22,14 +22,6 @@ report 50217 "ER - Vendor Statement"
             // column(Total; Total)
             // {
             // }
-            column(PrintedOnLabel; PrintedOnLabel)
-            {
-
-            }
-            column(TimeNow; TimeNow)
-            {
-
-            }
             column(Company_Picture; CompanyInformation.Picture)
             {
 
@@ -177,7 +169,7 @@ report 50217 "ER - Vendor Statement"
             column(ToDate; "To Date")
             {
             }
-            column(SelectedVendorNo; VendNumber)
+            column(SelectedVendorNo; SelectedVendorNo)
             {
 
             }
@@ -283,7 +275,7 @@ report 50217 "ER - Vendor Statement"
                 begin
                     //Filtering the Date
                     VendorLedgerEntry.SetRange("Posting Date", "From Date", "To Date");
-                    VendorLedgerEntry.SetRange("Vendor No.", VendNumber);
+                    VendorLedgerEntry.SetRange("Vendor No.", SelectedVendorNo);
                     VendorLedgerEntry.SetRange("Currency Code", G_TempCurrencyTotal.CurrencyCode);
                 end;
             }
@@ -341,7 +333,7 @@ report 50217 "ER - Vendor Statement"
                                 Error(Text000, "From Date", "To Date");
                         end;
                     }
-                    field(VendNumber; VendNumber)
+                    field(SelectedVendorNo; SelectedVendorNo)
                     {
                         ApplicationArea = Basic, Suite;
                         ToolTip = 'Specifies the Vendor No.';
@@ -350,7 +342,7 @@ report 50217 "ER - Vendor Statement"
                         Lookup = true;
                         trigger OnValidate()//check if empty
                         begin
-                            if VendNumber = '' then
+                            if SelectedVendorNo = '' then
                                 Error(Text001);
                         end;
                     }
@@ -379,7 +371,7 @@ report 50217 "ER - Vendor Statement"
                                 G_PageCurrList.SetSelectionFilter(G_TempCurrencyTotal);
                                 if G_TempCurrencyTotal.FindFirst() then
                                     repeat
-                                        SelectedCurrencies := SelectedCurrencies + G_TempCurrencyTotal.CurrencyCode + '|';
+                                            SelectedCurrencies := SelectedCurrencies + G_TempCurrencyTotal.CurrencyCode + '|';
                                     until G_TempCurrencyTotal.Next() = 0;
                                 SelectedCurrencies := DelChr(SelectedCurrencies, '>', '|');
                             end;
@@ -392,7 +384,7 @@ report 50217 "ER - Vendor Statement"
         trigger OnQueryClosePage(CloseAction: Action): Boolean//Check if the user has selected a vendor before running the report
         begin//check if vendor is empty
             if CloseAction <> Action::Cancel then begin
-                if VendNumber = '' then
+                if SelectedVendorNo = '' then
                     Error(Text001)
                 else
                     if "From Date" = 0D then
@@ -414,8 +406,7 @@ report 50217 "ER - Vendor Statement"
         G_TempCurrencyTotal.Reset();
         CityAndZip := companyInformation.City + ' ' + companyInformation."Post Code";
         CompanyInformation.CalcFields(Picture);
-        G_RecVendor.Get(VendNumber);
-        TimeNow := Format(System.CurrentDateTime());
+        G_RecVendor.Get(SelectedVendorNo);
     end;
 
     procedure CalculateBeforeTotal(SelectedCurrency: Code[10])//Calculate the total before the Selected Time Period
@@ -424,7 +415,7 @@ report 50217 "ER - Vendor Statement"
         G_RecVendLedgEntry.Reset();
         G_RecVendLedgEntry.SetRange("Currency Code", SelectedCurrency);
         G_RecVendLedgEntry.SetRange("Posting Date", 0D, "From Date" - 1);
-        G_RecVendLedgEntry.SetRange("Vendor No.", VendNumber);
+        G_RecVendLedgEntry.SetRange("Vendor No.", SelectedVendorNo);
         G_BeforeTotal := 0;
         if G_RecVendLedgEntry.Findfirst() then begin
             repeat
@@ -440,7 +431,7 @@ report 50217 "ER - Vendor Statement"
         G_RecVendLedgEntry.Reset();
         G_RecVendLedgEntry.SetRange("Currency Code", RecievedCurrency);
         G_RecVendLedgEntry.SetRange("Posting Date", "From Date", "To Date");//22/2
-        G_RecVendLedgEntry.SetRange("Vendor No.", VendNumber);
+        G_RecVendLedgEntry.SetRange("Vendor No.", SelectedVendorNo);
         if G_RecVendLedgEntry.Findfirst() then
             repeat
                 G_RecVendLedgEntry.CalcFields("Amount");
@@ -454,24 +445,15 @@ report 50217 "ER - Vendor Statement"
     procedure PrintAmountInWords(CurrencyCodeChosen: Code[10]; TotalGained: Decimal)//Choose the correct lable to print alongside converting negative values to positive values
     var
         L_AmountCalculated: Decimal;
-        AmounInWordsCurr: Code[10];
     begin//Slight Optimize needed
         G_TempCurrencyTotal.get(CurrencyCodeChosen);
         L_AmountCalculated := TotalGained;
         if L_AmountCalculated < 0 then begin
             L_AmountCalculated := L_AmountCalculated * -1;
-            if CurrencyCodeChosen = '''''' then
-                AmounInWordsCurr := GeneralLedgerSetup."LCY Code"
-            else
-                AmounInWordsCurr := CurrencyCodeChosen;
-            AmountInWordsFunction(L_AmountCalculated, AmounInWordsCurr);
+            AmountInWordsFunction(L_AmountCalculated, G_CurrentCurrency);
             WhoOwesWhom := WeOweYouLabel;
         end else begin
-            if CurrencyCodeChosen = '''''' then
-                AmounInWordsCurr := GeneralLedgerSetup."LCY Code"
-            else
-                AmounInWordsCurr := CurrencyCodeChosen;
-            AmountInWordsFunction(L_AmountCalculated, AmounInWordsCurr);
+            AmountInWordsFunction(L_AmountCalculated, G_CurrentCurrency);
             WhoOwesWhom := YouOweUsLabel;
         end
     end;
@@ -620,10 +602,10 @@ report 50217 "ER - Vendor Statement"
         G_TempTotal: Decimal;
         "From Date": Date;//For Filtering
         "To Date": Date;//For Filtering
-        //SelectedVendorNo: Code[20];//For Filtering
+        SelectedVendorNo: Code[20];//For Filtering
         CityAndZip: Text[250];
         CompanyAddress: Text[250];
-        //G_filteringCurrency: Code[10];
+       //G_filteringCurrency: Code[10];
         AccountNumberLabel: Label 'Account';
         WhoOwesWhom: Text[250];
         FromDateLabel: Label 'From Date';
@@ -702,18 +684,5 @@ report 50217 "ER - Vendor Statement"
         Text060: Label 'MILLION';
         Text061: Label 'BILLION';
 
-
-        PageLabel: Label 'Page';
-        OfLabel: Label 'of';
-        TimeNow: Text[25];
-        VendNumber: Code[50];
     #endregion
-    procedure SetVendNo(VendNo: Code[50]): Code[50];
-    var
-        myInt: Integer;
-
-    begin
-        VendNumber := VendNo;
-        exit(VendNumber);
-    end;
 }

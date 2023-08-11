@@ -23,17 +23,10 @@ pageextension 50246 "Chart of Accounts" extends "Chart of Accounts"
                     Caption = 'ER - Statement Of Account';
                     Image = Report;
                     ApplicationArea = All;
-                    // RunObject = Report "ER - Statement Of Account";
-
+                    RunObject = Report "ER - Statement Of Account";
                     trigger OnAction()
-                    var
-                        GlEntry: Record "G/L Entry";
                     begin
-                        GlEntry.SetFilter("G/L Account No.", Rec."No.");
-                        if GlEntry.FindFirst() then
-                            Report.Run(50233, true, true, GlEntry)
-                        else
-                            Message('This account does not have entries ');
+                        Report.RunModal(Report::"ER - Statement Of Account");
                     end;
                 }
             }

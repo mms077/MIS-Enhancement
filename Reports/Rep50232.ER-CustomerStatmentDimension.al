@@ -13,12 +13,6 @@ report 50232 "ER - Customer Statement(Dim)"
             DataItemTableView = sorting(CurrencyCode);
             PrintOnlyIfDetail = false;
             column(CurrencyCode; CurrencyCode) { }
-            column(TimeNow; TimeNow)
-            {
-
-            }
-            column(PageLabel; PageLabel) { }
-            column(PrintedOnLabel; PrintedOnLabel) { }
             //column(Total; Total) { }
             column(Curr; G_CurrencyCode) { }
             column(AmountinWords; AmountinWords) { }
@@ -134,7 +128,7 @@ report 50232 "ER - Customer Statement(Dim)"
                     CustLedEntry.SetCurrentKey("Posting Date");
                     SetRange("Posting Date", FromDate, ToDate);
                     SetRange("Customer No.", G_CustNo);
-                    SetRange("Currency Code", "Currency Table".CurrencyCode);
+                    SetRange("Currency Code","Currency Table".CurrencyCode);
                     case SelectedDimensionsNB[1] of
                         1:
                             begin
@@ -242,8 +236,8 @@ report 50232 "ER - Customer Statement(Dim)"
                     G_CurrencyCode := "Currency Table".CurrencyCode;
                 end;
                 getTotalBefore("Currency Table".CurrencyCode);
-
-
+               
+                
 
                 TotalAMT := TotalBefore;
                 L_CustomerLedgerEntry.Reset();
@@ -257,7 +251,7 @@ report 50232 "ER - Customer Statement(Dim)"
                     until L_CustomerLedgerEntry.Next() = 0;
                 end;
 
-                tot := TotalAMT;
+                tot:=TotalAMT;
                 if tot < 0 then begin
                     OweUsLabel := 'We owe you';
                     tot := tot * -1;
@@ -354,7 +348,7 @@ report 50232 "ER - Customer Statement(Dim)"
                                 G_MyCurrPage.SetSelectionFilter("Currency Table");
                                 if "Currency Table".FindFirst() then
                                     repeat
-                                        RequestedCurrency := RequestedCurrency + "Currency Table".CurrencyCode + '|';
+                                            RequestedCurrency := RequestedCurrency + "Currency Table".CurrencyCode + '|';
                                     until "Currency Table".Next() = 0;
                                 RequestedCurrency := DelChr(RequestedCurrency, '>', '|');
                             end;
@@ -507,7 +501,7 @@ report 50232 "ER - Customer Statement(Dim)"
         CityPostal := CompanyInformation.City + ' ' + CompanyInformation."Post Code";
         CompanyInformation.CalcFields(Picture);
         x := 1;
-        TimeNow := Format(System.CurrentDateTime());
+
         for i := 1 to 8 do begin
             if DimensionsArray[i] = true then begin
                 if i = 1 then begin
@@ -788,7 +782,7 @@ report 50232 "ER - Customer Statement(Dim)"
         Dim2ID: Integer;
         Dim1Value: Text;
         Dim2Value: Text;
-        FilteringCurrency: Code[10];
+        FilteringCurrency:Code[10];
         TotalAMT: Decimal;
 
         G_CurrencyCode: Code[10];
@@ -889,12 +883,6 @@ report 50232 "ER - Customer Statement(Dim)"
         OnesText: array[20] of Text[30];
         TensText: array[10] of Text[30];
         ExponentText: array[5] of Text[30];
-        PrintedOnLabel: Label 'Printed On:';
-        PageLabel: Label 'Page';
-        OfLabel: Label 'of';
-
-
-        TimeNow: Text[25];
 }
 
 

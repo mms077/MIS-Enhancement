@@ -18,14 +18,6 @@ report 50225 "ER - Customer Trial Balance"
             {
 
             }
-            column(PrintedOnLabel; PrintedOnLabel)
-            {
-
-            }
-            column(TimeNow; TimeNow)
-            {
-
-            }
             column(Company_Vat; compInfoRec."VAT Registration No.")
             {
 
@@ -332,7 +324,7 @@ report 50225 "ER - Customer Trial Balance"
         TempCurrencyTotal.Init();
         TempCurrencyTotal.CurrencyCode := '''''';
         if TempCurrencyTotal.Insert() then;
-        TimeNow := Format(System.CurrentDateTime());
+
     end;
 
     trigger OnInitReport()
@@ -390,8 +382,5 @@ report 50225 "ER - Customer Trial Balance"
         checkIfCustBalNull: Decimal;
         CompanyAddress: Text[250];
         AccountLbl: Text[250];
-        PrintedOnLabel: Label 'Printed On:';
-        PageLabel: Label 'Page';
-        OfLabel: Label 'of';
-        TimeNow: Text[25];
+
 }

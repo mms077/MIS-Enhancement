@@ -3376,12 +3376,12 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Code.BlankZero(Fields!G_L_Account___Net_Change_.Value)</Value>
+                                  <Value>=Code.BlankNegAndZero(Fields!G_L_Account___Net_Change_.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>=IIF(Fields!G_L_Account___Account_Type_.Value&lt;&gt;"0","Bold","Normal")</FontWeight>
-                                    <Format>#,0.00;-#,0.00;''</Format>
+                                    <Format>=Fields!G_L_Account___Net_Change_Format.Value</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3390,9 +3390,6 @@
                           </Paragraphs>
                           <ZIndex>21</ZIndex>
                           <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
                             <BackgroundColor>=iif(Code.GetRowColor() = TRUE, "#EBEBEB", "White")</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>3pt</PaddingLeft>
@@ -3443,12 +3440,12 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Code.BlankZero(Fields!G_L_Account___Net_Change__Control22.Value)</Value>
+                                  <Value>=Code.BlankNegAndZero(Fields!G_L_Account___Net_Change__Control22.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>=IIF(Fields!G_L_Account___Account_Type_.Value&lt;&gt;"0","Bold","Normal")</FontWeight>
-                                    <Format>#,0.00;-#,0.00;''</Format>
+                                    <Format>=Fields!G_L_Account___Net_Change__Control22Format.Value</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3457,9 +3454,6 @@
                           </Paragraphs>
                           <ZIndex>20</ZIndex>
                           <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
                             <BackgroundColor>=iif(Code.GetRowColor() = TRUE, "#EBEBEB", "White")</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>3pt</PaddingLeft>
@@ -3510,12 +3504,12 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Code.BlankZero(Fields!G_L_Account___Balance_at_Date_.Value)</Value>
+                                  <Value>=Code.BlankNegAndZero(Fields!G_L_Account___Balance_at_Date_.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>=IIF(Fields!G_L_Account___Account_Type_.Value&lt;&gt;"0","Bold","Normal")</FontWeight>
-                                    <Format>#,0.00;-#,0.00;''</Format>
+                                    <Format>=Fields!G_L_Account___Balance_at_Date_Format.Value</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3524,9 +3518,6 @@
                           </Paragraphs>
                           <ZIndex>19</ZIndex>
                           <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
                             <BackgroundColor>=iif(Code.GetRowColor() = TRUE, "#EBEBEB", "White")</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>3pt</PaddingLeft>
@@ -3577,12 +3568,12 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Code.BlankZero(Fields!G_L_Account___Balance_at_Date__Control24.Value)</Value>
+                                  <Value>=Code.BlankNegAndZero(Fields!G_L_Account___Balance_at_Date__Control24.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>=IIF(Fields!G_L_Account___Account_Type_.Value&lt;&gt;"0","Bold","Normal")</FontWeight>
-                                    <Format>#,0.00;-#,0.00;''</Format>
+                                    <Format>=Fields!G_L_Account___Balance_at_Date__Control24Format.Value</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3591,9 +3582,6 @@
                           </Paragraphs>
                           <ZIndex>18</ZIndex>
                           <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
                             <BackgroundColor>=iif(Code.GetRowColor() = TRUE, "#EBEBEB", "White")</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>3pt</PaddingLeft>
@@ -3645,12 +3633,12 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Code.BlankZero(Fields!G_L_Ending_Balance.Value)</Value>
+                                  <Value>=Code.BlankNegAndZero(Fields!G_L_Ending_Balance.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>=IIF(Fields!G_L_Account___Account_Type_.Value&lt;&gt;"0","Bold","Normal")</FontWeight>
-                                    <Format>#,0.00;-#,0.00;''</Format>
+                                    <Format>#,0.00;(#,0.00)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3713,12 +3701,12 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Code.BlankZero(Fields!G_L_Ending_Balance_Control24.Value)</Value>
+                                  <Value>=Code.BlankNegAndZero(Fields!G_L_Ending_Balance_Control24.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>=IIF(Fields!G_L_Account___Account_Type_.Value&lt;&gt;"0","Bold","Normal")</FontWeight>
-                                    <Format>#,0.00;-#,0.00;''</Format>
+                                    <Format>#,0.00;(#,0.00)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4390,12 +4378,12 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=LAST(Fields!BeginBalanceTotalDebit.Value)</Value>
+                                  <Value>=Sum(Fields!G_L_Account___Net_Change_.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Format>#,0.00;-#,0.00;''</Format>
+                                    <Format>#,0.00;(#,0.00)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4454,12 +4442,12 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=LAST(Fields!BeginBalanceTotalCredit.Value)</Value>
+                                  <Value>=Sum(Fields!G_L_Account___Net_Change__Control22.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Format>#,0.00;-#,0.00;''</Format>
+                                    <Format>#,0.00;(#,0.00)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4518,12 +4506,12 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=LAST(Fields!MovementTotalDebit.Value)</Value>
+                                  <Value>=Sum(Fields!G_L_Account___Balance_at_Date_.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Format>#,0.00;-#,0.00;''</Format>
+                                    <Format>#,0.00;(#,0.00)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4582,12 +4570,12 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Last(Fields!MovementTotalCredit.Value)</Value>
+                                  <Value>=Sum(Fields!G_L_Account___Balance_at_Date__Control24.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Format>#,0.00;-#,0.00;''</Format>
+                                    <Format>#,0.00;(#,0.00)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4646,12 +4634,12 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=LAST(Fields!EndingBalanceTotalDebit.Value)</Value>
+                                  <Value>=Sum(Fields!G_L_Ending_Balance.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Format>#,0.00;-#,0.00;''</Format>
+                                    <Format>#,0.00;(#,0.00)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4710,12 +4698,12 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=LAST(Fields!EndingBalanceTotalCredit.Value)</Value>
+                                  <Value>=Sum(Fields!G_L_Ending_Balance_Control24.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Format>#,0.00;-#,0.00;''</Format>
+                                    <Format>#,0.00;(#,0.00)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4776,6 +4764,7 @@
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
             <Top>4.42893cm</Top>
+            <Left>0cm</Left>
             <Height>0.45861cm</Height>
             <Width>27.46341cm</Width>
             <ZIndex>1</ZIndex>
@@ -4850,6 +4839,36 @@
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
             </Textbox>
+            <Textbox Name="ExecutionTimeTextBox">
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>="Printed On: " &amp; Format(Now(), "MM/dd/yyyy hh:mm")</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <Format>D</Format>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <Top>0.00718in</Top>
+              <Left>20.78561cm</Left>
+              <Height>0.423cm</Height>
+              <Width>6.67778cm</Width>
+              <ZIndex>2</ZIndex>
+              <Style>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+              </Style>
+            </Textbox>
             <Textbox Name="UserIdTextBox">
               <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
@@ -4873,7 +4892,7 @@
               <Left>20.78561cm</Left>
               <Height>0.423cm</Height>
               <Width>6.67778cm</Width>
-              <ZIndex>2</ZIndex>
+              <ZIndex>3</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
                 <PaddingLeft>2pt</PaddingLeft>
@@ -4918,7 +4937,7 @@
               <Left>20.78561cm</Left>
               <Height>0.423cm</Height>
               <Width>6.67778cm</Width>
-              <ZIndex>3</ZIndex>
+              <ZIndex>4</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -4930,9 +4949,11 @@
               <Value>=First(Fields!Company_Picture.Value, "DataSet_Result")</Value>
               <MIMEType>image/jpeg</MIMEType>
               <Sizing>FitProportional</Sizing>
-              <Height>1.17157cm</Height>
+              <Top>0cm</Top>
+              <Left>0cm</Left>
+              <Height>0.86424cm</Height>
               <Width>6.69317cm</Width>
-              <ZIndex>4</ZIndex>
+              <ZIndex>5</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -4940,6 +4961,7 @@
               </Style>
             </Image>
             <Textbox Name="Textbox3">
+              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -4956,10 +4978,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.17157cm</Top>
+              <Top>0.88053cm</Top>
+              <Left>0cm</Left>
               <Height>0.4cm</Height>
               <Width>7.7cm</Width>
-              <ZIndex>5</ZIndex>
+              <ZIndex>6</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -4967,9 +4990,12 @@
                 <VerticalAlign>Top</VerticalAlign>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
             <Textbox Name="Textbox4">
+              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -4986,10 +5012,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.02557cm</Top>
+              <Top>1.73453cm</Top>
+              <Left>0cm</Left>
               <Height>0.4cm</Height>
               <Width>7.7cm</Width>
-              <ZIndex>6</ZIndex>
+              <ZIndex>7</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -4997,9 +5024,12 @@
                 <VerticalAlign>Top</VerticalAlign>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
             <Textbox Name="Textbox5">
+              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -5016,10 +5046,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.43507cm</Top>
+              <Top>2.14403cm</Top>
+              <Left>0cm</Left>
               <Height>0.4cm</Height>
               <Width>7.7cm</Width>
-              <ZIndex>7</ZIndex>
+              <ZIndex>8</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -5027,9 +5058,12 @@
                 <VerticalAlign>Top</VerticalAlign>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
             <Textbox Name="Textbox6">
+              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -5046,10 +5080,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>2.84457cm</Top>
+              <Top>2.55353cm</Top>
+              <Left>0cm</Left>
               <Height>0.4cm</Height>
               <Width>7.7cm</Width>
-              <ZIndex>8</ZIndex>
+              <ZIndex>9</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -5057,9 +5092,12 @@
                 <VerticalAlign>Top</VerticalAlign>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
             <Textbox Name="Textbox11">
+              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -5076,10 +5114,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.25231cm</Top>
+              <Top>2.96127cm</Top>
+              <Left>0cm</Left>
               <Height>0.4cm</Height>
               <Width>7.7cm</Width>
-              <ZIndex>9</ZIndex>
+              <ZIndex>10</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -5087,9 +5126,12 @@
                 <VerticalAlign>Top</VerticalAlign>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
             <Textbox Name="Textbox12">
+              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -5106,10 +5148,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>3.66005cm</Top>
+              <Top>3.36901cm</Top>
+              <Left>0cm</Left>
               <Height>0.4cm</Height>
               <Width>7.7cm</Width>
-              <ZIndex>10</ZIndex>
+              <ZIndex>11</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -5117,9 +5160,12 @@
                 <VerticalAlign>Top</VerticalAlign>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
             <Textbox Name="Textbox16">
+              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -5136,10 +5182,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>4.06779cm</Top>
+              <Top>3.77675cm</Top>
+              <Left>0cm</Left>
               <Height>0.4cm</Height>
               <Width>7.7cm</Width>
-              <ZIndex>11</ZIndex>
+              <ZIndex>12</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -5147,6 +5194,8 @@
                 <VerticalAlign>Top</VerticalAlign>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
             <Textbox Name="FromDateLbl">
@@ -5172,7 +5221,7 @@
               <Left>22.46339cm</Left>
               <Height>0.6cm</Height>
               <Width>2.5cm</Width>
-              <ZIndex>12</ZIndex>
+              <ZIndex>13</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -5206,7 +5255,7 @@
               <Left>24.96339cm</Left>
               <Height>0.6cm</Height>
               <Width>2.5cm</Width>
-              <ZIndex>13</ZIndex>
+              <ZIndex>14</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -5240,7 +5289,7 @@
               <Left>22.46339cm</Left>
               <Height>0.6cm</Height>
               <Width>2.5cm</Width>
-              <ZIndex>14</ZIndex>
+              <ZIndex>15</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -5274,7 +5323,7 @@
               <Left>24.96339cm</Left>
               <Height>0.6cm</Height>
               <Width>2.5cm</Width>
-              <ZIndex>15</ZIndex>
+              <ZIndex>16</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -5308,7 +5357,7 @@
               <Left>22.46339cm</Left>
               <Height>0.6cm</Height>
               <Width>5cm</Width>
-              <ZIndex>16</ZIndex>
+              <ZIndex>17</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -5344,7 +5393,7 @@
               <Left>9.05954cm</Left>
               <Height>1.27072cm</Height>
               <Width>18.40385cm</Width>
-              <ZIndex>17</ZIndex>
+              <ZIndex>18</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -5356,6 +5405,7 @@
               </Style>
             </Textbox>
             <Textbox Name="Textbox17">
+              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -5372,10 +5422,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.60685cm</Top>
+              <Top>1.31581cm</Top>
+              <Left>0cm</Left>
               <Height>0.4cm</Height>
               <Width>7.7cm</Width>
-              <ZIndex>18</ZIndex>
+              <ZIndex>19</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -5383,37 +5434,8 @@
                 <VerticalAlign>Top</VerticalAlign>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox18">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=First(Fields!PrintedOnLabel.Value, "DataSet_Result") &amp; " " &amp; First(Fields!TimeNow.Value, "DataSet_Result")</Value>
-                      <Style>
-                        <FontSize>8pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox2</rd:DefaultName>
-              <Top>0cm</Top>
-              <Left>23.46339cm</Left>
-              <Height>0.40596cm</Height>
-              <Width>4cm</Width>
-              <ZIndex>19</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
           </ReportItems>
@@ -5487,18 +5509,6 @@ End Function
       <Fields>
         <Field Name="Company_Picture">
           <DataField>Company_Picture</DataField>
-        </Field>
-        <Field Name="PageLabel">
-          <DataField>PageLabel</DataField>
-        </Field>
-        <Field Name="OfLabel">
-          <DataField>OfLabel</DataField>
-        </Field>
-        <Field Name="TimeNow">
-          <DataField>TimeNow</DataField>
-        </Field>
-        <Field Name="PrintedOnLabel">
-          <DataField>PrintedOnLabel</DataField>
         </Field>
         <Field Name="Company_Capital">
           <DataField>Company_Capital</DataField>
@@ -5686,47 +5696,11 @@ End Function
         <Field Name="G_L_Ending_Balance_Control24Format">
           <DataField>G_L_Ending_Balance_Control24Format</DataField>
         </Field>
-        <Field Name="EndingBalanceTotalCredit">
-          <DataField>EndingBalanceTotalCredit</DataField>
-        </Field>
-        <Field Name="EndingBalanceTotalCreditFormat">
-          <DataField>EndingBalanceTotalCreditFormat</DataField>
-        </Field>
-        <Field Name="EndingBalanceTotalDebit">
-          <DataField>EndingBalanceTotalDebit</DataField>
-        </Field>
-        <Field Name="EndingBalanceTotalDebitFormat">
-          <DataField>EndingBalanceTotalDebitFormat</DataField>
-        </Field>
         <Field Name="G_L_Account___Account_Type_">
           <DataField>G_L_Account___Account_Type_</DataField>
         </Field>
         <Field Name="No__of_Blank_Lines">
           <DataField>No__of_Blank_Lines</DataField>
-        </Field>
-        <Field Name="BeginBalanceTotalCredit">
-          <DataField>BeginBalanceTotalCredit</DataField>
-        </Field>
-        <Field Name="BeginBalanceTotalCreditFormat">
-          <DataField>BeginBalanceTotalCreditFormat</DataField>
-        </Field>
-        <Field Name="BeginBalanceTotalDebit">
-          <DataField>BeginBalanceTotalDebit</DataField>
-        </Field>
-        <Field Name="BeginBalanceTotalDebitFormat">
-          <DataField>BeginBalanceTotalDebitFormat</DataField>
-        </Field>
-        <Field Name="MovementTotalCredit">
-          <DataField>MovementTotalCredit</DataField>
-        </Field>
-        <Field Name="MovementTotalCreditFormat">
-          <DataField>MovementTotalCreditFormat</DataField>
-        </Field>
-        <Field Name="MovementTotalDebit">
-          <DataField>MovementTotalDebit</DataField>
-        </Field>
-        <Field Name="MovementTotalDebitFormat">
-          <DataField>MovementTotalDebitFormat</DataField>
         </Field>
         <Field Name="BlankLineNo">
           <DataField>BlankLineNo</DataField>

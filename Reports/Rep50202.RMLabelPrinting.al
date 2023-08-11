@@ -58,7 +58,7 @@ report 50202 "RM Label Printing"
 
                 trigger OnPreDataItem();
                 begin
-                    NoOfLoops := NumberOfCopies();
+                    NoOfLoops := ABS(NoOfCopies) + 1;
                     CopyText := '';
                     SETRANGE(Number, 1, NoOfLoops);
                     OutputNo := 1;
@@ -201,14 +201,6 @@ report 50202 "RM Label Printing"
         if PrintBCContainingUOM then
             if "Barcode UOM" = '' then
                 Error(Txt001);
-    end;
-
-    procedure NumberOfCopies(): Integer;
-    var
-        myInt: Integer;
-    begin
-        NoOfLoops := ABS(NoOfCopies) + 1;
-        exit(NoOfLoops);
     end;
 
     var

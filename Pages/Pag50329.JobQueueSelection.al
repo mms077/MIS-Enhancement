@@ -1,7 +1,7 @@
 page 50329 "Job Queue Selection"
 {
     PageType = List;
-    ApplicationArea = All;
+    //ApplicationArea = All;
     UsageCategory = Lists;
     SourceTable = "Job Queue Selection";
 
@@ -9,19 +9,17 @@ page 50329 "Job Queue Selection"
     {
         area(Content)
         {
-            repeater(GroupName)
+            repeater(General)
             {
                 field("Job Queue Id"; rec."Job Queue Id")
                 {
                     ApplicationArea = All;
-
                 }
-                field("Job Queue Description"; rec."Job Queue Description") { ApplicationArea = all; }
+                field("Job Queue Description"; rec."Job Queue Description")
+                {
+                    ApplicationArea = all;
+                }
             }
-        }
-        area(Factboxes)
-        {
-
         }
     }
 
@@ -29,20 +27,18 @@ page 50329 "Job Queue Selection"
     {
         area(Processing)
         {
-            action("Make JobQueue Ready")
+            action("Set Job Queue Status Ready")
             {
                 ApplicationArea = All;
+                Image = ChangeTo;
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
-
                 trigger OnAction();
                 var
-                    jobQEntry: Record "Job Queue Entry";
-                    MakeStatusReady: Codeunit "Make Job Queue Status Ready";
+                    SetJobQueueReady: Codeunit "Set Job Queue Ready";
                 begin
-                    MakeStatusReady.Run();
-
+                    SetJobQueueReady.Run();
                 end;
             }
         }

@@ -442,7 +442,7 @@ report 50234 "Standard Purchase"
         FormNoLabel: Label 'Form #:';
         FormNoValueLabel: label 'ER\LB\AVER\BS-PO\100';
         IssueDateFooterLabel: Label 'Issue Date:';
-        IssueDateValueLabel: Label 'August 21';
+        IssueDateValueLabel: Label 'December 22';
         RevisionDateLabel: Label 'Revision Date:';
         AccountManagerLabel: Label 'Account Manager';
         ShippingMethodLabel: Label 'Shipping Method';

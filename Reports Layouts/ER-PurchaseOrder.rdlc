@@ -6214,8 +6214,7 @@ Fields!VATLabel.Value &amp; "[0%]")</Value>
                       <Value>=First(Fields!FormNoLabel.Value, "DataSet_Result") &amp; First(Fields!FormNoValueLabel.Value, "DataSet_Result")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
+                        <FontSize>6pt</FontSize>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -6246,8 +6245,7 @@ Fields!VATLabel.Value &amp; "[0%]")</Value>
                       <Value>=First(Fields!IssueDateFooterLabel.Value, "DataSet_Result") &amp; First(Fields!IssueDateValueLabel.Value, "DataSet_Result")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
+                        <FontSize>6pt</FontSize>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -6280,8 +6278,7 @@ Fields!VATLabel.Value &amp; "[0%]")</Value>
                       <Value>=First(Fields!RevisionDateLabel.Value, "DataSet_Result")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
+                        <FontSize>6pt</FontSize>
                       </Style>
                     </TextRun>
                   </TextRuns>

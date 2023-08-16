@@ -379,7 +379,7 @@ report 50234 "Standard Purchase"
         FormNoLabel: Label 'Form #:';
         FormNoValueLabel: label 'ER\LB\AVER\BS-PO\100';
         IssueDateFooterLabel: Label 'Issue Date:';
-        IssueDateValueLabel: Label 'Jan 23';
+        IssueDateValueLabel: Label 'December 22';
         RevisionDateLabel: Label 'Revision Date:';
         SupplyTheFollowingGoodsLabel: label 'Please supply the following Goods and/or Services';
         ThankYouForYourPromptLabel: label 'Thank you for your prompt handling of this order, please acknowledge receipt and acceptance.';

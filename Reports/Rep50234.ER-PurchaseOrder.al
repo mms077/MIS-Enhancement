@@ -185,7 +185,7 @@ report 50234 "Standard Purchase"
 
             column(BarcodeText; BarcodeText) { }
             column(AmountinWords; AmountinWords) { }
-            column(VAT_Percentage;VAT_Percentage) { }
+            column(VAT_Percentage; VAT_Percentage) { }
             dataitem("Purchase Line"; "Purchase Line")
             {
                 DataItemLink = "Document Type" = FIELD("Document Type"), "Document No." = FIELD("No.");

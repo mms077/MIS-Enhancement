@@ -9,7 +9,7 @@
             "request": "launch",
             "type": "al",
             "environmentType": "Sandbox",
-            "environmentName": "UAT_220623",
+            "environmentName": "UAT_230823",
             "startupObjectId": 50201,
             "startupObjectType": "Page",
             "breakOnError": "All",

@@ -32,22 +32,11 @@ pageextension 50210 "Customer List" extends "Customer List"
                     Caption = 'ER - Customer Statement';
                     Image = Report;
                     ApplicationArea = All;
-                    //RunObject = Report "ER - Customer Statement";
-
+                    RunObject = Report "ER - Customer Statement";
                     trigger OnAction()
-                    var
-                        CustStatement: Report "ER - Customer Statement";
-                        Customer: Record Customer;
                     begin
-                        Clear(CustStatement);
-
                         Customer.SetFilter("No.", Rec."No.");
-                        if Customer.FindFirst() then
-                            CustStatement.SetCust(Customer."No.");
-
-
-                        CustStatement.Run();
-
+                        Report.Run(Report::"ER - Customer Statement", true, true, Customer);
                     end;
                 }
                 action("ER - Customer Statement With Dimension")
@@ -57,14 +46,9 @@ pageextension 50210 "Customer List" extends "Customer List"
                     ApplicationArea = All;
                     RunObject = Report "ER - Customer Statement(Dim)";
                     trigger OnAction()
-                    var
-                        CustStatement: Report "ER - Customer Statement";
-                        Customer: Record Customer;
                     begin
-                         Customer.SetFilter("No.", Rec."No.");
-                         Report.Run(Report::"ER - Customer Statement(Dim)", true, true, Customer);
-
-
+                        Customer.SetFilter("No.", Rec."No.");
+                        Report.Run(Report::"ER - Customer Statement(Dim)", true, true, Customer);
                     end;
                 }
                 action("ER - Customer - Summary Aging")

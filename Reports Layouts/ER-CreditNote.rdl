@@ -409,6 +409,7 @@ Fields!VATLabel.Value &amp; "[0%]") &amp; IIF(First(Fields!FrenchReport.Value, "
                                           <PaddingBottom>2pt</PaddingBottom>
                                         </Style>
                                       </Textbox>
+                                      <rd:Selected>true</rd:Selected>
                                     </CellContents>
                                   </TablixCell>
                                   <TablixCell>
@@ -754,7 +755,7 @@ Fields!VATLabel.Value &amp; "[0%]") &amp; IIF(First(Fields!FrenchReport.Value, "
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=First(Fields!PageLabel.Value, "DataSet_Result") &amp; " " &amp; Globals!PageNumber &amp; First(Fields!OfLabel.Value, "DataSet_Result") &amp; " " &amp; Globals!TotalPages</Value>
+                      <Value>=First(Fields!PageLabel.Value, "DataSet_Result") &amp; Globals!PageNumber &amp; First(Fields!OfLabel.Value, "DataSet_Result") &amp; Globals!TotalPages</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -1560,9 +1561,6 @@ Fields!VATLabel.Value &amp; "[0%]") &amp; IIF(First(Fields!FrenchReport.Value, "
                   <Height>0.6cm</Height>
                   <Width>3.33596cm</Width>
                   <ZIndex>15</ZIndex>
-                  <Visibility>
-                    <Hidden>=First(Fields!FrenchReport.Value, "DataSet_Result")</Hidden>
-                  </Visibility>
                   <Style>
                     <Border>
                       <Style>None</Style>
@@ -1596,9 +1594,6 @@ Fields!VATLabel.Value &amp; "[0%]") &amp; IIF(First(Fields!FrenchReport.Value, "
                   <Height>0.6cm</Height>
                   <Width>7.55845cm</Width>
                   <ZIndex>16</ZIndex>
-                  <Visibility>
-                    <Hidden>=First(Fields!FrenchReport.Value, "DataSet_Result")</Hidden>
-                  </Visibility>
                   <Style>
                     <Border>
                       <Style>None</Style>

@@ -2682,6 +2682,7 @@ Fields!VATLabel.Value &amp; "[0%]") &amp; " " &amp; Fields!BillTo_Currency.Value
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -3254,7 +3255,7 @@ Fields!VATLabel.Value &amp; "[0%]") &amp; " " &amp; Fields!BillTo_Currency.Value
       <Width>19cm</Width>
       <Page>
         <PageHeader>
-          <Height>5.88349cm</Height>
+          <Height>8.15891cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -3695,7 +3696,7 @@ Fields!VATLabel.Value &amp; "[0%]") &amp; " " &amp; Fields!BillTo_Currency.Value
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox8</rd:DefaultName>
-              <Top>5.00916cm</Top>
+              <Top>6.27916cm</Top>
               <Left>13.5cm</Left>
               <Height>0.67084cm</Height>
               <Width>5.5cm</Width>

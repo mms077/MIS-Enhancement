@@ -36,6 +36,26 @@ pageextension 50233 "Purchase Order List" extends "Purchase Order List"
             }
         }
     }
+    actions{
+        addfirst(Reporting)
+        {
+            group("ER - Reports")
+            {
+                Caption = 'ER Reports';
+                action("ER - Purchase Order")
+                {
+                    Caption = 'ER - Purchase Order';
+                    ApplicationArea = All;
+                    Image = Report;
+                    trigger OnAction()
+                    begin
+                        G_PurchaseOrder.SetFilter("No.", Rec."No.");
+                        Report.Run(Report::"Standard Purchase", true, true, G_PurchaseOrder);
+                    end;
+                }
+            }
+        }
+    }
     trigger OnOpenPage()
     var
         MasterItemCodeunit: Codeunit MasterItem;
@@ -62,4 +82,5 @@ pageextension 50233 "Purchase Order List" extends "Purchase Order List"
     var
         CostVisible: Boolean;
         ICCustomerName: Text[150];
+        G_PurchaseOrder: Record "Purchase Header";
 }

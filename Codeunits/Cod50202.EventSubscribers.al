@@ -717,6 +717,10 @@ codeunit 50202 EventSubscribers
         PostedAssemblyLine: Record "Posted Assembly Line";
         AssemblyLine: Record "Assembly Line";
         QtyRate: Decimal;
+        CUManagement: Codeunit Management;
+        NeededRawMaterialLoc: Record "Needed Raw Material";
+        NeededRawMaterialBatch: Integer;
+        LineNumber: Integer;
     begin
         //Delete old lines
         Clear(AssemblyLine);
@@ -731,6 +735,7 @@ codeunit 50202 EventSubscribers
             Clear(PostedAssemblyHeader);
             PostedAssemblyHeader.SetRange("Item No.", ItemVariantLoc."Item No.");
             PostedAssemblyHeader.SetRange("Variant Code", ItemVariantLoc."Code");
+            //Check if there is an old posted assembly
             if PostedAssemblyHeader.FindLast() then begin
                 Clear(PostedAssemblyLine);
                 PostedAssemblyLine.SetRange("Document No.", PostedAssemblyHeader."No.");
@@ -756,8 +761,40 @@ codeunit 50202 EventSubscribers
                         AssemblyLine.AutoReserve();
                     #endregion[Create Assembly Line]   
                     until PostedAssemblyLine.Next() = 0;
-            end else
-                Message(Txt001);
+                exit;
+            end else begin
+                //Create for new variant (No posted assembly found)
+                NeededRawMaterialBatch := CUManagement.CreateNeededRawMaterialForDesignSecParamLines(ItemVariantLoc, AssemblyHeaderPar);
+                if NeededRawMaterialBatch <> 0 then begin
+                    Clear(NeededRawMaterialLoc);
+                    NeededRawMaterialLoc.SetRange(Batch, NeededRawMaterialBatch);
+                    if NeededRawMaterialLoc.FindSet() then
+                        repeat
+                            #region[Create Assembly Line]
+                            LineNumber := LineNumber + 10000;
+                            Clear(AssemblyLine);
+                            AssemblyLine.Init();
+                            AssemblyLine."Document Type" := AssemblyHeaderPar."Document Type";
+                            AssemblyLine."Document No." := AssemblyHeaderPar."No.";
+                            AssemblyLine."Line No." := LineNumber;
+                            AssemblyLine.Validate(Type, AssemblyLine.Type::Item);
+                            AssemblyLine.Validate("No.", NeededRawMaterialLoc."RM Code");
+                            //Raw Material Variant Code
+                            AssemblyLine.Validate("Variant Code", NeededRawMaterialLoc."RM Variant Code");
+                            AssemblyLine.Validate("Location Code", NeededRawMaterialLoc."Sales Line Location Code");
+                            //Calculate Quantity Rate
+                            AssemblyLine.Validate("Quantity Per", NeededRawMaterialLoc."Assembly Line Quantity");
+                            AssemblyLine.Validate("Quantity", NeededRawMaterialLoc."Assembly Line Quantity" * AssemblyHeaderPar.Quantity);
+                            AssemblyLine.Validate("Unit of Measure Code", NeededRawMaterialLoc."Assembly Line UOM Code");
+                            AssemblyLine.Validate(Reserve, AssemblyLine.Reserve::Always);
+                            AssemblyLine.Insert(true);
+                            AssemblyLine.AutoReserve();
+                        #endregion[Create Assembly Line]          
+                        until NeededRawMaterialLoc.Next() = 0;
+                end;
+                exit;
+            end;
+            Message(Txt001);
         end;
     end;
     #endregion

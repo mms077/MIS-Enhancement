@@ -12079,7 +12079,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - NamedType PageLabeFR</note>
         </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 2114161126" size-unit="char" translate="yes" xml:space="preserve">
-          <source>CE DEVIS EST COMPOSÉ DE 2 PAGES, CONDITIONS GÉNÉRALES DE VENTE INCLUSES.</source>
+          <source>Ce devis est compose de .. pages, (CGV incluses).</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - NamedType PageLabelValueFR</note>
         </trans-unit>
@@ -12102,6 +12102,16 @@
           <source>Project</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - NamedType ProjectLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 280137910 - NamedType 3247085993" size-unit="char" translate="yes" xml:space="preserve">
+          <source>August23-001</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - NamedType RevisionDate</note>
+        </trans-unit>
+        <trans-unit id="Report 280137910 - NamedType 2901136733" size-unit="char" translate="yes" xml:space="preserve">
+          <source> Août23-001</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - NamedType RevisionDateFrench</note>
         </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 2129571611" size-unit="char" translate="yes" xml:space="preserve">
           <source>Revision Date/#</source>
@@ -12382,16 +12392,6 @@
           <source>Language</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - Control SelectedLanguage - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 280137910 - Control 4120116858 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Show Item Color</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - Control ShowColor - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 280137910 - Control 3178558954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Show Item Size</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - Control ShowSize - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 149855644 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ER - Purchase Order</source>

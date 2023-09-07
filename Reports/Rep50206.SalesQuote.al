@@ -28,14 +28,6 @@ report 50206 "Sales Quote"
             column(TotalLineDiscountAmt; TotalLineDiscountAmt) { }
             column(BarcodeText; BarcodeText) { }
             column(PaymentTerms_Description; GlobalPaymentTerms.Description) { }
-            column(ShowColor; ShowColor)
-            {
-
-            }
-            column(ShowSize; ShowSize)
-            {
-
-            }
             column(TotalStaff; TotalStaff)
             {
 
@@ -383,6 +375,8 @@ report 50206 "Sales Quote"
             column(FrenchReport; FrenchReport) { }
             column(OfLabel; OfLabel) { }
             column(SalesQuoteLabel; SalesQuoteLabel) { }
+            column(RevisionDate; RevisionDate) { }
+            column(RevisionDateFrench; RevisionDateFrench) { }
 
             #endregion
             column(VAT_Percentage; VAT_Percentage) { }
@@ -608,38 +602,10 @@ report 50206 "Sales Quote"
                         }
 
                     }
-
-                    field(ShowColor; ShowColor)
-                    {
-                        ApplicationArea = all;
-                        Caption = 'Show Item Color';
-                        trigger OnValidate()
-                        begin
-                            if ShowColor = true then
-                                ShowSize := false;
-                        end;
-                    }
-                    field(ShowSize; ShowSize)
-                    {
-                        ApplicationArea = all;
-                        Caption = 'Show Item Size';
-                        trigger OnValidate()
-                        begin
-                            if ShowSize = true then
-                                ShowColor := false;
-                        end;
-                    }
                 }
             }
 
         }
-        trigger OnInit()
-        begin
-            ShowColor := true;
-        end;
-
-
-
     }
     trigger OnPreReport()
     begin
@@ -704,8 +670,6 @@ report 50206 "Sales Quote"
         SellToContact: Record Contact;
         GlobalColor: Record Color;
         GlobalShipmentMethod: Record "Shipment Method";
-        ShowColor: Boolean;
-        ShowSize: Boolean;
         TotalStaffing: Decimal;
         TotalStaff: Integer;
         TotalWeeks: Decimal;
@@ -713,6 +677,8 @@ report 50206 "Sales Quote"
         FrenchReport: Boolean;
         VAT_Percentage: Decimal;
         G_Description: Text[100];
+        RevisionDate: label 'August23-001';
+        RevisionDateFrench: label ' Août23-001';
         CapitalLabel: Label 'Capital';
         VATCodeLabel: Label 'VAT Code';
         AddressLabel: Label 'Address';
@@ -765,7 +731,7 @@ report 50206 "Sales Quote"
         PagesLabel: Label 'pages';
         ApprovalLabel: Label 'Approval';
         PageLabeFR: Label '7- PAGES |';
-        PageLabelValueFR: Label 'CE DEVIS EST COMPOSÉ DE 2 PAGES, CONDITIONS GÉNÉRALES DE VENTE INCLUSES.';
+        PageLabelValueFR: Label 'Ce devis est compose de .. pages, (CGV incluses).';
         SalesTermsConditionsLabel: Label 'Sales Terms and Conditions';
         IncotermsTermsLabel: Label 'Incoterms';
         ImportantNoticeLabel: Label '- Important Notice -';

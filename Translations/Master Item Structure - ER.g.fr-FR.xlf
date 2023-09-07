@@ -9610,7 +9610,7 @@
         </trans-unit>
         <trans-unit id="Report 2733876863 - NamedType 3231837742" translate="yes" xml:space="preserve">
           <source>PLASTIC BAGS IN STRONG EXPORT CARTONS</source>
-          <target state="translated" state-qualifier="id-match">SACS EN PLASTIQUE DANS DES COLIS EN CARTON.</target>
+          <target state="translated" state-qualifier="id-match">Sacs en plastique dans des colis en carton.</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Sales Quote With Visuals - NamedType PackagingValueLabel</note>
         </trans-unit>
         <trans-unit id="Report 2733876863 - NamedType 1651657815" translate="yes" xml:space="preserve">
@@ -9620,7 +9620,7 @@
         </trans-unit>
         <trans-unit id="Report 2733876863 - NamedType 2114161126" translate="yes" xml:space="preserve">
           <source>CE DEVIS EST COMPOSÉ DE 2 PAGES, CONDITIONS GÉNÉRALES DE VENTE INCLUSES.</source>
-          <target state="translated" state-qualifier="id-match">CEVIS EST COMPOSÉ DE 2 PAGES, CONDITIONS GÉNÉRALES DE VENTE INCLUSES.</target>
+          <target state="translated" state-qualifier="id-match">Ce devis est compose de .. pages, (CGV incluses).</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Sales Quote With Visuals - NamedType PageLabelValueFR</note>
         </trans-unit>
         <trans-unit id="Report 2733876863 - NamedType 435495042" translate="yes" xml:space="preserve">
@@ -9650,7 +9650,7 @@
         </trans-unit>
         <trans-unit id="Report 2733876863 - NamedType 2721430032" translate="yes" xml:space="preserve">
           <source>Sales Quote</source>
-          <target state="translated" state-qualifier="id-match">Devis De Vente</target>
+          <target state="translated" state-qualifier="id-match">Devis</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Sales Quote With Visuals - NamedType SalesQuoteLabel</note>
         </trans-unit>
         <trans-unit id="Report 2733876863 - NamedType 899013269" translate="yes" xml:space="preserve">
@@ -9815,7 +9815,7 @@
         </trans-unit>
         <trans-unit id="Report 2733876863 - NamedType 2334428569" translate="yes" xml:space="preserve">
           <source>THIS QUOTATION IS VALID FOR 1 MONTH</source>
-          <target state="translated" state-qualifier="id-match">UN (1) MOIS</target>
+          <target state="translated" state-qualifier="id-match">Un (1) mois</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Sales Quote With Visuals - NamedType ValidityValueLabel</note>
         </trans-unit>
         <trans-unit id="Report 2733876863 - NamedType 1155214995" translate="yes" xml:space="preserve">
@@ -11880,12 +11880,12 @@
         </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 193543411" translate="yes" xml:space="preserve">
           <source>Bank Account</source>
-          <target state="translated" state-qualifier="id-match">Compte bancaire</target>
+          <target state="translated" state-qualifier="id-match">Banque</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - NamedType BankAccountLabel</note>
         </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 32076568" translate="yes" xml:space="preserve">
           <source>Capital</source>
-          <target state="translated" state-qualifier="id-match">Capitale</target>
+          <target state="translated" state-qualifier="id-match">Capital</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - NamedType CapitalLabel</note>
         </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 3261634013" translate="yes" xml:space="preserve">
@@ -11895,7 +11895,7 @@
         </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 911659901" translate="yes" xml:space="preserve">
           <source>Contact Person</source>
-          <target state="translated" state-qualifier="id-match">Personne à contacter</target>
+          <target state="translated" state-qualifier="id-match">Acheteur</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - NamedType ContactPersonLabel</note>
         </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 179733202" translate="yes" xml:space="preserve">
@@ -11925,12 +11925,12 @@
         </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 4114003510" translate="yes" xml:space="preserve">
           <source>Delivery</source>
-          <target state="translated" state-qualifier="id-match">1 - LIVRAISON |</target>
+          <target state="translated" state-qualifier="id-match">1 - DELAI DE LIVRAISON |</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - NamedType DeliveryLabel</note>
         </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 1232940227" translate="yes" xml:space="preserve">
           <source>weeks – From Sizes Confirmation Date.</source>
-          <target state="translated" state-qualifier="id-match">SEMAINES</target>
+          <target state="translated" state-qualifier="id-match">Semaines à partir de la date de reception du devis signé et de l'acompte</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - NamedType DeliveryValueLabel</note>
         </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 3093731364" translate="yes" xml:space="preserve">
@@ -11960,7 +11960,7 @@
         </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 2768316182" translate="yes" xml:space="preserve">
           <source>Grand Total</source>
-          <target state="translated" state-qualifier="id-match">Total général</target>
+          <target state="translated" state-qualifier="id-match">Total TTC</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - NamedType GrandTotalLabel</note>
         </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 2457913028" translate="yes" xml:space="preserve">
@@ -12040,7 +12040,7 @@
         </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 3231837742" translate="yes" xml:space="preserve">
           <source>PLASTIC BAGS IN STRONG EXPORT CARTONS</source>
-          <target state="translated" state-qualifier="id-match">SACS EN PLASTIQUE DANS DES COLIS EN CARTON.</target>
+          <target state="translated" state-qualifier="id-match">Sacs en plastique dans des colis en carton.</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - NamedType PackagingValueLabel</note>
         </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 1651657815" translate="yes" xml:space="preserve">
@@ -12050,7 +12050,7 @@
         </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 2114161126" translate="yes" xml:space="preserve">
           <source>CE DEVIS EST COMPOSÉ DE 2 PAGES, CONDITIONS GÉNÉRALES DE VENTE INCLUSES.</source>
-          <target state="translated" state-qualifier="id-match">CEVIS EST COMPOSÉ DE 2 PAGES, CONDITIONS GÉNÉRALES DE VENTE INCLUSES.</target>
+          <target state="translated" state-qualifier="id-match">Ce devis est compose de .. pages, (CGV incluses).</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - NamedType PageLabelValueFR</note>
         </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 435495042" translate="yes" xml:space="preserve">
@@ -12060,7 +12060,7 @@
         </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 1719548989" translate="yes" xml:space="preserve">
           <source>Par Level</source>
-          <target state="translated" state-qualifier="id-match">Par Level</target>
+          <target state="translated" state-qualifier="id-match">Dotation</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - NamedType ParLevelLabel</note>
         </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 406901249" translate="yes" xml:space="preserve">
@@ -12080,7 +12080,7 @@
         </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 2721430032" translate="yes" xml:space="preserve">
           <source>Sales Quote</source>
-          <target state="translated" state-qualifier="id-match">Devis De Vente</target>
+          <target state="translated" state-qualifier="id-match">Devis</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - NamedType SalesQuoteLabel</note>
         </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 899013269" translate="yes" xml:space="preserve">
@@ -12100,7 +12100,7 @@
         </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 4128537253" translate="yes" xml:space="preserve">
           <source>STANDARD EUROPEAN SIZES</source>
-          <target state="translated" state-qualifier="id-match">STANDARD EUROPÉENNES</target>
+          <target state="translated" state-qualifier="id-match">Europeennes Standard</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - NamedType SizesValueLabel</note>
         </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 2746585894" translate="yes" xml:space="preserve">
@@ -12205,7 +12205,7 @@
         </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 3650213542" translate="yes" xml:space="preserve">
           <source>4. Sizes:</source>
-          <target state="translated" state-qualifier="id-match">5. Livraison |</target>
+          <target state="translated" state-qualifier="id-match">5. DELAI DE LIVRAISON |</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - NamedType TermsAndCondLabel_4_title</note>
         </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 477784120" translate="yes" xml:space="preserve">
@@ -12270,7 +12270,7 @@
         </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 4249629696" translate="yes" xml:space="preserve">
           <source>Totals</source>
-          <target state="translated" state-qualifier="id-match">Totaux</target>
+          <target state="translated" state-qualifier="id-match">Total</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - NamedType TotalLabel</note>
         </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 3908922203" translate="yes" xml:space="preserve">
@@ -12290,7 +12290,7 @@
         </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 1621739198" translate="yes" xml:space="preserve">
           <source>Total Staff</source>
-          <target state="translated" state-qualifier="id-match">NOMBRE DU PERSONNEL</target>
+          <target state="translated" state-qualifier="id-match">Total d'effectifs</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - NamedType TotalStaffLabel</note>
         </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 686015717" translate="yes" xml:space="preserve">
@@ -12310,7 +12310,7 @@
         </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 3688251240" translate="yes" xml:space="preserve">
           <source>Validity</source>
-          <target state="translated" state-qualifier="id-match">5- DURÉE DE L'OFFRE |</target>
+          <target state="translated" state-qualifier="id-match">5- VALIDITE DU DEVIS |</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - NamedType ValidityLabel</note>
         </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 2334428569" translate="yes" xml:space="preserve">
@@ -12325,7 +12325,7 @@
         </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 3794146812" translate="yes" xml:space="preserve">
           <source>VAT Code</source>
-          <target state="translated" state-qualifier="id-match">Code de la TVA</target>
+          <target state="translated" state-qualifier="id-match">Numero TVA</target>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote - NamedType VATCodeLabel</note>
         </trans-unit>
         <trans-unit id="Report 280137910 - NamedType 3239557063" translate="yes" xml:space="preserve">

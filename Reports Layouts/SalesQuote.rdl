@@ -530,7 +530,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=iif(First(Fields!FrenchReport.Value, "DataSet_Result"),"50% (TTC) À LA COMMANDE; LA BALANCE À LA LIVRAISON",First(Fields!Incoterms.Value, "DataSet_Result"))</Value>
+                                  <Value>=iif(First(Fields!FrenchReport.Value, "DataSet_Result"),"50% (TTC) a la commande, balance a la livraison",First(Fields!Incoterms.Value, "DataSet_Result"))</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -605,7 +605,7 @@
                     <TablixCell />
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox62">
+                        <Textbox Name="Textbox70">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -622,7 +622,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox62</rd:DefaultName>
+                          <rd:DefaultName>Textbox70</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -644,6 +644,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -691,13 +692,7 @@
                   <Width>0.62118cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.5509cm</Width>
-                </TablixColumn>
-                <TablixColumn>
                   <Width>1.61989cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>1.46284cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>4.61905cm</Width>
@@ -706,7 +701,7 @@
                   <Width>1.88277cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.04839cm</Width>
+                  <Width>1.33325cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.10563cm</Width>
@@ -718,7 +713,10 @@
                   <Width>1.68949cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.84965cm</Width>
+                  <Width>2.07853cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.5cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -764,43 +762,6 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox74">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=First(Fields!DesignRefLabel.Value, "DataSet_Result")</Value>
-                                  <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>7pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox57</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
                         <Textbox Name="Textbox78">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -822,43 +783,6 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox57</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <BackgroundColor>LightGrey</BackgroundColor>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox21">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=First(Fields!HsCodeLabel.Value, "DataSet_Result")</Value>
-                                  <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>7pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox21</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -1102,7 +1026,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!ShowColor.Value, "DataSet_Result"),First(Fields!ColorLabel.Value, "DataSet_Result"),IIF(First(Fields!ShowSize.Value, "DataSet_Result"),First(Fields!SizeLabel.Value, "DataSet_Result"),""))</Value>
+                                  <Value>=First(Fields!SizeLabel.Value, "DataSet_Result")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -1116,6 +1040,43 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox61</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>LightGrey</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox21">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=First(Fields!ColorLabel.Value, "DataSet_Result")</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>7pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox21</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -1172,41 +1133,6 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox54">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>7pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox50</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
                         <Textbox Name="Textbox22">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -1227,41 +1153,6 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox22</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox24">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>7pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox24</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -1521,6 +1412,41 @@
                         </Textbox>
                       </CellContents>
                     </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox24">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>7pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox24</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
@@ -1563,41 +1489,6 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox63">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>7pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox62</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
                         <Textbox Name="Textbox23">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -1618,41 +1509,6 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox23</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox26">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>7pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox26</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -1911,6 +1767,41 @@
                         </Textbox>
                       </CellContents>
                     </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox26">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>7pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox26</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
@@ -1959,47 +1850,6 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="ItemNo4">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!ItemDesign.Value</Value>
-                                  <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>7pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>ItemNo</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
                         <Textbox Name="ItemNo3">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -2008,47 +1858,6 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!ItemNo.Value</Value>
-                                  <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>7pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>ItemNo</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <TopBorder>
-                              <Style>None</Style>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="ItemNo6">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Hs_Code.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -2338,8 +2147,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(First(Fields!ShowColor.Value, "DataSet_Result"),Fields!ColorName.Value,
-IIF(First(Fields!ShowSize.Value, "DataSet_Result"),Fields!SizeName.Value,""))</Value>
+                                  <Value>=Fields!SizeName.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -2352,6 +2160,47 @@ IIF(First(Fields!ShowSize.Value, "DataSet_Result"),Fields!SizeName.Value,""))</V
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox19</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox28">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!ColorName.Value</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>7pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox28</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -2413,41 +2262,6 @@ IIF(First(Fields!ShowSize.Value, "DataSet_Result"),Fields!SizeName.Value,""))</V
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox123">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>7pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox121</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
                         <Textbox Name="Textbox25">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -2468,41 +2282,6 @@ IIF(First(Fields!ShowSize.Value, "DataSet_Result"),Fields!SizeName.Value,""))</V
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox25</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox28">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>7pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox28</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -2737,6 +2516,42 @@ IIF(First(Fields!ShowSize.Value, "DataSet_Result"),Fields!SizeName.Value,""))</V
                         </Textbox>
                       </CellContents>
                     </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox34">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>7pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox34</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
               </TablixRows>
@@ -2753,11 +2568,6 @@ IIF(First(Fields!ShowSize.Value, "DataSet_Result"),Fields!SizeName.Value,""))</V
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
-                <TablixMember>
-                  <Visibility>
-                    <Hidden>=IIF(Fields!ShowColor.Value,false,IIF(Fields!ShowSize.Value,false,true))</Hidden>
-                  </Visibility>
-                </TablixMember>
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -2936,7 +2746,7 @@ IIF(First(Fields!ShowSize.Value, "DataSet_Result"),Fields!SizeName.Value,""))</V
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!TotalLabel.Value</Value>
+                                  <Value>=IIF(First(Fields!FrenchReport.Value, "DataSet_Result"),"Sous-Total",Fields!TotalLabel.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -3383,7 +3193,7 @@ Fields!VATLabel.Value &amp; "0%")</Value>
                 <TablixBody>
                   <TablixColumns>
                     <TablixColumn>
-                      <Width>18.99638cm</Width>
+                      <Width>19cm</Width>
                     </TablixColumn>
                   </TablixColumns>
                   <TablixRows>
@@ -4119,9 +3929,9 @@ Fields!VATLabel.Value &amp; "0%")</Value>
                     <TablixMember />
                   </TablixMembers>
                 </TablixRowHierarchy>
-                <Left>0.00354cm</Left>
+                <Top>0.18521cm</Top>
                 <Height>8.2cm</Height>
-                <Width>18.99638cm</Width>
+                <Width>19cm</Width>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -4133,10 +3943,13 @@ Fields!VATLabel.Value &amp; "0%")</Value>
               <BreakLocation>Start</BreakLocation>
             </PageBreak>
             <KeepTogether>true</KeepTogether>
-            <Top>17.74134cm</Top>
-            <Height>8.45752cm</Height>
-            <Width>18.99996cm</Width>
+            <Top>17.87363cm</Top>
+            <Height>8.51926cm</Height>
+            <Width>19cm</Width>
             <ZIndex>4</ZIndex>
+            <Visibility>
+              <Hidden>=First(Fields!FrenchReport.Value, "DataSet_Result")</Hidden>
+            </Visibility>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -4228,8 +4041,8 @@ Fields!VATLabel.Value &amp; "0%")</Value>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>1.63462cm</Top>
-            <Height>0.48cm</Height>
+            <Top>1.57812cm</Top>
+            <Height>0.5365cm</Height>
             <Width>2.88973cm</Width>
             <ZIndex>7</ZIndex>
             <Style>
@@ -4250,7 +4063,7 @@ Fields!VATLabel.Value &amp; "0%")</Value>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=iif(First(Fields!FrenchReport.Value, "DataSet_Result"),"Nom français",First(Fields!ArabicNameLabel.Value, "DataSet_Result"))</Value>
+                    <Value>=First(Fields!ArabicNameLabel.Value, "DataSet_Result")</Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>8pt</FontSize>
@@ -4265,6 +4078,9 @@ Fields!VATLabel.Value &amp; "0%")</Value>
             <Height>0.48cm</Height>
             <Width>2.88973cm</Width>
             <ZIndex>8</ZIndex>
+            <Visibility>
+              <Hidden>=First(Fields!FrenchReport.Value, "DataSet_Result")</Hidden>
+            </Visibility>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -4520,7 +4336,7 @@ Fields!VATLabel.Value &amp; "0%")</Value>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=iif(First(Fields!FrenchReport.Value, "DataSet_Result"),First(Fields!CustomerFrenchName.Value, "DataSet_Result"),First(Fields!CustomerArabicName.Value, "DataSet_Result"))</Value>
+                    <Value>=First(Fields!CustomerArabicName.Value, "DataSet_Result")</Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>8pt</FontSize>
@@ -4538,6 +4354,9 @@ Fields!VATLabel.Value &amp; "0%")</Value>
             <Height>0.48cm</Height>
             <Width>6.51067cm</Width>
             <ZIndex>16</ZIndex>
+            <Visibility>
+              <Hidden>=First(Fields!FrenchReport.Value, "DataSet_Result")</Hidden>
+            </Visibility>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -4763,7 +4582,7 @@ Fields!VATLabel.Value &amp; "0%")</Value>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!ApprovalLabel.Value, "DataSet_Result")</Value>
+                    <Value>=IIF(First(Fields!FrenchReport.Value, "DataSet_Result"),"Signature du client et cachet commercial",First(Fields!ApprovalLabel.Value, "DataSet_Result"))</Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontWeight>Bold</FontWeight>
@@ -4815,6 +4634,9 @@ Fields!VATLabel.Value &amp; "0%")</Value>
             <Height>0.6cm</Height>
             <Width>4.02156cm</Width>
             <ZIndex>24</ZIndex>
+            <Visibility>
+              <Hidden>=First(Fields!FrenchReport.Value, "DataSet_Result")</Hidden>
+            </Visibility>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -4849,6 +4671,9 @@ Fields!VATLabel.Value &amp; "0%")</Value>
             <Height>0.6cm</Height>
             <Width>4.02156cm</Width>
             <ZIndex>25</ZIndex>
+            <Visibility>
+              <Hidden>=First(Fields!FrenchReport.Value, "DataSet_Result")</Hidden>
+            </Visibility>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -4871,14 +4696,205 @@ Fields!VATLabel.Value &amp; "0%")</Value>
               </Border>
             </Style>
           </Line>
+          <Textbox Name="Textbox54">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>="Date"</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox8</rd:DefaultName>
+            <Top>15.67016cm</Top>
+            <Left>13.63407cm</Left>
+            <Height>0.6cm</Height>
+            <Width>4.02156cm</Width>
+            <ZIndex>27</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Line Name="Line2">
+            <Top>15.45849cm</Top>
+            <Left>12.93313cm</Left>
+            <Height>0cm</Height>
+            <Width>5.46333cm</Width>
+            <ZIndex>28</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Rectangle Name="Rectangle1">
+            <ReportItems>
+              <Tablix Name="Tablix5">
+                <TablixBody>
+                  <TablixColumns>
+                    <TablixColumn>
+                      <Width>19cm</Width>
+                    </TablixColumn>
+                  </TablixColumns>
+                  <TablixRows>
+                    <TablixRow>
+                      <Height>0.6cm</Height>
+                      <TablixCells>
+                        <TablixCell>
+                          <CellContents>
+                            <Textbox Name="Textbox99">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>="Conditions Générales de Vente"</Value>
+                                      <Style>
+                                        <FontFamily>Segoe UI</FontFamily>
+                                        <FontSize>7pt</FontSize>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Center</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox99</rd:DefaultName>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <BackgroundColor>Silver</BackgroundColor>
+                                <VerticalAlign>Middle</VerticalAlign>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                          </CellContents>
+                        </TablixCell>
+                      </TablixCells>
+                    </TablixRow>
+                    <TablixRow>
+                      <Height>0.6cm</Height>
+                      <TablixCells>
+                        <TablixCell>
+                          <CellContents>
+                            <Textbox Name="Textbox63">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>="1.Objet et champ d’application. Toute commande passée à la société Emile Rassam Monte Carlo (ERMC) implique l’acceptation sans réserve et l’adhésion pleine et entière de l’Acheteur aux présentes conditions générales de vente. Sauf accord écrit et préalable entre les parties, tout autre document que les présents, notamment catalogues, prospectus, publicités… n’a qu’une valeur informative et indicative, en aucun cas contractuelle. Les présentes conditions générales de vente sont expressément agréées et acceptées par l’Acheteur, lequel déclare et reconnaît en avoir une parfaite connaissance et renonce, de ce fait, à se prévaloir de tout document contradictoire."&amp; vbcrlf &amp; "2.Commande. Le contrat de vente n’est considéré valablement formé que lorsque le bon de commande, l’acompte prévu à l’article 5 des présentes et les fichiers d’illustration EPS nécessaires à la personnalisation ont été reçus par ERMC et que cette dernière a accepté la commande par écrit."&amp; vbcrlf &amp; "3.Prix. Le prix des marchandises vendues est celui en vigueur au jour de la prise de commande. Il est libellé en Euros, calculé hors taxes, et majoré du taux de TVA applicable. "&amp; vbcrlf &amp; "4.Facturation et paiement. Toute commande donne lieu à l'émission d’une facture par ERMC. Un acompte de 50% doit être acquitté à la commande ; le solde est payable au comptant au jour de la livraison. Le paiement peut se faire par chèque ou virement bancaire. Les frais bancaires sont à la charge de l’Acheteur. ERMC se réserve le droit, à sa discrétion, de demander le paiement intégral de la commande à la date de passation de celle-ci. Tout retard dans le règlement des sommes dues donne lieu au paiement, par l’Acheteur, de pénalités de retard correspondant au taux de refinancement de la Banque centrale européenne majoré de 10 points. Ces pénalités, de même qu’une indemnité forfaitaire de recouvrement de 40 euros, sont exigibles de plein droit et d’office portées au débit du compte de l’Acheteur. ERMC peut demander à l’Acheteur une indemnisation complémentaire si les frais de recouvrement effectivement engagés dépassent le montant de l’indemnité forfaitaire de recouvrement susvisée."&amp; vbcrlf &amp; "5.Livraison. Sauf accord express et préalable entre les parties, le délai de livraison est indiqué à titre indicatif et court à compter de la date à laquelle le contrat de vente est formé en 
+application de l’article 2 des présentes. ERMC s’efforce de le respecter, conformément aux délais logistiques de référence dans la profession. En tout état de cause, les retards de livraison inférieurs à trente (30) jours ne peuvent donner lieu à pénalité ou indemnité, ni constituer un fondement à l’annulation de la commande. 
+Sauf accord écrit et préalable entre les parties, la livraison est réputée effectuée lors de la remise des produits vendus au transporteur. Le transfert de propriété desdits produits n’intervient qu’à l’issue du complet paiement du prix par l’Acheteur, peu important la date de la livraison. Le transfert, à l’Acheteur, des risques de retard, de vol, de perte et de détérioration est réalisé à la remise, au transporteur, des produits vendus."&amp; vbcrlf &amp; "6.Transport. Sauf accord écrit et préalable entre les parties, les frais de transport ne sont jamais inclus dans le prix de la marchandise. Il appartient à l’Acheteur, en cas d’avarie des marchandises livrées ou de manquants, d’effectuer toutes les réserves nécessaires auprès du transporteur. Tout produit n’ayant pas fait l’objet de réserves, auprès du transporteur, dans les trois (3) jours de sa réception, par lettre recommandée avec demande d’avis de réception, et dont une copie est simultanément adressée à ERMC, est considéré accepté par l’Acheteur. "&amp; vbcrlf &amp; "7.Échantillons et réception. L’approbation, par l’Acheteur, des échantillons fournis par ERMC valent acceptation totale et sans réserve de qualité, composition, matière et confection des 
+produits vendus. Aucune réclamation ne peut être élevée à ces titres postérieurement à cette approbation. Il appartient à l’Acheteur d’effectuer tous les essais (tests, validations et vérifications) il estime utiles et nécessaires préalablement à ladite approbation. 
+Sans préjudice des dispositions à prendre par l’Acheteur vis-à-vis du transporteur telles que décrites à l’article 6 des présentes, toute réclamation, quelle qu’en soit la nature, portant sur les produits livrés, ne sera acceptée par ERMC que si elle est effectuée par écrit, par lettre recommandée avec demande d’avis de réception, dans le délai de trois (3) jours prévus à l’article 6. Il appartient à l’Acheteur de fournir toutes les justifications quant à la réalité des vices, de la non-conformité du produit livré au produit commandé ou au bordereau d'expédition ou des manquants constatés. La réclamation ne suspend pas le paiement, par l’Acheteur, des marchandises concernées. Aucun retour de marchandise ne peut être effectué par l’Acheteur sans l’accord écrit et préalable d’ERMC. Les frais de retour ne sont à la charge d’ERMC que si cette dernière ou son 
+mandataire constatent effectivement un vice apparent, une non-conformité des produits livrés aux produits commandés ou au bordereau d'expédition, ou des manquants. Seul le transporteur choisi par ERMC est habilité à effectuer le retour des produits concernés. Lorsqu’après contrôle, un vice apparent, une non-conformité des produits livrés aux produits commandés ou au bordereau d'expédition ou un manquant est effectivement constaté par ERMC ou son mandataire, l’Acheteur ne peut demander à ERMC que le remplacement des produits non conformes et/ou le complément à apporter pour combler les manquants, sans pouvoir prétendre à une quelconque indemnité ou à la résolution de la commande. La réception sans réserve des produits par l’Acheteur couvre tout vice apparent, manquant ou non-conformité. 
+La responsabilité d’ERMC ne peut en aucun cas être mise en cause pour faits en cours de transport (notamment destruction, avarie, perte, vol…), même si ERMC a choisi le transporteur. "&amp; vbcrlf &amp; "8.Réserve de propriété. ERMC conserve la propriété des produits vendus jusqu’au complet paiement de leur prix, en principal et accessoires. A ce titre, si l’Acheteur fait l’objet d’un redressement ou d’une liquidation judiciaire, ERMC se réserve le droit de revendiquer, dans le cadre de la procédure collective, les marchandises restées impayées. La présente clause 
+n’empêche pas que les risques soient transférés à l’Acheteur conformément aux prévisions de l’article 5 alinéa 2 des présentes. 
+De convention expresse, ERMC peut faire jouer les droits qu’elle détient au titre de la présente clause de réserve de propriété, pour l’une quelconque de ses créances, sur la totalité de ses produits en possession de l’Acheteur, ces derniers étant conventionnellement présumés être ceux impayés. ERMC peut les reprendre ou les revendiquer en dédommagement de toutes ses factures impayées. "&amp; vbcrlf &amp; "9.Force majeure. Aux fins de l’application des présentes, un cas de force majeure s’entend d’un événement indépendant de la volonté des parties, que ces dernières ne peuvent raisonnablement ni prévoir, ni éviter ou surmonter, et dont la survenance rend impossible l’exécution des obligations. Sont notamment regardés comme des cas de force majeure déchargeant ERMC de son obligation de livrer dans les délais initialement prévus : une grève de tout ou partie du personnel d’ERMC, de ses fournisseurs ou de ses transporteurs habituels, un incendie, une catastrophe naturelle (inondation, ouragan, tempête, tremblement de terre…), une action terroriste, une 
+guerre, une sanction administrative ou judiciaire, une pandémie, une épidémie, un arrêt de production dû à une panne fortuite, une rupture d’approvisionnement en matière première ou énergie qui ne serait pas imputable à ERMC, une rupture fortuite de la chaîne logistique, un confinement…Cette liste n’est pas exhaustive. 
+En cas de survenance d’un événement de force majeure, ERMC prévient l’Acheteur par écrit, notamment courrier électronique, dans les quarante-huit (48) heures de la date de cette survenance. Le contrat de vente est alors suspendu de plein droit et sans indemnité à compter de la date de survenance de l’événement. Si l’événement vient à durer plus de trente (30) jours à compter de la date de sa survenance, le contrat de vente peut alors être résilié par la partie la plus diligente, sans qu’aucune des parties 
+puisse prétendre à l’octroi de dommages-intérêts. Ladite résiliation prend effet à la date de première présentation de la lettre recommandée avec demande d’avis de réception par laquelle la partie à l’initiative de la résiliation notifie l’autre partie de la résiliation. "&amp; vbcrlf &amp; "10.Tailles. Sauf accord écrit et préalable entre les parties, les tailles indiquées s’entendent en tailles européennes standard."&amp; vbcrlf &amp; "11.Modification et annulation. Les commandes passées sont irrévocables pour l’Acheteur. À titre exceptionnel et à sa seule discrétion, ERMC peut accepter une demande de modification d’une commande dans les seuls cas où cette demande de modification est formulée par écrit dans un délai inférieur ou égal à quarante-huit (48) heures suivant la passation de la commande initiale. La modification n’est considérée acceptée par ERMC que si cette acceptation est formalisée dans un écrit émanant d’ERMC. Aucune annulation de commande n’est acceptée postérieurement à la passation de celle-ci. À titre exceptionnel et à sa seule discrétion, ERMC peut accepter l’annulation d’une commande tant que la production de celle-ci n’a pas débuté. Dans ce cas, 80% de la somme versée au titre de cette commande sont remboursés à l’Acheteur, les 20% restants constituant un acompte à valoir sur une commande passée au plus tard trois (3) mois à compter de la date d’annulation. À défaut, ces 20% sont acquis à ERMC à titre de pénalité d’annulation."&amp; vbcrlf &amp; "12.Assistance technique. L’assistance technique n’est pas incluse ni une obligation de ERMC dans la commande. Toute intervention d’une équipe technique de couturiers de ERMC pour des prises de mesures, réparations n’est pas un engagement ni une obligation mais une prestation payante distincte et fait l’objet d’un contrat distinct. "&amp; vbcrlf &amp; "13.Non-renonciation. Le fait pour ERMC de ne pas se prévaloir à un moment donné de l’une quelconque des clauses des présentes ne vaut pas renonciation à se prévaloir ultérieurement de 
+celle-ci."&amp; vbcrlf &amp; "14.Communication. Dans le cadre de la promotion de ses prestations et savoir-faire, ERMC se réserve le droit de publier les nom et identité visuelle de l’Acheteur sur ses comptes de réseaux sociaux ou dans la presse professionnelle ou généraliste. "&amp; vbcrlf &amp; "15.Loi applicable et juridiction compétente. Les présentes conditions générales de vente et les ventes qu’elles régissent sont soumises au droit français, à l’exclusion de tout autre droit, et, à titre supplétif, à la Convention de Vienne sur la vente internationale de marchandise.Tout différend ayant trait à la validité, l’exécution ou l’interprétation des présentes conditions générales de vente et/ou aux ventes régies par elles ressortit à la compétence du Tribunal de commerce de Paris, quels que soient le lieu de la commande, de la livraison, du paiement ou le mode de ce dernier, même en cas d’appel en garantie ou de pluralité des défendeurs. L’attribution de compétence est générale et s’applique aux demandes principales comme incidentes, aux actions au fond comme en référé. "</Value>
+                                      <Style>
+                                        <FontStyle>Normal</FontStyle>
+                                        <FontFamily>Segoe UI</FontFamily>
+                                        <FontSize>6pt</FontSize>
+                                        <FontWeight>Normal</FontWeight>
+                                        <TextDecoration>None</TextDecoration>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox63</rd:DefaultName>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                          </CellContents>
+                        </TablixCell>
+                      </TablixCells>
+                    </TablixRow>
+                  </TablixRows>
+                </TablixBody>
+                <TablixColumnHierarchy>
+                  <TablixMembers>
+                    <TablixMember />
+                  </TablixMembers>
+                </TablixColumnHierarchy>
+                <TablixRowHierarchy>
+                  <TablixMembers>
+                    <TablixMember />
+                    <TablixMember />
+                  </TablixMembers>
+                </TablixRowHierarchy>
+                <Top>0.3175cm</Top>
+                <Height>1.2cm</Height>
+                <Width>19cm</Width>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                </Style>
+              </Tablix>
+            </ReportItems>
+            <PageBreak>
+              <BreakLocation>Start</BreakLocation>
+            </PageBreak>
+            <KeepTogether>true</KeepTogether>
+            <Top>26.80766cm</Top>
+            <Height>1.5175cm</Height>
+            <Width>19cm</Width>
+            <ZIndex>29</ZIndex>
+            <Visibility>
+              <Hidden>=Not(First(Fields!FrenchReport.Value, "DataSet_Result"))</Hidden>
+            </Visibility>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Rectangle>
         </ReportItems>
-        <Height>26.64865cm</Height>
+        <Height>28.51392cm</Height>
         <Style />
       </Body>
       <Width>19cm</Width>
       <Page>
         <PageHeader>
-          <Height>5.62708cm</Height>
+          <Height>5.41541cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -5103,7 +5119,7 @@ Fields!VATLabel.Value &amp; "0%")</Value>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=First(Fields!SWIFTLabel.Value, "DataSet_Result") &amp; ": " &amp; First(Fields!Company_SWIFT.Value, "DataSet_Result")</Value>
+                      <Value>=IIF(First(Fields!FrenchReport.Value, "DataSet_Result"),First(Fields!SWIFTLabel.Value, "DataSet_Result") &amp; ": " &amp; First(Fields!Company_SWIFT.Value, "DataSet_Result") &amp; " | " &amp; "IBAN" &amp; ": " &amp; First(Fields!Company_IBAN.Value, "DataSet_Result"),First(Fields!SWIFTLabel.Value, "DataSet_Result") &amp; ": " &amp; First(Fields!Company_SWIFT.Value, "DataSet_Result"))</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -5116,7 +5132,7 @@ Fields!VATLabel.Value &amp; "0%")</Value>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>4.06547cm</Top>
               <Height>0.48473cm</Height>
-              <Width>7.7cm</Width>
+              <Width>12.7319cm</Width>
               <ZIndex>7</ZIndex>
               <Style>
                 <Border>
@@ -5151,6 +5167,9 @@ Fields!VATLabel.Value &amp; "0%")</Value>
               <Height>0.48473cm</Height>
               <Width>7.7cm</Width>
               <ZIndex>8</ZIndex>
+              <Visibility>
+                <Hidden>=First(Fields!FrenchReport.Value, "DataSet_Result")</Hidden>
+              </Visibility>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -5182,8 +5201,7 @@ Fields!VATLabel.Value &amp; "0%")</Value>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox9</rd:DefaultName>
-              <Top>0.05858cm</Top>
-              <Left>13.80128cm</Left>
+              <Left>13.79766cm</Left>
               <Height>0.6cm</Height>
               <Width>5.19872cm</Width>
               <ZIndex>9</ZIndex>
@@ -5217,8 +5235,8 @@ Fields!VATLabel.Value &amp; "0%")</Value>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox9</rd:DefaultName>
-              <Top>0.65858cm</Top>
-              <Left>15.52261cm</Left>
+              <Top>0.6cm</Top>
+              <Left>15.51899cm</Left>
               <Height>0.6cm</Height>
               <Width>3.47739cm</Width>
               <ZIndex>10</ZIndex>
@@ -5240,7 +5258,7 @@ Fields!VATLabel.Value &amp; "0%")</Value>
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>1.27cm</Height>
+          <Height>1.00542cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -5254,7 +5272,7 @@ Fields!VATLabel.Value &amp; "0%")</Value>
                       <Value>=First(Fields!FormLabel.Value, "DataSet_Result")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
-                        <FontWeight>Bold</FontWeight>
+                        <FontSize>8pt</FontSize>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -5264,8 +5282,8 @@ Fields!VATLabel.Value &amp; "0%")</Value>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox13</rd:DefaultName>
-              <Top>0.67cm</Top>
-              <Left>0.00354cm</Left>
+              <Top>0.40542cm</Top>
+              <Left>0.00362cm</Left>
               <Height>0.6cm</Height>
               <Width>5.41253cm</Width>
               <Style>
@@ -5288,7 +5306,7 @@ Fields!VATLabel.Value &amp; "0%")</Value>
                       <Value>=First(Fields!IssuedateLabel.Value, "DataSet_Result") &amp; ": " &amp; First(Fields!August21Label.Value, "DataSet_Result")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
-                        <FontWeight>Bold</FontWeight>
+                        <FontSize>8pt</FontSize>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -5298,8 +5316,8 @@ Fields!VATLabel.Value &amp; "0%")</Value>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox13</rd:DefaultName>
-              <Top>0.67cm</Top>
-              <Left>6.4727cm</Left>
+              <Top>0.40542cm</Top>
+              <Left>6.47278cm</Left>
               <Height>0.6cm</Height>
               <Width>6.2592cm</Width>
               <ZIndex>1</ZIndex>
@@ -5320,10 +5338,10 @@ Fields!VATLabel.Value &amp; "0%")</Value>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=First(Fields!RevisionDateLabel.Value, "DataSet_Result") &amp; ": "</Value>
+                      <Value>=First(Fields!RevisionDateLabel.Value, "DataSet_Result") &amp; ": " &amp; IIf(First(Fields!FrenchReport.Value, "DataSet_Result"),First(Fields!RevisionDateFrench.Value, "DataSet_Result"),First(Fields!RevisionDate.Value, "DataSet_Result"))</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
-                        <FontWeight>Bold</FontWeight>
+                        <FontSize>8pt</FontSize>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -5333,8 +5351,8 @@ Fields!VATLabel.Value &amp; "0%")</Value>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox13</rd:DefaultName>
-              <Top>0.67cm</Top>
-              <Left>13.48378cm</Left>
+              <Top>0.40542cm</Top>
+              <Left>13.48386cm</Left>
               <Height>0.6cm</Height>
               <Width>5.51614cm</Width>
               <ZIndex>2</ZIndex>
@@ -5473,12 +5491,6 @@ End Function
         </Field>
         <Field Name="PaymentTerms_Description">
           <DataField>PaymentTerms_Description</DataField>
-        </Field>
-        <Field Name="ShowColor">
-          <DataField>ShowColor</DataField>
-        </Field>
-        <Field Name="ShowSize">
-          <DataField>ShowSize</DataField>
         </Field>
         <Field Name="TotalStaff">
           <DataField>TotalStaff</DataField>
@@ -5824,6 +5836,12 @@ End Function
         </Field>
         <Field Name="SalesQuoteLabel">
           <DataField>SalesQuoteLabel</DataField>
+        </Field>
+        <Field Name="RevisionDate">
+          <DataField>RevisionDate</DataField>
+        </Field>
+        <Field Name="RevisionDateFrench">
+          <DataField>RevisionDateFrench</DataField>
         </Field>
         <Field Name="VAT_Percentage">
           <DataField>VAT_Percentage</DataField>

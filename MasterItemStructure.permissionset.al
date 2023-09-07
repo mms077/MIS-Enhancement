@@ -307,5 +307,9 @@ permissionset 50200 MasterItemStructure
         report "ER - Sales Quote With Visuals" = X,
         report "Standard Purchase" = X,
         report "ER - Commercial Invoice" = X,
-        page "RM Item Sizes" = X;
+        page "RM Item Sizes" = X,
+        tabledata "Job Queue Selection" = RIMD,
+        table "Job Queue Selection" = X,
+        codeunit "Set Job Queue Ready" = X,
+        page "Job Queue Selection" = X;
 }

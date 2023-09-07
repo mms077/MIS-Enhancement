@@ -141,10 +141,15 @@ tableextension 50205 "Assembly Header" extends "Assembly Header"
         UserSetup: Record "User Setup";
         Txt001: Label 'You should have Modify Assembly permission to edit the record';
         MasterItemCodeunit: Codeunit MasterItem;
+        CUManagement: Codeunit Management;
     begin
         if MasterItemCodeunit.CanModifyAssembly(UserId) = false then
             Error(Txt001);
         Rec.CalcFields("Item Size", "Item Fit", "Item Cut Code");
-        Rec."Grouping Criteria" := Rec."Item No." + '-' + Rec."Item Size" + '-' + Rec."Item Fit" + '-' + Rec."Item Cut Code";
+        //check if the item with embroidery
+        if CUManagement.WithEmbroidery(Rec) then
+            Rec."Grouping Criteria" := Rec."Item No." + '-' + Rec."Item Size" + '-' + Rec."Item Fit" + '-' + Rec."Item Cut Code" + '-WithEmb'
+        else
+            Rec."Grouping Criteria" := Rec."Item No." + '-' + Rec."Item Size" + '-' + Rec."Item Fit" + '-' + Rec."Item Cut Code" + '-WithoutEmb';
     end;
 }

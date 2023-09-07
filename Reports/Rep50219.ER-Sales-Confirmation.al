@@ -481,6 +481,7 @@ report 50219 "ER - Sales - Confirmation"
                     AutoFormatExpression = "Currency Code";
                     AutoFormatType = 2;
                 }
+                column(ItemColor;ItemColorName){}
                 column(UnitPrice_Lbl; FieldCaption("Unit Price"))
                 {
                 }
@@ -546,6 +547,12 @@ report 50219 "ER - Sales - Confirmation"
                 {
 
                 }
+                column(colorLabel;colorLabel){}
+
+                // trigger OnAfterGetRecord()
+                // begin
+
+                // end;
                 dataitem(AssemblyLine; "Assembly Line")
                 {
                     DataItemTableView = SORTING("Document No.", "Line No.");
@@ -611,6 +618,17 @@ report 50219 "ER - Sales - Confirmation"
                     //Get Size
                     Clear(GlobalSize);
                     if GlobalSize.Get(Line.Size) then;
+                    //Get Item Color
+                    ItemColor.Reset();
+                    clear(ItemColorName);
+                    ItemColor.SetRange("Item No.",Line."No.");
+                    ItemColor.SetRange("Color ID",Line.Color);
+                    if ItemColor.FindSet() then
+                    begin
+                        ItemColor.CalcFields("Color Name");
+                        ItemColorName := ItemColor."Color Name";
+                    end;
+
                 end;
 
                 trigger OnPreDataItem()
@@ -1096,6 +1114,7 @@ report 50219 "ER - Sales - Confirmation"
         RespCenter: Record "Responsibility Center";
         VATClause: Record "VAT Clause";
         AsmHeader: Record "Assembly Header";
+        ItemColor:Record "Item Color";
         SellToContact: Record Contact;
         BillToContact: Record Contact;
         LanguageCU: Codeunit Language;
@@ -1111,6 +1130,7 @@ report 50219 "ER - Sales - Confirmation"
         TotalText: Text[50];
         TotalExclVATText: Text[50];
         TotalInclVATText: Text[50];
+        ItemColorName: Text[100];
         LineDiscountPctText: Text;
         FormattedVATPct: Text;
         FormattedUnitPrice: Text;
@@ -1118,6 +1138,7 @@ report 50219 "ER - Sales - Confirmation"
         FormattedLineAmount: Text;
         MoreLines: Boolean;
         CopyText: Text[30];
+        color: Integer;
         ShowShippingAddr: Boolean;
         ArchiveDocument: Boolean;
         LogInteraction: Boolean;
@@ -1141,7 +1162,7 @@ report 50219 "ER - Sales - Confirmation"
         WorkDescriptionLine: Text;
         CurrCode: Text[10];
         CurrSymbol: Text[10];
-
+        colorLabel:label 'Color';
         CompanyInfoBankAccNoLbl: Label 'Account No.';
         CompanyInfoBankNameLbl: Label 'Bank';
         CompanyInfoGiroNoLbl: Label 'Giro No.';

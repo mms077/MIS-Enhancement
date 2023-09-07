@@ -120,6 +120,8 @@ report 50225 "ER - Customer Trial Balance"
             { }
             column(ShowOpening; ShowOpening)
             { }
+            column(CustFilters; CustFilters)
+            { }
 
             dataitem(TempCurrencyTotal; "AC Currency Total")
             {
@@ -198,10 +200,15 @@ report 50225 "ER - Customer Trial Balance"
 
                     end;
 
-                    // Ending Orig/LCY              
-
-                    EndBalOrig := BeginBalOrig + DebiOrig - CreditOrig;
-                    EndBalLCY := BeginBalLCY + DebitLCY - CreditLCY;
+                    // Ending Origin LCY              
+                    if (ShowOpening) then begin
+                        EndBalOrig := BeginBalOrig + DebiOrig - CreditOrig;
+                        EndBalLCY := BeginBalLCY + DebitLCY - CreditLCY;
+                    end
+                    else begin
+                        EndBalOrig := DebiOrig - CreditOrig;
+                        EndBalLCY := DebitLCY - CreditLCY;
+                    end;
 
                     EndTotalLCY += EndBalLCY;
 
@@ -209,7 +216,7 @@ report 50225 "ER - Customer Trial Balance"
 
                     // If no balance in currency skip currency
 
-                    if (BeginBalOrig = 0) and (DebiOrig = 0) and (CreditOrig = 0) and (EndBalOrig = 0) then begin
+                    if (BeginBalLCY = 0) and (DebitLCY = 0) and (CreditLCY = 0) and (EndBalLCY = 0) then begin
                         CurrReport.Skip();
                     end;
 
@@ -239,11 +246,11 @@ report 50225 "ER - Customer Trial Balance"
 
                 L_Customer.Get(Customer."No.");
                 L_Customer.SetFilter("Date Filter", Format(FromDate) + '..' + Format(ToDate));
+                CustFilters := Customer.GetFilters();
 
-                L_Customer.CalcFields("Net Change", Balance,"Credit Amount", "Debit Amount");
-                if (L_Customer.Balance = 0) and (L_Customer."Net Change" = 0) and (L_Customer."Credit Amount" = 0) and (L_Customer."Debit Amount" = 0) and (HideCust) then
+                L_Customer.CalcFields("Net Change (LCY)", "Balance (LCY)", "Credit Amount (LCY)", "Debit Amount (LCY)");
+                if (L_Customer."Balance (LCY)" = 0) and (L_Customer."Net Change (LCY)" = 0) and (L_Customer."Credit Amount (LCY)" = 0) and (L_Customer."Debit Amount (LCY)" = 0) and (HideCust) then
                     CurrReport.Skip();
-
             end;
 
         }
@@ -267,7 +274,7 @@ report 50225 "ER - Customer Trial Balance"
                     field("Show opening balance"; ShowOpening)
                     {
                         ApplicationArea = all;
-                        Caption = 'Show Opening Balance';
+                        Caption = 'With Opening Balance';
                     }
                     field(FromDate; FromDate)
                     {
@@ -340,6 +347,7 @@ report 50225 "ER - Customer Trial Balance"
         FromDate: Date;
         ToDate: Date;
         CustomerEmpty: Boolean;
+        CustFilters: Text;
         TitleLbl: Label 'Customer-Trial Balance';
         BeginBalOrigLbl: Label 'Begining Balance Original';
         NetOrigLbl: Label 'Net Change Original';

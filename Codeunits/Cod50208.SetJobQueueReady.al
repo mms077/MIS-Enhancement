@@ -11,6 +11,7 @@ codeunit 50208 "Set Job Queue Ready"
                 if JobQEntry.FindFirst() then
                     repeat
                         JobQEntry.Status := JobQEntry.Status::Ready;
+                        JobQEntry."Earliest Start Date/Time" := CurrentDateTime + JobQEntry."No. of Minutes between Runs" * 60000;
                         JobQEntry.Modify();
                     until JobQEntry.Next() = 0;
             until JobQSelection.Next() = 0;

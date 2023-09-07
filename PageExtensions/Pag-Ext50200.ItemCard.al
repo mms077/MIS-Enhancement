@@ -243,6 +243,7 @@ pageextension 50200 ItemCard extends "Item Card"
                 Promoted = true;
                 PromotedCategory = Category4;
                 PromotedOnly = true;
+                Enabled=(rec.IsRawMaterial=false) and (rec."Design Code"='');
                 trigger OnAction()
                 var
                     MasterItem: Codeunit MasterItem;

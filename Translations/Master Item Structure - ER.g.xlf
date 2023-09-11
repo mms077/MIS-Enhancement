@@ -10103,10 +10103,25 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Trial Balance - NamedType Net_ChangeCaptionLbl</note>
         </trans-unit>
+        <trans-unit id="Report 2962059618 - NamedType 598845625" size-unit="char" translate="yes" xml:space="preserve">
+          <source>of</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Trial Balance - NamedType OfLabel</note>
+        </trans-unit>
         <trans-unit id="Report 2962059618 - NamedType 94175705" size-unit="char" translate="yes" xml:space="preserve">
           <source>Name</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Trial Balance - NamedType PADSTR_____G_L_Account__Indentation___2___G_L_Account__NameCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2962059618 - NamedType 266656143" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Trial Balance - NamedType PageLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 2962059618 - NamedType 406901249" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Printed On:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Trial Balance - NamedType PrintedOnLabel</note>
         </trans-unit>
         <trans-unit id="Report 2962059618 - NamedType 3869443955" size-unit="char" translate="yes" xml:space="preserve">
           <source>SWIFT</source>
@@ -10144,7 +10159,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Trial Balance - Control HideNull - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 2962059618 - Control 244877475 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Show Opening Balance</source>
+          <source>With Opening Balance</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Trial Balance - Control Show opening balance - Property Caption</note>
         </trans-unit>

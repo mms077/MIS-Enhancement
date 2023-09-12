@@ -10,9 +10,9 @@ codeunit 50208 "Set Job Queue Ready"
                 JobQEntry.SetFilter(Status, '<>%1', JobQEntry.Status::Ready);
                 if JobQEntry.FindFirst() then
                     repeat
-                        JobQEntry.Status := JobQEntry.Status::Ready;
-                        JobQEntry."Earliest Start Date/Time" := CurrentDateTime + JobQEntry."No. of Minutes between Runs" * 60000;
-                        JobQEntry.Modify();
+                        JobQEntry.Status := JobQEntry.Status::"Ready";
+                        JobQEntry.Modify(true);
+                        Codeunit.run(Codeunit::"Job Queue Dispatcher", JobQEntry);
                     until JobQEntry.Next() = 0;
             until JobQSelection.Next() = 0;
     end;

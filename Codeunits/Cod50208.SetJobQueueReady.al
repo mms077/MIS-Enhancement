@@ -44,7 +44,7 @@ codeunit 50208 "Set Job Queue Ready"
         DelegatedAdminSendingApprovalLbl: Label 'Delegated admin sending approval', Locked = true;
 
     begin
-        Window.Open(ExecuteBeginMsg);
+        //Window.Open(ExecuteBeginMsg);
         SelectedJobQueueEntry.CalcFields(XML);
         JobQueueEntry := SelectedJobQueueEntry;
         JobQueueEntry.ID := CreateGuid();

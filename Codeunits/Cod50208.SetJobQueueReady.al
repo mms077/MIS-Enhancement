@@ -14,6 +14,7 @@ codeunit 50208 "Set Job Queue Ready"
                         JobQEntry.Status := JobQEntry.Status::"Ready";
                         JobQEntry.Modify();
                         RunJobQueueEntryOnce(JobQEntry);
+
                     //Codeunit.run(Codeunit::"Job Queue Dispatcher", JobQEntry);
                     until JobQEntry.Next() = 0;
             until JobQSelection.Next() = 0;
@@ -82,7 +83,7 @@ codeunit 50208 "Set Job Queue Ready"
             end;
         end;
 
-        Window.Close();
+        //Window.Close();
         if JobQueueEntry.Find() then
             if JobQueueEntry.Delete() then;
         JobQueueLogEntry.SetRange(ID, JobQueueEntry.id);

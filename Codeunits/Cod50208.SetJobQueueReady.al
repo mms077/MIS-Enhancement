@@ -13,7 +13,7 @@ codeunit 50208 "Set Job Queue Ready"
                     repeat
                         JobQEntry.Status := JobQEntry.Status::"Ready";
                         JobQEntry.Modify();
-                        JobQueueManagement.RunJobQueueEntryOnce(JobQEntry);
+                        RunJobQueueEntryOnce(JobQEntry);
                     //Codeunit.run(Codeunit::"Job Queue Dispatcher", JobQEntry);
                     until JobQEntry.Next() = 0;
             until JobQSelection.Next() = 0;

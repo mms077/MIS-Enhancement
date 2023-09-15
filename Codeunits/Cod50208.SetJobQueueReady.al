@@ -3,6 +3,7 @@ codeunit 50208 "Set Job Queue Ready"
     trigger OnRun()
     var
         JobQSelection: Record "Job Queue Selection";
+        JobQueueManagement: Codeunit "Job Queue Management";
     begin
         if JobQSelection.FindFirst() then
             repeat
@@ -12,7 +13,8 @@ codeunit 50208 "Set Job Queue Ready"
                     repeat
                         JobQEntry.Status := JobQEntry.Status::"Ready";
                         JobQEntry.Modify(true);
-                        Codeunit.run(Codeunit::"Job Queue Dispatcher", JobQEntry);
+                        JobQueueManagement.RunJobQueueEntryOnce(JobQEntry);
+                    //Codeunit.run(Codeunit::"Job Queue Dispatcher", JobQEntry);
                     until JobQEntry.Next() = 0;
             until JobQSelection.Next() = 0;
     end;

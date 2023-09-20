@@ -6,7 +6,7 @@
             "request": "launch",
             "type": "al",
             "environmentType": "Sandbox",
-            "environmentName": "UAT_230823",
+            "environmentName": "WMS_140623",
             "startupObjectId": 902,
             "startupObjectType": "Page",
             "breakOnError": true,

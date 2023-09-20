@@ -623,83 +623,82 @@ report 50233 "ER - Statement Of Account"
         GLNoFilter := "G/L Entry".GetFilters;
         PostDateFilter := "G/L Entry".GetFilter("Posting Date");
         DateFilter := "G/L Account".GETFILTER("Date Filter");
-        begin
-            GLNoFilter := "G/L Entry".GetFilters;
-            PostDateFilter := "G/L Entry".GetFilter("Posting Date");
-            DateFilter := "G/L Account".GETFILTER("Date Filter");
-            G_RecGnrlLedgSetup.Get();
-            G_RecCompanyInformation.Get();
-            G_RecCompanyInformation.CalcFields(Picture);
-            G_CurrencyCode := G_RecGnrlLedgSetup."LCY Code";
-            Company_Address := G_RecCompanyInformation.Address + ' ' + G_RecCompanyInformation."Country/Region Code";
+
+        GLNoFilter := "G/L Entry".GetFilters;
+        PostDateFilter := "G/L Entry".GetFilter("Posting Date");
+        DateFilter := "G/L Account".GETFILTER("Date Filter");
+        G_RecGnrlLedgSetup.Get();
+        G_RecCompanyInformation.Get();
+        G_RecCompanyInformation.CalcFields(Picture);
+        G_CurrencyCode := G_RecGnrlLedgSetup."LCY Code";
+        Company_Address := G_RecCompanyInformation.Address + ' ' + G_RecCompanyInformation."Country/Region Code";
 
 
 
-            x := 1;
-            TimeNow := Format(System.CurrentDateTime());
+        x := 1;
+        TimeNow := Format(System.CurrentDateTime());
 
-            for i := 1 to 8 do begin
-                if DimensionsArray[i] = true then begin
-                    if i = 1 then begin
-                        SelectedDimensionsNB[x] := 1;
-                        L_RecDimensions.get(G_RecGnrlLedgSetup."Global Dimension 1 Code");
+        for i := 1 to 8 do begin
+            if DimensionsArray[i] = true then begin
+                if i = 1 then begin
+                    SelectedDimensionsNB[x] := 1;
+                    L_RecDimensions.get(G_RecGnrlLedgSetup."Global Dimension 1 Code");
+                    SelectedDimensions[x] := L_RecDimensions.Name;
+                    ///SelectedDimensionsColumns[x]:="Global Dimension 1 Code";
+                    x := x + 1;
+                end else begin
+                    if i = 2 then begin
+                        SelectedDimensionsNB[x] := 2;
+                        L_RecDimensions.get(G_RecGnrlLedgSetup."Global Dimension 2 Code");
                         SelectedDimensions[x] := L_RecDimensions.Name;
-                        ///SelectedDimensionsColumns[x]:="Global Dimension 1 Code";
                         x := x + 1;
+
                     end else begin
-                        if i = 2 then begin
-                            SelectedDimensionsNB[x] := 2;
-                            L_RecDimensions.get(G_RecGnrlLedgSetup."Global Dimension 2 Code");
+                        if i = 3 then begin
+                            SelectedDimensionsNB[x] := 3;
+                            L_RecDimensions.get(G_RecGnrlLedgSetup."Shortcut Dimension 3 Code");
                             SelectedDimensions[x] := L_RecDimensions.Name;
                             x := x + 1;
 
                         end else begin
-                            if i = 3 then begin
-                                SelectedDimensionsNB[x] := 3;
-                                L_RecDimensions.get(G_RecGnrlLedgSetup."Shortcut Dimension 3 Code");
+                            if i = 4 then begin
+
+                                SelectedDimensionsNB[x] := 4;
+                                L_RecDimensions.get(G_RecGnrlLedgSetup."Shortcut Dimension 4 Code");
                                 SelectedDimensions[x] := L_RecDimensions.Name;
                                 x := x + 1;
 
                             end else begin
-                                if i = 4 then begin
+                                if i = 5 then begin
 
-                                    SelectedDimensionsNB[x] := 4;
-                                    L_RecDimensions.get(G_RecGnrlLedgSetup."Shortcut Dimension 4 Code");
+                                    SelectedDimensionsNB[x] := 5;
+                                    L_RecDimensions.get(G_RecGnrlLedgSetup."Shortcut Dimension 5 Code");
                                     SelectedDimensions[x] := L_RecDimensions.Name;
                                     x := x + 1;
 
                                 end else begin
-                                    if i = 5 then begin
+                                    if i = 6 then begin
 
-                                        SelectedDimensionsNB[x] := 5;
-                                        L_RecDimensions.get(G_RecGnrlLedgSetup."Shortcut Dimension 5 Code");
+                                        SelectedDimensionsNB[x] := 6;
+                                        L_RecDimensions.get(G_RecGnrlLedgSetup."Shortcut Dimension 6 Code");
                                         SelectedDimensions[x] := L_RecDimensions.Name;
                                         x := x + 1;
 
                                     end else begin
-                                        if i = 6 then begin
+                                        if i = 7 then begin
 
-                                            SelectedDimensionsNB[x] := 6;
-                                            L_RecDimensions.get(G_RecGnrlLedgSetup."Shortcut Dimension 6 Code");
+                                            SelectedDimensionsNB[x] := 7;
+                                            L_RecDimensions.get(G_RecGnrlLedgSetup."Shortcut Dimension 7 Code");
                                             SelectedDimensions[x] := L_RecDimensions.Name;
                                             x := x + 1;
 
                                         end else begin
-                                            if i = 7 then begin
+                                            if i = 8 then begin
 
-                                                SelectedDimensionsNB[x] := 7;
-                                                L_RecDimensions.get(G_RecGnrlLedgSetup."Shortcut Dimension 7 Code");
+                                                SelectedDimensionsNB[x] := 8;
+                                                L_RecDimensions.get(G_RecGnrlLedgSetup."Shortcut Dimension 8 Code");
                                                 SelectedDimensions[x] := L_RecDimensions.Name;
                                                 x := x + 1;
-
-                                            end else begin
-                                                if i = 8 then begin
-
-                                                    SelectedDimensionsNB[x] := 8;
-                                                    L_RecDimensions.get(G_RecGnrlLedgSetup."Shortcut Dimension 8 Code");
-                                                    SelectedDimensions[x] := L_RecDimensions.Name;
-                                                    x := x + 1;
-                                                end;
                                             end;
                                         end;
                                     end;
@@ -709,9 +708,10 @@ report 50233 "ER - Statement Of Account"
                     end;
                 end;
             end;
-
         end;
+
     end;
+
 
 
     procedure GetTrue(): Integer // Get the number of true values in the shortcuts array

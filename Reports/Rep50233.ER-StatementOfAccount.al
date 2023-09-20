@@ -11,11 +11,14 @@ report 50233 "ER - Statement Of Account"
         {
             PrintOnlyIfDetail = true;
             DataItemTableView = sorting("No.") WHERE("Account Type" = CONST(Posting));
+            RequestFilterFields = "Date Filter";
             #region Company Information
             Column(CompanyCity; G_RecCompanyInformation.City)
             {
 
             }
+
+
             Column(Capital_Label; Capital_Label)
             {
 
@@ -194,6 +197,7 @@ report 50233 "ER - Statement Of Account"
             {
 
             }
+
             #endregion
             #region G/L Account Values
             column(No; "No.")
@@ -269,6 +273,9 @@ report 50233 "ER - Statement Of Account"
 
             }
 
+            column(Additional_Currency_Net_Change; "Additional-Currency Net Change") { }
+
+
             column(Dim1Label; SelectedDimensions[1])
             {
 
@@ -277,10 +284,13 @@ report 50233 "ER - Statement Of Account"
             {
 
             }
+            column(Date_Range; format(FromDate) + '..' + format(ToDate))
+            { }
+            column(FromDate; Format(FromDate)) { }
 
             dataitem("G/L Entry"; "G/L Entry")
             {
-                DataItemLink = "G/L Account No." = FIELD("No.");//, "Posting Date" = FIELD("Date Filter"), "Global Dimension 1 Code" = FIELD("Global Dimension 1 Filter"), "Global Dimension 2 Code" = FIELD("Global Dimension 2 Filter"), "Business Unit Code" = FIELD("Business Unit Filter");
+                DataItemLink = "G/L Account No." = FIELD("No."), "Posting Date" = FIELD("Date Filter");// "Global Dimension 1 Code" = FIELD("Global Dimension 1 Filter"), "Global Dimension 2 Code" = FIELD("Global Dimension 2 Filter"), "Business Unit Code" = FIELD("Business Unit Filter");
                 DataItemLinkReference = "G/L Account";
                 DataItemTableView = SORTING("G/L Account No.", "Posting Date");
                 RequestFilterFields = "G/L Account No.", "Posting Date"; //"Global Dimension 1 Code", "Global Dimension 2 Code", "Shortcut Dimension 3 Code", "Shortcut Dimension 4 Code", "Shortcut Dimension 5 Code", "Shortcut Dimension 6 Code", "Shortcut Dimension 7 Code", "Shortcut Dimension 8 Code";
@@ -288,6 +298,8 @@ report 50233 "ER - Statement Of Account"
                 {
 
                 }
+                column(DateFilter; DateFilter) { }
+                column(GLNoFilter; GLNoFilter) { }
                 column(Entry_No; "Entry No.")
                 {
 
@@ -296,6 +308,11 @@ report 50233 "ER - Statement Of Account"
                 {
 
                 }
+
+                column(NetChange; NetChange) { }
+                column(NetChangeAcy; NetChangeAcy) { }
+                column(Document_No_; "Document No.") { }
+                column(Posting_Date; "Posting Date") { }
                 column(Source_No_; "Source No.")
                 {
 
@@ -337,6 +354,8 @@ report 50233 "ER - Statement Of Account"
                 {
 
                 }
+                column(Amount; Amount) { }
+                column(Additional_Currency_Amount; "Additional-Currency Amount") { }
                 trigger OnPreDataItem()
                 begin
                     case SelectedDimensionsNB[1] of
@@ -414,6 +433,8 @@ report 50233 "ER - Statement Of Account"
                 var
                     MyFieldRef: FieldRef;
                     GLEntryRecref: RecordRef;
+
+
                     RecID: RecordID;
                 begin
                     GLEntryRecref.OPEN(17);
@@ -443,15 +464,34 @@ report 50233 "ER - Statement Of Account"
                         Dim1Value := '';
 
                 end;
+
+
             }
 
-            // trigger OnAfterGetRecord()
-            // begin
-            //     if Account_Type = Account_Type::"G/L Account" then
-            //         Account_Id := "No."
-            //     else
-            //         Account_Id := "No." + "Account Type";
-            // end;
+            trigger OnAfterGetRecord()
+            var
+                GlCode: code[20];
+                Date: Record Date;
+            begin
+                //NetChange := 0;
+                //Date := "G/L Account"."Date Filter";
+                // CalcFields("Net Change", "Balance at Date", "Additional-Currency Net Change");
+
+
+                //GlCode := "G/L Entry"."G/L Account No.";
+                //SetFilter("No.", GlCode);
+                // IF DateFilter <> '' THEN BEGIN
+                //SetFilter("No.", GlCode);
+                SetRange("Date Filter", 0D, GETRANGEMIN("Date Filter") - 1);
+
+                CalcFields("Net Change", "Additional-Currency Net Change");
+                NetChange := "Net Change";
+                NetChangeAcy := "Additional-Currency Net Change";
+                SETFILTER("Date Filter", DateFilter);
+
+
+            end;
+
         }
     }
     requestpage
@@ -561,6 +601,16 @@ report 50233 "ER - Statement Of Account"
                 }
             }
         }
+        trigger OnAfterGetRecord()
+        var
+            myInt: Integer;
+
+        begin
+
+
+        end;
+
+
     }
 
     trigger OnPreReport()
@@ -568,80 +618,88 @@ report 50233 "ER - Statement Of Account"
         i: Integer;
         //x: Integer;
         L_RecDimensions: Record Dimension;
+
     begin
+        GLNoFilter := "G/L Entry".GetFilters;
+        PostDateFilter := "G/L Entry".GetFilter("Posting Date");
+        DateFilter := "G/L Account".GETFILTER("Date Filter");
+        begin
+            GLNoFilter := "G/L Entry".GetFilters;
+            PostDateFilter := "G/L Entry".GetFilter("Posting Date");
+            DateFilter := "G/L Account".GETFILTER("Date Filter");
+            G_RecGnrlLedgSetup.Get();
+            G_RecCompanyInformation.Get();
+            G_RecCompanyInformation.CalcFields(Picture);
+            G_CurrencyCode := G_RecGnrlLedgSetup."LCY Code";
+            Company_Address := G_RecCompanyInformation.Address + ' ' + G_RecCompanyInformation."Country/Region Code";
 
-        G_RecGnrlLedgSetup.Get();
-        G_RecCompanyInformation.Get();
-        G_RecCompanyInformation.CalcFields(Picture);
-        G_CurrencyCode := G_RecGnrlLedgSetup."LCY Code";
-        Company_Address := G_RecCompanyInformation.Address + ' ' + G_RecCompanyInformation."Country/Region Code";
 
 
+            x := 1;
+            TimeNow := Format(System.CurrentDateTime());
 
-        x := 1;
-        TimeNow := Format(System.CurrentDateTime());
-
-        for i := 1 to 8 do begin
-            if DimensionsArray[i] = true then begin
-                if i = 1 then begin
-                    SelectedDimensionsNB[x] := 1;
-                    L_RecDimensions.get(G_RecGnrlLedgSetup."Global Dimension 1 Code");
-                    SelectedDimensions[x] := L_RecDimensions.Name;
-                    ///SelectedDimensionsColumns[x]:="Global Dimension 1 Code";
-                    x := x + 1;
-                end else begin
-                    if i = 2 then begin
-                        SelectedDimensionsNB[x] := 2;
-                        L_RecDimensions.get(G_RecGnrlLedgSetup."Global Dimension 2 Code");
+            for i := 1 to 8 do begin
+                if DimensionsArray[i] = true then begin
+                    if i = 1 then begin
+                        SelectedDimensionsNB[x] := 1;
+                        L_RecDimensions.get(G_RecGnrlLedgSetup."Global Dimension 1 Code");
                         SelectedDimensions[x] := L_RecDimensions.Name;
+                        ///SelectedDimensionsColumns[x]:="Global Dimension 1 Code";
                         x := x + 1;
-
                     end else begin
-                        if i = 3 then begin
-                            SelectedDimensionsNB[x] := 3;
-                            L_RecDimensions.get(G_RecGnrlLedgSetup."Shortcut Dimension 3 Code");
+                        if i = 2 then begin
+                            SelectedDimensionsNB[x] := 2;
+                            L_RecDimensions.get(G_RecGnrlLedgSetup."Global Dimension 2 Code");
                             SelectedDimensions[x] := L_RecDimensions.Name;
                             x := x + 1;
 
                         end else begin
-                            if i = 4 then begin
-
-                                SelectedDimensionsNB[x] := 4;
-                                L_RecDimensions.get(G_RecGnrlLedgSetup."Shortcut Dimension 4 Code");
+                            if i = 3 then begin
+                                SelectedDimensionsNB[x] := 3;
+                                L_RecDimensions.get(G_RecGnrlLedgSetup."Shortcut Dimension 3 Code");
                                 SelectedDimensions[x] := L_RecDimensions.Name;
                                 x := x + 1;
 
                             end else begin
-                                if i = 5 then begin
+                                if i = 4 then begin
 
-                                    SelectedDimensionsNB[x] := 5;
-                                    L_RecDimensions.get(G_RecGnrlLedgSetup."Shortcut Dimension 5 Code");
+                                    SelectedDimensionsNB[x] := 4;
+                                    L_RecDimensions.get(G_RecGnrlLedgSetup."Shortcut Dimension 4 Code");
                                     SelectedDimensions[x] := L_RecDimensions.Name;
                                     x := x + 1;
 
                                 end else begin
-                                    if i = 6 then begin
+                                    if i = 5 then begin
 
-                                        SelectedDimensionsNB[x] := 6;
-                                        L_RecDimensions.get(G_RecGnrlLedgSetup."Shortcut Dimension 6 Code");
+                                        SelectedDimensionsNB[x] := 5;
+                                        L_RecDimensions.get(G_RecGnrlLedgSetup."Shortcut Dimension 5 Code");
                                         SelectedDimensions[x] := L_RecDimensions.Name;
                                         x := x + 1;
 
                                     end else begin
-                                        if i = 7 then begin
+                                        if i = 6 then begin
 
-                                            SelectedDimensionsNB[x] := 7;
-                                            L_RecDimensions.get(G_RecGnrlLedgSetup."Shortcut Dimension 7 Code");
+                                            SelectedDimensionsNB[x] := 6;
+                                            L_RecDimensions.get(G_RecGnrlLedgSetup."Shortcut Dimension 6 Code");
                                             SelectedDimensions[x] := L_RecDimensions.Name;
                                             x := x + 1;
 
                                         end else begin
-                                            if i = 8 then begin
+                                            if i = 7 then begin
 
-                                                SelectedDimensionsNB[x] := 8;
-                                                L_RecDimensions.get(G_RecGnrlLedgSetup."Shortcut Dimension 8 Code");
+                                                SelectedDimensionsNB[x] := 7;
+                                                L_RecDimensions.get(G_RecGnrlLedgSetup."Shortcut Dimension 7 Code");
                                                 SelectedDimensions[x] := L_RecDimensions.Name;
                                                 x := x + 1;
+
+                                            end else begin
+                                                if i = 8 then begin
+
+                                                    SelectedDimensionsNB[x] := 8;
+                                                    L_RecDimensions.get(G_RecGnrlLedgSetup."Shortcut Dimension 8 Code");
+                                                    SelectedDimensions[x] := L_RecDimensions.Name;
+                                                    x := x + 1;
+                                                end;
                                             end;
                                         end;
                                     end;
@@ -651,10 +709,9 @@ report 50233 "ER - Statement Of Account"
                     end;
                 end;
             end;
+
         end;
-
     end;
-
 
 
     procedure GetTrue(): Integer // Get the number of true values in the shortcuts array
@@ -685,6 +742,9 @@ report 50233 "ER - Statement Of Account"
         #region HeaderLabels
         AddressLabel: Label 'Address';
         Capital_Label: Label 'Capital';
+
+        GLNoFilter: Text[100];
+        DateFilter: Text[100];
         VATCodeLabel: Label 'VAT Code';
         FullyPaidLabel: Label 'Fully Paid';
         TLabel: Label 'T:';
@@ -705,6 +765,7 @@ report 50233 "ER - Statement Of Account"
         SourceNo_Label: Label 'Source No.';
         Curr_Label: Label 'Curr.';
         Entry_Label: Label 'Entry';
+        GLAccount: Record "G/L Account";
         OrigCurrBalance_Label: Label 'Orig Curr Balance';
         LCYCurrBalance_Label: Label 'LCY Currency Balance';
         ACYCurrBalance_Label: Label 'ACY Currency Balance';
@@ -724,6 +785,8 @@ report 50233 "ER - Statement Of Account"
         #region Group by shortcuts
         DimensionsArray: array[8] of Boolean;
         SelectedDimensions: array[2] of Text;
+
+        Date: Date;
         SelectedDimensionsNB: array[2] of Integer;
         Dim1ID: Integer;
         Dim2ID: Integer;
@@ -732,4 +795,7 @@ report 50233 "ER - Statement Of Account"
         #endregion
         TimeNow: Text[25];
         x: Integer;
+        NetChange: Decimal;
+        PostDateFilter: text;
+        NetChangeAcy: Decimal;
 }

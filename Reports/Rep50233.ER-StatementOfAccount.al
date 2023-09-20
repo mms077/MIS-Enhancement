@@ -18,7 +18,6 @@ report 50233 "ER - Statement Of Account"
 
             }
 
-
             Column(Capital_Label; Capital_Label)
             {
 
@@ -197,7 +196,6 @@ report 50233 "ER - Statement Of Account"
             {
 
             }
-
             #endregion
             #region G/L Account Values
             column(No; "No.")
@@ -275,7 +273,6 @@ report 50233 "ER - Statement Of Account"
 
             column(Additional_Currency_Net_Change; "Additional-Currency Net Change") { }
 
-
             column(Dim1Label; SelectedDimensions[1])
             {
 
@@ -308,7 +305,6 @@ report 50233 "ER - Statement Of Account"
                 {
 
                 }
-
                 column(NetChange; NetChange) { }
                 column(NetChangeAcy; NetChangeAcy) { }
                 column(Document_No_; "Document No.") { }
@@ -354,8 +350,6 @@ report 50233 "ER - Statement Of Account"
                 {
 
                 }
-                column(Amount; Amount) { }
-                column(Additional_Currency_Amount; "Additional-Currency Amount") { }
                 trigger OnPreDataItem()
                 begin
                     case SelectedDimensionsNB[1] of
@@ -434,7 +428,6 @@ report 50233 "ER - Statement Of Account"
                     MyFieldRef: FieldRef;
                     GLEntryRecref: RecordRef;
 
-
                     RecID: RecordID;
                 begin
                     GLEntryRecref.OPEN(17);
@@ -465,7 +458,6 @@ report 50233 "ER - Statement Of Account"
 
                 end;
 
-
             }
 
             trigger OnAfterGetRecord()
@@ -483,7 +475,7 @@ report 50233 "ER - Statement Of Account"
                 // IF DateFilter <> '' THEN BEGIN
                 //SetFilter("No.", GlCode);
                 SetRange("Date Filter", 0D, GETRANGEMIN("Date Filter") - 1);
-
+            
                 CalcFields("Net Change", "Additional-Currency Net Change");
                 NetChange := "Net Change";
                 NetChangeAcy := "Additional-Currency Net Change";
@@ -609,8 +601,6 @@ report 50233 "ER - Statement Of Account"
 
 
         end;
-
-
     }
 
     trigger OnPreReport()
@@ -620,10 +610,6 @@ report 50233 "ER - Statement Of Account"
         L_RecDimensions: Record Dimension;
 
     begin
-        GLNoFilter := "G/L Entry".GetFilters;
-        PostDateFilter := "G/L Entry".GetFilter("Posting Date");
-        DateFilter := "G/L Account".GETFILTER("Date Filter");
-
         GLNoFilter := "G/L Entry".GetFilters;
         PostDateFilter := "G/L Entry".GetFilter("Posting Date");
         DateFilter := "G/L Account".GETFILTER("Date Filter");
@@ -742,7 +728,6 @@ report 50233 "ER - Statement Of Account"
         #region HeaderLabels
         AddressLabel: Label 'Address';
         Capital_Label: Label 'Capital';
-
         GLNoFilter: Text[100];
         DateFilter: Text[100];
         VATCodeLabel: Label 'VAT Code';
@@ -785,7 +770,6 @@ report 50233 "ER - Statement Of Account"
         #region Group by shortcuts
         DimensionsArray: array[8] of Boolean;
         SelectedDimensions: array[2] of Text;
-
         Date: Date;
         SelectedDimensionsNB: array[2] of Integer;
         Dim1ID: Integer;

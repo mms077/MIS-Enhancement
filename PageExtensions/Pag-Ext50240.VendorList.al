@@ -31,8 +31,22 @@ pageextension 50240 "Vendor List" extends "Vendor List"
                     Caption = 'ER - Vendor Statement';
                     Image = Report;
                     trigger OnAction()
+                    var
+                        Vendor: Record Vendor;
+
+                        VendorStatement: Report "ER - Vendor Statement";
                     begin
-                        Report.RunModal(Report::"ER - Vendor Statement");
+
+
+                        Clear(VendorStatement);
+
+                        Vendor.SetFilter("No.", Rec."No.");
+                        if Vendor.FindFirst() then
+                            VendorStatement.SetVendNo(Vendor."No.");
+
+
+                        VendorStatement.Run();
+
                     end;
                 }
                 action("ER - Vendor - Summary Aging")

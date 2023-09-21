@@ -5268,6 +5268,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Bank Acc. Statement - NamedType CapitalLabel</note>
         </trans-unit>
+        <trans-unit id="Report 3472570818 - NamedType 598845625" size-unit="char" translate="yes" xml:space="preserve">
+          <source>of</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Bank Acc. Statement - NamedType OfLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3472570818 - NamedType 266656143" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Bank Acc. Statement - NamedType PageLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3472570818 - NamedType 406901249" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Printed On:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Bank Acc. Statement - NamedType PrintedOnLabel</note>
+        </trans-unit>
         <trans-unit id="Report 3472570818 - NamedType 3869443955" size-unit="char" translate="yes" xml:space="preserve">
           <source>SWIFT</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -5913,10 +5928,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement - NamedType IssueDateValueLabel</note>
         </trans-unit>
+        <trans-unit id="Report 1882754797 - NamedType 598845625" size-unit="char" translate="yes" xml:space="preserve">
+          <source>of</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement - NamedType OfLabel</note>
+        </trans-unit>
         <trans-unit id="Report 1882754797 - NamedType 3013844566" size-unit="char" translate="yes" xml:space="preserve">
           <source>only</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement - NamedType OnlyLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1882754797 - NamedType 266656143" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement - NamedType PageLabel</note>
         </trans-unit>
         <trans-unit id="Report 1882754797 - NamedType 2374422568" size-unit="char" translate="yes" xml:space="preserve">
           <source>Phone Number</source>
@@ -5927,6 +5952,11 @@
           <source>Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement - NamedType PostingDateLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1882754797 - NamedType 406901249" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Printed On:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement - NamedType PrintedOnLabel</note>
         </trans-unit>
         <trans-unit id="Report 1882754797 - NamedType 2446969282" size-unit="char" translate="yes" xml:space="preserve">
           <source>Rem Amt.</source>
@@ -6172,6 +6202,11 @@
           <source>Requested Currency Code</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement - Control RequestCurrency - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1882754797 - Control 2598613329 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Customer Statement - Control CustNum - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 1187795502 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ER - Customer Statement(Dimension)</source>
@@ -10463,10 +10498,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Statement - NamedType IssueDateLabel</note>
         </trans-unit>
+        <trans-unit id="Report 498905365 - NamedType 598845625" size-unit="char" translate="yes" xml:space="preserve">
+          <source>of</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Statement - NamedType OfLabel</note>
+        </trans-unit>
         <trans-unit id="Report 498905365 - NamedType 3013844566" size-unit="char" translate="yes" xml:space="preserve">
           <source>only.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Statement - NamedType OnlyLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 498905365 - NamedType 266656143" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Statement - NamedType PageLabel</note>
         </trans-unit>
         <trans-unit id="Report 498905365 - NamedType 4065549182" size-unit="char" translate="yes" xml:space="preserve">
           <source>Phone Number</source>
@@ -10748,20 +10793,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Statement - Control SelectedCurrencies - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Report 498905365 - Control 3577178040 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the Vendor No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Statement - Control SelectedVendorNo - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Report 498905365 - Control 3577178040 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Vendor No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Statement - Control SelectedVendorNo - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Report 498905365 - Control 2565971985 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the ending date for the report.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Statement - Control To Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 498905365 - Control 2214728318 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Vendor No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Statement - Control VendNumber - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 498905365 - Control 2214728318 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Vendor Statement - Control VendNumber - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 3137650822 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ER - Vendor Trial Balance</source>

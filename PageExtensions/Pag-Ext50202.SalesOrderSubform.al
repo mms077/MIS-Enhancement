@@ -410,6 +410,7 @@ pageextension 50202 "Sales Order Subform" extends "Sales Order Subform"
     begin
         Clear(ReservationWarning);
         if SalesLinePar.Type = SalesLinePar.Type::Item then begin
+            SalesLinePar.CalcFields("Reserved Quantity");
             if SalesLinePar."Reserved Quantity" < SalesLinePar.Quantity then
                 ReservationWarning := '🔴'
             else

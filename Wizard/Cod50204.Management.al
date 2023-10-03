@@ -892,6 +892,65 @@ codeunit 50204 Management
         end;
     end;
 
+    procedure CreateNeededRawMaterialForDesignSecParamLines(ItemVariantPar: Record "Item Variant"; var AssemblyHeaderPar: Record "Assembly Header"): Integer
+    var
+        ItemDesingSecRMLoc: Record "Item Design Section RM";
+        ItemLoc: Record Item;
+        DesignDetail: Record "Design Detail";
+        DesignSectionSetLoc: Record "Design Sections Set";
+        DesignSectionLoc: Record "Design Section";
+        RMCategoryDesignSection: Record "RM Category Design Section";
+        Design: Record Design;
+    begin
+        if NeededRawMaterial.FindLast() then begin
+            Counter := NeededRawMaterial.ID + 1;
+            BatchCounter := NeededRawMaterial.Batch + 1;
+        end else begin
+            Counter := 1;
+            BatchCounter := 1;
+        end;
+        Clear(NeededRawMaterial);
+        Clear(DesignSectionSetLoc);
+        DesignSectionSetLoc.SetRange("Design Section Set ID", ItemVariantPar."Design Sections Set ID");
+        if DesignSectionSetLoc.FindSet() then begin
+            repeat
+                Clear(ItemLoc);
+                ItemLoc.Get(ItemVariantPar."Item No.");
+                Clear(DesignDetail);
+                DesignDetail.SetCurrentKey("Section Code", "Design Code", "Size Code", "Fit Code");
+                DesignDetail.SetRange("Design Code", ItemLoc."Design Code");
+                DesignDetail.SetRange("Size Code", ItemVariantPar."Item Size");
+                DesignDetail.SetRange("Fit Code", ItemVariantPar."Item Fit");
+                DesignDetail.SetRange("Design Section Code", DesignSectionSetLoc."Design Section Code");
+                ///DesignDetail.SetRange("Section Group", DesignSectionParamLines."Section Group");
+                if DesignDetail.FindSet() then begin
+                    Clear(Design);
+                    Design.Get(DesignDetail."Design Code");
+                    repeat
+                        //if design section have just one RM Category --> choose the default one
+                        DesignSectionLoc.Get(DesignDetail."Design Section Code");
+                        DesignSectionLoc.SetRange("Design Type Filter", Design.Type);
+                        DesignSectionLoc.CalcFields("Related RM Categories Count");
+                        if DesignSectionLoc."Related RM Categories Count" = 1 then begin
+                            RMCategoryDesignSection.SetRange("Design Section Code", DesignSectionLoc.Code);
+                            RMCategoryDesignSection.SetRange("Design Type", Design.Type);
+                            RMCategoryDesignSection.FindFirst();
+                            InitRawMaterialFromDesignSecParamLines(RMCategoryDesignSection."RM Category Code", DesignSectionSetLoc, DesignDetail, ItemVariantPar, AssemblyHeaderPar);
+                        end else begin
+                            //if design section have more than one RM Category ---> Get RM Category from item design section fabric base on design section code
+                            Clear(ItemDesingSecRMLoc);
+                            ItemDesingSecRMLoc.SetRange("Item No.", ItemVariantPar."Item No.");
+                            ItemDesingSecRMLoc.SetRange("Design Section Code", DesignDetail."Design Section Code");
+                            if ItemDesingSecRMLoc.FindFirst() then
+                                InitRawMaterialFromDesignSecParamLines(ItemDesingSecRMLoc."Raw Material Category", DesignSectionSetLoc, DesignDetail, ItemVariantPar, AssemblyHeaderPar);
+                        end;
+                    until DesignDetail.Next() = 0;
+                end;
+            until DesignSectionSetLoc.Next() = 0;
+        end;
+        exit(BatchCounter);
+    end;
+
     procedure GetInsertedDesignSectionColor(ParamHeader: Record "Parameter Header"): Text[2048]
     var
         ItemDesignSecColor: Record "Item Design Section Color";
@@ -1102,6 +1161,67 @@ codeunit 50204 Management
                 NeededRawMaterial.Batch := BatchCounter;
                 //Add Parameters header Link
                 NeededRawMaterial."Paramertes Header ID" := ParamHeader.ID;
+                NeededRawMaterial.Insert(true);
+                Counter := Counter + 1;
+            until RawMaterial.Next() = 0;
+        end;
+    end;
+
+    procedure InitRawMaterialFromDesignSecParamLines(RMCategoryCode: Code[50]; DesignSectionSet: Record "Design Sections Set"; DesignDetail: Record "Design Detail"; ItemVariantPar: Record "Item Variant"; AssemblyHeaderPar: Record "Assembly Header")
+    var
+        RawMaterial: Record "Raw Material";
+    begin
+        Clear(RawMaterial);
+        DesignDetail.CalcFields("UOM Code");
+        RawMaterial.SetRange("Color ID", DesignSectionSet."Color ID");
+        RawMaterial.SetRange("Tonality Code", ItemVariantPar."Tonality Code");
+        RawMaterial.SetRange("Raw Material Category", RMCategoryCode);
+        if RawMaterial.FindSet() then begin
+            /*Clear(SalesLineLoc);
+            SalesLineLoc.Get(ParamHeader."Sales Line Document Type", ParamHeader."Sales Line Document No.", ParamHeader."Sales Line No.");*/
+            repeat
+                Clear(NeededRawMaterial);
+                NeededRawMaterial.Init();
+                NeededRawMaterial.ID := Counter;
+                NeededRawMaterial."RM Code" := RawMaterial.Code;
+                //Check if Raw Material has variant
+                NeededRawMaterial."RM Variant Code" := CheckIfRawMaterialHasVariant(RawMaterial.Code, ItemVariantPar);
+                NeededRawMaterial."Color ID" := RawMaterial."Color ID";
+                NeededRawMaterial."Tonality Code" := RawMaterial."Tonality Code";
+                NeededRawMaterial."Design Detail Line No." := DesignDetail."Line No.";
+                NeededRawMaterial."Design Detail Design Code" := DesignDetail."Design Code";
+                NeededRawMaterial."Design Detail Section Code" := DesignDetail."Section Code";
+                NeededRawMaterial."Design Detail Design Sec. Code" := DesignDetail."Design Section Code";
+                NeededRawMaterial."Design Detail Fit Code" := DesignDetail."Fit Code";
+                NeededRawMaterial."Design Detail Quantity" := DesignDetail.Quantity;
+                NeededRawMaterial."Design Detail Size Code" := DesignDetail."Size Code";
+                NeededRawMaterial."Design Detail UOM Code" := DesignDetail."UOM Code";
+
+                NeededRawMaterial."Raw Material Category" := RawMaterial."Raw Material Category";
+
+                //Calculate Qty per UOM of Raw Material
+                ItemRM.Get(RawMaterial.Code);
+                QtyPerUOMRM := UOMManagement.GetQtyPerUnitOfMeasure(ItemRM, RawMaterial."UOM Code");
+                //Calculate Qty per UOM of Design Detail
+                QtyPerUOMDesignDetail := UOMManagement.GetQtyPerUnitOfMeasure(ItemRM, DesignDetail."UOM Code");
+                DerivedQty := (DesignDetail.Quantity * QtyPerUOMDesignDetail) / QtyPerUOMRM;
+
+                DerivedQty := (DesignDetail.Quantity * QtyPerUOMDesignDetail) / QtyPerUOMRM;
+                NeededRawMaterial."Raw Material Category" := RawMaterial."Raw Material Category";
+                /*NeededRawMaterial."Sales Line Quantity" := SalesLineLoc."Quantity";
+                NeededRawMaterial."Sales Line Item No." := SalesLineLoc."No.";
+                NeededRawMaterial."Sales Line Location Code" := SalesLineLoc."Location Code";
+                NeededRawMaterial."Sales Line UOM Code" := SalesLineLoc."Unit of Measure Code";
+                NeededRawMaterial."Sales Order No." := SalesLineLoc."Document No.";
+                NeededRawMaterial."Sales Order Line No." := SalesLineLoc."Line No.";*/
+                NeededRawMaterial."Sales Line Location Code" := AssemblyHeaderPar."Location Code";
+                NeededRawMaterial."Assembly Order No." := AssemblyHeaderPar."No.";
+                NeededRawMaterial."Assembly Line Quantity" := AssemblyHeaderPar.Quantity * DerivedQty;
+                NeededRawMaterial."Assembly Line UOM Code" := RawMaterial."UOM Code";
+                //Each set of raw material in one batch
+                NeededRawMaterial.Batch := BatchCounter;
+                //Add Parameters header Link
+                //NeededRawMaterial."Paramertes Header ID" := ParamHeader.ID;
                 NeededRawMaterial.Insert(true);
                 Counter := Counter + 1;
             until RawMaterial.Next() = 0;
@@ -2112,6 +2232,21 @@ codeunit 50204 Management
         ItemVariant.SetRange("Item No.", RMCode);
         ItemVariant.SetRange("Item Size", ParamHeaderPar."Item Size");
         ItemVariant.SetRange("Item Color Id", ParamHeaderPar."Item Color Id");
+        if ItemVariant.FindFirst() then
+            exit(ItemVariant."Code")
+        else
+            exit('');
+
+    end;
+
+    procedure CheckIfRawMaterialHasVariant(RMCode: Code[20]; ItemVariantPar: Record "Item Variant"): Text[10]
+    var
+        ItemVariant: Record "Item Variant";
+    begin
+        Clear(ItemVariant);
+        ItemVariant.SetRange("Item No.", RMCode);
+        ItemVariant.SetRange("Item Size", ItemVariantPar."Item Size");
+        ItemVariant.SetRange("Item Color Id", ItemVariantPar."Item Color Id");
         if ItemVariant.FindFirst() then
             exit(ItemVariant."Code")
         else

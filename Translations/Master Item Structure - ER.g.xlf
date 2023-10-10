@@ -5243,6 +5243,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Activities Time Spent - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 2234259808 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Adjust Acy Rate Posted Purchase Invoice</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Adjust Acy Rate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2234259808 - Control 3117834186 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document No</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Adjust Acy Rate - Control DocumentNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2234259808 - Control 3521817716 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Adjust Acy Rate - Control SourceCode - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 118002655 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Detailed Warehouse Shipment</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -13173,6 +13188,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PaymentJournal - Action Post and &amp;Print New - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 407220332 - Action 1790721864 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 407220332">
+          <source>Adjust ACY Rate</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Purchase Invoices - Action AdjustAcyRate - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2557560783 - Action 1914989163 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2557560783">
           <source>Arabic Return Invoice</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -13672,6 +13692,11 @@
           <source>Role_ID eq '%1'</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Tenant Permission Subform - Action EditInExcel - Method OnAction - NamedType Filters</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3316333792 - Control 3897449568 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 337631938">
+          <source>Allow to Adjust ACY Rate for Posted Purchase Invoice</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension User Setup - ER - Control Adjust ACY Rate - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 3316333792 - Control 2783780965 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 337631938">
           <source>Delete design</source>
@@ -16087,6 +16112,11 @@
           <source>Parent Parameters Header ID</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Unplanned Demand - Field Parent Parameter Header ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3316333792 - Field 3897449568 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
+          <source>Adjust ACY Rate</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension User Setup - ER - Field Adjust ACY Rate - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3316333792 - Field 2783780965 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
           <source>Delete Design</source>

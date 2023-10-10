@@ -311,5 +311,7 @@ permissionset 50200 MasterItemStructure
         tabledata "Job Queue Selection" = RIMD,
         table "Job Queue Selection" = X,
         codeunit "Set Job Queue Ready" = X,
-        page "Job Queue Selection" = X;
+        page "Job Queue Selection" = X,
+        report "Adjust Acy Rate" = X,
+        codeunit "Adjust Acy PostedPurchInv" = X;
 }

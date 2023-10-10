@@ -28,10 +28,6 @@ page 50255 "Plotting Files"
                 {
                     ApplicationArea = all;
                 }
-                field(Picture; Rec.Picture)
-                {
-                    ApplicationArea = All;
-                }
                 field(Cut; Rec.Cut)
                 {
                     Caption = 'Cut';

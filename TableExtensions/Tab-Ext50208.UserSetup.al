@@ -53,6 +53,10 @@ tableextension 50208 "User Setup - ER" extends "User Setup"
         {
             DataClassification = ToBeClassified;
         }
+        field(50312; "Adjust ACY Rate"; Boolean)
+        {
+            DataClassification = ToBeClassified;
+        }
         /*field(50312; "Create Assemb. From Batch"; boolean)
         {
         }*/

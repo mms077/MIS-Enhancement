@@ -58,6 +58,11 @@ pageextension 50204 "User Setup - ER" extends "User Setup"
                 ApplicationArea = all;
                 ToolTip = 'Allow reset the No. Of Copies in ER-Manufaturing Order';
             }
+            field("Adjust ACY Rate"; rec."Adjust ACY Rate")
+            {
+                ApplicationArea = all;
+                ToolTip = 'Allow to Adjust ACY Rate for Posted Purchase Invoice';
+            }
         }
     }
 }

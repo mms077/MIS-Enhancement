@@ -15,6 +15,7 @@ page 50255 "Plotting Files"
                 field("ID"; Rec."ID")
                 {
                     ApplicationArea = All;
+                    Editable = false;
                 }
                 field("Design Code"; Rec."Design Code")
                 {
@@ -45,6 +46,7 @@ page 50255 "Plotting Files"
                 field("Has Picture"; Rec."Has Picture")
                 {
                     ApplicationArea = all;
+                    Editable = false;
                 }
             }
         }

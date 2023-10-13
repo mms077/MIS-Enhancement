@@ -1,6 +1,6 @@
 page 50256 "Plotting File FactBox"
 {
-    Caption = 'Plotting Files';
+    Caption = 'Plotting Files FactBox';
     DeleteAllowed = false;
     InsertAllowed = false;
     LinksAllowed = false;

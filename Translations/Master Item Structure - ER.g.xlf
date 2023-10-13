@@ -4469,7 +4469,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Parameters Form - Action CreateNeededRawMaterials - Method OnAction - NamedType Txt001</note>
         </trans-unit>
         <trans-unit id="Page 3094256300 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Plotting Files</source>
+          <source>Plotting Files FactBox</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Plotting File FactBox - Property Caption</note>
         </trans-unit>

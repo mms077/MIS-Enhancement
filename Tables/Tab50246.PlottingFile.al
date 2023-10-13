@@ -8,7 +8,6 @@ table 50246 "Plotting File"
         field(1; "Design Plotting ID"; Integer)
         {
             Caption = 'Design Plotting ID';
-            Editable = false;
         }
         field(2; Picture; MediaSet)
         {
@@ -23,7 +22,6 @@ table 50246 "Plotting File"
         field(4; ID; Integer)
         {
             Caption = 'ID';
-            Editable = false;
         }
         field(5; Cut; Code[50])
         {
@@ -57,7 +55,7 @@ table 50246 "Plotting File"
         }
         field(10; "Has Picture"; Boolean)
         {
-            Editable = false;
+            Caption = 'Has Picture';
         }
     }
     keys

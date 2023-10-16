@@ -117,11 +117,11 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.65644cm</Height>
+                  <Height>0.6cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox43">
+                        <Textbox Name="Textbox12">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -137,7 +137,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox43</rd:DefaultName>
+                          <rd:DefaultName>Textbox12</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -157,7 +157,7 @@
                     <TablixCell />
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox51">
+                        <Textbox Name="Textbox14">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -176,7 +176,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox51</rd:DefaultName>
+                          <rd:DefaultName>Textbox14</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -409,7 +409,6 @@ Fields!VATLabel.Value &amp; "[0%]") &amp; IIF(First(Fields!FrenchReport.Value, "
                                           <PaddingBottom>2pt</PaddingBottom>
                                         </Style>
                                       </Textbox>
-                                      <rd:Selected>true</rd:Selected>
                                     </CellContents>
                                   </TablixCell>
                                   <TablixCell>
@@ -527,7 +526,7 @@ Fields!VATLabel.Value &amp; "[0%]") &amp; IIF(First(Fields!FrenchReport.Value, "
                                         </Paragraphs>
                                         <rd:DefaultName>Textbox2</rd:DefaultName>
                                         <Visibility>
-                                          <Hidden>=Code.SetData(Cstr(Fields!BillTo_Name.Value) + Chr(177) + Cstr(Fields!BillTo_Address.Value) + Chr(177)+Cstr(Fields!BillTo_Phone.Value)+Chr(177)+Cstr(Fields!MOF_Recipt_No.Value)+Chr(177)+Cstr(Fields!Sales_Invoice_Posting_Date.Value)+Chr(177)+Cstr(Fields!ShipTo_Project.Value)+Chr(177)+Cstr(Fields!BillTo_Currency.Value)+Chr(177)+Cstr(Fields!TotalAmount.Value)+Chr(177)+Cstr(Fields!TotalLineDiscountAmt.Value)+Chr(177)+Cstr(Fields!Sales_Invoice_No.Value)+Chr(177)+Cstr(Fields!BillTo_No.Value))</Hidden>
+                                          <Hidden>=Code.SetData(Cstr(Fields!BillTo_Name.Value) + Chr(177) + Cstr(Fields!BillTo_Address.Value) + Chr(177)+Cstr(Fields!BillTo_Phone.Value)+Chr(177)+Cstr(Fields!MOF_Recipt_No.Value)+Chr(177)+Cstr(Fields!Sales_Invoice_Posting_Date.Value)+Chr(177)+Cstr(Fields!ShipTo_Project.Value)+Chr(177)+Cstr(Fields!BillTo_Currency.Value)+Chr(177)+Cstr(Fields!TotalAmount.Value)+Chr(177)+Cstr(Fields!TotalLineDiscountAmt.Value)+Chr(177)+Cstr(Fields!Sales_Invoice_No.Value)+Chr(177)+Cstr(Fields!BillTo_No.Value)+Chr(177)+Cstr(Fields!VAT_Amount.Value))</Hidden>
                                         </Visibility>
                                         <Style>
                                           <Border>
@@ -617,28 +616,16 @@ Fields!VATLabel.Value &amp; "[0%]") &amp; IIF(First(Fields!FrenchReport.Value, "
               <TablixMembers>
                 <TablixMember>
                   <FixedData>true</FixedData>
-                  <KeepWithGroup>After</KeepWithGroup>
-                  <RepeatOnNewPage>true</RepeatOnNewPage>
                 </TablixMember>
                 <TablixMember>
-                  <Group Name="Details">
-                    <PageBreak>
-                      <BreakLocation>Between</BreakLocation>
-                    </PageBreak>
-                  </Group>
-                  <SortExpressions>
-                    <SortExpression>
-                      <Value>=Fields!Sales_Invoice_No.Value</Value>
-                    </SortExpression>
-                  </SortExpressions>
-                  <TablixMembers>
-                    <TablixMember />
-                    <TablixMember />
-                    <TablixMember />
-                  </TablixMembers>
+                  <Group Name="Group1" />
                 </TablixMember>
+                <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixRowHierarchy>
+            <RepeatColumnHeaders>true</RepeatColumnHeaders>
+            <RepeatRowHeaders>true</RepeatRowHeaders>
             <DataSetName>DataSet_Result</DataSetName>
             <SortExpressions>
               <SortExpression>
@@ -646,7 +633,7 @@ Fields!VATLabel.Value &amp; "[0%]") &amp; IIF(First(Fields!FrenchReport.Value, "
               </SortExpression>
             </SortExpressions>
             <Top>0.125in</Top>
-            <Height>4.50255cm</Height>
+            <Height>4.44611cm</Height>
             <Width>18.97548cm</Width>
             <Style>
               <Border>
@@ -656,7 +643,7 @@ Fields!VATLabel.Value &amp; "[0%]") &amp; IIF(First(Fields!FrenchReport.Value, "
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>5.01788cm</Height>
+        <Height>5.42005cm</Height>
         <Style />
       </Body>
       <Width>19cm</Width>
@@ -755,7 +742,7 @@ Fields!VATLabel.Value &amp; "[0%]") &amp; IIF(First(Fields!FrenchReport.Value, "
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=First(Fields!PageLabel.Value, "DataSet_Result") &amp; Globals!PageNumber &amp; First(Fields!OfLabel.Value, "DataSet_Result") &amp; Globals!TotalPages</Value>
+                      <Value>=First(Fields!PageLabel.Value, "DataSet_Result") &amp; Globals!PageNumber  &amp; First(Fields!OfLabel.Value, "DataSet_Result") &amp; Globals!TotalPages</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -1438,7 +1425,7 @@ Fields!VATLabel.Value &amp; "[0%]") &amp; IIF(First(Fields!FrenchReport.Value, "
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>=Code.GetData(8) + Code.GetData(9)</Value>
+                          <Value>=Code.GetDataDecimal(8) + Code.GetDataDecimal(9)+Code.GetDataDecimal(12)</Value>
                           <Style>
                             <FontFamily>Segoe UI</FontFamily>
                             <FontWeight>Bold</FontWeight>
@@ -1561,6 +1548,9 @@ Fields!VATLabel.Value &amp; "[0%]") &amp; IIF(First(Fields!FrenchReport.Value, "
                   <Height>0.6cm</Height>
                   <Width>3.33596cm</Width>
                   <ZIndex>15</ZIndex>
+                  <Visibility>
+                    <Hidden>=First(Fields!FrenchReport.Value, "DataSet_Result")</Hidden>
+                  </Visibility>
                   <Style>
                     <Border>
                       <Style>None</Style>
@@ -1594,6 +1584,9 @@ Fields!VATLabel.Value &amp; "[0%]") &amp; IIF(First(Fields!FrenchReport.Value, "
                   <Height>0.6cm</Height>
                   <Width>7.55845cm</Width>
                   <ZIndex>16</ZIndex>
+                  <Visibility>
+                    <Hidden>=First(Fields!FrenchReport.Value, "DataSet_Result")</Hidden>
+                  </Visibility>
                   <Style>
                     <Border>
                       <Style>None</Style>
@@ -1786,9 +1779,14 @@ End Function
 
 Shared Data as Object
 
-Public Function GetData(Num as Integer) as Object
+Public Function GetDataDecimal(Num as Decimal) as Decimal
+  Return CDec(Choose(Num, Split(Cstr(Data),Chr(177))))
+End Function
+
+Public Function GetData(Num as Decimal) as Object
   Return Cstr(Choose(Num, Split(Cstr(Data),Chr(177))))
 End Function
+
 
 Public Function SetData(NewData as Object)
   Data = NewData

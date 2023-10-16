@@ -10965,12 +10965,12 @@
         </trans-unit>
         <trans-unit id="Report 1256887817 - NamedType 598845625" translate="yes" xml:space="preserve">
           <source>of </source>
-          <target state="translated" state-qualifier="id-match">de</target>
+          <target state="translated" state-qualifier="id-match"> de </target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER-Credit Note - NamedType OfLabel</note>
         </trans-unit>
         <trans-unit id="Report 1256887817 - NamedType 266656143" translate="yes" xml:space="preserve">
           <source>Page </source>
-          <target state="translated" state-qualifier="id-match">Page</target>
+          <target state="translated" state-qualifier="id-match">Page </target>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER-Credit Note - NamedType PageLabel</note>
         </trans-unit>
         <trans-unit id="Report 1256887817 - NamedType 3672978075" translate="yes" xml:space="preserve">

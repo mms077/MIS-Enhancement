@@ -149,10 +149,7 @@ report 50215 "ER-Credit Note"
             {
 
             }
-            /*column(ColumnName; )
-            {
-
-            }*/ //Shipping Terms
+            //Shipping Terms
 
             column(BillTo_DueDate; "Sales Cr.Memo Header"."Due Date")
             {
@@ -194,10 +191,6 @@ report 50215 "ER-Credit Note"
             {
 
             }
-            /*column()
-            {
-
-            }*/ //Bill Ref. Number
 
             #endregion 
 
@@ -820,7 +813,7 @@ report 50215 "ER-Credit Note"
         FormNoLabel: Label 'Form #: ';
         FormNoVal: Label ' ER\LB\AVER\ACCT-CR\100';
         PageLabel: label 'Page ';
-        OfLabel: label 'of ';
+        OfLabel: label ' of ';
         TotalLabelWithoutVAT: label 'Total';
         IssueDateVal: label 'Jan 23';
 }

@@ -11099,7 +11099,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report ER-Credit Note - NamedType MOFReceiptLabel</note>
         </trans-unit>
         <trans-unit id="Report 1256887817 - NamedType 598845625" size-unit="char" translate="yes" xml:space="preserve">
-          <source>of </source>
+          <source> of </source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER-Credit Note - NamedType OfLabel</note>
         </trans-unit>
@@ -13192,6 +13192,26 @@
           <source>Adjust ACY Rate</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Purchase Invoices - Action AdjustAcyRate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2716593954 - Action 1914989163 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2716593954">
+          <source>Arabic Return Invoice</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Credit Memo - Action ArabicReturnInvoice - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2716593954 - Action 3254864218 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2716593954">
+          <source>Arabic Credit Note</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Credit Memo - Action ARCreditNote - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2716593954 - Action 2568382455 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2716593954">
+          <source>Credit Note</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Credit Memo - Action CreditNote - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2716593954 - Action 3446667901 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2716593954">
+          <source>Return Invoice</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Credit Memo - Action ReturnInvoice - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 2557560783 - Action 1914989163 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2557560783">
           <source>Arabic Return Invoice</source>

@@ -47,6 +47,11 @@ table 50213 Design
             OptionMembers = " ","Male","Female","Unisex";
             OptionCaption = ' ,Male,Female,Unisex';
         }
+        field(10; "Has Picture"; Boolean)
+        {
+            Caption = 'Has Picture';
+            Editable = false;
+        }
     }
     keys
     {
@@ -80,5 +85,13 @@ table 50213 Design
                 DesignDetail.DeleteAll();
         end else
             Error(Txt001);
+    end;
+
+    trigger OnModify()
+    begin
+        if Rec.Picture.Count = 0 then
+            Rec."Has Picture" := false
+        else
+            Rec."Has Picture" := true;
     end;
 }

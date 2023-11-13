@@ -553,6 +553,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Design - Field Gender - Property OptionCaption</note>
         </trans-unit>
+        <trans-unit id="Table 926452758 - Field 2315540138 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Has Picture</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Design - Field Has Picture - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 926452758 - Field 892089279 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Items Count</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3932,6 +3937,11 @@
           <source>Created By</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Designs - Control Created By - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2313239811 - Control 2315540138 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Has Picture</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Designs - Control Has Picture - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2313239811 - Control 596019230 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Modified By</source>

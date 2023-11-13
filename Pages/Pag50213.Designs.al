@@ -84,6 +84,11 @@ page 50213 Designs
                     ApplicationArea = all;
                     Caption = 'Modified At';
                 }
+                field("Has Picture"; Rec."Has Picture")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Has Picture';
+                }
             }
 
         }
@@ -170,6 +175,19 @@ page 50213 Designs
                     CreateItemFromDesign;
                 end;
             }
+            action("Update Has Picture")
+            {
+                ApplicationArea = All;
+                Image = UpdateXML;
+                Promoted = true;
+                PromotedIsBig = true;
+                PromotedCategory = Process;
+                PromotedOnly = true;
+                trigger OnAction()
+                begin
+                    UpdateHasPicture();
+                end;
+            }
         }
     }
     trigger OnAfterGetRecord()
@@ -248,6 +266,21 @@ page 50213 Designs
         end
         else
             Error(Txt0002);
+    end;
+
+    Procedure UpdateHasPicture()
+    var
+        Design: Record Design;
+    begin
+        if Design.FindSet() then
+            repeat
+                if Design.Picture.Count = 0 then
+                    Design."Has Picture" := false
+                else
+                    Design."Has Picture" := true;
+                Design.Modify(false);
+            until Design.Next() = 0;
+        Message('Done');
     end;
 
     var

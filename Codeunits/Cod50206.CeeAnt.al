@@ -189,6 +189,29 @@ codeunit 50206 CeeAnt
         G_CICU.CopyItemRelatedTable(DATABASE::"Item Feature", ItemFeature.FieldNo("Item No."), FromItemNo, ToItemNo);
     end;
 
+    procedure RefreshQtytoAssemble(WhsShpHeader: Record "Warehouse Shipment Header")
+    var
+        WarehouseShipmentLineRec: Record "Warehouse Shipment Line";
+        AssemblyOrder: Record "Assembly Header";
+        Mynotification: Notification;
+    begin
+        Clear(WarehouseShipmentLineRec);
+        WarehouseShipmentLineRec.SetRange("No.", WhsShpHeader."No.");
+        if WarehouseShipmentLineRec.FindSet() then
+            repeat
+                Clear(AssemblyOrder);
+                AssemblyOrder.SetRange("No.", WarehouseShipmentLineRec."Assembly No.");
+                if AssemblyOrder.FindFirst() then begin
+                    AssemblyOrder.Quantity := WarehouseShipmentLineRec.Quantity;
+                    AssemblyOrder.Validate("Quantity to Assemble", AssemblyOrder.Quantity);
+                    AssemblyOrder.Modify(true);
+                end;
+            until WarehouseShipmentLineRec.Next() = 0;
+        MyNotification.Message('Quantity to Assemble has been refreshed.');
+        MyNotification.Scope(NotificationScope::LocalScope);
+        MyNotification.Send();
+    end;
+
 
     var
         G_CULanguage: Codeunit Language;

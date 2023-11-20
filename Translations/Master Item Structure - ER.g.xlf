@@ -13768,6 +13768,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Vendor List - Action ER - Vendor Statement - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2938519335 - Action 1652134826 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2938519335">
+          <source>Refresh Qty. to Assemble</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Warehouse Shipment - Action Refresh Qty. to Assemble - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1558066289 - Action 1652134826 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1558066289">
+          <source>Refresh Qty. to Assemble</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Warehouse Shipment List - Action Refresh Qty. to Assemble - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 4284303991 - Control 2877273694 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4284303991">
           <source>Color Name</source>
           <note from="Developer" annotates="general" priority="2"></note>

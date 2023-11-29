@@ -7,6 +7,7 @@
         <DataProvider>SQL</DataProvider>
         <ConnectString />
       </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
       <rd:DataSourceID>29aebb8a-dfd8-4f30-9a1c-6987f93b5dbc</rd:DataSourceID>
     </DataSource>
   </DataSources>
@@ -50,7 +51,7 @@
                               <TablixBody>
                                 <TablixColumns>
                                   <TablixColumn>
-                                    <Width>18.9155cm</Width>
+                                    <Width>18.91547cm</Width>
                                   </TablixColumn>
                                 </TablixColumns>
                                 <TablixRows>
@@ -82,16 +83,19 @@
                                                 <TablixBody>
                                                   <TablixColumns>
                                                     <TablixColumn>
-                                                      <Width>3.82061cm</Width>
+                                                      <Width>2.27434cm</Width>
                                                     </TablixColumn>
                                                     <TablixColumn>
-                                                      <Width>6.03853cm</Width>
+                                                      <Width>4.6347cm</Width>
                                                     </TablixColumn>
                                                     <TablixColumn>
-                                                      <Width>5.81777cm</Width>
+                                                      <Width>5.30045cm</Width>
                                                     </TablixColumn>
                                                     <TablixColumn>
-                                                      <Width>3.23849cm</Width>
+                                                      <Width>3.24295cm</Width>
+                                                    </TablixColumn>
+                                                    <TablixColumn>
+                                                      <Width>3.46268cm</Width>
                                                     </TablixColumn>
                                                   </TablixColumns>
                                                   <TablixRows>
@@ -153,6 +157,39 @@
                                                                 </Paragraph>
                                                               </Paragraphs>
                                                               <rd:DefaultName>Textbox119</rd:DefaultName>
+                                                              <Style>
+                                                                <Border>
+                                                                  <Color>LightGrey</Color>
+                                                                  <Style>Solid</Style>
+                                                                </Border>
+                                                                <BackgroundColor>LightGrey</BackgroundColor>
+                                                                <PaddingLeft>2pt</PaddingLeft>
+                                                                <PaddingRight>2pt</PaddingRight>
+                                                                <PaddingTop>2pt</PaddingTop>
+                                                                <PaddingBottom>2pt</PaddingBottom>
+                                                              </Style>
+                                                            </Textbox>
+                                                          </CellContents>
+                                                        </TablixCell>
+                                                        <TablixCell>
+                                                          <CellContents>
+                                                            <Textbox Name="Textbox39">
+                                                              <CanGrow>true</CanGrow>
+                                                              <KeepTogether>true</KeepTogether>
+                                                              <Paragraphs>
+                                                                <Paragraph>
+                                                                  <TextRuns>
+                                                                    <TextRun>
+                                                                      <Value />
+                                                                      <Style>
+                                                                        <FontWeight>Bold</FontWeight>
+                                                                      </Style>
+                                                                    </TextRun>
+                                                                  </TextRuns>
+                                                                  <Style />
+                                                                </Paragraph>
+                                                              </Paragraphs>
+                                                              <rd:DefaultName>Textbox39</rd:DefaultName>
                                                               <Style>
                                                                 <Border>
                                                                   <Color>LightGrey</Color>
@@ -300,6 +337,38 @@
                                                             </Textbox>
                                                           </CellContents>
                                                         </TablixCell>
+                                                        <TablixCell>
+                                                          <CellContents>
+                                                            <Textbox Name="Textbox128">
+                                                              <CanGrow>true</CanGrow>
+                                                              <KeepTogether>true</KeepTogether>
+                                                              <Paragraphs>
+                                                                <Paragraph>
+                                                                  <TextRuns>
+                                                                    <TextRun>
+                                                                      <Value EvaluationMode="Constant">Branding Category</Value>
+                                                                      <Style>
+                                                                        <FontWeight>Bold</FontWeight>
+                                                                      </Style>
+                                                                    </TextRun>
+                                                                  </TextRuns>
+                                                                  <Style />
+                                                                </Paragraph>
+                                                              </Paragraphs>
+                                                              <rd:DefaultName>Textbox120</rd:DefaultName>
+                                                              <Style>
+                                                                <Border>
+                                                                  <Color>LightGrey</Color>
+                                                                  <Style>Solid</Style>
+                                                                </Border>
+                                                                <PaddingLeft>2pt</PaddingLeft>
+                                                                <PaddingRight>2pt</PaddingRight>
+                                                                <PaddingTop>2pt</PaddingTop>
+                                                                <PaddingBottom>2pt</PaddingBottom>
+                                                              </Style>
+                                                            </Textbox>
+                                                          </CellContents>
+                                                        </TablixCell>
                                                       </TablixCells>
                                                     </TablixRow>
                                                     <TablixRow>
@@ -425,12 +494,43 @@
                                                             </Textbox>
                                                           </CellContents>
                                                         </TablixCell>
+                                                        <TablixCell>
+                                                          <CellContents>
+                                                            <Textbox Name="Textbox42">
+                                                              <CanGrow>true</CanGrow>
+                                                              <KeepTogether>true</KeepTogether>
+                                                              <Paragraphs>
+                                                                <Paragraph>
+                                                                  <TextRuns>
+                                                                    <TextRun>
+                                                                      <Value>=Fields!BrandingCategory.Value</Value>
+                                                                      <Style />
+                                                                    </TextRun>
+                                                                  </TextRuns>
+                                                                  <Style />
+                                                                </Paragraph>
+                                                              </Paragraphs>
+                                                              <rd:DefaultName>Textbox42</rd:DefaultName>
+                                                              <Style>
+                                                                <Border>
+                                                                  <Color>LightGrey</Color>
+                                                                  <Style>Solid</Style>
+                                                                </Border>
+                                                                <PaddingLeft>2pt</PaddingLeft>
+                                                                <PaddingRight>2pt</PaddingRight>
+                                                                <PaddingTop>2pt</PaddingTop>
+                                                                <PaddingBottom>2pt</PaddingBottom>
+                                                              </Style>
+                                                            </Textbox>
+                                                          </CellContents>
+                                                        </TablixCell>
                                                       </TablixCells>
                                                     </TablixRow>
                                                   </TablixRows>
                                                 </TablixBody>
                                                 <TablixColumnHierarchy>
                                                   <TablixMembers>
+                                                    <TablixMember />
                                                     <TablixMember />
                                                     <TablixMember />
                                                     <TablixMember />
@@ -462,7 +562,7 @@
                                                 <Top>16.1289cm</Top>
                                                 <Left>0.0001cm</Left>
                                                 <Height>1.8cm</Height>
-                                                <Width>18.9154cm</Width>
+                                                <Width>18.91512cm</Width>
                                                 <ZIndex>1</ZIndex>
                                                 <Style>
                                                   <Border>
@@ -2653,7 +2753,6 @@
                                                   </TablixMembers>
                                                 </TablixRowHierarchy>
                                                 <DataSetName>DataSet_Result</DataSetName>
-                                                <Top>0cm</Top>
                                                 <Left>0.0001cm</Left>
                                                 <Height>1.8cm</Height>
                                                 <Width>18.91537cm</Width>
@@ -3355,7 +3454,6 @@
                                                 </TablixRowHierarchy>
                                                 <DataSetName>DataSet_Result</DataSetName>
                                                 <Top>26.72097cm</Top>
-                                                <Left>0cm</Left>
                                                 <Height>1.8cm</Height>
                                                 <Width>18.91524cm</Width>
                                                 <ZIndex>8</ZIndex>
@@ -3373,6 +3471,7 @@
                                               </Border>
                                             </Style>
                                           </Rectangle>
+                                          <rd:Selected>true</rd:Selected>
                                         </CellContents>
                                       </TablixCell>
                                     </TablixCells>
@@ -3410,9 +3509,8 @@
                               <KeepTogether>true</KeepTogether>
                               <DataSetName>DataSet_Result</DataSetName>
                               <Top>18.03073cm</Top>
-                              <Left>0cm</Left>
                               <Height>28.52097cm</Height>
-                              <Width>18.9155cm</Width>
+                              <Width>18.91547cm</Width>
                               <ZIndex>1</ZIndex>
                               <Style>
                                 <Border>
@@ -3877,7 +3975,6 @@
                                                   </TablixMembers>
                                                 </TablixRowHierarchy>
                                                 <DataSetName>DataSet_Result</DataSetName>
-                                                <Top>0cm</Top>
                                                 <Left>0.00868cm</Left>
                                                 <Height>1.8cm</Height>
                                                 <Width>18.91538cm</Width>
@@ -4558,7 +4655,6 @@
                                                                 <PaddingBottom>2pt</PaddingBottom>
                                                               </Style>
                                                             </Textbox>
-                                                            <rd:Selected>true</rd:Selected>
                                                           </CellContents>
                                                         </TablixCell>
                                                         <TablixCell>
@@ -6117,7 +6213,6 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>2.20839cm</Top>
-              <Left>0cm</Left>
               <Height>0.74111cm</Height>
               <Width>18.91533cm</Width>
               <ZIndex>2</ZIndex>
@@ -6160,7 +6255,6 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox5</rd:DefaultName>
-              <Top>0cm</Top>
               <Left>7.66826cm</Left>
               <Height>0.87517cm</Height>
               <Width>2.5cm</Width>
@@ -6750,6 +6844,9 @@ Ap6f4k0rVAPsuoW8xP8ACsg3fl1rSrlr74Z+Hr7J+w/Z3P8AFA5X9M4/Ss//AIVXBbf8eWs6laD0EgwP
         </Field>
         <Field Name="HasBrandingDetailPicture">
           <DataField>HasBrandingDetailPicture</DataField>
+        </Field>
+        <Field Name="BrandingCategory">
+          <DataField>BrandingCategory</DataField>
         </Field>
         <Field Name="Plotting_File_Size">
           <DataField>Plotting_File_Size</DataField>

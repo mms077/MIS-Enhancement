@@ -533,11 +533,16 @@ report 50200 "ER - Manufacturing Order"
                     {
 
                     }
+                    column(BrandingCategory; GlobalBradingName)
+                    {
+
+                    }
                     trigger OnAfterGetRecord()
                     var
                     begin
                         Clear(GlobalBranding);
                         Clear(GlobalBrandingDetails);
+                        Clear(GlobalBrandingCategory);
                         GlobalBranding.SetRange(Code, GlobalItemBrandingParLines.Code);
                         if GlobalBranding.FindFirst() then begin
                             HasBrandingPicture := false;
@@ -578,6 +583,9 @@ report 50200 "ER - Manufacturing Order"
                                 end;
                             end;
                         end;
+                        //Get Branding Category from Branding Code
+                        if GlobalBrandingCategory.Get(GlobalBranding."Branding Category Code") then
+                            GlobalBradingName := GlobalBrandingCategory.Name;
                     end;
                 }
 
@@ -957,6 +965,7 @@ report 50200 "ER - Manufacturing Order"
         AssembleOrderToLink: Record "Assemble-to-Order Link";
         CompanyInformation: Record "Company Information";
         GlobalParameters: Record "Parameter Header";
+        GlobalBrandingCategory: Record "Branding Category";
         // Variable for the barcode encoded string
         EncodedText: Text;
         GlobalItem: Record Item;
@@ -1006,6 +1015,7 @@ report 50200 "ER - Manufacturing Order"
         TotalVariantQty: Decimal;
         TotalQtyNeeded: Decimal;
         GlobalVariantQtyByMO: Decimal;
+        GlobalBradingName: Text[100];
         DesignSectionRawMaterial: Record "Raw Material";
         GlobalDesignDetail: Record "Design Detail";
         SectionGroupRM: Record "Raw Material";

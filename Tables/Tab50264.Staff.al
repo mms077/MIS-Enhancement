@@ -9,6 +9,14 @@ table 50264 Staff
         {
             Caption = 'Code';
             DataClassification = ToBeClassified;
+            trigger OnValidate()
+            var
+                L_Staff: Record "Staff";
+            begin
+                L_Staff.SetRange("Code", "Code");
+                if L_Staff.FindFirst() then
+                    ERROR('Code already exists.');
+            end;
         }
         field(2; Name; Text[100])
         {

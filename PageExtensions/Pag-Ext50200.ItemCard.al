@@ -243,7 +243,7 @@ pageextension 50200 ItemCard extends "Item Card"
                 Promoted = true;
                 PromotedCategory = Category4;
                 PromotedOnly = true;
-                Enabled=(rec.IsRawMaterial=false) and (rec."Design Code"='');
+                Enabled = (rec.IsRawMaterial = false) and (rec."Design Code" = '');
                 trigger OnAction()
                 var
                     MasterItem: Codeunit MasterItem;
@@ -272,13 +272,17 @@ pageextension 50200 ItemCard extends "Item Card"
     end;
 
     trigger OnQueryClosePage(CloseAction: Action): Boolean
+    var
+        Item: Record Item;
     begin
-        Rec.CalcFields(IsRawMaterial);
-        if (Rec."No." <> '') and (Rec.IsRawMaterial = false) then
-            Rec.TestField("Design Code");
+        Item.Reset();
+        if Item.get(rec."No.") then begin
+            Rec.CalcFields(IsRawMaterial);
+            if (Rec."No." <> '') and (Rec.IsRawMaterial = false) then
+                Rec.TestField("Design Code");
+        end;
     end;
 
     var
         CostVisible: Boolean;
 }
-

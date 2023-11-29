@@ -2,7 +2,7 @@ table 50229 "Raw Material"
 {
     Caption = 'Raw Material';
     DataPerCompany = false;
-
+    
     fields
     {
         field(2; "Code"; Code[20])
@@ -62,13 +62,13 @@ table 50229 "Raw Material"
             Clustered = true;
         }
     }
-    trigger OnDelete()
-    var
-        UserSetup: Record "User Setup";
-    begin
-        UserSetup.Get(UserId);
-        UserSetup.TestField("Delete Raw Material", true);
-    end;
+    // trigger OnDelete()
+    // var
+    //     UserSetup: Record "User Setup";
+    // begin
+    //     UserSetup.Get(UserId);
+    //     UserSetup.TestField("Delete Raw Material", true);
+    // end;
 
     trigger OnInsert()
     begin

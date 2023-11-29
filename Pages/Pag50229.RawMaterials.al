@@ -5,7 +5,7 @@ page 50229 "Raw Materials"
     PageType = List;
     SourceTable = "Raw Material";
     UsageCategory = Lists;
-    //DeleteAllowed = false;
+    DeleteAllowed = false;
     layout
     {
         area(content)

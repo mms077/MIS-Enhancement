@@ -193,6 +193,15 @@ tableextension 50200 Item extends Item
             Error(Txt001);
     end;
 
+    trigger OnAfterDelete()
+    var
+        RawMaterial: Record "Raw Material";
+    begin
+        RawMaterial.Reset();
+        RawMaterial.SetRange("Code", Rec."No.");
+        RawMaterial.DeleteAll(true);
+    end;
+    
     trigger OnAfterInsert()
     begin
         CheckItemNoLength(Rec);

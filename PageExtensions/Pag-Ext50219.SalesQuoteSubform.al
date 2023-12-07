@@ -159,6 +159,15 @@ pageextension 50219 "Sales Quote Subform" extends "Sales Quote Subform"
         }
         addafter("Variant Code")
         {
+            field("Quantity in the Inventory";rec."Quantity in the Inventory"){
+                ApplicationArea=all;
+            }
+            field("Reserved Qty in the Inventory";rec."Reserved Qty in the Inventory"){
+                ApplicationArea=all;
+            }
+            field("Available Qty in the Inventory";AvailableQtyInInventory){
+                ApplicationArea=all;
+            }
             field("Control Number"; Rec."Control Number")
             {
                 ApplicationArea = all;
@@ -352,6 +361,9 @@ pageextension 50219 "Sales Quote Subform" extends "Sales Quote Subform"
         CuttingSheetsDashboard: Record "Cutting Sheets Dashboard";
         WorkflowActivities: Record "Workflow Activities - ER";
     begin
+        rec.CalcFields("Quantity in the Inventory", "Reserved Qty in the Inventory");
+        AvailableQtyInInventory := rec."Quantity in the Inventory" - rec."Reserved Qty in the Inventory";
+
         ColorName := '';
         FrenchColorName := '';
         if Color.Get(Rec.Color) then begin
@@ -388,4 +400,5 @@ pageextension 50219 "Sales Quote Subform" extends "Sales Quote Subform"
         TonalityCode: Code[50];
         //CurrentActivity: Text[100];
         PriceVisible: Boolean;
+        AvailableQtyInInventory: Decimal;
 }

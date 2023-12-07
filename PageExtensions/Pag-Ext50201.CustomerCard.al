@@ -86,6 +86,75 @@ pageextension 50201 "Customer Card" extends "Customer Card"
                 RunObject = page "Customer Departments";
                 RunPageLink = "Customer No." = field("No.");
             }
+            action("Order History")
+            {
+                Caption = 'Order History';
+                ApplicationArea = All;
+                Image = Navigate;
+                Promoted = true;
+                PromotedCategory = Category9;
+                PromotedOnly = true;
+                trigger OnAction()
+                var
+                    SalesHeader: Record "Sales Header";
+
+                    SalesDocType: Enum "Sales Document Type";
+                    OrderHistory: Record OrderHistory;
+                    OrderHistoryPage: Page "OrderHistory";
+
+                    SalesHeaderArchive: Record "Sales Header Archive";
+
+                begin
+                    SalesHeader.setfilter("Sell-to Customer No.", Rec."No.");
+                    SalesHeader.setfilter("Document Type", 'Order');
+                    if SalesHeader.FindFirst() then begin
+                        repeat
+                            if not (OrderHistory.Get(SalesHeader."No.", SessionID)) then begin
+                                OrderHistory.Init();
+                                OrderHistory.SO_NO := SalesHeader."No.";
+                                OrderHistory.Validate(CustomerProjectCode,SalesHeader."Cust Project");
+                                OrderHistory."Customer No." := rec."No.";
+                                OrderHistory."Order Type" := OrderHistory."Order Type"::"Sales Order";
+                                SalesHeader.CalcFields("Lines Count");
+                                OrderHistory."Line Counts" := SalesHeader."Lines Count";
+                                OrderHistory."Session ID" := SessionID;
+                                OrderHistory.Insert();
+                            end
+                            // else begin
+                            //     OrderHistory.Source := '';
+                            //     OrderHistory."Session ID" := SessionID;
+                            //     OrderHistory.Modify();
+                            // end;
+                        until SalesHeader.Next() = 0;
+                    end;
+
+                    SalesHeaderArchive.setfilter("Sell-to Customer No.", Rec."No.");
+                    SalesHeaderArchive.setfilter("Document Type", 'Order');
+                    if SalesHeaderArchive.FindFirst() then
+                        repeat
+                            if not (OrderHistory.Get(SalesHeaderArchive."No.", SessionID)) then begin
+                                OrderHistory.Init();
+                                OrderHistory.SO_NO := SalesHeaderArchive."No.";
+                                OrderHistory.Validate(CustomerProjectCode,SalesHeaderArchive."Cust Project");
+                                OrderHistory."Customer No." := rec."No.";
+                                OrderHistory."Order Type" := OrderHistory."Order Type"::"Sales Order Archive";
+                                SalesHeaderArchive.CalcFields("Archive Lines Count");
+                                OrderHistory."Line Counts" := SalesHeaderArchive."Archive Lines Count";
+                                OrderHistory."Session ID" := SessionID;
+                                OrderHistory.Insert();
+                            end
+                            // else begin
+                            //     OrderHistory.Source := '';
+                            //     OrderHistory.Modify();
+                            // end;
+                        until SalesHeaderArchive.Next() = 0;
+                    Clear(OrderHistory);
+                    OrderHistory.SetRange("Session ID", SessionID);
+                    OrderHistory.SetRange("Customer No.", Rec."No.");
+                    if OrderHistory.FindSet() then
+                        page.Run(50330, OrderHistory);
+                end;
+            }
         }
     }
     trigger OnAfterGetRecord()
@@ -96,7 +165,13 @@ pageextension 50201 "Customer Card" extends "Customer Card"
             UserModifier := User2."User Name";
     end;
 
+    trigger OnOpenPage()
+    begin
+        SessionID := Database.SessionId();
+    end;
+
     var
+        SessionID: Integer;
         User: Record User;
         User2: Record User;
         UserCreater: Code[50];

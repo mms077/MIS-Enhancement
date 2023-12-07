@@ -324,7 +324,7 @@ codeunit 50204 Management
                                             repeat
                                                 Clear(ChildrenParameterHeader);
                                                 ChildrenParameterHeader.Get(QtyAssignmentWizard."Header Id");
-                                                //VariantCode := MasterItem.CreateVariant(ChildrenParameterHeader);
+                                                VariantCode := CheckVariantCode(ChildrenParameterHeader);
                                                 //Update The parameters Headers Related to Qty Assignment
                                                 //UpdateDesignFeatureBrandingParamLines(ParamHeader, ChildrenParameterHeader);
                                                 //CreateSalesLine + Needed Raw Materials + Assembly
@@ -2310,6 +2310,51 @@ codeunit 50204 Management
         AssemblyHeaderPar.Modify(true);
         //Update Parameter Lines from Set (Design Section, Item Features, Item Brandings)
         ParameterFormPage.UpdateParameterLinesFromSet(ParameterHeader);
+    end;
+
+
+
+    //Check if the variant already exist then show it on SQ line else keep the variant column empty
+    procedure CheckVariantCode(DesignSectionParHeader: Record "Parameter Header"):Code[10]
+    var
+        ItemVariant: Record "Item Variant";
+        lastItemVariant: Record "Item Variant";
+        ItemLocal: Record Item;
+        ItemReference: Record "Item Reference";
+        ItemUOM: Record "Item Unit of Measure";
+        ParentGlobalSyncSetup: Record "Global Sync Setup";
+        ChildGlobalSyncSetup: Record "Global Sync Setup";
+
+    begin
+        Clear(ChildGlobalSyncSetup);
+        ChildGlobalSyncSetup.Get(CompanyName);
+        if ChildGlobalSyncSetup."Sync Type" = ChildGlobalSyncSetup."Sync Type"::Child then begin
+            //Sync Log to insert any modifications from parent
+            //Stopped because it needs Global Sync Admin user access
+            //GlobalSyncData.Run();
+            //Change to parent company
+            Clear(ParentGlobalSyncSetup);
+            ParentGlobalSyncSetup.SetRange("Sync Type", ParentGlobalSyncSetup."Sync Type"::Parent);
+            ParentGlobalSyncSetup.FindFirst();
+            ItemVariant.ChangeCompany(ParentGlobalSyncSetup."Company Name");
+            lastItemVariant.ChangeCompany(ParentGlobalSyncSetup."Company Name");
+            ItemLocal.ChangeCompany(ParentGlobalSyncSetup."Company Name");
+            ItemReference.ChangeCompany(ParentGlobalSyncSetup."Company Name");
+            ItemUOM.ChangeCompany(ParentGlobalSyncSetup."Company Name");
+        end;
+        ItemVariant.Reset();
+        ItemVariant.SetRange("Item No.", DesignSectionParHeader."Item No.");
+        ItemVariant.SetRange("Item Size", DesignSectionParHeader."Item Size");
+        ItemVariant.SetRange("Item Fit", DesignSectionParHeader."Item Fit");
+        ItemVariant.SetRange("Item Color ID", DesignSectionParHeader."Item Color ID");
+        ItemVariant.SetRange("Item Cut Code", DesignSectionParHeader."Item Cut");
+        ItemVariant.SetRange("Tonality Code", DesignSectionParHeader."Tonality Code");
+        ItemVariant.SetRange("Design Sections Set ID", DesignSectionParHeader."Design Sections Set ID");
+        ItemVariant.SetRange("Item Features Set ID", DesignSectionParHeader."Item Features Set ID");
+        ItemVariant.SetRange("Item Brandings Set ID", DesignSectionParHeader."Item Brandings Set ID");
+        if ItemVariant.FindFirst() then begin
+            exit(ItemVariant.Code);
+        end;
     end;
 
     var

@@ -40,5 +40,11 @@ tableextension 50221 "Sales Header Archive 2" extends "Sales Header Archive"
         {
 
         }
+        field(50307; "Archive Lines Count"; Integer)
+        {
+            FieldClass = FlowField;
+            CalcFormula = count("Sales Line Archive" where("Document No." = field("No."), "Document Type" = field("Document Type"), "Version No." = field("Version No.")));
+            Editable = false;
+        }
     }
 }

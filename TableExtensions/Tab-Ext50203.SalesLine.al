@@ -169,6 +169,27 @@ tableextension 50203 "Sales Line" extends "Sales Line"
             FieldClass = FlowField;
             CalcFormula = lookup("Item Variant"."Item Brandings Set ID" where("Item No." = field("No."), "Code" = field("Variant Code")));
         }
+        field(50228; "Quantity in the Inventory"; Decimal)
+        {
+            Editable = false;
+            FieldClass = FlowField;
+            CalcFormula = sum("Item Ledger Entry"."Quantity" where("Item No." = field("No."), "Variant Code" = field("Variant Code"), "Location Code" = field("Location Code")));
+        }
+        field(50229; "Reserved Qty in the Inventory"; Decimal)
+        {
+            Editable = false;
+            FieldClass = FlowField;
+            CalcFormula = Sum("Reservation Entry"."Quantity (Base)" WHERE("Source ID" = CONST(''),
+                                                                           "Source Type" = CONST(32),
+                                                                           "Source Subtype" = CONST("0"),
+                                                                           "Source Batch Name" = CONST(''),
+                                                                           "Source Prod. Order Line" = CONST(0),
+                                                                           "Reservation Status" = CONST(Reservation),
+                                                                           "Item No." = field("No."),
+                                                                           "Variant Code" = field("Variant Code"),
+                                                                           "Location Code" = field("Location Code")));
+        }
+
 
         modify("Variant Code")
         {

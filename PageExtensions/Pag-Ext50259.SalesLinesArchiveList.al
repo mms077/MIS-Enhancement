@@ -1,4 +1,4 @@
-pageextension 50249 "Sales Lines" extends "Sales Lines"
+pageextension 50259 "Sales Lines Achives List" extends "Sales Line Archive List"
 {
     layout
     {
@@ -162,7 +162,7 @@ pageextension 50249 "Sales Lines" extends "Sales Lines"
 
     actions
     {
-        addafter("Reservation Entries")
+        addafter("&Line")
         {
             action("Reorder")
             {
@@ -174,8 +174,8 @@ pageextension 50249 "Sales Lines" extends "Sales Lines"
                 Image = Quote;
                 trigger OnAction()
                 var
-                    SL: Record "Sales Line";
-                    SH: Record "Sales Header";
+                    SL: Record "Sales Line Archive";
+                    SH: Record "Sales Header Archive";
                 begin
                     CurrPage.SetSelectionFilter(SL);
                     if SL.FindFirst() then begin
@@ -193,15 +193,15 @@ pageextension 50249 "Sales Lines" extends "Sales Lines"
         }
 
     }
-    procedure CreateSalesQuote(var SH: Record "Sales Header"; var SL: Record "Sales Line")
+    procedure CreateSalesQuote(var SH: Record "Sales Header Archive"; var SL: Record "Sales Line Archive")
     var
         SalesHeader: Record "Sales Header";
         SalesLine: Record "Sales Line";
         OrderHistory: Record "OrderHistory";
         OrderHistoryPage: Page "OrderHistory";
+        ChildrenParameterHeader: Record "Parameter Header";
         ParentParamHeaderVar: Integer;
         ParamHeaderVar: Integer;
-        ChildrenParameterHeader: Record "Parameter Header";
         QtyAssignWizard: Record "Qty Assignment Wizard";
         OldDesignSectionParamLines: Record "Design Section Param Lines";
         OldItemFeaturesParamLines: Record "Item Features Param Lines";
@@ -220,12 +220,11 @@ pageextension 50249 "Sales Lines" extends "Sales Lines"
         DesignSectionSetVar: Integer;
         ItemFeaturesSetVar: Integer;
         ItemBrandingsSetVar: Integer;
-        WizardID: Integer;
+        VariantCode: code[10];
         //Dialog
         Question: Text;
         Answer: Boolean;
         Text000: Label 'Sales Quote Created %1 ,Do you want to Open it?';
-        VariantCode: code[10];
 
     begin
         if OrderHistory.get(SH."No.", Database.SessionId()) then begin
@@ -240,7 +239,6 @@ pageextension 50249 "Sales Lines" extends "Sales Lines"
                 SalesHeader.Validate(SalesHeader."Requested Delivery Date", Today());
                 SalesHeader.Validate(SalesHeader."Quote Valid Until Date", Today());
                 SalesHeader.Insert(true);
-
             end
             else begin
 
@@ -257,8 +255,11 @@ pageextension 50249 "Sales Lines" extends "Sales Lines"
             end;
 
         end;
+
+
         if SL.FindFirst() then
             repeat
+
                 sl.CalcFields("Design Sections Set", "Item Features Set", "Item Brandings Set");
                 //Get Parent Parameter Header from Old SO
                 if ParentParamHeaderDictionary.ContainsKey(SL."Parent Parameter Header ID") then begin
@@ -266,7 +267,6 @@ pageextension 50249 "Sales Lines" extends "Sales Lines"
                 end else begin
                     ParentParamHeaderVar := CopyParameterHeader(SL."Parent Parameter Header ID", LineNo, SalesHeader."No.");
                     ParentParamHeaderDictionary.Add(SL."Parent Parameter Header ID", ParentParamHeaderVar);
-
                     //Copy Design Section
                     OldDesignSectionParamLines.Reset();
                     OldDesignSectionParamLines.SetFilter("Header ID", Format(SL."Parent Parameter Header ID"));
@@ -300,12 +300,14 @@ pageextension 50249 "Sales Lines" extends "Sales Lines"
 
                 end;
                 ParamHeaderVar := CopyParameterHeader(SL."Parameters Header ID", LineNo, SalesHeader."No.");
+                SalesLine."Parent Parameter Header ID" := ParentParamHeaderVar;
+                SalesLine."Parameters Header ID" := ParamHeaderVar;
                 QtyAssignWizard.Reset();
                 if (SL."Parent Parameter Header ID" <> 0) and (SL."Qty Assignment Wizard Id" <> 0) then begin
                     QtyAssignWizard.SetFilter("Header Id", Format(SL."Qty Assignment Wizard Id"));
                     QtyAssignWizard.SetFilter("Parent Header Id", Format(SL."Parent Parameter Header ID"));
                     if QtyAssignWizard.FindFirst() then begin
-                        WizardID := CopyQtyAssignemtWizard(QtyAssignWizard, ParamHeaderVar, ParentParamHeaderVar);
+                        SalesLine."Qty Assignment Wizard Id" := CopyQtyAssignemtWizard(QtyAssignWizard, ParamHeaderVar, ParentParamHeaderVar);
                         OldWizardDepartment.SetFilter("Parameter Header Id", Format(SL."Qty Assignment Wizard Id"));
                         if OldWizardDepartment.FindFirst() then begin
                             //repeat
@@ -328,6 +330,7 @@ pageextension 50249 "Sales Lines" extends "Sales Lines"
                     end;
 
 
+
                     OldItemFeaturesParamLines.Reset();
                     OldItemFeaturesParamLines.SetFilter("Header ID", Format(SL."Parameters Header ID"));
                     if OldItemFeaturesParamLines.FindFirst() then begin
@@ -337,6 +340,7 @@ pageextension 50249 "Sales Lines" extends "Sales Lines"
                             LineNo := LineNo + 1;
                         until OldItemFeaturesParamLines.Next() = 0;
                     end;
+
 
                     OldItemBrandingParamLines.Reset();
                     OldItemBrandingParamLines.SetFilter("Header ID", Format(SL."Parameters Header ID"));
@@ -361,9 +365,12 @@ pageextension 50249 "Sales Lines" extends "Sales Lines"
 
 
                 Management.CreateMultipleSalesLines(ParamHeader, SalesHeader, VariantCode, ParentParamHeader, QtyAssignWizard, true);
+
                 //Commit();
+
             until SL.Next() = 0;
         //Commit();
+
         Question := Text000;
         Answer := Dialog.Confirm(Question, true, SalesHeader."No.");
         if Answer then begin
@@ -377,6 +384,7 @@ pageextension 50249 "Sales Lines" extends "Sales Lines"
             OrderHistory.DeleteAll();
         end;
     end;
+
 
 
     procedure CopyParameterHeader(var OldParameterHeaderID: Integer; var SalesLineNo: Integer; var SalesLineDocNo: Code[50]): Integer;
@@ -408,6 +416,7 @@ pageextension 50249 "Sales Lines" extends "Sales Lines"
     procedure CopyQtyAssignemtWizard(var OldQtyAssignemtWizar: Record "Qty Assignment Wizard"; var paramHeaderNo: Integer; ParentParamHeader: Integer): Integer
     var
         NewQtyAssignemtWizard: Record "Qty Assignment Wizard";
+    
     begin
         NewQtyAssignemtWizard.Init();
         NewQtyAssignemtWizard.TransferFields(OldQtyAssignemtWizar, false, true);
@@ -465,7 +474,6 @@ pageextension 50249 "Sales Lines" extends "Sales Lines"
         NewItemBrandingParamLines."Header ID" := paramHeaderNo;
         NewItemBrandingParamLines.Insert(true);
     end;
-
 
     procedure CopyWizardPosition(var OldWizardPosition: Record "Wizard Positions"; var paramHeaderNo: Integer)//: Integer
     var

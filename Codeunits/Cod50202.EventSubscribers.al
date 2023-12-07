@@ -232,6 +232,7 @@ codeunit 50202 EventSubscribers
         NeededRawMaterial: Record "Needed Raw Material";
         ParameterHeaderLoc: Record "Parameter Header";
         ParentParameterHeaderLoc: Record "Parameter Header";
+        SalesOrdrLines_Local: Record "Sales Line";
     begin
         //Update Cutting Sheet Source Type and Source No.
         CuttingSheetsDashboard.SetRange("Source Type", SalesQuoteHeader."Document Type");
@@ -308,31 +309,44 @@ codeunit 50202 EventSubscribers
         //Check Item Availability by location
         //Only if company Full Production
         if CUManagement.IsCompanyFullProduction then begin
-            Clear(Item);
-            AvailableQty := 0;
-            if Item.Get(SalesOrderLine."No.") then;
-            Item.SetRange("Location Filter", SalesOrderLine."Location Code");
-            Item.SetRange("Variant Filter", SalesOrderLine."Variant Code");
-            Item.CalcFields(Inventory, "FP Order Receipt (Qty.)", "Rel. Order Receipt (Qty.)", "Qty. on Assembly Order", "Qty. on Purch. Order", "Trans. Ord. Receipt (Qty.)", "Qty. On Sales Order", "Qty. on Component Lines", "Qty. on Asm. Component", "Trans. Ord. Shipment (Qty.)");
-            AvailableQty := Item.Inventory
+            SalesOrdrLines_Local.Reset();
+            SalesOrdrLines_Local.SetRange("Document Type", SalesOrderLine."Document Type");
+            SalesOrdrLines_Local.SetRange("Document No.", SalesOrderLine."Document No.");
+            if SalesOrdrLines_Local.FindFirst() then repeat
+                Clear(Item);
+                AvailableQty := 0;
+                if Item.Get(SalesOrdrLines_Local."No.") then;
+                Item.SetRange("Location Filter", SalesOrdrLines_Local."Location Code");
+                Item.SetRange("Variant Filter", SalesOrdrLines_Local."Variant Code");
+                Item.CalcFields(Inventory, "FP Order Receipt (Qty.)", "Rel. Order Receipt (Qty.)", "Qty. on Assembly Order", "Qty. on Purch. Order", "Trans. Ord. Receipt (Qty.)", "Qty. On Sales Order", "Qty. on Component Lines", "Qty. on Asm. Component", "Trans. Ord. Shipment (Qty.)");
+                AvailableQty := Item.Inventory
                             + (Item."FP Order Receipt (Qty.)" + Item."Rel. Order Receipt (Qty.)" + Item."Qty. on Assembly Order" + Item."Qty. on Purch. Order" + Item."Trans. Ord. Receipt (Qty.)")
                             - (Item."Qty. on Sales Order" + Item."Qty. on Component Lines" + Item."Qty. on Asm. Component" + Item."Trans. Ord. Shipment (Qty.)");
             //If available quantity less than requested quantity but greater than 0 --> just the difference
-            if (AvailableQty < SalesOrderLine."Quantity") and (AvailableQty >= 0) then begin
-                SalesOrderLine.Validate("Qty. to Assemble to Order", SalesOrderLine.Quantity - AvailableQty);
-                SalesOrderLine.Modify(true);
-            end else
-                //If available quantity Negative --> all the requested should be assembled
-                if (AvailableQty < 0) then begin
-                    SalesOrderLine.Validate("Qty. to Assemble to Order", SalesOrderLine.Quantity);
-                    SalesOrderLine.Modify(true)
+                if (AvailableQty < SalesOrdrLines_Local."Quantity") and (AvailableQty >= 0) then begin
+                    SalesOrdrLines_Local.Validate("Qty. to Assemble to Order", SalesOrdrLines_Local.Quantity - AvailableQty);
+                    SalesOrdrLines_Local.Validate(Reserve, SalesOrdrLines_Local.Reserve::Always);
+                    SalesOrdrLines_Local.AutoReserve();
+                    SalesOrdrLines_Local.Validate("Qty. to Assemble to Order", SalesOrdrLines_Local.Quantity - AvailableQty);
+                    SalesOrdrLines_Local.Modify(true);
                 end else
+                //If available quantity Negative --> all the requested should be assembled
+                    if (AvailableQty < 0) then begin
+                        SalesOrdrLines_Local.Validate("Qty. to Assemble to Order", SalesOrdrLines_Local.Quantity);
+                        SalesOrdrLines_Local.Validate(Reserve, SalesOrdrLines_Local.Reserve::Always);
+                        SalesOrdrLines_Local.AutoReserve();
+                        SalesOrdrLines_Local.Validate("Qty. to Assemble to Order", SalesOrdrLines_Local.Quantity);
+                        SalesOrdrLines_Local.Modify(true)
+                    end else
                     //If available quantity greater than requested quantity
-                    if AvailableQty >= SalesOrderLine.Quantity then begin
-                        SalesOrderLine.Validate(Reserve, SalesOrderLine.Reserve::Always);
-                        SalesOrderLine.AutoReserve();
-                        SalesOrderLine.Modify(true);
-                    end;
+                        if AvailableQty >= SalesOrdrLines_Local.Quantity then begin
+                            SalesOrdrLines_Local.Validate("Qty. to Assemble to Order", 0);
+                            SalesOrdrLines_Local.Validate(Reserve, SalesOrdrLines_Local.Reserve::Always);
+                            SalesOrdrLines_Local.AutoReserve();
+                            SalesOrdrLines_Local.Validate("Qty. to Assemble to Order", 0);
+                            SalesOrdrLines_Local.Modify(true);
+                        end;
+                    until SalesOrdrLines_Local.Next() = 0;
         end;
     end;
 

@@ -1893,6 +1893,46 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Needed Raw Material - Field Tonality Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3279009304 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table OrderHistory - Field Customer No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3279009304 - Field 3943321920 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CustomerProjectCode</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table OrderHistory - Field CustomerProjectCode - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3279009304 - Field 2813693498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CustomerProjectName</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table OrderHistory - Field CustomerProjectName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3279009304 - Field 927384754 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line Counts</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table OrderHistory - Field Line Counts - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3279009304 - Field 1340654506 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table OrderHistory - Field Order Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3279009304 - Field 1829104285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Session ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table OrderHistory - Field Session ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3279009304 - Field 2397723431 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table OrderHistory - Field Source - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3279009304 - Field 849623030 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SO_NO</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table OrderHistory - Field SO_NO - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1163939514 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Parameter Header</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4442,6 +4482,31 @@
           <source>Finish</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Needed RM - Action FinishAction - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3279009304 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order History</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page OrderHistory - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3279009304 - Control 2813693498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IC Cust. Project</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page OrderHistory - Control CustomerProjectName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3279009304 - Control 927384754 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line Counts</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page OrderHistory - Control Line Counts - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3279009304 - Control 1340654506 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page OrderHistory - Control Order Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3279009304 - Control 1673401186 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Order</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page OrderHistory - Control Sales Order - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2811994119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Parameter Headers</source>
@@ -13088,6 +13153,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Customer Card - Action Customer Departments - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 523354100 - Action 489010800 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 523354100">
+          <source>Order History</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Customer Card - Action Order History - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 523354100 - Control 2369664869 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 523354100">
           <source>Created By</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -13418,6 +13488,36 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Invoice Subform - Control TonalityCode - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2047188335 - Method 3558199738 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 2047188335">
+          <source>Sales Quote Created %1 ,Do you want to Open it?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Lines - Method CreateSalesQuote - NamedType Text000</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2047188335 - Action 2141652891 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2047188335">
+          <source>Reorder</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Lines - Action Reorder - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2047188335 - Control 2504801539 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2047188335">
+          <source>Tonality</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Lines - Control TonalityCode - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2588239984 - Method 3558199738 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 2588239984">
+          <source>Sales Quote Created %1 ,Do you want to Open it?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Lines Achives List - Method CreateSalesQuote - NamedType Text000</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2588239984 - Action 2141652891 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1941046866">
+          <source>Reorder</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Lines Achives List - Action Reorder - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2588239984 - Control 2504801539 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1941046866">
+          <source>Tonality</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Lines Achives List - Control TonalityCode - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1673401186 - Control 1740754582 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
           <source>IC Company Name</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -13587,6 +13687,11 @@
           <source>ER - Sales Quote W/ Visuals</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Quote - Action ER - Sales Quote With Visuals - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 280137910 - Action 489010800 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 280137910">
+          <source>Order History</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Quote - Action Order History - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 1893889982 - Method 3028208582 - NamedType 672599587" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 1893889982">
           <source>You must specify Quantity for Item No. %1 in the Line No. %2</source>
@@ -15503,6 +15608,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Header - Field Sales Quote No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 3018125625 - Field 2896373896 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
+          <source>Archive Lines Count</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Header Archive 2 - Field Archive Lines Count - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 3018125625 - Field 3119593250 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
           <source>End Client Project Code</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -15822,6 +15932,16 @@
           <source>Qty Assignment Wizard Id</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Line - Field Qty Assignment Wizard Id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2574427010 - Field 704402913 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2574427010">
+          <source>Quantity in the Inventory</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Line - Field Quantity in the Inventory - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2574427010 - Field 3527607040 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2574427010">
+          <source>Reserved Qty in the Inventory</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Line - Field Reserved Qty in the Inventory - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2574427010 - Field 3964473375 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2574427010">
           <source>Size</source>

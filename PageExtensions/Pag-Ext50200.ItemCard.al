@@ -199,6 +199,38 @@ pageextension 50200 ItemCard extends "Item Card"
                 PromotedOnly = true;
                 RunObject = page "Item Fits";
                 RunPageLink = "Item No." = field("No.");
+
+                trigger OnAction()
+                var
+                    FitRec: Record "Fit";
+                    ItemFitRec: Record "Item Fit";
+                    DesignDetlRec: Record "Design Detail";
+                begin
+                    clear(FitRec);
+                    if FitRec.Findfirst() then
+                        repeat
+                            Clear(ItemFitRec);
+                            ItemFitRec.SetRange("Item No.", Rec."No.");
+                            ItemFitRec.SetRange("Fit Code", FitRec.Code);
+                            Clear(DesignDetlRec);
+                            DesignDetlRec.SetRange("Design Code", Rec."Design Code");
+                            DesignDetlRec.SetRange("Fit Code", FitRec.Code);
+                            //if not ItemFitRec.get(Rec."No.",FitRec.Code) then begin  #Cant use because there is id in the table
+                            if ItemFitRec.FindFirst() then begin
+                                if not DesignDetlRec.FindFirst() then begin
+                                    ItemFitRec.DeleteAll();
+                                end;
+                            end
+                            else begin
+                                if DesignDetlRec.FindFirst() then begin
+                                    ItemFitRec.Init();
+                                    ItemFitRec."Item No." := Rec."No.";
+                                    ItemFitRec."Fit Code" := FitRec.Code;
+                                    ItemFitRec.Insert(true);
+                                end;
+                            end;
+                        until FitRec.Next() = 0;
+                end;
             }
             action("Item Features")
             {

@@ -6,7 +6,8 @@ page 50223 "Item Fits"
     SourceTable = "Item Fit";
     UsageCategory = Lists;
     DelayedInsert = true;
-
+    InsertAllowed = false;
+    DeleteAllowed = false;
     layout
     {
         area(content)

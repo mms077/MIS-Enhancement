@@ -11,11 +11,10 @@ codeunit 50208 "Set Job Queue Ready"
                 JobQEntry.SetFilter(Status, '<>%1', JobQEntry.Status::Ready);
                 if JobQEntry.FindFirst() then
                     repeat
-                        JobQEntry.Status := JobQEntry.Status::"Ready";
-                        JobQEntry.Modify();
-                        RunJobQueueEntryOnce(JobQEntry);
-
-                    //Codeunit.run(Codeunit::"Job Queue Dispatcher", JobQEntry);
+                        //JobQEntry.Status := JobQEntry.Status::"Ready";
+                        //JobQEntry."Earliest Start Date/Time":=
+                        JobQEntry.Restart();
+                    //JobQEntry.Modify();
                     until JobQEntry.Next() = 0;
             until JobQSelection.Next() = 0;
     end;

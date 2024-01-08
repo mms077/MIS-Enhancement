@@ -272,7 +272,8 @@ codeunit 50202 EventSubscribers
             SalesOrderHeader.Modify(true)
         end else begin
             //Release if there is no prepayment
-            SalesOrderHeader.Validate(Status, SalesOrderHeader.Status::Released);
+            //SalesOrderHeader.Validate(Status, SalesOrderHeader.Status::Released);
+            PerformManualRelease(SalesOrderHeader);
             SalesOrderHeader.Modify(true)
         end;
 
@@ -347,6 +348,16 @@ codeunit 50202 EventSubscribers
                             SalesOrdrLines_Local.Modify(true);
                         end;
                     until SalesOrdrLines_Local.Next() = 0;
+        end;
+    end;
+
+    procedure PerformManualRelease(var SalesHeader: Record "Sales Header")
+    var
+        ReleaseSalesDoc: Codeunit "Release Sales Document";
+    begin
+        if SalesHeader.Status <> SalesHeader.Status::Released then begin
+            ReleaseSalesDoc.PerformManualRelease(SalesHeader);
+            Commit();
         end;
     end;
 

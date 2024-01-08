@@ -14063,6 +14063,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Document Attachment - Field Link Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 4020103050 - Field 3539789727 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4020103050">
+          <source>Design Mandatory</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gen. Product Posting Group - Field Design Mandatory - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 4050813720 - Field 332174833 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4050813720">
           <source>Company Type</source>
           <note from="Developer" annotates="general" priority="2"></note>

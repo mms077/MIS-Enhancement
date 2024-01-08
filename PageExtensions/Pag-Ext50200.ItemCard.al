@@ -306,12 +306,20 @@ pageextension 50200 ItemCard extends "Item Card"
     trigger OnQueryClosePage(CloseAction: Action): Boolean
     var
         Item: Record Item;
+        GeneralProductPostingGroup: Record "Gen. Product Posting Group";
     begin
+        // Item.Reset();
+        // if Item.get(rec."No.") then begin
+        //     Rec.CalcFields(IsRawMaterial);
+        //     if (Rec."No." <> '') and (Rec.IsRawMaterial = false) then
+        //         Rec.TestField("Design Code");
+        // end;
         Item.Reset();
         if Item.get(rec."No.") then begin
-            Rec.CalcFields(IsRawMaterial);
-            if (Rec."No." <> '') and (Rec.IsRawMaterial = false) then
-                Rec.TestField("Design Code");
+            if GeneralProductPostingGroup.get(Item."Gen. Prod. Posting Group") then begin
+                if GeneralProductPostingGroup."Design Mandatory" then 
+                    Rec.TestField("Design Code");
+            end;
         end;
     end;
 

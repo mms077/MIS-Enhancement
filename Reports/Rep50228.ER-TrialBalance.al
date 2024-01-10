@@ -259,11 +259,13 @@ report 50228 "ER - Trial Balance"
                     L_GL_Acc.SetFilter("No.", "G/L Account"."No.");
                     L_GL_Acc.SetFilter("Date Filter", DateFilter);
                     if L_GL_Acc.FindFirst() then begin
-                        L_GL_Acc.CalcFields("Debit Amount", "Credit Amount");
+                        L_GL_Acc.CalcFields("Net Change");
                         //MovementBalance := L_GL_Acc."Net Change";
-                        MovementDebit := L_GL_Acc."Debit Amount";
+                        if L_GL_Acc."Net Change" > 0 then
+                            MovementDebit := L_GL_Acc."Net Change";
                         //MovementTotalDebit := MovementTotalDebit + MovementDebit;
-                        MovementCredit := L_GL_Acc."Credit Amount";
+                        if L_GL_Acc."Net Change" < 0 then
+                            MovementCredit := -L_GL_Acc."Net Change";
                         if "G/L Account"."Account Type" = AccountTypeEnum::Posting then begin
                             MovementTotalCredit := MovementTotalCredit + MovementCredit;
                             MovementTotalDebit := MovementTotalDebit + MovementDebit;
@@ -277,10 +279,12 @@ report 50228 "ER - Trial Balance"
                     L_GL_Acc.SetFilter("No.", "G/L Account"."No.");
                     L_GL_Acc.SetFilter("Date Filter", '<' + CopyStr(DateFilter, 1, 8));
                     if L_GL_Acc.FindFirst() then begin
-                        L_GL_Acc.CalcFields("Debit Amount", "Credit Amount");
+                        L_GL_Acc.CalcFields("Net Change");
                         // BeginningBalance := L_GL_Acc."Net Change";
-                        BeginningBalanceDebit := L_GL_Acc."Debit Amount";
-                        BeginningBalanceCredit := L_GL_Acc."Credit Amount";
+                        if L_GL_Acc."Net Change" > 0 then
+                            BeginningBalanceDebit := L_GL_Acc."Net Change";
+                        if L_GL_Acc."Net Change" < 0 then
+                            BeginningBalanceCredit := -L_GL_Acc."Net Change";
                         BeginBalanceTot := BeginningBalanceDebit - BeginningBalanceCredit;
 
                         TotalOpeningBalance := TotalOpeningBalance + BeginningBalanceDebit + BeginningBalanceCredit;
@@ -292,7 +296,7 @@ report 50228 "ER - Trial Balance"
                     L_GL_Acc.SetFilter("No.", "G/L Account"."No.");
                     L_GL_Acc.SetFilter("Date Filter", CopyStr(DateFilter, 11, 18));
                     if L_GL_Acc.FindFirst() then begin
-                        L_GL_Acc.CalcFields("Debit Amount", "Credit Amount");
+                        //L_GL_Acc.CalcFields("Net Change");
                         if ShowOpening then
                             EndingBalance := -BeginningBalanceCredit + BeginningBalanceDebit + MovementDebit - MovementCredit
                         else
@@ -312,9 +316,11 @@ report 50228 "ER - Trial Balance"
                     L_GL_Acc.SetFilter("Date Filter", DateFilter);
                     if L_GL_Acc.FindFirst() then begin
                         //L_GL_Acc.CalcFields("Additional-Currency Net Change");
-                        L_GL_Acc.CalcFields("Add.-Currency Debit Amount", "Add.-Currency Credit Amount");
-                        MovementDebit := L_GL_Acc."Add.-Currency Debit Amount";
-                        MovementCredit := L_GL_Acc."Add.-Currency Credit Amount";
+                        L_GL_Acc.CalcFields("Additional-Currency Net Change");
+                        if L_GL_Acc."Additional-Currency Net Change" > 0 then
+                            MovementDebit := L_GL_Acc."Additional-Currency Net Change";
+                        if L_GL_Acc."Additional-Currency Net Change" < 0 then
+                            MovementCredit := -L_GL_Acc."Additional-Currency Net Change";
                         if "G/L Account"."Account Type" = AccountTypeEnum::Posting then begin
                             MovementTotalCredit := MovementTotalCredit + MovementCredit;
                             MovementTotalDebit := MovementTotalDebit + MovementDebit;
@@ -328,10 +334,12 @@ report 50228 "ER - Trial Balance"
                     L_GL_Acc.SetFilter("No.", "G/L Account"."No.");
                     L_GL_Acc.SetFilter("Date Filter", '<' + CopyStr(DateFilter, 1, 8));
                     if L_GL_Acc.FindFirst() then begin
-                        L_GL_Acc.CalcFields("Add.-Currency Credit Amount", "Add.-Currency Debit Amount");
+                        L_GL_Acc.CalcFields("Additional-Currency Net Change");
                         //BeginningBalance := L_GL_Acc."Additional-Currency Net Change";
-                        BeginningBalanceCredit := L_GL_Acc."Add.-Currency Credit Amount";
-                        BeginningBalanceDebit := L_GL_Acc."Add.-Currency Debit Amount";
+                        if L_GL_Acc."Additional-Currency Net Change" < 0 then
+                            BeginningBalanceCredit := -L_GL_Acc."Additional-Currency Net Change";
+                        if L_GL_Acc."Additional-Currency Net Change" > 0 then
+                            BeginningBalanceDebit := L_GL_Acc."Additional-Currency Net Change";
                         TotalOpeningBalance := TotalOpeningBalance + BeginningBalanceCredit + BeginningBalanceDebit;
                         BeginBalanceTot := BeginningBalanceDebit - BeginningBalanceCredit;
                     end;
@@ -342,7 +350,6 @@ report 50228 "ER - Trial Balance"
                     L_GL_Acc.SetFilter("No.", "G/L Account"."No.");
                     L_GL_Acc.SetFilter("Date Filter", CopyStr(DateFilter, 11, 18));
                     if L_GL_Acc.FindFirst() then begin
-                        L_GL_Acc.CalcFields("Add.-Currency Debit Amount", "Add.-Currency Credit Amount");
                         if ShowOpening then
                             EndingBalance := -BeginningBalanceCredit + BeginningBalanceDebit + MovementDebit - MovementCredit
                         else

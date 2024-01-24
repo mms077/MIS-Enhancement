@@ -152,7 +152,7 @@ pageextension 50201 "Customer Card" extends "Customer Card"
                     OrderHistory.SetRange("Session ID", SessionID);
                     OrderHistory.SetRange("Customer No.", Rec."No.");
                     if OrderHistory.FindSet() then
-                        page.Run(50330, OrderHistory);
+                        page.Run(page::OrderHistory, OrderHistory);
                 end;
             }
         }

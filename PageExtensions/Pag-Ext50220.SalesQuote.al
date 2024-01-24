@@ -106,7 +106,7 @@ pageextension 50220 "Sales Quote" extends "Sales Quote"
                         OrderHistory.SetRange("Session ID", SessionID);
                         OrderHistory.SetRange("Customer No.", Rec."Sell-to Customer No.");
                         if OrderHistory.FindSet() then
-                            page.Run(50330, OrderHistory);
+                            page.Run(page::OrderHistory, OrderHistory);
                     end;
                 }
         }

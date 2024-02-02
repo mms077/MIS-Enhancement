@@ -31,6 +31,8 @@ page 50293 "Scan Cutting Sheet"
                         Txt0001: Label 'Scan In 👍';
                         Txt0002: Label 'Scan Out 👍';
                     begin
+                        //add event to validate on it if the MO is not released it should give an error
+                        OnBeforeScanCuttingSheet(AssemblyGrpNo);
                         AssemblyHeader.SetRange("ER - Manufacturing Order No.", AssemblyGrpNo);
                         if AssemblyHeader.FindSet() then
                             repeat
@@ -69,6 +71,11 @@ page 50293 "Scan Cutting Sheet"
     procedure GetUserName(): Code[50]
     begin
         exit(User);
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnBeforeScanCuttingSheet(AssemblyGrpNoPar: Code[50])
+    begin
     end;
 
     var

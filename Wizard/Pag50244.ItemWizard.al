@@ -190,6 +190,7 @@ page 50244 "Item Wizard"
             {
                 ApplicationArea = all;
                 Visible = ShowNonVariantControls;
+                Editable = false;
                 trigger OnValidate()
                 begin
                     CheckCanContinue;

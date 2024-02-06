@@ -48,7 +48,7 @@ codeunit 50204 Management
                         ParamHeader."Item No." := ItemNo;
                         ParamHeader."Customer No." := SalesHeader."Sell-to Customer No.";
                         ParamHeader."Sales Line Document No." := SalesHeader."No.";
-                        ParamHeader."Sales Line Location Code" := SalesReceivableSetup."Wizard Default Location";
+                        //ParamHeader."Sales Line Location Code" := SalesReceivableSetup."Wizard Default Location";
                         if Process = Process::"Just Create Variant" then begin
                             ParamHeader."Sales Line Quantity" := 1;
                             ParamHeader."Sales Line UOM" := GetItemBaseUOM(ItemNo);
@@ -2315,7 +2315,7 @@ codeunit 50204 Management
 
 
     //Check if the variant already exist then show it on SQ line else keep the variant column empty
-    procedure CheckVariantCode(DesignSectionParHeader: Record "Parameter Header"):Code[10]
+    procedure CheckVariantCode(DesignSectionParHeader: Record "Parameter Header"): Code[10]
     var
         ItemVariant: Record "Item Variant";
         lastItemVariant: Record "Item Variant";

@@ -527,10 +527,8 @@ codeunit 50204 Management
         SalesLineGlobal.Validate("Location Code", DesignSectionParHeader."Sales Line Location Code");
         SalesLineGlobal.Size := DesignSectionParHeader."Item Size";
         SalesLineGlobal.Fit := DesignSectionParHeader."Item Fit";
-        SalesLineGlobal.Cut := DesignSectionParHeader."Item Cut";
         //Get Color From Parent Parameter Header
         SalesLineGlobal.Color := ParentParameterHeader."Item Color ID";
-        SalesLineGlobal.Cut := DesignSectionParHeader."Item Cut";
         SalesLineGlobal.Tonality := DesignSectionParHeader."Tonality Code";
         SalesLineGlobal.Validate("Parameters Header ID", DesignSectionParHeader.ID);
         SalesLineGlobal.Validate("Parent Parameter Header ID", ParentParameterHeader.ID);
@@ -801,11 +799,10 @@ codeunit 50204 Management
         Clear(ItemLoc);
         ItemLoc.Get(ParamHeader."Item No.");
         Clear(DesignDetail);
-        DesignDetail.SetCurrentKey("Section Code", "Design Code", "Size Code", "Fit Code", "Cut Code");
+        DesignDetail.SetCurrentKey("Section Code", "Design Code", "Size Code", "Fit Code");
         DesignDetail.SetRange("Design Code", ItemLoc."Design Code");
         DesignDetail.SetRange("Size Code", ParamHeader."Item Size");
         DesignDetail.SetRange("Fit Code", ParamHeader."Item Fit");
-        DesignDetail.SetRange("Cut Code", ParamHeader."Item Cut");
         //Different of inserted item design section color
         DesignDetail.SetFilter("Design Section Code", DesignSectionFilter);
         if DesignDetail.FindSet() then begin
@@ -869,7 +866,6 @@ codeunit 50204 Management
                     DesignDetail.SetRange("Design Code", ItemLoc."Design Code");
                     DesignDetail.SetRange("Size Code", ParamHeader."Item Size");
                     DesignDetail.SetRange("Fit Code", ParamHeader."Item Fit");
-                    DesignDetail.SetRange("Cut Code", ParamHeader."Item Cut");
                     DesignDetail.SetRange("Design Section Code", ItemDesignSectionColor."Design Section Code");
                     DesignDetail.FindFirst();
 
@@ -921,11 +917,10 @@ codeunit 50204 Management
                 Clear(ItemLoc);
                 ItemLoc.Get(ParamHeader."Item No.");
                 Clear(DesignDetail);
-                DesignDetail.SetCurrentKey("Section Code", "Design Code", "Size Code", "Fit Code", "Cut Code");
+                DesignDetail.SetCurrentKey("Section Code", "Design Code", "Size Code", "Fit Code");
                 DesignDetail.SetRange("Design Code", ItemLoc."Design Code");
                 DesignDetail.SetRange("Size Code", ParamHeader."Item Size");
                 DesignDetail.SetRange("Fit Code", ParamHeader."Item Fit");
-                DesignDetail.SetRange("Cut Code", ParamHeader."Item Cut");
                 DesignDetail.SetRange("Design Section Code", DesignSectionParamLines."Design Section Code");
                 ///DesignDetail.SetRange("Section Group", DesignSectionParamLines."Section Group");
                 if DesignDetail.FindSet() then begin
@@ -980,11 +975,10 @@ codeunit 50204 Management
                 Clear(ItemLoc);
                 ItemLoc.Get(ItemVariantPar."Item No.");
                 Clear(DesignDetail);
-                DesignDetail.SetCurrentKey("Section Code", "Design Code", "Size Code", "Fit Code", "Cut Code");
+                DesignDetail.SetCurrentKey("Section Code", "Design Code", "Size Code", "Fit Code");
                 DesignDetail.SetRange("Design Code", ItemLoc."Design Code");
                 DesignDetail.SetRange("Size Code", ItemVariantPar."Item Size");
                 DesignDetail.SetRange("Fit Code", ItemVariantPar."Item Fit");
-                DesignDetail.SetRange("Cut Code", ItemVariantPar."Item Cut");
                 DesignDetail.SetRange("Design Section Code", DesignSectionSetLoc."Design Section Code");
                 ///DesignDetail.SetRange("Section Group", DesignSectionParamLines."Section Group");
                 if DesignDetail.FindSet() then begin
@@ -1076,7 +1070,6 @@ codeunit 50204 Management
                 NeededRawMaterial."Design Detail Section Code" := DesignDetail."Section Code";
                 NeededRawMaterial."Design Detail Design Sec. Code" := DesignDetail."Design Section Code";
                 NeededRawMaterial."Design Detail Fit Code" := DesignDetail."Fit Code";
-                NeededRawMaterial."Design Detail Cut Code" := DesignDetail."Cut Code";
                 NeededRawMaterial."Design Detail Quantity" := DesignDetail.Quantity;
                 NeededRawMaterial."Design Detail Size Code" := DesignDetail."Size Code";
                 NeededRawMaterial."Design Detail UOM Code" := DesignDetail."UOM Code";
@@ -1140,7 +1133,6 @@ codeunit 50204 Management
                 NeededRawMaterial."Design Detail Section Code" := DesignDetail."Section Code";
                 NeededRawMaterial."Design Detail Design Sec. Code" := DesignDetail."Design Section Code";
                 NeededRawMaterial."Design Detail Fit Code" := DesignDetail."Fit Code";
-                NeededRawMaterial."Design Detail Cut Code" := DesignDetail."Cut Code";
                 NeededRawMaterial."Design Detail Quantity" := DesignDetail.Quantity;
                 NeededRawMaterial."Design Detail Size Code" := DesignDetail."Size Code";
                 NeededRawMaterial."Design Detail UOM Code" := DesignDetail."UOM Code";
@@ -1200,7 +1192,6 @@ codeunit 50204 Management
                 NeededRawMaterial."Design Detail Section Code" := DesignDetail."Section Code";
                 NeededRawMaterial."Design Detail Design Sec. Code" := DesignDetail."Design Section Code";
                 NeededRawMaterial."Design Detail Fit Code" := DesignDetail."Fit Code";
-                NeededRawMaterial."Design Detail Cut Code" := DesignDetail."Cut Code";
                 NeededRawMaterial."Design Detail Quantity" := DesignDetail.Quantity;
                 NeededRawMaterial."Design Detail Size Code" := DesignDetail."Size Code";
                 NeededRawMaterial."Design Detail UOM Code" := DesignDetail."UOM Code";
@@ -1260,7 +1251,6 @@ codeunit 50204 Management
                 NeededRawMaterial."Design Detail Section Code" := DesignDetail."Section Code";
                 NeededRawMaterial."Design Detail Design Sec. Code" := DesignDetail."Design Section Code";
                 NeededRawMaterial."Design Detail Fit Code" := DesignDetail."Fit Code";
-                NeededRawMaterial."Design Detail Cut Code" := DesignDetail."Cut Code";
                 NeededRawMaterial."Design Detail Quantity" := DesignDetail.Quantity;
                 NeededRawMaterial."Design Detail Size Code" := DesignDetail."Size Code";
                 NeededRawMaterial."Design Detail UOM Code" := DesignDetail."UOM Code";
@@ -1400,12 +1390,12 @@ codeunit 50204 Management
             AssemblyHeader."Source Type" := SalesLine."Document Type";
             AssemblyHeader."Source No." := NeededRawMaterial."Sales Order No.";
             AssemblyHeader."Source Line No." := NeededRawMaterial."Sales Order Line No.";
-            AssemblyHeader.CalcFields("Item Size", "Item Fit", "Item Cut Code");
+            AssemblyHeader.CalcFields("Item Size", "Item Fit");
             //check if the item with embroidery
             if WithEmbroidery(AssemblyHeader) then
-                AssemblyHeader."Grouping Criteria" := AssemblyHeader."Item No." + '-' + AssemblyHeader."Item Size" + '-' + AssemblyHeader."Item Fit" + '-' + AssemblyHeader."Item Cut Code" + '-WithEmb'
+                AssemblyHeader."Grouping Criteria" := AssemblyHeader."Item No." + '-' + AssemblyHeader."Item Size" + '-' + AssemblyHeader."Item Fit" + '-WithEmb'
             else
-                AssemblyHeader."Grouping Criteria" := AssemblyHeader."Item No." + '-' + AssemblyHeader."Item Size" + '-' + AssemblyHeader."Item Fit" + '-' + AssemblyHeader."Item Cut Code" + '-WithoutEmb';
+                AssemblyHeader."Grouping Criteria" := AssemblyHeader."Item No." + '-' + AssemblyHeader."Item Size" + '-' + AssemblyHeader."Item Fit" + '-WithoutEmb';
             AssemblyHeader."Quantity to Assemble" := AssemblyHeader.Quantity;
             AssemblyHeader.Modify();
             //Create Cutting Sheet Dashboard 
@@ -1543,12 +1533,12 @@ codeunit 50204 Management
             AssemblyHeader."Source Type" := SalesLine."Document Type";
             AssemblyHeader."Source No." := NeededRawMaterial."Sales Order No.";
             AssemblyHeader."Source Line No." := NeededRawMaterial."Sales Order Line No.";
-            AssemblyHeader.CalcFields("Item Size", "Item Fit", "Item Cut Code");
+            AssemblyHeader.CalcFields("Item Size", "Item Fit");
             //check if the item with embroidery
             if WithEmbroidery(AssemblyHeader) then
-                AssemblyHeader."Grouping Criteria" := AssemblyHeader."Item No." + '-' + AssemblyHeader."Item Size" + '-' + AssemblyHeader."Item Fit" + '-' + AssemblyHeader."Item Cut Code" + '-WithEmb'
+                AssemblyHeader."Grouping Criteria" := AssemblyHeader."Item No." + '-' + AssemblyHeader."Item Size" + '-' + AssemblyHeader."Item Fit" + '-WithEmb'
             else
-                AssemblyHeader."Grouping Criteria" := AssemblyHeader."Item No." + '-' + AssemblyHeader."Item Size" + '-' + AssemblyHeader."Item Fit" + '-' + AssemblyHeader."Item Cut Code" + '-WithoutEmb';
+                AssemblyHeader."Grouping Criteria" := AssemblyHeader."Item No." + '-' + AssemblyHeader."Item Size" + '-' + AssemblyHeader."Item Fit" + '-WithoutEmb';
             AssemblyHeader."Quantity to Assemble" := AssemblyHeader.Quantity;
             AssemblyHeader.Modify();
             //Create Cutting Sheet Dashboard
@@ -1695,7 +1685,6 @@ codeunit 50204 Management
                         ParStaffSizes."Staff Code" := StaffSizes."Staff Code";
                         ParStaffSizes."Size Code" := StaffSizes."Size Code";
                         ParStaffSizes."Fit Code" := StaffSizes."Fit Code";
-                        ParStaffSizes."Cut Code" := StaffSizes."Cut Code";
                         ParStaffSizes."Customer No." := ParamHeader."Customer No.";
                         ParStaffSizes.Insert();
                     until StaffSizes.Next() = 0;
@@ -1755,7 +1744,6 @@ codeunit 50204 Management
                     ParameterHeader.ID := 1;
                 ParameterHeader."Customer No." := SalesHeader."Sell-to Customer No.";
                 ParameterHeader."Item Size" := StaffSizesPar."Size Code";
-                ParameterHeader."Item Cut" := StaffSizesPar."Cut Code";
                 ParameterHeader."Item Fit" := StaffSizesPar."Fit Code";
                 ParameterHeader."Staff Sizes Parameter Header" := StaffSizesPar."Parameter Header ID";
                 ParameterHeader."Sales Line Quantity" := StaffSizesPar.Quantity;
@@ -2366,7 +2354,6 @@ codeunit 50204 Management
         ParameterHeader."Quantity To Assign" := AssemblyHeaderPar.Quantity;
         ParameterHeader."Item Size" := ItemVariantLoc."Item Size";
         ParameterHeader."Item Fit" := ItemVariantLoc."Item Fit";
-        ParameterHeader."Item Cut" := ItemVariantLoc."Item Cut Code";
         ParameterHeader."Item Color ID" := ItemVariantLoc."Item Color ID";
         ParameterHeader."Tonality Code" := ItemVariantLoc."Tonality Code";
         ParameterHeader."Sales Line UOM" := AssemblyHeaderPar."Unit of Measure Code";
@@ -2413,9 +2400,7 @@ codeunit 50204 Management
         ItemVariant.SetRange("Item No.", DesignSectionParHeader."Item No.");
         ItemVariant.SetRange("Item Size", DesignSectionParHeader."Item Size");
         ItemVariant.SetRange("Item Fit", DesignSectionParHeader."Item Fit");
-        ItemVariant.SetRange("Item Cut", DesignSectionParHeader."Item Cut");
         ItemVariant.SetRange("Item Color ID", DesignSectionParHeader."Item Color ID");
-        ItemVariant.SetRange("Item Cut Code", DesignSectionParHeader."Item Cut");
         ItemVariant.SetRange("Tonality Code", DesignSectionParHeader."Tonality Code");
         ItemVariant.SetRange("Design Sections Set ID", DesignSectionParHeader."Design Sections Set ID");
         ItemVariant.SetRange("Item Features Set ID", DesignSectionParHeader."Item Features Set ID");

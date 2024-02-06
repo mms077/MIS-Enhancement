@@ -22,6 +22,7 @@ table 50239 "Parameter Header"
                 Rec.CalcFields("Item Description");
                 GetDefaultUOM(Rec."Item No.");
                 GetRelatedInfo(Rec."Item No.");
+                OnBeforeSettingLineLocation(Rec);//Setting the location code based on the assembly location code from WMS
             end;
         }
         field(15; "Item Description"; Text[100])
@@ -266,5 +267,10 @@ table 50239 "Parameter Header"
         ItemCut.SetRange(Default, true);
         if ItemCut.FindFirst() then
             Rec.Validate("Item Cut", ItemCut."Cut Code");
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnBeforeSettingLineLocation(var ParameHeader: Record "Parameter Header")
+    begin
     end;
 }

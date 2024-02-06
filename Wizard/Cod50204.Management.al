@@ -367,11 +367,6 @@ codeunit 50204 Management
         DesignSection: Record "Design Section" temporary;
         DesignSectionRec: Record "Design Section";
         ModifyAction: Option "Insert","Modify";
-        //CEE
-        RMCategoryDesignSection: Record "RM Category Design Section";
-        RawMaterialRec: Record "Raw Material";
-        DesignRec: Record Design;
-        FirstRecColorIDInt: Integer;
     begin
         //To not recreate lines specially on loading parameter from sales line
         DesignSectionParamLine.SetRange("Header ID", DesignSecParHeader.ID);
@@ -448,48 +443,14 @@ codeunit 50204 Management
                     DesignSectionParamLine."Color ID" := DesignSectionRec."Unique Color";
                     DesignSectionParamLine."Tonality Code" := '0';
                 end else begin
-                    //(Changed) else it will be same as the main item color and tonality
-                    //Cee:task 17641 else it will be same as the main item color and tonality unless it has a unique color on the raw material table
-                    Clear(RMCategoryDesignSection);
-                    RMCategoryDesignSection.SetRange("Design Section Code", DesignSectionRec.Code);
-                    clear(DesignRec);
-                    if DesignRec.Get(Item."Design Code") then begin
-                        RMCategoryDesignSection.SetRange("Design Type", DesignRec.Type);
-                        if RMCategoryDesignSection.Count = 1 then begin
-                            if RMCategoryDesignSection.FindFirst() then begin//here
-                                Clear(RawMaterialRec);
-                                RawMaterialRec.SetRange("Raw Material Category", RMCategoryDesignSection."RM Category Code");
-                                if RawMaterialRec.FindFirst() then begin
-                                    RawMaterialRec.SetCurrentKey("Color ID");
-                                    //check if color id of first rec is equal to color id of last rec
-                                    if RawMaterialRec.FindFirst() then begin
-                                        FirstRecColorIDInt := RawMaterialRec."Color ID";
-                                        if RawMaterialRec.FindLast() then begin
-                                            if FirstRecColorIDInt = RawMaterialRec."Color ID" then begin
-                                                DesignSectionParamLine."Color ID" := RawMaterialRec."Color ID";
-                                                DesignSectionParamLine."Tonality Code" := RawMaterialRec."Tonality Code";
-                                            end
-                                            else begin
-                                                DesignSectionParamLine."Color ID" := DesignSecParHeader."Item Color ID";
-                                                DesignSectionParamLine."Tonality Code" := DesignSecParHeader."Tonality Code";
-                                            end;
-                                        end
-                                    end
-                                end
-                            end
-                        end
-                        else begin
-                            DesignSectionParamLine."Color ID" := DesignSecParHeader."Item Color ID";
-                            DesignSectionParamLine."Tonality Code" := DesignSecParHeader."Tonality Code";
-                        end;
-
-                    end;
+                    //else it will be same as the main item color and tonality
+                    DesignSectionParamLine."Color ID" := DesignSecParHeader."Item Color ID";
+                    DesignSectionParamLine."Tonality Code" := DesignSecParHeader."Tonality Code";
                 end;
                 CheckDesignSectionRawMaterial(DesignSectionParamLine, DesignSecParHeader, ModifyAction::"Insert");
                 DesignSectionParamLine.Insert();
                 CounterLine := CounterLine + 1;
             until DesignSection.Next() = 0;
-        clear(FirstRecColorIDInt);
     end;
 
     procedure CreateSalesLine(var
@@ -497,10 +458,8 @@ codeunit 50204 Management
                                   SalesHeaderPar: Record "Sales Header";
                                   VariantCodePar: Code[10];
                                   QtyPar: decimal;
-                                  ParentParameterHeader: Record "Parameter Header";
-
-    var
-        QtyAssignmentWizard: Record "Qty Assignment Wizard")
+                                   ParentParameterHeader: Record "Parameter Header";
+                                   var QtyAssignmentWizard: Record "Qty Assignment Wizard")
     var
         LineNumber: Integer;
         Item: Record Item;
@@ -529,6 +488,7 @@ codeunit 50204 Management
         SalesLineGlobal.Fit := DesignSectionParHeader."Item Fit";
         //Get Color From Parent Parameter Header
         SalesLineGlobal.Color := ParentParameterHeader."Item Color ID";
+        SalesLineGlobal.Cut := DesignSectionParHeader."Item Cut";
         SalesLineGlobal.Tonality := DesignSectionParHeader."Tonality Code";
         SalesLineGlobal.Validate("Parameters Header ID", DesignSectionParHeader.ID);
         SalesLineGlobal.Validate("Parent Parameter Header ID", ParentParameterHeader.ID);
@@ -546,25 +506,7 @@ codeunit 50204 Management
                 SalesLineGlobal.Validate(SalesLineGlobal."Amount", SalesLineGlobal.Amount + SalesLineGlobal."Extra Charge Amount")
             end;
         SalesLineGlobal."Qty Assignment Wizard Id" := QtyAssignmentWizard."Header Id";
-        //Add Invenntory Quantity and Reserved Quantity and Available Quantity in the Inventory
-        // Item.SetRange("Location Filter", DesignSectionParHeader."Sales Line Location Code");
-        // Item.SetRange("Variant Filter", VariantCodePar);
-        // //if Item.FindFirst() then begin
-        //     Item.CalcFields("Reserved Qty. on Inventory",Inventory);
-        //     SalesLineGlobal."Quantity in the Inventory" := Item."Inventory";
-        //     SalesLineGlobal."Reserved Qty in the Inventory" := Item."Reserved Qty. on Inventory";
-        //     SalesLineGlobal."Available Qty in the Inventory" := Item."Inventory"-Item."Reserved Qty. on Inventory";
-        // //end;
         SalesLineGlobal.Insert(true);
-        //Add Invenntory Quantity and Reserved Quantity and Available Quantity in the Inventory
-
-        // SalesLineGlobal.get(SalesHeaderPar."Document Type", SalesHeaderPar."No.", LineNumber);
-        // SalesLineGlobal.SetRange("Location Code",DesignSectionParHeader."Sales Line Location Code");
-        // SalesLineGlobal.SetRange("Variant Code",VariantCodePar);
-
-        // if SalesLineGlobal.FindFirst() then begin
-        //     SalesLineGlobal.CalcFields("Reserved Qty. on Inventory");
-        // end;
         DesignSectionParHeader."Sales Line Document Type" := SalesLineGlobal."Document Type";
         DesignSectionParHeader."Sales Line Document No." := SalesLineGlobal."Document No.";
         DesignSectionParHeader."Sales Line No." := SalesLineGlobal."Line No.";
@@ -1390,12 +1332,12 @@ codeunit 50204 Management
             AssemblyHeader."Source Type" := SalesLine."Document Type";
             AssemblyHeader."Source No." := NeededRawMaterial."Sales Order No.";
             AssemblyHeader."Source Line No." := NeededRawMaterial."Sales Order Line No.";
-            AssemblyHeader.CalcFields("Item Size", "Item Fit");
+            AssemblyHeader.CalcFields("Item Size", "Item Fit", "Item Cut Code");
             //check if the item with embroidery
             if WithEmbroidery(AssemblyHeader) then
-                AssemblyHeader."Grouping Criteria" := AssemblyHeader."Item No." + '-' + AssemblyHeader."Item Size" + '-' + AssemblyHeader."Item Fit" + '-WithEmb'
+                AssemblyHeader."Grouping Criteria" := AssemblyHeader."Item No." + '-' + AssemblyHeader."Item Size" + '-' + AssemblyHeader."Item Fit" + '-' + AssemblyHeader."Item Cut Code" + '-WithEmb'
             else
-                AssemblyHeader."Grouping Criteria" := AssemblyHeader."Item No." + '-' + AssemblyHeader."Item Size" + '-' + AssemblyHeader."Item Fit" + '-WithoutEmb';
+                AssemblyHeader."Grouping Criteria" := AssemblyHeader."Item No." + '-' + AssemblyHeader."Item Size" + '-' + AssemblyHeader."Item Fit" + '-' + AssemblyHeader."Item Cut Code" + '-WithoutEmb';
             AssemblyHeader."Quantity to Assemble" := AssemblyHeader.Quantity;
             AssemblyHeader.Modify();
             //Create Cutting Sheet Dashboard 
@@ -1533,12 +1475,12 @@ codeunit 50204 Management
             AssemblyHeader."Source Type" := SalesLine."Document Type";
             AssemblyHeader."Source No." := NeededRawMaterial."Sales Order No.";
             AssemblyHeader."Source Line No." := NeededRawMaterial."Sales Order Line No.";
-            AssemblyHeader.CalcFields("Item Size", "Item Fit");
+            AssemblyHeader.CalcFields("Item Size", "Item Fit", "Item Cut Code");
             //check if the item with embroidery
             if WithEmbroidery(AssemblyHeader) then
-                AssemblyHeader."Grouping Criteria" := AssemblyHeader."Item No." + '-' + AssemblyHeader."Item Size" + '-' + AssemblyHeader."Item Fit" + '-WithEmb'
+                AssemblyHeader."Grouping Criteria" := AssemblyHeader."Item No." + '-' + AssemblyHeader."Item Size" + '-' + AssemblyHeader."Item Fit" + '-' + AssemblyHeader."Item Cut Code" + '-WithEmb'
             else
-                AssemblyHeader."Grouping Criteria" := AssemblyHeader."Item No." + '-' + AssemblyHeader."Item Size" + '-' + AssemblyHeader."Item Fit" + '-WithoutEmb';
+                AssemblyHeader."Grouping Criteria" := AssemblyHeader."Item No." + '-' + AssemblyHeader."Item Size" + '-' + AssemblyHeader."Item Fit" + '-' + AssemblyHeader."Item Cut Code" + '-WithoutEmb';
             AssemblyHeader."Quantity to Assemble" := AssemblyHeader.Quantity;
             AssemblyHeader.Modify();
             //Create Cutting Sheet Dashboard
@@ -1580,8 +1522,7 @@ codeunit 50204 Management
                 until NeededRMLoc.Next() = 0;
             end;
             #endregion[Create Assembly Line]   
-        end
-        else begin
+        end else begin
             Clear(SalesLine);
             SalesLine.Get(ParameterHeaderPar."Sales Line Document Type", NeededRawMaterial."Sales Order No.", NeededRawMaterial."Sales Order Line No.");
             SalesLine.Validate("Parameters Header ID", NeededRawMaterial."Paramertes Header ID");
@@ -1685,6 +1626,7 @@ codeunit 50204 Management
                         ParStaffSizes."Staff Code" := StaffSizes."Staff Code";
                         ParStaffSizes."Size Code" := StaffSizes."Size Code";
                         ParStaffSizes."Fit Code" := StaffSizes."Fit Code";
+                        ParStaffSizes."Cut Code" := StaffSizes."Cut Code";
                         ParStaffSizes."Customer No." := ParamHeader."Customer No.";
                         ParStaffSizes.Insert();
                     until StaffSizes.Next() = 0;
@@ -1744,6 +1686,7 @@ codeunit 50204 Management
                     ParameterHeader.ID := 1;
                 ParameterHeader."Customer No." := SalesHeader."Sell-to Customer No.";
                 ParameterHeader."Item Size" := StaffSizesPar."Size Code";
+                ParameterHeader."Item Cut" := StaffSizesPar."Cut Code";
                 ParameterHeader."Item Fit" := StaffSizesPar."Fit Code";
                 ParameterHeader."Staff Sizes Parameter Header" := StaffSizesPar."Parameter Header ID";
                 ParameterHeader."Sales Line Quantity" := StaffSizesPar.Quantity;
@@ -2354,6 +2297,7 @@ codeunit 50204 Management
         ParameterHeader."Quantity To Assign" := AssemblyHeaderPar.Quantity;
         ParameterHeader."Item Size" := ItemVariantLoc."Item Size";
         ParameterHeader."Item Fit" := ItemVariantLoc."Item Fit";
+        ParameterHeader."Item Cut" := ItemVariantLoc."Item Cut Code";
         ParameterHeader."Item Color ID" := ItemVariantLoc."Item Color ID";
         ParameterHeader."Tonality Code" := ItemVariantLoc."Tonality Code";
         ParameterHeader."Sales Line UOM" := AssemblyHeaderPar."Unit of Measure Code";
@@ -2369,6 +2313,8 @@ codeunit 50204 Management
     end;
 
 
+
+    //Check if the variant already exist then show it on SQ line else keep the variant column empty
     procedure CheckVariantCode(DesignSectionParHeader: Record "Parameter Header"): Code[10]
     var
         ItemVariant: Record "Item Variant";
@@ -2401,6 +2347,7 @@ codeunit 50204 Management
         ItemVariant.SetRange("Item Size", DesignSectionParHeader."Item Size");
         ItemVariant.SetRange("Item Fit", DesignSectionParHeader."Item Fit");
         ItemVariant.SetRange("Item Color ID", DesignSectionParHeader."Item Color ID");
+        ItemVariant.SetRange("Item Cut Code", DesignSectionParHeader."Item Cut");
         ItemVariant.SetRange("Tonality Code", DesignSectionParHeader."Tonality Code");
         ItemVariant.SetRange("Design Sections Set ID", DesignSectionParHeader."Design Sections Set ID");
         ItemVariant.SetRange("Item Features Set ID", DesignSectionParHeader."Item Features Set ID");
@@ -2421,6 +2368,4 @@ codeunit 50204 Management
         DerivedQty: Decimal;
         ItemRM: Record Item;
         SourceType: Option " ","Department","Position","Staff";
-
-
 }

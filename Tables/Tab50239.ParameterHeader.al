@@ -18,11 +18,20 @@ table 50239 "Parameter Header"
 
             TableRelation = Item."No.";
             trigger OnValidate()
+            var
+                GenLedgSetup: Record "General Ledger Setup";
+                Locations: Record Location;
             begin
                 Rec.CalcFields("Item Description");
                 GetDefaultUOM(Rec."Item No.");
                 GetRelatedInfo(Rec."Item No.");
-                OnBeforeSettingLineLocation(Rec);//Setting the location code based on the assembly location code from WMS
+                if GenLedgSetup."Company Type" = GenLedgSetup."Company Type"::"Full Production" then
+                    OnBeforeSettingLineLocation(Rec)//Setting the location code based on the assembly location code from WMS
+                else begin
+                    Clear(Locations);
+                    if Locations.FindFirst() then
+                        Rec.Validate("Sales Line Location Code", Locations.Code);
+                end;
             end;
         }
         field(15; "Item Description"; Text[100])

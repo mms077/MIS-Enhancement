@@ -25,6 +25,7 @@ table 50239 "Parameter Header"
                 Rec.CalcFields("Item Description");
                 GetDefaultUOM(Rec."Item No.");
                 GetRelatedInfo(Rec."Item No.");
+                GenLedgSetup.Get();
                 if GenLedgSetup."Company Type" = GenLedgSetup."Company Type"::"Full Production" then
                     OnBeforeSettingLineLocation(Rec)//Setting the location code based on the assembly location code from WMS
                 else begin

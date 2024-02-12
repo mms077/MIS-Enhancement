@@ -313,41 +313,48 @@ codeunit 50202 EventSubscribers
             SalesOrdrLines_Local.Reset();
             SalesOrdrLines_Local.SetRange("Document Type", SalesOrderLine."Document Type");
             SalesOrdrLines_Local.SetRange("Document No.", SalesOrderLine."Document No.");
-            if SalesOrdrLines_Local.FindFirst() then repeat
-                Clear(Item);
-                AvailableQty := 0;
-                if Item.Get(SalesOrdrLines_Local."No.") then;
-                Item.SetRange("Location Filter", SalesOrdrLines_Local."Location Code");
-                Item.SetRange("Variant Filter", SalesOrdrLines_Local."Variant Code");
-                Item.CalcFields(Inventory, "FP Order Receipt (Qty.)", "Rel. Order Receipt (Qty.)", "Qty. on Assembly Order", "Qty. on Purch. Order", "Trans. Ord. Receipt (Qty.)", "Qty. On Sales Order", "Qty. on Component Lines", "Qty. on Asm. Component", "Trans. Ord. Shipment (Qty.)");
-                AvailableQty := Item.Inventory
-                            + (Item."FP Order Receipt (Qty.)" + Item."Rel. Order Receipt (Qty.)" + Item."Qty. on Assembly Order" + Item."Qty. on Purch. Order" + Item."Trans. Ord. Receipt (Qty.)")
-                            - (Item."Qty. on Sales Order" + Item."Qty. on Component Lines" + Item."Qty. on Asm. Component" + Item."Trans. Ord. Shipment (Qty.)");
-            //If available quantity less than requested quantity but greater than 0 --> just the difference
-                if (AvailableQty < SalesOrdrLines_Local."Quantity") and (AvailableQty >= 0) then begin
-                    SalesOrdrLines_Local.Validate("Qty. to Assemble to Order", SalesOrdrLines_Local.Quantity - AvailableQty);
-                    SalesOrdrLines_Local.Validate(Reserve, SalesOrdrLines_Local.Reserve::Always);
-                    SalesOrdrLines_Local.AutoReserve();
-                    SalesOrdrLines_Local.Validate("Qty. to Assemble to Order", SalesOrdrLines_Local.Quantity - AvailableQty);
-                    SalesOrdrLines_Local.Modify(true);
-                end else
-                //If available quantity Negative --> all the requested should be assembled
-                    if (AvailableQty < 0) then begin
-                        SalesOrdrLines_Local.Validate("Qty. to Assemble to Order", SalesOrdrLines_Local.Quantity);
-                        SalesOrdrLines_Local.Validate(Reserve, SalesOrdrLines_Local.Reserve::Always);
-                        SalesOrdrLines_Local.AutoReserve();
-                        SalesOrdrLines_Local.Validate("Qty. to Assemble to Order", SalesOrdrLines_Local.Quantity);
-                        SalesOrdrLines_Local.Modify(true)
-                    end else
-                    //If available quantity greater than requested quantity
-                        if AvailableQty >= SalesOrdrLines_Local.Quantity then begin
-                            SalesOrdrLines_Local.Validate("Qty. to Assemble to Order", 0);
+            if SalesOrdrLines_Local.FindFirst() then
+                repeat
+                    Clear(Item);
+                    AvailableQty := 0;
+                    if Item.Get(SalesOrdrLines_Local."No.") then;
+                    Item.SetRange("Location Filter", SalesOrdrLines_Local."Location Code");
+                    Item.SetRange("Variant Filter", SalesOrdrLines_Local."Variant Code");
+                    Item.CalcFields(Inventory, "FP Order Receipt (Qty.)", "Rel. Order Receipt (Qty.)", "Qty. on Assembly Order", "Qty. on Purch. Order", "Trans. Ord. Receipt (Qty.)", "Qty. On Sales Order", "Qty. on Component Lines", "Qty. on Asm. Component", "Trans. Ord. Shipment (Qty.)");
+                    AvailableQty := Item.Inventory
+                                + (Item."FP Order Receipt (Qty.)" + Item."Rel. Order Receipt (Qty.)" + Item."Qty. on Assembly Order" + Item."Qty. on Purch. Order" + Item."Trans. Ord. Receipt (Qty.)")
+                                - (Item."Qty. on Sales Order" + Item."Qty. on Component Lines" + Item."Qty. on Asm. Component" + Item."Trans. Ord. Shipment (Qty.)");
+                    //If available quantity less than requested quantity but greater than 0 --> just the difference
+                    if (AvailableQty < SalesOrdrLines_Local."Quantity") and (AvailableQty >= 0) then begin
+                        SalesOrdrLines_Local.Validate("Qty. to Assemble to Order", SalesOrdrLines_Local.Quantity - AvailableQty);
+                        if SalesOrdrLines_Local.Type = SalesOrdrLines_Local.Type::Item then begin
                             SalesOrdrLines_Local.Validate(Reserve, SalesOrdrLines_Local.Reserve::Always);
                             SalesOrdrLines_Local.AutoReserve();
-                            SalesOrdrLines_Local.Validate("Qty. to Assemble to Order", 0);
-                            SalesOrdrLines_Local.Modify(true);
                         end;
-                    until SalesOrdrLines_Local.Next() = 0;
+                        SalesOrdrLines_Local.Validate("Qty. to Assemble to Order", SalesOrdrLines_Local.Quantity - AvailableQty);
+                        SalesOrdrLines_Local.Modify(true);
+                    end else
+                        //If available quantity Negative --> all the requested should be assembled
+                        if (AvailableQty < 0) then begin
+                            SalesOrdrLines_Local.Validate("Qty. to Assemble to Order", SalesOrdrLines_Local.Quantity);
+                            if SalesOrdrLines_Local.Type = SalesOrdrLines_Local.Type::Item then begin
+                                SalesOrdrLines_Local.Validate(Reserve, SalesOrdrLines_Local.Reserve::Always);
+                                SalesOrdrLines_Local.AutoReserve();
+                            end;
+                            SalesOrdrLines_Local.Validate("Qty. to Assemble to Order", SalesOrdrLines_Local.Quantity);
+                            SalesOrdrLines_Local.Modify(true)
+                        end else
+                            //If available quantity greater than requested quantity
+                            if AvailableQty >= SalesOrdrLines_Local.Quantity then begin
+                                SalesOrdrLines_Local.Validate("Qty. to Assemble to Order", 0);
+                                if SalesOrdrLines_Local.Type = SalesOrdrLines_Local.Type::Item then begin
+                                    SalesOrdrLines_Local.Validate(Reserve, SalesOrdrLines_Local.Reserve::Always);
+                                    SalesOrdrLines_Local.AutoReserve();
+                                end;
+                                SalesOrdrLines_Local.Validate("Qty. to Assemble to Order", 0);
+                                SalesOrdrLines_Local.Modify(true);
+                            end;
+                until SalesOrdrLines_Local.Next() = 0;
         end;
     end;
 
@@ -649,6 +656,31 @@ codeunit 50202 EventSubscribers
                 end;
         end;
     end;
+    //Track the insertion of Sales Order from Sales Quote
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Global Triggers", 'GetDatabaseTableTriggerSetup', '', false, false)]
+    local procedure GetDatabaseTableTriggerSetup(TableId: Integer; var OnDatabaseInsert: Boolean; var OnDatabaseModify: Boolean; var OnDatabaseDelete: Boolean; var OnDatabaseRename: Boolean)
+    begin
+        if TableId = Database::"Sales Header" then
+            OnDatabaseInsert := true;
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Global Triggers", 'OnDatabaseInsert', '', false, false)]
+    local procedure OnDatabaseInsert(RecRef: RecordRef)
+    var
+        SalesHeader: Record "Sales Header";
+        SalesOrder: Record "Sales Header";
+    begin
+        if RecRef.Number = Database::"Sales Header" then begin
+            RecRef.SetTable(SalesHeader);
+            if (SalesHeader."Document Type" = SalesHeader."Document Type"::Order) and (SalesHeader."Quote No." <> '') then begin
+                SalesOrder.Reset();
+                SalesOrder.SetRange("Quote No.", SalesHeader."Quote No.");
+                if SalesOrder.FindFirst() then
+                    Error('A Sales Order has been already created from this Sales Quote %1', SalesHeader."Quote No.");
+            end;
+        end;
+    end;
+
     #endregion
     #region [Purchase]
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Get Unplanned Demand", 'OnInsertSalesLineOnAfterInitRecord', '', false, false)]
@@ -1024,7 +1056,6 @@ codeunit 50202 EventSubscribers
         else
             GLEntry."Original Credit Amount - ER" := ABS(GLEntry."Original Amount - ER");*/
     end;
-    #endregion
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"G/L Entry-Edit", 'OnBeforeGLLedgEntryModify', '', false, false)]
     local procedure OnBeforeGLLedgEntryModify(var GLEntry: Record "G/L Entry")
@@ -1053,6 +1084,6 @@ codeunit 50202 EventSubscribers
 
         end;
     end;
-
+    #endregion
 
 }

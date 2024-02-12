@@ -1306,8 +1306,10 @@ codeunit 50204 Management
                     end else
                         //If available quantity greater than requested quantity
                         if AvailableQty >= NeededRawMaterial."Sales Line Quantity" then begin
-                            SalesLine.Validate(Reserve, SalesLine.Reserve::Always);
-                            SalesLine.AutoReserve();
+                            if SalesLine.Type = SalesLine.Type::Item then begin
+                                SalesLine.Validate(Reserve, SalesLine.Reserve::Always);
+                                SalesLine.AutoReserve();
+                            end;
                             SalesLine."Parameters Header ID" := NeededRawMaterial."Paramertes Header ID";
                             SalesLine.Validate("Parent Parameter Header ID", ParentParameterHeaderPar.ID);
                             SalesLine."Needed RM Batch" := NeededRawMaterial.Batch;
@@ -1449,8 +1451,10 @@ codeunit 50204 Management
                     end else
                         //If available quantity greater than requested quantity
                         if AvailableQty >= NeededRawMaterial."Sales Line Quantity" then begin
-                            SalesLine.Validate(Reserve, SalesLine.Reserve::Always);
-                            SalesLine.AutoReserve();
+                            if SalesLine.Type = SalesLine.Type::Item then begin
+                                SalesLine.Validate(Reserve, SalesLine.Reserve::Always);
+                                SalesLine.AutoReserve();
+                            end;
                             SalesLine."Parameters Header ID" := NeededRawMaterial."Paramertes Header ID";
                             SalesLine.Validate("Parent Parameter Header ID", ParentParameterHeaderPar.ID);
                             SalesLine."Needed RM Batch" := NeededRawMaterial.Batch;

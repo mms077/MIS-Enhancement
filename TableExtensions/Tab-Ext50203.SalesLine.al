@@ -279,6 +279,27 @@ tableextension 50203 "Sales Line" extends "Sales Line"
                         if HasRelatedMO(xRec) then
                             Error(Txt001, Rec."Line No.");
             end;
+
+            trigger OnAfterValidate()
+            var
+                ParamHead: Record "Parameter Header";
+            begin
+                //change location of parameter header
+                if ParamHead.get(rec."Parameters Header ID") then begin
+                    ParamHead.Validate("Sales Line Location Code", "Location Code");
+                    ParamHead.Modify();
+                end;
+                clear(ParamHead);
+                if ParamHead.get(rec."Parent Parameter Header ID") then begin
+                    ParamHead.Validate("Sales Line Location Code", "Location Code");
+                    ParamHead.Modify();
+                end;
+                clear(ParamHead);
+                if ParamHead.get(rec."Qty Assignment Wizard Id") then begin
+                    ParamHead.Validate("Sales Line Location Code", "Location Code");
+                    ParamHead.Modify();
+                end;
+            end;
         }
     }
     keys

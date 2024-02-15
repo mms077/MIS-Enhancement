@@ -273,9 +273,18 @@ page 50244 "Item Wizard"
     end;
 
     procedure CheckCanContinue()
+    var
+        Item: Record Item;
     begin
-        CanContinue := (Rec."Item Color ID" <> 0) and (Rec."Item No." <> '') and (Rec."Tonality Code" <> '')
-                         and (Rec."Sales Line Quantity" <> 0) and (Rec."Sales Line UOM" <> '') and (Rec."Sales Line Location Code" <> '');
+        // check if item is RM to skip checking for location 
+        item.get(rec."Item No.");
+        Item.CalcFields(IsRawMaterial);
+        if not item.IsRawMaterial then
+            CanContinue := (Rec."Item Color ID" <> 0) and (Rec."Item No." <> '') and (Rec."Tonality Code" <> '')
+                             and (Rec."Sales Line Quantity" <> 0) and (Rec."Sales Line UOM" <> '') and (Rec."Sales Line Location Code" <> '')
+        else
+            CanContinue := (Rec."Item Color ID" <> 0) and (Rec."Item No." <> '') and (Rec."Tonality Code" <> '')
+                             and (Rec."Sales Line Quantity" <> 0) and (Rec."Sales Line UOM" <> '');
     end;
 
     procedure FillTempTables()

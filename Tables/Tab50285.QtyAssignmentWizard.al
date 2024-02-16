@@ -19,16 +19,63 @@ table 50285 "Qty Assignment Wizard"
         {
             Caption = 'Size';
             DataClassification = ToBeClassified;
+
+            trigger OnValidate()
+            var
+                ItemSize: Record "Item Size";
+                ParameterHeader: Record "Parameter Header";
+            begin
+                ItemSize.Reset();
+                if rec.Size <> '' then begin
+                    if ParameterHeader.get(rec."Header Id") then begin
+                        ItemSize.SetRange("Item No.", ParameterHeader."Item No.");
+                        ItemSize.SetRange("Item Size Code", rec.Size);
+                        if not (ItemSize.FindSet()) then
+                            Error('Size not found');
+                    end;
+                end;
+            end;
         }
         field(4; Fit; Code[50])
         {
             Caption = 'Fit';
             DataClassification = ToBeClassified;
+
+            trigger OnValidate()
+            var
+                ItemFit: Record "Item Fit";
+                ParameterHeader: Record "Parameter Header";
+            begin
+                ItemFit.Reset();
+                if rec.Fit <> '' then begin
+                    if ParameterHeader.get(rec."Header Id") then begin
+                        ItemFit.SetRange("Item No.", ParameterHeader."Item No.");
+                        ItemFit.SetRange("Fit Code", rec.Fit);
+                        if not (ItemFit.FindSet()) then
+                            Error('Fit not found');
+                    end;
+                end;
+            end;
         }
         field(5; Cut; Code[50])
         {
             Caption = 'Cut';
             DataClassification = ToBeClassified;
+
+            trigger OnValidate()
+            var
+                ItemCut: Record "Item Cut";
+                ParameterHeader: Record "Parameter Header";
+            begin
+                ItemCut.Reset();
+                if rec.Cut <> '' then begin
+                    if ParameterHeader.get(rec."Header Id") then begin
+                        if not (ItemCut.Get(ParameterHeader."Item No.", rec.Cut)) then
+                            Error('Cut not found');
+                    end;
+                end;
+            end;
+
         }
         field(6; "Quantity To Assign"; Decimal)
         {

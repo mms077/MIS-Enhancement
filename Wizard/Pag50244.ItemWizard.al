@@ -235,6 +235,12 @@ page 50244 "Item Wizard"
             }
         }
     }
+    trigger OnAfterGetCurrRecord()
+    var
+    begin
+        rec.Validate(rec."Item No.");
+    end;
+
     var
 
         ItemColorPage: Page "Item Colors";

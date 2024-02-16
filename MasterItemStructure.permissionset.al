@@ -316,5 +316,9 @@ permissionset 50200 MasterItemStructure
         codeunit "Adjust Acy PostedPurchInv" = X,
         tabledata OrderHistory = RIMD,
         table OrderHistory = X,
-        page OrderHistory = X;
+        page OrderHistory = X,
+        tabledata TempGLAccountDim = RIMD,
+        table TempGLAccountDim = X,
+        report "New Close Income Statement" = X,
+        codeunit "G/L Account Default Dim." = X;
 }

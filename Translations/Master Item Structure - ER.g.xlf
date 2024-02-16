@@ -2978,6 +2978,41 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Staff Sizes - Field Type - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3295767762 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TempGLAccountDim</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TempGLAccountDim - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3295767762 - Field 2623957639 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dimension Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TempGLAccountDim - Field Dimension Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3295767762 - Field 2277534386 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dimension Value Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TempGLAccountDim - Field Dimension Value Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3295767762 - Field 329134311 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Entry No</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TempGLAccountDim - Field Entry No - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3295767762 - Field 949215307 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TempGLAccountDim - Field No - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3295767762 - Field 3135334477 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Table ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TempGLAccountDim - Field Table ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3295767762 - Field 448954477 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Value Posting</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TempGLAccountDim - Field Value Posting - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 546592776 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tonality</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -11672,6 +11707,231 @@
           <source>Finished Label Printing</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Finished Label Printing - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Close Income Statement</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - Property 3863440606" size-unit="char" translate="yes" xml:space="preserve">
+          <source>year closing statement,close accounting period statement,close fiscal year statement</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - Property AdditionalSearchTerms</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - NamedType 1750747446" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No closed fiscal year exists.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - NamedType NoFiscalYearsErr</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Enter the ending date for the fiscal year.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - NamedType Text000</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Enter a Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - NamedType Text001</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Enter Retained Earnings Account No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - NamedType Text002</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - NamedType 95063322" size-unit="char" translate="yes" xml:space="preserve">
+          <source>By using an additional reporting currency, this batch job will post closing entries directly to the general ledger.  </source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - NamedType Text003</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - NamedType 1370456556" size-unit="char" translate="yes" xml:space="preserve">
+          <source>These closing entries will not be transferred to a general journal before the program posts them to the general ledger.\\ </source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - NamedType Text005</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - NamedType 2645849790" size-unit="char" translate="yes" xml:space="preserve">
+          <source>\Do you want to continue?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - NamedType Text007</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - NamedType 3283546407" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Creating general journal lines...\\</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - NamedType Text008</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - NamedType 3921243024" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Account No.         #1##################\</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - NamedType Text009</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - NamedType 1664139952" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Now performing      #2##################\</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - NamedType Text010</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - NamedType 1026443335" size-unit="char" translate="yes" xml:space="preserve">
+          <source>                    @3@@@@@@@@@@@@@@@@@@\</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - NamedType Text011</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - NamedType 2939533186" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Creating Gen. Journal lines</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - NamedType Text012</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - NamedType 2301836569" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Calculating Amounts</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - NamedType Text013</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - NamedType 4214926420" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The fiscal year must be closed before the income statement can be closed.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - NamedType Text014</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - NamedType 3577229803" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The fiscal year does not exist.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - NamedType Text015</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - NamedType 1195352358" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The closing entries have successfully been posted.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - NamedType Text016</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - NamedType 557655741" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The journal lines have successfully been created.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - NamedType Text017</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - NamedType 219837695" size-unit="char" translate="yes" xml:space="preserve">
+          <source>                    @4@@@@@@@@@@@@@@@@@@\</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - NamedType Text019</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - NamedType 1940672225" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The following G/L Accounts have mandatory dimension codes that have not been selected:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - NamedType Text020</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - NamedType 2578368842" size-unit="char" translate="yes" xml:space="preserve">
+          <source>\\In order to post to these accounts you must also select these dimensions:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - NamedType Text021</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - Control 1321980503 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Close by</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - Control Close by - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - Control 3970127045 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for the business unit, in a company group structure.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - Control ClosePerBusUnit - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - Control 3970127045 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Business Unit Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - Control ClosePerBusUnit - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - Control 2173385693 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies dimensions, such as area, project, or department, that you can assign to sales and purchase documents to distribute costs and analyze transaction history.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - Control Dimensions - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - Control 2173385693 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dimensions</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - Control Dimensions - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - Control 3117834186 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the document that is processed by the report or batch job.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - Control DocumentNo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - Control 3117834186 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - Control DocumentNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - Control 114505274 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the last date in the closed fiscal year. This date is used to determine the closing date.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - Control FiscalYearEndingDate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - Control 114505274 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fiscal Year Ending Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - Control FiscalYearEndingDate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - Control 189954099 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the general journal batch that is used by the batch job.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - Control GenJournalBatch - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - Control 189954099 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gen. Journal Batch</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - Control GenJournalBatch - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - Control 3491986895 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the general journal template that is used by the batch job.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - Control GenJournalTemplate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - Control 3491986895 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gen. Journal Template</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - Control GenJournalTemplate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - Control 89819375 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies that the inventory period has been closed.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - Control InventoryPeriodClosed - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - Control 89819375 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Inventory Period Closed</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - Control InventoryPeriodClosed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - Control 1539609042 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the description that accompanies the posting.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - Control PostingDescription - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - Control 1539609042 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - Control PostingDescription - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - Control 80532439 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the resulting entries are posted with the Retained Earnings account as a balancing account on each line (Details) or if retained earnings are posted as an extra line with a summarized amount (Balance).</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - Control PostToRetainedEarningsAccount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - Control 80532439 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post to Retained Earnings Acc.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - Control PostToRetainedEarningsAccount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - Control 80532439 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Balance,Details</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - Control PostToRetainedEarningsAccount - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - Control 3538464282 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the retained earnings account that the batch job posts to. This account should be the same as the account that is used by the Close Income Statement batch job.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - Control RetainedEarningsAcc - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2670538952 - Control 3538464282 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Retained Earnings Acc.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - Control RetainedEarningsAcc - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 1378101807 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Voucher</source>

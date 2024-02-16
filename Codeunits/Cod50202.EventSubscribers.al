@@ -1086,4 +1086,13 @@ codeunit 50202 EventSubscribers
     end;
     #endregion
 
+
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::ReportManagement, 'OnAfterSubstituteReport', '', false, false)]
+    local procedure OnSubstituteReport(ReportId: Integer; var NewReportId: Integer)
+    begin
+        if ReportId = Report::"Close Income Statement" then
+            NewReportId := Report::"New Close Income Statement";
+    end;
+
 }

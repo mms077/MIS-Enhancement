@@ -235,6 +235,57 @@ pageextension 50209 "Assembly Orders" extends "Assembly Orders"
                     AssemblyGroupsList.Run();
                 end;
             }
+            action("Validate All Variants")
+            {
+                ApplicationArea = all;
+                Image = SpecialOrder;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                trigger OnAction()
+                var
+                    AssemblHeader: Record "Assembly Header";
+                    CUManagement: Codeunit Management;
+                    CuttingSheetDashboard: Record "Cutting Sheets Dashboard";
+                    CuttingSheetDashboardTemp: Record "Cutting Sheets Dashboard" temporary;
+                begin
+                    CurrPage.SetSelectionFilter(AssemblHeader);
+                    if AssemblHeader.FindSet() then begin
+                        repeat
+                            if (AssemblHeader."Variant Code" <> '') and (AssemblHeader."Assemble to Order" = false) then begin
+                                if AssemblHeader.Status = AssemblHeader.Status::Released then begin
+                                    AssemblHeader.Status := AssemblHeader.Status::Open;
+                                    AssemblHeader.Modify();
+                                end;
+                                AssemblHeader."Parameters Header ID" := 0;
+                                AssemblHeader.Validate("Variant Code", AssemblHeader."Variant Code");
+                                AssemblHeader.Modify();
+
+                                if CuttingSheetDashboard.Get(AssemblHeader."No.") then begin
+                                    CuttingSheetDashboardTemp.Init();
+                                    CuttingSheetDashboardTemp := CuttingSheetDashboard;
+                                    CuttingSheetDashboardTemp.Insert();
+
+
+                                    CuttingSheetDashboard.Delete();
+                                    // insert old data to dashboard 
+                                    Clear(CuttingSheetDashboard);
+                                    CuttingSheetDashboard.Init();
+                                    CuttingSheetDashboard := CuttingSheetDashboardTemp;
+                                    CuttingSheetDashboard.Insert();
+                                    //CUManagement.CreateCuttingSheetDashboard(AssemblHeader, '');
+                                    //Create Parameter Header for the assembly
+                                    CuttingSheetDashboardTemp.DeleteAll();
+                                end else
+                                    CUManagement.CreateCuttingSheetDashboard(AssemblHeader, '');
+                                CUManagement.CreateParameterHeaderForAssembly(AssemblHeader);
+                            end;
+                        until AssemblHeader.Next() = 0;
+                    end;
+
+                end;
+            }
         }
         modify(Release)
         {

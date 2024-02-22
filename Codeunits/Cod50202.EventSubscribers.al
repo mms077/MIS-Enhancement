@@ -834,14 +834,17 @@ codeunit 50202 EventSubscribers
                             AssemblyLine."Document Type" := AssemblyHeaderPar."Document Type";
                             AssemblyLine."Document No." := AssemblyHeaderPar."No.";
                             AssemblyLine."Line No." := LineNumber;
+                            //Fill assembly Line no. in Needed RM
+                            NeededRawMaterialLoc."Assembly Order Line No." := AssemblyLine."Line No.";
+                            NeededRawMaterialLoc.Modify();
                             AssemblyLine.Validate(Type, AssemblyLine.Type::Item);
                             AssemblyLine.Validate("No.", NeededRawMaterialLoc."RM Code");
                             //Raw Material Variant Code
                             AssemblyLine.Validate("Variant Code", NeededRawMaterialLoc."RM Variant Code");
                             AssemblyLine.Validate("Location Code", NeededRawMaterialLoc."Sales Line Location Code");
                             //Calculate Quantity Rate
-                            AssemblyLine.Validate("Quantity Per", NeededRawMaterialLoc."Assembly Line Quantity");
-                            AssemblyLine.Validate("Quantity", NeededRawMaterialLoc."Assembly Line Quantity" * AssemblyHeaderPar.Quantity);
+                            AssemblyLine.Validate("Quantity Per", NeededRawMaterialLoc."Assembly Line Quantity" / AssemblyHeaderPar.Quantity);
+                            AssemblyLine.Validate("Quantity", NeededRawMaterialLoc."Assembly Line Quantity");
                             AssemblyLine.Validate("Unit of Measure Code", NeededRawMaterialLoc."Assembly Line UOM Code");
                             AssemblyLine.Validate(Reserve, AssemblyLine.Reserve::Always);
                             AssemblyLine.Insert(true);

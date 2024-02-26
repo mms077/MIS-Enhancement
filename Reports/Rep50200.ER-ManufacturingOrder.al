@@ -917,7 +917,7 @@ report 50200 "ER - Manufacturing Order"
         CompanyInformation.CalcFields(Picture);
     end;
 
-    procedure GetICAllocationName(ICCompany: Code[20]; ICCustomerNo: Code[20]; ICCustomerSONo: Code[20])
+    procedure GetICAllocationName(ICCompany: Text[30]; ICCustomerNo: Code[20]; ICCustomerSONo: Code[20])
     var
         ICSalesHeader: Record "Sales Header";
         ICSalesLine: Record "Sales Line";

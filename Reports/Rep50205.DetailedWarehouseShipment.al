@@ -226,7 +226,7 @@ report 50205 "Detailed Warehouse Shipment"
                 end;
     end;
 
-    procedure GetICAllocationName(ICCompany: Code[20]; ICCustomerNo: Code[20]; ICCustomerSONo: Code[20]; SourceNo: Code[50]; SourceLineNo: Integer)
+    procedure GetICAllocationName(ICCompany: Text[30]; ICCustomerNo: Code[20]; ICCustomerSONo: Code[20]; SourceNo: Code[50]; SourceLineNo: Integer)
     var
         ICSalesHeader: Record "Sales Header";
         ICSalesLine: Record "Sales Line";

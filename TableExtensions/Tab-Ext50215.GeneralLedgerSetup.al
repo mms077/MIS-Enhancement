@@ -26,5 +26,10 @@ tableextension 50215 "General Ledger Setup" extends "General Ledger Setup"
             Caption = 'IC SQ Location';
             TableRelation = Location.Code;
         }
+        field(50204; "Disregard Item Availability"; Boolean)
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Disregard Item Availability';
+        }
     }
 }

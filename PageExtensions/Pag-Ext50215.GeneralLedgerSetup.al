@@ -14,6 +14,12 @@ pageextension 50215 "General Ledger Setup" extends "General Ledger Setup"
                 ApplicationArea = all;
                 ToolTip = 'The location of the SQ Line if the company is not the prodcution company.';
             }
+            field("Disregard Item Availability"; Rec."Disregard Item Availability")
+            {
+                ApplicationArea = all;
+                ToolTip = 'Disregard the availability of the items, always create assembly.';
+            }
+
         }
         addafter(Application)
         {

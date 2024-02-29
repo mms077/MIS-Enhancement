@@ -233,6 +233,8 @@ codeunit 50202 EventSubscribers
         ParameterHeaderLoc: Record "Parameter Header";
         ParentParameterHeaderLoc: Record "Parameter Header";
         SalesOrdrLines_Local: Record "Sales Line";
+        //TASK-27333
+        GnrlLedgStpRec: Record "General Ledger Setup";
     begin
         //Update Cutting Sheet Source Type and Source No.
         CuttingSheetsDashboard.SetRange("Source Type", SalesQuoteHeader."Document Type");
@@ -317,13 +319,17 @@ codeunit 50202 EventSubscribers
                 repeat
                     Clear(Item);
                     AvailableQty := 0;
-                    if Item.Get(SalesOrdrLines_Local."No.") then;
-                    Item.SetRange("Location Filter", SalesOrdrLines_Local."Location Code");
-                    Item.SetRange("Variant Filter", SalesOrdrLines_Local."Variant Code");
-                    Item.CalcFields(Inventory, "FP Order Receipt (Qty.)", "Rel. Order Receipt (Qty.)", "Qty. on Assembly Order", "Qty. on Purch. Order", "Trans. Ord. Receipt (Qty.)", "Qty. On Sales Order", "Qty. on Component Lines", "Qty. on Asm. Component", "Trans. Ord. Shipment (Qty.)");
-                    AvailableQty := Item.Inventory
-                                + (Item."FP Order Receipt (Qty.)" + Item."Rel. Order Receipt (Qty.)" + Item."Qty. on Assembly Order" + Item."Qty. on Purch. Order" + Item."Trans. Ord. Receipt (Qty.)")
-                                - (Item."Qty. on Sales Order" + Item."Qty. on Component Lines" + Item."Qty. on Asm. Component" + Item."Trans. Ord. Shipment (Qty.)");
+                    //TASK-27333: If disregard item is on, dont check for availability in the location  
+                    if GnrlLedgStpRec.get() then
+                        if not GnrlLedgStpRec."Disregard Item Availability" then begin
+                            if Item.Get(SalesOrdrLines_Local."No.") then;
+                            Item.SetRange("Location Filter", SalesOrdrLines_Local."Location Code");
+                            Item.SetRange("Variant Filter", SalesOrdrLines_Local."Variant Code");
+                            Item.CalcFields(Inventory, "FP Order Receipt (Qty.)", "Rel. Order Receipt (Qty.)", "Qty. on Assembly Order", "Qty. on Purch. Order", "Trans. Ord. Receipt (Qty.)", "Qty. On Sales Order", "Qty. on Component Lines", "Qty. on Asm. Component", "Trans. Ord. Shipment (Qty.)");
+                            AvailableQty := Item.Inventory
+                                        + (Item."FP Order Receipt (Qty.)" + Item."Rel. Order Receipt (Qty.)" + Item."Qty. on Assembly Order" + Item."Qty. on Purch. Order" + Item."Trans. Ord. Receipt (Qty.)")
+                                        - (Item."Qty. on Sales Order" + Item."Qty. on Component Lines" + Item."Qty. on Asm. Component" + Item."Trans. Ord. Shipment (Qty.)");
+                        end;
                     //If available quantity less than requested quantity but greater than 0 --> just the difference
                     if (AvailableQty < SalesOrdrLines_Local."Quantity") and (AvailableQty >= 0) then begin
                         SalesOrdrLines_Local.Validate("Qty. to Assemble to Order", SalesOrdrLines_Local.Quantity - AvailableQty);

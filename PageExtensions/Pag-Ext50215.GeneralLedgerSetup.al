@@ -9,6 +9,11 @@ pageextension 50215 "General Ledger Setup" extends "General Ledger Setup"
                 ApplicationArea = All;
                 ToolTip = 'The default VAT % in the company';
             }
+            field("IC SQ Location"; Rec."IC SQ Location")
+            {
+                ApplicationArea = all;
+                ToolTip = 'The location of the SQ Line if the company is not the prodcution company.';
+            }
         }
         addafter(Application)
         {

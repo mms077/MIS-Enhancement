@@ -20,7 +20,6 @@ table 50239 "Parameter Header"
             trigger OnValidate()
             var
                 GenLedgSetup: Record "General Ledger Setup";
-                Locations: Record Location;
             begin
                 Rec.CalcFields("Item Description");
                 GetDefaultUOM(Rec."Item No.");
@@ -29,9 +28,10 @@ table 50239 "Parameter Header"
                 if GenLedgSetup."Company Type" = GenLedgSetup."Company Type"::"Full Production" then
                     OnBeforeSettingLineLocation(Rec)//Setting the location code based on the assembly location code from WMS
                 else begin
-                    Clear(Locations);
-                    if Locations.FindFirst() then
-                        Rec.Validate("Sales Line Location Code", Locations.Code);
+                    if GenLedgSetup."IC SQ Location" <> '' then
+                        Rec.Validate("Sales Line Location Code", GenLedgSetup."IC SQ Location")
+                    else
+                        Error('The field (IC SQ Location) is not filled in the General Ledger Setup.');
                 end;
             end;
         }

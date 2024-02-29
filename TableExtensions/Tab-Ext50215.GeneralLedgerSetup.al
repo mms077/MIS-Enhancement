@@ -20,5 +20,11 @@ tableextension 50215 "General Ledger Setup" extends "General Ledger Setup"
             MinValue = 0;
             MaxValue = 100;
         }
+        field(50203; "IC SQ Location"; Code[10])
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'IC SQ Location';
+            TableRelation = Location.Code;
+        }
     }
 }

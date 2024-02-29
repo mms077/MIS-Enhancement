@@ -4103,6 +4103,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fits - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4065676923 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>G/L Entries API</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page GLEntries API - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4065676923 - Property 3446740159" size-unit="char" translate="yes" xml:space="preserve">
+          <source>G/L Entries</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page GLEntries API - Property EntityCaption</note>
+        </trans-unit>
+        <trans-unit id="Page 4065676923 - Property 631549417" size-unit="char" translate="yes" xml:space="preserve">
+          <source>G/L Entries</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page GLEntries API - Property EntitySetCaption</note>
+        </trans-unit>
         <trans-unit id="Page 3681661391 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Image Details</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -5187,6 +5202,21 @@
           <source>Tonalities</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Tonalities - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4279823586 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Value_Entries API</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Value_Entries API - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4279823586 - Property 3446740159" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Value_Entries</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Value_Entries API - Property EntityCaption</note>
+        </trans-unit>
+        <trans-unit id="Page 4279823586 - Property 631549417" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Value_Entries</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Value_Entries API - Property EntitySetCaption</note>
         </trans-unit>
         <trans-unit id="Page 4145377829 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Variant Picture</source>
@@ -13473,6 +13503,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Ledger Setup - Control Default VAT % - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="PageExtension 4050813720 - Control 1142431063 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4050813720">
+          <source>The location of the SQ Line if the company is not the prodcution company.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Ledger Setup - Control IC SQ Location - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 4050813720 - Control 332174833 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4050813720">
           <source>Full Production: when the company produce all types. Only from SF: when the company produce only finished Items based on the Semi-Finished. No Production: When the company does not operate production</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -14337,6 +14372,11 @@
           <source>Default VAT %</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension General Ledger Setup - Field Default VAT % - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4050813720 - Field 1142431063 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4050813720">
+          <source>IC SQ Location</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension General Ledger Setup - Field IC SQ Location - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 4050813720 - Field 1714957052 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4050813720">
           <source>MOF Receipt</source>

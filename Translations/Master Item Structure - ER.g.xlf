@@ -13503,6 +13503,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Ledger Setup - Control Default VAT % - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="PageExtension 4050813720 - Control 1868495407 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4050813720">
+          <source>Disregard the availability of the items, always create assembly.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Ledger Setup - Control Disregard Item Availability - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 4050813720 - Control 1142431063 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4050813720">
           <source>The location of the SQ Line if the company is not the prodcution company.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -14372,6 +14377,11 @@
           <source>Default VAT %</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension General Ledger Setup - Field Default VAT % - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4050813720 - Field 1868495407 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4050813720">
+          <source>Disregard Item Availability</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension General Ledger Setup - Field Disregard Item Availability - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 4050813720 - Field 1142431063 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4050813720">
           <source>IC SQ Location</source>

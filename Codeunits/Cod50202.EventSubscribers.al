@@ -816,8 +816,8 @@ codeunit 50202 EventSubscribers
                         AssemblyLine.Validate("Variant Code", PostedAssemblyLine."Variant Code");
                         AssemblyLine.Validate("Location Code", AssemblyHeaderPar."Location Code");
                         //Calculate Quantity Rate
-                        AssemblyLine.Validate("Quantity Per", NeededRawMaterialLoc."Assembly Line Quantity" / AssemblyHeaderPar.Quantity);
-                        AssemblyLine.Validate("Quantity", NeededRawMaterialLoc."Assembly Line Quantity");
+                        AssemblyLine.Validate("Quantity Per", PostedAssemblyLine."Quantity per");
+                        AssemblyLine.Validate("Quantity", PostedAssemblyLine."Quantity per" * AssemblyHeaderPar.Quantity);
                         AssemblyLine.Validate("Unit of Measure Code", PostedAssemblyLine."Unit of Measure Code");
                         AssemblyLine.Validate(Reserve, AssemblyLine.Reserve::Always);
                         AssemblyLine.Insert(true);

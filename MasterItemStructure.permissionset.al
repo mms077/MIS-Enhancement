@@ -320,5 +320,8 @@ permissionset 50200 MasterItemStructure
         tabledata TempGLAccountDim = RIMD,
         table TempGLAccountDim = X,
         report "New Close Income Statement" = X,
-        codeunit "G/L Account Default Dim." = X;
+        codeunit "G/L Account Default Dim." = X,
+        report "Assembly to Stock Label Print" = X,
+        page "GLEntries API" = X,
+        page "Value_Entries API" = X;
 }

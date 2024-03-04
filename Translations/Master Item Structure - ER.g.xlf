@@ -4063,6 +4063,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page ER - Manufacturing Orders - Action ER - Manufacturing Order - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3281803833 - Action 1966033546 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Label Printing Assmeble to Stock</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ER - Manufacturing Orders - Action Label Printing Assm. to Stock - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3281803833 - Action 3034929855 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Open Plotting File Link</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -5397,6 +5402,16 @@
           <source>Source Code</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Adjust Acy Rate - Control SourceCode - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2823901870 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Assembly to stock Label Printing</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Assembly to Stock Label Print - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2823901870 - Control 1877321498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Size Option</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Assembly to Stock Label Print - Control SizeOption - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 118002655 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Detailed Warehouse Shipment</source>

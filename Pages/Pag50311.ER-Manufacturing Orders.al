@@ -212,6 +212,24 @@ page 50311 "ER - Manufacturing Orders"
                         Report.Run(Report::"Sales Line Label Printing FR", true, true, ERManufacturingOrders);
                 end;
             }
+            action("Label Printing Assm. to Stock")
+            {
+                ApplicationArea = all;
+                Image = Report;
+                Caption = 'Label Printing Assmeble to Stock';
+                Promoted = true;
+                PromotedCategory = Report;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                trigger OnAction()
+                var
+                    ERManufacturingOrders: Record "ER - Manufacturing Order";
+                begin
+                    CurrPage.SetSelectionFilter(ERManufacturingOrders);
+                    if ERManufacturingOrders.FindSet() then
+                        Report.Run(Report::"Assembly to Stock Label Print" , true, true, ERManufacturingOrders);
+                end;
+            }
             action(PlottingFile)
             {
                 ApplicationArea = All;

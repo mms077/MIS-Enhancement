@@ -854,7 +854,7 @@ codeunit 50202 EventSubscribers
                             AssemblyLine.Validate("Unit of Measure Code", NeededRawMaterialLoc."Assembly Line UOM Code");
                             AssemblyLine.Validate(Reserve, AssemblyLine.Reserve::Always);
                             AssemblyLine.Insert(true);
-                            AssemblyLine.AutoReserve();
+                            //AssemblyLine.AutoReserve();
                         #endregion[Create Assembly Line]          
                         until NeededRawMaterialLoc.Next() = 0;
                 end;

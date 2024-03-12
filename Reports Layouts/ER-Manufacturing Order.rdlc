@@ -3471,7 +3471,6 @@
                                               </Border>
                                             </Style>
                                           </Rectangle>
-                                          <rd:Selected>true</rd:Selected>
                                         </CellContents>
                                       </TablixCell>
                                     </TablixCells>
@@ -3971,6 +3970,9 @@
                                                       <TablixMembers>
                                                         <TablixMember />
                                                       </TablixMembers>
+                                                      <Visibility>
+                                                        <Hidden>=IIF(Fields!Feature_Name.Value = "", False, True)</Hidden>
+                                                      </Visibility>
                                                     </TablixMember>
                                                   </TablixMembers>
                                                 </TablixRowHierarchy>

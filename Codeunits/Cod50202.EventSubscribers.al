@@ -315,6 +315,7 @@ codeunit 50202 EventSubscribers
             SalesOrdrLines_Local.Reset();
             SalesOrdrLines_Local.SetRange("Document Type", SalesOrderLine."Document Type");
             SalesOrdrLines_Local.SetRange("Document No.", SalesOrderLine."Document No.");
+            SalesOrdrLines_Local.SetFilter("Assembly No.",'<>%1','');
             if SalesOrdrLines_Local.FindFirst() then
                 repeat
                     Clear(Item);

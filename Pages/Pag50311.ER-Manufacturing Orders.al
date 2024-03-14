@@ -216,7 +216,7 @@ page 50311 "ER - Manufacturing Orders"
             {
                 ApplicationArea = all;
                 Image = Report;
-                Caption = 'Label Printing Assmeble to Stock';
+                Caption = 'Label Printing Assemble to Stock';
                 Promoted = true;
                 PromotedCategory = Report;
                 PromotedIsBig = true;

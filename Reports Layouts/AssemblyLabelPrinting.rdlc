@@ -19,7 +19,7 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>6.3cm</Width>
+                  <Width>6.42752cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -34,7 +34,7 @@
                               <TablixBody>
                                 <TablixColumns>
                                   <TablixColumn>
-                                    <Width>6.3cm</Width>
+                                    <Width>6.42752cm</Width>
                                   </TablixColumn>
                                 </TablixColumns>
                                 <TablixRows>
@@ -52,7 +52,7 @@
                                                   <Paragraph>
                                                     <TextRuns>
                                                       <TextRun>
-                                                        <Value>=Fields!Item_Description.Value</Value>
+                                                        <Value>=Fields!Eng_FrenchItemDesc.Value</Value>
                                                         <Style>
                                                           <FontFamily>Gill Sans Std</FontFamily>
                                                           <FontSize>8pt</FontSize>
@@ -68,7 +68,7 @@
                                                 <Top>1.20487cm</Top>
                                                 <Left>0.00051cm</Left>
                                                 <Height>0.98775cm</Height>
-                                                <Width>6.29992cm</Width>
+                                                <Width>6.32109cm</Width>
                                                 <Style>
                                                   <Border>
                                                     <Style>Solid</Style>
@@ -87,7 +87,7 @@
                                                   <Paragraph>
                                                     <TextRuns>
                                                       <TextRun>
-                                                        <Value EvaluationMode="Constant">SECTIONS SET</Value>
+                                                        <Value>=Fields!SectionsLabel.Value</Value>
                                                         <Style>
                                                           <FontFamily>Gill Sans Std</FontFamily>
                                                           <FontSize>7pt</FontSize>
@@ -160,7 +160,7 @@
                                                   <Paragraph>
                                                     <TextRuns>
                                                       <TextRun>
-                                                        <Value EvaluationMode="Constant">FEATURES SET</Value>
+                                                        <Value>=Fields!FeaturesLabel.Value</Value>
                                                         <Style>
                                                           <FontFamily>Gill Sans Std</FontFamily>
                                                           <FontSize>7pt</FontSize>
@@ -236,7 +236,7 @@
                                                   <Paragraph>
                                                     <TextRuns>
                                                       <TextRun>
-                                                        <Value EvaluationMode="Constant">BRANDING SET</Value>
+                                                        <Value>=Fields!BrandingLabel.Value</Value>
                                                         <Style>
                                                           <FontFamily>Gill Sans Std</FontFamily>
                                                           <FontSize>7pt</FontSize>
@@ -253,7 +253,7 @@
                                                 <Top>7.29262cm</Top>
                                                 <Left>4.18051cm</Left>
                                                 <Height>0.45cm</Height>
-                                                <Width>2.12cm</Width>
+                                                <Width>2.14109cm</Width>
                                                 <ZIndex>5</ZIndex>
                                                 <Style>
                                                   <Border>
@@ -292,7 +292,7 @@
                                                 <Top>7.74262cm</Top>
                                                 <Left>4.18051cm</Left>
                                                 <Height>0.45cm</Height>
-                                                <Width>2.12cm</Width>
+                                                <Width>2.14109cm</Width>
                                                 <ZIndex>6</ZIndex>
                                                 <Style>
                                                   <Border>
@@ -328,7 +328,7 @@
                                                 <Top>4.22587cm</Top>
                                                 <Left>0.00051cm</Left>
                                                 <Height>1.2cm</Height>
-                                                <Width>6.3cm</Width>
+                                                <Width>6.32109cm</Width>
                                                 <ZIndex>7</ZIndex>
                                                 <Style>
                                                   <Border>
@@ -364,7 +364,7 @@
                                                 <Top>5.42587cm</Top>
                                                 <Left>0.00051cm</Left>
                                                 <Height>1.2cm</Height>
-                                                <Width>6.3cm</Width>
+                                                <Width>6.32109cm</Width>
                                                 <ZIndex>8</ZIndex>
                                                 <Style>
                                                   <Border>
@@ -384,7 +384,7 @@
                                                   <Paragraph>
                                                     <TextRuns>
                                                       <TextRun>
-                                                        <Value>=Fields!Variant_ColorName.Value</Value>
+                                                        <Value>=Fields!Eng_FrenchColor.Value</Value>
                                                         <Style>
                                                           <FontSize>7pt</FontSize>
                                                         </Style>
@@ -397,9 +397,9 @@
                                                 </Paragraphs>
                                                 <rd:DefaultName>Variant_ItemSize</rd:DefaultName>
                                                 <Top>3.08901cm</Top>
-                                                <Left>1.3391cm</Left>
+                                                <Left>1.16271cm</Left>
                                                 <Height>0.45cm</Height>
-                                                <Width>2.97517cm</Width>
+                                                <Width>3.15156cm</Width>
                                                 <ZIndex>9</ZIndex>
                                                 <Style>
                                                   <Border>
@@ -418,7 +418,7 @@
                                                   <Paragraph>
                                                     <TextRuns>
                                                       <TextRun>
-                                                        <Value>Color</Value>
+                                                        <Value>=Fields!ColorLabel.Value</Value>
                                                         <Style>
                                                           <FontFamily>Gill Sans Std</FontFamily>
                                                           <FontSize>7pt</FontSize>
@@ -435,7 +435,7 @@
                                                 <Top>3.08901cm</Top>
                                                 <Left>0.00052cm</Left>
                                                 <Height>0.45cm</Height>
-                                                <Width>1.33858cm</Width>
+                                                <Width>1.16219cm</Width>
                                                 <ZIndex>10</ZIndex>
                                                 <Style>
                                                   <Border>
@@ -461,7 +461,7 @@
                                                   <Paragraph>
                                                     <TextRuns>
                                                       <TextRun>
-                                                        <Value EvaluationMode="Constant">Fit</Value>
+                                                        <Value>=Fields!FitLabel.Value</Value>
                                                         <Style>
                                                           <FontFamily>Gill Sans Std</FontFamily>
                                                           <FontSize>7pt</FontSize>
@@ -478,7 +478,7 @@
                                                 <Top>3.53901cm</Top>
                                                 <Left>0.00052cm</Left>
                                                 <Height>0.45cm</Height>
-                                                <Width>1.33858cm</Width>
+                                                <Width>1.16219cm</Width>
                                                 <ZIndex>11</ZIndex>
                                                 <Style>
                                                   <Border>
@@ -501,7 +501,7 @@
                                                   <Paragraph>
                                                     <TextRuns>
                                                       <TextRun>
-                                                        <Value EvaluationMode="Constant">Cut</Value>
+                                                        <Value>=Fields!CutLabel.Value</Value>
                                                         <Style>
                                                           <FontFamily>Gill Sans Std</FontFamily>
                                                           <FontSize>7pt</FontSize>
@@ -518,7 +518,7 @@
                                                 <Top>3.54262cm</Top>
                                                 <Left>3.12826cm</Left>
                                                 <Height>0.45cm</Height>
-                                                <Width>0.67007cm</Width>
+                                                <Width>1.05225cm</Width>
                                                 <ZIndex>12</ZIndex>
                                                 <Style>
                                                   <Border>
@@ -538,7 +538,7 @@
                                                   <Paragraph>
                                                     <TextRuns>
                                                       <TextRun>
-                                                        <Value EvaluationMode="Constant">Size</Value>
+                                                        <Value>=Fields!SizeLabel.Value</Value>
                                                         <Style>
                                                           <FontFamily>Gill Sans Std</FontFamily>
                                                           <FontSize>7pt</FontSize>
@@ -596,7 +596,7 @@
                                                 <Top>2.18901cm</Top>
                                                 <Left>4.98433cm</Left>
                                                 <Height>0.9cm</Height>
-                                                <Width>1.31619cm</Width>
+                                                <Width>1.33736cm</Width>
                                                 <ZIndex>14</ZIndex>
                                                 <Style>
                                                   <Border>
@@ -633,9 +633,9 @@
                                                 </Paragraphs>
                                                 <rd:DefaultName>Variant_ItemSize</rd:DefaultName>
                                                 <Top>3.53901cm</Top>
-                                                <Left>3.79833cm</Left>
+                                                <Left>4.11583cm</Left>
                                                 <Height>0.45cm</Height>
-                                                <Width>2.50219cm</Width>
+                                                <Width>2.20586cm</Width>
                                                 <ZIndex>15</ZIndex>
                                                 <Style>
                                                   <Border>
@@ -654,7 +654,7 @@
                                                   <Paragraph>
                                                     <TextRuns>
                                                       <TextRun>
-                                                        <Value EvaluationMode="Constant">Ton.</Value>
+                                                        <Value>=Fields!TonLabel.Value</Value>
                                                         <Style>
                                                           <FontFamily>Gill Sans Std</FontFamily>
                                                           <FontSize>7pt</FontSize>
@@ -710,7 +710,7 @@
                                                 <Top>3.08901cm</Top>
                                                 <Left>4.98434cm</Left>
                                                 <Height>0.44639cm</Height>
-                                                <Width>1.31618cm</Width>
+                                                <Width>1.33735cm</Width>
                                                 <ZIndex>17</ZIndex>
                                                 <Style>
                                                   <Border>
@@ -743,9 +743,9 @@
                                                 </Paragraphs>
                                                 <rd:DefaultName>Variant_ItemSize</rd:DefaultName>
                                                 <Top>3.53901cm</Top>
-                                                <Left>1.3391cm</Left>
+                                                <Left>1.16271cm</Left>
                                                 <Height>0.44639cm</Height>
-                                                <Width>1.78916cm</Width>
+                                                <Width>1.96555cm</Width>
                                                 <ZIndex>18</ZIndex>
                                                 <Style>
                                                   <Border>
@@ -764,7 +764,7 @@
                                                   <Paragraph>
                                                     <TextRuns>
                                                       <TextRun>
-                                                        <Value>UOM</Value>
+                                                        <Value>=Fields!UomLabel.Value</Value>
                                                         <Style>
                                                           <FontFamily>Gill Sans Std</FontFamily>
                                                           <FontSize>7pt</FontSize>
@@ -781,7 +781,7 @@
                                                 <Top>2.63901cm</Top>
                                                 <Left>0.00052cm</Left>
                                                 <Height>0.45cm</Height>
-                                                <Width>1.33858cm</Width>
+                                                <Width>1.16219cm</Width>
                                                 <ZIndex>19</ZIndex>
                                                 <Style>
                                                   <Border>
@@ -818,9 +818,9 @@
                                                 </Paragraphs>
                                                 <rd:DefaultName>Textbox1</rd:DefaultName>
                                                 <Top>2.63901cm</Top>
-                                                <Left>1.3391cm</Left>
+                                                <Left>1.16271cm</Left>
                                                 <Height>0.45cm</Height>
-                                                <Width>2.97517cm</Width>
+                                                <Width>3.15156cm</Width>
                                                 <ZIndex>20</ZIndex>
                                                 <Style>
                                                   <Border>
@@ -867,7 +867,7 @@
                               <Top>0cm</Top>
                               <Left>0cm</Left>
                               <Height>8.97883cm</Height>
-                              <Width>6.3cm</Width>
+                              <Width>6.42752cm</Width>
                               <Style>
                                 <Border />
                               </Style>
@@ -909,7 +909,7 @@
             <Top>0cm</Top>
             <Left>0cm</Left>
             <Height>8.97883cm</Height>
-            <Width>6.3cm</Width>
+            <Width>6.42752cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -920,7 +920,7 @@
         <Height>8.97883cm</Height>
         <Style />
       </Body>
-      <Width>6.3cm</Width>
+      <Width>6.46985cm</Width>
       <Page>
         <PageHeight>9.4cm</PageHeight>
         <PageWidth>6.8cm</PageWidth>
@@ -991,6 +991,33 @@ End Function</Code>
         <Field Name="UnitofMeasure">
           <DataField>UnitofMeasure</DataField>
         </Field>
+        <Field Name="UomLabel">
+          <DataField>UomLabel</DataField>
+        </Field>
+        <Field Name="ColorLabel">
+          <DataField>ColorLabel</DataField>
+        </Field>
+        <Field Name="FitLabel">
+          <DataField>FitLabel</DataField>
+        </Field>
+        <Field Name="SizeLabel">
+          <DataField>SizeLabel</DataField>
+        </Field>
+        <Field Name="TonLabel">
+          <DataField>TonLabel</DataField>
+        </Field>
+        <Field Name="CutLabel">
+          <DataField>CutLabel</DataField>
+        </Field>
+        <Field Name="SectionsLabel">
+          <DataField>SectionsLabel</DataField>
+        </Field>
+        <Field Name="FeaturesLabel">
+          <DataField>FeaturesLabel</DataField>
+        </Field>
+        <Field Name="BrandingLabel">
+          <DataField>BrandingLabel</DataField>
+        </Field>
         <Field Name="ReferenceNo">
           <DataField>ReferenceNo</DataField>
         </Field>
@@ -1000,8 +1027,14 @@ End Function</Code>
         <Field Name="Variant_ColorName">
           <DataField>Variant_ColorName</DataField>
         </Field>
+        <Field Name="Eng_FrenchColor">
+          <DataField>Eng_FrenchColor</DataField>
+        </Field>
         <Field Name="Item_Description">
           <DataField>Item_Description</DataField>
+        </Field>
+        <Field Name="Eng_FrenchItemDesc">
+          <DataField>Eng_FrenchItemDesc</DataField>
         </Field>
         <Field Name="Variant_ItemSize">
           <DataField>Variant_ItemSize</DataField>

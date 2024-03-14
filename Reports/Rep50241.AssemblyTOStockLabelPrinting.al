@@ -14,6 +14,7 @@ report 50241 "Assembly to Stock Label Print"
                 DataItemTableView = Sorting("No.") WHERE("Assemble to Order" = CONST(False));
                 column(Assemble_to_Order; "Assemble to Order") { }
 
+
                 /*dataitem("Assembly Line"; "Assembly Line")
                 {
                     DataItemLink = "Document No." = field("No.");
@@ -25,13 +26,22 @@ report 50241 "Assembly to Stock Label Print"
                     column(ItemNo; "Item No.")
                     {
                     }
-                    column(Description;Description){}
+                    column(Description; Description) { }
                     column(VariantCode; "Variant Code")
                     {
                     }
                     column(UnitofMeasure; "Unit of Measure")
                     {
                     }
+                    column(UomLabel; UomLabel) { }
+                    column(ColorLabel; ColorLabel) { }
+                    column(FitLabel; FitLabel) { }
+                    column(SizeLabel; SizeLabel) { }
+                    column(TonLabel; TonLabel) { }
+                    column(CutLabel; CutLabel) { }
+                    column(SectionsLabel; SectionsLabel) { }
+                    column(FeaturesLabel; FeaturesLabel) { }
+                    column(BrandingLabel; BrandingLabel) { }
                     column(ReferenceNo; "Reference No.")
                     {
                     }
@@ -41,12 +51,13 @@ report 50241 "Assembly to Stock Label Print"
                     column(Variant_ColorName; GlobalItemVariantColor.Name)
                     {
                     }
+                    column(Eng_FrenchColor; Eng_FrenchColor) { }
 
                     //Item Columns + 
                     column(Item_Description; GlobalItem.Description)
                     {
                     }
-
+                    column(Eng_FrenchItemDesc; Eng_FrenchItemDesc) { }
                     //Variant Columns + 
                     column(Variant_ItemSize; SizeCode)
                     {
@@ -180,6 +191,10 @@ report 50241 "Assembly to Stock Label Print"
                         Clear(GlobalItemVariant);
                         Clear(GlobalItemVariantColor);
                         GlobalItem.Get(ItemReference."Item No.");
+                        if SelectedLanguage = 'FR' then
+                            Eng_FrenchItemDesc := GlobalItem."Description 2"
+                        else
+                            Eng_FrenchItemDesc := GlobalItem.Description;
                         //Skip Raw Materials
                         //   Message('Item Reference OnAfterGetRecord called for Item No. ' + ItemReference."Item No.");
                         GlobalItem.CalcFields(IsRawMaterial);
@@ -187,6 +202,10 @@ report 50241 "Assembly to Stock Label Print"
                             CurrReport.Skip();
                         If GlobalItemVariant.Get(ItemReference."Item No.", ItemReference."Variant Code") then begin
                             if GlobalItemVariantColor.Get(GlobalItemVariant."Item Color ID") then;
+                            if SelectedLanguage = 'FR' then
+                                Eng_FrenchColor := GlobalItemVariantColor."French Description"
+                            else
+                                Eng_FrenchColor := GlobalItemVariantColor.Name;
                             SizeCode := '';
                             if GlobalSize.Get(GlobalItemVariant."Item Size") then
                                 if SizeOption = SizeOption::ER then
@@ -217,9 +236,19 @@ report 50241 "Assembly to Stock Label Print"
                         Caption = 'Size Option';
                         ApplicationArea = all;
                     }
+                    field(SelectedLanguage; SelectedLanguage)
+                    {
+                        ApplicationArea = All;
+                        TableRelation = "Language";
+                        Lookup = true;
+                        Caption = 'Language';
+                        ToolTip = 'Select the language to be used in the report.';
+                    }
                 }
             }
+
         }
+
         actions
         {
             area(processing)
@@ -227,7 +256,38 @@ report 50241 "Assembly to Stock Label Print"
             }
         }
     }
+    trigger OnPreReport()
+    begin
+        /* GeneralLedgerSetup.Get();
+         CompanyInformation.Get();
+         CompanyAddress := CompanyInformation.Address + ' ' + CompanyInformation."Address 2";
+         CompanyInformation.CalcFields(Picture);
+         PSH_No := 1;*/
+
+        if G_CULanguage.GetLanguageId(SelectedLanguage) = 1036 then begin
+            CurrReport.Language := 1036;
+            FrenchReport := true;
+            //GlobalBankAccount := CompanyInformation."Bank Name" + ' ' + CompanyInformation."Bank Branch No."
+        end
+        else begin
+            CurrReport.Language := G_CULanguage.GetLanguageID('ENG');
+            FrenchReport := false;
+            //GlobalBankAccount := CompanyInformation."Bank Name";
+        end;
+    end;
+
+    trigger OnInitReport()
+    begin
+        Clear(SelectedLanguage);
+        SelectedLanguage := G_CULanguage.GetLanguageCode(GlobalLanguage);
+    end;
+
     var
+        Eng_FrenchItemDesc: Text;
+        Eng_FrenchColor: Text;
+        G_CULanguage: Codeunit Language;
+        FrenchReport: Boolean;
+        SelectedLanguage: Code[10];
         GlobalItem: Record Item;
         GlobalItemVariant: Record "Item Variant";
         GlobalItemVariantColor: Record Color;
@@ -255,4 +315,13 @@ report 50241 "Assembly to Stock Label Print"
         StaffMeasurementValue: Array[3] of Decimal;
         StaffMeasurementUOM: Array[3] of Code[10];
         MeasurementCode: array[3] of Code[50];
+        UomLabel: Label 'UOM';
+        SizeLabel: Label 'Size';
+        ColorLabel: Label 'Color';
+        FitLabel: Label 'Fit';
+        TonLabel: Label 'Ton.';
+        CutLabel: Label 'Cut';
+        SectionsLabel: Label 'SECTIONS SET';
+        FeaturesLabel: Label 'FEATURES SET';
+        BrandingLabel: Label 'BRANDING SET';
 }

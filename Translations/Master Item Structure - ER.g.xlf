@@ -4064,7 +4064,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page ER - Manufacturing Orders - Action ER - Manufacturing Order - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3281803833 - Action 1966033546 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Label Printing Assmeble to Stock</source>
+          <source>Label Printing Assemble to Stock</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page ER - Manufacturing Orders - Action Label Printing Assm. to Stock - Property Caption</note>
         </trans-unit>
@@ -5407,6 +5407,61 @@
           <source>Assembly to stock Label Printing</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Assembly to Stock Label Print - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2823901870 - NamedType 3243415239" size-unit="char" translate="yes" xml:space="preserve">
+          <source>BRANDING SET</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Assembly to Stock Label Print - NamedType BrandingLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 2823901870 - NamedType 3261634013" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Color</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Assembly to Stock Label Print - NamedType ColorLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 2823901870 - NamedType 2175415128" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cut</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Assembly to Stock Label Print - NamedType CutLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 2823901870 - NamedType 2707952019" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FEATURES SET</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Assembly to Stock Label Print - NamedType FeaturesLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 2823901870 - NamedType 3032656655" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fit</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Assembly to Stock Label Print - NamedType FitLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 2823901870 - NamedType 3123154840" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SECTIONS SET</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Assembly to Stock Label Print - NamedType SectionsLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 2823901870 - NamedType 2171960165" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Size</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Assembly to Stock Label Print - NamedType SizeLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 2823901870 - NamedType 2245207085" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ton.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Assembly to Stock Label Print - NamedType TonLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 2823901870 - NamedType 505908347" size-unit="char" translate="yes" xml:space="preserve">
+          <source>UOM</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Assembly to Stock Label Print - NamedType UomLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 2823901870 - Control 1886925773 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Select the language to be used in the report.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Assembly to Stock Label Print - Control SelectedLanguage - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2823901870 - Control 1886925773 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Language</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Assembly to Stock Label Print - Control SelectedLanguage - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 2823901870 - Control 1877321498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Size Option</source>

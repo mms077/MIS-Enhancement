@@ -30,15 +30,24 @@ codeunit 50205 "Global Sync Media Set"
             ParentGlobalSyncSetup.FindFirst();
             ItemRec.ChangeCompany(ParentGlobalSyncSetup."Company Name");
         end;
+
         if ItemRec.FindSet() then
             repeat
                 for index := 1 to ItemRec.Picture.COUNT do begin
-                    TenantMedia.Get(ItemRec.Picture.Item(index));
-                    TenantMedia."Company Name" := '';
-                    TenantMedia.Modify();
-                    if TenantMediaSet.Get(ItemRec.Picture.MEDIAID, ItemRec.Picture.Item(index)) then begin
-                        TenantMediaSet."Company Name" := '';
-                        TenantMediaSet.Modify();
+                    // check if item exists in target company
+                    if ItemTarget.Get(ItemRec."No.") then begin
+                        if ItemTarget.Picture.Count = 0 then begin
+                            ItemTarget.Picture.INSERT(ItemRec.Picture.ITEM(index));
+                            ItemTarget.Modify(true);
+
+                            TenantMedia.Get(ItemRec.Picture.Item(index));
+                            TenantMedia."Company Name" := '';
+                            TenantMedia.Modify();
+                            if TenantMediaSet.Get(ItemRec.Picture.MEDIAID, ItemRec.Picture.Item(index)) then begin
+                                TenantMediaSet."Company Name" := '';
+                                TenantMediaSet.Modify();
+                            end;
+                        end;
                     end;
                 end;
             until ItemRec.Next() = 0;
@@ -54,15 +63,24 @@ codeunit 50205 "Global Sync Media Set"
             ParentGlobalSyncSetup.FindFirst();
             ItemVariantRec.ChangeCompany(ParentGlobalSyncSetup."Company Name");
         end;
+
         if ItemVariantRec.FindSet() then
             repeat
                 for index := 1 to ItemVariantRec.Picture.COUNT do begin
-                    TenantMedia.Get(ItemVariantRec.Picture.Item(index));
-                    TenantMedia."Company Name" := '';
-                    TenantMedia.Modify();
-                    if TenantMediaSet.Get(ItemVariantRec.Picture.MEDIAID, ItemVariantRec.Picture.Item(index)) then begin
-                        TenantMediaSet."Company Name" := '';
-                        TenantMediaSet.Modify();
+                    // check if itemVariant exists in target company
+                    if ItemVariantTarget.Get(ItemVariantRec."Item No.", ItemVariantRec.Code) then begin
+                        if ItemVariantTarget.Picture.Count = 0 then begin
+                            ItemVariantTarget.Picture.INSERT(ItemVariantRec.Picture.ITEM(index));
+                            ItemVariantTarget.Modify(true);
+
+                            TenantMedia.Get(ItemVariantRec.Picture.Item(index));
+                            TenantMedia."Company Name" := '';
+                            TenantMedia.Modify();
+                            if TenantMediaSet.Get(ItemVariantRec.Picture.MEDIAID, ItemVariantRec.Picture.Item(index)) then begin
+                                TenantMediaSet."Company Name" := '';
+                                TenantMediaSet.Modify();
+                            end;
+                        end;
                     end;
                 end;
             until ItemVariantRec.Next() = 0;
@@ -204,7 +222,9 @@ codeunit 50205 "Global Sync Media Set"
         GlobalSyncSetup: Record "Global Sync Setup";
         ParentGlobalSyncSetup: Record "Global Sync Setup";
         ItemRec: Record Item;
+        ItemTarget: Record Item;
         ItemVariantRec: Record "Item Variant";
+        ItemVariantTarget: Record "Item Variant";
         Design: Record Design;
         ItemColor: Record "Item Color";
         ItemDesignSectionColor: Record "Item Design Section Color";

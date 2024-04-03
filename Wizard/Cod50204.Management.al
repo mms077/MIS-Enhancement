@@ -1379,9 +1379,9 @@ codeunit 50204 Management
                     AssemblyLine.Validate("Quantity Per", NeededRMLoc."Assembly Line Quantity" / AssemblyHeader.Quantity);
                     AssemblyLine.Validate("Quantity", NeededRMLoc."Assembly Line Quantity");
                     AssemblyLine.Validate("Unit of Measure Code", NeededRMLoc."Assembly Line UOM Code");
-                    AssemblyLine.Validate(Reserve, AssemblyLine.Reserve::Always);
+                    //AssemblyLine.Validate(Reserve, AssemblyLine.Reserve::Always); //Reserve when MO is Created and Released
                     AssemblyLine.Insert(true);
-                    AssemblyLine.AutoReserve();
+                    //AssemblyLine.AutoReserve(); //Reserve when MO is Created and Released
                     LineNumber := LineNumber + 10000;
                     NeededRMLoc."Assembly Order No." := AssemblyHeader."No.";
                     NeededRMLoc."Assembly Order Line No." := AssemblyLine."Line No.";
@@ -1526,9 +1526,9 @@ codeunit 50204 Management
                     AssemblyLine.Validate("Quantity Per", NeededRMLoc."Assembly Line Quantity" / AssemblyHeader.Quantity);
                     AssemblyLine.Validate("Quantity", NeededRMLoc."Assembly Line Quantity");
                     AssemblyLine.Validate("Unit of Measure Code", NeededRMLoc."Assembly Line UOM Code");
-                    AssemblyLine.Validate(Reserve, AssemblyLine.Reserve::Always);
+                    //AssemblyLine.Validate(Reserve, AssemblyLine.Reserve::Always); //Reserve when MO is Created and Released
                     AssemblyLine.Insert(true);
-                    AssemblyLine.AutoReserve();
+                    //AssemblyLine.AutoReserve(); //Reserve when MO is Created and Released
                     LineNumber := LineNumber + 10000;
                     NeededRMLoc."Assembly Order No." := AssemblyHeader."No.";
                     NeededRMLoc."Assembly Order Line No." := AssemblyLine."Line No.";

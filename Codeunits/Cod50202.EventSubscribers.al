@@ -820,9 +820,9 @@ codeunit 50202 EventSubscribers
                         AssemblyLine.Validate("Quantity Per", PostedAssemblyLine."Quantity per");
                         AssemblyLine.Validate("Quantity", PostedAssemblyLine."Quantity per" * AssemblyHeaderPar.Quantity);
                         AssemblyLine.Validate("Unit of Measure Code", PostedAssemblyLine."Unit of Measure Code");
-                        AssemblyLine.Validate(Reserve, AssemblyLine.Reserve::Always);
+                        //AssemblyLine.Validate(Reserve, AssemblyLine.Reserve::Always); //Reserve when MO is Created and Released
                         AssemblyLine.Insert(true);
-                        AssemblyLine.AutoReserve();
+                        //AssemblyLine.AutoReserve(); //Reserve when MO is Created and Released
                     #endregion[Create Assembly Line]   
                     until PostedAssemblyLine.Next() = 0;
                 exit;
@@ -853,7 +853,7 @@ codeunit 50202 EventSubscribers
                             AssemblyLine.Validate("Quantity Per", NeededRawMaterialLoc."Assembly Line Quantity" / AssemblyHeaderPar.Quantity);
                             AssemblyLine.Validate("Quantity", NeededRawMaterialLoc."Assembly Line Quantity");
                             AssemblyLine.Validate("Unit of Measure Code", NeededRawMaterialLoc."Assembly Line UOM Code");
-                            AssemblyLine.Validate(Reserve, AssemblyLine.Reserve::Always);
+                            //AssemblyLine.Validate(Reserve, AssemblyLine.Reserve::Always); //Reserve when MO is Created and Released
                             AssemblyLine.Insert(true);
                             //AssemblyLine.AutoReserve();
                         #endregion[Create Assembly Line]          

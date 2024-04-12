@@ -70,7 +70,7 @@ page 50346 "GLEntries API"
                 {
                     ApplicationArea = all;
                 }
-                field("ShortcutDimension4Code"; Rec."Shortcut Dimension 4 Code")
+                field("ShortcutDimension5Code"; Rec."Shortcut Dimension 5 Code")
                 {
                     ApplicationArea = All;
                 }

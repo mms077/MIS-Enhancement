@@ -262,6 +262,8 @@ page 50213 Designs
             //will be filled by Validate No.
             //Item."Item Category Code" := Rec.Category;
             Item.Insert(true);
+            //To prevent Deadlock during posting Shipments
+            Commit();
             Page.Run(30, Item);
         end
         else

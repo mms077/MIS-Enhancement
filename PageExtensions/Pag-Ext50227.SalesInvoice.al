@@ -42,6 +42,10 @@ pageextension 50227 "Sales Invoice" extends "Sales Invoice"
                 ApplicationArea = all;
             }
         }
+        addafter("Sales Quote No.")
+        {
+            field("Warehouse Shipment No."; Rec."Warehouse Shipment No.") { ApplicationArea = all; Editable = false; }
+        }
 
     }
 

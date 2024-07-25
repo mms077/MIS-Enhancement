@@ -76,6 +76,11 @@ tableextension 50217 "Sales Header" extends "Sales Header"
         {
 
         }
+        field(50307; "Warehouse Shipment No."; Code[20])
+        {
+            DataClassification = ToBeClassified;
+        }
+        
     }
     procedure GetICProjectCode(): Code[20]
     var

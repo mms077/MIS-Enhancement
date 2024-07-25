@@ -142,6 +142,16 @@ pageextension 50236 "Whse. Shipment Subform" extends "Whse. Shipment Subform"
         }
 
     }
+    trigger OnModifyRecord(): Boolean
+    var
+        WarehouseShipmentHeader: Record "Warehouse Shipment Header";
+    begin
+        //Prohibit Modifying after Printing
+        Clear(WarehouseShipmentHeader);
+        WarehouseShipmentHeader.Get(Rec."No.");
+        if WarehouseShipmentHeader.Printed then
+            Error('You cannot Modify the Document because it is Printed');
+    end;
 
     var
         DesignSectionParamHeader: Record "Parameter Header";

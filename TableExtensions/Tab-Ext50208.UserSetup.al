@@ -60,5 +60,9 @@ tableextension 50208 "User Setup - ER" extends "User Setup"
         /*field(50312; "Create Assemb. From Batch"; boolean)
         {
         }*/
+        field(50313; "Can Edit Print ER- Commercial"; Boolean)
+        {
+            DataClassification = ToBeClassified;
+        }
     }
 }

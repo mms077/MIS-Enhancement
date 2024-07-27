@@ -1,4 +1,4 @@
-tableextension 50257 "Warehouse Shipment Header" extends "Warehouse Shipment Header"
+tableextension 50257 "Whs Shipment Header - MIS" extends "Warehouse Shipment Header"
 {
     fields
     {

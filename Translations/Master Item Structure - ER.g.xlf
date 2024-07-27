@@ -5818,6 +5818,291 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Invoice - Control ShowStamp - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 916667017 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ER - Commercial Invoice</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 2797193676" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Address</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType AddressLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 733098074" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Advance Payment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType AdvancePaymentLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 193543411" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bank Account</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType BankAccountLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 1597748765" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Billing Address</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType BillingAddressLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 3269756997" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Billing Info</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType BillingInfoLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 786862521" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bill Ref. Number</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType BillRefNumberLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 32076568" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Capital</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType CapitalLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 1014129422" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Carrier</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType CarrierLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 3532085133" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType CodeLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 1834836803" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Currency</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType CurrencyLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 2035604559" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType CustomerNameLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 3093731364" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType DescriptionLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 3782834533" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Discount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType DiscountLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 2707488584" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Due Balance</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType DueBalanceLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 4094371370" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Due Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType DueDateLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 2155856219" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fiscal Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType FiscalCodeLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 1125713035" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Form #:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType FormNoLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 1305074488" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ER\LB\AVER\S-SI\100</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType FormNoValue</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 586069804" size-unit="char" translate="yes" xml:space="preserve">
+          <source>G/L Account No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType GlCodeLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 1582087610" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gross Total</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType GrossTotalLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 3971409636" size-unit="char" translate="yes" xml:space="preserve">
+          <source>HS Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType HSCodeLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 1379948157" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Issue Date:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType IssuedateLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 977396522" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Jan 23</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType IssueDateValue</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 1633833466" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType ItemCodeLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 170677738" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Duty Stamp is paid in cash, MOF Receipt- </source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType MOFReceiptLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 3236649296" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType OrderDateLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 266656143" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType PageLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 686408352" size-unit="char" translate="yes" xml:space="preserve">
+          <source>of</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType PageOfLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 3672978075" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment Terms</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType PaymentTermsLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 1648314782" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Phone</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType PhoneLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 406901249" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Printed On</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType PrintedOnLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 1610958335" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Product</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType ProductLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 3271423869" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Project</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType ProjectLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 3354546703" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Order Ref.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType PurchOrderRefLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 402906126" size-unit="char" translate="yes" xml:space="preserve">
+          <source>QTY</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType QtyLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 48610953" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Receiver Contact</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType ReceiverContactLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 700163860" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Receiver Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType ReceiverNameLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 1820535737" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ref.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType RefLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 2129571611" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Revision Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType RevisionDateLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 3976215121" size-unit="char" translate="yes" xml:space="preserve">
+          <source>RIB:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType RIBLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 2259713540" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Commercial Invoice</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType SalesOrderLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 2756669582" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shiping Address</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType ShippingAddressLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 3024073662" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shiping Info</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType ShippingInfoLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 2452442881" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shiping Mode</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType ShippingModeLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 2527174619" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipping Terms</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType ShippingTermsLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 2171960165" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Size</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType SizeLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 3869443955" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SWIFT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType SWIFTLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 3638335826" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total G/L Account</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType TotalGlAccountLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 4249629696" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType TotalLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 3908922203" size-unit="char" translate="yes" xml:space="preserve">
+          <source>T.P.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType TotalPriceLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 2821200415" size-unit="char" translate="yes" xml:space="preserve">
+          <source>U.P.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType UnitPriceLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 3794146812" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType VATCodeLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - NamedType 3239557063" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - NamedType VATLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - Control 2642879910 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Lock Warehouse Shipment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - Control LockWhseDoc - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - Control 3983266635 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Notice</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - Control ShowNotice - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 916667017 - Control 3299952644 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Stamp</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - Control ShowStamp - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 418739915 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ER - Customer - Summary Aging</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -12033,6 +12318,86 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report New Close Income Statement - Control RetainedEarningsAcc - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 3312948823 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Pro Forma Invoice</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Pro Forma Inv-Whse Ship - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3312948823 - NamedType 1851005282" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bill-to Contact E-Mail</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Pro Forma Inv-Whse Ship - NamedType BillToContactEmailLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3312948823 - NamedType 2423794985" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bill-to Contact Mobile Phone No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Pro Forma Inv-Whse Ship - NamedType BillToContactMobilePhoneNoLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3312948823 - NamedType 24137681" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bill-to Contact Phone No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Pro Forma Inv-Whse Ship - NamedType BillToContactPhoneNoLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3312948823 - NamedType 1464398968" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Country</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Pro Forma Inv-Whse Ship - NamedType CountryOfManufactuctureLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3312948823 - NamedType 3878637365" size-unit="char" translate="yes" xml:space="preserve">
+          <source>For customs purposes only.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Pro Forma Inv-Whse Ship - NamedType DeclartionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3312948823 - NamedType 2623093095" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Pro Forma Invoice</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Pro Forma Inv-Whse Ship - NamedType DocumentTitleLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3312948823 - NamedType 1877187315" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Pro Forma Inv-Whse Ship - NamedType PageLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3312948823 - NamedType 2518404021" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sell-to Contact E-Mail</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Pro Forma Inv-Whse Ship - NamedType SellToContactEmailLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3312948823 - NamedType 689955230" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sell-to Contact Mobile Phone No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Pro Forma Inv-Whse Ship - NamedType SellToContactMobilePhoneNoLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3312948823 - NamedType 1096796838" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sell-to Contact Phone No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Pro Forma Inv-Whse Ship - NamedType SellToContactPhoneNoLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3312948823 - NamedType 3058433994" size-unit="char" translate="yes" xml:space="preserve">
+          <source>For and on behalf of the above named company:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Pro Forma Inv-Whse Ship - NamedType SignatureLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3312948823 - NamedType 1119192707" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name (in print) Signature</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Pro Forma Inv-Whse Ship - NamedType SignatureNameLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3312948823 - NamedType 2756798833" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Position in company</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Pro Forma Inv-Whse Ship - NamedType SignaturePositionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3312948823 - NamedType 3182469044" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Weight</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Pro Forma Inv-Whse Ship - NamedType TotalWeightLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3312948823 - ReportDataItem 907109761 - Property 1806354803" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Pro Forma Invoice</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Pro Forma Inv-Whse Ship - ReportDataItem Header - Property RequestFilterHeading</note>
+        </trans-unit>
         <trans-unit id="Report 1378101807 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Voucher</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -14248,6 +14613,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Warehouse Shipment - Action Refresh Qty. to Assemble - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2938519335 - Action 916667017 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2938519335">
+          <source>ER - Commercial Whse Shipment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Warehouse Shipment - Action ER - Commercial Whse Shipment - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1558066289 - Action 1652134826 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1558066289">
           <source>Refresh Qty. to Assemble</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -15993,6 +16363,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Header - Field Sales Quote No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1192395785 - Field 898580358 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Warehouse Shipment No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Header - Field Warehouse Shipment No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 3018125625 - Field 2896373896 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
           <source>Archive Lines Count</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -16663,6 +17038,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension User Setup - ER - Field Adjust ACY Rate - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 3316333792 - Field 3677795833 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
+          <source>Can Edit Print ER- Commercial</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension User Setup - ER - Field Can Edit Print ER- Commercial - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 3316333792 - Field 2783780965 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
           <source>Delete Design</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -16797,6 +17177,16 @@
           <source>Tonality</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Warehouse Shipment Line - Field Tonality - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1724115467 - Field 1668868500 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3880947038">
+          <source>Printed</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Whs Shipment Header - MIS - Field Printed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1724115467 - Field 33726994 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3880947038">
+          <source>Sales Invoice No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Whs Shipment Header - MIS - Field Sales Invoice No. - Property Caption</note>
         </trans-unit>
       </group>
     </body>

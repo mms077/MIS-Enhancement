@@ -323,5 +323,7 @@ permissionset 50200 MasterItemStructure
         codeunit "G/L Account Default Dim." = X,
         report "Assembly to Stock Label Print" = X,
         page "GLEntries API" = X,
-        page "Value_Entries API" = X;
+        page "Value_Entries API" = X,
+        report "ER - Commercial Whse Shipment" = X,
+        report "Pro Forma Inv-Whse Ship" = X;
 }

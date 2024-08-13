@@ -18,6 +18,15 @@ pageextension 50220 "Sales Quote" extends "Sales Quote"
             Importance = Promoted;
             ShowMandatory = true;
         }
+        addafter("Requested Delivery Date")
+        {
+            field("Promised Delivery Date"; Rec."Promised Delivery Date")
+            {
+                ApplicationArea = all;
+                Editable = true;
+                Enabled = true;
+            }
+        }
     }
     actions
     {

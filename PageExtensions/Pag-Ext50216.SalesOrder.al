@@ -55,6 +55,14 @@ pageextension 50216 "Sales Order" extends "Sales Order"
     }
     actions
     {
+        modify(Release)
+        {
+            trigger OnBeforeAction()
+            begin
+                if ((Rec."Promised Delivery Date" = 0D) or (Rec."Requested Delivery Date" = 0D)) then
+                    Error('Please fill the Promised Delivery Date and Requested Delivery Date');
+            end;
+        }
         addafter("Create Inventor&y Put-away/Pick")
         {
             action("Dashboard")

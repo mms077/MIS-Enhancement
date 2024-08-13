@@ -159,14 +159,17 @@ pageextension 50219 "Sales Quote Subform" extends "Sales Quote Subform"
         }
         addafter("Variant Code")
         {
-            field("Quantity in the Inventory";rec."Quantity in the Inventory"){
-                ApplicationArea=all;
+            field("Quantity in the Inventory"; rec."Quantity in the Inventory")
+            {
+                ApplicationArea = all;
             }
-            field("Reserved Qty in the Inventory";rec."Reserved Qty in the Inventory"){
-                ApplicationArea=all;
+            field("Reserved Qty in the Inventory"; rec."Reserved Qty in the Inventory")
+            {
+                ApplicationArea = all;
             }
-            field("Available Qty in the Inventory";AvailableQtyInInventory){
-                ApplicationArea=all;
+            field("Available Qty in the Inventory"; AvailableQtyInInventory)
+            {
+                ApplicationArea = all;
             }
             field("Control Number"; Rec."Control Number")
             {
@@ -257,7 +260,10 @@ pageextension 50219 "Sales Quote Subform" extends "Sales Quote Subform"
                     begin
                         if SalesHeader.get(Rec."Document Type", Rec."Document No.") then begin
                             SalesHeader.TestField(Status, SalesHeader.Status::Open);
-                            Management.RunTheProcess(State::Start, SalesHeader, Process::"Assignment", SalesLine, '')
+                            if ((SalesHeader."Promised Delivery Date" <> 0D) and (SalesHeader."Requested Delivery Date" <> 0D)) then
+                                Management.RunTheProcess(State::Start, SalesHeader, Process::"Assignment", SalesLine, '')
+                            else
+                                Error('Please fill the Promised Delivery Date and Requested Delivery Date');
                         end;
                     end;
                 }

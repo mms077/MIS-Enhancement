@@ -32,5 +32,9 @@ tableextension 50232 "Purchase Header" extends "Purchase Header"
             CalcFormula = count("Purchase Line" where("Document No." = field("No."), "Document Type" = field("Document Type")));
             Editable = false;
         }
+        field(50305; "Purchase to Stock"; Boolean)
+        {
+            DataClassification = ToBeClassified;
+        }
     }
 }

@@ -9,6 +9,10 @@ pageextension 50226 "Purchase Order" extends "Purchase Order"
                 ApplicationArea = all;
                 Editable = false;
             }
+            field("Purchase to Stock"; Rec."Purchase to Stock")
+            {
+                ApplicationArea = All;
+            }
         }
         addbefore(Control94)
         {

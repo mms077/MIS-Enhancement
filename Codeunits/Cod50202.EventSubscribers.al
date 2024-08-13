@@ -727,8 +727,10 @@ codeunit 50202 EventSubscribers
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"ICInboxOutboxMgt", 'OnSendPurchDocOnBeforeReleasePurchDocument', '', false, false)]
     local procedure OnSendPurchDocOnBeforeReleasePurchDocument(var PurchaseHeader: Record "Purchase Header"; var Post: Boolean)
     begin
-        PurchaseHeader.TestField("IC Source No.");
-        PurchaseHeader.TestField("IC Company Name");
+        if not PurchaseHeader."Purchase to Stock" then begin
+            PurchaseHeader.TestField("IC Source No.");
+            PurchaseHeader.TestField("IC Company Name");
+        end
     end;
 
     #endregion

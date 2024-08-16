@@ -268,6 +268,47 @@ pageextension 50200 ItemCard extends "Item Card"
                     MasterItem.GenerateEAN(Rec."No.", '', Rec."Base Unit of Measure");
                 end;
             }
+            action("Update Item References")
+            {
+                ApplicationArea = All;
+                Image = UpdateDescription;
+                Promoted = true;
+                PromotedCategory = Category4;
+                PromotedOnly = true;
+                //Visible = false;
+                trigger OnAction()
+                var
+                    ItemUOM: Record "Item Unit of Measure";
+                    ItemReference: Record "Item Reference";
+                    MasterItemCU: Codeunit MasterItem;
+                    ItemVariant: Record "Item Variant";
+                    Txt001: Label 'Updated Successfully';
+                begin
+                    //Create Item Reference - Barcode EAN Number
+                    Clear(ItemUOM);
+                    ItemUOM.SetRange("Item No.", Rec."No.");
+                    if ItemUOM.FindSet() then
+                        repeat
+                            //Generate EAN for initial Item
+                            MasterItemCU.GenerateEAN(Rec."No.", '', Rec."Base Unit of Measure");
+                            //Generate Item Reference for each Variant - UOM combination
+                            ItemVariant.Reset();
+                            ItemVariant.SetRange("Item No.", Rec."No.");
+                            if ItemVariant.FindSet() then
+                                repeat
+                                    //Check if the Item Reference Exist
+                                    ItemReference.Reset();
+                                    ItemReference.SetRange("Item No.", Rec."No.");
+                                    ItemReference.SetRange("Variant Code", ItemVariant.Code);
+                                    ItemReference.SetRange("Unit of Measure", ItemUOM.Code);
+                                    if not ItemReference.FindFirst() then
+                                        //Create Item Reference
+                                        MasterItemCU.CreateItemReference(Rec."No.", ItemVariant.Code + '-' + ItemUOM.Code, ItemVariant.Code, ItemUOM.Code);
+                                until ItemVariant.Next() = 0;
+                        until ItemUOM.Next() = 0;
+                    Message(Txt001);
+                end;
+            }
             action("Create Item As Raw Material")
             {
                 ApplicationArea = All;
@@ -317,7 +358,7 @@ pageextension 50200 ItemCard extends "Item Card"
         Item.Reset();
         if Item.get(rec."No.") then begin
             if GeneralProductPostingGroup.get(Item."Gen. Prod. Posting Group") then begin
-                if GeneralProductPostingGroup."Design Mandatory" then 
+                if GeneralProductPostingGroup."Design Mandatory" then
                     Rec.TestField("Design Code");
             end;
         end;

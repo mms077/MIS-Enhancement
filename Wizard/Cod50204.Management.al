@@ -1245,7 +1245,7 @@ codeunit 50204 Management
         //TASK-27333
         GnrlLedgStpRec: Record "General Ledger Setup";
     begin
-        if IsCompanyFullProduction then begin
+        if IsCompanyFullProduction and (ParameterHeaderPar."Sales Line Document Type" <> ParameterHeaderPar."Sales Line Document Type"::Quote) then begin
 
             #region[Create Assembly Header]
             /*Clear(AssemblyHeader);

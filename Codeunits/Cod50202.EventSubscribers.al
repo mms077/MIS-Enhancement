@@ -219,6 +219,13 @@ codeunit 50202 EventSubscribers
         SalesHeader.TestField(SalesHeader.Status, SalesHeader.Status::Released);
     end;
 
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", 'OnAfterInsertSalesOrderLine', '', false, false)]
+    local procedure OnAfterInsertSalesOrderLine(var SalesOrderLine: Record "Sales Line"; SalesOrderHeader: Record "Sales Header"; SalesQuoteLine: Record "Sales Line"; SalesQuoteHeader: Record "Sales Header")
+    begin
+        //Create Assembly for Sales Order (Not Intercompany)
+        SalesOrderLine.Validate("Qty. to Assemble to Order", SalesOrderLine.Quantity);
+    end;
+
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", 'OnAfterInsertAllSalesOrderLines', '', false, false)]
     local procedure OnAfterInsertAllSalesOrderLines(var SalesOrderLine: Record "Sales Line"; SalesQuoteHeader: Record "Sales Header"; var SalesOrderHeader: Record "Sales Header")
     var
@@ -315,7 +322,7 @@ codeunit 50202 EventSubscribers
             SalesOrdrLines_Local.Reset();
             SalesOrdrLines_Local.SetRange("Document Type", SalesOrderLine."Document Type");
             SalesOrdrLines_Local.SetRange("Document No.", SalesOrderLine."Document No.");
-            SalesOrdrLines_Local.SetFilter("Assembly No.",'<>%1','');
+            SalesOrdrLines_Local.SetFilter("Assembly No.", '<>%1', '');
             if SalesOrdrLines_Local.FindFirst() then
                 repeat
                     Clear(Item);
@@ -766,10 +773,13 @@ codeunit 50202 EventSubscribers
         if (not AssemblyHeader."Assemble to Order") and (not (AssemblyHeader."Document Type" = AssemblyHeader."Document Type"::Quote)) then begin*/
 
         //based on the parameter header the assembly is assemble to order or not
-        if (AssemblyHeader."Parameters Header ID" = 0) and (not (AssemblyHeader."Document Type" = AssemblyHeader."Document Type"::Quote)) then begin
+        //if (AssemblyHeader."Parameters Header ID" = 0) and
+        if (not (AssemblyHeader."Document Type" = AssemblyHeader."Document Type"::Quote)) then begin
             //Mandatory fields before creating assembly order lines
             AssemblyHeader.TestField("Location Code");
-            AssemblyHeader.TestField(Quantity);
+            //If parameter header id is not 0 this means that this assembly is linked to sales line so no need in this case to check qty
+            if AssemblyHeader."Parameters Header ID" = 0 then
+                AssemblyHeader.TestField(Quantity);
             CreateAssemblyOrderNeededRawMaterial(AssemblyHeader);
             IsHandled := true;
         end;
@@ -787,7 +797,16 @@ codeunit 50202 EventSubscribers
         NeededRawMaterialLoc: Record "Needed Raw Material";
         NeededRawMaterialBatch: Integer;
         LineNumber: Integer;
+        Salesline: Record "Sales Line";
+        ParameterHeader: Record "Parameter Header";
+        SalesHeader: Record "Sales Header";
     begin
+        if AssemblyHeaderPar."Parameters Header ID" <> 0 then
+            if ParameterHeader.get(AssemblyHeaderPar."Parameters Header ID") then
+                If SalesHeader.Get(ParameterHeader."Sales Line Document Type", ParameterHeader."Sales Line Document No.") then
+                    if SalesHeader."IC Reference Document No." <> '' then
+                        exit;
+
         //Delete old lines
         Clear(AssemblyLine);
         AssemblyLine.SetRange("Document Type", AssemblyHeaderPar."Document Type");
@@ -795,10 +814,34 @@ codeunit 50202 EventSubscribers
         if AssemblyLine.FindSet() then
             AssemblyLine.DeleteAll(true);
 
+        //Get Related Sales if exist to get NeededRawMaterialBatch from
+        if AssemblyHeaderPar."Parameters Header ID" <> 0 then
+            if ParameterHeader.get(AssemblyHeaderPar."Parameters Header ID") then
+                if Salesline.get(ParameterHeader."Sales Line Document Type", ParameterHeader."Sales Line Document No.", ParameterHeader."Sales Line No.") then begin
+                    AssemblyHeaderPar.Validate(Quantity, Salesline.Quantity);
+                    if Salesline."Document Type" = Salesline."Document Type"::Quote then
+                        AssemblyHeaderPar."Source Type" := AssemblyHeaderPar."Source Type"::Quote
+                    else if Salesline."Document Type" = Salesline."Document Type"::Order then
+                        AssemblyHeaderPar."Source Type" := AssemblyHeaderPar."Source Type"::Order;
+                    AssemblyHeaderPar."Source No." := Salesline."Document No.";
+                    AssemblyHeaderPar."Source Line No." := Salesline."Line No.";
+                    AssemblyHeaderPar."Sequence No." := 1;
+                    //To prevent Confirmation Dialog for updating dimensions
+                    AssemblyHeaderPar."Dimension Set ID" := Salesline."Dimension Set ID";
+                    AssemblyHeaderPar.Modify();
+                    NeededRawMaterialBatch := Salesline."Needed RM Batch";
+                    If SalesHeader.Get(SalesLine."Document Type", SalesLine."Document No.") then
+                        if SalesHeader."IC Source No." <> '' then
+                            CUManagement.CreateCuttingSheetDashboard(AssemblyHeaderPar, SalesHeader."IC Source No.")
+                        else
+                            CUManagement.CreateCuttingSheetDashboard(AssemblyHeaderPar, ParameterHeader."Customer No.");
+                end;
+
         //Create new lines
         Clear(ItemVariantLoc);
         if ItemVariantLoc.Get(AssemblyHeaderPar."Item No.", AssemblyHeaderPar."Variant Code") then begin
-            Clear(PostedAssemblyHeader);
+            //Commented because we need always to create assembly lines from needed raw materials
+            /*Clear(PostedAssemblyHeader);
             PostedAssemblyHeader.SetRange("Item No.", ItemVariantLoc."Item No.");
             PostedAssemblyHeader.SetRange("Variant Code", ItemVariantLoc."Code");
             //Check if there is an old posted assembly
@@ -828,41 +871,42 @@ codeunit 50202 EventSubscribers
                     #endregion[Create Assembly Line]   
                     until PostedAssemblyLine.Next() = 0;
                 exit;
-            end else begin
-                //Create for new variant (No posted assembly found)
+            end else begin*/
+            //Create for new variant (No posted assembly found)
+            if NeededRawMaterialBatch = 0 then
                 NeededRawMaterialBatch := CUManagement.CreateNeededRawMaterialForDesignSecParamLines(ItemVariantLoc, AssemblyHeaderPar);
-                if NeededRawMaterialBatch <> 0 then begin
-                    Clear(NeededRawMaterialLoc);
-                    NeededRawMaterialLoc.SetRange(Batch, NeededRawMaterialBatch);
-                    if NeededRawMaterialLoc.FindSet() then
-                        repeat
-                            #region[Create Assembly Line]
-                            LineNumber := LineNumber + 10000;
-                            Clear(AssemblyLine);
-                            AssemblyLine.Init();
-                            AssemblyLine."Document Type" := AssemblyHeaderPar."Document Type";
-                            AssemblyLine."Document No." := AssemblyHeaderPar."No.";
-                            AssemblyLine."Line No." := LineNumber;
-                            //Fill assembly Line no. in Needed RM
-                            NeededRawMaterialLoc."Assembly Order Line No." := AssemblyLine."Line No.";
-                            NeededRawMaterialLoc.Modify();
-                            AssemblyLine.Validate(Type, AssemblyLine.Type::Item);
-                            AssemblyLine.Validate("No.", NeededRawMaterialLoc."RM Code");
-                            //Raw Material Variant Code
-                            AssemblyLine.Validate("Variant Code", NeededRawMaterialLoc."RM Variant Code");
-                            AssemblyLine.Validate("Location Code", NeededRawMaterialLoc."Sales Line Location Code");
-                            //Calculate Quantity Rate
-                            AssemblyLine.Validate("Quantity Per", NeededRawMaterialLoc."Assembly Line Quantity" / AssemblyHeaderPar.Quantity);
-                            AssemblyLine.Validate("Quantity", NeededRawMaterialLoc."Assembly Line Quantity");
-                            AssemblyLine.Validate("Unit of Measure Code", NeededRawMaterialLoc."Assembly Line UOM Code");
-                            //AssemblyLine.Validate(Reserve, AssemblyLine.Reserve::Always); //Reserve when MO is Created and Released
-                            AssemblyLine.Insert(true);
-                            //AssemblyLine.AutoReserve();
-                        #endregion[Create Assembly Line]          
-                        until NeededRawMaterialLoc.Next() = 0;
-                end;
-                exit;
+            if NeededRawMaterialBatch <> 0 then begin
+                Clear(NeededRawMaterialLoc);
+                NeededRawMaterialLoc.SetRange(Batch, NeededRawMaterialBatch);
+                if NeededRawMaterialLoc.FindSet() then
+                    repeat
+                        #region[Create Assembly Line]
+                        LineNumber := LineNumber + 10000;
+                        Clear(AssemblyLine);
+                        AssemblyLine.Init();
+                        AssemblyLine."Document Type" := AssemblyHeaderPar."Document Type";
+                        AssemblyLine."Document No." := AssemblyHeaderPar."No.";
+                        AssemblyLine."Line No." := LineNumber;
+                        //Fill assembly Line no. in Needed RM
+                        NeededRawMaterialLoc."Assembly Order Line No." := AssemblyLine."Line No.";
+                        NeededRawMaterialLoc.Modify();
+                        AssemblyLine.Validate(Type, AssemblyLine.Type::Item);
+                        AssemblyLine.Validate("No.", NeededRawMaterialLoc."RM Code");
+                        //Raw Material Variant Code
+                        AssemblyLine.Validate("Variant Code", NeededRawMaterialLoc."RM Variant Code");
+                        AssemblyLine.Validate("Location Code", NeededRawMaterialLoc."Sales Line Location Code");
+                        //Calculate Quantity Rate
+                        AssemblyLine.Validate("Quantity Per", NeededRawMaterialLoc."Assembly Line Quantity" / AssemblyHeaderPar."Quantity");
+                        AssemblyLine.Validate("Quantity", NeededRawMaterialLoc."Assembly Line Quantity");
+                        AssemblyLine.Validate("Unit of Measure Code", NeededRawMaterialLoc."Assembly Line UOM Code");
+                        //AssemblyLine.Validate(Reserve, AssemblyLine.Reserve::Always); //Reserve when MO is Created and Released
+                        AssemblyLine.Insert(true);
+                    //AssemblyLine.AutoReserve();
+                    #endregion[Create Assembly Line]          
+                    until NeededRawMaterialLoc.Next() = 0;
             end;
+            exit;
+            //end;
             Message(Txt001);
         end;
     end;

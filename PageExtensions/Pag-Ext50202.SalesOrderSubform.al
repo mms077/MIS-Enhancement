@@ -307,6 +307,21 @@ pageextension 50202 "Sales Order Subform" extends "Sales Order Subform"
                     Report.Run(Report::"Sales Line Label Printing EN", true, true, SalesLine);
                 end;
             }
+            action("Label Printing No Asm")
+            {
+                ApplicationArea = all;
+                Caption = 'Label Printing No Asm';
+                Image = Transactions;
+                trigger OnAction()
+                var
+                    SalesLine: Record "Sales Line";
+                begin
+                    SalesLine.SetRange("Document No.", Rec."Document No.");
+                    SalesLine.SetRange("Document Type", Rec."Document Type");
+                    SalesLine.SetRange("Line No.", Rec."Line No.");
+                    Report.Run(Report::"Sales Line Label No Assembly", true, true, SalesLine);
+                end;
+            }
             action("Label Printing FR")
             {
                 ApplicationArea = all;

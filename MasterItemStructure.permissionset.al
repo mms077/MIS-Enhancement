@@ -325,5 +325,6 @@ permissionset 50200 MasterItemStructure
         page "GLEntries API" = X,
         page "Value_Entries API" = X,
         report "ER - Commercial Whse Shipment" = X,
-        report "Pro Forma Inv-Whse Ship" = X;
+        report "Pro Forma Inv-Whse Ship" = X,
+        report "Sales Line Label No Assembly" = X;
 }

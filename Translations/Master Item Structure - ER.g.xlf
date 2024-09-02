@@ -12758,6 +12758,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report RM Label Printing - Control Raw Material Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 1534951185 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Line Label Printing EN</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Line Label No Assembly - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1534951185 - Control 1877321498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Size Option</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Line Label No Assembly - Control SizeOption - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 3783369910 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales Line Label Printing EN</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -14298,6 +14308,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order Archive Subform - Control Position Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3332899200 - Action 3913971 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3332899200">
+          <source>Label Printing No Asm</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order List - Action Label Printing No Asm - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3332899200 - Action 1592124705 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3332899200">
           <source>ER Reports</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -14377,6 +14392,11 @@
           <source>You must specify Color for Item No. %1 in the Line No. %2</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order Subform - Method ValidateMissedFields - NamedType Txt005</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2026081320 - Action 3913971 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2026081320">
+          <source>Label Printing No Asm</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order Subform - Action Label Printing No Asm - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 2026081320 - Action 3561864605 - Method 1377591017 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 2026081320">
           <source>With Staff,Without Staff,Just Create Variant</source>

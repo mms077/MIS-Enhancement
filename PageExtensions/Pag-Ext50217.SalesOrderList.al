@@ -101,6 +101,24 @@ pageextension 50217 "Sales Order List" extends "Sales Order List"
                     Report.Run(Report::"Sales Line Label Printing EN", true, true, SalesLine);
                 end;
             }
+            action("Label Printing No Asm")
+            {
+                ApplicationArea = all;
+                Caption = 'Label Printing No Asm';
+                Image = Transactions;
+                Promoted = true;
+                PromotedCategory = Report;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                trigger OnAction()
+                var
+                    SalesLine: Record "Sales Line";
+                begin
+                    SalesLine.SetRange("Document No.", Rec."No.");
+                    SalesLine.SetRange("Document Type", Rec."Document Type");
+                    Report.Run(Report::"Sales Line Label No Assembly", true, true, SalesLine);
+                end;
+            }
             action("Label Printing FR")
             {
                 ApplicationArea = all;
@@ -140,8 +158,6 @@ pageextension 50217 "Sales Order List" extends "Sales Order List"
                 }
             }
         }
-    
-    
     }
     trigger OnOpenPage()
     var

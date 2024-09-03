@@ -221,9 +221,12 @@ codeunit 50202 EventSubscribers
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", 'OnAfterInsertSalesOrderLine', '', false, false)]
     local procedure OnAfterInsertSalesOrderLine(var SalesOrderLine: Record "Sales Line"; SalesOrderHeader: Record "Sales Header"; SalesQuoteLine: Record "Sales Line"; SalesQuoteHeader: Record "Sales Header")
+    var
+        CUManagement: Codeunit Management;
     begin
         //Create Assembly for Sales Order (Not Intercompany)
-        SalesOrderLine.Validate("Qty. to Assemble to Order", SalesOrderLine.Quantity);
+        if CUManagement.IsCompanyFullProduction then
+            SalesOrderLine.Validate("Qty. to Assemble to Order", SalesOrderLine.Quantity);
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", 'OnAfterInsertAllSalesOrderLines', '', false, false)]

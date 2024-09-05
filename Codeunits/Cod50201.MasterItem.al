@@ -179,7 +179,83 @@ codeunit 50201 MasterItem
         exit(false);
     end;
 
-    procedure GenerateDesignSectionSetID(var DesignSecLinesParHeader: Record "Parameter Header")
+    procedure UpdateUniqueCombination()
+    var
+        DesignSectionSet: Record "Design Sections Set";
+        DesignSectionSet2: Record "Design Sections Set";
+        ItemFeaturesSet: Record "Item Features Set";
+        ItemFeaturesSet2: Record "Item Features Set";
+        ItemBrandingsSet: Record "Item Brandings Set";
+        ItemBrandingsSet2: Record "Item Brandings Set";
+        SetId: Integer;
+        UniqueCombination: Text;
+    begin
+        //Update DesignSectionSet Combination
+        SetId := 0;
+        UniqueCombination := '';
+        DesignSectionSet.Reset();
+        DesignSectionSet.SetCurrentKey("Design Section Set ID", "Design Section Code", "Color Id");
+        if DesignSectionSet.FindFirst() then
+            repeat
+                if SetId <> DesignSectionSet."Design Section Set ID" then begin
+                    UniqueCombination := '';
+                    DesignSectionSet2.Reset();
+                    DesignSectionSet2.SetCurrentKey("Design Section Set ID", "Design Section Code", "Color Id");
+                    DesignSectionSet2.SetRange("Design Section Set ID", DesignSectionSet."Design Section Set ID");
+                    if DesignSectionSet2.Findfirst() then
+                        repeat
+                            UniqueCombination := UniqueCombination + DesignSectionSet2."Design Section Code" + '-' + Format(DesignSectionSet2."Color ID") + '/';
+                        until DesignSectionSet2.Next() = 0;
+                    DesignSectionSet2.ModifyAll("Unique Combination", UniqueCombination);
+                end;
+                SetId := DesignSectionSet."Design Section Set ID";
+            until DesignSectionSet.Next() = 0;
+
+        //Update ItemFeaturesSet Combination
+        SetId := 0;
+        UniqueCombination := '';
+        ItemFeaturesSet.Reset();
+        ItemFeaturesSet.SetCurrentKey("Item Feature Set ID", "Item Feature Name", "Value", "Color Id");
+        if ItemFeaturesSet.FindFirst() then
+            repeat
+                if SetId <> ItemFeaturesSet."Item Feature Set ID" then begin
+                    UniqueCombination := '';
+                    ItemFeaturesSet2.Reset();
+                    ItemFeaturesSet2.SetCurrentKey("Item Feature Set ID", "Item Feature Name", "Value", "Color Id");
+                    ItemFeaturesSet2.SetRange("Item Feature Set ID", ItemFeaturesSet."Item Feature Set ID");
+                    if ItemFeaturesSet2.Findfirst() then
+                        repeat
+                            UniqueCombination := UniqueCombination + ItemFeaturesSet2."Item Feature Name" + '-' + ItemFeaturesSet2."Value" + '-' + Format(ItemFeaturesSet2."Color ID") + '/';
+                        until ItemFeaturesSet2.Next() = 0;
+                    ItemFeaturesSet2.ModifyAll("Unique Combination", UniqueCombination);
+                end;
+                SetId := ItemFeaturesSet."Item Feature Set ID";
+            until ItemFeaturesSet.Next() = 0;
+
+        //Update ItemBrandingsSet Comination
+        SetId := 0;
+        UniqueCombination := '';
+        ItemBrandingsSet.Reset();
+        ItemBrandingsSet.SetCurrentKey("Item Branding Set ID", "Item Branding Code", "Company Name");
+        if ItemBrandingsSet.FindFirst() then
+            repeat
+                if SetId <> ItemBrandingsSet."Item Branding Set ID" then begin
+                    UniqueCombination := '';
+                    ItemBrandingsSet2.Reset();
+                    ItemBrandingsSet2.SetCurrentKey("Item Branding Set ID", "Item Branding Code", "Company Name");
+                    ItemBrandingsSet2.SetRange("Item Branding Set ID", ItemBrandingsSet."Item Branding Set ID");
+                    if ItemBrandingsSet2.Findfirst() then
+                        repeat
+                            UniqueCombination := UniqueCombination + ItemBrandingsSet2."Item Branding Code" + '/';
+                        until ItemBrandingsSet2.Next() = 0;
+                    ItemBrandingsSet2.ModifyAll("Unique Combination", UniqueCombination);
+                end;
+                SetId := ItemBrandingsSet."Item Branding Set ID";
+            until ItemBrandingsSet.Next() = 0;
+    end;
+
+    procedure GenerateDesignSectionSetID(var
+                                             DesignSecLinesParHeader: Record "Parameter Header")
     var
         DesignSectionParameterLines: Record "Design Section Param Lines";
         DesignSectionsSet: Record "Design Sections Set";
@@ -202,8 +278,16 @@ codeunit 50201 MasterItem
             until DesignSectionParameterLines.Next() = 0;
         end;
 
+        //We added Unique Combination in table sets to just filter if this combination already exists
         Clear(DesignSectionsSet);
-        DesignSectionParameterLines.CalcFields("Design Sections Count");
+        DesignSectionsSet.SetRange("Unique Combination", VarianceCombination);
+        if DesignSectionsSet.FindFirst() then
+            AssignDesiSecSet(DesignSecLinesParHeader, DesignSectionsSet, VarianceCombination)
+        else begin
+            CreateNewDesignSectionSet(DesignSectionParameterLines, VarianceCombination, DesignSecLinesParHeader);
+        end;
+
+        /*DesignSectionParameterLines.CalcFields("Design Sections Count");
         //Sort DesignSectionsSet
         DesignSectionsSet.SetCurrentKey("Design Section Set ID", "Design Section Code", "Color ID");
         DesignSectionsSet.SetRange("Design Sections Count", DesignSectionParameterLines."Design Sections Count");
@@ -234,10 +318,11 @@ codeunit 50201 MasterItem
                 end;
             until DesignSectionsSet.Next() = 0;
         end;
+
         //Not found similar combination
         if (SameCombination = false)
-        //Just if the loop exit before comparing them
-        and (VarianceCombination <> VarianceCombinationDesignSet) then
+    //Just if the loop exit before comparing them
+    and (VarianceCombination <> VarianceCombinationDesignSet) then
             CreateNewDesignSectionSet(DesignSectionParameterLines, VarianceCombination, DesignSecLinesParHeader)
         else
             if Assigned = false then begin
@@ -245,7 +330,7 @@ codeunit 50201 MasterItem
                 DesignSectionsSetPar.SetRange("Design Section Set ID", SamesDesignSectionSetID);
                 if DesignSectionsSetPar.FindFirst() then
                     AssignDesiSecSet(DesignSecLinesParHeader, DesignSectionsSetPar, VarianceCombination);
-            end;
+            end;*/
     end;
 
     //Parameter passed by reference "var DesignSecParHeader" so we can modify it
@@ -269,6 +354,7 @@ codeunit 50201 MasterItem
                 DesignSectionsSet."Design Section Set ID" := Number;
                 DesignSectionsSet."Design Section Code" := DesignSectionParLines."Design Section Code";
                 DesignSectionsSet."Color Id" := DesignSectionParLines."Color ID";
+                DesignSectionsSet."Unique Combination" := VarianceCombinationPar;
                 DesignSectionsSet.Insert();
             until DesignSectionParLines.Next() = 0;
             DesignSecParHeader."Design Sections Set ID" := DesignSectionsSet."Design Section Set ID";
@@ -305,6 +391,7 @@ codeunit 50201 MasterItem
                 ItemFeaturesSet."Item Feature Name" := ItemFeaturesParLines."Feature Name";
                 ItemFeaturesSet.Value := ItemFeaturesParLines.Value;
                 ItemFeaturesSet."Color Id" := ItemFeaturesParLines."Color ID";
+                ItemFeaturesSet."Unique Combination" := VarianceCombinationPar;
                 ItemFeaturesSet.Insert();
             until ItemFeaturesParLines.Next() = 0;
             DesignSecParHeader."Item Features Set ID" := ItemFeaturesSet."Item Feature Set ID";
@@ -340,6 +427,7 @@ codeunit 50201 MasterItem
                 ItemBrandingsSet."Item Branding Set ID" := Number;
                 ItemBrandingsSet."Item Branding Code" := ItemBrandingsParLines.Code;
                 ItemBrandingsSet."Company Name" := CompanyName;
+                ItemBrandingsSet."Unique Combination" := VarianceCombinationPar;
                 ItemBrandingsSet.Insert();
             until ItemBrandingsParLines.Next() = 0;
             DesignSecParHeader."Item Brandings Set ID" := ItemBrandingsSet."Item Branding Set ID";
@@ -577,7 +665,15 @@ codeunit 50201 MasterItem
             until ItemFeaturesParLines.Next() = 0;
         end;
 
+        //We added Unique Combination in table sets to just filter if this combination already exists
         Clear(ItemFeatureSet);
+        ItemFeatureSet.SetRange("Unique Combination", VarianceCombination);
+        if ItemFeatureSet.FindFirst() then
+            AssignItemFeatureSet(DesignSecLinesParHeader, ItemFeatureSet, VarianceCombination)
+        else begin
+            CreateNewItemFeatureSet(ItemFeaturesParLines, VarianceCombination, DesignSecLinesParHeader);
+        end;
+        /*Clear(ItemFeatureSet);
         ItemFeaturesParLines.CalcFields("Item Features Count");
         //Sort ItemFeatures Set
         ItemFeatureSet.SetCurrentKey("Item Feature Set ID", "Item Feature Name", value, "Color ID");
@@ -620,7 +716,7 @@ codeunit 50201 MasterItem
                 ItemFeatureSetPar.SetRange("Item Feature Set ID", SamesFeatureSetID);
                 If ItemFeatureSetPar.FindFirst() then
                     AssignItemFeatureSet(DesignSecLinesParHeader, ItemFeatureSetPar, VarianceCombination);
-            end;
+            end;*/
     end;
 
     procedure GenerateItemBrandingSetID(var DesignSecLinesParHeader: Record "Parameter Header")
@@ -646,7 +742,16 @@ codeunit 50201 MasterItem
             until ItemBrandingParLines.Next() = 0;
         end;
 
+        //We added Unique Combination in table sets to just filter if this combination already exists
         Clear(ItemBrandingsSet);
+        ItemBrandingsSet.SetRange("Unique Combination", VarianceCombination);
+        if ItemBrandingsSet.FindFirst() then
+            AssignItemBrandingSet(DesignSecLinesParHeader, ItemBrandingsSet, VarianceCombination)
+        else begin
+            CreateNewItemBrandingSet(ItemBrandingParLines, VarianceCombination, DesignSecLinesParHeader);
+        end;
+
+        /*Clear(ItemBrandingsSet);
         ItemBrandingParLines.CalcFields("Brandings Count In Parameter");
         //Sort ItemBrandings Set
         ItemBrandingsSet.SetCurrentKey("Item Branding Set ID", "Item Branding Code");
@@ -690,7 +795,7 @@ codeunit 50201 MasterItem
                 ItemBrandingSetPar.SetRange("Item Branding Set ID", SamesBrandingSetID);
                 If ItemBrandingSetPar.FindFirst() then
                     AssignItemBrandingSet(DesignSecLinesParHeader, ItemBrandingSetPar, VarianceCombination);
-            end;
+            end;*/
     end;
 
     procedure CheckUserResponibility(AssemblyNo: Code[20]; Username: Code[50])

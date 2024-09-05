@@ -28,6 +28,10 @@ table 50259 "Item Brandings Set"
         {
             DataClassification = ToBeClassified;
         }
+        field(9; "Unique Combination"; Text[2048])
+        {
+            Caption = 'Unique Combination';
+        }
     }
     keys
     {

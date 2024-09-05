@@ -36,6 +36,10 @@ page 50326 "Item Features Set"
                 {
                     ApplicationArea = All;
                 }
+                field("Unique Combination"; Rec."Unique Combination")
+                {
+                    ApplicationArea = All;
+                }
                 field(SystemCreatedAt; Rec.SystemCreatedAt)
                 {
                     ApplicationArea = All;

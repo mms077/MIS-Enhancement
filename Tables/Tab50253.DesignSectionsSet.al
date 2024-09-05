@@ -38,6 +38,10 @@ table 50253 "Design Sections Set"
             CalcFormula = lookup("Color".Name where(ID = field("Color Id")));
             Editable = false;
         }
+        field(9; "Unique Combination"; Text[2048])
+        {
+            Caption = 'Unique Combination';
+        }
     }
     keys
     {

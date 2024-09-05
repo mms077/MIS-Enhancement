@@ -993,6 +993,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Design Sections Set - Field Design Sections Count - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1473066374 - Field 1029005894 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unique Combination</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Design Sections Set - Field Unique Combination - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2918804054 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Design Type</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1257,6 +1262,11 @@
           <source>Item Branding Set ID</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Item Brandings Set - Field Item Branding Set ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3472051833 - Field 1029005894 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unique Combination</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Item Brandings Set - Field Unique Combination - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2610783260 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Item Color</source>
@@ -1592,6 +1602,11 @@
           <source>Item Feature Set ID</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Item Features Set - Field Item Feature Set ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3683951220 - Field 1029005894 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unique Combination</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Item Features Set - Field Unique Combination - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3683951220 - Field 1131619133 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Value</source>

@@ -28,6 +28,10 @@ page 50327 "Item Brandings Set"
                 {
                     ApplicationArea = All;
                 }
+                field("Unique Combination"; Rec."Unique Combination")
+                {
+                    ApplicationArea = All;
+                }
                 field(SystemCreatedAt; Rec.SystemCreatedAt)
                 {
                     ApplicationArea = All;

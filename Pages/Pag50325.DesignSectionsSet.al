@@ -34,6 +34,10 @@ page 50325 "Design Sections Set"
                 {
                     ApplicationArea = All;
                 }
+                field("Unique Combination"; Rec."Unique Combination")
+                {
+                    ApplicationArea = All;
+                }
                 field(SystemCreatedAt; Rec.SystemCreatedAt)
                 {
                     ApplicationArea = All;
@@ -51,6 +55,29 @@ page 50325 "Design Sections Set"
                     ApplicationArea = All;
                 }
             }
+        }
+    }
+    actions
+    {
+        area(Processing)
+
+        {
+            action(UpdateUniqueCombination)
+            {
+                ApplicationArea = all;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                trigger OnAction()
+                var
+                    CUMasterItem: Codeunit MasterItem;
+                begin
+                    CUMasterItem.UpdateUniqueCombination();
+                    Message('Done');
+                end;
+            }
+
         }
     }
 }

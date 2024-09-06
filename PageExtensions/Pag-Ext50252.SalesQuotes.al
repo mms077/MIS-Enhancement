@@ -1,5 +1,15 @@
 pageextension 50252 "Sales Quotes" extends "Sales Quotes"
 {
+    layout
+    {
+        addafter("Salesperson Code")
+        {
+            field("Lines Count"; Rec."Lines Count")
+            {
+                ApplicationArea = all;
+            }
+        }
+    }
     actions
     {
         addfirst(Reporting)

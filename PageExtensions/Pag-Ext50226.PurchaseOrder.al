@@ -25,6 +25,15 @@ pageextension 50226 "Purchase Order" extends "Purchase Order"
             {
                 ApplicationArea = all;
             }
+            field("IC Customer SO No."; Rec."IC Customer SO No.")
+            {
+                ApplicationArea = all;
+                ToolTip = 'The no. of the SO related to the end client';
+            }
+            field("IC Customer Project Code"; Rec."IC Customer Project Code")
+            {
+                ApplicationArea = all;
+            }
         }
     }
     actions

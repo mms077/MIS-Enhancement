@@ -6118,6 +6118,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - Control ShowStamp - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 916667017 - Control 683266982 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Warehouse Shipments</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Commercial Whse Shipment - Control WhseShipments - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 418739915 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ER - Customer - Summary Aging</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -14203,6 +14208,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Invoice - Action ER-Commercial Invoice - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 4034894651 - Action 1834399822 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
+          <source>ER - Commercial Invoice- Shipments</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Invoice - Action ER-Commercial Invoice- Shipment - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 4034894651 - Control 1740754582 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
           <source>IC Company Name</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -14652,11 +14662,6 @@
           <source>Refresh Qty. to Assemble</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Warehouse Shipment - Action Refresh Qty. to Assemble - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2938519335 - Action 916667017 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2938519335">
-          <source>ER - Commercial Whse Shipment</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Warehouse Shipment - Action ER - Commercial Whse Shipment - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 1558066289 - Action 1652134826 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1558066289">
           <source>Refresh Qty. to Assemble</source>
@@ -16402,6 +16407,11 @@
           <source> ,Re-order,New order,Re-order &amp; New order,Replacement</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Header - Field Order Type - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1192395785 - Field 2585545507 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Previously Released</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Header - Field Previously Released - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1192395785 - Field 1494829495 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Sales Quote No.</source>

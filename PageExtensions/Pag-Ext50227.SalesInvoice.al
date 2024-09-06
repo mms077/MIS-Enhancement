@@ -68,6 +68,27 @@ pageextension 50227 "Sales Invoice" extends "Sales Invoice"
                     Report.Run(Report::"ER - Commercial Invoice", true, true, G_SalesHeader);
                 end;
             }
+            action("ER-Commercial Invoice- Shipment")
+            {
+                Caption = 'ER - Commercial Invoice- Shipments';
+                ApplicationArea = All;
+                Image = Report;
+                Promoted = true;
+                PromotedIsBig = true;
+                PromotedCategory = Report;
+                trigger OnAction()
+                var
+                    "ERCommercialWhseShipment": Report "ER - Commercial Whse Shipment";
+                    WhseShipmentHeader: Record "Warehouse Shipment Header";
+                begin
+                    Rec.TestField("Warehouse Shipment No.");
+                    //ERCommercialWhseShipment.ShipmentFilters(Rec."Warehouse Shipment No.");
+                    WhseShipmentHeader.SetFilter("No.", Rec."Warehouse Shipment No.");
+                    if WhseShipmentHeader.FindSet() then
+                        Report.Run(Report::"ER - Commercial Whse Shipment", true, true, WhseShipmentHeader);
+
+                end;
+            }
         }
 
     }

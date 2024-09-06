@@ -1619,33 +1619,19 @@
             <TablixRowHierarchy>
               <TablixMembers>
                 <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
                 <TablixMember>
-                  <Group Name="Sales_Order_No">
-                    <GroupExpressions>
-                      <GroupExpression>=Fields!Sales_Order_No.Value</GroupExpression>
-                    </GroupExpressions>
-                  </Group>
-                  <SortExpressions>
-                    <SortExpression>
-                      <Value>=Fields!Sales_Order_No.Value</Value>
-                    </SortExpression>
-                  </SortExpressions>
-                  <TablixMembers>
-                    <TablixMember />
-                    <TablixMember />
-                    <TablixMember />
-                    <TablixMember />
-                    <TablixMember />
-                    <TablixMember />
-                    <TablixMember />
-                    <TablixMember />
-                    <TablixMember />
-                    <TablixMember>
-                      <Visibility>
-                        <Hidden>=iif(First(Fields!FrenchReport.Value, "DataSet_Result")=True,True,False)</Hidden>
-                      </Visibility>
-                    </TablixMember>
-                  </TablixMembers>
+                  <Visibility>
+                    <Hidden>=iif(First(Fields!FrenchReport.Value, "DataSet_Result")=True,True,False)</Hidden>
+                  </Visibility>
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
@@ -2369,7 +2355,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!TotalAmount.Value + Last(Fields!TotalLineDiscountAmt.Value, "DataSet_Result")</Value>
+                                  <Value>=Sum(Fields!Line_Qty.Value * Fields!Line_Unit_Price.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontWeight>Bold</FontWeight>
@@ -2650,14 +2636,14 @@ Fields!VATLabel.Value &amp; "0% " &amp; Fields!BillTo_Currency.Value)</Value>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Gross_Total">
+                        <Textbox Name="TotalAmount2">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Gross_Total.Value</Value>
+                                  <Value>=Sum(Fields!Line_Qty.Value * Fields!Line_Unit_Price.Value)+Fields!VAT_Amount.Value-Last(Fields!TotalLineDiscountAmt.Value, "DataSet_Result")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontWeight>Bold</FontWeight>
@@ -2670,16 +2656,16 @@ Fields!VATLabel.Value &amp; "0% " &amp; Fields!BillTo_Currency.Value)</Value>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Gross_Total</rd:DefaultName>
+                          <rd:DefaultName>TotalAmount</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Style>Solid</Style>
+                              <Style>None</Style>
                             </Border>
                             <TopBorder>
                               <Style>None</Style>
                             </TopBorder>
                             <BottomBorder>
-                              <Style>Solid</Style>
+                              <Style>None</Style>
                             </BottomBorder>
                             <LeftBorder>
                               <Style>None</Style>
@@ -2891,26 +2877,12 @@ Fields!VATLabel.Value &amp; "0% " &amp; Fields!BillTo_Currency.Value)</Value>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
               <TablixMembers>
-                <TablixMember>
-                  <Group Name="Sales_Order_No1">
-                    <GroupExpressions>
-                      <GroupExpression>=Fields!Sales_Order_No.Value</GroupExpression>
-                    </GroupExpressions>
-                  </Group>
-                  <SortExpressions>
-                    <SortExpression>
-                      <Value>=Fields!Sales_Order_No.Value</Value>
-                    </SortExpression>
-                  </SortExpressions>
-                  <TablixMembers>
-                    <TablixMember />
-                    <TablixMember />
-                    <TablixMember />
-                    <TablixMember />
-                    <TablixMember />
-                    <TablixMember />
-                  </TablixMembers>
-                </TablixMember>
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixRowHierarchy>
             <KeepTogether>true</KeepTogether>
@@ -2946,7 +2918,7 @@ Fields!VATLabel.Value &amp; "0% " &amp; Fields!BillTo_Currency.Value)</Value>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!AmountinWords.Value</Value>
+                                  <Value>=last(Fields!AmountinWords.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                   </Style>
@@ -2980,21 +2952,7 @@ Fields!VATLabel.Value &amp; "0% " &amp; Fields!BillTo_Currency.Value)</Value>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
               <TablixMembers>
-                <TablixMember>
-                  <Group Name="Sales_Order_No2">
-                    <GroupExpressions>
-                      <GroupExpression>=Fields!Sales_Order_No.Value</GroupExpression>
-                    </GroupExpressions>
-                  </Group>
-                  <SortExpressions>
-                    <SortExpression>
-                      <Value>=Fields!Sales_Order_No.Value</Value>
-                    </SortExpression>
-                  </SortExpressions>
-                  <TablixMembers>
-                    <TablixMember />
-                  </TablixMembers>
-                </TablixMember>
+                <TablixMember />
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
@@ -3929,7 +3887,7 @@ Fields!VATLabel.Value &amp; "0% " &amp; Fields!BillTo_Currency.Value)</Value>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=First(Fields!SalesOrderLabel.Value, "DataSet_Result") &amp; " " &amp; First(Fields!Sales_Order_No.Value, "DataSet_Result")</Value>
+                      <Value>=Fields!Sales_InvoiceNo.Value</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>14pt</FontSize>
@@ -4445,6 +4403,9 @@ C/HH/hA67/8AIVel0UAeaf8ADQfhf/oF+OP/AAgdd/8AkKj/AIaD8L/9Avxx/wCEDrv/AMhV6XRQB5p/
         <Field Name="Sales_Order_No">
           <DataField>Sales_Order_No</DataField>
         </Field>
+        <Field Name="Sales_InvoiceNo">
+          <DataField>Sales_InvoiceNo</DataField>
+        </Field>
         <Field Name="Sales_Order_Posting_Date">
           <DataField>Sales_Order_Posting_Date</DataField>
         </Field>
@@ -4465,12 +4426,6 @@ C/HH/hA67/8AIVel0UAeaf8ADQfhf/oF+OP/AAgdd/8AkKj/AIaD8L/9Avxx/wCEDrv/AMhV6XRQB5p/
         </Field>
         <Field Name="VAT_AmountFormat">
           <DataField>VAT_AmountFormat</DataField>
-        </Field>
-        <Field Name="Gross_Total">
-          <DataField>Gross_Total</DataField>
-        </Field>
-        <Field Name="Gross_TotalFormat">
-          <DataField>Gross_TotalFormat</DataField>
         </Field>
         <Field Name="Advance_Payment">
           <DataField>Advance_Payment</DataField>
@@ -4717,6 +4672,12 @@ C/HH/hA67/8AIVel0UAeaf8ADQfhf/oF+OP/AAgdd/8AkKj/AIaD8L/9Avxx/wCEDrv/AMhV6XRQB5p/
         </Field>
         <Field Name="Line_HS_Ccode">
           <DataField>Line_HS_Ccode</DataField>
+        </Field>
+        <Field Name="Gross_Total">
+          <DataField>Gross_Total</DataField>
+        </Field>
+        <Field Name="Gross_TotalFormat">
+          <DataField>Gross_TotalFormat</DataField>
         </Field>
         <Field Name="Line_Item_No">
           <DataField>Line_Item_No</DataField>

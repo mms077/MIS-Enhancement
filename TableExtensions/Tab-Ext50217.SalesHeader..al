@@ -76,11 +76,19 @@ tableextension 50217 "Sales Header" extends "Sales Header"
         {
 
         }
-        field(50307; "Warehouse Shipment No."; Code[20])
+        field(50307; "Warehouse Shipment No."; Code[1000])
         {
             DataClassification = ToBeClassified;
         }
-        
+
+        field(50308; "Previously Released"; Boolean)//Check if the item has been already released, if yes then we are spliiting the order and do not need to recreate the sq lines.
+        {
+            Caption = 'Previously Released';
+            DataClassification = ToBeClassified;
+        }
+
+
+
     }
     procedure GetICProjectCode(): Code[20]
     var

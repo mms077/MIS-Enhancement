@@ -83,7 +83,11 @@ report 50243 "ER - Commercial Whse Shipment"
             #endregion
 
             #region //Order Header
-            column(Sales_Order_No; Header."Sales Invoice No.")
+            column(Sales_Order_No; Header."No.")
+            {
+
+            }
+            column(Sales_InvoiceNo; Header."Sales Invoice No.")
             {
 
             }
@@ -103,10 +107,7 @@ report 50243 "ER - Commercial Whse Shipment"
             {
 
             }
-            column(Gross_Total; TotalAmountIncludingVat)
-            {
 
-            }
             column(Advance_Payment; SalesHeader."Amount Including VAT" - GlobalBalanceDue)
             {
 
@@ -442,6 +443,10 @@ report 50243 "ER - Commercial Whse Shipment"
                 {
 
                 }
+                column(Gross_Total; TotalAmountIncludingVat)
+                {
+
+                }
                 column(Line_Item_No; line."Item No.")
                 {
 
@@ -511,13 +516,16 @@ report 50243 "ER - Commercial Whse Shipment"
                     //Calculate G/L Amount
                     if SalesLine.Type = SalesLine.Type::"G/L Account" then
                         GlAmount := GlAmount + SalesLine."Line Amount";
-
+                    //calculate amount in words
+                    TotalAmountShipmLines := TotalAmountShipmLines + Line.Quantity *SalesLine."Unit Price"-TotalLineDiscountAmt;
+                    //Amount in Words
+                    AmountInWordsFunction(TotalAmountShipmLines, GlobalCurrencyCode);
                 end;
             }
             trigger OnPreDataItem()
             begin
                 if Header.GetFilter("No.") = '' then
-                    Error('Please select a Sales Invoice.');
+                    Error('Please select a Whse.Shipments');
             end;
 
 
@@ -535,19 +543,20 @@ report 50243 "ER - Commercial Whse Shipment"
                 WhseShipLine.SetFilter("No.", Header."No.");
                 if WhseShipLine.FindSet() then
                     repeat
-                        SalesHeaderTotal.SetRange("No.", WhseShipLine."Source No.");
-                        if SalesHeaderTotal.FindSet() then
+                        SalesLineTotal.SetRange("Document No.", WhseShipLine."Source No.");
+                        SalesLineTotal.SetRange("Line No.", WhseShipLine."Source Line No.");
+                        if SalesLineTotal.FindSet() then
                             repeat
-                                SalesHeaderTotal.CalcFields(Amount, "Amount Including VAT");
-                                if not UniqueSales.ContainsKey(SalesHeaderTotal."No.") then begin
-                                    TotalAmount := TotalAmount + SalesHeaderTotal.Amount;
-                                    TotalVat := TotalVat + SalesHeaderTotal."Amount Including VAT" - SalesHeaderTotal.Amount;
-                                    TotalAMountIncludingVat := TotalAmountIncludingVat + SalesHeaderTotal."Amount Including VAT";
-                                    //Amount in Words
-                                    AmountInWordsFunction(SalesHeaderTotal."Amount Including VAT", GlobalCurrencyCode);
-                                    UniqueSales.Add(SalesHeaderTotal."No.", SalesHeaderTotal.Amount);
+                                // SalesLineTotal.CalcFields(Amount, "Amount Including VAT");
+                                if not UniqueSales.ContainsKey(SalesLineTotal."No.") then begin
+                                    TotalAmount := TotalAmount + SalesLineTotal.Amount;
+                                    TotalVat := TotalVat + SalesLineTotal."Amount Including VAT" - SalesLineTotal.Amount;
+                                    TotalAMountIncludingVat := TotalAmountIncludingVat + SalesLineTotal."Amount Including VAT";
+
+                                    UniqueSales.Add(SalesLineTotal."No.", SalesLineTotal.Amount);
                                 end;
-                            until SalesHeaderTotal.Next() = 0;
+                            until SalesLineTotal.Next() = 0;
+                    //TotalGrossAmount := TotalGrossAmount +WhseShipLine.amou
                     until WhseShipLine.Next() = 0;
 
                 GlAmount := 0;
@@ -623,6 +632,7 @@ report 50243 "ER - Commercial Whse Shipment"
                 //     GlobalBankAccount := CompanyInformation."Bank Name";
                 // end;
 
+
             end;
 
         }
@@ -652,6 +662,11 @@ report 50243 "ER - Commercial Whse Shipment"
                     {
                         ApplicationArea = All;
                         Caption = 'Lock Warehouse Shipment';
+                    }
+                    field(WhseShipments; WhseShipments)
+                    {
+                        ApplicationArea = All;
+                        Caption = 'Warehouse Shipments';
                     }
                 }
                 // group(LanguageSelection)
@@ -773,6 +788,14 @@ report 50243 "ER - Commercial Whse Shipment"
         end;
     end;
 
+    procedure ShipmentFilters(Shipments: Code[1000]): Code[1000]
+    var
+        myInt: Integer;
+    begin
+        WhseShipments := Shipments;
+        exit(WhseShipments);
+    end;
+
     procedure GetICAllocationName(SalesInvHeader: Record "Sales Header"; SalesInvLine: Record "Sales Line"; ICCompany: Code[20]; ICCustomerNo: Code[20]; ICCustomerSONo: Code[20])
     var
         ICSalesHeader: Record "Sales Header";
@@ -852,6 +875,8 @@ report 50243 "ER - Commercial Whse Shipment"
         end;
     end;
 
+
+
     var
         CompanyInformation: Record "Company Information";
         CeeAntCodeUnit: Codeunit CeeAnt;
@@ -882,6 +907,7 @@ report 50243 "ER - Commercial Whse Shipment"
         TotalAmount: Decimal;
         TotalVat: Decimal;
         TotalAmountIncludingVat: Decimal;
+        TotalGrossAmount: Decimal;
         FrenchReport: Boolean;
         ShowStamp: Boolean;
         ShowNotice: Boolean;
@@ -927,7 +953,7 @@ report 50243 "ER - Commercial Whse Shipment"
         QtyLabel: Label 'QTY';
         UnitPriceLabel: Label 'U.P.';
         SalesLine: Record "Sales Line";
-        SalesHeaderTotal: Record "Sales header";
+        SalesLineTotal: Record "Sales Line";
         SalesHeader: Record "Sales header";
         TotalPriceLabel: Label 'T.P.';
         TotalLabel: Label 'Total';
@@ -948,4 +974,7 @@ report 50243 "ER - Commercial Whse Shipment"
         PageLabel: label 'Page';
         PageOfLabel: label 'of';
         RIBLabel: label 'RIB:';
+        WhseShipments: Code[1000];
+
+        TotalAmountShipmLines: Decimal;
 }

@@ -743,6 +743,27 @@ codeunit 50202 EventSubscribers
         end
     end;
 
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Req. Wksh.-Make Order", 'OnBeforePurchOrderHeaderInsert', '', false, false)]
+    local procedure OnBeforePurchOrderHeaderInsert(var PurchaseHeader: Record "Purchase Header"; RequisitionLine: Record "Requisition Line"; var ReceiveDateReq: Date)
+    var
+        SalesHeader: Record "Sales Header";
+    begin
+        SalesHeader.Reset();
+        if SalesHeader.get(SalesHeader."Document Type"::Order, RequisitionLine."Demand Order No.") then
+            if SalesHeader."IC Customer SO No." <> '' then begin
+                PurchaseHeader."IC Source No." := SalesHeader."IC Source No.";
+                PurchaseHeader."IC Company Name" := SalesHeader."IC Company Name";
+                PurchaseHeader."IC Customer Project Code" := SalesHeader."IC Customer Project Code";
+                PurchaseHeader."IC Customer SO No." := SalesHeader."IC Customer SO No.";
+            end else begin
+                //If IC Customer No. blank should take the SO No. and Company
+                PurchaseHeader."IC Source No." := SalesHeader."Bill-to Customer No.";
+                PurchaseHeader."IC Company Name" := CompanyName;
+                PurchaseHeader."IC Customer Project Code" := SalesHeader."Cust Project";
+                PurchaseHeader."IC Customer SO No." := SalesHeader."No.";
+            end;
+    end;
+
     #endregion
     #region [Assembly]
     [EventSubscriber(ObjectType::Table, database::"Assembly Header", 'OnAfterInitRecord', '', false, false)]
@@ -969,6 +990,8 @@ codeunit 50202 EventSubscribers
     begin
         OutboxTransaction."IC Source No." := PurchaseHeader."IC Source No.";
         OutboxTransaction."IC Company Name" := PurchaseHeader."IC Company Name";
+        OutboxTransaction."IC Customer SO No." := PurchaseHeader."IC Customer SO No.";
+        OutboxTransaction."IC Customer Project Code" := PurchaseHeader."IC Customer Project Code";
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"ICInboxOutboxMgt", 'OnCreateOutboxPurchDocTransOnAfterICOutBoxPurchLineInsert', '', false, false)]
@@ -987,6 +1010,8 @@ codeunit 50202 EventSubscribers
     begin
         ICOutboxTransaction."IC Source No." := SalesHeader."IC Source No.";
         ICOutboxTransaction."IC Company Name" := SalesHeader."IC Company Name";
+        ICOutboxTransaction."IC Customer SO No." := SalesHeader."IC Customer SO No.";
+        ICOutboxTransaction."IC Customer Project Code" := SalesHeader."IC Customer Project Code";
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"ICInboxOutboxMgt", 'OnCreateOutboxSalesDocTransOnAfterICOutBoxSalesLineInsert', '', false, false)]
@@ -1005,6 +1030,8 @@ codeunit 50202 EventSubscribers
     begin
         ICOutboxPurchHeader."IC Source No." := PurchHeader."IC Source No.";
         ICOutboxPurchHeader."IC Company Name" := PurchHeader."IC Company Name";
+        ICOutboxPurchHeader."IC Customer SO No." := PurchHeader."IC Customer SO No.";
+        ICOutboxPurchHeader."IC Customer Project Code" := PurchHeader."IC Customer Project Code";
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"ICInboxOutboxMgt", 'OnBeforeICInboxSalesHeaderInsert', '', false, false)]
@@ -1012,6 +1039,8 @@ codeunit 50202 EventSubscribers
     begin
         ICInboxSalesHeader."IC Source No." := ICOutboxPurchaseHeader."IC Source No.";
         ICInboxSalesHeader."IC Company Name" := ICOutboxPurchaseHeader."IC Company Name";
+        ICInboxSalesHeader."IC Customer SO No." := ICOutboxPurchaseHeader."IC Customer SO No.";
+        ICInboxSalesHeader."IC Customer Project Code" := ICOutboxPurchaseHeader."IC Customer Project Code";
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"ICInboxOutboxMgt", 'OnBeforeICInboxSalesLineInsert', '', false, false)]
@@ -1029,6 +1058,8 @@ codeunit 50202 EventSubscribers
     begin
         ICInboxTransaction."IC Source No." := ICOutboxTransaction."IC Source No.";
         ICInboxTransaction."IC Company Name" := ICOutboxTransaction."IC Company Name";
+        ICInboxTransaction."IC Customer SO No." := ICOutboxTransaction."IC Customer SO No.";
+        ICInboxTransaction."IC Customer Project Code" := ICOutboxTransaction."IC Customer Project Code";
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"ICInboxOutboxMgt", 'OnBeforeICInboxPurchHeaderInsert', '', false, false)]
@@ -1036,6 +1067,8 @@ codeunit 50202 EventSubscribers
     begin
         ICInboxPurchaseHeader."IC Source No." := ICOutboxSalesHeader."IC Source No.";
         ICInboxPurchaseHeader."IC Company Name" := ICOutboxSalesHeader."IC Company Name";
+        ICInboxPurchaseHeader."IC Customer SO No." := ICOutboxSalesHeader."IC Customer SO No.";
+        ICInboxPurchaseHeader."IC Customer Project Code" := ICOutboxSalesHeader."IC Customer Project Code";
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"ICInboxOutboxMgt", 'OnBeforeICInboxPurchLineInsert', '', false, false)]
@@ -1053,6 +1086,8 @@ codeunit 50202 EventSubscribers
     begin
         SalesHeader."IC Source No." := ICInboxSalesHeader."IC Source No.";
         SalesHeader."IC Company Name" := ICInboxSalesHeader."IC Company Name";
+        SalesHeader."IC Customer SO No." := ICInboxSalesHeader."IC Customer SO No.";
+        SalesHeader."IC Customer Project Code" := ICInboxSalesHeader."IC Customer Project Code";
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"ICInboxOutboxMgt", 'OnAfterCreateSalesLines', '', false, false)]
@@ -1083,6 +1118,8 @@ codeunit 50202 EventSubscribers
     begin
         PurchHeader."IC Source No." := ICInboxPurchHeader."IC Source No.";
         PurchHeader."IC Company Name" := ICInboxPurchHeader."IC Company Name";
+        PurchHeader."IC Customer SO No." := ICInboxPurchHeader."IC Customer SO No.";
+        PurchHeader."IC Customer Project Code" := ICInboxPurchHeader."IC Customer Project Code";
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"ICInboxOutboxMgt", 'OnAfterCreatePurchLines', '', false, false)]

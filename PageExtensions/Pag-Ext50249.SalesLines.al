@@ -238,7 +238,8 @@ pageextension 50249 "Sales Lines" extends "Sales Lines"
                 SalesHeader.Validate(SalesHeader."Order Date", Today());
                 SalesHeader.Validate(SalesHeader."Due Date", Today());
                 SalesHeader.Validate(SalesHeader."Document Date", Today());
-                SalesHeader.Validate(SalesHeader."Requested Delivery Date", Today());
+                SalesHeader.Validate(SalesHeader."Promised Delivery Date", 0D); // we cannot set it to Today because it is making issues 'You cannot change the Requested Delivery Date when the Promised Delivery Date has been filled in.'
+                SalesHeader.Validate(SalesHeader."Requested Delivery Date", 0D);
                 SalesHeader.Validate(SalesHeader."Quote Valid Until Date", Today());
                 SalesHeader.Insert(true);
 
@@ -251,7 +252,8 @@ pageextension 50249 "Sales Lines" extends "Sales Lines"
                     SalesHeader.Validate(SalesHeader."Order Date", Today());
                     SalesHeader.Validate(SalesHeader."Due Date", Today());
                     SalesHeader.Validate(SalesHeader."Document Date", Today());
-                    SalesHeader.Validate(SalesHeader."Requested Delivery Date", Today());
+                    SalesHeader.Validate(SalesHeader."Promised Delivery Date", 0D); // we cannot set it to Today because it is making issues 'You cannot change the Requested Delivery Date when the Promised Delivery Date has been filled in.'
+                    SalesHeader.Validate(SalesHeader."Requested Delivery Date", 0D);
                     SalesHeader.Validate(SalesHeader."Quote Valid Until Date", Today());
                     SalesHeader.Modify(true);
                 end;

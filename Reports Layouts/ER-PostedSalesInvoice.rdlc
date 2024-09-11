@@ -2500,7 +2500,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=IIF(Fields!TotalAmount.Value &lt;&gt; 0,
-Fields!DiscountLabel.Value &amp; " " &amp; Round((Last(Fields!TotalLineDiscountAmt.Value, "DataSet_Result")/Last(Fields!ItemsLinesAmounts.Value)) *100 ,0) &amp; "%",
+Fields!DiscountLabel.Value &amp; " " &amp; Round((Last(Fields!TotalLineDiscountAmt.Value, "DataSet_Result")/Last(Fields!ItemsLinesAmountsExcDiscount.Value)) *100 ,0) &amp; "%",
 Fields!DiscountLabel.Value &amp; "0%")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
@@ -2530,6 +2530,7 @@ Fields!DiscountLabel.Value &amp; "0%")</Value>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -3043,7 +3044,6 @@ Fields!VATLabel.Value &amp; "0% " &amp; Fields!BillTo_Currency.Value)</Value>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -4938,6 +4938,12 @@ C/HH/hA67/8AIVel0UAeaf8ADQfhf/oF+OP/AAgdd/8AkKj/AIaD8L/9Avxx/wCEDrv/AMhV6XRQB5p/
         </Field>
         <Field Name="ItemsLinesAmountsFormat">
           <DataField>ItemsLinesAmountsFormat</DataField>
+        </Field>
+        <Field Name="ItemsLinesAmountsExcDiscount">
+          <DataField>ItemsLinesAmountsExcDiscount</DataField>
+        </Field>
+        <Field Name="ItemsLinesAmountsExcDiscountFormat">
+          <DataField>ItemsLinesAmountsExcDiscountFormat</DataField>
         </Field>
         <Field Name="DepartmentName">
           <DataField>DepartmentName</DataField>

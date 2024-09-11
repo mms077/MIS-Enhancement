@@ -488,6 +488,10 @@ report 50210 "ER - Posted Sales Invoice"
                 {
 
                 }
+                column(ItemsLinesAmountsExcDiscount;LinesTotalAmountExcDiscount)
+                {
+
+                }
                 ////
                 column(DepartmentName; DepartmentName)
                 {
@@ -522,8 +526,11 @@ report 50210 "ER - Posted Sales Invoice"
                     GetAllocationName("Sales Invoice Header", "Sales Invoice Line");
 
                     //Get The Total Line Amount
-                    if "Sales Invoice Line".Type = "Sales Invoice Line".Type::Item then
+                    if "Sales Invoice Line".Type = "Sales Invoice Line".Type::Item then begin
                         LinesTotalAmount:=LinesTotalAmount+"Sales Invoice Line"."Line Amount";
+                        LinesTotalAmountExcDiscount:=LinesTotalAmountExcDiscount+"Sales Invoice Line"."Line Amount" + "Sales Invoice Line"."Line Discount Amount"+ "Sales Invoice Line"."Inv. Discount Amount";
+                    end;
+
 
                     //Calculate G/L Amount
                     if "Sales Invoice Line".Type = "Sales Invoice Line".Type::"G/L Account" then begin
@@ -876,6 +883,7 @@ report 50210 "ER - Posted Sales Invoice"
         GlobalProject: Code[50];
         GlobalBankAccount: Text[50];
         LinesTotalAmount: Decimal;
+        LinesTotalAmountExcDiscount: Decimal;
         FrenchReport: Boolean;
         ShowStamp: Boolean;
         ShowNotice: Boolean;

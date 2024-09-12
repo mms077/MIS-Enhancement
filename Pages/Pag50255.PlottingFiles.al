@@ -47,6 +47,7 @@ page 50255 "Plotting Files"
                 {
                     ApplicationArea = all;
                     Editable = false;
+                    Caption = 'Uploaded';
                 }
             }
         }
@@ -154,11 +155,26 @@ page 50255 "Plotting Files"
     end;
 
     trigger OnAfterGetRecord()
+    var
+        DocAttachment: Record "Document Attachment";
+        PlottingFile: Record "Plotting File";
     begin
-        if Rec.Picture.Count = 0 then
-            Rec."Has Picture" := false
+        //check if rec has a link in order to set it true
+        if rec.HasLinks then
+            Rec."Has Picture" := true
         else
-            Rec."Has Picture" := true;
-        Rec.Modify();
+            Rec."Has Picture" := false;
+        //check if rec has a picture to clear it as per Mr. Charbel request
+        if Rec.Picture.Count > 0 then begin
+            Clear(Rec.Picture);
+            rec.Modify();
+        end;
     end;
+
+    /*  if Rec.Picture.Count = 0 then
+          Rec."Has Picture" := false
+      else
+          Rec."Has Picture" := true;
+      Rec.Modify();*/
+
 }

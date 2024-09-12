@@ -4703,6 +4703,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Plotting Files - Control Cut - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 343865178 - Control 2315540138 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Uploaded</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Plotting Files - Control Has Picture - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 343865178 - Control 1658766258 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Attachments</source>
           <note from="Developer" annotates="general" priority="2"></note>

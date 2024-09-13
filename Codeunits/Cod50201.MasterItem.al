@@ -416,6 +416,7 @@ codeunit 50201 MasterItem
         Clear(ItemBrandingsParLines);
         ItemBrandingsParLines.SetCurrentKey("Header ID", Code);
         ItemBrandingsParLines.SetRange("Header ID", ItemBrandingParamLines."Header ID");
+        ItemBrandingsParLines.SetRange(Include, true);
         if ItemBrandingsParLines.FindFirst() then begin
             if ItemBrandingsSet.FindLast() then
                 Number := ItemBrandingsSet."Item Branding Set ID" + 1
@@ -736,6 +737,7 @@ codeunit 50201 MasterItem
         //Sort Parameters
         ItemBrandingParLines.SetCurrentKey("Header ID", Code);
         ItemBrandingParLines.SetRange("Header ID", DesignSecLinesParHeader."ID");
+        ItemBrandingParLines.SetRange(Include, true);
         if ItemBrandingParLines.FindFirst() then begin
             repeat
                 VarianceCombination := VarianceCombination + ItemBrandingParLines.Code + '/';

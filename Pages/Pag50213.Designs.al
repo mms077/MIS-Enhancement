@@ -244,7 +244,7 @@ page 50213 Designs
     procedure CreateItemFromDesign()
     var
         Item: Record Item;
-        NoSeriesManagement: Codeunit NoSeriesManagement;
+        NoSeriesManagement: Codeunit "No. Series";
         NoSeries: Record "No. Series";
         Txt0001: Label 'The design must have a category';
         Txt0002: Label 'There is no No. Series related to this category';

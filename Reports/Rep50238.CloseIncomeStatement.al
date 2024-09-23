@@ -480,7 +480,7 @@ report 50238 "New Close Income Statement"
         SelectedDim: Record "Selected Dimension";
         TempSelectedDim: Record "Selected Dimension" temporary;
         TempEntryNoAmountBuffer: Record "Entry No. Amount Buffer" temporary;
-        NoSeriesMgt: Codeunit NoSeriesManagement;
+        NoSeriesMgt: Codeunit "No. Series - Batch";
         GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line";
         DimMgt: Codeunit DimensionManagement;
         DimBufMgt: Codeunit "Dimension Buffer Management";
@@ -558,7 +558,7 @@ report 50238 "New Close Income Statement"
         DocNo := '';
         if GenJnlBatch.Get(GenJnlLine."Journal Template Name", GenJnlLine."Journal Batch Name") then
             if GenJnlBatch."No. Series" <> '' then
-                DocNo := NoSeriesMgt.TryGetNextNo(GenJnlBatch."No. Series", EndDateReq);
+                DocNo := NoSeriesMgt.PeekNextNo(GenJnlBatch."No. Series", EndDateReq);
     end;
 
     local procedure HandleGenJnlLine()
@@ -578,7 +578,7 @@ report 50238 "New Close Income Statement"
             if GenJnlLine.Amount <> 0 then begin
                 GenJnlPostLine.Run(GenJnlLine);
                 if DocNo = NoSeriesMgt.GetNextNo(GenJnlBatch."No. Series", EndDateReq, false) then
-                    NoSeriesMgt.SaveNoSeries();
+                    NoSeriesMgt.SaveState();
             end;
         end else
             if not ZeroGenJnlAmount() then

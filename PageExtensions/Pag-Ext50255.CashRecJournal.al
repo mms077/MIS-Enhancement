@@ -61,17 +61,17 @@ pageextension 50255 CashReceipt extends "Cash Receipt Journal"
         GenJnlTemplate.Get(GenJrnlLine."Journal Template Name");
 
         GeneralLedgerSetup.Get();
-        with GenJrnlLine do
-            if GLReg.Get(GenJrnlLine."Line No.") then begin
-                if GenJnlTemplate."Cust. Receipt Report ID" <> 0 then
-                    PrintCustReceiptReport(GLReg, GenJnlTemplate, GeneralLedgerSetup);
+        //with GenJrnlLine do
+        if GLReg.Get(GenJrnlLine."Line No.") then begin
+            if GenJnlTemplate."Cust. Receipt Report ID" <> 0 then
+                PrintCustReceiptReport(GLReg, GenJnlTemplate, GeneralLedgerSetup);
 
-                if GenJnlTemplate."Vendor Receipt Report ID" <> 0 then
-                    PrintVendorReceiptReport(GLReg, GenJnlTemplate, GeneralLedgerSetup);
+            if GenJnlTemplate."Vendor Receipt Report ID" <> 0 then
+                PrintVendorReceiptReport(GLReg, GenJnlTemplate, GeneralLedgerSetup);
 
-                if GenJnlTemplate."Posting Report ID" <> 0 then
-                    PrintPostingReport(GLReg, GenJnlTemplate, GeneralLedgerSetup);
-            end;
+            if GenJnlTemplate."Posting Report ID" <> 0 then
+                PrintPostingReport(GLReg, GenJnlTemplate, GeneralLedgerSetup);
+        end;
     end;
 
 
@@ -131,22 +131,22 @@ pageextension 50255 CashReceipt extends "Cash Receipt Journal"
         end;
     end;
 
-    procedure SchedulePrintJobQueueEntry(RecVar: Variant; ReportId: Integer; ReportOutputType: Option)
+    procedure SchedulePrintJobQueueEntry(RecVar: Variant; ReportId: Integer; ReportOutputType:  Enum "Job Queue Report Output Type")
     var
         JobQueueEntry: Record "Job Queue Entry";
         RecRefToPrint: RecordRef;
     begin
         RecRefToPrint.GetTable(RecVar);
-        with JobQueueEntry do begin
-            Clear(ID);
-            "Object Type to Run" := "Object Type to Run"::Report;
-            "Object ID to Run" := ReportId;
-            "Report Output Type" := ReportOutputType;
-            "Record ID to Process" := RecRefToPrint.RecordId;
-            Description := Format("Report Output Type");
-            CODEUNIT.Run(CODEUNIT::"Job Queue - Enqueue", JobQueueEntry);
-            Commit();
-        end;
+        //with JobQueueEntry do begin
+        Clear(JobQueueEntry.ID);
+        JobQueueEntry."Object Type to Run" := JobQueueEntry."Object Type to Run"::Report;
+        JobQueueEntry."Object ID to Run" := ReportId;
+        JobQueueEntry."Report Output Type" := ReportOutputType;
+        JobQueueEntry."Record ID to Process" := RecRefToPrint.RecordId;
+        JobQueueEntry.Description := Format(JobQueueEntry."Report Output Type");
+        CODEUNIT.Run(CODEUNIT::"Job Queue - Enqueue", JobQueueEntry);
+        Commit();
+        //end;
     end;
 
     local procedure SetJobQueueVisibility()

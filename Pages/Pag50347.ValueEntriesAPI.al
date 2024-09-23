@@ -15,7 +15,7 @@ page 50347 "Value_Entries API"
     EntityName = 'ValueEntries';
     EntitySetName = 'ValueEntries';
 
-    ODataKeyFields = SystemId;
+    ODataKeyFields = "Document No.";
 
     Extensible = false;
     DelayedInsert = true;

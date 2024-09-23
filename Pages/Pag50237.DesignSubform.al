@@ -148,10 +148,20 @@ page 50237 "Design Subform"
                     EditInExcel: Codeunit "Edit in Excel";
                     ODataFilter: Text;
                     Filters: Label 'Design_Code eq ''%1''';
+                    EditinExcelFilters: Codeunit "Edit in Excel Filters";
                 begin
-                    ODataFilter := StrSubstNo(Filters, Rec."Design Code");
-                    EditInExcel.EditPageInExcel(CurrPage.ObjectId(true), CurrPage.ObjectId(false), ODataFilter);
+                    /* ODataFilter := StrSubstNo(Filters, Rec."Design Code");
+                     EditInExcel.EditPageInExcel(CurrPage.ObjectId(true), CurrPage.ObjectId(false), ODataFilter);*/
+
+                    //correct the edit in excel to remove the warning
+                    EditinExcelFilters.AddField('Design_Code', Enum::"Edit in Excel Filter Type"::Equal, Rec."Design Code", Enum::"Edit in Excel Edm Type"::"Edm.String");
+                    EditinExcel.EditPageInExcel(
+                        'Design_Details',
+                        page::"Design Subform",
+                        EditinExcelFilters,
+                        StrSubstNo(Filters, Rec."Design Code"));
                 end;
+
             }
         }
     }

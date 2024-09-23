@@ -103,16 +103,16 @@ report 50219 "ER - Sales - Confirmation"
             column(CompanyVATRegistrationNo_Lbl; CompanyInfo.GetVATRegistrationNumberLbl())
             {
             }
-            column(CompanyLegalOffice; CompanyInfo.GetLegalOffice())
+            column(CompanyLegalOffice; '')
             {
             }
-            column(CompanyLegalOffice_Lbl; CompanyInfo.GetLegalOfficeLbl())
+            column(CompanyLegalOffice_Lbl; '')
             {
             }
-            column(CompanyCustomGiro; CompanyInfo.GetCustomGiro())
+            column(CompanyCustomGiro; '')
             {
             }
-            column(CompanyCustomGiro_Lbl; CompanyInfo.GetCustomGiroLbl())
+            column(CompanyCustomGiro_Lbl; '')
             {
             }
             column(CompanyLegalStatement; GetLegalStatement())
@@ -481,7 +481,7 @@ report 50219 "ER - Sales - Confirmation"
                     AutoFormatExpression = "Currency Code";
                     AutoFormatType = 2;
                 }
-                column(ItemColor;ItemColorName){}
+                column(ItemColor; ItemColorName) { }
                 column(UnitPrice_Lbl; FieldCaption("Unit Price"))
                 {
                 }
@@ -547,7 +547,7 @@ report 50219 "ER - Sales - Confirmation"
                 {
 
                 }
-                column(colorLabel;colorLabel){}
+                column(colorLabel; colorLabel) { }
 
                 // trigger OnAfterGetRecord()
                 // begin
@@ -621,10 +621,9 @@ report 50219 "ER - Sales - Confirmation"
                     //Get Item Color
                     ItemColor.Reset();
                     clear(ItemColorName);
-                    ItemColor.SetRange("Item No.",Line."No.");
-                    ItemColor.SetRange("Color ID",Line.Color);
-                    if ItemColor.FindSet() then
-                    begin
+                    ItemColor.SetRange("Item No.", Line."No.");
+                    ItemColor.SetRange("Color ID", Line.Color);
+                    if ItemColor.FindSet() then begin
                         ItemColor.CalcFields("Color Name");
                         ItemColorName := ItemColor."Color Name";
                     end;
@@ -1114,7 +1113,7 @@ report 50219 "ER - Sales - Confirmation"
         RespCenter: Record "Responsibility Center";
         VATClause: Record "VAT Clause";
         AsmHeader: Record "Assembly Header";
-        ItemColor:Record "Item Color";
+        ItemColor: Record "Item Color";
         SellToContact: Record Contact;
         BillToContact: Record Contact;
         LanguageCU: Codeunit Language;
@@ -1162,7 +1161,7 @@ report 50219 "ER - Sales - Confirmation"
         WorkDescriptionLine: Text;
         CurrCode: Text[10];
         CurrSymbol: Text[10];
-        colorLabel:label 'Color';
+        colorLabel: label 'Color';
         CompanyInfoBankAccNoLbl: Label 'Account No.';
         CompanyInfoBankNameLbl: Label 'Bank';
         CompanyInfoGiroNoLbl: Label 'Giro No.';
@@ -1232,8 +1231,10 @@ report 50219 "ER - Sales - Confirmation"
         GlobalSize: Record Size;
 
     local procedure InitLogInteraction()
+    var
+        SalesConfirmEnum: Enum "Interaction Log Entry Document Type";
     begin
-        LogInteraction := SegManagement.FindInteractTmplCode(3) <> '';
+        LogInteraction := SegManagement.FindInteractionTemplateCode(SalesConfirmEnum::"Sales Ord. Cnfrmn.") <> '';
     end;
 
     local procedure DocumentCaption() DocCaption: Text[250]

@@ -15,7 +15,7 @@ page 50346 "GLEntries API"
     EntityName = 'GLEntry';
     EntitySetName = 'GLEntry';
 
-    ODataKeyFields = SystemId;
+    ODataKeyFields = "Document No.";
 
     Extensible = false;
     DelayedInsert = true;

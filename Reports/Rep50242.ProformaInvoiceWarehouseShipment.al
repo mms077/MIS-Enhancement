@@ -387,8 +387,8 @@ report 50242 "Pro Forma Inv-Whse Ship"
         OnInitReportForGlobalVariable(IsHandled, LegalOfficeTxt, LegalOfficeLbl);
 #if not CLEAN23
         if not IsHandled then begin
-            LegalOfficeTxt := CompanyInformation.GetLegalOffice();
-            LegalOfficeLbl := CompanyInformation.GetLegalOfficeLbl();
+            LegalOfficeTxt := '';
+            LegalOfficeLbl := '';
         end;
 #endif
     end;

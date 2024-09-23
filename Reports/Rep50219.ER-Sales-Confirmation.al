@@ -1137,7 +1137,6 @@ report 50219 "ER - Sales - Confirmation"
         FormattedLineAmount: Text;
         MoreLines: Boolean;
         CopyText: Text[30];
-        color: Integer;
         ShowShippingAddr: Boolean;
         ArchiveDocument: Boolean;
         LogInteraction: Boolean;

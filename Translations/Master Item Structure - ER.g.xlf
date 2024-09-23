@@ -14178,16 +14178,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Order Subform - Control TonalityCode - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 2033306735 - Action 158382408 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2033306735">
-          <source>Send the data to an Excel file for analysis or editing.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Prices - Action EditInExcel - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2033306735 - Action 158382408 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2033306735">
-          <source>Edit in Excel</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Prices - Action EditInExcel - Property Caption</note>
-        </trans-unit>
         <trans-unit id="PageExtension 1118401208 - Control 390392087 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4145206282">
           <source>Cutting Sheet Workflow to be used on the cutting sheet scanning</source>
           <note from="Developer" annotates="general" priority="2"></note>

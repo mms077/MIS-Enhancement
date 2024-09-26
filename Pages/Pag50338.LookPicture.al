@@ -1,0 +1,405 @@
+page 50338 "Look Picture"
+{
+    Caption = 'Look Picture';
+    DeleteAllowed = false;
+    InsertAllowed = false;
+    LinksAllowed = false;
+    PageType = CardPart;
+    SourceTable = Look;
+    layout
+    {
+        area(content)
+        {
+            field(Picture; Rec."Front Picture")
+            {
+                ApplicationArea = Basic, Suite, Invoicing;
+                ShowCaption = false;
+                ToolTip = 'Specifies the picture that has been inserted for the design.';
+            }
+        }
+    }
+
+    actions
+    {
+        area(processing)
+        {
+            action(TakePicture)
+            {
+                ApplicationArea = All;
+                Caption = 'Take';
+                Image = Camera;
+                /*Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;*/
+                ToolTip = 'Activate the camera on the device.';
+                Visible = CameraAvailable AND (HideActions = FALSE);
+
+                trigger OnAction()
+                begin
+                    // TakeNewPicture;
+                end;
+            }
+            action(ImportPictureFromURL)
+            {
+                ApplicationArea = All;
+                Caption = 'Import From URL';
+                Image = Import;
+                ToolTip = 'Import a picture file from URL.';
+
+                trigger OnAction()
+                var
+                    PictureURLDialog: Page "Picture URL Dialog";
+                begin
+                    PictureURLDialog.SetLookInfo(Rec.Code, Rec.Description);
+                    if PictureURLDialog.RunModal() = Action::OK then
+                        PictureURLDialog.ImportItemPictureFromURL();
+                end;
+            }
+            /* action(ImportPicture)
+             {
+                 ApplicationArea = All;
+                 Caption = 'Import';
+                 Image = Import;
+                 ToolTip = 'Import a picture file.';
+                 Visible = HideActions = FALSE;
+
+                 trigger OnAction()
+                 begin
+                     ImportFromDevice;
+                 end;
+             }*/
+            action("Import Picture")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Import a picture file.';
+                Caption = 'Import';
+                Image = Import;
+
+                trigger OnAction()
+                var
+                    FileName: Text;
+                    PictureStream: InStream;
+                    FileFilter: Text;
+                    DialogCaption: Label 'Select a picture to upload';
+                begin
+                      Rec.TestField(Code);
+                      if UploadIntoStream(DialogCaption, '', FileFilter, FileName, PictureStream) then begin
+                          Clear(Rec."Front Picture");
+                          Rec."Front Picture".ImportStream(PictureStream, FileName);
+                          Rec.Modify(TRUE);
+                      end;
+                end;
+            }
+
+            action(ExportFile)
+            {
+                ApplicationArea = All;
+                Caption = 'Export';
+                Enabled = DeleteExportEnabled;
+                Image = Export;
+                ToolTip = 'Export the picture to a file.';
+                Visible = HideActions = FALSE;
+
+                trigger OnAction()
+                var
+                    DummyPictureEntity: Record "Picture Entity";
+                    FileManagement: Codeunit "File Management";
+                    ToFile: Text;
+                    ExportPath: Text;
+                begin
+                    /* Rec.TestField("Code");
+                     Rec.TestField(Name);
+
+                     ToFile := DummyPictureEntity.GetDefaultMediaDescription(Rec);
+                     ExportPath := TemporaryPath + Rec."Code" + Format(Rec.Picture.MediaId);
+                     Rec.Picture.ExportFile(ExportPath + '.' + DummyPictureEntity.GetDefaultExtension);
+
+                     FileManagement.ExportImage(ExportPath, ToFile);*/
+                    // ExporItemPicture();
+                end;
+            }
+
+
+
+            action(DeletePicture)
+            {
+                ApplicationArea = All;
+                Caption = 'Delete';
+                Image = Delete;
+                ToolTip = 'Delete the record.';
+                Visible = HideActions = FALSE;
+
+                trigger OnAction()
+                begin
+                    DeleteItemPicture;
+                end;
+            }
+        }
+    }
+
+    trigger OnOpenPage()
+    begin
+        CameraAvailable := Camera.IsAvailable();
+    end;
+
+    var
+        Camera: Codeunit Camera;
+        [InDataSet]
+        CameraAvailable: Boolean;
+        OverrideImageQst: Label 'The existing picture will be replaced. Do you want to continue?';
+        DeleteImageQst: Label 'Are you sure you want to delete the picture?';
+        SelectPictureTxt: Label 'Select a picture to upload';
+        DeleteExportEnabled: Boolean;
+        HideActions: Boolean;
+        MustSpecifyDescriptionErr: Label 'You must add a description to the item before you can import a picture.';
+        MimeTypeTok: Label 'image/jpeg', Locked = true;
+
+    /* procedure TakeNewPicture()
+     begin
+         Rec.Find();
+         Rec.TestField(Code);
+         // Rec.TestField(Name);
+
+         OnAfterTakeNewPicture(Rec, DoTakeNewPicture());
+     end;*/
+
+    /*local procedure DoTakeNewPicture(): Boolean
+    var
+        PictureInstream: InStream;
+        PictureDescription: Text;
+    begin
+        if Rec.Picture.Count() > 0 then
+            if not Confirm(OverrideImageQst) then
+                exit(false);
+
+        if Camera.GetPicture(PictureInstream, PictureDescription) then begin
+            Clear(Rec.Picture);
+            Rec.Picture.ImportStream(PictureInstream, PictureDescription, MimeTypeTok);
+            Rec.Modify(true);
+            exit(true);
+        end;
+
+        exit(false);
+    end;*/
+
+
+    procedure IsCameraAvailable(): Boolean
+    begin
+        exit(Camera.IsAvailable());
+    end;
+
+    procedure SetHideActions()
+    begin
+        HideActions := true;
+    end;
+
+    procedure DeleteItemPicture()
+    begin
+        Rec.TestField("Code");
+
+        if not Confirm(DeleteImageQst) then
+            exit;
+
+        Clear(Rec."Front Picture");
+        Rec.Modify(true);
+
+        OnAfterDeleteDesignPicture(Rec);
+    end;
+
+    /*local procedure ExporItemPicture()
+    var
+        index: Integer;
+        Media: Record "Tenant Media";
+        InStream: InStream;
+        Base64: Codeunit "Base64 Convert";
+        output: Text[250];
+        Mime: Text[250];
+        FileName: Text[250];
+    begin
+        if Rec.Picture.count = 0 then begin
+            output := 'No Content';
+            Mime := '';
+            FileName := '';
+        end else
+            for index := 1 to Rec.Picture.COUNT do begin
+                if Media.Get(Rec.Picture.Item(index)) then begin
+                    Media.CalcFields(Content);
+                    if Media.Content.HasValue() then begin
+                        Media.Content.createInStream(InStream, TextEncoding::WINDOWS);
+                        output := Base64.ToBase64(InStream);
+                        Mime := Media."Mime Type";
+                        FileName := Rec."Code" + '' + Rec.Description + GetImgFileExt(Mime);
+                    end;
+                end;
+            end;
+    end;*/
+
+    procedure GetImgFileExt(var "Mime Type": Text[250]): Text
+    begin
+        case "Mime Type" of
+            'image / jpeg':
+                exit('.jpg');
+            'image/png':
+                exit('.png');
+            'image/bmp':
+                exit('.bmp');
+            'image/gif':
+                exit('.gif');
+            'image/tiff':
+                exit('.tiff');
+            'image/wmf':
+                exit('.wmf');
+        end;
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnAfterDeleteDesignPicture(var Look: Record Look)
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnAfterTakeNewPicture(var Look: Record Look; IsPictureAdded: Boolean)
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnImportFromDeviceOnAfterModify(var Look: Record Look)
+    begin
+    end;
+
+
+
+    trigger OnAfterGetCurrRecord()
+    var
+        myInt: Integer;
+        DocAttachement: Record "Record Link";
+        RecordRef: RecordRef;
+        FieldRef: FieldRef;
+        RecordLinkMgt: Codeunit "Record Link Management";
+        CustomerLookVersion: Record "Customer Look Version";
+        Front: Text[1000];
+        Look: Record Look;
+        SharePointManagement: Codeunit "Sharepoint Management";
+        SharepointAuth: Codeunit "SharePoint Auth.";
+        SharePointClient: Codeunit "SharePoint Client";
+        Scopes: List of [Text];
+        SharepointMgt: Codeunit "Sharepoint Management";
+        HttpClient: HttpClient;
+        Response: HttpResponseMessage;
+        ImageStream: InStream;
+        SharepointUrl: Text;
+        TempBlob: Codeunit "Temp Blob";
+        OutS: OutStream;
+        ShareList: Page "Sharepoint File List";
+        FileName: Text;
+    begin
+
+        //InitializeConnection();
+        // SharepointMgt.OpenFile('/Shared Documents/back (1).png');
+
+
+
+        /*RecordRef.Open(50290);
+        FieldRef := RecordRef.Field(1);
+        FieldRef.Value := rec.Code;
+        if RecordRef.Find('=') then begin
+            DocAttachement.setrange("Record ID", RecordRef.RecordId);
+            DocAttachement.SetFilter(Description, 'Front');
+            if DocAttachement.FindFirst() then begin
+                Front := DocAttachement.URL1;
+                //Message(Front);
+            end;
+        end;
+       */
+
+        //HttpClient.Get(Front, Response);
+
+
+        // Check if the request was successful (status code 200)
+        /*if Response.HttpStatusCode = 200 then begin
+            // Open a stream to save the downloaded image
+            //ImageStream.CREATEOUTSTREAM(ImageStream);
+
+            // Read the response stream and save it to the image stream
+            Response.Content.ReadAs(ImageStream);
+
+            // Close the response
+
+
+            // Save the image to a file
+            ImageStream.Position := 0;
+            //CopyStream(ImageStream, 'C:\Path\To\Local\Image.jpg');
+
+            TempBlob.CreateOutStream(OutS);
+            OutS.Write(ImageStream);
+            TempBlob.CreateInStream(ImageStream);
+            DownloadFromStream(ImageStream, '', '', '', FileName);
+
+
+
+            Message('Image downloaded successfully.');
+        end
+        else begin
+            Message('Failed to download image. Status code: %1', Response.HttpStatusCode);
+        end;
+*/
+
+
+
+
+        /*OutS := TempBlob.CreateOutStream();
+        OutS.Write('Testing file contents');
+        InStr := TempBlob.CreateInStream();
+
+        if SaveFile('sites/Designs2/Shared%20Documents/Looks/LOK000035/VER0001/front.png', 'New File.txt', InStr) then
+            Message('File created successfully!');
+
+
+
+        //Clear(Response);
+        Clear(Client);
+        Clear(Rec.Picture);
+        Look.Get(Rec.Code);
+        //Client.Get(Front, Response);
+        Response.Content.ReadAs(InStr);
+        rec.Picture.ImportStream(InStr, 'Demo picture for item ' + Format(Rec.Code));
+        rec.Modify(true);
+
+
+        /*  Rec.TestField(Code);
+          if UploadIntoStream(DialogCaption, '', FileFilter, FileName, PictureStream) then begin
+              Clear(Rec.Picture);
+              Rec.Picture.ImportStream(PictureStream, FileName);
+              Rec.Modify(TRUE);
+          end;*/
+        //ParentFolderURL := SharePointManagement.GetDocumentsRootFiles(SharepointFolder, SharepointFile);
+
+    end;
+
+
+
+
+    trigger OnAfterGetRecord()
+    var
+        myInt: Integer;
+    begin
+        rec.CalcFields(Content);
+    end;
+
+
+    var
+
+        TempPic: Record Look;
+        ParentFolderURL: Text;
+        SharepointFile: Record "SharePoint File" temporary;
+        SharepointFileList: Record "Sharepoint File List" temporary;
+        SharepointFolder: Record "SharePoint Folder" temporary;
+        InStr: InStream;
+        Client: HttpClient;
+        Content: HttpContent;
+        Response: HttpResponseMessage;
+        Connected: Boolean;
+        SharePointClient: Codeunit "SharePoint Client";
+        DiagError: Label 'Sharepoint Management error:\\%1';
+}
+

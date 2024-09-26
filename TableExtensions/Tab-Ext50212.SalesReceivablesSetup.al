@@ -30,5 +30,20 @@ tableextension 50212 "Sales & Receivables Setup - ER" extends "Sales & Receivabl
         {
 
         }*/
+        field(50306; "Look Nos."; Code[20])
+        {
+            DataClassification = ToBeClassified;
+            TableRelation = "No. Series";
+        }
+        field(50307; "Look Version Nos."; Code[20])
+        {
+            DataClassification = ToBeClassified;
+            TableRelation = "No. Series";
+        }
+        field(50308; "Item Look Version Nos."; Code[20])
+        {
+            DataClassification = ToBeClassified;
+            TableRelation = "No. Series";
+        }
     }
 }

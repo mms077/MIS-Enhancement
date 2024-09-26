@@ -258,6 +258,41 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Customer Departments - Field Department Name - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2275371915 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer Look Version</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Customer Look Version - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2275371915 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Customer Look Version - Field Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2275371915 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Customer Look Version - Field Customer No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2275371915 - Field 1046738939 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Is Printable</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Customer Look Version - Field Is Printable - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2275371915 - Field 438785918 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Look Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Customer Look Version - Field Look Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2275371915 - Field 3995529516 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Look Version Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Customer Look Version - Field Look Version Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2275371915 - Field 1351594800 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No. Series</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Customer Look Version - Field No. Series - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3667967206 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cut</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1643,6 +1678,51 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Item Fit - Field Item No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2049738780 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Look Version</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Item Look Version - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2049738780 - Field 3702373668 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Category</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Item Look Version - Field Category - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2049738780 - Field 1249475212 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Created</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Item Look Version - Field Created - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2049738780 - Field 926452758 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Design</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Item Look Version - Field Design - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2049738780 - Field 568743302 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Item Look Version - Field Item No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2049738780 - Field 438785918 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Look Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Item Look Version - Field Look Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2049738780 - Field 3995529516 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Look Version Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Item Look Version - Field Look Version Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2049738780 - Field 1351594800 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No. Series</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Item Look Version - Field No. Series - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2049738780 - Field 1878130204 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Item Look Version - Field Type - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1122261788 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Item Size</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1718,6 +1798,61 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Item Size - Field US - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2837885657 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Version</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Item Version - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2837885657 - Field 3702373668 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Category</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Item Version - Field Category - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2837885657 - Field 926452758 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Design</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Item Version - Field Design - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2837885657 - Field 2303302321 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gender</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Item Version - Field Gender - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2837885657 - Field 2303302321 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source> ,Male,Female,Unisex</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Item Version - Field Gender - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Table 2837885657 - Field 2842094365 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Item Version - Field Item Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2837885657 - Field 568743302 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Item Version - Field Item No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2837885657 - Field 3320823955 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Item Version - Field Line No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2837885657 - Field 438785918 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Look Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Item Version - Field Look Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2837885657 - Field 3439845708 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Look Version code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Item Version - Field Look Version code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2837885657 - Field 1878130204 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Item Version - Field Type - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2565812202 - Field 2686962215 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>id</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1732,6 +1867,196 @@
           <source>Job Queue Id</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Job Queue Selection - Field Job Queue Id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3357772017 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Look</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3357772017 - Field 1924857641 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Back Picture</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look - Field Back Picture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3357772017 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look - Field Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3357772017 - Field 2166181827 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Content</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look - Field Content - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3357772017 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3357772017 - Field 1862273439 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Front Picture</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look - Field Front Picture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3357772017 - Field 2303302321 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gender</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look - Field Gender - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3357772017 - Field 2303302321 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source> ,Male,Female,Unisex</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look - Field Gender - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Table 3357772017 - Field 1351594800 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No. Series</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look - Field No. Series - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3357772017 - Field 1759012544 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sides Picture</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look - Field Sides Picture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3456889890 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Look Detail</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look Detail - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3456889890 - Field 3702373668 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Category</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look Detail - Field Category - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3456889890 - Field 926452758 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Design</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look Detail - Field Design - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3456889890 - Field 2303302321 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gender</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look Detail - Field Gender - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3456889890 - Field 2303302321 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source> ,Male,Female,Unisex</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look Detail - Field Gender - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Table 3456889890 - Field 2842094365 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look Detail - Field Item Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3456889890 - Field 568743302 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look Detail - Field Item No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3456889890 - Field 3320823955 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look Detail - Field Line No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3456889890 - Field 438785918 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Look Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look Detail - Field Look Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3456889890 - Field 3439845708 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Look Version code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look Detail - Field Look Version code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3456889890 - Field 1878130204 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look Detail - Field Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3656623311 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Look Version</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look Version - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3656623311 - Field 789896252 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Add 1</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look Version - Field Add 1 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3656623311 - Field 1427592869 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Add 2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look Version - Field Add 2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3656623311 - Field 2065289486 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Add 3</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look Version - Field Add 3 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3656623311 - Field 1924857641 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Back Picture</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look Version - Field Back Picture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3656623311 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look Version - Field Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3656623311 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look Version - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3656623311 - Field 1862273439 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Front Picture</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look Version - Field Front Picture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3656623311 - Field 438785918 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Look Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look Version - Field Look Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3656623311 - Field 1351594800 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No. Series</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look Version - Field No. Series - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3656623311 - Field 1594621544 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Image</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look Version - Field Picture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3656623311 - Field 1759012544 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sides Picture</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look Version - Field Sides Picture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2092225633 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Look Version Positions</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look Version Positions - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2092225633 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look Version Positions - Field Customer No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2092225633 - Field 438785918 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Look Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look Version Positions - Field Look Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2092225633 - Field 3995529516 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Look Version Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look Version Positions - Field Look Version Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2092225633 - Field 56735747 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Position</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look Version Positions - Field Position - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2043821806 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Measurement</source>
@@ -2723,6 +3048,71 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Section Group - Field Show On MO Report - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1592802831 - Field 652819368 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Client ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sharepoint Connector Setup - Field Client ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1592802831 - Field 2529110793 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Client Secret</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sharepoint Connector Setup - Field Client Secret - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1592802831 - Field 1663593181 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Primary Key</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sharepoint Connector Setup - Field Primary Key - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1592802831 - Field 2016496158 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sharepoint URL</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sharepoint Connector Setup - Field Sharepoint URL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1592802831 - Field 1799071406 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sharepoint URL Http</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sharepoint Connector Setup - Field Sharepoint URL Http - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1108652607 - Field 1249475212 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Created</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sharepoint File List - Field Created - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1108652607 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sharepoint File List - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1108652607 - Field 3782382602 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Folder</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sharepoint File List - Field Folder - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1108652607 - Field 415504711 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Id</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sharepoint File List - Field Id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1108652607 - Field 3861415142 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Odata.Id</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sharepoint File List - Field OdataId - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1108652607 - Field 2706886222 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Pic</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sharepoint File List - Field Pic - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1108652607 - Field 2123145358 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Server Relative Url</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sharepoint File List - Field Server Relative Url - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1108652607 - Field 329424276 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Title</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sharepoint File List - Field Title - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3964473375 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Size</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3042,6 +3432,46 @@
           <source>Name</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Tonality - Field Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2539802389 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Version Detail</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Version Detail - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2539802389 - Field 3702373668 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Category</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Version Detail - Field Category - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2539802389 - Field 926452758 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Design</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Version Detail - Field Design - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2539802389 - Field 2842094365 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Version Detail - Field Item Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2539802389 - Field 568743302 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Version Detail - Field Item No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2539802389 - Field 3320823955 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Version Detail - Field Line No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2539802389 - Field 1878130204 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Version Detail - Field Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2539802389 - Field 3414580985 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Version Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Version Detail - Field Version Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3994858080 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Wizard Departments</source>
@@ -3428,6 +3858,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Set Job Queue Ready - Method RunJobQueueEntryOnce - NamedType JobQueueWorkflowSetupErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 368729742 - NamedType 4082370941" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sharepoint Management error:\\%1</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Sharepoint Management - NamedType DiagError</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 368729742 - Method 4072664675 - NamedType 64514161" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Base Url %1 does not seem to be a valid SharePoint Online Url.</source>
+          <note from="Developer" annotates="general" priority="2">%1=BaseUrl</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Sharepoint Management - Method GetAadTenantNameFromBaseUrl - NamedType UrlInvalidErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 368729742 - Method 3916566506 - NamedType 1733285004" size-unit="char" translate="yes" xml:space="preserve">
+          <source>File not found.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Sharepoint Management - Method OpenFileLooks - NamedType FileNotFoundErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 368729742 - Method 3490596801 - NamedType 1733285004" size-unit="char" translate="yes" xml:space="preserve">
+          <source>File not found.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Sharepoint Management - Method OpenFileLookVersion - NamedType FileNotFoundErr</note>
+        </trans-unit>
         <trans-unit id="Page 3983627931 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Assembly Lines - ER</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3677,6 +4127,11 @@
           <source>Positions</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Customer Departments - Action Department Positions - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2275371915 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer Look Version</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Customer Look Version - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3069436083 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cuts</source>
@@ -4438,6 +4893,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Item Fits - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2049738780 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Look Version</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Item Look Version - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2049738780 - Action 3216809295 - Method 1377591017 - NamedType 2669812822" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There is no No. Series related to this category</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Item Look Version - Action Create New Item - Method OnAction - NamedType Txt0002</note>
+        </trans-unit>
+        <trans-unit id="Page 2049738780 - Action 3216809295 - Method 1377591017 - NamedType 2032116205" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Look:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Item Look Version - Action Create New Item - Method OnAction - NamedType Txt0003</note>
+        </trans-unit>
+        <trans-unit id="Page 2049738780 - Action 3216809295 - Method 1377591017 - NamedType 3138600416" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Version:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Item Look Version - Action Create New Item - Method OnAction - NamedType Txt0004</note>
+        </trans-unit>
         <trans-unit id="Page 1310190621 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Item Sizes</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4507,6 +4982,266 @@
           <source>Next</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Item Wizard 0 - Action Continueaction - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3185107251 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Look Form</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Form - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3185107251 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Form - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 269683589 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Look Picture</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Picture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 269683589 - NamedType 2865259996" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Are you sure you want to delete the picture?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Picture - NamedType DeleteImageQst</note>
+        </trans-unit>
+        <trans-unit id="Page 269683589 - NamedType 4082370941" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sharepoint Management error:\\%1</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Picture - NamedType DiagError</note>
+        </trans-unit>
+        <trans-unit id="Page 269683589 - NamedType 992573177" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You must add a description to the item before you can import a picture.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Picture - NamedType MustSpecifyDescriptionErr</note>
+        </trans-unit>
+        <trans-unit id="Page 269683589 - NamedType 1398852855" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The existing picture will be replaced. Do you want to continue?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Picture - NamedType OverrideImageQst</note>
+        </trans-unit>
+        <trans-unit id="Page 269683589 - NamedType 464428880" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Select a picture to upload</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Picture - NamedType SelectPictureTxt</note>
+        </trans-unit>
+        <trans-unit id="Page 269683589 - Control 1594621544 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the picture that has been inserted for the design.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Picture - Control Picture - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 269683589 - Action 3119204463 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete the record.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Picture - Action DeletePicture - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 269683589 - Action 3119204463 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Picture - Action DeletePicture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 269683589 - Action 2665042526 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Export the picture to a file.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Picture - Action ExportFile - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 269683589 - Action 2665042526 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Export</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Picture - Action ExportFile - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 269683589 - Action 3916340059 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import a picture file.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Picture - Action Import Picture - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 269683589 - Action 3916340059 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Picture - Action Import Picture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 269683589 - Action 3916340059 - Method 1377591017 - NamedType 2723898874" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Select a picture to upload</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Picture - Action Import Picture - Method OnAction - NamedType DialogCaption</note>
+        </trans-unit>
+        <trans-unit id="Page 269683589 - Action 193806208 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import a picture file from URL.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Picture - Action ImportPictureFromURL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 269683589 - Action 193806208 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import From URL</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Picture - Action ImportPictureFromURL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 269683589 - Action 3051446377 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Activate the camera on the device.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Picture - Action TakePicture - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 269683589 - Action 3051446377 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Take</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Picture - Action TakePicture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2750819591 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Look Details</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Subform - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2750819591 - Control 438785918 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Look Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Subform - Control Look Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2750819591 - Action 1440111802 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create Design</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Subform - Action Create Design - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2750819591 - Action 1440111802 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create Design</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Subform - Action Create Design - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2750819591 - Action 1440111802 - Method 1377591017 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Skeleton Design for </source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Subform - Action Create Design - Method OnAction - NamedType Text001</note>
+        </trans-unit>
+        <trans-unit id="Page 3656623311 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Look Version</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Version - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3656623311 - Control 3461834954 - Method 2126772001 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The link with ID %1 has been added.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Version - Control Description - Method OnValidate - NamedType Text000</note>
+        </trans-unit>
+        <trans-unit id="Page 3656623311 - Control 1658766258 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attachments</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Version - Control Attached Documents - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3656623311 - Control 1368373035 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Picture</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Version - Control ItemPicture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2811928323 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Look Version Picture</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Version Picture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2811928323 - NamedType 2865259996" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Are you sure you want to delete the picture?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Version Picture - NamedType DeleteImageQst</note>
+        </trans-unit>
+        <trans-unit id="Page 2811928323 - NamedType 4082370941" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sharepoint Management error:\\%1</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Version Picture - NamedType DiagError</note>
+        </trans-unit>
+        <trans-unit id="Page 2811928323 - NamedType 992573177" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You must add a description to the item before you can import a picture.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Version Picture - NamedType MustSpecifyDescriptionErr</note>
+        </trans-unit>
+        <trans-unit id="Page 2811928323 - NamedType 1398852855" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The existing picture will be replaced. Do you want to continue?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Version Picture - NamedType OverrideImageQst</note>
+        </trans-unit>
+        <trans-unit id="Page 2811928323 - NamedType 464428880" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Select a picture to upload</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Version Picture - NamedType SelectPictureTxt</note>
+        </trans-unit>
+        <trans-unit id="Page 2811928323 - Control 1594621544 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the picture that has been inserted for the design.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Version Picture - Control Picture - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2811928323 - Action 3119204463 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete the record.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Version Picture - Action DeletePicture - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2811928323 - Action 3119204463 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Version Picture - Action DeletePicture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2811928323 - Action 2665042526 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Export the picture to a file.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Version Picture - Action ExportFile - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2811928323 - Action 2665042526 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Export</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Version Picture - Action ExportFile - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2811928323 - Action 3916340059 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import a picture file.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Version Picture - Action Import Picture - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2811928323 - Action 3916340059 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Version Picture - Action Import Picture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2811928323 - Action 3916340059 - Method 1377591017 - NamedType 2723898874" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Select a picture to upload</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Version Picture - Action Import Picture - Method OnAction - NamedType DialogCaption</note>
+        </trans-unit>
+        <trans-unit id="Page 2811928323 - Action 193806208 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import a picture file from URL.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Version Picture - Action ImportPictureFromURL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2811928323 - Action 193806208 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import From URL</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Version Picture - Action ImportPictureFromURL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2811928323 - Action 3051446377 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Activate the camera on the device.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Version Picture - Action TakePicture - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2811928323 - Action 3051446377 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Take</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Version Picture - Action TakePicture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2092225633 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Look Version Positions</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Look Version Positions - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1017280232 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Looks</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Looks - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1017280232 - Control 2961552353 - Method 2126772001 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The link with ID %1 has been added.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Looks - Control Name - Method OnValidate - NamedType Text000</note>
+        </trans-unit>
+        <trans-unit id="Page 1017280232 - Control 1658766258 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attachments</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Looks - Control Attached Documents - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1017280232 - Control 1368373035 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Picture</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Looks - Control ItemPicture - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 661335896 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Measurement Categories</source>
@@ -4612,6 +5347,26 @@
           <source>An assembly has been already created for Item No. %1 in the Line No. %2</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Parameters Form - Action CreateNeededRawMaterials - Method OnAction - NamedType Txt001</note>
+        </trans-unit>
+        <trans-unit id="Page 1594031809 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Picture URL Dialog</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Picture URL Dialog - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1594031809 - Control 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Picture URL Dialog - Control Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1594031809 - Control 718999074 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Look Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Picture URL Dialog - Control LookDesc - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1594031809 - Control 3737790081 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Picture URL</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Picture URL Dialog - Control PictureURL - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3094256300 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Plotting Files FactBox</source>
@@ -5138,6 +5893,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sections - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1108652607 - Action 3628747446 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create File</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sharepoint File List - Action CreateFile - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1108652607 - Action 2221265558 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open File</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sharepoint File List - Action OpenFile - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4065582237 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Size Categories</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -5317,6 +6082,26 @@
           <source>Take</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Variant Picture - Action TakePicture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1627217056 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Version</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Version Form - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1627217056 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Version Form - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1092099076 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Version Details</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Version Subform - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1092099076 - Action 1410115443 - Method 1377591017 - NamedType 2669812822" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There is no No. Series related to this category</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Version Subform - Action Create Item - Method OnAction - NamedType Txt0002</note>
         </trans-unit>
         <trans-unit id="Page 3994858080 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Wizard Departments</source>
@@ -16267,6 +17052,21 @@
           <source>Cutting Sheet Workflow Group</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales &amp; Receivables Setup - ER - Field Cutting Sheet Workflow Group - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1118401208 - Field 741900512 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4145206282">
+          <source>Item Look Version Nos.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales &amp; Receivables Setup - ER - Field Item Look Version Nos. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1118401208 - Field 1619659445 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4145206282">
+          <source>Look Nos.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales &amp; Receivables Setup - ER - Field Look Nos. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1118401208 - Field 3803748643 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4145206282">
+          <source>Look Version Nos.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales &amp; Receivables Setup - ER - Field Look Version Nos. - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1118401208 - Field 1594621544 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4145206282">
           <source>Picture</source>

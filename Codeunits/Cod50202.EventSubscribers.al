@@ -749,7 +749,8 @@ codeunit 50202 EventSubscribers
         SalesHeader: Record "Sales Header";
     begin
         SalesHeader.Reset();
-        if SalesHeader.get(SalesHeader."Document Type"::Order, RequisitionLine."Demand Order No.") then
+        if SalesHeader.get(SalesHeader."Document Type"::Order, RequisitionLine."Demand Order No.") then begin
+
             if SalesHeader."IC Customer SO No." <> '' then begin
                 PurchaseHeader."IC Source No." := SalesHeader."IC Source No.";
                 PurchaseHeader."IC Company Name" := SalesHeader."IC Company Name";
@@ -762,6 +763,10 @@ codeunit 50202 EventSubscribers
                 PurchaseHeader."IC Customer Project Code" := SalesHeader."Cust Project";
                 PurchaseHeader."IC Customer SO No." := SalesHeader."No.";
             end;
+            //Adding requested receipt date and promised receipt date
+            PurchaseHeader.Validate("Requested Receipt Date", SalesHeader."Requested Delivery Date");
+            PurchaseHeader.Validate("Promised Receipt Date", SalesHeader."Promised Delivery Date");
+        end;
     end;
 
     #endregion

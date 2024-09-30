@@ -11,6 +11,403 @@
       <rd:DataSourceID>e1da0be7-fca5-40b6-a3d0-f95739226a90</rd:DataSourceID>
     </DataSource>
   </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+      <Fields>
+        <Field Name="selectedInvoice">
+          <DataField>selectedInvoice</DataField>
+        </Field>
+        <Field Name="InvoiceLabel">
+          <DataField>InvoiceLabel</DataField>
+        </Field>
+        <Field Name="FrenchReport">
+          <DataField>FrenchReport</DataField>
+        </Field>
+        <Field Name="OfLabel">
+          <DataField>OfLabel</DataField>
+        </Field>
+        <Field Name="ShowNotice">
+          <DataField>ShowNotice</DataField>
+        </Field>
+        <Field Name="ShowStamp">
+          <DataField>ShowStamp</DataField>
+        </Field>
+        <Field Name="Company_Picture">
+          <DataField>Company_Picture</DataField>
+        </Field>
+        <Field Name="Company_Capital">
+          <DataField>Company_Capital</DataField>
+        </Field>
+        <Field Name="Company_CapitalFormat">
+          <DataField>Company_CapitalFormat</DataField>
+        </Field>
+        <Field Name="Company_Vat">
+          <DataField>Company_Vat</DataField>
+        </Field>
+        <Field Name="Comapny_Phone">
+          <DataField>Comapny_Phone</DataField>
+        </Field>
+        <Field Name="Company_Email">
+          <DataField>Company_Email</DataField>
+        </Field>
+        <Field Name="Company_Address">
+          <DataField>Company_Address</DataField>
+        </Field>
+        <Field Name="Company_Bank_Account">
+          <DataField>Company_Bank_Account</DataField>
+        </Field>
+        <Field Name="Company_SWIFT">
+          <DataField>Company_SWIFT</DataField>
+        </Field>
+        <Field Name="Company_IBAN">
+          <DataField>Company_IBAN</DataField>
+        </Field>
+        <Field Name="Company_City">
+          <DataField>Company_City</DataField>
+        </Field>
+        <Field Name="Company_RIB">
+          <DataField>Company_RIB</DataField>
+        </Field>
+        <Field Name="Company_Bank">
+          <DataField>Company_Bank</DataField>
+        </Field>
+        <Field Name="Company_BankBranch">
+          <DataField>Company_BankBranch</DataField>
+        </Field>
+        <Field Name="LCY_Code">
+          <DataField>LCY_Code</DataField>
+        </Field>
+        <Field Name="MOFReceipt">
+          <DataField>MOFReceipt</DataField>
+        </Field>
+        <Field Name="PSHNB">
+          <DataField>PSHNB</DataField>
+        </Field>
+        <Field Name="InvoiceNb">
+          <DataField>InvoiceNb</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_No">
+          <DataField>Sales_Shipment_No</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Posting_Date">
+          <DataField>Sales_Shipment_Posting_Date</DataField>
+        </Field>
+        <Field Name="Due_Balance">
+          <DataField>Due_Balance</DataField>
+        </Field>
+        <Field Name="Due_BalanceFormat">
+          <DataField>Due_BalanceFormat</DataField>
+        </Field>
+        <Field Name="AmountinWords">
+          <DataField>AmountinWords</DataField>
+        </Field>
+        <Field Name="MOF_Recipt_No">
+          <DataField>MOF_Recipt_No</DataField>
+        </Field>
+        <Field Name="TotalLineDiscountAmt">
+          <DataField>TotalLineDiscountAmt</DataField>
+        </Field>
+        <Field Name="TotalLineDiscountAmtFormat">
+          <DataField>TotalLineDiscountAmtFormat</DataField>
+        </Field>
+        <Field Name="BarcodeText">
+          <DataField>BarcodeText</DataField>
+        </Field>
+        <Field Name="BillTo_Name">
+          <DataField>BillTo_Name</DataField>
+        </Field>
+        <Field Name="BillTo_No">
+          <DataField>BillTo_No</DataField>
+        </Field>
+        <Field Name="BillTo_Address">
+          <DataField>BillTo_Address</DataField>
+        </Field>
+        <Field Name="BillTo_Phone">
+          <DataField>BillTo_Phone</DataField>
+        </Field>
+        <Field Name="BillTo_FiscalCode">
+          <DataField>BillTo_FiscalCode</DataField>
+        </Field>
+        <Field Name="BillTo_Currency">
+          <DataField>BillTo_Currency</DataField>
+        </Field>
+        <Field Name="BillTo_PurchOrderRef">
+          <DataField>BillTo_PurchOrderRef</DataField>
+        </Field>
+        <Field Name="BillTo_PayTerms">
+          <DataField>BillTo_PayTerms</DataField>
+        </Field>
+        <Field Name="BillTo_DueDate">
+          <DataField>BillTo_DueDate</DataField>
+        </Field>
+        <Field Name="ShipTo_Name">
+          <DataField>ShipTo_Name</DataField>
+        </Field>
+        <Field Name="ShipTo_Address">
+          <DataField>ShipTo_Address</DataField>
+        </Field>
+        <Field Name="ShipTo_Phone">
+          <DataField>ShipTo_Phone</DataField>
+        </Field>
+        <Field Name="ShipTo_ReceiverName">
+          <DataField>ShipTo_ReceiverName</DataField>
+        </Field>
+        <Field Name="ShipTo_ReceiverContact">
+          <DataField>ShipTo_ReceiverContact</DataField>
+        </Field>
+        <Field Name="ShipTo_ShippingMode">
+          <DataField>ShipTo_ShippingMode</DataField>
+        </Field>
+        <Field Name="ShipTo_Carrier">
+          <DataField>ShipTo_Carrier</DataField>
+        </Field>
+        <Field Name="ShipTo_Project">
+          <DataField>ShipTo_Project</DataField>
+        </Field>
+        <Field Name="SalesShipmentLabel">
+          <DataField>SalesShipmentLabel</DataField>
+        </Field>
+        <Field Name="InvoiceDateLabel">
+          <DataField>InvoiceDateLabel</DataField>
+        </Field>
+        <Field Name="BillingInfoLabel">
+          <DataField>BillingInfoLabel</DataField>
+        </Field>
+        <Field Name="ShippingInfoLabel">
+          <DataField>ShippingInfoLabel</DataField>
+        </Field>
+        <Field Name="CustomerNameLabel">
+          <DataField>CustomerNameLabel</DataField>
+        </Field>
+        <Field Name="CodeLabel">
+          <DataField>CodeLabel</DataField>
+        </Field>
+        <Field Name="BillingAddressLabel">
+          <DataField>BillingAddressLabel</DataField>
+        </Field>
+        <Field Name="PhoneLabel">
+          <DataField>PhoneLabel</DataField>
+        </Field>
+        <Field Name="FiscalCodeLabel">
+          <DataField>FiscalCodeLabel</DataField>
+        </Field>
+        <Field Name="CurrencyLabel">
+          <DataField>CurrencyLabel</DataField>
+        </Field>
+        <Field Name="PurchOrderRefLabel">
+          <DataField>PurchOrderRefLabel</DataField>
+        </Field>
+        <Field Name="PaymentTermsLabel">
+          <DataField>PaymentTermsLabel</DataField>
+        </Field>
+        <Field Name="ShippingTermsLabel">
+          <DataField>ShippingTermsLabel</DataField>
+        </Field>
+        <Field Name="DueDateLabel">
+          <DataField>DueDateLabel</DataField>
+        </Field>
+        <Field Name="ShippingAddressLabel">
+          <DataField>ShippingAddressLabel</DataField>
+        </Field>
+        <Field Name="ReceiverNameLabel">
+          <DataField>ReceiverNameLabel</DataField>
+        </Field>
+        <Field Name="ReceiverContactLabel">
+          <DataField>ReceiverContactLabel</DataField>
+        </Field>
+        <Field Name="ShippingModeLabel">
+          <DataField>ShippingModeLabel</DataField>
+        </Field>
+        <Field Name="CarrierLabel">
+          <DataField>CarrierLabel</DataField>
+        </Field>
+        <Field Name="BillRefNumberLabel">
+          <DataField>BillRefNumberLabel</DataField>
+        </Field>
+        <Field Name="CapitalLabel">
+          <DataField>CapitalLabel</DataField>
+        </Field>
+        <Field Name="VATCodeLabel">
+          <DataField>VATCodeLabel</DataField>
+        </Field>
+        <Field Name="AddressLabel">
+          <DataField>AddressLabel</DataField>
+        </Field>
+        <Field Name="BankAccountLabel">
+          <DataField>BankAccountLabel</DataField>
+        </Field>
+        <Field Name="SWIFTLabel">
+          <DataField>SWIFTLabel</DataField>
+        </Field>
+        <Field Name="PrintedOnLabel">
+          <DataField>PrintedOnLabel</DataField>
+        </Field>
+        <Field Name="HSCodeLabel">
+          <DataField>HSCodeLabel</DataField>
+        </Field>
+        <Field Name="ItemCodeLabel">
+          <DataField>ItemCodeLabel</DataField>
+        </Field>
+        <Field Name="ProductLabel">
+          <DataField>ProductLabel</DataField>
+        </Field>
+        <Field Name="SizeLabel">
+          <DataField>SizeLabel</DataField>
+        </Field>
+        <Field Name="QtyLabel">
+          <DataField>QtyLabel</DataField>
+        </Field>
+        <Field Name="UnitPriceLabel">
+          <DataField>UnitPriceLabel</DataField>
+        </Field>
+        <Field Name="TotalPriceLabel">
+          <DataField>TotalPriceLabel</DataField>
+        </Field>
+        <Field Name="TotalLabel">
+          <DataField>TotalLabel</DataField>
+        </Field>
+        <Field Name="DiscountLabel">
+          <DataField>DiscountLabel</DataField>
+        </Field>
+        <Field Name="VATLabel">
+          <DataField>VATLabel</DataField>
+        </Field>
+        <Field Name="GrossTotalLabel">
+          <DataField>GrossTotalLabel</DataField>
+        </Field>
+        <Field Name="AdvancePaymentLabel">
+          <DataField>AdvancePaymentLabel</DataField>
+        </Field>
+        <Field Name="DueBalanceLabel">
+          <DataField>DueBalanceLabel</DataField>
+        </Field>
+        <Field Name="FormLabel">
+          <DataField>FormLabel</DataField>
+        </Field>
+        <Field Name="FormNumber">
+          <DataField>FormNumber</DataField>
+        </Field>
+        <Field Name="IssueDateLabel">
+          <DataField>IssueDateLabel</DataField>
+        </Field>
+        <Field Name="IssueDateValue">
+          <DataField>IssueDateValue</DataField>
+        </Field>
+        <Field Name="RevisionDateLabel">
+          <DataField>RevisionDateLabel</DataField>
+        </Field>
+        <Field Name="MOFReceiptLabel">
+          <DataField>MOFReceiptLabel</DataField>
+        </Field>
+        <Field Name="RefLabel">
+          <DataField>RefLabel</DataField>
+        </Field>
+        <Field Name="ProjectLabel">
+          <DataField>ProjectLabel</DataField>
+        </Field>
+        <Field Name="TermsAndConditionsLabel">
+          <DataField>TermsAndConditionsLabel</DataField>
+        </Field>
+        <Field Name="ImportantNoticeLabel">
+          <DataField>ImportantNoticeLabel</DataField>
+        </Field>
+        <Field Name="TermsAndCondText">
+          <DataField>TermsAndCondText</DataField>
+        </Field>
+        <Field Name="TermsAndCondText_1">
+          <DataField>TermsAndCondText_1</DataField>
+        </Field>
+        <Field Name="TermsAndCondText_2">
+          <DataField>TermsAndCondText_2</DataField>
+        </Field>
+        <Field Name="TermsAndCondText_3">
+          <DataField>TermsAndCondText_3</DataField>
+        </Field>
+        <Field Name="TermsAndCondText_4">
+          <DataField>TermsAndCondText_4</DataField>
+        </Field>
+        <Field Name="TermsAndCondText_5">
+          <DataField>TermsAndCondText_5</DataField>
+        </Field>
+        <Field Name="TermsAndCondText_6">
+          <DataField>TermsAndCondText_6</DataField>
+        </Field>
+        <Field Name="TermsAndCondText_7">
+          <DataField>TermsAndCondText_7</DataField>
+        </Field>
+        <Field Name="TermsAndCondText_7_Infos">
+          <DataField>TermsAndCondText_7_Infos</DataField>
+        </Field>
+        <Field Name="TermsAndCondText_8">
+          <DataField>TermsAndCondText_8</DataField>
+        </Field>
+        <Field Name="TermsAndCondText_9">
+          <DataField>TermsAndCondText_9</DataField>
+        </Field>
+        <Field Name="TermsAndCondText_10">
+          <DataField>TermsAndCondText_10</DataField>
+        </Field>
+        <Field Name="TermsAndCondText_11">
+          <DataField>TermsAndCondText_11</DataField>
+        </Field>
+        <Field Name="TermsAndCondText_12">
+          <DataField>TermsAndCondText_12</DataField>
+        </Field>
+        <Field Name="TermsAndCondText_13">
+          <DataField>TermsAndCondText_13</DataField>
+        </Field>
+        <Field Name="TermsAndCondText_14">
+          <DataField>TermsAndCondText_14</DataField>
+        </Field>
+        <Field Name="TermsAndCondText_15">
+          <DataField>TermsAndCondText_15</DataField>
+        </Field>
+        <Field Name="TermsAndCondText_16">
+          <DataField>TermsAndCondText_16</DataField>
+        </Field>
+        <Field Name="TermsAndCondText_17">
+          <DataField>TermsAndCondText_17</DataField>
+        </Field>
+        <Field Name="Line_Type">
+          <DataField>Line_Type</DataField>
+        </Field>
+        <Field Name="Line_HS_Ccode">
+          <DataField>Line_HS_Ccode</DataField>
+        </Field>
+        <Field Name="Line_Item_No">
+          <DataField>Line_Item_No</DataField>
+        </Field>
+        <Field Name="Line_Item_Description">
+          <DataField>Line_Item_Description</DataField>
+        </Field>
+        <Field Name="Line_Size">
+          <DataField>Line_Size</DataField>
+        </Field>
+        <Field Name="Line_Qty">
+          <DataField>Line_Qty</DataField>
+        </Field>
+        <Field Name="Line_QtyFormat">
+          <DataField>Line_QtyFormat</DataField>
+        </Field>
+        <Field Name="Line_Unit_Price">
+          <DataField>Line_Unit_Price</DataField>
+        </Field>
+        <Field Name="Line_Unit_PriceFormat">
+          <DataField>Line_Unit_PriceFormat</DataField>
+        </Field>
+        <Field Name="DepartmentName">
+          <DataField>DepartmentName</DataField>
+        </Field>
+        <Field Name="PositionName">
+          <DataField>PositionName</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -3817,8 +4214,6 @@
                 <Source>Embedded</Source>
                 <Value>Notice</Value>
                 <Sizing>FitProportional</Sizing>
-                <Top>0cm</Top>
-                <Left>0cm</Left>
                 <Height>2.5cm</Height>
                 <Width>10.26497cm</Width>
                 <Visibility>
@@ -3833,7 +4228,6 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>14.87031cm</Top>
-            <Left>0cm</Left>
             <Height>2.5cm</Height>
             <Width>10.26497cm</Width>
             <ZIndex>3</ZIndex>
@@ -3888,7 +4282,7 @@
               <Top>2cm</Top>
               <Left>8.25cm</Left>
               <Height>0.72375cm</Height>
-              <Width>7.56941cm</Width>
+              <Width>8.63606cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -4049,8 +4443,6 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
-                  <Top>0cm</Top>
-                  <Left>0cm</Left>
                   <Height>0.4cm</Height>
                   <Width>7.7cm</Width>
                   <Style>
@@ -4280,7 +4672,6 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>0.4cm</Top>
-                  <Left>0cm</Left>
                   <Height>0.4cm</Height>
                   <Width>7.7cm</Width>
                   <ZIndex>7</ZIndex>
@@ -4336,7 +4727,6 @@
               </ReportItems>
               <KeepTogether>true</KeepTogether>
               <Top>1cm</Top>
-              <Left>0cm</Left>
               <Height>3.95cm</Height>
               <Width>8.02451cm</Width>
               <ZIndex>6</ZIndex>
@@ -4349,7 +4739,7 @@
             <Rectangle Name="Rectangle3">
               <KeepTogether>true</KeepTogether>
               <Top>1.2cm</Top>
-              <Left>16.10995cm</Left>
+              <Left>17.06245cm</Left>
               <Height>3.75cm</Height>
               <Width>1.71917cm</Width>
               <ZIndex>7</ZIndex>
@@ -4391,7 +4781,6 @@
               </Paragraphs>
               <rd:DefaultName>Textbox19</rd:DefaultName>
               <Top>0.5cm</Top>
-              <Left>0cm</Left>
               <Height>0.6cm</Height>
               <Width>6.5cm</Width>
               <Style>
@@ -4492,6 +4881,12 @@
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -4707,401 +5102,4 @@ C/HH/hA67/8AIVel0UAeaf8ADQfhf/oF+OP/AAgdd/8AkKj/AIaD8L/9Avxx/wCEDrv/AMhV6XRQB5p/
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Fields>
-        <Field Name="selectedInvoice">
-          <DataField>selectedInvoice</DataField>
-        </Field>
-        <Field Name="InvoiceLabel">
-          <DataField>InvoiceLabel</DataField>
-        </Field>
-        <Field Name="FrenchReport">
-          <DataField>FrenchReport</DataField>
-        </Field>
-        <Field Name="OfLabel">
-          <DataField>OfLabel</DataField>
-        </Field>
-        <Field Name="ShowNotice">
-          <DataField>ShowNotice</DataField>
-        </Field>
-        <Field Name="ShowStamp">
-          <DataField>ShowStamp</DataField>
-        </Field>
-        <Field Name="Company_Picture">
-          <DataField>Company_Picture</DataField>
-        </Field>
-        <Field Name="Company_Capital">
-          <DataField>Company_Capital</DataField>
-        </Field>
-        <Field Name="Company_CapitalFormat">
-          <DataField>Company_CapitalFormat</DataField>
-        </Field>
-        <Field Name="Company_Vat">
-          <DataField>Company_Vat</DataField>
-        </Field>
-        <Field Name="Comapny_Phone">
-          <DataField>Comapny_Phone</DataField>
-        </Field>
-        <Field Name="Company_Email">
-          <DataField>Company_Email</DataField>
-        </Field>
-        <Field Name="Company_Address">
-          <DataField>Company_Address</DataField>
-        </Field>
-        <Field Name="Company_Bank_Account">
-          <DataField>Company_Bank_Account</DataField>
-        </Field>
-        <Field Name="Company_SWIFT">
-          <DataField>Company_SWIFT</DataField>
-        </Field>
-        <Field Name="Company_IBAN">
-          <DataField>Company_IBAN</DataField>
-        </Field>
-        <Field Name="Company_City">
-          <DataField>Company_City</DataField>
-        </Field>
-        <Field Name="Company_RIB">
-          <DataField>Company_RIB</DataField>
-        </Field>
-        <Field Name="Company_Bank">
-          <DataField>Company_Bank</DataField>
-        </Field>
-        <Field Name="Company_BankBranch">
-          <DataField>Company_BankBranch</DataField>
-        </Field>
-        <Field Name="LCY_Code">
-          <DataField>LCY_Code</DataField>
-        </Field>
-        <Field Name="MOFReceipt">
-          <DataField>MOFReceipt</DataField>
-        </Field>
-        <Field Name="PSHNB">
-          <DataField>PSHNB</DataField>
-        </Field>
-        <Field Name="InvoiceNb">
-          <DataField>InvoiceNb</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_No">
-          <DataField>Sales_Shipment_No</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Posting_Date">
-          <DataField>Sales_Shipment_Posting_Date</DataField>
-        </Field>
-        <Field Name="Due_Balance">
-          <DataField>Due_Balance</DataField>
-        </Field>
-        <Field Name="Due_BalanceFormat">
-          <DataField>Due_BalanceFormat</DataField>
-        </Field>
-        <Field Name="AmountinWords">
-          <DataField>AmountinWords</DataField>
-        </Field>
-        <Field Name="MOF_Recipt_No">
-          <DataField>MOF_Recipt_No</DataField>
-        </Field>
-        <Field Name="TotalLineDiscountAmt">
-          <DataField>TotalLineDiscountAmt</DataField>
-        </Field>
-        <Field Name="TotalLineDiscountAmtFormat">
-          <DataField>TotalLineDiscountAmtFormat</DataField>
-        </Field>
-        <Field Name="BarcodeText">
-          <DataField>BarcodeText</DataField>
-        </Field>
-        <Field Name="BillTo_Name">
-          <DataField>BillTo_Name</DataField>
-        </Field>
-        <Field Name="BillTo_No">
-          <DataField>BillTo_No</DataField>
-        </Field>
-        <Field Name="BillTo_Address">
-          <DataField>BillTo_Address</DataField>
-        </Field>
-        <Field Name="BillTo_Phone">
-          <DataField>BillTo_Phone</DataField>
-        </Field>
-        <Field Name="BillTo_FiscalCode">
-          <DataField>BillTo_FiscalCode</DataField>
-        </Field>
-        <Field Name="BillTo_Currency">
-          <DataField>BillTo_Currency</DataField>
-        </Field>
-        <Field Name="BillTo_PurchOrderRef">
-          <DataField>BillTo_PurchOrderRef</DataField>
-        </Field>
-        <Field Name="BillTo_PayTerms">
-          <DataField>BillTo_PayTerms</DataField>
-        </Field>
-        <Field Name="BillTo_DueDate">
-          <DataField>BillTo_DueDate</DataField>
-        </Field>
-        <Field Name="ShipTo_Name">
-          <DataField>ShipTo_Name</DataField>
-        </Field>
-        <Field Name="ShipTo_Address">
-          <DataField>ShipTo_Address</DataField>
-        </Field>
-        <Field Name="ShipTo_Phone">
-          <DataField>ShipTo_Phone</DataField>
-        </Field>
-        <Field Name="ShipTo_ReceiverName">
-          <DataField>ShipTo_ReceiverName</DataField>
-        </Field>
-        <Field Name="ShipTo_ReceiverContact">
-          <DataField>ShipTo_ReceiverContact</DataField>
-        </Field>
-        <Field Name="ShipTo_ShippingMode">
-          <DataField>ShipTo_ShippingMode</DataField>
-        </Field>
-        <Field Name="ShipTo_Carrier">
-          <DataField>ShipTo_Carrier</DataField>
-        </Field>
-        <Field Name="ShipTo_Project">
-          <DataField>ShipTo_Project</DataField>
-        </Field>
-        <Field Name="SalesShipmentLabel">
-          <DataField>SalesShipmentLabel</DataField>
-        </Field>
-        <Field Name="InvoiceDateLabel">
-          <DataField>InvoiceDateLabel</DataField>
-        </Field>
-        <Field Name="BillingInfoLabel">
-          <DataField>BillingInfoLabel</DataField>
-        </Field>
-        <Field Name="ShippingInfoLabel">
-          <DataField>ShippingInfoLabel</DataField>
-        </Field>
-        <Field Name="CustomerNameLabel">
-          <DataField>CustomerNameLabel</DataField>
-        </Field>
-        <Field Name="CodeLabel">
-          <DataField>CodeLabel</DataField>
-        </Field>
-        <Field Name="BillingAddressLabel">
-          <DataField>BillingAddressLabel</DataField>
-        </Field>
-        <Field Name="PhoneLabel">
-          <DataField>PhoneLabel</DataField>
-        </Field>
-        <Field Name="FiscalCodeLabel">
-          <DataField>FiscalCodeLabel</DataField>
-        </Field>
-        <Field Name="CurrencyLabel">
-          <DataField>CurrencyLabel</DataField>
-        </Field>
-        <Field Name="PurchOrderRefLabel">
-          <DataField>PurchOrderRefLabel</DataField>
-        </Field>
-        <Field Name="PaymentTermsLabel">
-          <DataField>PaymentTermsLabel</DataField>
-        </Field>
-        <Field Name="ShippingTermsLabel">
-          <DataField>ShippingTermsLabel</DataField>
-        </Field>
-        <Field Name="DueDateLabel">
-          <DataField>DueDateLabel</DataField>
-        </Field>
-        <Field Name="ShippingAddressLabel">
-          <DataField>ShippingAddressLabel</DataField>
-        </Field>
-        <Field Name="ReceiverNameLabel">
-          <DataField>ReceiverNameLabel</DataField>
-        </Field>
-        <Field Name="ReceiverContactLabel">
-          <DataField>ReceiverContactLabel</DataField>
-        </Field>
-        <Field Name="ShippingModeLabel">
-          <DataField>ShippingModeLabel</DataField>
-        </Field>
-        <Field Name="CarrierLabel">
-          <DataField>CarrierLabel</DataField>
-        </Field>
-        <Field Name="BillRefNumberLabel">
-          <DataField>BillRefNumberLabel</DataField>
-        </Field>
-        <Field Name="CapitalLabel">
-          <DataField>CapitalLabel</DataField>
-        </Field>
-        <Field Name="VATCodeLabel">
-          <DataField>VATCodeLabel</DataField>
-        </Field>
-        <Field Name="AddressLabel">
-          <DataField>AddressLabel</DataField>
-        </Field>
-        <Field Name="BankAccountLabel">
-          <DataField>BankAccountLabel</DataField>
-        </Field>
-        <Field Name="SWIFTLabel">
-          <DataField>SWIFTLabel</DataField>
-        </Field>
-        <Field Name="PrintedOnLabel">
-          <DataField>PrintedOnLabel</DataField>
-        </Field>
-        <Field Name="HSCodeLabel">
-          <DataField>HSCodeLabel</DataField>
-        </Field>
-        <Field Name="ItemCodeLabel">
-          <DataField>ItemCodeLabel</DataField>
-        </Field>
-        <Field Name="ProductLabel">
-          <DataField>ProductLabel</DataField>
-        </Field>
-        <Field Name="SizeLabel">
-          <DataField>SizeLabel</DataField>
-        </Field>
-        <Field Name="QtyLabel">
-          <DataField>QtyLabel</DataField>
-        </Field>
-        <Field Name="UnitPriceLabel">
-          <DataField>UnitPriceLabel</DataField>
-        </Field>
-        <Field Name="TotalPriceLabel">
-          <DataField>TotalPriceLabel</DataField>
-        </Field>
-        <Field Name="TotalLabel">
-          <DataField>TotalLabel</DataField>
-        </Field>
-        <Field Name="DiscountLabel">
-          <DataField>DiscountLabel</DataField>
-        </Field>
-        <Field Name="VATLabel">
-          <DataField>VATLabel</DataField>
-        </Field>
-        <Field Name="GrossTotalLabel">
-          <DataField>GrossTotalLabel</DataField>
-        </Field>
-        <Field Name="AdvancePaymentLabel">
-          <DataField>AdvancePaymentLabel</DataField>
-        </Field>
-        <Field Name="DueBalanceLabel">
-          <DataField>DueBalanceLabel</DataField>
-        </Field>
-        <Field Name="FormLabel">
-          <DataField>FormLabel</DataField>
-        </Field>
-        <Field Name="FormNumber">
-          <DataField>FormNumber</DataField>
-        </Field>
-        <Field Name="IssueDateLabel">
-          <DataField>IssueDateLabel</DataField>
-        </Field>
-        <Field Name="IssueDateValue">
-          <DataField>IssueDateValue</DataField>
-        </Field>
-        <Field Name="RevisionDateLabel">
-          <DataField>RevisionDateLabel</DataField>
-        </Field>
-        <Field Name="MOFReceiptLabel">
-          <DataField>MOFReceiptLabel</DataField>
-        </Field>
-        <Field Name="RefLabel">
-          <DataField>RefLabel</DataField>
-        </Field>
-        <Field Name="ProjectLabel">
-          <DataField>ProjectLabel</DataField>
-        </Field>
-        <Field Name="TermsAndConditionsLabel">
-          <DataField>TermsAndConditionsLabel</DataField>
-        </Field>
-        <Field Name="ImportantNoticeLabel">
-          <DataField>ImportantNoticeLabel</DataField>
-        </Field>
-        <Field Name="TermsAndCondText">
-          <DataField>TermsAndCondText</DataField>
-        </Field>
-        <Field Name="TermsAndCondText_1">
-          <DataField>TermsAndCondText_1</DataField>
-        </Field>
-        <Field Name="TermsAndCondText_2">
-          <DataField>TermsAndCondText_2</DataField>
-        </Field>
-        <Field Name="TermsAndCondText_3">
-          <DataField>TermsAndCondText_3</DataField>
-        </Field>
-        <Field Name="TermsAndCondText_4">
-          <DataField>TermsAndCondText_4</DataField>
-        </Field>
-        <Field Name="TermsAndCondText_5">
-          <DataField>TermsAndCondText_5</DataField>
-        </Field>
-        <Field Name="TermsAndCondText_6">
-          <DataField>TermsAndCondText_6</DataField>
-        </Field>
-        <Field Name="TermsAndCondText_7">
-          <DataField>TermsAndCondText_7</DataField>
-        </Field>
-        <Field Name="TermsAndCondText_7_Infos">
-          <DataField>TermsAndCondText_7_Infos</DataField>
-        </Field>
-        <Field Name="TermsAndCondText_8">
-          <DataField>TermsAndCondText_8</DataField>
-        </Field>
-        <Field Name="TermsAndCondText_9">
-          <DataField>TermsAndCondText_9</DataField>
-        </Field>
-        <Field Name="TermsAndCondText_10">
-          <DataField>TermsAndCondText_10</DataField>
-        </Field>
-        <Field Name="TermsAndCondText_11">
-          <DataField>TermsAndCondText_11</DataField>
-        </Field>
-        <Field Name="TermsAndCondText_12">
-          <DataField>TermsAndCondText_12</DataField>
-        </Field>
-        <Field Name="TermsAndCondText_13">
-          <DataField>TermsAndCondText_13</DataField>
-        </Field>
-        <Field Name="TermsAndCondText_14">
-          <DataField>TermsAndCondText_14</DataField>
-        </Field>
-        <Field Name="TermsAndCondText_15">
-          <DataField>TermsAndCondText_15</DataField>
-        </Field>
-        <Field Name="TermsAndCondText_16">
-          <DataField>TermsAndCondText_16</DataField>
-        </Field>
-        <Field Name="TermsAndCondText_17">
-          <DataField>TermsAndCondText_17</DataField>
-        </Field>
-        <Field Name="Line_Type">
-          <DataField>Line_Type</DataField>
-        </Field>
-        <Field Name="Line_HS_Ccode">
-          <DataField>Line_HS_Ccode</DataField>
-        </Field>
-        <Field Name="Line_Item_No">
-          <DataField>Line_Item_No</DataField>
-        </Field>
-        <Field Name="Line_Item_Description">
-          <DataField>Line_Item_Description</DataField>
-        </Field>
-        <Field Name="Line_Size">
-          <DataField>Line_Size</DataField>
-        </Field>
-        <Field Name="Line_Qty">
-          <DataField>Line_Qty</DataField>
-        </Field>
-        <Field Name="Line_QtyFormat">
-          <DataField>Line_QtyFormat</DataField>
-        </Field>
-        <Field Name="Line_Unit_Price">
-          <DataField>Line_Unit_Price</DataField>
-        </Field>
-        <Field Name="Line_Unit_PriceFormat">
-          <DataField>Line_Unit_PriceFormat</DataField>
-        </Field>
-        <Field Name="DepartmentName">
-          <DataField>DepartmentName</DataField>
-        </Field>
-        <Field Name="PositionName">
-          <DataField>PositionName</DataField>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-    </DataSet>
-  </DataSets>
 </Report>

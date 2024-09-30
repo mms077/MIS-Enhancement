@@ -726,12 +726,19 @@ codeunit 50202 EventSubscribers
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Req. Wksh.-Make Order", 'OnAfterInitPurchOrderLine', '', false, false)]
     local procedure OnAfterInitPurchOrderLine(var PurchaseLine: Record "Purchase Line"; RequisitionLine: Record "Requisition Line")
+    var
+        SalesHeader: Record "Sales Header";
     begin
         PurchaseLine.Validate("Variant Code", RequisitionLine."Variant Code");
         PurchaseLine."Allocation Type" := RequisitionLine."Allocation Type";
         PurchaseLine."Allocation Code" := RequisitionLine."Allocation Code";
         PurchaseLine."Parent Parameter Header ID" := RequisitionLine."Parent Parameter Header ID";
         PurchaseLine."Parameters Header ID" := RequisitionLine."Parameters Header ID";
+        //Update Purch Lines receipt date and promised receipt date From Sales Header
+        if SalesHeader.Get(SalesHeader."Document Type"::Order, RequisitionLine."Demand Order No.") then begin
+            PurchaseLine.Validate("Requested Receipt Date", SalesHeader."Requested Delivery Date");
+            PurchaseLine.Validate("Promised Receipt Date", SalesHeader."Promised Delivery Date");
+        end;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"ICInboxOutboxMgt", 'OnSendPurchDocOnBeforeReleasePurchDocument', '', false, false)]

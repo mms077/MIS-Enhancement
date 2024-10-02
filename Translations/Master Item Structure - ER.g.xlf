@@ -3728,6 +3728,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Global Sync Media Set - NamedType Txt003</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3027770496 - NamedType 1759132713" size-unit="char" translate="yes" xml:space="preserve">
+          <source>M-BALANCE</source>
+          <note from="Developer" annotates="general" priority="2">Max 10 char</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Graph Mgt - Reports-ACY - NamedType BalanceColumnNameTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3027770496 - NamedType 30121052" size-unit="char" translate="yes" xml:space="preserve">
+          <source>M-NETCHANG</source>
+          <note from="Developer" annotates="general" priority="2">Max 10 char</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Graph Mgt - Reports-ACY - NamedType NetChangeColumnNameTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3027770496 - NamedType 2124785414" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A record must be provided for this report API.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Graph Mgt - Reports-ACY - NamedType RecordNotProvidedErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3562730581 - Method 4272731707 - NamedType 672599587" size-unit="char" translate="yes" xml:space="preserve">
           <source>There is no related raw materials to the wizard parameters selection for the item %1</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3877,6 +3892,156 @@
           <source>File not found.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Sharepoint Management - Method OpenFileLookVersion - NamedType FileNotFoundErr</note>
+        </trans-unit>
+        <trans-unit id="Page 2840944459 - Control 1667844428 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Period Start Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Payable - Control agedAsOfDate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2840944459 - Control 412705190 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Vendor Balance</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Payable - Control balanceDue - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2840944459 - Control 1126679907 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Vendor Balance</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Payable - Control balanceDueACY - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2840944459 - Control 1808640270 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Currency Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Payable - Control currencyCode - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2840944459 - Control 1047922151 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies Before</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Payable - Control currentAmount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2840944459 - Control 3558812865 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Vendor Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Payable - Control name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2840944459 - Control 2282433028 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies Period 1</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Payable - Control period1Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2840944459 - Control 3218088597 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies Period 1 ACY</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Payable - Control period1AmountACY - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2840944459 - Control 446687197 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies Period 2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Payable - Control period2Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2840944459 - Control 719715092 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies Period 2 ACY</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Payable - Control period2AmountACY - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2840944459 - Control 939300790 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies Period 3</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Payable - Control period3Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2840944459 - Control 4151318547 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies Period 3 ACY</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Payable - Control period3AmountACY - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2840944459 - Control 3257738371 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Period Length</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Payable - Control periodLengthFilter - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2840944459 - Control 149332515 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Account ID.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Payable - Control vendorId - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2840944459 - Control 712552689 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Vendor No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Payable - Control vendorNumber - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1379679441 - Control 1667844428 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Period Start Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Receivable - Control agedAsOfDate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1379679441 - Control 412705190 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Vendor Balance</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Receivable - Control balanceDue - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1379679441 - Control 1126679907 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Customer Balance</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Receivable - Control balanceDueACY - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1379679441 - Control 1808640270 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Currency Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Receivable - Control currencyCode - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1379679441 - Control 1047922151 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies Before</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Receivable - Control currentAmount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1379679441 - Control 255254688 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Account ID.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Receivable - Control CustId - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1379679441 - Control 776980038 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Customer No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Receivable - Control CustNumber - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1379679441 - Control 3558812865 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Customer Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Receivable - Control name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1379679441 - Control 2282433028 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies Period 1</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Receivable - Control period1Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1379679441 - Control 3218088597 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies Period 1 ACY</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Receivable - Control period1AmountACY - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1379679441 - Control 446687197 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies Period 2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Receivable - Control period2Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1379679441 - Control 719715092 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies Period 2 ACY</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Receivable - Control period2AmountACY - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1379679441 - Control 939300790 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies Period 3</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Receivable - Control period3Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1379679441 - Control 4151318547 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies Period 3 ACY</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Receivable - Control period3AmountACY - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1379679441 - Control 3257738371 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Period Length</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Receivable - Control periodLengthFilter - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3983627931 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Assembly Lines - ER</source>
@@ -15462,6 +15627,26 @@
           <source>Tonality</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Whse. Shipment Subform - Control TonalityCode - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 658563870 - Field 1550636527 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 658563870">
+          <source>Balance ACY</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Aged Report Entity - Field BalanceACY - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 658563870 - Field 540946929 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 658563870">
+          <source>Period 1 ACY</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Aged Report Entity - Field Period 1 ACY - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 658563870 - Field 2258444152 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 658563870">
+          <source>Period 2 ACY</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Aged Report Entity - Field Period 2 ACY - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 658563870 - Field 334526335 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 658563870">
+          <source>Period 3 ACY</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Aged Report Entity - Field Period 3 ACY - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2091775483 - Method 1262666395 - NamedType 672599587" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 2091775483">
           <source>You should have Modify Assembly permission to edit the record</source>

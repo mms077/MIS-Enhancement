@@ -362,5 +362,8 @@ permissionset 50200 MasterItemStructure
         page "Sharepoint Connector Setup" = X,
         page "Sharepoint File List" = X,
         page "Version Form" = X,
-        page "Version Subform" = X;
+        page "Version Subform" = X,
+        codeunit "Graph Mgt - Reports-ACY" = X,
+        page "Aged AP Entity-ACY Payable" = X,
+        page "Aged AP Entity-ACY Receivable" = X;
 }

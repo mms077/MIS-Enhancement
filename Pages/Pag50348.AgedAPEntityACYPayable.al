@@ -51,7 +51,7 @@ page 50348 "Aged AP Entity-ACY Payable"
                 {
                     ApplicationArea = All;
                     Tooltip = 'Specifies the Vendor Balance';
-                    Caption = 'Balance ACY', Locked = true;
+                    Caption = 'Balance', Locked = true;
                 }
                 field(currentAmount; Rec.Before)
                 {
@@ -68,7 +68,7 @@ page 50348 "Aged AP Entity-ACY Payable"
                 field(period1AmountACY; Rec."Period 1 ACY")
                 {
                     ApplicationArea = All;
-                    Tooltip = 'Specifies Period 1 ACY';
+                    Tooltip = 'Specifies Period 1';
                     Caption = 'Period1', Locked = true;
                 }
                 field(period2Amount; Rec."Period 2")
@@ -80,7 +80,7 @@ page 50348 "Aged AP Entity-ACY Payable"
                 field(period2AmountACY; Rec."Period 2 ACY")
                 {
                     ApplicationArea = All;
-                    Tooltip = 'Specifies Period 2 ACY';
+                    Tooltip = 'Specifies Period 2';
                     Caption = 'Period2', Locked = true;
                 }
                 field(period3Amount; Rec."Period 3")
@@ -92,7 +92,7 @@ page 50348 "Aged AP Entity-ACY Payable"
                 field(period3AmountACY; Rec."Period 3 ACY")
                 {
                     ApplicationArea = All;
-                    Tooltip = 'Specifies Period 3 ACY';
+                    Tooltip = 'Specifies Period 3';
                     Caption = 'Period3', Locked = true;
                 }
                 field(agedAsOfDate; Rec."Period Start Date")

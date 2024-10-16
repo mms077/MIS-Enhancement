@@ -266,28 +266,29 @@ codeunit 50212 "Graph Mgt - Reports-ACY"
                         if not CustLedgerEntry.IsEmpty() then
                             GetAgedAmounts(AgedReportEntity, Customer);
 
-                        if IsNullGuid(Customer.SystemId) then
-                            AgedReportEntity.AccountId := CreateGuid()
-                        else
-                            AgedReportEntity.AccountId := Customer.SystemId;
+                        //if IsNullGuid(Customer.SystemId) then
+                        AgedReportEntity.AccountId := CreateGuid();
+                        //else
+                        // AgedReportEntity.AccountId := Customer.SystemId;
 
                         AgedReportEntity."No." := Customer."No.";
                         AgedReportEntity.Name := Customer.Name;
-                        AgedReportEntity."Currency Code" := Customer."Currency Code";
-                        if AgedReportEntity."Currency Code" = '' then
-                            AgedReportEntity."Currency Code" := GeneralLedgerSetup."LCY Code";
+                        /*AgedReportEntity."Currency Code" := Customer."Currency Code";
+                        if AgedReportEntity."Currency Code" = '' then*/
+                        AgedReportEntity."Currency Code" := GeneralLedgerSetup."LCY Code";
                         if PeriodLengthFilter = '' then
                             PeriodLengthFilter := AgedReportEntity."Period Length";
                         PeriodStartDate := AgedReportEntity."Period Start Date";
                         AgedReportEntity."Display Order" := DisplayOrder;
                         DisplayOrder += 1;
-                        if CurrExchRate.FindLast() then;
+                        //if CurrExchRate.FindLast() then;
                         // add acy amount 
-                        AgedReportEntity."Period 1 ACY" := AgedReportEntity."Period 1" / CurrExchRate."Relational Exch. Rate Amount";
-                        AgedReportEntity."Period 2 ACY" := AgedReportEntity."Period 2" / CurrExchRate."Relational Exch. Rate Amount";
-                        AgedReportEntity."Period 3 ACY" := AgedReportEntity."Period 3" / CurrExchRate."Relational Exch. Rate Amount";
+                        /* AgedReportEntity."Period 1 ACY" := AgedReportEntity."Period 1" / CurrExchRate."Relational Exch. Rate Amount";
+                         AgedReportEntity."Period 2 ACY" := AgedReportEntity."Period 2" / CurrExchRate."Relational Exch. Rate Amount";
+                         AgedReportEntity."Period 3 ACY" := AgedReportEntity."Period 3" / CurrExchRate."Relational Exch. Rate Amount";*/
                         if AgedReportEntity.Insert() then;
                     until Customer.Next() = 0;
+
             ReportType::"Aged Accounts Payable":
                 if Vendor.FindSet() then
                     repeat
@@ -313,12 +314,12 @@ codeunit 50212 "Graph Mgt - Reports-ACY"
                         PeriodStartDate := AgedReportEntity."Period Start Date";
                         AgedReportEntity."Display Order" := DisplayOrder;
                         DisplayOrder += 1;
-                        if CurrExchRate.FindLast() then;
-                        // add acy amount 
-                        AgedReportEntity."Period 1 ACY" := AgedReportEntity."Period 1" / CurrExchRate."Relational Exch. Rate Amount";
-                        AgedReportEntity."Period 2 ACY" := AgedReportEntity."Period 2" / CurrExchRate."Relational Exch. Rate Amount";
-                        AgedReportEntity."Period 3 ACY" := AgedReportEntity."Period 3" / CurrExchRate."Relational Exch. Rate Amount";
-                        AgedReportEntity.BalanceACY := AgedReportEntity.Balance / CurrExchRate."Relational Exch. Rate Amount";
+                        /* if CurrExchRate.FindLast() then;
+                         // add acy amount 
+                         AgedReportEntity."Period 1 ACY" := CustLedgerEntry.Amount;
+                         AgedReportEntity."Period 2 ACY" := AgedReportEntity."Period 2" / CurrExchRate."Relational Exch. Rate Amount";
+                         AgedReportEntity."Period 3 ACY" := AgedReportEntity."Period 3" / CurrExchRate."Relational Exch. Rate Amount";
+                         AgedReportEntity.BalanceACY := AgedReportEntity.Balance / CurrExchRate."Relational Exch. Rate Amount";*/
                         if AgedReportEntity.Insert() then;
                     until Vendor.Next() = 0;
         end;
@@ -331,18 +332,262 @@ codeunit 50212 "Graph Mgt - Reports-ACY"
         AgedReportEntity.CalcSums("Period 1");
         AgedReportEntity."Period 1" := AgedReportEntity."Period 1";
         //add sum of acy amount
-        AgedReportEntity."Period 1 ACY" := AgedReportEntity."Period 1" / CurrExchRate."Relational Exch. Rate Amount";
+        AgedReportEntity.CalcSums("Period 1 ACY");
+        AgedReportEntity."Period 1 ACY" := AgedReportEntity."Period 1 ACY";
+        AgedReportEntity.CalcSums("Period 2 ACY");
+        AgedReportEntity."Period 2 ACY" := AgedReportEntity."Period 2 ACY";
+        AgedReportEntity.CalcSums("Period 3 ACY");
+        AgedReportEntity."Period 3 ACY" := AgedReportEntity."Period 3 ACY";
+        AgedReportEntity.CalcSums(BalanceACY);
+        //add balancedue ACY
+        AgedReportEntity.BalanceACY := AgedReportEntity.BalanceACY;
         AgedReportEntity.CalcSums("Period 2");
         AgedReportEntity."Period 2" := AgedReportEntity."Period 2";
-        AgedReportEntity."Period 2 ACY" := AgedReportEntity."Period 2" / CurrExchRate."Relational Exch. Rate Amount";
         AgedReportEntity.CalcSums("Period 3");
-        AgedReportEntity."Period 3 ACY" := AgedReportEntity."Period 3" / CurrExchRate."Relational Exch. Rate Amount";
+        AgedReportEntity."Period 3" := AgedReportEntity."Period 3";
         AgedReportEntity.CalcSums(After);
         AgedReportEntity.After := AgedReportEntity.After;
         AgedReportEntity.CalcSums(Balance);
         AgedReportEntity.Balance := AgedReportEntity.Balance;
+
+        AgedReportEntity."Period Length" := Format(PeriodLengthFilter);
+        AgedReportEntity."Period Start Date" := PeriodStartDate;
+        AgedReportEntity."Display Order" := DisplayOrder;
+        DisplayOrder += 1;
+        if AgedReportEntity.Insert() then;
+    end;
+
+    procedure SetUpAgedReportAPIDataACYUSD(var AgedReportEntity: Record "Aged Report Entity"; ReportType: Option "Balance Sheet","Income Statement","Trial Balance","CashFlow Statement","Aged Accounts Payable","Aged Accounts Receivable","Retained Earnings")
+    var
+        Customer: Record Customer;
+        Vendor: Record Vendor;
+        CustLedgerEntry: Record "Cust. Ledger Entry";
+        VendorLedgerEntry: Record "Vendor Ledger Entry";
+        GeneralLedgerSetup: Record "General Ledger Setup";
+        DummyGuid: Guid;
+        PeriodLengthFilter: Text[10];
+        PeriodStartDate: Date;
+        DisplayOrder: Integer;
+        CurrExchRate: Record "Currency Exchange Rate";
+    begin
+        GeneralLedgerSetup.Get();
+        DisplayOrder := 1;
+        case ReportType of
+            ReportType::"Aged Accounts Receivable":
+                if Customer.FindSet() then
+                    repeat
+                        CustLedgerEntry.Reset();
+                        CustLedgerEntry.SetRange("Customer No.", Customer."No.");
+                        CustLedgerEntry.SetRange(Open, true);
+
+                        AgedReportEntity.Init();
+                        SetPeriodLengthAndStartDateOnAgedRep(AgedReportEntity);
+                        if not CustLedgerEntry.IsEmpty() then
+                            GetAgedAmountsACYUSD(AgedReportEntity, Customer);
+
+                        //if IsNullGuid(Customer.SystemId) then
+                        AgedReportEntity.AccountId := CreateGuid();
+                        //else
+                        // AgedReportEntity.AccountId := Customer.SystemId;
+
+                        AgedReportEntity."No." := Customer."No.";
+                        AgedReportEntity.Name := Customer.Name;
+                        AgedReportEntity."Currency Code" := Customer."Currency Code";
+                        if AgedReportEntity."Currency Code" = '' then
+                            AgedReportEntity."Currency Code" := GeneralLedgerSetup."LCY Code";
+                        if PeriodLengthFilter = '' then
+                            PeriodLengthFilter := AgedReportEntity."Period Length";
+                        PeriodStartDate := AgedReportEntity."Period Start Date";
+                        AgedReportEntity."Display Order" := DisplayOrder;
+                        DisplayOrder += 1;
+                        //if CurrExchRate.FindLast() then;
+                        // add acy amount 
+                        /* AgedReportEntity."Period 1 ACY" := AgedReportEntity."Period 1" / CurrExchRate."Relational Exch. Rate Amount";
+                         AgedReportEntity."Period 2 ACY" := AgedReportEntity."Period 2" / CurrExchRate."Relational Exch. Rate Amount";
+                         AgedReportEntity."Period 3 ACY" := AgedReportEntity."Period 3" / CurrExchRate."Relational Exch. Rate Amount";*/
+                        if AgedReportEntity.Insert() then;
+                    until Customer.Next() = 0;
+
+            ReportType::"Aged Accounts Payable":
+                if Vendor.FindSet() then
+                    repeat
+                        VendorLedgerEntry.Reset();
+                        VendorLedgerEntry.SetRange("Vendor No.", Vendor."No.");
+                        VendorLedgerEntry.SetRange(Open, true);
+                        AgedReportEntity.Init();
+                        if not VendorLedgerEntry.IsEmpty() then
+                            GetAgedAmounts(AgedReportEntity, Vendor)
+                        else
+                            SetPeriodLengthAndStartDateOnAgedRep(AgedReportEntity);
+
+                        if IsNullGuid(Vendor.SystemId) then
+                            AgedReportEntity.AccountId := CreateGuid()
+                        else
+                            AgedReportEntity.AccountId := Vendor.SystemId;
+
+                        AgedReportEntity."No." := Vendor."No.";
+                        AgedReportEntity.Name := Vendor.Name;
+                        AgedReportEntity."Currency Code" := Vendor."Currency Code";
+                        if PeriodLengthFilter = '' then
+                            PeriodLengthFilter := AgedReportEntity."Period Length";
+                        PeriodStartDate := AgedReportEntity."Period Start Date";
+                        AgedReportEntity."Display Order" := DisplayOrder;
+                        DisplayOrder += 1;
+                        /* if CurrExchRate.FindLast() then;
+                         // add acy amount 
+                         AgedReportEntity."Period 1 ACY" := CustLedgerEntry.Amount;
+                         AgedReportEntity."Period 2 ACY" := AgedReportEntity."Period 2" / CurrExchRate."Relational Exch. Rate Amount";
+                         AgedReportEntity."Period 3 ACY" := AgedReportEntity."Period 3" / CurrExchRate."Relational Exch. Rate Amount";
+                         AgedReportEntity.BalanceACY := AgedReportEntity.Balance / CurrExchRate."Relational Exch. Rate Amount";*/
+                        if AgedReportEntity.Insert() then;
+                    until Vendor.Next() = 0;
+        end;
+
+        AgedReportEntity.Init();
+        AgedReportEntity.AccountId := DummyGuid;
+        AgedReportEntity.Name := 'Total';
+        AgedReportEntity.CalcSums(Before);
+        AgedReportEntity.Before := AgedReportEntity.Before;
+        AgedReportEntity.CalcSums("Period 1");
+        AgedReportEntity."Period 1" := AgedReportEntity."Period 1";
+        //add sum of acy amount
+        AgedReportEntity.CalcSums("Period 1 ACY");
+        AgedReportEntity."Period 1 ACY" := AgedReportEntity."Period 1 ACY";
+        AgedReportEntity.CalcSums("Period 2 ACY");
+        AgedReportEntity."Period 2 ACY" := AgedReportEntity."Period 2 ACY";
+        AgedReportEntity.CalcSums("Period 3 ACY");
+        AgedReportEntity."Period 3 ACY" := AgedReportEntity."Period 3 ACY";
+        AgedReportEntity.CalcSums(BalanceACY);
         //add balancedue ACY
-        AgedReportEntity.BalanceACY := AgedReportEntity.BalanceACY / CurrExchRate."Relational Exch. Rate Amount";
+        AgedReportEntity.BalanceACY := AgedReportEntity.BalanceACY;
+        AgedReportEntity.CalcSums("Period 2");
+        AgedReportEntity."Period 2" := AgedReportEntity."Period 2";
+        AgedReportEntity.CalcSums("Period 3");
+        AgedReportEntity."Period 3" := AgedReportEntity."Period 3";
+        AgedReportEntity.CalcSums(After);
+        AgedReportEntity.After := AgedReportEntity.After;
+        AgedReportEntity.CalcSums(Balance);
+        AgedReportEntity.Balance := AgedReportEntity.Balance;
+
+        AgedReportEntity."Period Length" := Format(PeriodLengthFilter);
+        AgedReportEntity."Period Start Date" := PeriodStartDate;
+        AgedReportEntity."Display Order" := DisplayOrder;
+        DisplayOrder += 1;
+        if AgedReportEntity.Insert() then;
+    end;
+
+    procedure SetUpAgedReportAPIDataACYEUR(var AgedReportEntity: Record "Aged Report Entity"; ReportType: Option "Balance Sheet","Income Statement","Trial Balance","CashFlow Statement","Aged Accounts Payable","Aged Accounts Receivable","Retained Earnings")
+    var
+        Customer: Record Customer;
+        Vendor: Record Vendor;
+        CustLedgerEntry: Record "Cust. Ledger Entry";
+        VendorLedgerEntry: Record "Vendor Ledger Entry";
+        GeneralLedgerSetup: Record "General Ledger Setup";
+        DummyGuid: Guid;
+        PeriodLengthFilter: Text[10];
+        PeriodStartDate: Date;
+        DisplayOrder: Integer;
+        CurrExchRate: Record "Currency Exchange Rate";
+    begin
+        GeneralLedgerSetup.Get();
+        DisplayOrder := 1;
+        case ReportType of
+            ReportType::"Aged Accounts Receivable":
+                if Customer.FindSet() then
+                    repeat
+                        CustLedgerEntry.Reset();
+                        CustLedgerEntry.SetRange("Customer No.", Customer."No.");
+                        CustLedgerEntry.SetRange(Open, true);
+
+                        AgedReportEntity.Init();
+                        SetPeriodLengthAndStartDateOnAgedRep(AgedReportEntity);
+                        if not CustLedgerEntry.IsEmpty() then
+                            GetAgedAmountsACYEUR(AgedReportEntity, Customer);
+
+                        //if IsNullGuid(Customer.SystemId) then
+                        AgedReportEntity.AccountId := CreateGuid();
+                        //else
+                        // AgedReportEntity.AccountId := Customer.SystemId;
+
+                        AgedReportEntity."No." := Customer."No.";
+                        AgedReportEntity.Name := Customer.Name;
+                        /*AgedReportEntity."Currency Code" := Customer."Currency Code";
+                        if AgedReportEntity."Currency Code" = '' then*/
+                        AgedReportEntity."Currency Code" := 'EUR';
+                        if PeriodLengthFilter = '' then
+                            PeriodLengthFilter := AgedReportEntity."Period Length";
+                        PeriodStartDate := AgedReportEntity."Period Start Date";
+                        AgedReportEntity."Display Order" := DisplayOrder;
+                        DisplayOrder += 1;
+                        //if CurrExchRate.FindLast() then;
+                        // add acy amount 
+                        /* AgedReportEntity."Period 1 ACY" := AgedReportEntity."Period 1" / CurrExchRate."Relational Exch. Rate Amount";
+                         AgedReportEntity."Period 2 ACY" := AgedReportEntity."Period 2" / CurrExchRate."Relational Exch. Rate Amount";
+                         AgedReportEntity."Period 3 ACY" := AgedReportEntity."Period 3" / CurrExchRate."Relational Exch. Rate Amount";*/
+                        if AgedReportEntity.Insert() then;
+                    until Customer.Next() = 0;
+
+            ReportType::"Aged Accounts Payable":
+                if Vendor.FindSet() then
+                    repeat
+                        VendorLedgerEntry.Reset();
+                        VendorLedgerEntry.SetRange("Vendor No.", Vendor."No.");
+                        VendorLedgerEntry.SetRange(Open, true);
+                        AgedReportEntity.Init();
+                        if not VendorLedgerEntry.IsEmpty() then
+                            GetAgedAmounts(AgedReportEntity, Vendor)
+                        else
+                            SetPeriodLengthAndStartDateOnAgedRep(AgedReportEntity);
+
+                        if IsNullGuid(Vendor.SystemId) then
+                            AgedReportEntity.AccountId := CreateGuid()
+                        else
+                            AgedReportEntity.AccountId := Vendor.SystemId;
+
+                        AgedReportEntity."No." := Vendor."No.";
+                        AgedReportEntity.Name := Vendor.Name;
+                        AgedReportEntity."Currency Code" := Vendor."Currency Code";
+                        if PeriodLengthFilter = '' then
+                            PeriodLengthFilter := AgedReportEntity."Period Length";
+                        PeriodStartDate := AgedReportEntity."Period Start Date";
+                        AgedReportEntity."Display Order" := DisplayOrder;
+                        DisplayOrder += 1;
+                        /* if CurrExchRate.FindLast() then;
+                         // add acy amount 
+                         AgedReportEntity."Period 1 ACY" := CustLedgerEntry.Amount;
+                         AgedReportEntity."Period 2 ACY" := AgedReportEntity."Period 2" / CurrExchRate."Relational Exch. Rate Amount";
+                         AgedReportEntity."Period 3 ACY" := AgedReportEntity."Period 3" / CurrExchRate."Relational Exch. Rate Amount";
+                         AgedReportEntity.BalanceACY := AgedReportEntity.Balance / CurrExchRate."Relational Exch. Rate Amount";*/
+                        if AgedReportEntity.Insert() then;
+                    until Vendor.Next() = 0;
+        end;
+
+        AgedReportEntity.Init();
+        AgedReportEntity.AccountId := DummyGuid;
+        AgedReportEntity.Name := 'Total';
+        AgedReportEntity.CalcSums(Before);
+        AgedReportEntity.Before := AgedReportEntity.Before;
+        AgedReportEntity.CalcSums("Period 1");
+        AgedReportEntity."Period 1" := AgedReportEntity."Period 1";
+        //add sum of acy amount
+        AgedReportEntity.CalcSums("Period 1 ACY");
+        AgedReportEntity."Period 1 ACY" := AgedReportEntity."Period 1 ACY";
+        AgedReportEntity.CalcSums("Period 2 ACY");
+        AgedReportEntity."Period 2 ACY" := AgedReportEntity."Period 2 ACY";
+        AgedReportEntity.CalcSums("Period 3 ACY");
+        AgedReportEntity."Period 3 ACY" := AgedReportEntity."Period 3 ACY";
+        AgedReportEntity.CalcSums(BalanceACY);
+        //add balancedue ACY
+        AgedReportEntity.BalanceACY := AgedReportEntity.BalanceACY;
+        AgedReportEntity.CalcSums("Period 2");
+        AgedReportEntity."Period 2" := AgedReportEntity."Period 2";
+        AgedReportEntity.CalcSums("Period 3");
+        AgedReportEntity."Period 3" := AgedReportEntity."Period 3";
+        AgedReportEntity.CalcSums(After);
+        AgedReportEntity.After := AgedReportEntity.After;
+        AgedReportEntity.CalcSums(Balance);
+        AgedReportEntity.Balance := AgedReportEntity.Balance;
+
         AgedReportEntity."Period Length" := Format(PeriodLengthFilter);
         AgedReportEntity."Period Start Date" := PeriodStartDate;
         AgedReportEntity."Display Order" := DisplayOrder;
@@ -401,10 +646,11 @@ codeunit 50212 "Graph Mgt - Reports-ACY"
         PeriodLengthFilter: Text[10];
         I: Integer;
         LineTotalAmountDue: Decimal;
+        LineTotalAmountDueACY: Decimal;
         IsVendor: Boolean;
         CurrExchRate: Record "Currency Exchange Rate";
     begin
-        if CurrExchRate.FindLast() then;
+        // if CurrExchRate.FindLast() then;
         PeriodStartFilter := Format(AgedReportEntity.GetFilter("Period Start Date"));
         PeriodLengthFilter := Format(AgedReportEntity.GetFilter("Period Length"));
         if not CurrentAccount.IsRecord then
@@ -432,6 +678,7 @@ codeunit 50212 "Graph Mgt - Reports-ACY"
         PeriodStartDate[5] := DMY2Date(1, 1, 1753);
 
         LineTotalAmountDue := 0;
+        LineTotalAmountDueACY := 0;
         for I := 1 to 4 do
             case RecRef.Number of
                 DATABASE::Customer:
@@ -440,9 +687,10 @@ codeunit 50212 "Graph Mgt - Reports-ACY"
                         DetailedCustLedgEntry.SetCurrentKey("Customer No.", "Initial Entry Due Date");
                         DetailedCustLedgEntry.SetRange("Customer No.", Customer."No.");
                         DetailedCustLedgEntry.SetRange("Initial Entry Due Date", PeriodStartDate[I + 1], PeriodStartDate[I] - 1);
-
+                        DetailedCustLedgEntry.setrange("Currency Code", '');
                         if DetailedCustLedgEntry.FindFirst() then
-                            CalculateLineTotalAmount(AgedReportEntity, LineTotalAmountDue, DetailedCustLedgEntry, I);
+                            CalculateLineTotalAmount(AgedReportEntity, LineTotalAmountDue, LineTotalAmountDueACY, DetailedCustLedgEntry, I);
+
                     end;
                 DATABASE::Vendor:
                     begin
@@ -453,17 +701,193 @@ codeunit 50212 "Graph Mgt - Reports-ACY"
                         DetailedVendorLedgEntry.SetRange("Initial Entry Due Date", PeriodStartDate[I + 1], PeriodStartDate[I] - 1);
 
                         if DetailedVendorLedgEntry.FindFirst() then
-                            CalculateLineTotalAmount(AgedReportEntity, LineTotalAmountDue, DetailedVendorLedgEntry, I);
+                            CalculateLineTotalAmount(AgedReportEntity, LineTotalAmountDue, LineTotalAmountDueACY, DetailedVendorLedgEntry, I);
                     end;
             end;
 
-        if IsVendor then
+        if IsVendor then begin
             LineTotalAmountDue := -LineTotalAmountDue;
-        AgedReportEntity.Balance := LineTotalAmountDue;
-        AgedReportEntity.BalanceACY := LineTotalAmountDue / CurrExchRate."Relational Exch. Rate Amount";
+            LineTotalAmountDueACY := -LineTotalAmountDueACY;
+        end else begin
+            AgedReportEntity.Balance := LineTotalAmountDue;
+            AgedReportEntity.BalanceACY := LineTotalAmountDueACY;
+        END;
+        //balance ACY
+        AgedReportEntity.BalanceACY := LineTotalAmountDueACY
     end;
 
-    local procedure CalculateLineTotalAmount(var AgedReportEntity: Record "Aged Report Entity"; var LineTotalAmountDue: Decimal; DetailLedgEntryVariant: Variant; PeriodCount: Integer)
+    local procedure GetAgedAmountsACYUSD(var AgedReportEntity: Record "Aged Report Entity"; CurrentAccount: Variant)
+    var
+        Customer: Record Customer;
+        Vendor: Record Vendor;
+        DetailedCustLedgEntry: Record "Detailed Cust. Ledg. Entry";
+        DetailedVendorLedgEntry: Record "Detailed Vendor Ledg. Entry";
+        RecRef: RecordRef;
+        PeriodLength: DateFormula;
+        PeriodStartDate: array[5] of Date;
+        FilterPeriodStart: Date;
+        PeriodStartFilter: Text;
+        PeriodLengthFilter: Text[10];
+        I: Integer;
+        LineTotalAmountDue: Decimal;
+        LineTotalAmountDueACY: Decimal;
+        IsVendor: Boolean;
+        CurrExchRate: Record "Currency Exchange Rate";
+    begin
+        // if CurrExchRate.FindLast() then;
+        PeriodStartFilter := Format(AgedReportEntity.GetFilter("Period Start Date"));
+        PeriodLengthFilter := Format(AgedReportEntity.GetFilter("Period Length"));
+        if not CurrentAccount.IsRecord then
+            Error(RecordNotProvidedErr);
+        RecRef.GetTable(CurrentAccount);
+
+        if PeriodStartFilter = '' then
+            AgedReportEntity."Period Start Date" := Today
+        else begin
+            Evaluate(FilterPeriodStart, PeriodStartFilter);
+            AgedReportEntity."Period Start Date" := FilterPeriodStart;
+        end;
+
+        if PeriodLengthFilter = '' then
+            Evaluate(PeriodLengthFilter, '<30D>');
+
+        Evaluate(PeriodLength, '<->' + Format(PeriodLengthFilter));
+        AgedReportEntity."Period Length" := DelChr(Format(PeriodLengthFilter), '<>', '<>');
+
+        PeriodStartDate[1] := DMY2Date(31, 12, 9999);
+        PeriodStartDate[2] := AgedReportEntity."Period Start Date";
+
+        for I := 3 to 4 do
+            PeriodStartDate[I] := CalcDate(PeriodLength, PeriodStartDate[I - 1]);
+        PeriodStartDate[5] := DMY2Date(1, 1, 1753);
+
+        LineTotalAmountDue := 0;
+        LineTotalAmountDueACY := 0;
+        for I := 1 to 4 do
+            case RecRef.Number of
+                DATABASE::Customer:
+                    begin
+                        RecRef.SetTable(Customer);
+
+                        DetailedCustLedgEntry.SetCurrentKey("Customer No.", "Initial Entry Due Date");
+                        DetailedCustLedgEntry.SetRange("Customer No.", Customer."No.");
+                        DetailedCustLedgEntry.SetRange("Initial Entry Due Date", PeriodStartDate[I + 1], PeriodStartDate[I] - 1);
+                        DetailedCustLedgEntry.setfilter("Currency Code", 'USD');
+                        if DetailedCustLedgEntry.FindFirst() then
+                            CalculateLineTotalAmountACY(AgedReportEntity, LineTotalAmountDue, LineTotalAmountDueACY, DetailedCustLedgEntry, I);
+
+                    end;
+                DATABASE::Vendor:
+                    begin
+                        RecRef.SetTable(Vendor);
+                        IsVendor := true;
+                        DetailedVendorLedgEntry.SetCurrentKey("Vendor No.", "Initial Entry Due Date");
+                        DetailedVendorLedgEntry.SetRange("Vendor No.", Vendor."No.");
+                        DetailedVendorLedgEntry.SetRange("Initial Entry Due Date", PeriodStartDate[I + 1], PeriodStartDate[I] - 1);
+
+                        if DetailedVendorLedgEntry.FindFirst() then
+                            CalculateLineTotalAmount(AgedReportEntity, LineTotalAmountDue, LineTotalAmountDueACY, DetailedVendorLedgEntry, I);
+                    end;
+            end;
+
+        if IsVendor then begin
+            LineTotalAmountDue := -LineTotalAmountDue;
+            LineTotalAmountDueACY := -LineTotalAmountDueACY;
+        end else begin
+            AgedReportEntity.Balance := LineTotalAmountDue;
+            AgedReportEntity.BalanceACY := LineTotalAmountDueACY;
+        END;
+        //balance ACY
+        AgedReportEntity.BalanceACY := LineTotalAmountDueACY
+    end;
+
+    local procedure GetAgedAmountsACYEUR(var AgedReportEntity: Record "Aged Report Entity"; CurrentAccount: Variant)
+    var
+        Customer: Record Customer;
+        Vendor: Record Vendor;
+        DetailedCustLedgEntry: Record "Detailed Cust. Ledg. Entry";
+        DetailedVendorLedgEntry: Record "Detailed Vendor Ledg. Entry";
+        RecRef: RecordRef;
+        PeriodLength: DateFormula;
+        PeriodStartDate: array[5] of Date;
+        FilterPeriodStart: Date;
+        PeriodStartFilter: Text;
+        PeriodLengthFilter: Text[10];
+        I: Integer;
+        LineTotalAmountDue: Decimal;
+        LineTotalAmountDueACY: Decimal;
+        IsVendor: Boolean;
+        CurrExchRate: Record "Currency Exchange Rate";
+    begin
+        // if CurrExchRate.FindLast() then;
+        PeriodStartFilter := Format(AgedReportEntity.GetFilter("Period Start Date"));
+        PeriodLengthFilter := Format(AgedReportEntity.GetFilter("Period Length"));
+        if not CurrentAccount.IsRecord then
+            Error(RecordNotProvidedErr);
+        RecRef.GetTable(CurrentAccount);
+
+        if PeriodStartFilter = '' then
+            AgedReportEntity."Period Start Date" := Today
+        else begin
+            Evaluate(FilterPeriodStart, PeriodStartFilter);
+            AgedReportEntity."Period Start Date" := FilterPeriodStart;
+        end;
+
+        if PeriodLengthFilter = '' then
+            Evaluate(PeriodLengthFilter, '<30D>');
+
+        Evaluate(PeriodLength, '<->' + Format(PeriodLengthFilter));
+        AgedReportEntity."Period Length" := DelChr(Format(PeriodLengthFilter), '<>', '<>');
+
+        PeriodStartDate[1] := DMY2Date(31, 12, 9999);
+        PeriodStartDate[2] := AgedReportEntity."Period Start Date";
+
+        for I := 3 to 4 do
+            PeriodStartDate[I] := CalcDate(PeriodLength, PeriodStartDate[I - 1]);
+        PeriodStartDate[5] := DMY2Date(1, 1, 1753);
+
+        LineTotalAmountDue := 0;
+        LineTotalAmountDueACY := 0;
+        for I := 1 to 4 do
+            case RecRef.Number of
+                DATABASE::Customer:
+                    begin
+                        RecRef.SetTable(Customer);
+
+                        DetailedCustLedgEntry.SetCurrentKey("Customer No.", "Initial Entry Due Date");
+                        DetailedCustLedgEntry.SetRange("Customer No.", Customer."No.");
+                        DetailedCustLedgEntry.SetRange("Initial Entry Due Date", PeriodStartDate[I + 1], PeriodStartDate[I] - 1);
+                        DetailedCustLedgEntry.setfilter("Currency Code", 'EUR');
+                        if DetailedCustLedgEntry.FindFirst() then
+                            CalculateLineTotalAmountACYEUR(AgedReportEntity, LineTotalAmountDue, LineTotalAmountDueACY, DetailedCustLedgEntry, I);
+
+                    end;
+                DATABASE::Vendor:
+                    begin
+                        RecRef.SetTable(Vendor);
+                        IsVendor := true;
+                        DetailedVendorLedgEntry.SetCurrentKey("Vendor No.", "Initial Entry Due Date");
+                        DetailedVendorLedgEntry.SetRange("Vendor No.", Vendor."No.");
+                        DetailedVendorLedgEntry.SetRange("Initial Entry Due Date", PeriodStartDate[I + 1], PeriodStartDate[I] - 1);
+
+                        if DetailedVendorLedgEntry.FindFirst() then
+                            CalculateLineTotalAmount(AgedReportEntity, LineTotalAmountDue, LineTotalAmountDueACY, DetailedVendorLedgEntry, I);
+                    end;
+            end;
+
+        if IsVendor then begin
+            LineTotalAmountDue := -LineTotalAmountDue;
+            LineTotalAmountDueACY := -LineTotalAmountDueACY;
+        end else begin
+            AgedReportEntity.Balance := LineTotalAmountDue;
+            AgedReportEntity.BalanceACY := LineTotalAmountDueACY;
+        END;
+        //balance ACY
+        AgedReportEntity.BalanceACY := LineTotalAmountDueACY
+    end;
+
+
+    local procedure CalculateLineTotalAmount(var AgedReportEntity: Record "Aged Report Entity"; var LineTotalAmountDue: Decimal; var LineTotalAmountDueACY: Decimal; DetailLedgEntryVariant: Variant; PeriodCount: Integer)
     var
         DetailedCustLedgEntry: Record "Detailed Cust. Ledg. Entry";
         DetailedVendorLedgEntry: Record "Detailed Vendor Ledg. Entry";
@@ -477,14 +901,12 @@ codeunit 50212 "Graph Mgt - Reports-ACY"
             DATABASE::"Detailed Cust. Ledg. Entry":
                 begin
                     RecRef.SetTable(DetailedCustLedgEntry);
+                    DetailedCustLedgEntry.setfilter("Currency Code", '');
                     DetailedCustLedgEntry.CalcSums("Amount (LCY)");
+                    DetailedCustLedgEntry.CalcSums(Amount);
+                    // if DetailedCustLedgEntry.FindSet() then begin
+                    //   repeat
                     case PeriodCount of
-                        7:
-                            AgedReportEntity."Period 1 ACY" := DetailedCustLedgEntry."Amount (LCY)";
-                        6:
-                            AgedReportEntity."Period 2 ACY" := DetailedCustLedgEntry."Amount (LCY)";
-                        5:
-                            AgedReportEntity."Period 3 ACY" := DetailedCustLedgEntry."Amount (LCY)";
                         4:
                             AgedReportEntity."Period 3" := DetailedCustLedgEntry."Amount (LCY)";
                         3:
@@ -494,19 +916,36 @@ codeunit 50212 "Graph Mgt - Reports-ACY"
                         1:
                             AgedReportEntity.Before := DetailedCustLedgEntry."Amount (LCY)";
                     end;
+                    case PeriodCount of
+
+                        4:
+
+                            AgedReportEntity."Period 3 ACY" := DetailedCustLedgEntry."Amount";
+                        3:
+
+                            AgedReportEntity."Period 2 ACY" := DetailedCustLedgEntry."Amount";
+                        2:
+
+                            AgedReportEntity."Period 1 ACY" := DetailedCustLedgEntry."Amount";
+                        1:
+                            AgedReportEntity.Before := DetailedCustLedgEntry."Amount";
+                    end;
                     LineTotalAmountDue := LineTotalAmountDue + DetailedCustLedgEntry."Amount (LCY)";
+
+                    LineTotalAmountDueACY := LineTotalAmountDueACY + DetailedCustLedgEntry."Amount"
+                    // until DetailedCustLedgEntry.Next() = 0;
+                    //end;
+
                 end;
+
+
             DATABASE::"Detailed Vendor Ledg. Entry":
                 begin
                     RecRef.SetTable(DetailedVendorLedgEntry);
                     DetailedVendorLedgEntry.CalcSums("Amount (LCY)");
+                    DetailedVendorLedgEntry.CalcSums(Amount);
                     case PeriodCount of
-                        7:
-                            AgedReportEntity."Period 1 ACY" := -DetailedVendorLedgEntry."Amount (LCY)";
-                        6:
-                            AgedReportEntity."Period 2 ACY" := -DetailedVendorLedgEntry."Amount (LCY)";
-                        5:
-                            AgedReportEntity."Period 3 ACY" := -DetailedVendorLedgEntry."Amount (LCY)";
+
                         4:
                             AgedReportEntity."Period 3" := -DetailedVendorLedgEntry."Amount (LCY)";
                         3:
@@ -516,7 +955,124 @@ codeunit 50212 "Graph Mgt - Reports-ACY"
                         1:
                             AgedReportEntity.Before := -DetailedVendorLedgEntry."Amount (LCY)";
                     end;
+                    case PeriodCount of
+                        4:
+                            AgedReportEntity."Period 3 ACY" := -DetailedVendorLedgEntry."Amount";
+                        3:
+                            AgedReportEntity."Period 2 ACY" := -DetailedVendorLedgEntry."Amount";
+                        2:
+                            AgedReportEntity."Period 1 ACY" := -DetailedVendorLedgEntry."Amount";
+                        1:
+                            AgedReportEntity.Before := -DetailedVendorLedgEntry."Amount (LCY)";
+                    end;
                     LineTotalAmountDue := LineTotalAmountDue + DetailedVendorLedgEntry."Amount (LCY)";
+                    LineTotalAmountDueACY := LineTotalAmountDueACY + DetailedVendorLedgEntry."Amount";
+                end;
+        end;
+    end;
+
+    local procedure CalculateLineTotalAmountACY(var AgedReportEntity: Record "Aged Report Entity"; var LineTotalAmountDue: Decimal; var LineTotalAmountDueACY: Decimal; DetailLedgEntryVariant: Variant; PeriodCount: Integer)
+    var
+        DetailedCustLedgEntry: Record "Detailed Cust. Ledg. Entry";
+        DetailedVendorLedgEntry: Record "Detailed Vendor Ledg. Entry";
+        RecRef: RecordRef;
+    begin
+        if not DetailLedgEntryVariant.IsRecord then
+            Error(RecordNotProvidedErr);
+        RecRef.GetTable(DetailLedgEntryVariant);
+
+        case RecRef.Number of
+            DATABASE::"Detailed Cust. Ledg. Entry":
+                begin
+                    RecRef.SetTable(DetailedCustLedgEntry);
+                    DetailedCustLedgEntry.SetFilter("Currency Code", 'USD');
+                    DetailedCustLedgEntry.CalcSums("Amount (LCY)");
+                    DetailedCustLedgEntry.CalcSums(Amount);
+                    //if DetailedCustLedgEntry.FindSet() then begin
+                    //repeat
+                    case PeriodCount of
+                        4:
+                            AgedReportEntity."Period 3" := DetailedCustLedgEntry."Amount (LCY)";
+                        3:
+                            AgedReportEntity."Period 2" := DetailedCustLedgEntry."Amount (LCY)";
+                        2:
+                            AgedReportEntity."Period 1" := DetailedCustLedgEntry."Amount (LCY)";
+                        1:
+                            AgedReportEntity.Before := DetailedCustLedgEntry."Amount (LCY)";
+                    end;
+                    case PeriodCount of
+
+                        4:
+
+                            AgedReportEntity."Period 3 ACY" := DetailedCustLedgEntry."Amount";
+                        3:
+
+                            AgedReportEntity."Period 2 ACY" := DetailedCustLedgEntry."Amount";
+                        2:
+
+                            AgedReportEntity."Period 1 ACY" := DetailedCustLedgEntry."Amount";
+                        1:
+                            AgedReportEntity.Before := DetailedCustLedgEntry."Amount";
+                    end;
+                    LineTotalAmountDue := LineTotalAmountDue + DetailedCustLedgEntry."Amount (LCY)";
+
+                    LineTotalAmountDueACY := LineTotalAmountDueACY + DetailedCustLedgEntry."Amount"
+
+                    // until DetailedCustLedgEntry.Next() = 0;
+                    // end;
+                end;
+        end;
+    end;
+
+    local procedure CalculateLineTotalAmountACYEUR(var AgedReportEntity: Record "Aged Report Entity"; var LineTotalAmountDue: Decimal; var LineTotalAmountDueACY: Decimal; DetailLedgEntryVariant: Variant; PeriodCount: Integer)
+    var
+        DetailedCustLedgEntry: Record "Detailed Cust. Ledg. Entry";
+        DetailedVendorLedgEntry: Record "Detailed Vendor Ledg. Entry";
+        RecRef: RecordRef;
+    begin
+        if not DetailLedgEntryVariant.IsRecord then
+            Error(RecordNotProvidedErr);
+        RecRef.GetTable(DetailLedgEntryVariant);
+
+        case RecRef.Number of
+            DATABASE::"Detailed Cust. Ledg. Entry":
+                begin
+                    RecRef.SetTable(DetailedCustLedgEntry);
+                    DetailedCustLedgEntry.SetFilter("Currency Code", 'EUR');
+                    DetailedCustLedgEntry.CalcSums("Amount (LCY)");
+                    DetailedCustLedgEntry.CalcSums(Amount);
+                    //if DetailedCustLedgEntry.FindSet() then begin
+                    //repeat
+                    case PeriodCount of
+                        4:
+                            AgedReportEntity."Period 3" := DetailedCustLedgEntry."Amount (LCY)";
+                        3:
+                            AgedReportEntity."Period 2" := DetailedCustLedgEntry."Amount (LCY)";
+                        2:
+                            AgedReportEntity."Period 1" := DetailedCustLedgEntry."Amount (LCY)";
+                        1:
+                            AgedReportEntity.Before := DetailedCustLedgEntry."Amount (LCY)";
+                    end;
+                    case PeriodCount of
+
+                        4:
+
+                            AgedReportEntity."Period 3 ACY" := DetailedCustLedgEntry."Amount";
+                        3:
+
+                            AgedReportEntity."Period 2 ACY" := DetailedCustLedgEntry."Amount";
+                        2:
+
+                            AgedReportEntity."Period 1 ACY" := DetailedCustLedgEntry."Amount";
+                        1:
+                            AgedReportEntity.Before := DetailedCustLedgEntry."Amount";
+                    end;
+                    LineTotalAmountDue := LineTotalAmountDue + DetailedCustLedgEntry."Amount (LCY)";
+
+                    LineTotalAmountDueACY := LineTotalAmountDueACY + DetailedCustLedgEntry."Amount"
+
+                    // until DetailedCustLedgEntry.Next() = 0;
+                    // end;
                 end;
         end;
     end;
@@ -529,28 +1085,6 @@ codeunit 50212 "Graph Mgt - Reports-ACY"
     begin
         exit(MatrixMgt.FormatRoundingFactor(ColumnLayoutArr[ColumnNo]."Rounding Factor", DummyUseAmtsInAddCurr));
     end;
-
-    /* local procedure GetDateRangeMax(DateFilter: Text) RangeMax: Date
-     var
-         RegularExpression: DotNet Regex;
-         RegExMatches: DotNet MatchCollection;
-         Match: DotNet Match;
-         TempDate: Date;
-     begin
-         RegularExpression := RegularExpression.Regex('(\d{1,2})\/(\d{1,2})\/(\d{2})');
-         RegExMatches := RegularExpression.Matches(DateFilter);
-
-         if RegExMatches.Count <= 0 then begin
-             RangeMax := Today;
-             exit;
-         end;
-
-         foreach Match in RegExMatches do begin
-             Evaluate(TempDate, Match.Value);
-             if TempDate > RangeMax then
-                 RangeMax := TempDate;
-         end;
-     end;*/
 
     local procedure TransformAmount(Amount: Decimal) NewAmount: Text[30]
     begin

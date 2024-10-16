@@ -10,6 +10,7 @@ page 50349 "Aged AP Entity-ACY Receivable"
     PageType = List;
     SourceTableTemporary = true;
     ApplicationArea = all;
+    UsageCategory = ReportsAndAnalysis;
 
     layout
     {

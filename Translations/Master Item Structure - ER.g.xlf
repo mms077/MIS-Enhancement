@@ -3929,7 +3929,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Payable - Control period1Amount - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2840944459 - Control 3218088597 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies Period 1 ACY</source>
+          <source>Specifies Period 1</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Payable - Control period1AmountACY - Property ToolTip</note>
         </trans-unit>
@@ -3939,7 +3939,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Payable - Control period2Amount - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2840944459 - Control 719715092 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies Period 2 ACY</source>
+          <source>Specifies Period 2</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Payable - Control period2AmountACY - Property ToolTip</note>
         </trans-unit>
@@ -3949,7 +3949,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Payable - Control period3Amount - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2840944459 - Control 4151318547 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies Period 3 ACY</source>
+          <source>Specifies Period 3</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Payable - Control period3AmountACY - Property ToolTip</note>
         </trans-unit>
@@ -3972,11 +3972,6 @@
           <source>Specifies the Period Start Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Receivable - Control agedAsOfDate - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1379679441 - Control 412705190 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the Vendor Balance</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Receivable - Control balanceDue - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1379679441 - Control 1126679907 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Customer Balance</source>
@@ -4008,33 +4003,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Receivable - Control name - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 1379679441 - Control 2282433028 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies Period 1</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Receivable - Control period1Amount - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Page 1379679441 - Control 3218088597 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies Period 1 ACY</source>
+          <source>Specifies Period 1</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Receivable - Control period1AmountACY - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 1379679441 - Control 446687197 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies Period 2</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Receivable - Control period2Amount - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Page 1379679441 - Control 719715092 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies Period 2 ACY</source>
+          <source>Specifies Period 2</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Receivable - Control period2AmountACY - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 1379679441 - Control 939300790 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies Period 3</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Receivable - Control period3Amount - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Page 1379679441 - Control 4151318547 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies Period 3 ACY</source>
+          <source>Specifies Period 3</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Aged AP Entity-ACY Receivable - Control period3AmountACY - Property ToolTip</note>
         </trans-unit>

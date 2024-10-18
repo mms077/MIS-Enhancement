@@ -24,6 +24,7 @@ pageextension 50216 "Sales Order" extends "Sales Order"
             {
                 Caption = 'IC Company Name';
                 ApplicationArea = all;
+                Editable = false;
             }
             field("IC Source No."; Rec."IC Source No.")
             {
@@ -41,16 +42,19 @@ pageextension 50216 "Sales Order" extends "Sales Order"
             {
                 ApplicationArea = all;
                 ToolTip = 'The no. of the SO related to the end client';
+                Editable = false;
             }
             field("IC Customer Project Code"; Rec."IC Customer Project Code")
             {
                 ApplicationArea = all;
+                Editable = false;
             }
         }
         modify("Cust Project")
         {
             Importance = Promoted;
             ShowMandatory = true;
+            Caption = 'Customer Project';
         }
     }
     actions

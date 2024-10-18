@@ -20,19 +20,23 @@ pageextension 50226 "Purchase Order" extends "Purchase Order"
             {
                 Caption = 'IC Company Name';
                 ApplicationArea = all;
+                Editable = false;
             }
             field("IC Source No."; Rec."IC Source No.")
             {
                 ApplicationArea = all;
+                Editable = false;
             }
             field("IC Customer SO No."; Rec."IC Customer SO No.")
             {
                 ApplicationArea = all;
                 ToolTip = 'The no. of the SO related to the end client';
+                Editable = false;
             }
             field("IC Customer Project Code"; Rec."IC Customer Project Code")
             {
                 ApplicationArea = all;
+                Editable = false;
             }
         }
     }

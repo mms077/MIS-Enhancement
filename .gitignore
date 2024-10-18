@@ -1,3 +1,4 @@
 *.app
 *.json
 *.code-workspace
+.vscode/rad.json

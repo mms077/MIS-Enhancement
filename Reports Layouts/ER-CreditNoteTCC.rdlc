@@ -91,7 +91,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=First(Fields!informationLabelArabic.Value, "DataSet_Result")</Value>
+                                  <Value>=First(Fields!TotalPriceLabel.Value, "DataSet_Result")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontWeight>Bold</FontWeight>
@@ -195,17 +195,17 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox51">
+                        <Textbox Name="Textbox44">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Line_Item_Description_Arabic.Value</Value>
+                                  <Value>=Fields!Line_Amount.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
-                                    <Format>#,0.00</Format>
+                                    <Format>n2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -214,31 +214,14 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox51</rd:DefaultName>
+                          <rd:DefaultName>Textbox44</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
                             </Border>
-                            <TopBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </BottomBorder>
                             <LeftBorder>
-                              <Color>Black</Color>
                               <Style>None</Style>
-                              <Width>1pt</Width>
                             </LeftBorder>
-                            <RightBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>1pt</PaddingTop>
@@ -530,7 +513,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!TotalVatLabelArabic.Value &amp; " - " &amp; Fields!TotalVatLabel.Value</Value>
+                                  <Value>=Fields!TotalVatLabelArabic.Value &amp; " - " &amp; Fields!TotalVatLabel.Value &amp; iif(Fields!VAT_Amount.Value &lt;&gt; 0, " " &amp; First(Fields!CompanyVatRate.Value, "DataSet_Result") &amp; "%","")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -2363,6 +2346,12 @@ End Function
         </Field>
         <Field Name="BillTo_PayTerms">
           <DataField>BillTo_PayTerms</DataField>
+        </Field>
+        <Field Name="CompanyVatRate">
+          <DataField>CompanyVatRate</DataField>
+        </Field>
+        <Field Name="CompanyVatRateFormat">
+          <DataField>CompanyVatRateFormat</DataField>
         </Field>
         <Field Name="BillTo_DueDate">
           <DataField>BillTo_DueDate</DataField>

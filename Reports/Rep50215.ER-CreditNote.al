@@ -195,7 +195,7 @@ report 50215 "ER-Credit Note"
             #endregion 
 
             #region //Labels
-            column(SalesInvoiceLabel; SalesInvoiceLabel)
+            column(SalesInvoiceLabel; TitleText)
             {
 
             }
@@ -383,7 +383,7 @@ report 50215 "ER-Credit Note"
             column(PhoneNumberLbl; PhoneNumberLbl)
             { }
             #endregion
-            column(VAT_Percentage;VAT_Percentage){}
+            column(VAT_Percentage; VAT_Percentage) { }
             dataitem("Sales Cr.Memo Line"; "Sales Cr.Memo Line")
             {
                 DataItemLink = "Document No." = FIELD("No.");
@@ -560,7 +560,7 @@ report 50215 "ER-Credit Note"
                 }
             }
         }
-        
+
     }
 
     trigger OnInitReport()
@@ -576,6 +576,10 @@ report 50215 "ER-Credit Note"
         CompanyAddress := CompanyInformation.Address + ' ' + CompanyInformation."Address 2";
         CompanyInformation.CalcFields(Picture);
         VAT_Percentage := GeneralLedgerSetup."Default VAT %";
+        if GeneralLedgerSetup."Sub Tax Invoice Title" then
+            TitleText := TaxCreditNote
+        else
+            TitleText := CreditNoteLabel;
     end;
 
     procedure AmountInWordsFunction(Amount: Decimal; CurrencyCode: Code[10])
@@ -763,7 +767,9 @@ report 50215 "ER-Credit Note"
         GlobalProject: Code[50];
         TotalLineDiscountAmt: Decimal;
         GlobalBalanceDue: Decimal;
-        SalesInvoiceLabel: Label 'Credit Note';
+        TitleText: Text[50];
+        CreditNoteLabel: Label 'Credit Note';
+        TaxCreditNote: Label 'Tax Credit Note';
         InvoiceDateLabel: Label 'Date of Issue:';
         BillingInfoLabel: Label 'Billing Info';
         ShippingInfoLabel: Label 'Shiping Info';

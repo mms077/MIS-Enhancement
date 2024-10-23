@@ -21,6 +21,14 @@ pageextension 50215 "General Ledger Setup" extends "General Ledger Setup"
             }
 
         }
+        addlast(Reporting)
+        {
+            field("Sub Tax Invoice Title"; Rec."Sub Tax Invoice Title")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Substitute Sales invoice Title with Tax Invoice & Credit Note with Tax Credit Note.';
+            }
+        }
         addafter(Application)
         {
             group("Item Master")

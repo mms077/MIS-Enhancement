@@ -65,7 +65,7 @@ report 50231 "ER-Credit Note TCC"
             #endregion
 
             #region //Invoice Header
-            column(InvoiceNo;GlobalInvoiceNo){}
+            column(InvoiceNo; GlobalInvoiceNo) { }
             column(Sales_Credit_Memo_No; "Sales Cr.Memo Header"."No.")
             {
 
@@ -99,7 +99,7 @@ report 50231 "ER-Credit Note TCC"
             {
 
             }
-            column(ProjectCode;"Sales Cr.Memo Header"."Shortcut Dimension 1 Code")
+            column(ProjectCode; "Sales Cr.Memo Header"."Shortcut Dimension 1 Code")
             {
 
             }
@@ -151,6 +151,10 @@ report 50231 "ER-Credit Note TCC"
 
             }
             column(BillTo_PayTerms; GlobalPayTermsDescription)
+            {
+
+            }
+            column(CompanyVatRate; CompanyVatRate)
             {
 
             }
@@ -213,7 +217,7 @@ report 50231 "ER-Credit Note TCC"
             column(TotalVatLabelArabic; TotalVatLabelArabic) { }
             column(TotalExcVatLabel; TotalExcVatLabel) { }
             column(TotalExcVatLabelArabic; TotalExcVatLabelArabic) { }
-            column(SalesInvoiceLabel; SalesInvoiceLabel)
+            column(SalesInvoiceLabel; TitleText)
             {
 
             }
@@ -415,9 +419,9 @@ report 50231 "ER-Credit Note TCC"
             column(ProjectLabelArabic; ProjectLabelArabic) { }
             #endregion
 
-            
-            
-            
+
+
+
 
             dataitem("Sales Cr.Memo Line"; "Sales Cr.Memo Line")
             {
@@ -575,9 +579,9 @@ report 50231 "ER-Credit Note TCC"
 
                 //Invoice No
                 Clear(GlobalInvoiceNo);
-                if "Sales Cr.Memo Header"."Applies-to Doc. Type"=GenJournalDocumentType::Invoice  then begin
+                if "Sales Cr.Memo Header"."Applies-to Doc. Type" = GenJournalDocumentType::Invoice then begin
                     GlobalInvoiceNo := "Sales Cr.Memo Header"."Applies-to Doc. No.";
-            
+
                 end
             end;
         }
@@ -599,6 +603,11 @@ report 50231 "ER-Credit Note TCC"
         CompanyInformation.Get();
         CompanyAddress := CompanyInformation.Address + ' ' + CompanyInformation."Address 2";
         CompanyInformation.CalcFields(Picture);
+        CompanyVatRate := GeneralLedgerSetup."Default VAT %";
+        if GeneralLedgerSetup."Sub Tax Invoice Title" then
+            TitleText := TaxCreditNote
+        else
+            TitleText := CreditNoteLabel;
     end;
 
     procedure AmountInWordsFunction(Amount: Decimal; CurrencyCode: Code[10])
@@ -768,7 +777,7 @@ report 50231 "ER-Credit Note TCC"
         G_CULanguage: Codeunit Language;
         GlobalItem: Record Item;
         GlobalContact: Record Contact;
-        GenJournalDocumentType:Enum "Gen. Journal Document Type";
+        GenJournalDocumentType: Enum "Gen. Journal Document Type";
         GlobalFiscalCode: Text[30];
         AmountinWords: Text[250];
         FrenchReport: Boolean;
@@ -779,7 +788,8 @@ report 50231 "ER-Credit Note TCC"
         ExponentText: array[5] of Text[30];
 
         GlobalPayTermsDescription: Text[100];
-        GlobalInvoiceNo:Code[20];
+        CompanyVatRate: Decimal;
+        GlobalInvoiceNo: Code[20];
         CompanyAddress: Text[250];
         BarcodeText: Text[150];
         DepartmentName: Text[150];
@@ -794,7 +804,9 @@ report 50231 "ER-Credit Note TCC"
         GlobalBalanceDue: Decimal;
         //Line_Item_Description: Text[100];
         Line_Item_Description_Arabic: Text[250];
-        SalesInvoiceLabel: Label 'Credit Note';
+        TitleText: Text[50];
+        CreditNoteLabel: Label 'Credit Note';
+        TaxCreditNote: Label 'Tax Credit Note';
         InvoiceDateLabel: Label 'Date of Issue:';
         InvoiceDateLabelArabic: label 'تاريخ الاصدار';
         BillingInfoLabel: Label 'Billing Info';

@@ -365,5 +365,6 @@ permissionset 50200 MasterItemStructure
         page "Version Subform" = X,
         codeunit "Graph Mgt - Reports-ACY" = X,
         page "Aged AP Entity-ACY Payable" = X,
-        page "Aged AP Entity-ACY Receivable" = X;
+        page "Aged AP Entity-ACY Receivable" = X,
+        report "ER - Posted Sales Invoice ERC" = X;
 }

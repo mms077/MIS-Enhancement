@@ -31,5 +31,10 @@ tableextension 50215 "General Ledger Setup" extends "General Ledger Setup"
             DataClassification = ToBeClassified;
             Caption = 'Disregard Item Availability';
         }
+        field(50205; "Sub Tax Invoice Title"; Boolean)
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Sub Tax Invoice Title';
+        }
     }
 }

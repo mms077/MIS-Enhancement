@@ -10023,6 +10023,691 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice AR - NamedType YouOweUsLabel</note>
         </trans-unit>
+        <trans-unit id="Report 3950713930 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ER - Posted Sales Invoice ERC</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2903496795" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Billing Address</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType AddressCustLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2591543575" size-unit="char" translate="yes" xml:space="preserve">
+          <source>عنوان الفاتورة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType AddressCustLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2797193676" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Address</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType AddressLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1174917990" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Advanced Payment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType AdvancedPaymentLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1554642282" size-unit="char" translate="yes" xml:space="preserve">
+          <source>دفعة مسبقة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType AdvancedPaymentLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 212542456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Balance Due</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType BalanceDueLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2683708868" size-unit="char" translate="yes" xml:space="preserve">
+          <source>الرصيد المستحق</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType BalanceDueLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2019039655" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bill Ref. No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType BillRefNoLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1257737675" size-unit="char" translate="yes" xml:space="preserve">
+          <source>رقم فاتورة الشحن</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType BillRefNoLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1972174590" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Billing Info</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType BillToCustomerLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 481688829" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Capital</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Capital_Label</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1014129422" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Carrier</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType CarrierLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2466248610" size-unit="char" translate="yes" xml:space="preserve">
+          <source>مرجع الشحن</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType CarrierLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3532085133" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Acc#</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType CodeLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 553004505" size-unit="char" translate="yes" xml:space="preserve">
+          <source>رمز العمیل</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType codeLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2527151870" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Country &amp; City</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType CountryAndCityLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2548831762" size-unit="char" translate="yes" xml:space="preserve">
+          <source>البلد والمدينة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType CountryAndCityLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3927438484" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Currency</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType CurrencyCustLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 119306280" size-unit="char" translate="yes" xml:space="preserve">
+          <source>العملة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType CurrencyCustLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2035604559" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType CustomerNameLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1190122275" size-unit="char" translate="yes" xml:space="preserve">
+          <source>اسم العمیل</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType CustomerNameLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3093731364" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType DescriptionLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2760568" size-unit="char" translate="yes" xml:space="preserve">
+          <source>الوصف</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType DescriptionLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3782834533" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Discount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType DiscountLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2962823617" size-unit="char" translate="yes" xml:space="preserve">
+          <source>الحسم</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType DiscountLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 4094371370" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Due Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType DueDateLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3690007078" size-unit="char" translate="yes" xml:space="preserve">
+          <source>تاریخ الاستحقاق</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType DueDateLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3657772229" size-unit="char" translate="yes" xml:space="preserve">
+          <source>E:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType ELabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1697199384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Please Select a Sales Invoice.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Err0001</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1443428313" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ER\KSA\TCC\S-SI\100</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType FormNo</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1125713035" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FORM #</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType FormNoLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3350723812" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fully Paid</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType FullyPaidLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1116871891" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Grouping</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType GroupingLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2535744575" size-unit="char" translate="yes" xml:space="preserve">
+          <source>المجموعة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType GroupingLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3971409636" size-unit="char" translate="yes" xml:space="preserve">
+          <source>HS Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType HSCodeLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1143187384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>بند التعرفة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType HSCodeLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 4192338629" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType InvoiceDateLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1739741217" size-unit="char" translate="yes" xml:space="preserve">
+          <source>تاریخ إصدار الفاتورة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType InvoiceDateLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3244245218" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType InvoiceNoLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 328111054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>رقم الفاتورة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType InvoiceNoLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1215198615" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Jan 23</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType IssueDate</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 984342877" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Issue Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType IssueDateLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1633833466" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType ItemCodeLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2462209270" size-unit="char" translate="yes" xml:space="preserve">
+          <source>المنتج</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType ItemCodeLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3013844566" size-unit="char" translate="yes" xml:space="preserve">
+          <source>only.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType OnlyLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3672978075" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment Terms</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType PaymentTermsLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3552024791" size-unit="char" translate="yes" xml:space="preserve">
+          <source>شروط الدفع</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType PaymentTermsLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1648314782" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Phone</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType PhoneLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2367780786" size-unit="char" translate="yes" xml:space="preserve">
+          <source>الهاتف</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType PhoneLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2371432596" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Po No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType PoNoLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3519103402" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Postal Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType PostalCodeLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1478117798" size-unit="char" translate="yes" xml:space="preserve">
+          <source>الرمز البريدي</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType PostalCodeLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 890110892" size-unit="char" translate="yes" xml:space="preserve">
+          <source>المشروع</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType ProjectLabelAr</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2638284068" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Project</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType ProjectLabelEn</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1078423814" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Order Ref.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType PurchaseOrderRefLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1041784714" size-unit="char" translate="yes" xml:space="preserve">
+          <source>رقم المرجع</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType PurchaseOrderRefLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3026701823" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Qty</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType QuantityLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3827674131" size-unit="char" translate="yes" xml:space="preserve">
+          <source>الكمية</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType QuantityLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 48610953" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Receiver Contact</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType ReceiverContactLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2505167069" size-unit="char" translate="yes" xml:space="preserve">
+          <source>رقم المستلم</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType ReceiverContactLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 700163860" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Receiver Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType ReceiverNameLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 588158632" size-unit="char" translate="yes" xml:space="preserve">
+          <source>اسم المستلم</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType ReceiverNameLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2129571611" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Revision Date/#</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType RevisionDateLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1335712434" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tax Invoice</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType SalesInvoiceHeader</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2756669582" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipping Address</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType ShippingAddressLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1552455970" size-unit="char" translate="yes" xml:space="preserve">
+          <source>عنوان التسليم</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType ShippingAddressLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2452442881" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipping Mode</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType ShippingModeLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3006572357" size-unit="char" translate="yes" xml:space="preserve">
+          <source>طريقة الشحن</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType ShippingModeLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2527174619" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipping Terms</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType ShippingTermsLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2923388055" size-unit="char" translate="yes" xml:space="preserve">
+          <source>شروط الشحن</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType ShippingTermsLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1098443525" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipping Info</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType ShipToCustomerLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2171960165" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Size</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType SizeLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 480578497" size-unit="char" translate="yes" xml:space="preserve">
+          <source>مقاس</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType SizeLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3409963742" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SO#</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType SOLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3237203826" size-unit="char" translate="yes" xml:space="preserve">
+          <source>رقم الطلبیة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType SOLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1531616217" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType TaxAmountLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1047941677" size-unit="char" translate="yes" xml:space="preserve">
+          <source>مبلغ الضریبة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType TaxAmountLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2295520803" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Rate</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType TaxRateLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3055508303" size-unit="char" translate="yes" xml:space="preserve">
+          <source>نسبة الضریبة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType TaxRateLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3216065459" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ZERO</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Text026</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3853762076" size-unit="char" translate="yes" xml:space="preserve">
+          <source>HUNDRED</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Text027</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2747277865" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AND</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Text028</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3384974482" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 results in a written number that is too long.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Text029</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 4168233824" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ONE</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Text032</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3530537207" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TWO</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Text033</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3699446230" size-unit="char" translate="yes" xml:space="preserve">
+          <source>THREE</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Text034</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3061749613" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FOUR</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Text035</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2424052996" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FIVE</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Text036</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1786356379" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SIX</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Text037</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 342054122" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SEVEN</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Text038</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3999324801" size-unit="char" translate="yes" xml:space="preserve">
+          <source>EIGHT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Text039</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1404403683" size-unit="char" translate="yes" xml:space="preserve">
+          <source>NINE</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Text040</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2042100300" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TEN</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Text041</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2679796917" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ELEVEN</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Text042</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3317493534" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TWELVE</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Text043</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3148584511" size-unit="char" translate="yes" xml:space="preserve">
+          <source>THIRTEEN</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Text044</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3786281128" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FOURTEEN</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Text045</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 129010449" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FIFTEEN</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Text046</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 766707066" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SIXTEEN</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Text047</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2211009323" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SEVENTEEN</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Text048</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2848705940" size-unit="char" translate="yes" xml:space="preserve">
+          <source>EIGHTEEN</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Text049</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 612391220" size-unit="char" translate="yes" xml:space="preserve">
+          <source>NINETEEN</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Text050</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 4269661899" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TWENTY</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Text051</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1887784454" size-unit="char" translate="yes" xml:space="preserve">
+          <source>THIRTY</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Text052</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1250087837" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FORTY</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Text053</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2356572048" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FIFTY</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Text054</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1718875431" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SIXTY</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Text055</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3631965282" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SEVENTY</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Text056</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2994268665" size-unit="char" translate="yes" xml:space="preserve">
+          <source>EIGHTY</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Text057</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 4100752876" size-unit="char" translate="yes" xml:space="preserve">
+          <source>NINETY</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Text058</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3463056259" size-unit="char" translate="yes" xml:space="preserve">
+          <source>THOUSAND</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Text059</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 888923493" size-unit="char" translate="yes" xml:space="preserve">
+          <source>MILLION</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Text060</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1526620110" size-unit="char" translate="yes" xml:space="preserve">
+          <source>BILLION</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType Text061</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1595879206" size-unit="char" translate="yes" xml:space="preserve">
+          <source>T:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType TLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3617345506" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Excluding VAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType TotalExlVATLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2573937358" size-unit="char" translate="yes" xml:space="preserve">
+          <source>الإجمالي غیر شامل القیمة المضافة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType TotalExlVATLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 4249629696" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType TotalLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3214654524" size-unit="char" translate="yes" xml:space="preserve">
+          <source>المجموع</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType TotalLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1191454266" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Price Including VAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType TotalPriceIncldVATLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3390166966" size-unit="char" translate="yes" xml:space="preserve">
+          <source>السعر شامل ضریبة القیمة المضافة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType TotalPriceIncldVATLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3351324071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Taxable</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType TotalTaxable</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3736615371" size-unit="char" translate="yes" xml:space="preserve">
+          <source>الاجمالي شامل القيمة المضافة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType TotalTaxable_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3616756497" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total VAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType TotalVATLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1851689493" size-unit="char" translate="yes" xml:space="preserve">
+          <source>مجموع ضریبة القیمة المضافة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType TotalVATLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1238354712" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount Excl. VAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType UnitPriceExclVATLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2637913060" size-unit="char" translate="yes" xml:space="preserve">
+          <source>السعر الاجمالي قبل القيمة المضافة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType UnitPriceExclVATLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2513024501" size-unit="char" translate="yes" xml:space="preserve">
+          <source>السعر الإفرادي </source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType UnitPriceInlcVATLabel_AR1</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1875327884" size-unit="char" translate="yes" xml:space="preserve">
+          <source>شامل القیمة المضافة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType UnitPriceInlcVATLabel_AR2</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 2821200415" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit Price</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType UnitPriceLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1596255027" size-unit="char" translate="yes" xml:space="preserve">
+          <source>السعر الإفرادي</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType UnitPriceLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3794146812" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType VATCodeLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3789670730" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Number</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType VATNumberLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3351091142" size-unit="char" translate="yes" xml:space="preserve">
+          <source>رقم تسجیل القیمة المضافة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType VATNumberLabel_AR</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3847730677" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType VendorNoLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 1915713894" size-unit="char" translate="yes" xml:space="preserve">
+          <source>We owe you</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType WeOweYouLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 3950713930 - NamedType 3946494274" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You owe us</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice ERC - NamedType YouOweUsLabel</note>
+        </trans-unit>
         <trans-unit id="Report 1262451058 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Receipt Voucher</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -12463,6 +13148,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER-Credit Note - NamedType CodeLabel</note>
         </trans-unit>
+        <trans-unit id="Report 1256887817 - NamedType 943486269" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Credit Note</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER-Credit Note - NamedType CreditNoteLabel</note>
+        </trans-unit>
         <trans-unit id="Report 1256887817 - NamedType 1834836803" size-unit="char" translate="yes" xml:space="preserve">
           <source>Currency</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -12618,11 +13308,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER-Credit Note - NamedType RibLabel</note>
         </trans-unit>
-        <trans-unit id="Report 1256887817 - NamedType 4137252625" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Credit Note</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report ER-Credit Note - NamedType SalesInvoiceLabel</note>
-        </trans-unit>
         <trans-unit id="Report 1256887817 - NamedType 2756669582" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shiping Address</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -12652,6 +13337,11 @@
           <source>SWIFT</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER-Credit Note - NamedType SWIFTLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1256887817 - NamedType 56302972" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tax Credit Note</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER-Credit Note - NamedType TaxCreditNote</note>
         </trans-unit>
         <trans-unit id="Report 1256887817 - NamedType 4249629696" size-unit="char" translate="yes" xml:space="preserve">
           <source>Net Total</source>
@@ -12757,6 +13447,11 @@
           <source>Carrier</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER-Credit Note TCC - NamedType CarrierLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 2161895893 - NamedType 943486269" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Credit Note</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER-Credit Note TCC - NamedType CreditNoteLabel</note>
         </trans-unit>
         <trans-unit id="Report 2161895893 - NamedType 1834836803" size-unit="char" translate="yes" xml:space="preserve">
           <source>Currency</source>
@@ -12933,11 +13628,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER-Credit Note TCC - NamedType RevisionDateLabel</note>
         </trans-unit>
-        <trans-unit id="Report 2161895893 - NamedType 4137252625" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Credit Note</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report ER-Credit Note TCC - NamedType SalesInvoiceLabel</note>
-        </trans-unit>
         <trans-unit id="Report 2161895893 - NamedType 2756669582" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shiping Address</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -12967,6 +13657,11 @@
           <source>SWIFT</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER-Credit Note TCC - NamedType SWIFTLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 2161895893 - NamedType 56302972" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tax Credit Note</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ER-Credit Note TCC - NamedType TaxCreditNote</note>
         </trans-unit>
         <trans-unit id="Report 2161895893 - NamedType 2307876451" size-unit="char" translate="yes" xml:space="preserve">
           <source>Total Excuding VAT</source>
@@ -14913,6 +15608,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Ledger Setup - Control IC SQ Location - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="PageExtension 4050813720 - Control 2860455356 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4050813720">
+          <source>Substitute Sales invoice Title with Tax Invoice &amp; Credit Note with Tax Credit Note.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Ledger Setup - Control Sub Tax Invoice Title - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 4050813720 - Control 332174833 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4050813720">
           <source>Full Production: when the company produce all types. Only from SF: when the company produce only finished Items based on the Semi-Finished. No Production: When the company does not operate production</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -15832,6 +16532,11 @@
           <source>MOF Receipt</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension General Ledger Setup - Field MOF Receipt - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4050813720 - Field 2860455356 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4050813720">
+          <source>Sub Tax Invoice Title</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension General Ledger Setup - Field Sub Tax Invoice Title - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 4018843080 - Field 1740754582 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4018843080">
           <source>IC Company Name</source>

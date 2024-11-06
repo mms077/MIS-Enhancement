@@ -16,6 +16,10 @@ table 50265 "Staff Sizes"
             Caption = 'Size Code';
             DataClassification = ToBeClassified;
             TableRelation = Size.Code;
+            trigger OnValidate()
+            begin
+                PreventDifferentSizeForSameStaffandType(Rec);
+            end;
         }
         field(3; "Fit Code"; Code[50])
         {
@@ -76,4 +80,16 @@ table 50265 "Staff Sizes"
             Clustered = true;
         }
     }
+    procedure PreventDifferentSizeForSameStaffandType(var StaffSizePar: Record "Staff Sizes")
+    var
+        StafSizeLocal: Record "Staff Sizes";
+        Txt001: Label 'There is already different Size %1 for the same Staff %2 and Type %3.';
+    begin
+        StafSizeLocal.Reset();
+        StafSizeLocal.SetRange("Staff Code", StaffSizePar."Staff Code");
+        StafSizeLocal.SetRange("Type", StaffSizePar.Type);
+        if StafSizeLocal.Findfirst() then
+            if StafSizeLocal."Size Code" <> StaffSizePar."Size Code" then
+                Error(Txt001, StafSizeLocal."Size Code", StafSizeLocal."Staff Code", StafSizeLocal.Type);
+    end;
 }

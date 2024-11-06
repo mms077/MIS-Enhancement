@@ -12,6 +12,10 @@ page 50284 "Staff Sizes"
         {
             repeater(General)
             {
+                field(Type; Rec."Type")
+                {
+                    ApplicationArea = all;
+                }
                 field("Size Code"; Rec."Size Code")
                 {
                     ApplicationArea = All;
@@ -51,10 +55,6 @@ page 50284 "Staff Sizes"
                 field("Position Name"; Rec."Position Name")
                 {
                     ApplicationArea = All;
-                }
-                field(Type; Rec."Type")
-                {
-                    ApplicationArea = all;
                 }
             }
         }

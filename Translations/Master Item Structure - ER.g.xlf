@@ -3328,6 +3328,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Staff Sizes - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1481285740 - Method 414575790 - NamedType 672599587" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There is already different Size %1 for the same Staff %2 and Type %3.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Staff Sizes - Method PreventDifferentSizeForSameStaffandType - NamedType Txt001</note>
+        </trans-unit>
         <trans-unit id="Table 1481285740 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer No.</source>
           <note from="Developer" annotates="general" priority="2"></note>

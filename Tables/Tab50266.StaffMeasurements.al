@@ -23,7 +23,7 @@ table 50266 "Staff Measurements"
             trigger OnValidate()
             begin
                 //Prevent Different Value for the same Measurement and Staff
-                PreventDifferentValueForSameStaffMeasurement(Rec);
+                //PreventDifferentValueForSameStaffMeasurement(Rec);
             end;
         }
         field(4; "UOM Code"; Code[10])
@@ -70,20 +70,20 @@ table 50266 "Staff Measurements"
     }
     trigger OnInsert()
     begin
-        PreventDifferentValueForSameStaffMeasurement(Rec);
+        //PreventDifferentValueForSameStaffMeasurement(Rec);
     end;
 
     trigger OnModify()
     begin
-        PreventDifferentValueForSameStaffMeasurement(Rec);
+        //PreventDifferentValueForSameStaffMeasurement(Rec);
     end;
 
     trigger OnRename()
     begin
-        PreventDifferentValueForSameStaffMeasurement(Rec);
+        //PreventDifferentValueForSameStaffMeasurement(Rec);
     end;
-
-    procedure PreventDifferentValueForSameStaffMeasurement(StaffMeasurementPar: Record "Staff Measurements")
+    /// Based on Charbel's Request, we commented the following code
+    /*procedure PreventDifferentValueForSameStaffMeasurement(StaffMeasurementPar: Record "Staff Measurements")
     var
         StaffMeasurementLoc: Record "Staff Measurements";
         Lbl001: Label 'You cannot enter a measurement value different than the already entered for this staff which is %1';
@@ -98,4 +98,5 @@ table 50266 "Staff Measurements"
                     Error(Lbl001, StaffMeasurementLoc.Value);
             until StaffMeasurementLoc.Next() = 0;
     end;
+    */
 }

@@ -88,8 +88,18 @@ table 50265 "Staff Sizes"
         StafSizeLocal.Reset();
         StafSizeLocal.SetRange("Staff Code", StaffSizePar."Staff Code");
         StafSizeLocal.SetRange("Type", StaffSizePar.Type);
-        if StafSizeLocal.Findfirst() then
-            if StafSizeLocal."Size Code" <> StaffSizePar."Size Code" then
-                Error(Txt001, StafSizeLocal."Size Code", StafSizeLocal."Staff Code", StafSizeLocal.Type);
+        if StafSizeLocal.FindSet() then
+            repeat
+                //Check if it's the same record --> then it's ok
+                if (StaffSizePar."Staff Code" <> StafSizeLocal."Staff Code")
+                or (StaffSizePar."Fit Code" <> StafSizeLocal."Fit Code")
+                or (StaffSizePar."Cut Code" <> StafSizeLocal."Cut Code")
+                or (StaffSizePar."Customer No." <> StafSizeLocal."Customer No.")
+                or (StaffSizePar."Department Code" <> StafSizeLocal."Department Code")
+                or (StaffSizePar."Position Code" <> StafSizeLocal."Position Code")
+                or (StaffSizePar."Type" <> StafSizeLocal."Type") then
+                    if StafSizeLocal."Size Code" <> StaffSizePar."Size Code" then
+                        Error(Txt001, StafSizeLocal."Size Code", StafSizeLocal."Staff Code", StafSizeLocal.Type);
+            until StafSizeLocal.Next() = 0;
     end;
 }

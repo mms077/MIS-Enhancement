@@ -3273,6 +3273,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Staff Measurements - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2565736169 - Method 99450223 - NamedType 1162544269" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You cannot enter the same measurement for the same staff</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Staff Measurements - Method PreventSametMeasurementForSameStaff - NamedType Lbl001</note>
+        </trans-unit>
         <trans-unit id="Table 2565736169 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer No.</source>
           <note from="Developer" annotates="general" priority="2"></note>

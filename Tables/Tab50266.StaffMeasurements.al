@@ -71,6 +71,7 @@ table 50266 "Staff Measurements"
     trigger OnInsert()
     begin
         //PreventDifferentValueForSameStaffMeasurement(Rec);
+        PreventSametMeasurementForSameStaff(Rec);
     end;
 
     trigger OnModify()
@@ -81,6 +82,8 @@ table 50266 "Staff Measurements"
     trigger OnRename()
     begin
         //PreventDifferentValueForSameStaffMeasurement(Rec);
+        if (xRec."Measurement Code" <> Rec."Measurement Code") or (xRec."Staff Code" <> Rec."Staff Code") then
+            PreventSametMeasurementForSameStaff(Rec);
     end;
     /// Based on Charbel's Request, we commented the following code
     /*procedure PreventDifferentValueForSameStaffMeasurement(StaffMeasurementPar: Record "Staff Measurements")
@@ -99,4 +102,15 @@ table 50266 "Staff Measurements"
             until StaffMeasurementLoc.Next() = 0;
     end;
     */
+    procedure PreventSametMeasurementForSameStaff(StaffMeasurementPar: Record "Staff Measurements")
+    var
+        StaffMeasurementLoc: Record "Staff Measurements";
+        Lbl001: Label 'You cannot enter the same measurement for the same staff';
+    begin
+        Clear(StaffMeasurementLoc);
+        StaffMeasurementLoc.SetRange("Staff Code", StaffMeasurementPar."Staff Code");
+        StaffMeasurementLoc.SetRange("Measurement Code", StaffMeasurementPar."Measurement Code");
+        if StaffMeasurementLoc.FindFirst() then
+            Error(Lbl001);
+    end;
 }

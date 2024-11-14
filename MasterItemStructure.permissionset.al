@@ -292,7 +292,6 @@ permissionset 50200 MasterItemStructure
         report "ER - Trial Balance" = X,
         report "ER - Customer Trial Balance" = X,
         report "ER - Vendor Trial Balance" = X,
-        report "ER - Posted Sales Invoice AR" = X,
         codeunit CeeAnt = X,
         page "Parameter Headers" = X,
         tabledata "AC Currency Total" = RIMD,
@@ -368,4 +367,5 @@ permissionset 50200 MasterItemStructure
         page "Aged AP Entity-ACY Receivable" = X,
         report "ER - Posted Sales Invoice ERC" = X,
         codeunit "Cost Adjust-EX" = X;
+    //report "ER - Posted Sales Invoice AR" = X;
 }

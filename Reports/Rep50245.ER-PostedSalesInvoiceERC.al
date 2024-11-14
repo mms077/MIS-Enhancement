@@ -1,7 +1,7 @@
 report 50245 "ER - Posted Sales Invoice ERC"
 {
     ApplicationArea = All;
-    Caption = 'ER - Posted Sales Invoice ERC';
+    Caption = 'ER - Posted Sales Invoice AR';
     UsageCategory = ReportsAndAnalysis;
     DefaultLayout = RDLC;
     RDLCLayout = './Reports Layouts/ER-PostedSalesInvoiceERC.rdlc';
@@ -296,7 +296,7 @@ report 50245 "ER - Posted Sales Invoice ERC"
             {
 
             }
-            column(Bill_to_Address; "Bill-to Address")
+            column(Bill_to_Address; BillToAddress)
             {
 
             }
@@ -388,6 +388,10 @@ report 50245 "ER - Posted Sales Invoice ERC"
 
             }
             column(PhoneLabel_AR; PhoneLabel_AR)
+            {
+
+            }
+            column(BillTo_Phone; GlobalBillToCustomer."Phone No.")
             {
 
             }
@@ -763,10 +767,17 @@ report 50245 "ER - Posted Sales Invoice ERC"
                     G_Invoice_Currency := "Sales Invoice Header"."Currency Code";
                 AmountInWordsFunction("Sales Invoice Header"."Amount Including VAT", G_Invoice_Currency);
 
+                Clear(GlobalShipToCustomer);
+                Clear(GlobalBillToCustomer);
+                Clear(BillToAddress);
                 if GlobalShipToCustomer.Get("Sales Invoice Header"."Sell-to Customer No.") then
                     //Get Ship Address
                     ShipToAddress := "Sales Invoice Header"."Sell-to Country/Region Code" + ',' + "Sales Invoice Header"."Ship-to Address" + ',' + "Sales Invoice Header"."Ship-to Address 2";
-
+                if GlobalBillToCustomer.Get("Sales Invoice Header"."Bill-to Customer No.") then begin
+                    //Get Bill Address
+                    Clear(BillToAddress);
+                    BillToAddress := "Sales Invoice Header"."Bill-to Country/Region Code" + ',' + "Sales Invoice Header"."Bill-to Address" + ',' + "Sales Invoice Header"."Bill-to Address 2"
+                end;
                 Clear(GlobalBalanceDue);
                 CustLedgerEntry.SetRange("Document No.", "Sales Invoice Header"."No.");
                 if CustLedgerEntry.FindFirst() then begin
@@ -787,6 +798,7 @@ report 50245 "ER - Posted Sales Invoice ERC"
                 //Invoice Type
                 Clear(GlobalInvoiceType);
                 GlobalInvoiceType := GetOptionValue(Database::"Sales Invoice Header", 70101, "Sales Invoice Header"."ZATCA Invoice Type");
+
                 Clear(G_ShipToPhoneNo);
                 G_RecCustomer.reset();
                 if "Sales Invoice Header"."Ship-to Code" = '' then begin
@@ -818,7 +830,8 @@ report 50245 "ER - Posted Sales Invoice ERC"
 
     trigger OnPreReport()
     begin
-        G_ShipToCountryCity := "Sales Invoice Header"."Ship-to City" + ' ' + "Sales Invoice Header"."Ship-to Country/Region Code";
+
+        //G_ShipToCountryCity := "Sales Invoice Header"."Ship-to City" + ' ' + "Sales Invoice Header"."Ship-to Country/Region Code";
         G_RecGnrlLedgSetup.Get();
         G_RecCompanyInformation.Get();
         CompanyAddress := G_RecCompanyInformation.Address + ' ' + G_RecCompanyInformation."Country/Region Code";
@@ -1011,7 +1024,9 @@ report 50245 "ER - Posted Sales Invoice ERC"
         G_LineAmountInclVat: Decimal;
         HSCode: Code[50];
         ShipToAddress: Text[250];
+        BillToAddress: Text[250];
         GlobalShipToCustomer: Record Customer;
+        GlobalBillToCustomer: Record Customer;
         GlobalItem: Record item;
         GlobalBalanceDue: Decimal;
         GlobalContact: Record Contact;
@@ -1131,7 +1146,7 @@ report 50245 "ER - Posted Sales Invoice ERC"
         #region //BodyBelowTable
         TotalExlVATLabel: Label 'Total Excluding VAT';
         TotalVATLabel: Label 'Total VAT';
-        TotalTaxable: Label 'Total Taxable';
+        TotalTaxable: Label 'Total Including VAT';
         TotalLabel: Label 'Total';
         TotalLabel_AR: Label 'المجموع';
         TotalExlVATLabel_AR: Label 'الإجمالي غیر شامل القیمة المضافة';

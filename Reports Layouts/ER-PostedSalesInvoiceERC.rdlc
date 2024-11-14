@@ -19,22 +19,22 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>3.34375cm</Width>
+                  <Width>3cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.03208cm</Width>
+                  <Width>4cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.46062cm</Width>
+                  <Width>3cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.53396cm</Width>
+                  <Width>3cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.4cm</Width>
+                  <Width>4cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.09458cm</Width>
+                  <Width>3cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -138,6 +138,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
                             <BackgroundColor>LightGrey</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
@@ -185,9 +190,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>3pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -195,6 +202,7 @@
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="Textbox35">
+                          <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
@@ -217,9 +225,11 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>3pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -254,9 +264,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>3pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -290,9 +302,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>3pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -300,6 +314,7 @@
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="Textbox39">
+                          <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
@@ -322,9 +337,11 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>3pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -359,9 +376,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>3pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -400,9 +419,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -432,9 +453,11 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -469,9 +492,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -505,9 +530,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -537,9 +564,11 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -574,9 +603,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -615,9 +646,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -625,6 +658,7 @@
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="Textbox10">
+                          <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
@@ -647,9 +681,11 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -684,9 +720,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -720,9 +758,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -730,6 +770,7 @@
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="Textbox13">
+                          <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
@@ -752,9 +793,11 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -789,9 +832,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -830,9 +875,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -862,9 +909,11 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -899,9 +948,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -935,9 +986,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -967,9 +1020,11 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -1004,9 +1059,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -1045,9 +1102,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -1060,7 +1119,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=First(Fields!ShipToPhoneNo.Value, "DataSet_Result")</Value>
+                                  <Value>=First(Fields!BillTo_Phone.Value, "DataSet_Result")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -1077,9 +1136,11 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -1114,9 +1175,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -1150,9 +1213,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -1165,7 +1230,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=First(Fields!ShipToPhoneNo.Value, "DataSet_Result")</Value>
+                                  <Value>=First(Fields!ShipTo_Phone.Value, "DataSet_Result")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -1182,9 +1247,11 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -1219,9 +1286,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -1260,9 +1329,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -1292,9 +1363,11 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -1329,9 +1402,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -1365,9 +1440,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -1397,9 +1474,11 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -1434,9 +1513,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -1475,9 +1556,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -1507,9 +1590,11 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -1539,9 +1624,11 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -1575,9 +1662,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -1608,9 +1697,11 @@
                               <Color>LightGrey</Color>
                               <Style>None</Style>
                             </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -1645,9 +1736,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -1686,9 +1779,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -1718,9 +1813,11 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -1755,9 +1852,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -1791,9 +1890,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -1824,9 +1925,11 @@
                               <Color>LightGrey</Color>
                               <Style>None</Style>
                             </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -1861,9 +1964,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -1902,9 +2007,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -1912,6 +2019,7 @@
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="Textbox71">
+                          <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
@@ -1934,9 +2042,11 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -1971,9 +2081,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -2007,9 +2119,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -2040,9 +2154,11 @@
                               <Color>LightGrey</Color>
                               <Style>None</Style>
                             </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -2077,9 +2193,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -2118,9 +2236,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -2137,6 +2257,7 @@
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
+                                    <Format>dd/MM/yyyy</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2150,9 +2271,11 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -2187,9 +2310,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -2223,9 +2348,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -2255,9 +2382,11 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -2292,9 +2421,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -2338,9 +2469,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -2375,9 +2508,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </BottomBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -2417,9 +2552,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -2458,9 +2595,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -2495,9 +2634,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </BottomBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -2537,9 +2678,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -2575,7 +2718,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <Height>5.55313cm</Height>
-            <Width>19.86499cm</Width>
+            <Width>20cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2584,9 +2727,9 @@
           </Tablix>
           <Rectangle Name="Rectangle1">
             <KeepTogether>true</KeepTogether>
-            <Top>5.55313cm</Top>
-            <Height>0.31771cm</Height>
-            <Width>19.83854cm</Width>
+            <Top>5.5cm</Top>
+            <Height>0.3cm</Height>
+            <Width>20cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -2613,8 +2756,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox8</rd:DefaultName>
-            <Top>12.20424cm</Top>
-            <Left>5.19257cm</Left>
+            <Top>11.5cm</Top>
+            <Left>5.65cm</Left>
             <Height>2cm</Height>
             <Width>8.7cm</Width>
             <ZIndex>2</ZIndex>
@@ -2642,16 +2785,16 @@
                   <Width>1.65604cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>4.12354cm</Width>
+                  <Width>4.2cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.4675cm</Width>
+                  <Width>1.38209cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.17042cm</Width>
+                  <Width>1.28792cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.1825cm</Width>
@@ -3904,6 +4047,7 @@
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
+                                    <Format>#,0</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4662,7 +4806,7 @@
             <DataSetName>DataSet_Result</DataSetName>
             <Top>5.96cm</Top>
             <Height>1.9cm</Height>
-            <Width>19.89145cm</Width>
+            <Width>20cm</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -4674,48 +4818,16 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>11.4175cm</Width>
+                  <Width>6.70141cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>5.06229cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>3.35875cm</Width>
+                  <Width>4.27212cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
                   <Height>0.45cm</Height>
                   <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox26">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style />
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox26</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="Textbox57">
@@ -4743,11 +4855,6 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
-                            <TopBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </TopBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                           </Style>
@@ -4763,10 +4870,11 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Last(Fields!R_TotalTaxable.Value) + Fields!R_Discount.Value + Fields!R_LineDiscount.Value</Value>
+                                  <Value>=Last(Fields!R_TotalTaxable.Value) - Last(Fields!R_TotalVat.Value) + Last(Fields!R_Discount.Value) + Last(Fields!R_LineDiscount.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>9pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                     <Format>#,0.00</Format>
                                   </Style>
                                 </TextRun>
@@ -4781,11 +4889,6 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
-                            <TopBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </TopBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                           </Style>
@@ -4797,35 +4900,6 @@
                 <TablixRow>
                   <Height>0.45cm</Height>
                   <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox66">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style />
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox66</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="Textbox118">
@@ -4868,10 +4942,11 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Last(Fields!R_Discount.Value)</Value>
+                                  <Value>=Last(Fields!R_Discount.Value) + Last(Fields!R_LineDiscount.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>9pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                     <Format>#,0.00</Format>
                                   </Style>
                                 </TextRun>
@@ -4897,35 +4972,6 @@
                 <TablixRow>
                   <Height>0.45cm</Height>
                   <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox94">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style />
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox94</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="Textbox128">
@@ -4971,7 +5017,8 @@
                                   <Value>=Last(Fields!R_TotalTaxable.Value) - Last(Fields!R_TotalVat.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>9pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                     <Format>#,0.00</Format>
                                   </Style>
                                 </TextRun>
@@ -4999,35 +5046,6 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox98">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style />
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox98</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
                         <Textbox Name="Textbox143">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -5035,7 +5053,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=First(Fields!TotalVATLabel_AR.Value, "DataSet_Result") &amp; " - " &amp; First(Fields!TotalVATLabel.Value, "DataSet_Result") &amp; IIF((First(Fields!Invoice_Amount_Including_VAT.Value, "DataSet_Result") - First(Fields!InvoiceAmount.Value, "DataSet_Result")) = 0, "", " " &amp; First(Fields!CompanyVat.Value, "DataSet_Result") &amp; "%")</Value>
+                                  <Value>=First(Fields!TotalVATLabel_AR.Value, "DataSet_Result") &amp; " - " &amp; First(Fields!TotalVATLabel.Value, "DataSet_Result") &amp; IIF(Last(Fields!R_TotalVat.Value) = 0, " 0%", " " &amp; First(Fields!CompanyVat.Value, "DataSet_Result") &amp; "%")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -5071,7 +5089,8 @@
                                   <Value>=Last(Fields!R_TotalVat.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>9pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                     <Format>#,0.00</Format>
                                   </Style>
                                 </TextRun>
@@ -5097,40 +5116,6 @@
                 <TablixRow>
                   <Height>0.45cm</Height>
                   <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox148">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=First(Fields!YouOweUsLabel.Value, "DataSet_Result") &amp; " " &amp; First(Fields!AmountinWords.Value, "DataSet_Result") &amp; " " &amp; First(Fields!OnlyLabel.Value, "DataSet_Result")</Value>
-                                  <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>7pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox147</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="Textbox167">
@@ -5176,7 +5161,8 @@
                                   <Value>=Last(Fields!R_TotalTaxable.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>9pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                     <Format>#,0.00</Format>
                                   </Style>
                                 </TextRun>
@@ -5202,35 +5188,6 @@
                 <TablixRow>
                   <Height>0.45cm</Height>
                   <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox115">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style />
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox115</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="Textbox164">
@@ -5277,7 +5234,8 @@
                                   <Value>=Last(Fields!R_AdvancedPayment.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>9pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                     <Format>n2</Format>
                                   </Style>
                                 </TextRun>
@@ -5303,35 +5261,6 @@
                 <TablixRow>
                   <Height>0.45cm</Height>
                   <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox119">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style />
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox119</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="Textbox58">
@@ -5378,7 +5307,8 @@
                                   <Value>=Last(Fields!R_TotalTaxable.Value) + Last(Fields!R_AdvancedPayment.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>9pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                     <Format>#,0.00</Format>
                                   </Style>
                                 </TextRun>
@@ -5407,7 +5337,6 @@
               <TablixMembers>
                 <TablixMember />
                 <TablixMember />
-                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -5423,9 +5352,9 @@
             </TablixRowHierarchy>
             <KeepTogether>true</KeepTogether>
             <Top>7.91724cm</Top>
-            <Left>0.02646cm</Left>
+            <Left>9.02646cm</Left>
             <Height>3.15cm</Height>
-            <Width>19.83854cm</Width>
+            <Width>10.97353cm</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
@@ -5433,14 +5362,48 @@
               </Border>
             </Style>
           </Tablix>
+          <Textbox Name="Textbox148">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!YouOweUsLabel.Value, "DataSet_Result") &amp; " " &amp; First(Fields!AmountinWords.Value, "DataSet_Result") &amp; " " &amp; First(Fields!OnlyLabel.Value, "DataSet_Result")</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>7pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox147</rd:DefaultName>
+            <Top>7.89528cm</Top>
+            <Height>3.17196cm</Height>
+            <Width>9.02646cm</Width>
+            <ZIndex>5</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>5pt</PaddingLeft>
+              <PaddingRight>5pt</PaddingRight>
+            </Style>
+          </Textbox>
         </ReportItems>
-        <Height>15.47745cm</Height>
+        <Height>13.5cm</Height>
         <Style />
       </Body>
-      <Width>19.89145cm</Width>
+      <Width>20.00001cm</Width>
       <Page>
         <PageHeader>
-          <Height>5.15cm</Height>
+          <Height>5.15001cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -5459,15 +5422,15 @@
                     </TextRun>
                   </TextRuns>
                   <Style>
-                    <TextAlign>Left</TextAlign>
+                    <TextAlign>Center</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>2cm</Top>
-              <Left>8.60583cm</Left>
+              <Left>7cm</Left>
               <Height>0.65cm</Height>
-              <Width>6.18646cm</Width>
+              <Width>6cm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -5480,8 +5443,8 @@
               <Value>=First(Fields!Company_Picture.Value, "DataSet_Result")</Value>
               <MIMEType>image/bmp</MIMEType>
               <Sizing>FitProportional</Sizing>
-              <Height>2.1cm</Height>
-              <Width>8.5cm</Width>
+              <Height>2.3cm</Height>
+              <Width>6.5cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -5508,9 +5471,9 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox4</rd:DefaultName>
-              <Top>2.1cm</Top>
-              <Height>0.4cm</Height>
-              <Width>8.5cm</Width>
+              <Top>2.3cm</Top>
+              <Height>0.35cm</Height>
+              <Width>6.5cm</Width>
               <ZIndex>2</ZIndex>
               <Style>
                 <Border>
@@ -5537,9 +5500,9 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox5</rd:DefaultName>
-              <Top>3cm</Top>
-              <Height>0.4cm</Height>
-              <Width>8.5cm</Width>
+              <Top>3.02225cm</Top>
+              <Height>0.35cm</Height>
+              <Width>6.5cm</Width>
               <ZIndex>3</ZIndex>
               <Style>
                 <Border>
@@ -5566,9 +5529,9 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox6</rd:DefaultName>
-              <Top>3.4cm</Top>
-              <Height>0.4cm</Height>
-              <Width>8.5cm</Width>
+              <Top>3.37225cm</Top>
+              <Height>0.35cm</Height>
+              <Width>6.5cm</Width>
               <ZIndex>4</ZIndex>
               <Style>
                 <Border>
@@ -5595,9 +5558,9 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Top>3.8cm</Top>
-              <Height>0.4cm</Height>
-              <Width>8.5cm</Width>
+              <Top>3.72225cm</Top>
+              <Height>0.35cm</Height>
+              <Width>6.5cm</Width>
               <ZIndex>5</ZIndex>
               <Style>
                 <Border>
@@ -5626,7 +5589,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
-              <Left>15.83854cm</Left>
+              <Left>16cm</Left>
               <Height>0.45cm</Height>
               <Width>4cm</Width>
               <ZIndex>6</ZIndex>
@@ -5658,8 +5621,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox23</rd:DefaultName>
-              <Top>0.48528cm</Top>
-              <Left>15.83854cm</Left>
+              <Top>0.45cm</Top>
+              <Left>16cm</Left>
               <Height>0.45cm</Height>
               <Width>4cm</Width>
               <ZIndex>7</ZIndex>
@@ -5689,9 +5652,9 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox5</rd:DefaultName>
-              <Top>2.6cm</Top>
-              <Height>0.4cm</Height>
-              <Width>8.5cm</Width>
+              <Top>2.67225cm</Top>
+              <Height>0.35cm</Height>
+              <Width>6.5cm</Width>
               <ZIndex>8</ZIndex>
               <Style>
                 <Border>
@@ -5704,8 +5667,8 @@
               <Value>=First(Fields!QRPicture.Value, "DataSet_Result")</Value>
               <MIMEType>image/bmp</MIMEType>
               <Sizing>FitProportional</Sizing>
-              <Top>0.43766in</Top>
-              <Left>16.83854cm</Left>
+              <Top>1cm</Top>
+              <Left>17cm</Left>
               <Height>3cm</Height>
               <Width>3cm</Width>
               <ZIndex>9</ZIndex>
@@ -5715,39 +5678,6 @@
                 </Border>
               </Style>
             </Image>
-            <Textbox Name="Textbox75">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=First(Fields!Zatca_Invoice_Type.Value, "DataSet_Result")</Value>
-                      <Style>
-                        <FontFamily>Segoe UI</FontFamily>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox48</rd:DefaultName>
-              <Top>1.31472cm</Top>
-              <Left>13cm</Left>
-              <Height>0.65cm</Height>
-              <Width>3.4cm</Width>
-              <ZIndex>10</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
             <Textbox Name="Textbox76">
               <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
@@ -5769,11 +5699,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox8</rd:DefaultName>
-              <Top>4.2175cm</Top>
-              <Left>14.33854cm</Left>
+              <Top>4.2cm</Top>
+              <Left>14.5cm</Left>
               <Height>0.65cm</Height>
               <Width>5.5cm</Width>
-              <ZIndex>11</ZIndex>
+              <ZIndex>10</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -5816,7 +5746,7 @@
               <rd:DefaultName>Textbox28</rd:DefaultName>
               <Top>0.8cm</Top>
               <Height>0.6cm</Height>
-              <Width>5.98632cm</Width>
+              <Width>6.5cm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -5848,9 +5778,9 @@
               </Paragraphs>
               <rd:DefaultName>Textbox30</rd:DefaultName>
               <Top>0.8cm</Top>
-              <Left>5.98632cm</Left>
+              <Left>6.5cm</Left>
               <Height>0.6cm</Height>
-              <Width>6.6016cm</Width>
+              <Width>7cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -5883,9 +5813,9 @@
               </Paragraphs>
               <rd:DefaultName>Textbox32</rd:DefaultName>
               <Top>0.8cm</Top>
-              <Left>12.58792cm</Left>
+              <Left>13.5cm</Left>
               <Height>0.6cm</Height>
-              <Width>7.27708cm</Width>
+              <Width>6.5cm</Width>
               <ZIndex>2</ZIndex>
               <Style>
                 <Border>
@@ -6241,6 +6171,9 @@ End Function
         </Field>
         <Field Name="PhoneLabel_AR">
           <DataField>PhoneLabel_AR</DataField>
+        </Field>
+        <Field Name="BillTo_Phone">
+          <DataField>BillTo_Phone</DataField>
         </Field>
         <Field Name="InvoiceNoLabel_AR">
           <DataField>InvoiceNoLabel_AR</DataField>

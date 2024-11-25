@@ -9399,17 +9399,17 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice - NamedType SalesInvoiceLabel</note>
         </trans-unit>
         <trans-unit id="Report 2674555262 - NamedType 2756669582" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Shiping Address</source>
+          <source>Shipping Address</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice - NamedType ShippingAddressLabel</note>
         </trans-unit>
         <trans-unit id="Report 2674555262 - NamedType 3024073662" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Shiping Info</source>
+          <source>Shipping Info</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice - NamedType ShippingInfoLabel</note>
         </trans-unit>
         <trans-unit id="Report 2674555262 - NamedType 2452442881" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Shiping Mode</source>
+          <source>Shipping Mode</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ER - Posted Sales Invoice - NamedType ShippingModeLabel</note>
         </trans-unit>

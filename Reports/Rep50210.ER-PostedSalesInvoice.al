@@ -442,7 +442,7 @@ report 50210 "ER - Posted Sales Invoice"
 
             }
             #endregion
-            column(VAT_Percentage;VAT_Percentage)
+            column(VAT_Percentage; VAT_Percentage)
             {
 
             }
@@ -484,11 +484,11 @@ report 50210 "ER - Posted Sales Invoice"
 
                 }
                 /////
-                column(ItemsLinesAmounts;LinesTotalAmount)
+                column(ItemsLinesAmounts; LinesTotalAmount)
                 {
 
                 }
-                column(ItemsLinesAmountsExcDiscount;LinesTotalAmountExcDiscount)
+                column(ItemsLinesAmountsExcDiscount; LinesTotalAmountExcDiscount)
                 {
 
                 }
@@ -505,7 +505,7 @@ report 50210 "ER - Posted Sales Invoice"
                 {
 
                 }
-                column(GL_Line;GL_Line)
+                column(GL_Line; GL_Line)
                 {
 
                 }
@@ -513,7 +513,7 @@ report 50210 "ER - Posted Sales Invoice"
                 trigger OnAfterGetRecord()
                 begin
                     Clear(GlobalItem);
-                    GL_Line:=false;
+                    GL_Line := false;
                     if GlobalItem.Get("Sales Invoice Line"."No.") then;
                     //Hide not invoiced lines
                     if ("Sales Invoice Line".Type = "Sales Invoice Line".Type::Item) and ("Sales Invoice Line".Quantity = 0) then
@@ -527,14 +527,14 @@ report 50210 "ER - Posted Sales Invoice"
 
                     //Get The Total Line Amount
                     if "Sales Invoice Line".Type = "Sales Invoice Line".Type::Item then begin
-                        LinesTotalAmount:=LinesTotalAmount+"Sales Invoice Line"."Line Amount";
-                        LinesTotalAmountExcDiscount:=LinesTotalAmountExcDiscount+"Sales Invoice Line"."Line Amount" + "Sales Invoice Line"."Line Discount Amount"+ "Sales Invoice Line"."Inv. Discount Amount";
+                        LinesTotalAmount := LinesTotalAmount + "Sales Invoice Line"."Line Amount";
+                        LinesTotalAmountExcDiscount := LinesTotalAmountExcDiscount + "Sales Invoice Line"."Line Amount" + "Sales Invoice Line"."Line Discount Amount" + "Sales Invoice Line"."Inv. Discount Amount";
                     end;
 
 
                     //Calculate G/L Amount
                     if "Sales Invoice Line".Type = "Sales Invoice Line".Type::"G/L Account" then begin
-                        GL_Line:=true;
+                        GL_Line := true;
                         GlAmount := GlAmount + "Sales Invoice Line"."Line Amount";
                     end;
 
@@ -597,7 +597,7 @@ report 50210 "ER - Posted Sales Invoice"
                 if PaymentTerms.Get("Payment Terms Code") then
                     GlobalPayTermsDescription := PaymentTerms.Description;
 
-                
+
 
                 //Barcode text
                 Clear(BarcodeText);
@@ -630,7 +630,7 @@ report 50210 "ER - Posted Sales Invoice"
                 //Amount in Words
                 AmountInWordsFunction("Sales Invoice Header"."Amount Including VAT", GlobalCurrencyCode);
 
-                
+
                 //Calculate Local VAT Amount
                 LocalVatAmount := 0;
                 "Sales Invoice Header".CalcFields("Amount Including VAT", Amount);
@@ -694,6 +694,7 @@ report 50210 "ER - Posted Sales Invoice"
         CompanyInformation.CalcFields(Picture);
         VAT_Percentage := GeneralLedgerSetup."Default VAT %";
     end;
+
     trigger OnInitReport()
     begin
         Clear(SelectedLanguage);
@@ -890,7 +891,7 @@ report 50210 "ER - Posted Sales Invoice"
         TotalLineDiscountAmt: Decimal;
         GlobalBalanceDue: Decimal;
         GlAmount: Decimal;
-        GL_Line:Boolean;
+        GL_Line: Boolean;
         ShowLocalVAT: Boolean;
         LocalVatAmount: Decimal;
         VAT_Percentage: Decimal;
@@ -898,7 +899,7 @@ report 50210 "ER - Posted Sales Invoice"
         SalesInvoiceLabel: Label 'Sales Invoice';
         InvoiceDateLabel: Label 'Invoice Date';
         BillingInfoLabel: Label 'Billing Info';
-        ShippingInfoLabel: Label 'Shiping Info';
+        ShippingInfoLabel: Label 'Shipping Info';
         CustomerNameLabel: Label 'Customer Name';
         CodeLabel: Label 'Code';
         BillingAddressLabel: Label 'Billing Address';
@@ -909,10 +910,10 @@ report 50210 "ER - Posted Sales Invoice"
         PaymentTermsLabel: Label 'Payment Terms';
         ShippingTermsLabel: Label 'Shipping Terms';
         DueDateLabel: Label 'Due Date';
-        ShippingAddressLabel: Label 'Shiping Address';
+        ShippingAddressLabel: Label 'Shipping Address';
         ReceiverNameLabel: Label 'Receiver Name';
         ReceiverContactLabel: Label 'Receiver Contact';
-        ShippingModeLabel: Label 'Shiping Mode';
+        ShippingModeLabel: Label 'Shipping Mode';
         CarrierLabel: Label 'Carrier';
         BillRefNumberLabel: Label 'Bill Ref. Number';
         CapitalLabel: Label 'Capital';

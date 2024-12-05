@@ -36,5 +36,10 @@ tableextension 50215 "General Ledger Setup" extends "General Ledger Setup"
             DataClassification = ToBeClassified;
             Caption = 'Sub Tax Invoice Title';
         }
+        field(50206; "Arabic Desc. in SI Report"; Boolean)
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Arabic Desc in SI Report';
+        }
     }
 }

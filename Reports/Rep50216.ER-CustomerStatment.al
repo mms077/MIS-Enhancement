@@ -106,7 +106,7 @@ report 50216 "ER - Customer Statement"
                 trigger OnPreDataItem()//Show the Records for the specified Customer where the Posting Date is between fromDate and toDate specified by the user on the request Page
                 begin
                     CustLedEntry.SetCurrentKey("Posting Date");
-                    SetRange("Posting Date", FromDate, ToDate);
+                    SetRange("Due Date", FromDate, ToDate);
                     SetRange("Customer No.", CustNum);
                     SetRange("Currency Code", "Currency Table".CurrencyCode);//
                 end;
@@ -147,7 +147,7 @@ report 50216 "ER - Customer Statement"
                 L_CustomerLedgerEntry.Reset();
                 L_CustomerLedgerEntry.SetRange("Customer No.", CustNum);
                 L_CustomerLedgerEntry.SetRange("Currency Code", "Currency Table".CurrencyCode);
-                L_CustomerLedgerEntry.SetRange("Posting Date", fromDate, toDate);
+                L_CustomerLedgerEntry.SetRange("Due Date", fromDate, toDate);
                 if L_CustomerLedgerEntry.Findfirst() then begin // Check if during those specifed date there is a transaction in each currency
                     repeat
                         L_CustomerLedgerEntry.CalcFields("Amount");
@@ -510,7 +510,7 @@ report 50216 "ER - Customer Statement"
         TelLabel: Label 'T:';
         EmailLabel: Label 'E:';
         AddressLabel: Label 'Address:';
-        ReportTitle: Label 'Customer Statment';
+        ReportTitle: Label 'Customer Statement';
         CustomerLabel: Label 'Customer';
         SalepersonLabel: Label 'Salesperson';
         CustAddLabel: Label 'Address';
@@ -613,6 +613,25 @@ report 50216 "ER - Customer Statement"
     begin
         CustNum := CustNo;
         exit(CustNum);
+    end;
+
+    procedure SetFromDate(CurrentYear: Date): Date;
+    var
+        InputDate: Date;
+    //CurrentYear: Text;
+    begin
+        //CurrentYear := '';
+        fromDate := CurrentYear;
+        exit(CurrentYear);
+    end;
+
+    procedure SetToDate(NextRunDate: Date): Date;
+    var
+        InputDate: Date;
+        CurrentYear: Text;
+    begin
+        toDate := NextRunDate;
+        exit(toDate);
     end;
 }
 

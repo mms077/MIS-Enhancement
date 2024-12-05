@@ -3975,7 +3975,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!description.Value</Value>
+                                  <Value>=Fields!description.Value &amp; iif(Fields!ShowArabicDesc.Value = "true",vbCrLf &amp; Fields!Arabic_Description.Value,"")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -6367,11 +6367,17 @@ End Function
         <Field Name="GlAmountFormat">
           <DataField>GlAmountFormat</DataField>
         </Field>
+        <Field Name="ShowArabicDesc">
+          <DataField>ShowArabicDesc</DataField>
+        </Field>
         <Field Name="No_">
           <DataField>No_</DataField>
         </Field>
         <Field Name="HS_Code">
           <DataField>HS_Code</DataField>
+        </Field>
+        <Field Name="Arabic_Description">
+          <DataField>Arabic_Description</DataField>
         </Field>
         <Field Name="Size">
           <DataField>Size</DataField>

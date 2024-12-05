@@ -3390,8 +3390,7 @@
               <Value>=First(Fields!Company_Picture.Value, "DataSet_Result")</Value>
               <MIMEType>image/png</MIMEType>
               <Sizing>FitProportional</Sizing>
-              <Top>0.04991cm</Top>
-              <Height>0.6cm</Height>
+              <Height>1.39cm</Height>
               <Width>5.53cm</Width>
               <Style>
                 <Border>
@@ -3417,7 +3416,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
-              <Top>0.76463cm</Top>
+              <Top>1.39963cm</Top>
               <Height>0.27cm</Height>
               <Width>6cm</Width>
               <ZIndex>1</ZIndex>
@@ -3442,7 +3441,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox3</rd:DefaultName>
-              <Top>1.30463cm</Top>
+              <Top>1.93963cm</Top>
               <Height>0.27cm</Height>
               <Width>6cm</Width>
               <ZIndex>2</ZIndex>
@@ -3470,7 +3469,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox4</rd:DefaultName>
-              <Top>1.57463cm</Top>
+              <Top>2.20963cm</Top>
               <Height>0.27cm</Height>
               <Width>6cm</Width>
               <ZIndex>3</ZIndex>
@@ -3497,7 +3496,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox5</rd:DefaultName>
-              <Top>1.84463cm</Top>
+              <Top>2.47963cm</Top>
               <Height>0.27cm</Height>
               <Width>6cm</Width>
               <ZIndex>4</ZIndex>
@@ -3524,7 +3523,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox6</rd:DefaultName>
-              <Top>2.11463cm</Top>
+              <Top>2.74963cm</Top>
               <Height>0.27cm</Height>
               <Width>6cm</Width>
               <ZIndex>5</ZIndex>
@@ -3626,7 +3625,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox13</rd:DefaultName>
-              <Top>1.03463cm</Top>
+              <Top>1.66963cm</Top>
               <Height>0.27cm</Height>
               <Width>6cm</Width>
               <ZIndex>8</ZIndex>
@@ -3651,7 +3650,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox14</rd:DefaultName>
-              <Top>2.38463cm</Top>
+              <Top>3.01963cm</Top>
               <Height>0.27cm</Height>
               <Width>6cm</Width>
               <ZIndex>9</ZIndex>

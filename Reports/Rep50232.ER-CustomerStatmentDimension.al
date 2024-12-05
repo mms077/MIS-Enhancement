@@ -128,7 +128,7 @@ report 50232 "ER - Customer Statement(Dim)"
                     CustLedEntry.SetCurrentKey("Posting Date");
                     SetRange("Posting Date", FromDate, ToDate);
                     SetRange("Customer No.", G_CustNo);
-                    SetRange("Currency Code","Currency Table".CurrencyCode);
+                    SetRange("Currency Code", "Currency Table".CurrencyCode);
                     case SelectedDimensionsNB[1] of
                         1:
                             begin
@@ -236,8 +236,8 @@ report 50232 "ER - Customer Statement(Dim)"
                     G_CurrencyCode := "Currency Table".CurrencyCode;
                 end;
                 getTotalBefore("Currency Table".CurrencyCode);
-               
-                
+
+
 
                 TotalAMT := TotalBefore;
                 L_CustomerLedgerEntry.Reset();
@@ -251,7 +251,7 @@ report 50232 "ER - Customer Statement(Dim)"
                     until L_CustomerLedgerEntry.Next() = 0;
                 end;
 
-                tot:=TotalAMT;
+                tot := TotalAMT;
                 if tot < 0 then begin
                     OweUsLabel := 'We owe you';
                     tot := tot * -1;
@@ -348,7 +348,7 @@ report 50232 "ER - Customer Statement(Dim)"
                                 G_MyCurrPage.SetSelectionFilter("Currency Table");
                                 if "Currency Table".FindFirst() then
                                     repeat
-                                            RequestedCurrency := RequestedCurrency + "Currency Table".CurrencyCode + '|';
+                                        RequestedCurrency := RequestedCurrency + "Currency Table".CurrencyCode + '|';
                                     until "Currency Table".Next() = 0;
                                 RequestedCurrency := DelChr(RequestedCurrency, '>', '|');
                             end;
@@ -782,7 +782,7 @@ report 50232 "ER - Customer Statement(Dim)"
         Dim2ID: Integer;
         Dim1Value: Text;
         Dim2Value: Text;
-        FilteringCurrency:Code[10];
+        FilteringCurrency: Code[10];
         TotalAMT: Decimal;
 
         G_CurrencyCode: Code[10];
@@ -803,7 +803,7 @@ report 50232 "ER - Customer Statement(Dim)"
         TelLabel: Label 'T:';
         EmailLabel: Label 'E:';
         AddressLabel: Label 'Address:';
-        ReportTitle: Label 'Customer Statment';
+        ReportTitle: Label 'Customer Statement';
         CustomerLabel: Label 'Customer';
         SalepersonLabel: Label 'Salesperson';
         CustAddLabel: Label 'Address';

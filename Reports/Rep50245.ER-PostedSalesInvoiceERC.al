@@ -644,9 +644,10 @@ report 50245 "ER - Posted Sales Invoice ERC"
             {
 
             }
+            column(ShowArabicDesc; G_RecGnrlLedgSetup."Arabic Desc. in SI Report")
+            {
 
-
-
+            }
             #endregion
             #endregion
             dataitem("Sales Invoice Line"; "Sales Invoice Line")
@@ -659,6 +660,10 @@ report 50245 "ER - Posted Sales Invoice ERC"
 
                 }
                 column(HS_Code; HSCode)
+                {
+
+                }
+                column(Arabic_Description; ArabicDesc)
                 {
 
                 }
@@ -731,12 +736,14 @@ report 50245 "ER - Posted Sales Invoice ERC"
                     if ("No." <> '') and (Type = Type::Item) then begin
                         GlobalItem.Get("No.");
                         HSCode := GlobalItem."HS Code";
+                        ArabicDesc := GlobalItem."Arabic Name";
                     end else
                         Clear(HSCode);
 
                     G_UnitPriceDiscountInclVat := "Unit Price" + ("Unit Price" * ("VAT %" / 100)) - ("Unit Price" * "Line Discount %" / 100);
                     G_LineAmountInclVat := G_UnitPriceDiscountInclVat * Quantity;
                     G_VAT_Amount := "Amount Including VAT" - "Line Amount";
+
 
                     R_LineDiscount := R_LineDiscount + "Line Discount Amount";
                     if "Prepayment Line" then
@@ -765,6 +772,8 @@ report 50245 "ER - Posted Sales Invoice ERC"
                     G_Invoice_Currency := G_RecGnrlLedgSetup."LCY Code"
                 else
                     G_Invoice_Currency := "Sales Invoice Header"."Currency Code";
+
+
                 AmountInWordsFunction("Sales Invoice Header"."Amount Including VAT", G_Invoice_Currency);
 
                 Clear(GlobalShipToCustomer);
@@ -1023,6 +1032,7 @@ report 50245 "ER - Posted Sales Invoice ERC"
         G_UnitPriceDiscountInclVat: Decimal;
         G_LineAmountInclVat: Decimal;
         HSCode: Code[50];
+        ArabicDesc: Text[250];
         ShipToAddress: Text[250];
         BillToAddress: Text[250];
         GlobalShipToCustomer: Record Customer;
@@ -1040,6 +1050,7 @@ report 50245 "ER - Posted Sales Invoice ERC"
         R_AdvancedPayment: Decimal;
         R_TotalTaxable: Decimal;
         R_TotalVat: Decimal;
+        ShowArabicDesc: Boolean;
 
         //Labels
         #region //Header

@@ -115,6 +115,7 @@ report 50234 "Standard Purchase"
             column(IssueDateFooterLabel; IssueDateFooterLabel) { }
             column(IssueDateValueLabel; IssueDateValueLabel) { }
             column(RevisionDateLabel; RevisionDateLabel) { }
+            column(Size_Label; Size_Label) { }
 
             #endregion
             #region Terms And Conditions
@@ -202,6 +203,8 @@ report 50234 "Standard Purchase"
                 column(No_; "No.") { }
                 column(Description; "Description") { }
                 column(UnitOfMeasure; "Unit of Measure") { }
+                column(Size; Size) { }
+
                 column(Quantity; "Quantity") { }
                 column(DirectUnitCost; "Direct Unit Cost") { }
                 column(DiscountPercent; "Line Discount %") { }
@@ -402,10 +405,10 @@ report 50234 "Standard Purchase"
         PurchaseOrderLabel: Label 'Purchase Order';
         NoLabel: Label 'No.';
         DescriptionLabel: Label 'Description';
-        UnitOfMeasureLabel: Label 'Unit of Measure';
-        QuantityLabel: Label 'Quantity';
-        DirectUnitCostLabel: Label 'Direct Unit Cost';
-        DiscountPercentLabel: Label 'Discount %';
+        UnitOfMeasureLabel: Label 'U.O.M.';
+        QuantityLabel: Label 'Qty.';
+        DirectUnitCostLabel: Label 'Unit Cost';
+        DiscountPercentLabel: Label 'Disc. %';
         AmountLabel: Label 'Amount';
         PrintedOnLabel: Label 'Printed On';
         PageLabel: label 'Page ';
@@ -450,6 +453,7 @@ report 50234 "Standard Purchase"
         FinancialControllerLabel: Label 'Financial Controller';
         ManigingDirectorLabel: Label 'Managing Director';
         SupplyTheFollowingGoodsLabel: label 'Please supply the following Goods and/or Services';
+        Size_Label: Label 'Size';
         ThankYouForYourPromptLabel: label 'Thank you for your prompt handling of this order, please acknowledge receipt and acceptance.';
         TermsAndCondLabel: label 'Terms and Conditions';
         TermsAndCondHeaderLabel: Label 'UNLESS A SEPARATE AGREEMENT IS SIGNED BY THE PARTIES HERETO, THIS PURCHASE ORDER IS SUBJECT TO THE TERMS AND CONDITIONS ATTACHED HERETO. NO AMENDMENTS TO SUCH TERMS AND CONDITIONS SHALL BE EFFECTIVE UNLESS IT IS IN WRITING, IDENTIFIED AS AN AMENDMENT TO SUCH TERMS AND CONDITIONS AND SIGNED BY AN AUTHORIZED REPRESENTATIVE OF BOTH PARTIES HERETO.';

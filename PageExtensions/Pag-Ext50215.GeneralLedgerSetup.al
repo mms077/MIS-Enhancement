@@ -4,11 +4,6 @@ pageextension 50215 "General Ledger Setup" extends "General Ledger Setup"
     {
         addlast(General)
         {
-            field("Default VAT %"; Rec."Default VAT %")
-            {
-                ApplicationArea = All;
-                ToolTip = 'The default VAT % in the company';
-            }
             field("IC SQ Location"; Rec."IC SQ Location")
             {
                 ApplicationArea = all;
@@ -27,6 +22,16 @@ pageextension 50215 "General Ledger Setup" extends "General Ledger Setup"
             {
                 ApplicationArea = All;
                 ToolTip = 'Substitute Sales invoice Title with Tax Invoice & Credit Note with Tax Credit Note.';
+            }
+            field("Default VAT %"; Rec."Default VAT %")
+            {
+                ApplicationArea = All;
+                ToolTip = 'The default VAT % in the company';
+            }
+            field("Arabic Desc. in SI Report"; Rec."Arabic Desc. in SI Report")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Show the Arabic Description in the Sales Invoice Report';
             }
         }
         addafter(Application)

@@ -1383,6 +1383,7 @@
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>9pt</FontSize>
+                                    <Format>dd/MM/yyyy</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2244,7 +2245,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -3786,7 +3786,7 @@ Fields!VATLabel.Value &amp; "0% " &amp; Fields!BillTo_Currency.Value)</Value>
       <Width>19cm</Width>
       <Page>
         <PageHeader>
-          <Height>4.5cm</Height>
+          <Height>5.69489cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -3810,8 +3810,7 @@ Fields!VATLabel.Value &amp; "0% " &amp; Fields!BillTo_Currency.Value)</Value>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox4</rd:DefaultName>
-                  <Top>2.92056cm</Top>
-                  <Left>0.00965in</Left>
+                  <Top>2.8cm</Top>
                   <Height>0.35cm</Height>
                   <Width>7.7cm</Width>
                   <Visibility>
@@ -3841,8 +3840,7 @@ Fields!VATLabel.Value &amp; "0% " &amp; Fields!BillTo_Currency.Value)</Value>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
-                  <Top>2.57056cm</Top>
-                  <Left>0.00965in</Left>
+                  <Top>2.45cm</Top>
                   <Height>0.35cm</Height>
                   <Width>7.7cm</Width>
                   <ZIndex>1</ZIndex>
@@ -3871,8 +3869,7 @@ Fields!VATLabel.Value &amp; "0% " &amp; Fields!BillTo_Currency.Value)</Value>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
-                  <Top>2.22056cm</Top>
-                  <Left>0.00965in</Left>
+                  <Top>2.1cm</Top>
                   <Height>0.35cm</Height>
                   <Width>7.7cm</Width>
                   <ZIndex>2</ZIndex>
@@ -3901,8 +3898,7 @@ Fields!VATLabel.Value &amp; "0% " &amp; Fields!BillTo_Currency.Value)</Value>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
-                  <Top>1.87056cm</Top>
-                  <Left>0.00965in</Left>
+                  <Top>1.75cm</Top>
                   <Height>0.35cm</Height>
                   <Width>7.7cm</Width>
                   <ZIndex>3</ZIndex>
@@ -3931,8 +3927,7 @@ Fields!VATLabel.Value &amp; "0% " &amp; Fields!BillTo_Currency.Value)</Value>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
-                  <Top>1.52056cm</Top>
-                  <Left>0.00965in</Left>
+                  <Top>1.4cm</Top>
                   <Height>0.35cm</Height>
                   <Width>7.7cm</Width>
                   <ZIndex>4</ZIndex>
@@ -3961,8 +3956,7 @@ Fields!VATLabel.Value &amp; "0% " &amp; Fields!BillTo_Currency.Value)</Value>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
-                  <Top>1.17056cm</Top>
-                  <Left>0.00965in</Left>
+                  <Top>1.05cm</Top>
                   <Height>0.35cm</Height>
                   <Width>7.7cm</Width>
                   <ZIndex>5</ZIndex>
@@ -3991,8 +3985,7 @@ Fields!VATLabel.Value &amp; "0% " &amp; Fields!BillTo_Currency.Value)</Value>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
-                  <Top>0.82056cm</Top>
-                  <Left>0.00965in</Left>
+                  <Top>0.7cm</Top>
                   <Height>0.35cm</Height>
                   <Width>7.7cm</Width>
                   <ZIndex>6</ZIndex>
@@ -4021,8 +4014,7 @@ Fields!VATLabel.Value &amp; "0% " &amp; Fields!BillTo_Currency.Value)</Value>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
-                  <Top>0.47056cm</Top>
-                  <Left>0.02451cm</Left>
+                  <Top>0.35cm</Top>
                   <Height>0.35cm</Height>
                   <Width>7.7cm</Width>
                   <ZIndex>7</ZIndex>
@@ -4054,10 +4046,8 @@ Fields!VATLabel.Value &amp; "0% " &amp; Fields!BillTo_Currency.Value)</Value>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
-                  <Top>0.12056cm</Top>
-                  <Left>0.00965in</Left>
                   <Height>0.35cm</Height>
-                  <Width>7.7cm</Width>
+                  <Width>6.62648cm</Width>
                   <ZIndex>8</ZIndex>
                   <Style>
                     <Border>
@@ -4068,9 +4058,10 @@ Fields!VATLabel.Value &amp; "0% " &amp; Fields!BillTo_Currency.Value)</Value>
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>1.1cm</Top>
-              <Height>3.27056cm</Height>
-              <Width>7.8cm</Width>
+              <Top>2.3185cm</Top>
+              <Left>0.02421cm</Left>
+              <Height>3.15cm</Height>
+              <Width>7.7cm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -4082,7 +4073,7 @@ Fields!VATLabel.Value &amp; "0% " &amp; Fields!BillTo_Currency.Value)</Value>
               <Value>=First(Fields!Company_Picture.Value, "DataSet_Result")</Value>
               <MIMEType>image/jpeg</MIMEType>
               <Sizing>Fit</Sizing>
-              <Height>1.1cm</Height>
+              <Height>2.3cm</Height>
               <Width>6.5cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
@@ -4106,19 +4097,22 @@ Fields!VATLabel.Value &amp; "0% " &amp; Fields!BillTo_Currency.Value)</Value>
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style />
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox8</rd:DefaultName>
               <Top>1.75cm</Top>
-              <Left>7.99409cm</Left>
-              <Height>0.72375cm</Height>
-              <Width>7.43214cm</Width>
+              <Left>6cm</Left>
+              <Height>0.75cm</Height>
+              <Width>7cm</Width>
               <ZIndex>2</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
                 </Border>
+                <VerticalAlign>Middle</VerticalAlign>
               </Style>
             </Textbox>
             <Textbox Name="Textbox9">
@@ -4176,8 +4170,8 @@ Fields!VATLabel.Value &amp; "0% " &amp; Fields!BillTo_Currency.Value)</Value>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox8</rd:DefaultName>
-              <Top>3.55cm</Top>
-              <Left>13.45161cm</Left>
+              <Top>4.79766cm</Top>
+              <Left>13.5cm</Left>
               <Height>0.67084cm</Height>
               <Width>5.5cm</Width>
               <ZIndex>4</ZIndex>

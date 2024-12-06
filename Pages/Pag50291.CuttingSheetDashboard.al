@@ -137,6 +137,7 @@ page 50291 "Cutting Sheet Dashboard"
                 field("Embroidery"; Rec."Embroidery")
                 {
                     ApplicationArea = All;
+                    Caption = 'Personalization';
                 }
                 field("Production Line"; Rec."Production Line")
                 {

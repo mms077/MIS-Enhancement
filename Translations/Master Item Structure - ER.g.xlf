@@ -3328,10 +3328,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Staff Sizes - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 1481285740 - Method 414575790 - NamedType 672599587" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Table 1481285740 - Method 4238007908 - NamedType 672599587" size-unit="char" translate="yes" xml:space="preserve">
           <source>There is already different Size %1 for the same Staff %2 and Type %3.</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Staff Sizes - Method PreventDifferentSizeForSameStaffandType - NamedType Txt001</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Staff Sizes - Method PreventDifferentSizeForSameStaffandType2 - NamedType Txt001</note>
         </trans-unit>
         <trans-unit id="Table 1481285740 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer No.</source>
@@ -3382,6 +3382,11 @@
           <source>Staff Name</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Staff Sizes - Field Staff Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1481285740 - Field 2871400801 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>StaffType Combination</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Staff Sizes - Field StaffType Combination - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1481285740 - Field 1878130204 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Type</source>
@@ -6107,6 +6112,11 @@
           <source>Staff Sizes</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Staff Sizes - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1481285740 - Action 3433641098 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Update Staff Type Combination</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Staff Sizes - Action UpdateStaffTypeCombination - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1398414597 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Staff Sizes  Wizard</source>

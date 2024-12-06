@@ -59,4 +59,34 @@ page 50284 "Staff Sizes"
             }
         }
     }
+    actions
+    {
+        area(processing)
+        {
+            action(UpdateStaffTypeCombination)
+            {
+                ApplicationArea = All;
+                Caption = 'Update Staff Type Combination';
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                trigger OnAction()
+                var
+                    StaffSizes: Record "Staff Sizes";
+                    Company: Record "Company";
+                begin
+                    if Company.FindSet() then
+                        repeat
+                            StaffSizes.ChangeCompany(Company."Name");
+                            if StaffSizes.FindSet() then
+                                repeat
+                                    StaffSizes."StaffType Combination" := StaffSizes."Staff Code" + StaffSizes."Type";
+                                    StaffSizes.Modify();
+                                until StaffSizes.Next() = 0;
+                        until Company.Next() = 0;
+                end;
+            }
+        }
+    }
 }

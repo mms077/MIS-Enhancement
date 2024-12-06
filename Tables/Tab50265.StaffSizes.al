@@ -10,6 +10,10 @@ table 50265 "Staff Sizes"
             Caption = 'Staff Code';
             DataClassification = ToBeClassified;
             TableRelation = Staff.Code;
+            trigger OnValidate()
+            begin
+                Rec."StaffType Combination" := Rec."Staff Code" + Rec."Type";
+            end;
         }
         field(2; "Size Code"; Code[50])
         {
@@ -18,6 +22,7 @@ table 50265 "Staff Sizes"
             TableRelation = Size.Code;
             trigger OnValidate()
             begin
+                //PreventDifferentSizeForSameStaffandType(Rec);
                 PreventDifferentSizeForSameStaffandType(Rec);
             end;
         }
@@ -50,6 +55,10 @@ table 50265 "Staff Sizes"
         field(8; "Type"; Text[100])
         {
             TableRelation = "Design Type".Name;
+            trigger OnValidate()
+            begin
+                Rec."StaffType Combination" := Rec."Staff Code" + Rec."Type";
+            end;
         }
         field(9; "Department Name"; Text[100])
         {
@@ -72,6 +81,10 @@ table 50265 "Staff Sizes"
             CalcFormula = lookup(Staff.Name where(Code = field("Staff Code")));
             Editable = false;
         }
+        field(12; "StaffType Combination"; Text[2048])
+        {
+            Caption = 'StaffType Combination';
+        }
     }
     keys
     {
@@ -80,7 +93,17 @@ table 50265 "Staff Sizes"
             Clustered = true;
         }
     }
-    procedure PreventDifferentSizeForSameStaffandType(var StaffSizePar: Record "Staff Sizes")
+    trigger OnInsert()
+    begin
+        PreventDifferentSizeForSameStaffandType(Rec);
+    end;
+
+    trigger OnRename()
+    begin
+        PreventDifferentSizeForSameStaffandType(Rec);
+    end;
+
+    /*procedure PreventDifferentSizeForSameStaffandType(var StaffSizePar: Record "Staff Sizes")
     var
         StafSizeLocal: Record "Staff Sizes";
         Txt001: Label 'There is already different Size %1 for the same Staff %2 and Type %3.';
@@ -101,5 +124,25 @@ table 50265 "Staff Sizes"
                     if StafSizeLocal."Size Code" <> StaffSizePar."Size Code" then
                         Error(Txt001, StafSizeLocal."Size Code", StafSizeLocal."Staff Code", StafSizeLocal.Type);
             until StafSizeLocal.Next() = 0;
+    end;*/
+
+    procedure PreventDifferentSizeForSameStaffandType(var StaffSizePar: Record "Staff Sizes")
+    var
+        StafSizeLocal: Record "Staff Sizes";
+        Txt001: Label 'There is already different Size %1 for the same Staff %2 and Type %3.';
+        StaffTypeCombination: Text[2048];
+    begin
+        StaffTypeCombination := StaffSizePar."Staff Code" + StaffSizePar."Type";
+        StafSizeLocal.Reset();
+        StafSizeLocal.SetRange("StaffType Combination", StaffTypeCombination);
+        if StafSizeLocal.FindSet() then
+            repeat
+                if StafSizeLocal.SystemId <> StaffSizePar.SystemId then
+                    if StafSizeLocal."Size Code" <> StaffSizePar."Size Code" then
+                        Error(Txt001, StafSizeLocal."Size Code", StafSizeLocal."Staff Code", StafSizeLocal.Type);
+            until StafSizeLocal.Next() = 0;
     end;
+
+    var
+        StaffTypeCombinationGlobal: Text[2048];
 }

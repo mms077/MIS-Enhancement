@@ -64,5 +64,9 @@ tableextension 50208 "User Setup - ER" extends "User Setup"
         {
             DataClassification = ToBeClassified;
         }
+        field(50314; "Bypass Missing RM"; Boolean)
+        {
+            DataClassification = ToBeClassified;
+        }
     }
 }

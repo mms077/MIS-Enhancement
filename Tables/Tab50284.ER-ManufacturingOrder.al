@@ -2,7 +2,7 @@ table 50284 "ER - Manufacturing Order"
 {
     Caption = 'ER - Manufacturing Order';
     DataClassification = ToBeClassified;
-
+    LookupPageId = "ER - Manufacturing Orders";
     fields
     {
         field(1; "No."; Code[50])

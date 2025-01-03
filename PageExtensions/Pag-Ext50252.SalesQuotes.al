@@ -30,6 +30,22 @@ pageextension 50252 "Sales Quotes" extends "Sales Quotes"
                 }
             }
         }
+        modify(Release)
+        {
+            trigger OnBeforeAction()
+            begin
+                if ((Rec."Promised Delivery Date" = 0D) or (Rec."Requested Delivery Date" = 0D)) then
+                    Error('Please fill the Promised Delivery Date and Requested Delivery Date');
+            end;
+
+            trigger OnAfterAction()
+            var
+                MissingRMCU: Codeunit "Missing RM";
+            begin
+                MissingRMCU.DeletePreviousRMperSQ(Rec."No.");
+                MissingRMCU.FillRequiredRM(Rec."No.");
+            end;
+        }
     }
     var
         G_SalesHeader: Record "Sales Header";

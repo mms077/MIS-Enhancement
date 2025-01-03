@@ -2093,6 +2093,106 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Measurement Category - Field Measurement Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 842613524 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Missing MO Items</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Missing MO Items - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 842613524 - Field 1865878907 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Assembly Order Line No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Missing MO Items - Field Assembly Order Line No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 842613524 - Field 1191741737 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Assembly Order No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Missing MO Items - Field Assembly Order No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 842613524 - Field 3722596838 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Base UOM</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Missing MO Items - Field Base UOM - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 842613524 - Field 3141219185 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gross Requirement Qty</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Missing MO Items - Field Gross Requirement Qty. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 842613524 - Field 3276313895 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Missing MO Items - Field Item - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 842613524 - Field 2842094365 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Missing MO Items - Field Item Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 842613524 - Field 2976344313 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Inventory</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Missing MO Items - Field Item Inventory - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 842613524 - Field 2605540123 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Manufacturing Order No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Missing MO Items - Field Manufacturing Order No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 842613524 - Field 109669230 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Missing Item Count</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Missing MO Items - Field Missing Item Count - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 842613524 - Field 1519407298 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Missing Qty</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Missing MO Items - Field Missing Qty. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 842613524 - Field 2552147946 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Planned Order Recpt. Qty</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Missing MO Items - Field Planned Order Recpt. Qty. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 842613524 - Field 2961376806 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Planned Order Releases Qty</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Missing MO Items - Field Planned Order Releases Qty. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 842613524 - Field 3524619058 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Project Qty</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Missing MO Items - Field Projected Qty. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 842613524 - Field 3739782014 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Required Quantity</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Missing MO Items - Field Required Quantity - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 842613524 - Field 1637700361 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Scheduled Receipt Qty</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Missing MO Items - Field Scheduled Receipt Qty. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3592232947 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>MO Stock Avl. Warning Log</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table MO Stock Avl. Warning Log - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3592232947 - Field 2605540123 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Manufacturing Order No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table MO Stock Avl. Warning Log - Field Manufacturing Order No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3592232947 - Field 2071721729 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Number of unique items</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table MO Stock Avl. Warning Log - Field Number of unique items - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3592232947 - Field 1814464443 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>User</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table MO Stock Avl. Warning Log - Field User - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3958946568 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Needed Raw Material</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2883,6 +2983,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Raw Material - Field UOM Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3243950078 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Raw Material Availability Log</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Raw Material Availability Log - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3243950078 - Field 2071721729 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Number of unique items</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Raw Material Availability Log - Field Number of unique items - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3243950078 - Field 3065087083 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SQ Number</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Raw Material Availability Log - Field SQ Number - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3243950078 - Field 1814464443 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>User</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Raw Material Availability Log - Field User - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3253060873 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Raw Material Category</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2997,6 +3117,51 @@
           <source>RM Category Name</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table RM Category Design Section - Field RM Category Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2038844494 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>RM per Sales Quote</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RM per Sales Quote - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2038844494 - Field 2154045645 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Available Qty.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RM per Sales Quote - Field Available Qty. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2038844494 - Field 3241462031 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>BUOM</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RM per Sales Quote - Field BUOM - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2038844494 - Field 568743302 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RM per Sales Quote - Field Item No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2038844494 - Field 1519407298 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Missing Qty.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RM per Sales Quote - Field Missing Qty. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2038844494 - Field 1209641504 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Req Qty is Missing</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RM per Sales Quote - Field Req Qty is Missing - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2038844494 - Field 289617229 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Required Qty.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RM per Sales Quote - Field Required Qty. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2038844494 - Field 1494829495 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Quote No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RM per Sales Quote - Field Sales Quote No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2038844494 - Field 3450651614 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Variant</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RM per Sales Quote - Field Variant Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2937872379 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Section</source>
@@ -5413,6 +5578,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Measurements - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 674832797 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>MO Stock Avl. Warning Log List</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page MO Stock Avl. Warning Log List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 674832797 - Control 2605540123 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Manufacturing Order No. field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page MO Stock Avl. Warning Log List - Control Manufacturing Order No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 674832797 - Control 577209412 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the SystemCreatedAt field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page MO Stock Avl. Warning Log List - Control SystemCreatedAt - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 674832797 - Control 1814464443 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the User field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page MO Stock Avl. Warning Log List - Control User - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 3847293193 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Needed Raw Materials</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -5783,6 +5968,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Rates - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3243950078 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Raw Material Availability Log</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Raw Material Availability Log - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3243950078 - Control 2071721729 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Number of unique items field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Raw Material Availability Log - Control Number of unique items - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3243950078 - Control 3065087083 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the SQ Number field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Raw Material Availability Log - Control SQ Number - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3243950078 - Control 1814464443 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the User field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Raw Material Availability Log - Control User - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 310237283 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Raw Material Categories</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -5937,6 +6142,146 @@
           <source>RM Item Sizes</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page RM Item Sizes - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4280706188 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>RM per Sales Quote List</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RM per Sales Quote List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4280706188 - Control 2154045645 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Available Qty. field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RM per Sales Quote List - Control Available Qty. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4280706188 - Control 3241462031 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the BUOM field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RM per Sales Quote List - Control BUOM - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4280706188 - Control 568743302 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Item No. field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RM per Sales Quote List - Control Item No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4280706188 - Control 1519407298 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Missing Qty. field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RM per Sales Quote List - Control Missing Qty. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4280706188 - Control 1209641504 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Req Qty is Missing field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RM per Sales Quote List - Control Req Qty is Missing - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4280706188 - Control 289617229 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Required Qty. field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RM per Sales Quote List - Control Required Qty. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4280706188 - Control 1494829495 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Sales Quote No. field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RM per Sales Quote List - Control Sales Quote No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4280706188 - Control 3450651614 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Variant field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RM per Sales Quote List - Control Variant Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1893786927 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>RM per Sales Quote SD</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RM per Sales Quote SD - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1893786927 - Control 444845527 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>5</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RM per Sales Quote SD - Control Footer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1893786927 - Control 828308891 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to Make Order with Missing Quantity ?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RM per Sales Quote SD - Control Do you want to Make Order with Missing Quantity ? - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1893786927 - Control 2154045645 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Available Qty. field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RM per Sales Quote SD - Control Available Qty. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1893786927 - Control 3241462031 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the BUOM field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RM per Sales Quote SD - Control BUOM - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1893786927 - Control 568743302 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Item No. field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RM per Sales Quote SD - Control Item No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1893786927 - Control 1519407298 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Missing Qty. field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RM per Sales Quote SD - Control Missing Qty. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1893786927 - Control 1209641504 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Req Qty is Missing field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RM per Sales Quote SD - Control Req Qty is Missing - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1893786927 - Control 289617229 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Required Qty. field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RM per Sales Quote SD - Control Required Qty. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1893786927 - Control 3450651614 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Variant field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RM per Sales Quote SD - Control Variant Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3832326174 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>RMperSalesQuote</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RMperSalesQuote - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3832326174 - Control 2154045645 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Available Qty. field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RMperSalesQuote - Control Available Qty. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3832326174 - Control 3241462031 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the BUOM field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RMperSalesQuote - Control BUOM - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3832326174 - Control 568743302 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Item No. field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RMperSalesQuote - Control Item No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3832326174 - Control 1519407298 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Missing Qty. field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RMperSalesQuote - Control Missing Qty. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3832326174 - Control 1209641504 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Req Qty is Missing field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RMperSalesQuote - Control Req Qty is Missing - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3832326174 - Control 289617229 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Required Qty. field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RMperSalesQuote - Control Required Qty. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3832326174 - Control 1494829495 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Sales Quote No. field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RMperSalesQuote - Control Sales Quote No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3832326174 - Control 3450651614 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Variant field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RMperSalesQuote - Control Variant Code - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4044075183 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales &amp; Receivables Picture</source>
@@ -6152,6 +6497,81 @@
           <source>Next</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Staff Wizard - Action Continueaction - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1268281684 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Missing Raw Materials</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Temp Missing MO Items Wiz - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1268281684 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Temp Missing MO Items Wiz - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1268281684 - Control 3722596838 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the base unit of measure.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Temp Missing MO Items Wiz - Control Base UOM - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1268281684 - Control 3141219185 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the gross requirement quantity.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Temp Missing MO Items Wiz - Control Gross Requirement Qty. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1268281684 - Control 3276313895 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Item</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Temp Missing MO Items Wiz - Control Item - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1268281684 - Control 2842094365 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the description of the item.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Temp Missing MO Items Wiz - Control Item Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1268281684 - Control 2976344313 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the item inventory.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Temp Missing MO Items Wiz - Control Item Inventory - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1268281684 - Control 1519407298 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the missing quantity.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Temp Missing MO Items Wiz - Control Missing Qty. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1268281684 - Control 2552147946 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the planned order receipt quantity.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Temp Missing MO Items Wiz - Control Planned Order Recpt. Qty. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1268281684 - Control 2961376806 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the planned order releases quantity.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Temp Missing MO Items Wiz - Control Planned Order Releases Qty. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1268281684 - Control 3524619058 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the project quantity.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Temp Missing MO Items Wiz - Control Projected Qty. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1268281684 - Control 3739782014 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the required quantity.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Temp Missing MO Items Wiz - Control Required Quantity - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1268281684 - Control 1637700361 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the scheduled receipt quantity.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Temp Missing MO Items Wiz - Control Scheduled Receipt Qty. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1268281684 - Action 571736184 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cancel the action</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Temp Missing MO Items Wiz - Action Decline - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1268281684 - Action 571736184 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Temp Missing MO Items Wiz - Action Decline - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3038539334 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tonalities</source>
@@ -18332,6 +18752,11 @@
           <source>Adjust ACY Rate</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension User Setup - ER - Field Adjust ACY Rate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3316333792 - Field 177395515 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
+          <source>Bypass Missing RM</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension User Setup - ER - Field Bypass Missing RM - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3316333792 - Field 3677795833 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
           <source>Can Edit Print ER- Commercial</source>

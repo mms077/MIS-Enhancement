@@ -37,14 +37,6 @@ pageextension 50220 "Sales Quote" extends "Sales Quote"
                 if ((Rec."Promised Delivery Date" = 0D) or (Rec."Requested Delivery Date" = 0D)) then
                     Error('Please fill the Promised Delivery Date and Requested Delivery Date');
             end;
-
-            trigger OnAfterAction()
-            var
-                MissingRMCU: Codeunit "Missing RM";
-            begin
-                MissingRMCU.DeletePreviousRMperSQ(Rec."No.");
-                MissingRMCU.FillRequiredRM(Rec."No.");
-            end;
         }
         addfirst(Reporting)
         {
@@ -63,6 +55,9 @@ pageextension 50220 "Sales Quote" extends "Sales Quote"
                         Report.Run(Report::"ER - Sales Quote With Visuals", true, true, G_SalesHeader);
                     end;
                 }
+
+
+
             }
 
         }

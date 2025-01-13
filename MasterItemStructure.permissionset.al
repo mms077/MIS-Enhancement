@@ -364,20 +364,5 @@ permissionset 50200 MasterItemStructure
         page "Workflow User Group-ER" = X,
         page "Workflow User Groups-ER" = X,
         page "Workflow User Grp Mem. Details" = X,
-        page "Workflow User Names - ER" = X,
-        tabledata "Missing MO Items" = RIMD,
-        tabledata "MO Stock Avl. Warning Log" = RIMD,
-        tabledata "Raw Material Availability Log" = RIMD,
-        tabledata "RM per Sales Quote" = RIMD,
-        table "Missing MO Items" = X,
-        table "MO Stock Avl. Warning Log" = X,
-        table "Raw Material Availability Log" = X,
-        table "RM per Sales Quote" = X,
-        codeunit "Missing RM" = X,
-        page "MO Stock Avl. Warning Log List" = X,
-        page "Raw Material Availability Log" = X,
-        page "RM per Sales Quote List" = X,
-        page "RM per Sales Quote SD" = X,
-        page RMperSalesQuote = X,
-        page "Temp Missing MO Items Wiz" = X;
+        page "Workflow User Names - ER" = X;
 }

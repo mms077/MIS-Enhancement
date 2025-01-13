@@ -213,14 +213,12 @@ pageextension 50209 "Assembly Orders" extends "Assembly Orders"
                             Error(Txt006);*/
                     end;
 
-
                     //Create Assembly Group
                     Clear("ER - Manufacturing Order");
                     "ER - Manufacturing Order".Init();
                     "ER - Manufacturing Order"."No." := LastNo;
                     "ER - Manufacturing Order"."Current Sequence No." := 1;
                     "ER - Manufacturing Order".Insert();
-                    CheckAvlQty(AssemblHeader, "ER - Manufacturing Order"."No.");
                     //Assign Assembly Group
                     if AssemblHeader.FindSet() then
                         repeat
@@ -306,73 +304,6 @@ pageextension 50209 "Assembly Orders" extends "Assembly Orders"
     trigger OnOpenPage()
     begin
         Rec.SetCurrentKey("Grouping Criteria");
-    end;
-
-
-    procedure CheckAvlQty(var AssemblyHeader: Record "Assembly Header"; "MO Number": Code[50])
-    /*
-        Task-31299 - Warning on creation of MO if qty is missing - Cee
-    */
-    var
-        AssemblyLineRec: Record "Assembly Line";
-        Item: Record Item;
-        AssblyItem: Record Item;
-        WarehouseClass: Record "Warehouse Class";
-        ItemAvailabilityMgt: Codeunit "Item Availability Forms Mgt";
-        GrossRequirement: Decimal; // Declare the variable GrossRequirement
-        PlannedOrderReceipt: Decimal; // Declare the variable PlannedOrderReceipt
-        ScheduledReceipt: Decimal; // Declare the variable ScheduledReceipt
-        PlannedOrderReleases: Decimal; // Declare the variable PlannedOrderReleases
-        ProjectedQty: Decimal; // Declare the variable ProjectedQty
-        CountOfMissingItems: Integer;
-        MissingMOItems: Record "Missing MO Items";
-        TempMissingMOItemsWiz: Page "Temp Missing MO Items Wiz";
-        StockAvailWarningLog: Record "MO Stock Avl. Warning Log";
-    begin
-        if AssemblyHeader.FindSet() then begin
-            repeat
-                AssemblyHeader.TestField("ER - Manufacturing Order No.", '');
-                AssemblyHeader.TestField(Status, AssemblyHeader.Status::Released);
-                AssemblyLineRec.SetRange("Document Type", AssemblyHeader."Document Type");
-                AssemblyLineRec.SetRange("Document No.", AssemblyHeader."No.");
-                if AssemblyLineRec.FindSet() then//check if the assembly line has missing raw material
-                    repeat
-                        Item.get(AssemblyLineRec."No.");
-                        WarehouseClass.Get(item."Warehouse Class Code");
-                        //Location.Get(WarehouseClass."Default Location");
-                        ItemAvailabilityMgt.CalculateNeed(Item, GrossRequirement, PlannedOrderReceipt, ScheduledReceipt, PlannedOrderReleases);
-                        ProjectedQty := Item.Inventory + PlannedOrderReceipt + ScheduledReceipt - GrossRequirement;
-                        if ProjectedQty < 0 then begin
-                            CountOfMissingItems += 1;
-                            MissingMOItems.init();
-                            MissingMOItems."Assembly Order No." := AssemblyLineRec."Document No.";
-                            MissingMOItems."Assembly Order Line No." := AssemblyLineRec."Line No.";
-                            MissingMOItems."Missing Item Count" := CountOfMissingItems;
-                            MissingMOItems.Item := AssemblyLineRec."No.";
-                            AssblyItem.Get(AssemblyLineRec."No.");
-                            MissingMOItems."Item Description" := AssblyItem.Description;
-                            MissingMOItems."Missing Qty." := ProjectedQty;
-                            MissingMOItems."Base UOM" := AssblyItem."Base Unit of Measure";
-                            MissingMOItems."Required Quantity" := AssemblyLineRec."Quantity (Base)";
-                            MissingMOItems."Item Inventory" := Item.Inventory;
-                            MissingMOItems."Projected Qty." := ProjectedQty;
-                            MissingMOItems."Gross Requirement Qty." := GrossRequirement;
-                            MissingMOItems."Planned Order Recpt. Qty." := PlannedOrderReceipt;
-                            MissingMOItems."Scheduled Receipt Qty." := ScheduledReceipt;
-                            MissingMOItems."Planned Order Releases Qty." := PlannedOrderReleases;
-                            MissingMOItems."Manufacturing Order No." := "MO Number";
-                            MissingMOItems.Insert();
-                        end;
-                    until AssemblyLineRec.Next() = 0;
-            until AssemblyHeader.Next() = 0;
-            if CountOfMissingItems > 0 then begin
-                commit();
-                TempMissingMOItemsWiz.SetTableView(MissingMOItems);
-                TempMissingMOItemsWiz.RunModal();
-                if not StockAvailWarningLog.Get("MO Number") then
-                    Error('Processessing Manufacture Order %1 canceled.', "MO Number");
-            end;
-        end;
     end;
 
     procedure ApproveAssembly()

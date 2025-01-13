@@ -63,14 +63,7 @@ pageextension 50204 "User Setup - ER" extends "User Setup"
                 ApplicationArea = all;
                 ToolTip = 'Allow to Adjust ACY Rate for Posted Purchase Invoice';
             }
-            field("Can Edit Print ER- Commercial"; Rec."Can Edit Print ER- Commercial")
-            {
-                ApplicationArea = all;
-            }
-            field("Bypass Missing RM"; Rec."Bypass Missing RM")
-            {
-                ApplicationArea = All;
-            }
+            field("Can Edit Print ER- Commercial"; Rec."Can Edit Print ER- Commercial") { ApplicationArea = all; }
         }
     }
 }

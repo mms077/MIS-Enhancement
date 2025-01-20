@@ -44,6 +44,9 @@ page 50283 Staff
                 {
                     ApplicationArea = all;
                 }
+                field(Validated; rec.Validated) { ApplicationArea = all; }
+                field("Validated by"; rec."Validated by") { ApplicationArea = all; Editable = false; }
+                field(Particularity; rec.Particularity) { ApplicationArea = all;}
             }
         }
     }

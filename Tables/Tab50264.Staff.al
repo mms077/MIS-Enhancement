@@ -59,6 +59,31 @@ table 50264 Staff
             CalcFormula = lookup(Position.Name where(Code = field("Position Code")));
             Editable = false;
         }
+        field(9; "Validated"; Boolean)
+        {
+            DataClassification = ToBeClassified;
+            trigger OnValidate()
+            var
+                myInt: Integer;
+            begin
+                if Rec.Validated then begin
+                    Rec."Validated by" := UserId;
+                    Rec.Modify();
+                end else begin
+                    Rec."Validated by" := '';
+                    Rec.Modify();
+                end;
+            end;
+        }
+        field(10; Particularity; Code[20])
+        {
+            DataClassification = ToBeClassified;
+            TableRelation = "Staff Particularity".Code;
+        }
+        field(11; "Validated by"; Text[250])
+        {
+            DataClassification = ToBeClassified;
+        }
     }
     keys
     {

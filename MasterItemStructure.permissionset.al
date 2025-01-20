@@ -364,5 +364,8 @@ permissionset 50200 MasterItemStructure
         page "Workflow User Group-ER" = X,
         page "Workflow User Groups-ER" = X,
         page "Workflow User Grp Mem. Details" = X,
-        page "Workflow User Names - ER" = X;
+        page "Workflow User Names - ER" = X,
+        tabledata "Staff Particularity" = RIMD,
+        table "Staff Particularity" = X,
+        page "Staff Particularity" = X;
 }

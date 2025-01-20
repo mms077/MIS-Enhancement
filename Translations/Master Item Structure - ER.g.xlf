@@ -3258,6 +3258,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Staff - Field Name - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3854848666 - Field 3861300597 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Particularity</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Staff - Field Particularity - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3854848666 - Field 3493435768 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Position Code</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3267,6 +3272,16 @@
           <source>Position Name</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Staff - Field Position Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3854848666 - Field 2931278654 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Validated</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Staff - Field Validated - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3854848666 - Field 2045564099 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Validated by</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Staff - Field Validated by - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2565736169 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Staff Measurements</source>
@@ -3322,6 +3337,21 @@
           <source>Value</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Staff Measurements - Field Value - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3895900463 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Staff Particularity</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Staff Particularity - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3895900463 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Staff Particularity - Field Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3895900463 - Field 2961552353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Staff Particularity - Field Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1481285740 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Staff Sizes</source>
@@ -6112,6 +6142,11 @@
           <source>Staff Measurements</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Staff Measurements - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3895900463 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Staff Particularity</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Staff Particularity - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1481285740 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Staff Sizes</source>

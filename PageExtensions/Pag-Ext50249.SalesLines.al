@@ -217,7 +217,7 @@ pageextension 50249 "Sales Lines" extends "Sales Lines"
         OldWizardPosition: Record "Wizard Positions";
         OldWizardStaff: Record "Wizard Staff";
         ParentParamHeaderDictionary: Dictionary of [Integer, Integer];
-        QtyAssignemtWizardDictionary:Dictionary of [Integer, Integer];
+        QtyAssignemtWizardDictionary: Dictionary of [Integer, Integer];
         DesignSectionSetVar: Integer;
         ItemFeaturesSetVar: Integer;
         ItemBrandingsSetVar: Integer;
@@ -241,6 +241,7 @@ pageextension 50249 "Sales Lines" extends "Sales Lines"
                 SalesHeader.Validate(SalesHeader."Promised Delivery Date", 0D); // we cannot set it to Today because it is making issues 'You cannot change the Requested Delivery Date when the Promised Delivery Date has been filled in.'
                 SalesHeader.Validate(SalesHeader."Requested Delivery Date", 0D);
                 SalesHeader.Validate(SalesHeader."Quote Valid Until Date", Today());
+                SalesHeader.Validate("Shipping No.", '');
                 SalesHeader.Insert(true);
 
             end
@@ -315,7 +316,7 @@ pageextension 50249 "Sales Lines" extends "Sales Lines"
                         if QtyAssignemtWizardDictionary.ContainsKey(SL."Qty Assignment Wizard Id") then begin
                             SalesLine."Qty Assignment Wizard Id" := QtyAssignemtWizardDictionary.Get(SL."Qty Assignment Wizard Id");
                         end else begin
-                            QtyAssignemtWizardDictionary.Add(SL."Qty Assignment Wizard Id",CopyQtyAssignemtWizard(QtyAssignWizard, ParamHeaderVar, ParentParamHeaderVar));
+                            QtyAssignemtWizardDictionary.Add(SL."Qty Assignment Wizard Id", CopyQtyAssignemtWizard(QtyAssignWizard, ParamHeaderVar, ParentParamHeaderVar));
                             SalesLine."Qty Assignment Wizard Id" := QtyAssignemtWizardDictionary.Get(SL."Qty Assignment Wizard Id");
                         end;
                         //WizardID := CopyQtyAssignemtWizard(QtyAssignWizard, ParamHeaderVar, ParentParamHeaderVar);
@@ -403,12 +404,12 @@ pageextension 50249 "Sales Lines" extends "Sales Lines"
                 //
                 //SalesLine.Insert(true);
                 Commit();
-                // OldNeededRM.Reset();
-                // ParamHeader.Reset();
-                // ParentParamHeader.Reset();
-                // OldNeededRM.setFilter(Batch, Format(LastNeededRMBatch));
-                // ParamHeader.setfilter("ID", Format(ParamHeaderVar));
-                // ParentParamHeader.setfilter("ID", Format(ParentParamHeaderVar));
+            // OldNeededRM.Reset();
+            // ParamHeader.Reset();
+            // ParentParamHeader.Reset();
+            // OldNeededRM.setFilter(Batch, Format(LastNeededRMBatch));
+            // ParamHeader.setfilter("ID", Format(ParamHeaderVar));
+            // ParentParamHeader.setfilter("ID", Format(ParentParamHeaderVar));
             //if OldNeededRM.FindFirst() and ParamHeader.FindFirst() and ParentParamHeader.FindFirst() then
             //Management.CreateAssemblyOrder(OldNeededRM, ParamHeader, ParentParamHeader, SalesLine);
 

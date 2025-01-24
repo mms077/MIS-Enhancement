@@ -222,6 +222,7 @@ pageextension 50249 "Sales Lines" extends "Sales Lines"
         ItemFeaturesSetVar: Integer;
         ItemBrandingsSetVar: Integer;
         WizardID: Integer;
+        NoSeriesMngmt: Codeunit "No. Series";
         //Dialog
         Question: Text;
         Answer: Boolean;
@@ -232,8 +233,9 @@ pageextension 50249 "Sales Lines" extends "Sales Lines"
         if OrderHistory.get(SH."No.", Database.SessionId()) then begin
             if OrderHistory.Source = '' then begin
                 SalesHeader.init();
-                SalesHeader.TransferFields(SH, false, true);
                 SalesHeader."Document Type" := SalesHeader."Document Type"::Quote;
+                SalesHeader.Validate("No.", NoSeriesMngmt.GetNextNo(SalesHeader.GetNoSeriesCode()));
+                SalesHeader.TransferFields(SH, false, true);
                 SalesHeader.Status := SalesHeader.Status::Open;
                 SalesHeader.Validate(SalesHeader."Order Date", Today());
                 SalesHeader.Validate(SalesHeader."Due Date", Today());
@@ -256,6 +258,7 @@ pageextension 50249 "Sales Lines" extends "Sales Lines"
                     SalesHeader.Validate(SalesHeader."Promised Delivery Date", 0D); // we cannot set it to Today because it is making issues 'You cannot change the Requested Delivery Date when the Promised Delivery Date has been filled in.'
                     SalesHeader.Validate(SalesHeader."Requested Delivery Date", 0D);
                     SalesHeader.Validate(SalesHeader."Quote Valid Until Date", Today());
+                    SalesHeader.Validate("Shipping No.", '');
                     SalesHeader.Modify(true);
                 end;
             end;

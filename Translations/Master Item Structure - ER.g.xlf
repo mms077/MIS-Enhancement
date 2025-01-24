@@ -15143,6 +15143,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Ledger Setup - Control Company Type - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="PageExtension 4178721393 - NamedType 1947992821" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 4178721393">
+          <source>You are not Global Sync Admin</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Item List - NamedType Txt003</note>
+        </trans-unit>
         <trans-unit id="PageExtension 4178721393 - Control 2369664869 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4178721393">
           <source>Created By</source>
           <note from="Developer" annotates="general" priority="2"></note>

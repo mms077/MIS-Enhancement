@@ -236,12 +236,13 @@ pageextension 50259 "Sales Lines Achives List" extends "Sales Line Archive List"
                 SalesHeader.Validate("No.", NoSeriesMngmt.GetNextNo(SalesHeader.GetNoSeriesCode()));
                 SalesHeader.TransferFields(SH, false, true);
                 SalesHeader.Status := SalesHeader.Status::Open;
+                SalesHeader.Validate(SalesHeader."Posting Date", Today());
                 SalesHeader.Validate(SalesHeader."Order Date", Today());
                 SalesHeader.Validate(SalesHeader."Due Date", Today());
                 SalesHeader.Validate(SalesHeader."Document Date", Today());
                 SalesHeader.Validate(SalesHeader."Promised Delivery Date", 0D); // we cannot set it to Today because it is making issues 'You cannot change the Requested Delivery Date when the Promised Delivery Date has been filled in.'
                 SalesHeader.Validate(SalesHeader."Requested Delivery Date", 0D);
-                SalesHeader.Validate(SalesHeader."Quote Valid Until Date", Today());
+                SalesHeader.Validate(SalesHeader."Quote Valid Until Date", 0D);
                 SalesHeader.Validate("Shipping No.", '');
                 SalesHeader.Insert(true);
             end
@@ -250,6 +251,7 @@ pageextension 50259 "Sales Lines Achives List" extends "Sales Line Archive List"
                 if SalesHeader.get(SalesHeader."Document Type"::Quote, OrderHistory.Source) then begin
                     SalesHeader.TransferFields(SH, false, true);
                     SalesHeader.Status := SalesHeader.Status::Open;
+                    SalesHeader.Validate(SalesHeader."Posting Date", Today());
                     SalesHeader.Validate(SalesHeader."Order Date", Today());
                     SalesHeader.Validate(SalesHeader."Due Date", Today());
                     SalesHeader.Validate(SalesHeader."Document Date", Today());

@@ -237,6 +237,7 @@ pageextension 50249 "Sales Lines" extends "Sales Lines"
                 SalesHeader.Validate("No.", NoSeriesMngmt.GetNextNo(SalesHeader.GetNoSeriesCode()));
                 SalesHeader.TransferFields(SH, false, true);
                 SalesHeader.Status := SalesHeader.Status::Open;
+                SalesHeader.Validate(SalesHeader."Posting Date", Today());
                 SalesHeader.Validate(SalesHeader."Order Date", Today());
                 SalesHeader.Validate(SalesHeader."Due Date", Today());
                 SalesHeader.Validate(SalesHeader."Document Date", Today());
@@ -252,6 +253,7 @@ pageextension 50249 "Sales Lines" extends "Sales Lines"
                 if SalesHeader.get(SalesHeader."Document Type"::Quote, OrderHistory.Source) then begin
                     SalesHeader.TransferFields(SH, false, true);
                     SalesHeader.Status := SalesHeader.Status::Open;
+                    SalesHeader.Validate(SalesHeader."Posting Date", Today());
                     SalesHeader.Validate(SalesHeader."Order Date", Today());
                     SalesHeader.Validate(SalesHeader."Due Date", Today());
                     SalesHeader.Validate(SalesHeader."Document Date", Today());

@@ -229,7 +229,7 @@ pageextension 50259 "Sales Lines Achives List" extends "Sales Line Archive List"
         Text000: Label 'Sales Quote Created %1 ,Do you want to Open it?';
 
     begin
-        if OrderHistory.get(SH."No.", Database.SessionId()) then begin
+        if OrderHistory.get(SH."No.", Database.SessionId()) then
             if OrderHistory.Source = '' then begin
                 SalesHeader.init();
                 SalesHeader."Document Type" := SalesHeader."Document Type"::Quote;
@@ -242,11 +242,11 @@ pageextension 50259 "Sales Lines Achives List" extends "Sales Line Archive List"
                 SalesHeader.Validate(SalesHeader."Document Date", Today());
                 SalesHeader.Validate(SalesHeader."Promised Delivery Date", 0D); // we cannot set it to Today because it is making issues 'You cannot change the Requested Delivery Date when the Promised Delivery Date has been filled in.'
                 SalesHeader.Validate(SalesHeader."Requested Delivery Date", 0D);
-                SalesHeader.Validate(SalesHeader."Quote Valid Until Date", 0D);
+                //SalesHeader.Validate(SalesHeader."Quote Valid Until Date", 0D);
                 SalesHeader.Validate("Shipping No.", '');
                 SalesHeader.Insert(true);
             end
-            else begin
+            else
 
                 if SalesHeader.get(SalesHeader."Document Type"::Quote, OrderHistory.Source) then begin
                     SalesHeader.TransferFields(SH, false, true);
@@ -261,9 +261,6 @@ pageextension 50259 "Sales Lines Achives List" extends "Sales Line Archive List"
                     SalesHeader.Validate("Shipping No.", '');
                     SalesHeader.Modify(true);
                 end;
-            end;
-
-        end;
 
 
         if SL.FindFirst() then

@@ -104,6 +104,28 @@ pageextension 50218 "Item List" extends "Item List"
                     ItemMediaSet;
                 end;
             }
+            action("Print Label")
+            {
+                ApplicationArea = All;
+                Image = Print;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                trigger OnAction()
+                var
+                    ItemLabelPrintingRep: Report "Item Label Printing";
+                    RecItem: Record Item;
+                begin
+                    // Set the item number directly on the report request page
+                    Clear(ItemLabelPrintingRep);
+                    ItemLabelPrintingRep.InitializeRequest(Rec."No.");
+
+                    RecItem.SetRange("No.", Rec."No.");
+                    ItemLabelPrintingRep.SetTableView(RecItem);
+                    ItemLabelPrintingRep.RunModal();
+                end;
+            }
         }
 
     }

@@ -3258,10 +3258,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Staff - Field Name - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 3854848666 - Field 3861300597 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Particularity</source>
+        <trans-unit id="Table 3854848666 - Field 3831804622 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Particularity 1</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Staff - Field Particularity - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Staff - Field Particularity 1 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3854848666 - Field 1918714771 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Particularity 2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Staff - Field Particularity 2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3854848666 - Field 2556411388 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Particularity 3</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Staff - Field Particularity 3 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3854848666 - Field 3493435768 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Position Code</source>

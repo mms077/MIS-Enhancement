@@ -2,6 +2,7 @@ table 50302 "Staff Particularity"
 {
     Caption = 'Staff Particularity';
     DataClassification = ToBeClassified;
+    DataPerCompany = false;
 
     fields
     {
@@ -9,7 +10,7 @@ table 50302 "Staff Particularity"
         {
             Caption = 'Code';
             DataClassification = ToBeClassified;
-           
+
         }
         field(2; Name; Text[100])
         {

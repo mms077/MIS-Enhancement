@@ -1236,9 +1236,6 @@ Fields!SalesLine_DepartmentName.Value + "/" + Fields!SalesLine_PositionName.Valu
                       <GroupExpression>=Fields!Outputno.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
-                  <Visibility>
-                    <Hidden>=IIF(Fields!SalesLine_CustomerName.Value="",TRUE,FALSE)</Hidden>
-                  </Visibility>
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>

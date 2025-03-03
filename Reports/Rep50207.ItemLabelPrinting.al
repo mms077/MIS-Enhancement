@@ -214,64 +214,87 @@ report 50207 "Item Label Printing"
             begin
                 Clear(GlobalCustomer);
                 Clear(ICGlobalCustomer);
-                //Clear(GlobalSalesHeader);
-                //Clear(GlobalCustomerDepartment);
-                //Clear(GlobalDepartmentPosition);
+                Clear(GlobalCustomerDepartment);
+                Clear(GlobalDepartmentPosition);
                 Clear(GlobalStaff);
                 Clear(GlobalStaffMeasurement);
                 Clear(GlobalDepartment);
                 Clear(GlobalPosition);
                 Clear(GlobalCustProject);
-                //Clear(ICGlobalSalesHeader);
-                //Clear(ICGlobalCustProject);
                 Clear(StaffMeasurementValue);
                 Clear(StaffMeasurementUOM);
                 Clear(MeasurementCode);
 
-                GlobalCustomer.Get(G_Customer);
-                if GlobalCustProject.Get(G_CustProject, GlobalCustomer."No.") then;
+                // Check if customer-related fields are selected without a customer
+                if G_Customer = '' then begin
+                    if G_CustProject <> '' then
+                        Error('Customer must be selected before specifying a Project.');
+                    if G_DepartmentCode <> '' then
+                        Error('Customer must be selected before specifying a Department.');
+                    if G_Position <> '' then
+                        Error('Customer must be selected before specifying a Position.');
+                    if G_Staff <> '' then
+                        Error('Customer must be selected before specifying a Staff.');
+                end else begin
+                    // Customer is selected, proceed with customer-related lookups
+                    if GlobalCustomer.Get(G_Customer) then begin
+                        // Lookup project if specified
+                        if G_CustProject <> '' then
+                            if not GlobalCustProject.Get(G_CustProject, GlobalCustomer."No.") then
+                                Error('Project %1 not found for customer %2.', G_CustProject, G_Customer);
 
-                //Department
-                if G_DepartmentCode <> '' then begin
-                    //if GlobalCustomerDepartment.Get(GlobalCustomer."No.", G_DepartmentCode) then;
-                    if GlobalDepartment.Get(G_DepartmentCode) then;
-                end;
+                        // Check department-related fields
+                        if G_DepartmentCode = '' then begin
+                            // Department not selected, check if position or staff is specified
+                            if G_Position <> '' then
+                                Error('Department must be selected before specifying a Position.');
+                            if G_Staff <> '' then
+                                Error('Department must be selected before specifying a Staff.');
+                        end else begin
+                            // Department is selected, verify it exists and proceed with department lookups
+                            if GlobalCustomerDepartment.Get(GlobalCustomer."No.", G_DepartmentCode) then begin
+                                if not GlobalDepartment.Get(G_DepartmentCode) then
+                                    Error('Department %1 not found.', G_DepartmentCode);
 
-                //Position
-                if G_Position <> '' then begin
-                    // GlobalDepartmentPosition.SetRange("Position Code", "Sales Line"."Position Code");
-                    // if GlobalSalesHeader."IC Source No." <> '' then begin
-                    //     GlobalDepartmentPosition.SetRange("Customer No.", GlobalSalesHeader."IC Source No.");
-                    // end else
-                    //     GlobalDepartmentPosition.SetRange("Customer No.", "Sell-to Customer No.");
-                    // GlobalDepartmentPosition.FindFirst();
-                    if GlobalPosition.Get(G_Position) then;
-                end;
+                                // Handle position selection
+                                if G_Position <> '' then begin
+                                    if GlobalDepartmentPosition.Get(G_DepartmentCode, G_Position, GlobalCustomer."No.") then begin
+                                        if not GlobalPosition.Get(G_Position) then
+                                            Error('Position %1 not found.', G_Position);
 
-                //Staff
-                if G_Staff <> '' then begin
-                    GlobalStaff.SetRange("Code", G_Staff);
-                    GlobalStaff.SetRange("Customer No.", G_Customer);
-                    if GlobalStaff.FindFirst() then begin
-                        //Get Staff Measurement
-                        Clear(MeasurementLoc);
-                        MeasurementLoc.SetRange("Show On Label", true);
-                        if MeasurementLoc.FindFirst() then begin
-                            i := 0;
-                            repeat
-                                Clear(GlobalStaffMeasurement);
-                                GlobalStaffMeasurement.SetRange("Staff Code", GlobalStaff.Code);
-                                GlobalStaffMeasurement.SetRange("Measurement Code", MeasurementLoc.Code);
-                                if GlobalStaffMeasurement.FindFirst() then begin
-                                    i := i + 1;
-                                    StaffMeasurementValue[i] := GlobalStaffMeasurement.Value;
-                                    StaffMeasurementUOM[i] := GlobalStaffMeasurement."UOM Code";
-                                    MeasurementCode[i] := MeasurementLoc.Code;
+                                        // Handle staff selection
+                                        if G_Staff <> '' then begin
+                                            GlobalStaff.SetRange("Code", G_Staff);
+                                            GlobalStaff.SetRange("Customer No.", G_Customer);
+                                            if GlobalStaff.FindFirst() then begin
+                                                // Get Staff Measurement
+                                                Clear(MeasurementLoc);
+                                                MeasurementLoc.SetRange("Show On Label", true);
+                                                if MeasurementLoc.FindFirst() then begin
+                                                    i := 0;
+                                                    repeat
+                                                        Clear(GlobalStaffMeasurement);
+                                                        GlobalStaffMeasurement.SetRange("Staff Code", GlobalStaff.Code);
+                                                        GlobalStaffMeasurement.SetRange("Measurement Code", MeasurementLoc.Code);
+                                                        if GlobalStaffMeasurement.FindFirst() then begin
+                                                            i := i + 1;
+                                                            StaffMeasurementValue[i] := GlobalStaffMeasurement.Value;
+                                                            StaffMeasurementUOM[i] := GlobalStaffMeasurement."UOM Code";
+                                                            MeasurementCode[i] := MeasurementLoc.Code;
+                                                        end;
+                                                    until (MeasurementLoc.Next() = 0) or (i = 3)
+                                                end;
+                                            end else
+                                                Error('Staff %1 not found for Customer %2.', G_Staff, G_Customer);
+                                        end;
+                                    end else
+                                        Error('Position %1 not found for Department %2 and Customer %3.', G_Position, G_DepartmentCode, G_Customer);
                                 end;
-                            until (MeasurementLoc.Next() = 0) or (i = 3)
-
+                            end else
+                                Error('Department %1 not found for Customer %2.', G_DepartmentCode, G_Customer);
                         end;
-                    end;
+                    end else
+                        Error('Customer %1 not found.', G_Customer);
                 end;
             end;
 
@@ -280,6 +303,7 @@ report 50207 "Item Label Printing"
 
     requestpage
     {
+        SaveValues = true;
         layout
         {
             area(content)
@@ -505,8 +529,8 @@ report 50207 "Item Label Printing"
         ICGlobalCustomer: Record Customer;
         //GlobalSalesHeader: Record "Sales Header";
         //ICGlobalSalesHeader: Record "Sales Header";
-        //GlobalCustomerDepartment: Record "Customer Departments";
-        //GlobalDepartmentPosition: Record "Department Positions";
+        GlobalCustomerDepartment: Record "Customer Departments";
+        GlobalDepartmentPosition: Record "Department Positions";
         GlobalStaff: Record Staff;
         GlobalStaffMeasurement: Record "Staff Measurements";
         GlobalDepartment: Record "Department";

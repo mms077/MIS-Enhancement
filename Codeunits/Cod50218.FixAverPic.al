@@ -4,7 +4,7 @@ codeunit 50218 "Fix Aver Pics"
 
     trigger OnRun()
     begin
-
+        ItemMediaSet;
     end;
 
     procedure ItemMediaSet()

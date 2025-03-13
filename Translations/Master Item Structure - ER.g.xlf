@@ -3788,6 +3788,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit EventSubscribers - Method OnAfterSalesQuoteToOrderRun - NamedType Txt001</note>
         </trans-unit>
+        <trans-unit id="Codeunit 462252242 - Method 876333285 - NamedType 1947992821" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You are not Global Sync Admin</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Fix Aver Pics - Method ItemMediaSet - NamedType Txt003</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2949077030 - NamedType 1947992821" size-unit="char" translate="yes" xml:space="preserve">
           <source>You are not Global Sync Admin</source>
           <note from="Developer" annotates="general" priority="2"></note>

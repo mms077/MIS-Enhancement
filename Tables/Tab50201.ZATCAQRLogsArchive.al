@@ -1,3 +1,4 @@
+/* its now on Zatca extension : Zatca Integration logs Phase 1
 table 50201 "ZATCA QR Logs Archive"
 {
     Caption = 'ZATCA QR Logs Archive';
@@ -23,4 +24,4 @@ table 50201 "ZATCA QR Logs Archive"
         {
         }
     }
-}
+}*/

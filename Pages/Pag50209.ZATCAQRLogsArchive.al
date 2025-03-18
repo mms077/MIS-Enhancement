@@ -1,4 +1,4 @@
-page 50209 "ZATCA QR Logs Archive"
+/*page 50209 "ZATCA QR Logs Archive"
 {
     ApplicationArea = All;
     Caption = 'ZATCA QR Logs Archive';
@@ -105,3 +105,4 @@ page 50209 "ZATCA QR Logs Archive"
         }
     }
 }
+*/

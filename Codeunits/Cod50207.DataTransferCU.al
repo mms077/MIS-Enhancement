@@ -1,4 +1,4 @@
-codeunit 50207 DataTransferCU
+/*codeunit 50207 DataTransferCU
 {
     procedure TransferZatcaQRLogToArchive()
     var
@@ -15,4 +15,4 @@ codeunit 50207 DataTransferCU
                 ZatcaItegrationLogPhase1.Insert();
             until ZatcaQRLogArchive.Next() = 0;
     end;
-}
+}*/

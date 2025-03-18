@@ -3778,6 +3778,31 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Workflow User Names - ER - Field Full Name - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3946833861 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ZATCA QR Logs Archive</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ZATCA QR Logs Archive - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3946833861 - Field 3192175264 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ZATCA QR Logs Archive - Field Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3946833861 - Field 486908828 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ZATCA QR Logs Archive - Field Document No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3946833861 - Field 3751398229 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>QR</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ZATCA QR Logs Archive - Field QR - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3946833861 - Field 1230148255 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Time</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ZATCA QR Logs Archive - Field Time - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3924101863 - Method 602896260 - NamedType 672599587" size-unit="char" translate="yes" xml:space="preserve">
           <source>No related raw materials found for this item and variant</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -6417,6 +6442,16 @@
           <source>Workflow User Names - ER</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Workflow User Names - ER - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3946833861 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ZATCA QR Logs Archive</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ZATCA QR Logs Archive - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3946833861 - Action 3502460508 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Transfer ZATCA QR Log to Archive</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ZATCA QR Logs Archive - Action TransferZatcaQRLogToArchive - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 3138194942 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Activities Time Spent</source>

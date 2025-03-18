@@ -38,7 +38,7 @@ codeunit 50207 "Split Line"
                 ParameterHeaderPar.Get(SalesOrderLine."Parameters Header ID");
                 ParentParameterHeaderPar.Get(SalesOrderLine."Parent Parameter Header ID");
                 // AssemblyLoc := GetAssemblyLocation(SalesOrderLine);
-                OnBeforeSettingAssemblyLocation(AssemblyLoc);
+                OnBeforeSettingAssemblyLocation(SalesOrderLine."No.", AssemblyLoc);
                 if AssemblyLoc = '' then
                     Error('Assembly Location is not set');
                 CreateAssemblyOrder(NeededRawMaterial, ParameterHeaderPar, ParentParameterHeaderPar, SalesOrderLine, AssemblyHeader, QtyToAssemble, AssemblyLoc);
@@ -82,7 +82,7 @@ codeunit 50207 "Split Line"
             if NeededRawMaterial.Findfirst() then;
             ParameterHeaderPar.Get(SalesOrderLine."Parameters Header ID");
             ParentParameterHeaderPar.Get(SalesOrderLine."Parent Parameter Header ID");
-            OnBeforeSettingAssemblyLocation(AssemblyLoc);
+            OnBeforeSettingAssemblyLocation(SalesOrderLine."No.", AssemblyLoc);
 
             CreateAssemblyOrder(NeededRawMaterial, ParameterHeaderPar, ParentParameterHeaderPar, SalesOrderLine, AssemblyHeader, RequiredQty, AssemblyLoc);
             CreateOrAdjustTO(SalesOrderLine, AssemblyLoc, ShippingLocationRec.Code, RequiredQty);
@@ -338,7 +338,7 @@ codeunit 50207 "Split Line"
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnBeforeSettingAssemblyLocation(var AssemblyLocation: code[10])
+    local procedure OnBeforeSettingAssemblyLocation(ItemNo: code[20]; var AssemblyLocation: code[10])
     begin
     end;
     #endregion

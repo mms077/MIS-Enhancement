@@ -371,6 +371,5 @@ permissionset 50200 MasterItemStructure
         codeunit "Fix Aver Pics" = X,
         tabledata "ZATCA QR Logs Archive" = RIMD,
         table "ZATCA QR Logs Archive" = X,
-        codeunit DataTransferCU = X,
         page "ZATCA QR Logs Archive" = X;
 }

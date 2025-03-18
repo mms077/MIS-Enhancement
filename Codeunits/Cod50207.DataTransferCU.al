@@ -3,16 +3,16 @@ codeunit 50207 DataTransferCU
     procedure TransferZatcaQRLogToArchive()
     var
         ZatcaQRLogArchive: Record "Zatca QR Logs Archive";
-        ZatcaQRLog: Record "Zatca QR Logs";
+        ZatcaItegrationLogPhase1: Record "ZATCA Integration Logs Phase 1";
     begin
-        if ZatcaQRLog.FindSet() then
+        if ZatcaQRLogArchive.FindSet() then
             repeat
-                ZatcaQRLogArchive.Init();
-                ZatcaQRLogArchive."Document No." := ZatcaQRLog."Document No.";
-                ZatcaQRLogArchive.QR := ZatcaQRLog.QR;
-                ZatcaQRLogArchive.Date := ZatcaQRLog.Date;
-                ZatcaQRLogArchive.Time := ZatcaQRLog.Time;
-                ZatcaQRLogArchive.Insert();
-            until ZatcaQRLog.Next() = 0;
+                ZatcaItegrationLogPhase1.Init();
+                ZatcaItegrationLogPhase1."Document No." := ZatcaQRLogArchive."Document No.";
+                ZatcaItegrationLogPhase1."QR Picture" := ZatcaQRLogArchive.QR;
+                ZatcaItegrationLogPhase1.SystemCreatedAt := ZatcaQRLogArchive.SystemCreatedAt;
+                ZatcaItegrationLogPhase1.Time := Format(ZatcaQRLogArchive.Time);
+                ZatcaItegrationLogPhase1.Insert();
+            until ZatcaQRLogArchive.Next() = 0;
     end;
 }

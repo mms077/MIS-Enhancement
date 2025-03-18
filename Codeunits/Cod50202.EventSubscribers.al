@@ -219,14 +219,42 @@ codeunit 50202 EventSubscribers
         SalesHeader.TestField(SalesHeader.Status, SalesHeader.Status::Released);
     end;
 
+    /// <summary>
+    /// Feature: Split Line
+    /// Note: This event is used to mitigate the issue of gross required being wrong after the sales line has been inserted
+    /// </summary>
+    /// <param name="SalesOrderLine"></param>
+    /// <param name="SalesOrderHeader"></param>
+    /// <param name="SalesQuoteLine"></param>
+    /// <param name="SalesQuoteHeader"></param>
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", 'OnBeforeInsertSalesOrderLine', '', false, false)]
+    local procedure OnBeforeInsertSalesOrderLine(var SalesOrderLine: Record "Sales Line"; SalesOrderHeader: Record "Sales Header"; SalesQuoteLine: Record "Sales Line"; SalesQuoteHeader: Record "Sales Header")
+    var
+        CUManagement: Codeunit Management;
+        SplitLineCU: Codeunit "Split Line";
+    begin
+        if CUManagement.IsCompanyFullProduction then
+            SplitLineCU.SplitLineFullProduction(SalesOrderLine, SalesOrderHeader, SalesQuoteLine, SalesQuoteHeader)
+        else
+            SplitLineCU.SplitLineIC(SalesOrderLine, SalesOrderHeader, SalesQuoteLine, SalesQuoteHeader);
+    end;
+
+    /// <summary>
+    /// Feature: Split Line
+    /// Note: This event is used to mitigate the issue of gross required being wrong after the sales line has been inserted
+    /// </summary>
+    /// <param name="SalesOrderLine"></param>
+    /// <param name="SalesOrderHeader"></param>
+    /// <param name="SalesQuoteLine"></param>
+    /// <param name="SalesQuoteHeader"></param>
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", 'OnAfterInsertSalesOrderLine', '', false, false)]
     local procedure OnAfterInsertSalesOrderLine(var SalesOrderLine: Record "Sales Line"; SalesOrderHeader: Record "Sales Header"; SalesQuoteLine: Record "Sales Line"; SalesQuoteHeader: Record "Sales Header")
     var
         CUManagement: Codeunit Management;
+        SplitLineCU: Codeunit "Split Line";
     begin
-        //Create Assembly for Sales Order (Not Intercompany)
-        if CUManagement.IsCompanyFullProduction then
-            SalesOrderLine.Validate("Qty. to Assemble to Order", SalesOrderLine.Quantity);
+        // if CUManagement.IsCompanyFullProduction then
+        //     SalesOrderLine.Validate("Qty. to Assemble to Order");
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", 'OnAfterInsertAllSalesOrderLines', '', false, false)]
@@ -290,34 +318,7 @@ codeunit 50202 EventSubscribers
         end;
 
         //Update Needed Raw Materials Sales Order No.
-        Clear(NeededRawMaterial);
-        NeededRawMaterial.SetRange("Sales Order No.", SalesQuoteHeader."No.");
-        if NeededRawMaterial.FindSet() then
-            NeededRawMaterial.ModifyAll("Sales Order No.", SalesOrderHeader."No.");
-        //Update Assembly Order No.
-        Clear(NeededRawMaterial);
-        NeededRawMaterial.SetRange("Sales Order No.", SalesOrderHeader."No.");
-        if NeededRawMaterial.FindSet() then
-            repeat
-                if SalesLineLoc.get(SalesLineLoc."Document Type"::Order, SalesOrderHeader."No.", NeededRawMaterial."Sales Order Line No.") then begin
-                    SalesLineLoc.CalcFields("Assembly No.");
-                    NeededRawMaterial."Assembly Order No." := SalesLineLoc."Assembly No.";
-                    NeededRawMaterial.Modify();
-                    //Update Parameters Header
-                    Clear(ParameterHeaderLoc);
-                    if ParameterHeaderLoc.Get(SalesLineLoc."Parameters Header ID") then begin
-                        ParameterHeaderLoc."Sales Line Document No." := SalesLineLoc."Document No.";
-                        ParameterHeaderLoc."Sales Line Document Type" := SalesLineLoc."Document Type";
-                        ParameterHeaderLoc.Modify();
-                    end;
-                    Clear(ParentParameterHeaderLoc);
-                    if ParentParameterHeaderLoc.Get(SalesLineLoc."Parameters Header ID") then begin
-                        ParentParameterHeaderLoc."Sales Line Document No." := SalesLineLoc."Document No.";
-                        ParentParameterHeaderLoc."Sales Line Document Type" := SalesLineLoc."Document Type";
-                        ParentParameterHeaderLoc.Modify();
-                    end;
-                end;
-            until NeededRawMaterial.Next() = 0;
+
 
         //Check Item Availability by location
         //Only if company Full Production
@@ -785,13 +786,13 @@ codeunit 50202 EventSubscribers
         ParameterHeader: Record "Parameter Header";
         NeededRawMaterial: Record "Needed Raw Material";
     begin
-        if AssemblyHeader."Parameters Header ID" <> 0 then begin
-            ParameterHeader.get(AssemblyHeader."Parameters Header ID");
-            ManagementCU.CreateNeededRawMaterial(ParameterHeader);
-            NeededRawMaterial.SetRange("Assembly Order No.", AssemblyHeader."No.");
-            if NeededRawMaterial.FindSet() then
-                ManagementCU.CreateAssemblyOrder(NeededRawMaterial, ParameterHeader, ParameterHeader);
-        end;
+        // if AssemblyHeader."Parameters Header ID" <> 0 then begin
+        //     ParameterHeader.get(AssemblyHeader."Parameters Header ID");
+        //     ManagementCU.CreateNeededRawMaterial(ParameterHeader);
+        //     NeededRawMaterial.SetRange("Assembly Order No.", AssemblyHeader."No.");
+        //     if NeededRawMaterial.FindSet() then
+        //         ManagementCU.CreateAssemblyOrder(NeededRawMaterial, ParameterHeader, ParameterHeader);
+        // end;
     end;
 
     [EventSubscriber(ObjectType::Table, database::"Assemble-to-Order Link", 'OnUpdateAsmOnBeforeSynchronizeAsmFromSalesLine', '', false, false)]
@@ -810,15 +811,15 @@ codeunit 50202 EventSubscribers
 
         //based on the parameter header the assembly is assemble to order or not
         //if (AssemblyHeader."Parameters Header ID" = 0) and
-        if (not (AssemblyHeader."Document Type" = AssemblyHeader."Document Type"::Quote)) then begin
-            //Mandatory fields before creating assembly order lines
-            AssemblyHeader.TestField("Location Code");
-            //If parameter header id is not 0 this means that this assembly is linked to sales line so no need in this case to check qty
-            if AssemblyHeader."Parameters Header ID" = 0 then
-                AssemblyHeader.TestField(Quantity);
-            CreateAssemblyOrderNeededRawMaterial(AssemblyHeader);
-            IsHandled := true;
-        end;
+        // if (not (AssemblyHeader."Document Type" = AssemblyHeader."Document Type"::Quote)) then begin
+        //     //Mandatory fields before creating assembly order lines
+        //     AssemblyHeader.TestField("Location Code");
+        //     //If parameter header id is not 0 this means that this assembly is linked to sales line so no need in this case to check qty
+        //     if AssemblyHeader."Parameters Header ID" = 0 then
+        //         AssemblyHeader.TestField(Quantity);
+        //     CreateAssemblyOrderNeededRawMaterial(AssemblyHeader);
+        //     IsHandled := true;
+        // end;
     end;
 
     procedure CreateAssemblyOrderNeededRawMaterial(var AssemblyHeaderPar: Record "Assembly Header")

@@ -215,10 +215,77 @@ codeunit 50202 EventSubscribers
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order (Yes/No)", 'OnBeforeConfirmConvertToOrder', '', false, false)]
     local procedure OnBeforeConfirmConvertToOrder(SalesHeader: Record "Sales Header"; var Result: Boolean; var IsHandled: Boolean)
+    var
+        Location: Record Location;
+        LocationList: Page "Location List";
+        ShippingLocations: Record Location;
+        ShippingLocationCount: Integer;
+        SelectedLocation: Code[10];
+        SalesHeaderRec: Record "Sales Header";
+        OriginalStatus: Enum "Sales Document Status";
     begin
         SalesHeader.TestField(SalesHeader.Status, SalesHeader.Status::Released);
+
+        // Find shipping locations
+        ShippingLocations.Reset();
+        ShippingLocations.SetRange("Shipping Location", true);
+        ShippingLocationCount := ShippingLocations.Count;
+
+        if ShippingLocationCount > 1 then begin
+            // Multiple shipping locations found - show selection dialog
+            LocationList.SetTableView(ShippingLocations);
+            LocationList.LookupMode(true);
+            if LocationList.RunModal() = Action::LookupOK then begin
+                LocationList.GetRecord(Location);
+                SelectedLocation := Location.Code;
+            end else
+                Error('You must select a shipping location to continue.');
+        end else if ShippingLocationCount = 1 then begin
+            // Only one shipping location - select automatically
+            ShippingLocations.FindFirst();
+            SelectedLocation := ShippingLocations.Code;
+        end else
+            Error('No shipping locations defined in the system. Please set up at least one location as a shipping location.');
+
+        // Update the Sales Header with the selected shipping location
+        if SelectedLocation <> '' then begin
+            // Get a modifiable copy of the sales header
+            SalesHeaderRec.Get(SalesHeader.RecordId);
+
+            // Save original status and set to open to allow modification
+            OriginalStatus := SalesHeaderRec.Status;
+            SalesHeaderRec.Status := SalesHeaderRec.Status::Open;
+            SalesHeaderRec.Modify(true);
+
+            // Set the location code
+            SalesHeaderRec.Validate("Shipping Location", SelectedLocation);
+            // SalesHeaderRec.Modify(true);
+
+            // Restore original status
+            SalesHeaderRec.Status := OriginalStatus;
+            SalesHeaderRec.Modify(true);
+        end;
     end;
 
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", 'OnBeforeInsertSalesOrderHeader', '', false, false)]
+    local procedure OnBeforeInsertSalesOrderHeader(var SalesOrderHeader: Record "Sales Header"; var SalesQuoteHeader: Record "Sales Header")
+    begin
+        SalesOrderHeader.validate("Location Code", SalesOrderHeader."Shipping Location");
+    end;
+
+    [EventSubscriber(ObjectType::Table, database::"Sales Header", 'OnBeforeUpdateLocationCode', '', false, false)]
+    local procedure OnBeforeUpdateLocationCode(var SalesHeader: Record "Sales Header"; LocationCode: Code[10]; var IsHandled: Boolean)
+    begin
+        if (SalesHeader."Document Type" = SalesHeader."Document Type"::Order) and (SalesHeader."Location Code" = SalesHeader."Shipping Location") then
+            IsHandled := true;
+    end;
+
+    [EventSubscriber(ObjectType::Table, database::"Sales Header", 'OnAfterInitFromSalesHeader', '', false, false)]
+    local procedure OnAfterInitFromSalesHeader(var SalesHeader: Record "Sales Header"; SourceSalesHeader: Record "Sales Header")
+    begin
+        if (SalesHeader."Document Type" = SalesHeader."Document Type"::Order) and (SalesHeader."Location Code" <> SalesHeader."Shipping Location") then
+            SalesHeader."Location Code" := SalesHeader."Shipping Location";
+    end;
     /// <summary>
     /// Feature: Split Line
     /// Note: This event is used to mitigate the issue of gross required being wrong after the sales line has been inserted
@@ -239,23 +306,23 @@ codeunit 50202 EventSubscribers
             SplitLineCU.SplitLineIC(SalesOrderLine, SalesOrderHeader, SalesQuoteLine, SalesQuoteHeader);
     end;
 
-    /// <summary>
-    /// Feature: Split Line
-    /// Note: This event is used to mitigate the issue of gross required being wrong after the sales line has been inserted
-    /// </summary>
-    /// <param name="SalesOrderLine"></param>
-    /// <param name="SalesOrderHeader"></param>
-    /// <param name="SalesQuoteLine"></param>
-    /// <param name="SalesQuoteHeader"></param>
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", 'OnAfterInsertSalesOrderLine', '', false, false)]
-    local procedure OnAfterInsertSalesOrderLine(var SalesOrderLine: Record "Sales Line"; SalesOrderHeader: Record "Sales Header"; SalesQuoteLine: Record "Sales Line"; SalesQuoteHeader: Record "Sales Header")
-    var
-        CUManagement: Codeunit Management;
-        SplitLineCU: Codeunit "Split Line";
-    begin
-        // if CUManagement.IsCompanyFullProduction then
-        //     SalesOrderLine.Validate("Qty. to Assemble to Order");
-    end;
+    // /// <summary>
+    // /// Feature: Split Line
+    // /// Note: This event is used to mitigate the issue of gross required being wrong after the sales line has been inserted
+    // /// </summary>
+    // /// <param name="SalesOrderLine"></param>
+    // /// <param name="SalesOrderHeader"></param>
+    // /// <param name="SalesQuoteLine"></param>
+    // /// <param name="SalesQuoteHeader"></param>
+    // [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", 'OnAfterInsertSalesOrderLine', '', false, false)]
+    // local procedure OnAfterInsertSalesOrderLine(var SalesOrderLine: Record "Sales Line"; SalesOrderHeader: Record "Sales Header"; SalesQuoteLine: Record "Sales Line"; SalesQuoteHeader: Record "Sales Header")
+    // var
+    //     CUManagement: Codeunit Management;
+    //     SplitLineCU: Codeunit "Split Line";
+    // begin
+    //     // if CUManagement.IsCompanyFullProduction then
+    //     //     SalesOrderLine.Validate("Qty. to Assemble to Order");
+    // end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", 'OnAfterInsertAllSalesOrderLines', '', false, false)]
     local procedure OnAfterInsertAllSalesOrderLines(var SalesOrderLine: Record "Sales Line"; SalesQuoteHeader: Record "Sales Header"; var SalesOrderHeader: Record "Sales Header")
@@ -891,7 +958,7 @@ codeunit 50202 EventSubscribers
                         Clear(AssemblyLine);
                         AssemblyLine.Init();
                         AssemblyLine."Document Type" := AssemblyHeaderPar."Document Type";
-                        AssemblyLine."Document No." := AssemblyHeaderPar."No.";
+                        AssemblyLine."Document No." := PostedAssemblyLine."Document No.";
                         AssemblyLine."Line No." := PostedAssemblyLine."Line No.";
                         AssemblyLine.Validate(Type, PostedAssemblyLine.Type);
                         AssemblyLine.Validate("No.", PostedAssemblyLine."No.");

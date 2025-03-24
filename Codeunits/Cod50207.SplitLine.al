@@ -11,7 +11,6 @@ codeunit 50207 "Split Line"
         //TempTable
         TempItemRec: Record Item temporary;
         ReservationEntryRec: Record "Reservation Entry";
-        ShippingLocationRec: Record Location;
 
         //Assembly
         NeededRawMaterial: Record "Needed Raw Material";
@@ -20,10 +19,7 @@ codeunit 50207 "Split Line"
         AssemblyLoc: Code[10];
         AssemblyHeader: Record "Assembly Header";
     begin
-        Clear(ShippingLocationRec);
-        ShippingLocationRec.SetRange("Shipping Location", true);
-        if ShippingLocationRec.FindFirst() then;
-        SalesOrderLine.Validate("Location Code", ShippingLocationRec.Code);
+        SalesOrderLine.Validate("Location Code", SalesOrderHeader."Shipping Location");
         RequiredQty := SalesOrderLine."Quantity (Base)";
         AvailableQTY := FillQuantityPerLocationAndReturnAvailableQty(TempItemRec, SalesOrderLine);
         //If there is a QTY available in the locations.
@@ -42,7 +38,8 @@ codeunit 50207 "Split Line"
                 if AssemblyLoc = '' then
                     Error('Assembly Location is not set');
                 CreateAssemblyOrder(NeededRawMaterial, ParameterHeaderPar, ParentParameterHeaderPar, SalesOrderLine, AssemblyHeader, QtyToAssemble, AssemblyLoc);
-                CreateOrAdjustTO(SalesOrderLine, AssemblyLoc, ShippingLocationRec.Code, QtyToAssemble);
+                if AssemblyLoc <> SalesOrderHeader."Shipping Location" then
+                    CreateOrAdjustTO(SalesOrderLine, AssemblyLoc, SalesOrderHeader."Shipping Location", QtyToAssemble);
                 RequiredQty -= QtyToAssemble;
             end;
             TempItemRec.SetLoadFields("No.", "Budget Quantity");
@@ -53,10 +50,10 @@ codeunit 50207 "Split Line"
                     //If the available QTY  is bigger than Required Qty we only need the required QTY.   
                     if TempItemRec."Budget Quantity" > RequiredQty then begin
                         //If the location is not the same as the shipping location we need to create a TO.
-                        if TempItemRec."No." = ShippingLocationRec.Code then
+                        if TempItemRec."No." = SalesOrderHeader."Shipping Location" then
                             RequiredQty -= RequiredQty
                         else begin
-                            CreateOrAdjustTO(SalesOrderLine, TempItemRec."No.", ShippingLocationRec.Code, RequiredQty);
+                            CreateOrAdjustTO(SalesOrderLine, TempItemRec."No.", SalesOrderHeader."Shipping Location", RequiredQty);
                             RequiredQty -= RequiredQty;
                         end;
                         //Else we will automatically reserve from the shipping location.
@@ -64,10 +61,10 @@ codeunit 50207 "Split Line"
                     //Else we only need the qty on the location.
                     else begin
                         //If the location is not the same as the shipping location we need to create a TO.
-                        if TempItemRec."No." = ShippingLocationRec.Code then
+                        if TempItemRec."No." = SalesOrderHeader."Shipping Location" then
                             RequiredQty -= TempItemRec."Budget Quantity"
                         else begin
-                            CreateOrAdjustTO(SalesOrderLine, TempItemRec."No.", ShippingLocationRec.Code, TempItemRec."Budget Quantity");
+                            CreateOrAdjustTO(SalesOrderLine, TempItemRec."No.", SalesOrderHeader."Shipping Location", TempItemRec."Budget Quantity");
                             RequiredQty -= TempItemRec."Budget Quantity";
                         end;
                         //Else we will automatically reserve from the shipping location.
@@ -85,7 +82,8 @@ codeunit 50207 "Split Line"
             OnBeforeSettingAssemblyLocation(SalesOrderLine."No.", AssemblyLoc);
 
             CreateAssemblyOrder(NeededRawMaterial, ParameterHeaderPar, ParentParameterHeaderPar, SalesOrderLine, AssemblyHeader, RequiredQty, AssemblyLoc);
-            CreateOrAdjustTO(SalesOrderLine, AssemblyLoc, ShippingLocationRec.Code, RequiredQty);
+            if AssemblyLoc <> SalesOrderHeader."Shipping Location" then
+                CreateOrAdjustTO(SalesOrderLine, AssemblyLoc, SalesOrderHeader."Shipping Location", RequiredQty);
         end;
 
         //end;

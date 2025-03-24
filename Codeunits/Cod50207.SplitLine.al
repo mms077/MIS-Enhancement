@@ -42,7 +42,7 @@ codeunit 50207 "Split Line"
                 if AssemblyLoc = '' then
                     Error('Assembly Location is not set');
                 CreateAssemblyOrder(NeededRawMaterial, ParameterHeaderPar, ParentParameterHeaderPar, SalesOrderLine, AssemblyHeader, QtyToAssemble, AssemblyLoc);
-                CreateOrAdjustTO(SalesOrderLine, AssemblyLoc, ShippingLocationRec.Code, RequiredQty);
+                CreateOrAdjustTO(SalesOrderLine, AssemblyLoc, ShippingLocationRec.Code, QtyToAssemble);
                 RequiredQty -= QtyToAssemble;
             end;
             TempItemRec.SetLoadFields("No.", "Budget Quantity");

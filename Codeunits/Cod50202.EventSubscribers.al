@@ -306,23 +306,22 @@ codeunit 50202 EventSubscribers
             SplitLineCU.SplitLineIC(SalesOrderLine, SalesOrderHeader, SalesQuoteLine, SalesQuoteHeader);
     end;
 
-    // /// <summary>
-    // /// Feature: Split Line
-    // /// Note: This event is used to mitigate the issue of gross required being wrong after the sales line has been inserted
-    // /// </summary>
-    // /// <param name="SalesOrderLine"></param>
-    // /// <param name="SalesOrderHeader"></param>
-    // /// <param name="SalesQuoteLine"></param>
-    // /// <param name="SalesQuoteHeader"></param>
-    // [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", 'OnAfterInsertSalesOrderLine', '', false, false)]
-    // local procedure OnAfterInsertSalesOrderLine(var SalesOrderLine: Record "Sales Line"; SalesOrderHeader: Record "Sales Header"; SalesQuoteLine: Record "Sales Line"; SalesQuoteHeader: Record "Sales Header")
-    // var
-    //     CUManagement: Codeunit Management;
-    //     SplitLineCU: Codeunit "Split Line";
-    // begin
-    //     // if CUManagement.IsCompanyFullProduction then
-    //     //     SalesOrderLine.Validate("Qty. to Assemble to Order");
-    // end;
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", 'OnAfterInsertSalesOrderLine', '', false, false)]
+    local procedure OnAfterInsertSalesOrderLine(var SalesOrderLine: Record "Sales Line"; SalesOrderHeader: Record "Sales Header"; SalesQuoteLine: Record "Sales Line"; SalesQuoteHeader: Record "Sales Header")
+    var
+        TransferOrderLine: Record "Transfer Line";
+        ReservationManagementCU: Codeunit "Reservation Management";
+        directionEnum: Enum "Transfer Direction";
+        FullAutoReservation: Boolean;
+    begin
+        Clear(TransferOrderLine);
+        TransferOrderLine.SetRange("Related SO", SalesOrderHeader."No.");
+        TransferOrderLine.SetRange("SO Line No.", SalesOrderLine."Line No.");
+        if TransferOrderLine.FindFirst() then begin
+            ReservationManagementCU.SetReservSource(TransferOrderLine, DirectionEnum::Inbound);
+            ReservationManagementCU.AutoReserve(FullAutoReservation, TransferOrderLine."Document No.", TransferOrderLine."Shipment Date", TransferOrderLine.Quantity, TransferOrderLine."Quantity (Base)")
+        end
+    end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", 'OnAfterInsertAllSalesOrderLines', '', false, false)]
     local procedure OnAfterInsertAllSalesOrderLines(var SalesOrderLine: Record "Sales Line"; SalesQuoteHeader: Record "Sales Header"; var SalesOrderHeader: Record "Sales Header")
@@ -384,63 +383,6 @@ codeunit 50202 EventSubscribers
             SalesOrderHeader.Modify(true)
         end;
 
-        //Update Needed Raw Materials Sales Order No.
-
-
-        //Check Item Availability by location
-        //Only if company Full Production
-        if CUManagement.IsCompanyFullProduction then begin
-            SalesOrdrLines_Local.Reset();
-            SalesOrdrLines_Local.SetRange("Document Type", SalesOrderLine."Document Type");
-            SalesOrdrLines_Local.SetRange("Document No.", SalesOrderLine."Document No.");
-            SalesOrdrLines_Local.SetFilter("Assembly No.", '<>%1', '');
-            if SalesOrdrLines_Local.FindFirst() then
-                repeat
-                    Clear(Item);
-                    AvailableQty := 0;
-                    //TASK-27333: If disregard item is on, dont check for availability in the location  
-                    if GnrlLedgStpRec.get() then
-                        if not GnrlLedgStpRec."Disregard Item Availability" then begin
-                            if Item.Get(SalesOrdrLines_Local."No.") then;
-                            Item.SetRange("Location Filter", SalesOrdrLines_Local."Location Code");
-                            Item.SetRange("Variant Filter", SalesOrdrLines_Local."Variant Code");
-                            Item.CalcFields(Inventory, "FP Order Receipt (Qty.)", "Rel. Order Receipt (Qty.)", "Qty. on Assembly Order", "Qty. on Purch. Order", "Trans. Ord. Receipt (Qty.)", "Qty. On Sales Order", "Qty. on Component Lines", "Qty. on Asm. Component", "Trans. Ord. Shipment (Qty.)");
-                            AvailableQty := Item.Inventory
-                                        + (Item."FP Order Receipt (Qty.)" + Item."Rel. Order Receipt (Qty.)" + Item."Qty. on Assembly Order" + Item."Qty. on Purch. Order" + Item."Trans. Ord. Receipt (Qty.)")
-                                        - (Item."Qty. on Sales Order" + Item."Qty. on Component Lines" + Item."Qty. on Asm. Component" + Item."Trans. Ord. Shipment (Qty.)");
-                        end;
-                    //If available quantity less than requested quantity but greater than 0 --> just the difference
-                    if (AvailableQty < SalesOrdrLines_Local."Quantity") and (AvailableQty >= 0) then begin
-                        SalesOrdrLines_Local.Validate("Qty. to Assemble to Order", SalesOrdrLines_Local.Quantity - AvailableQty);
-                        if SalesOrdrLines_Local.Type = SalesOrdrLines_Local.Type::Item then begin
-                            SalesOrdrLines_Local.Validate(Reserve, SalesOrdrLines_Local.Reserve::Always);
-                            SalesOrdrLines_Local.AutoReserve();
-                        end;
-                        SalesOrdrLines_Local.Validate("Qty. to Assemble to Order", SalesOrdrLines_Local.Quantity - AvailableQty);
-                        SalesOrdrLines_Local.Modify(true);
-                    end else
-                        //If available quantity Negative --> all the requested should be assembled
-                        if (AvailableQty < 0) then begin
-                            SalesOrdrLines_Local.Validate("Qty. to Assemble to Order", SalesOrdrLines_Local.Quantity);
-                            if SalesOrdrLines_Local.Type = SalesOrdrLines_Local.Type::Item then begin
-                                SalesOrdrLines_Local.Validate(Reserve, SalesOrdrLines_Local.Reserve::Always);
-                                SalesOrdrLines_Local.AutoReserve();
-                            end;
-                            SalesOrdrLines_Local.Validate("Qty. to Assemble to Order", SalesOrdrLines_Local.Quantity);
-                            SalesOrdrLines_Local.Modify(true)
-                        end else
-                            //If available quantity greater than requested quantity
-                            if AvailableQty >= SalesOrdrLines_Local.Quantity then begin
-                                SalesOrdrLines_Local.Validate("Qty. to Assemble to Order", 0);
-                                if SalesOrdrLines_Local.Type = SalesOrdrLines_Local.Type::Item then begin
-                                    SalesOrdrLines_Local.Validate(Reserve, SalesOrdrLines_Local.Reserve::Always);
-                                    SalesOrdrLines_Local.AutoReserve();
-                                end;
-                                SalesOrdrLines_Local.Validate("Qty. to Assemble to Order", 0);
-                                SalesOrdrLines_Local.Modify(true);
-                            end;
-                until SalesOrdrLines_Local.Next() = 0;
-        end;
     end;
 
     procedure PerformManualRelease(var SalesHeader: Record "Sales Header")

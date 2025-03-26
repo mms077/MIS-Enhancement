@@ -136,6 +136,7 @@ codeunit 50207 "Split Line"
         AvailableQty: Decimal;
         SalesHeader: Record "Sales Header";
         GnrlLedgStpRec: Record "General Ledger Setup";
+        ManagementCU: Codeunit "Management";
     begin
         AssemblyHeader.Init();
         AssemblyHeader.Validate("Document Type", AssemblyHeader."Document Type"::Order);
@@ -197,6 +198,9 @@ codeunit 50207 "Split Line"
                 NeededRMLoc.Modify();
             until NeededRMLoc.Next() = 0;
         end;
+
+
+        ManagementCU.CreateCuttingSheetDashboard(AssemblyHeader, ParameterHeaderPar."Customer No.");
     end;
 
     Procedure WithEmbroidery(AssemblyHeaderPar: Record "Assembly Header"): Boolean
@@ -297,6 +301,8 @@ codeunit 50207 "Split Line"
                 TransferOrderLine.Validate("Unit of Measure Code", SalesOrderLine."Unit of Measure Code");
                 TransferOrderLine.Validate("Shipment Date", SalesOrderLine."Shipment Date");
                 TransferOrderLine.Validate("Quantity", Qty);
+                TransferOrderLine.Validate("Related SO", SalesOrderLine."Document No.");
+                TransferOrderLine.Validate("SO Line No.", SalesOrderLine."Line No.");
                 TransferOrderLine.Insert();
                 ReservationManagementCU.SetReservSource(TransferOrderLine, directionEnum::Outbound);
                 ReservationManagementCU.AutoReserve(FullAutoReservation, TransferOrderLine."Document No.", TransferOrderLine."Shipment Date", TransferOrderLine.Quantity, TransferOrderLine."Quantity (Base)")
@@ -327,6 +333,8 @@ codeunit 50207 "Split Line"
             TransferOrderLine.Validate("Unit of Measure Code", SalesOrderLine."Unit of Measure Code");
             TransferOrderLine.Validate("Shipment Date", SalesOrderLine."Shipment Date");
             TransferOrderLine.Validate("Quantity", Qty);
+            TransferOrderLine.Validate("Related SO", SalesOrderLine."Document No.");
+            TransferOrderLine.Validate("SO Line No.", SalesOrderLine."Line No.");
             TransferOrderLine.Insert();
 
 

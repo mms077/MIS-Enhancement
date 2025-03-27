@@ -25,61 +25,7 @@ table 50264 Staff
         }
         field(3; "Position Code"; Code[50])
         {
-            TableRelation = "Department Positions"."Position Code" where("Department Code" = field("Department Code"), "Customer No." = field("Customer No."));
-            trigger OnValidate()
-            var
-                StaffSizes: Record "Staff Sizes";
-                OldStaffSizes: Record "Staff Sizes";
-                StaffMeasurement: Record "Staff Measurements";
-                OldStaffMeasurement: Record "Staff Measurements";
-                UpdatedSizes: Integer;
-                UpdatedMeasurements: Integer;
-            begin
-                if (xRec."Position Code" <> Rec."Position Code") then begin
-                    UpdatedSizes := 0;
-                    UpdatedMeasurements := 0;
-
-                    // Create a copy of the records we need to update
-                    OldStaffSizes.Reset();
-                    OldStaffSizes.SetRange("Staff Code", Rec.Code);
-                    // OldStaffSizes.SetRange("Position Code", xRec."Position Code");
-
-                    // Create array to store key values before modifications
-                    if OldStaffSizes.FindSet() then begin
-                        repeat
-                            // For each record we found, we'll create a new record with updated Position Code
-                            StaffSizes.Init();
-                            StaffSizes.TransferFields(OldStaffSizes); // Copy all fields
-                            StaffSizes."Position Code" := Rec."Position Code"; // Set new Position Code
-
-                            // Insert the new record
-                            if StaffSizes.Insert() then begin
-                                // Delete the old record
-                                OldStaffSizes.Delete();
-                                UpdatedSizes += 1;
-                            end;
-                        until OldStaffSizes.Next() = 0;
-                    end;
-
-                    // Similar approach for Staff Measurements
-                    OldStaffMeasurement.Reset();
-                    OldStaffMeasurement.SetRange("Staff Code", Rec.Code);
-                    OldStaffMeasurement.SetRange("Position Code", xRec."Position Code");
-
-                    if OldStaffMeasurement.FindSet() then begin
-                        repeat
-                            StaffMeasurement.Init();
-                            StaffMeasurement.TransferFields(OldStaffMeasurement);
-                            StaffMeasurement."Position Code" := Rec."Position Code";
-
-                            if StaffMeasurement.Insert() then begin
-                                OldStaffMeasurement.Delete();
-                                UpdatedMeasurements += 1;
-                            end;
-                        until OldStaffMeasurement.Next() = 0;
-                    end;
-                end;
-            end;
+            TableRelation = Position.Code;
         }
 
         field(4; Gender; Option)
@@ -94,95 +40,10 @@ table 50264 Staff
             Caption = 'Customer No.';
             DataClassification = ToBeClassified;
             TableRelation = Customer."No.";
-            trigger OnValidate()
-            var
-                myInt: Integer;
-                StaffSizes: Record "Staff Sizes";
-                StaffMeasurement: Record "Staff Measurements";
-            begin
-                // Check if any of the key fields have changed
-                /*  if (xRec."Customer No." <> Rec."Customer No.") then begin
-                      // Find all Staff Sizes records for this Staff code
-                      StaffSizes.SetRange("Staff Code", Rec.Code);
-
-                      // If we find any related records, update them
-                      if StaffSizes.FindSet() then
-                          repeat
-                              //if xRec."Customer No." <> Rec."Customer No." then begin
-                                  //StaffSizes."Position Code" := Rec."Position Code";
-                                  // Store current key values
-                                  StaffSizes.Rename(StaffSizes."Staff Code",
-                                  StaffSizes."Size Code",
-                                  StaffSizes."Fit Code",
-                                  StaffSizes."Cut Code",
-                                  Rec."Customer No.",
-                                   StaffSizes."Department Code",
-                                                   StaffSizes."Position Code",
-                                                    StaffSizes.Type
-                                                     )
-                              //end;
-                          until StaffSizes.Next() = 0;
-
-                      // Update Staff Measurement records
-                      StaffMeasurement.SetRange("Staff Code", Rec.Code);
-                      if StaffMeasurement.FindSet() then
-                          repeat
-                              StaffMeasurement.Rename(StaffMeasurement."Staff Code",
-                                  StaffMeasurement."Measurement Code",
-                                  Rec."Customer No.",
-                                  StaffMeasurement."Department Code",
-                                                   StaffMeasurement."Position Code")
-
-                          until StaffMeasurement.Next() = 0;
-                  end;*/
-            end;
         }
         field(6; "Department Code"; Code[50])
         {
-            //TableRelation = Department.Code;
-            TableRelation = "Customer Departments"."Department Code" where("Customer No." = field("Customer No."));
-            trigger OnValidate()
-            var
-                myInt: Integer;
-                StaffSizes: Record "Staff Sizes";
-                StaffMeasurement: Record "Staff Measurements";
-            begin
-                // Check if any of the key fields have changed
-                if (xRec."Department Code" <> Rec."Department Code") then begin
-                    // Find all Staff Sizes records for this Staff code
-                    StaffSizes.SetRange("Staff Code", Rec.Code);
-
-                    // If we find any related records, update them
-                    if StaffSizes.FindSet() then
-                        repeat
-                            //if xRec."Customer No." <> Rec."Customer No." then begin
-                            //StaffSizes."Position Code" := Rec."Position Code";
-                            // Store current key values
-                            StaffSizes.Rename(StaffSizes."Staff Code",
-                            StaffSizes."Size Code",
-                            StaffSizes."Fit Code",
-                            StaffSizes."Cut Code",
-                            StaffSizes."Customer No.",
-                             Rec."Department Code",
-                                             StaffSizes."Position Code",
-                                              StaffSizes.Type
-                                               )
-                        //end;
-                        until StaffSizes.Next() = 0;
-
-                    // Update Staff Measurement records
-                    StaffMeasurement.SetRange("Staff Code", Rec.Code);
-                    if StaffMeasurement.FindSet() then
-                        repeat
-                            StaffMeasurement.Rename(StaffMeasurement."Staff Code",
-                                StaffMeasurement."Measurement Code",
-                                StaffMeasurement."Customer No.",
-                                Rec."Department Code",
-                                                 StaffMeasurement."Position Code")
-
-                        until StaffMeasurement.Next() = 0;
-                end;
-            end;
+            TableRelation = Department.Code;
         }
         field(7; "Department Name"; Text[100])
         {
@@ -265,19 +126,4 @@ table 50264 Staff
             Clustered = true;
         }
     }
-    trigger OnDelete()
-    var
-        StaffSizes: Record "Staff Sizes";
-        StaffMeasurement: Record "Staff Measurements";
-    begin
-        // Delete all related Staff Sizes records
-        StaffSizes.SetRange("Staff Code", Rec.Code);
-        if not StaffSizes.IsEmpty then
-            StaffSizes.DeleteAll();
-
-        // Delete all related Staff Measurements records
-        StaffMeasurement.SetRange("Staff Code", Rec.Code);
-        if not StaffMeasurement.IsEmpty then
-            StaffMeasurement.DeleteAll();
-    end;
 }

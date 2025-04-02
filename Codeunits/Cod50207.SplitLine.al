@@ -2,7 +2,7 @@ codeunit 50207 "Split Line"
 {
 
     #region FullProduction
-    internal procedure SplitLineFullProduction(var SalesOrderLine: Record "Sales Line"; SalesOrderHeader: Record "Sales Header"; SalesQuoteLine: Record "Sales Line"; SalesQuoteHeader: Record "Sales Header")
+    internal procedure SplitLineFullProduction(var SalesOrderLine: Record "Sales Line"; SalesOrderHeader: Record "Sales Header"; SalesQuoteHeader: Record "Sales Header")
     var
         //Quantities
         RequiredQty: Decimal;
@@ -10,7 +10,6 @@ codeunit 50207 "Split Line"
         QtyToAssemble: Decimal;
         //TempTable
         TempItemRec: Record Item temporary;
-        ReservationEntryRec: Record "Reservation Entry";
 
         //Assembly
         NeededRawMaterial: Record "Needed Raw Material";
@@ -28,7 +27,7 @@ codeunit 50207 "Split Line"
             if AvailableQTY < RequiredQty then begin
                 QtyToAssemble := RequiredQty - AvailableQTY;
                 clear(NeededRawMaterial);
-                UpdateRMAndParameterHeaders(SalesOrderHeader, SalesQuoteHeader, SalesOrderLine, SalesQuoteLine);
+                UpdateRMAndParameterHeaders(SalesOrderHeader, SalesQuoteHeader, SalesOrderLine);
                 NeededRawMaterial.SetRange(Batch, SalesOrderLine."Needed RM Batch");
                 if NeededRawMaterial.Findfirst() then;
                 ParameterHeaderPar.Get(SalesOrderLine."Parameters Header ID");
@@ -39,7 +38,7 @@ codeunit 50207 "Split Line"
                     Error('Assembly Location is not set');
                 CreateAssemblyOrder(NeededRawMaterial, ParameterHeaderPar, ParentParameterHeaderPar, SalesOrderLine, AssemblyHeader, QtyToAssemble, AssemblyLoc);
                 if AssemblyLoc <> SalesOrderHeader."Shipping Location" then
-                    CreateOrAdjustTO(SalesOrderLine, AssemblyLoc, SalesOrderHeader."Shipping Location", QtyToAssemble);
+                    CreateOrAdjustTOAsb(SalesOrderLine, AssemblyHeader, AssemblyLoc, SalesOrderHeader."Shipping Location", QtyToAssemble);
                 RequiredQty -= QtyToAssemble;
             end;
             TempItemRec.SetLoadFields("No.", "Budget Quantity");
@@ -74,7 +73,7 @@ codeunit 50207 "Split Line"
         // //If we have no QTY available
         else begin
             clear(NeededRawMaterial);
-            UpdateRMAndParameterHeaders(SalesOrderHeader, SalesQuoteHeader, SalesOrderLine, SalesQuoteLine);
+            UpdateRMAndParameterHeaders(SalesOrderHeader, SalesQuoteHeader, SalesOrderLine);
             NeededRawMaterial.SetRange(Batch, SalesOrderLine."Needed RM Batch");
             if NeededRawMaterial.Findfirst() then;
             ParameterHeaderPar.Get(SalesOrderLine."Parameters Header ID");
@@ -83,14 +82,14 @@ codeunit 50207 "Split Line"
 
             CreateAssemblyOrder(NeededRawMaterial, ParameterHeaderPar, ParentParameterHeaderPar, SalesOrderLine, AssemblyHeader, RequiredQty, AssemblyLoc);
             if AssemblyLoc <> SalesOrderHeader."Shipping Location" then
-                CreateOrAdjustTO(SalesOrderLine, AssemblyLoc, SalesOrderHeader."Shipping Location", RequiredQty);
+                CreateOrAdjustTOAsb(SalesOrderLine, AssemblyHeader, AssemblyLoc, SalesOrderHeader."Shipping Location", RequiredQty);
         end;
 
         //end;
     end;
 
 
-    procedure UpdateRMAndParameterHeaders(SalesOrderHeader: Record "Sales Header"; SalesQuoteHeader: Record "Sales Header"; SalesOrderLine: Record "Sales Line"; SalesQuoteLine: Record "Sales Line")
+    procedure UpdateRMAndParameterHeaders(SalesOrderHeader: Record "Sales Header"; SalesQuoteHeader: Record "Sales Header"; SalesOrderLine: Record "Sales Line")
     var
         NeededRawMaterial: Record "Needed Raw Material";
         ParameterHeaderLoc: Record "Parameter Header";
@@ -229,13 +228,202 @@ codeunit 50207 "Split Line"
     end;
     #endregion[Create Assembly Line]
     #endregion
-    #region IC
-    internal procedure SplitLineIC(var SalesOrderLine: Record "Sales Line"; SalesOrderHeader: Record "Sales Header"; SalesQuoteLine: Record "Sales Line"; SalesQuoteHeader: Record "Sales Header")
+    #region Purchase
+    internal procedure SplitLinePurchase(var SalesOrderLine: Record "Sales Line"; SalesOrderHeader: Record "Sales Header"; SalesQuoteHeader: Record "Sales Header")
     var
-    begin
+        //Quantities
+        RequiredQty: Decimal;
+        AvailableQTY: Decimal;
+        QtyToAssemble: Decimal;
+        //TempTable
+        TempItemRec: Record Item temporary;
+        ReservationEntryRec: Record "Reservation Entry";
 
+        //Assembly
+        NeededRawMaterial: Record "Needed Raw Material";
+        ParameterHeaderPar: Record "Parameter Header";
+        ParentParameterHeaderPar: Record "Parameter Header";
+    begin
+        SalesOrderLine.Validate("Location Code", SalesOrderHeader."Shipping Location");
+        RequiredQty := SalesOrderLine."Quantity (Base)";
+        AvailableQTY := FillQuantityPerLocationAndReturnAvailableQty(TempItemRec, SalesOrderLine);
+        //If there is a QTY available in the locations.
+        if AvailableQTY > 0 then begin
+            //If we need more QTY than we have available, they will be taken from the purchase IC.
+            TempItemRec.SetLoadFields("No.", "Budget Quantity");
+            TempItemRec.SetCurrentKey("Budget Quantity");
+            TempItemRec.SetAscending("Budget Quantity", false);
+            if TempItemRec.FindSet() then
+                repeat
+                    //If the available QTY  is bigger than Required Qty we only need the required QTY.   
+                    if TempItemRec."Budget Quantity" > RequiredQty then begin
+                        //If the location is not the same as the shipping location we need to create a TO.
+                        if TempItemRec."No." = SalesOrderHeader."Shipping Location" then
+                            RequiredQty -= RequiredQty
+                        else begin
+                            CreateOrAdjustTO(SalesOrderLine, TempItemRec."No.", SalesOrderHeader."Shipping Location", RequiredQty);
+                            RequiredQty -= RequiredQty;
+                        end;
+                        //Else we will automatically reserve from the shipping location.
+                    end
+                    //Else we only need the qty on the location.
+                    else begin
+                        //If the location is not the same as the shipping location we need to create a TO.
+                        if TempItemRec."No." = SalesOrderHeader."Shipping Location" then
+                            RequiredQty -= TempItemRec."Budget Quantity"
+                        else begin
+                            CreateOrAdjustTO(SalesOrderLine, TempItemRec."No.", SalesOrderHeader."Shipping Location", TempItemRec."Budget Quantity");
+                            RequiredQty -= TempItemRec."Budget Quantity";
+                        end;
+                        //Else we will automatically reserve from the shipping location.
+                    end;
+                until (TempItemRec.Next() = 0) or (RequiredQty <= 0);
+        end
     end;
     #endregion
+
+    #region IC Full Production
+    procedure SplitLineFullProductionIC(var SalesOrderLine: Record "Sales Line"; SalesOrderHeader: Record "Sales Header")
+    var
+        //Quantities
+        RequiredQty: Decimal;
+        AvailableQTY: Decimal;
+        QtyToAssemble: Decimal;
+        //TempTable
+        TempItemRec: Record Item temporary;
+
+        //Assembly
+        NeededRawMaterial: Record "Needed Raw Material";
+        ParameterHeaderPar: Record "Parameter Header";
+        ParentParameterHeaderPar: Record "Parameter Header";
+        AssemblyLoc: Code[10];
+        AssemblyHeader: Record "Assembly Header";
+    begin
+        SalesOrderLine.Validate("Location Code", SalesOrderHeader."Shipping Location");
+        RequiredQty := SalesOrderLine."Quantity (Base)";
+        AvailableQTY := FillQuantityPerLocationAndReturnAvailableQty(TempItemRec, SalesOrderLine);
+        //If there is a QTY available in the locations.
+        if AvailableQTY > 0 then begin
+            //If we need more QTY than we have available, we have to assemble.
+            if AvailableQTY < RequiredQty then begin
+                QtyToAssemble := RequiredQty - AvailableQTY;
+                clear(NeededRawMaterial);
+                //UpdateRMAndParameterHeaders(SalesOrderHeader, SalesQuoteHeader, SalesOrderLine);
+                NeededRawMaterial.SetRange(Batch, SalesOrderLine."Needed RM Batch");
+                if NeededRawMaterial.Findfirst() then;
+                ParameterHeaderPar.Get(SalesOrderLine."Parameters Header ID");
+                ParentParameterHeaderPar.Get(SalesOrderLine."IC Parameters Header ID");
+                // AssemblyLoc := GetAssemblyLocation(SalesOrderLine);
+                OnBeforeSettingAssemblyLocation(SalesOrderLine."No.", AssemblyLoc);
+                if AssemblyLoc = '' then
+                    Error('Assembly Location is not set');
+                CreateAssemblyOrder(NeededRawMaterial, ParameterHeaderPar, ParentParameterHeaderPar, SalesOrderLine, AssemblyHeader, QtyToAssemble, AssemblyLoc);
+                if AssemblyLoc <> SalesOrderHeader."Shipping Location" then
+                    CreateOrAdjustTOAsb(SalesOrderLine, AssemblyHeader, AssemblyLoc, SalesOrderHeader."Shipping Location", QtyToAssemble);
+                RequiredQty -= QtyToAssemble;
+            end;
+            TempItemRec.SetLoadFields("No.", "Budget Quantity");
+            TempItemRec.SetCurrentKey("Budget Quantity");
+            TempItemRec.SetAscending("Budget Quantity", false);
+            if TempItemRec.FindSet() then
+                repeat
+                    //If the available QTY  is bigger than Required Qty we only need the required QTY.   
+                    if TempItemRec."Budget Quantity" > RequiredQty then begin
+                        //If the location is not the same as the shipping location we need to create a TO.
+                        if TempItemRec."No." = SalesOrderHeader."Shipping Location" then
+                            RequiredQty -= RequiredQty
+                        else begin
+                            CreateOrAdjustTO(SalesOrderLine, TempItemRec."No.", SalesOrderHeader."Shipping Location", RequiredQty);
+                            RequiredQty -= RequiredQty;
+                        end;
+                        //Else we will automatically reserve from the shipping location.
+                    end
+                    //Else we only need the qty on the location.
+                    else begin
+                        //If the location is not the same as the shipping location we need to create a TO.
+                        if TempItemRec."No." = SalesOrderHeader."Shipping Location" then
+                            RequiredQty -= TempItemRec."Budget Quantity"
+                        else begin
+                            CreateOrAdjustTO(SalesOrderLine, TempItemRec."No.", SalesOrderHeader."Shipping Location", TempItemRec."Budget Quantity");
+                            RequiredQty -= TempItemRec."Budget Quantity";
+                        end;
+                        //Else we will automatically reserve from the shipping location.
+                    end;
+                until (TempItemRec.Next() = 0) or (RequiredQty <= 0);
+        end
+        //If we have no QTY available
+        else begin
+            clear(NeededRawMaterial);
+            //UpdateRMAndParameterHeaders(SalesOrderHeader, SalesQuoteHeader, SalesOrderLine);
+            NeededRawMaterial.SetRange(Batch, SalesOrderLine."Needed RM Batch");
+            if NeededRawMaterial.Findfirst() then;
+            ParameterHeaderPar.Get(SalesOrderLine."Parameters Header ID");
+            ParentParameterHeaderPar.Get(SalesOrderLine."IC Parameters Header ID");
+            OnBeforeSettingAssemblyLocation(SalesOrderLine."No.", AssemblyLoc);
+            if AssemblyLoc = '' then
+                Error('Assembly Location is not set');
+            CreateAssemblyOrder(NeededRawMaterial, ParameterHeaderPar, ParentParameterHeaderPar, SalesOrderLine, AssemblyHeader, RequiredQty, AssemblyLoc);
+            if AssemblyLoc <> SalesOrderHeader."Shipping Location" then
+                CreateOrAdjustTOAsb(SalesOrderLine, AssemblyHeader, AssemblyLoc, SalesOrderHeader."Shipping Location", RequiredQty);
+        end;
+    end;
+    #endregion IC Full Production
+
+
+    #region IC Purchase
+    internal procedure SplitLinePurchaseIC(var SalesOrderLine: Record "Sales Line"; SalesOrderHeader: Record "Sales Header")
+    var
+        //Quantities
+        RequiredQty: Decimal;
+        AvailableQTY: Decimal;
+        QtyToAssemble: Decimal;
+        //TempTable
+        TempItemRec: Record Item temporary;
+        ReservationEntryRec: Record "Reservation Entry";
+
+        //Assembly
+        NeededRawMaterial: Record "Needed Raw Material";
+        ParameterHeaderPar: Record "Parameter Header";
+        ParentParameterHeaderPar: Record "Parameter Header";
+    begin
+        SalesOrderLine.Validate("Location Code", SalesOrderHeader."Shipping Location");
+        RequiredQty := SalesOrderLine."Quantity (Base)";
+        AvailableQTY := FillQuantityPerLocationAndReturnAvailableQty(TempItemRec, SalesOrderLine);
+        //If there is a QTY available in the locations.
+        if AvailableQTY > 0 then begin
+            //If we need more QTY than we have available, they will be taken from the purchase IC.
+            TempItemRec.SetLoadFields("No.", "Budget Quantity");
+            TempItemRec.SetCurrentKey("Budget Quantity");
+            TempItemRec.SetAscending("Budget Quantity", false);
+            if TempItemRec.FindSet() then
+                repeat
+                    //If the available QTY  is bigger than Required Qty we only need the required QTY.   
+                    if TempItemRec."Budget Quantity" > RequiredQty then begin
+                        //If the location is not the same as the shipping location we need to create a TO.
+                        if TempItemRec."No." = SalesOrderHeader."Shipping Location" then
+                            RequiredQty -= RequiredQty
+                        else begin
+                            CreateOrAdjustTO(SalesOrderLine, TempItemRec."No.", SalesOrderHeader."Shipping Location", RequiredQty);
+                            RequiredQty -= RequiredQty;
+                        end;
+                        //Else we will automatically reserve from the shipping location.
+                    end
+                    //Else we only need the qty on the location.
+                    else begin
+                        //If the location is not the same as the shipping location we need to create a TO.
+                        if TempItemRec."No." = SalesOrderHeader."Shipping Location" then
+                            RequiredQty -= TempItemRec."Budget Quantity"
+                        else begin
+                            CreateOrAdjustTO(SalesOrderLine, TempItemRec."No.", SalesOrderHeader."Shipping Location", TempItemRec."Budget Quantity");
+                            RequiredQty -= TempItemRec."Budget Quantity";
+                        end;
+                        //Else we will automatically reserve from the shipping location.
+                    end;
+                until (TempItemRec.Next() = 0) or (RequiredQty <= 0);
+        end
+    end;
+    #endregion
+
     #region Common
     procedure FillQuantityPerLocationAndReturnAvailableQty(var TempItemRec: Record Item temporary; SalesOrderLine: Record "Sales Line"): Decimal
     var
@@ -342,6 +530,85 @@ codeunit 50207 "Split Line"
             ReservationManagementCU.AutoReserve(FullAutoReservation, TransferOrderLine."Document No.", TransferOrderLine."Shipment Date", TransferOrderLine.Quantity, TransferOrderLine."Quantity (Base)")
         end;
     end;
+
+    internal procedure CreateOrAdjustTOAsb(SalesOrderLine: Record "Sales Line"; AssemblyHeader: Record "Assembly Header"; FromLocation: Code[10]; ToLocation: Code[10]; Qty: Decimal)
+    var
+        TransferOrder: Record "Transfer Header";
+        TransferOrderLine: Record "Transfer Line";
+        LastLineNo: Integer;
+        InventorySetupRec: Record "Inventory Setup";
+        NosCU: Codeunit "No. Series";
+        LocationRec: Record Location;
+        InTransitLocation: Code[10];
+        ReservationManagementCU: Codeunit "Reservation Management";
+        FullAutoReservation: Boolean;
+        directionEnum: Enum "Transfer Direction";
+    begin
+        Clear(TransferOrder);
+        TransferOrder.SetRange("Related SO", SalesOrderLine."Document No.");
+        TransferOrder.SetRange("Transfer-from Code", FromLocation);
+        if TransferOrder.FindFirst() then begin
+            TransferOrderLine.SetRange("Document No.", TransferOrder."No.");
+            TransferOrderLine.SetCurrentKey("Line No.");
+            if TransferOrderLine.FindLast() then begin//TODO: check if the TO has the same item before
+                LastLineNo := TransferOrderLine."Line No.";
+                TransferOrderLine.Init();
+                TransferOrderLine."Document No." := TransferOrder."No.";
+                TransferOrderLine."Line No." := LastLineNo + 10000;
+                TransferOrderLine.Validate("Item No.", SalesOrderLine."No.");
+                TransferOrderLine.Validate("Variant Code", SalesOrderLine."Variant Code");
+                TransferOrderLine.Validate("Unit of Measure Code", SalesOrderLine."Unit of Measure Code");
+                TransferOrderLine.Validate("Shipment Date", SalesOrderLine."Shipment Date");
+                TransferOrderLine.Validate("Quantity", Qty);
+                TransferOrderLine.Validate("Related SO", SalesOrderLine."Document No.");
+                TransferOrderLine.Validate("SO Line No.", SalesOrderLine."Line No.");
+                TransferOrderLine.Insert();
+
+                ReservationManagementCU.SetReservSource(TransferOrderLine, directionEnum::Outbound);
+                // Add assembly order as a second reservation source
+                if AssemblyHeader."No." <> '' then
+                    ReservationManagementCU.SetReservSource(AssemblyHeader);
+
+                ReservationManagementCU.AutoReserve(FullAutoReservation, TransferOrderLine."Document No.", TransferOrderLine."Shipment Date", TransferOrderLine.Quantity, TransferOrderLine."Quantity (Base)")
+            end;
+        end
+        else begin
+            LocationRec.SetRange("Use As In-Transit", true);
+            if LocationRec.FindFirst() then
+                InTransitLocation := LocationRec.Code;
+            TransferOrder.Init();
+            InventorySetupRec.Get();
+            TransferOrder.Validate("No.", NosCU.GetNextNo(InventorySetupRec."Transfer Order Nos."));
+            TransferOrder.Validate("Related SO", SalesOrderLine."Document No.");
+            TransferOrder.Validate("Transfer-from Code", FromLocation);
+            TransferOrder.Validate("Transfer-to Code", ToLocation);
+            if InTransitLocation <> '' then
+                TransferOrder.Validate("In-Transit Code", InTransitLocation)
+            else
+                TransferOrder.Validate("Direct Transfer", true);
+            TransferOrder.Validate("Shipment Date", SalesOrderLine."Shipment Date");
+            TransferOrder.Validate("Receipt Date", SalesOrderLine."Shipment Date");
+            TransferOrder.Insert();
+            TransferOrderLine.Init();
+            TransferOrderLine."Document No." := TransferOrder."No.";
+            TransferOrderLine."Line No." := 10000;
+            TransferOrderLine.Validate("Item No.", SalesOrderLine."No.");
+            TransferOrderLine.Validate("Variant Code", SalesOrderLine."Variant Code");
+            TransferOrderLine.Validate("Unit of Measure Code", SalesOrderLine."Unit of Measure Code");
+            TransferOrderLine.Validate("Shipment Date", SalesOrderLine."Shipment Date");
+            TransferOrderLine.Validate("Quantity", Qty);
+            TransferOrderLine.Validate("Related SO", SalesOrderLine."Document No.");
+            TransferOrderLine.Validate("SO Line No.", SalesOrderLine."Line No.");
+            TransferOrderLine.Insert();
+            ReservationManagementCU.SetReservSource(TransferOrderLine, directionEnum::Outbound);
+
+            // Add assembly order as a second reservation source
+            if AssemblyHeader."No." <> '' then
+                ReservationManagementCU.SetReservSource(AssemblyHeader);
+            ReservationManagementCU.AutoReserve(FullAutoReservation, TransferOrderLine."Document No.", TransferOrderLine."Shipment Date", TransferOrderLine.Quantity, TransferOrderLine."Quantity (Base)")
+        end;
+    end;
+
 
     [IntegrationEvent(false, false)]
     local procedure OnBeforeSettingAssemblyLocation(ItemNo: code[20]; var AssemblyLocation: code[10])

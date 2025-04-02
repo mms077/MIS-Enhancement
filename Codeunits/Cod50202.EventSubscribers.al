@@ -301,9 +301,9 @@ codeunit 50202 EventSubscribers
         SplitLineCU: Codeunit "Split Line";
     begin
         if CUManagement.IsCompanyFullProduction then
-            SplitLineCU.SplitLineFullProduction(SalesOrderLine, SalesOrderHeader, SalesQuoteLine, SalesQuoteHeader)
+            SplitLineCU.SplitLineFullProduction(SalesOrderLine, SalesOrderHeader, SalesQuoteHeader)
         else
-            SplitLineCU.SplitLineIC(SalesOrderLine, SalesOrderHeader, SalesQuoteLine, SalesQuoteHeader);
+            SplitLineCU.SplitLinePurchase(SalesOrderLine, SalesOrderHeader, SalesQuoteHeader);
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", 'OnAfterInsertSalesOrderLine', '', false, false)]
@@ -313,14 +313,32 @@ codeunit 50202 EventSubscribers
         ReservationManagementCU: Codeunit "Reservation Management";
         directionEnum: Enum "Transfer Direction";
         FullAutoReservation: Boolean;
+        ReservedQty: Decimal;
+        ReservedQtyBase: Decimal;
     begin
+        Clear(ReservedQty);
+        Clear(ReservedQtyBase);
         Clear(TransferOrderLine);
         TransferOrderLine.SetRange("Related SO", SalesOrderHeader."No.");
         TransferOrderLine.SetRange("SO Line No.", SalesOrderLine."Line No.");
-        if TransferOrderLine.FindFirst() then begin
-            ReservationManagementCU.SetReservSource(TransferOrderLine, DirectionEnum::Inbound);
-            ReservationManagementCU.AutoReserve(FullAutoReservation, TransferOrderLine."Document No.", TransferOrderLine."Shipment Date", TransferOrderLine.Quantity, TransferOrderLine."Quantity (Base)")
+        if TransferOrderLine.Findset() then begin
+            repeat
+                ReservationManagementCU.SetReservSource(TransferOrderLine, DirectionEnum::Inbound);
+                ReservationManagementCU.SetReservSource(SalesOrderLine);
+                ReservationManagementCU.AutoReserve(FullAutoReservation, TransferOrderLine."Document No.", TransferOrderLine."Shipment Date", TransferOrderLine.Quantity, TransferOrderLine."Quantity (Base)");
+                ReservedQty += TransferOrderLine.Quantity;
+                ReservedQtyBase += TransferOrderLine."Quantity (Base)";
+            until TransferOrderLine.Next() = 0;
+            If SalesOrderLine."Quantity (Base)" > ReservedQtyBase then begin
+                clear(ReservationManagementCU);
+                ReservationManagementCU.SetReservSource(SalesOrderLine);
+                ReservationManagementCU.AutoReserve(FullAutoReservation, SalesOrderLine."Document No.", SalesOrderLine."Shipment Date", SalesOrderLine.Quantity - ReservedQty, SalesOrderLine."Quantity (Base)" - ReservedQtyBase);
+            end;
         end
+        else begin
+            ReservationManagementCU.SetReservSource(SalesOrderLine);
+            ReservationManagementCU.AutoReserve(FullAutoReservation, SalesOrderLine."Document No.", SalesOrderLine."Shipment Date", SalesOrderLine.Quantity, SalesOrderLine."Quantity (Base)")
+        end;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", 'OnAfterInsertAllSalesOrderLines', '', false, false)]
@@ -1058,11 +1076,58 @@ codeunit 50202 EventSubscribers
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"ICInboxOutboxMgt", 'OnBeforeICInboxSalesHeaderInsert', '', false, false)]
     local procedure OnBeforeICInboxSalesHeaderInsert(var ICInboxSalesHeader: Record "IC Inbox Sales Header"; ICOutboxPurchaseHeader: Record "IC Outbox Purchase Header")
+    var
+
     begin
         ICInboxSalesHeader."IC Source No." := ICOutboxPurchaseHeader."IC Source No.";
         ICInboxSalesHeader."IC Company Name" := ICOutboxPurchaseHeader."IC Company Name";
         ICInboxSalesHeader."IC Customer SO No." := ICOutboxPurchaseHeader."IC Customer SO No.";
         ICInboxSalesHeader."IC Customer Project Code" := ICOutboxPurchaseHeader."IC Customer Project Code";
+
+
+
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"ICInboxOutboxMgt", 'OnCreateSalesDocumentOnBeforeSalesHeaderInsert', '', false, false)]
+    local procedure OnCreateSalesDocumentOnBeforeSalesHeaderInsert(var SalesHeader: Record "Sales Header"; ICInboxSalesHeader: Record "IC Inbox Sales Header")
+    var
+        Location: Record Location;
+        LocationList: Page "Location List";
+        ShippingLocations: Record Location;
+        ShippingLocationCount: Integer;
+        SelectedLocation: Code[10];
+        SalesHeaderRec: Record "Sales Header";
+        OriginalStatus: Enum "Sales Document Status";
+    begin
+        // Find shipping locations
+        ShippingLocations.Reset();
+        ShippingLocations.SetRange("Shipping Location", true);
+        if ShippingLocations.FindFirst() then
+            SalesHeader.Validate("Shipping Location", ShippingLocations.Code)
+        else
+            Error('No shipping locations defined in the system. Please set up at least one location as a shipping location.');
+        //ShippingLocationCount := ShippingLocations.Count;
+
+        // if ShippingLocationCount > 1 then begin
+        //     // Multiple shipping locations found - show selection dialog
+        //     LocationList.SetTableView(ShippingLocations);
+        //     LocationList.LookupMode(true);
+        //     if LocationList.RunModal() = Action::LookupOK then begin
+        //         LocationList.GetRecord(Location);
+        //         SelectedLocation := Location.Code;
+        //     end else
+        //         Error('You must select a shipping location to continue.');
+        // end else if ShippingLocationCount = 1 then begin
+        //     // Only one shipping location - select automatically
+        //     ShippingLocations.FindFirst();
+        //     SelectedLocation := ShippingLocations.Code;
+        // end else
+        //     Error('No shipping locations defined in the system. Please set up at least one location as a shipping location.');
+
+        // Update the Sales Header with the selected shipping location
+        // if SelectedLocation <> '' then begin
+        //     SalesHeader.Validate("Shipping Location", SelectedLocation);
+        // end;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"ICInboxOutboxMgt", 'OnBeforeICInboxSalesLineInsert', '', false, false)]
@@ -1112,12 +1177,34 @@ codeunit 50202 EventSubscribers
         SalesHeader."IC Customer Project Code" := ICInboxSalesHeader."IC Customer Project Code";
     end;
 
+
+    // [EventSubscriber(ObjectType::Codeunit, Codeunit::"ICInboxOutboxMgt", 'OnBeforeValidateSalesLineDeliveryDates', '', false, false)]
+    // local procedure OnBeforeValidateSalesLineDeliveryDates(var SalesLine: Record "Sales Line"; ICInboxSalesLine: Record "IC Inbox Sales Line"; var IsHandled: Boolean)
+    // begin
+    // end;
+    //     CUManagement: Codeunit Management;
+    //     SplitLineCU: Codeunit "Split Line";
+    // begin
+    //     if CUManagement.IsCompanyFullProduction then
+    //         SplitLineCU.SplitLineFullProductionIC(SalesLine, SalesHeader)
+    //     else
+    //         SplitLineCU.SplitLinePurchaseIC(SalesLine, SalesHeader);
+    // end;
+
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"ICInboxOutboxMgt", 'OnAfterCreateSalesLines', '', false, false)]
     local procedure OnAfterCreateSalesLines(ICInboxSalesLine: Record "IC Inbox Sales Line"; var SalesLine: Record "Sales Line"; var SalesHeader: Record "Sales Header")
     var
         ManagementCU: Codeunit Management;
         NeededRawMaterial: Record "Needed Raw Material";
         ParameterHeader: Record "Parameter Header";
+        SplitLineCU: Codeunit "Split Line";
+
+        TransferOrderLine: Record "Transfer Line";
+        ReservationManagementCU: Codeunit "Reservation Management";
+        directionEnum: Enum "Transfer Direction";
+        FullAutoReservation: Boolean;
+        ReservedQty: Decimal;
+        ReservedQtyBase: Decimal;
     begin
         SalesLine."IC Parent Parameter Header ID" := ICInboxSalesLine."Parent Parameter Header ID";
         SalesLine."IC Parameters Header ID" := ICInboxSalesLine."Parameters Header ID";
@@ -1125,14 +1212,41 @@ codeunit 50202 EventSubscribers
         SalesLine."Allocation Type" := ICInboxSalesLine."Allocation Type";
         SalesLine."Allocation Code" := ICInboxSalesLine."Allocation Code";
         //Automatically Create Assembly for the Non Available quantity if the company is Full Production
-        Clear(NeededRawMaterial);
-        NeededRawMaterial.SetRange(Batch, SalesLine."Needed RM Batch");
-        if NeededRawMaterial.FindSet() then begin
-            Clear(ParameterHeader);
-            if ParameterHeader.Get(SalesLine."Parameters Header ID") then
-                ManagementCU.CreateAssemblyOrder(NeededRawMaterial, ParameterHeader, ParameterHeader, SalesLine);
-        end;
+        // Clear(NeededRawMaterial);
+        // NeededRawMaterial.SetRange(Batch, SalesLine."Needed RM Batch");
+        // if NeededRawMaterial.FindSet() then begin
+        //     Clear(ParameterHeader);
+        //     if ParameterHeader.Get(SalesLine."Parameters Header ID") then
+        //         ManagementCU.CreateAssemblyOrder(NeededRawMaterial, ParameterHeader, ParameterHeader, SalesLine);
+        // end;
+        if ManagementCU.IsCompanyFullProduction then
+            SplitLineCU.SplitLineFullProductionIC(SalesLine, SalesHeader)
+        else
+            SplitLineCU.SplitLinePurchaseIC(SalesLine, SalesHeader);
 
+        Clear(ReservedQty);
+        Clear(ReservedQtyBase);
+        Clear(TransferOrderLine);
+        TransferOrderLine.SetRange("Related SO", SalesHeader."No.");
+        TransferOrderLine.SetRange("SO Line No.", SalesLine."Line No.");
+        if TransferOrderLine.Findset() then begin
+            repeat
+                ReservationManagementCU.SetReservSource(TransferOrderLine, DirectionEnum::Inbound);
+                ReservationManagementCU.SetReservSource(SalesLine);
+                ReservationManagementCU.AutoReserve(FullAutoReservation, TransferOrderLine."Document No.", TransferOrderLine."Shipment Date", TransferOrderLine.Quantity, TransferOrderLine."Quantity (Base)");
+                ReservedQty += TransferOrderLine.Quantity;
+                ReservedQtyBase += TransferOrderLine."Quantity (Base)";
+            until TransferOrderLine.Next() = 0;
+            If SalesLine."Quantity (Base)" > ReservedQtyBase then begin
+                clear(ReservationManagementCU);
+                ReservationManagementCU.SetReservSource(SalesLine);
+                ReservationManagementCU.AutoReserve(FullAutoReservation, SalesLine."Document No.", SalesLine."Shipment Date", SalesLine.Quantity - ReservedQty, SalesLine."Quantity (Base)" - ReservedQtyBase);
+            end;
+        end
+        else begin
+            ReservationManagementCU.SetReservSource(SalesLine);
+            ReservationManagementCU.AutoReserve(FullAutoReservation, SalesLine."Document No.", SalesLine."Shipment Date", SalesLine.Quantity, SalesLine."Quantity (Base)")
+        end;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"ICInboxOutboxMgt", 'OnCreatePurchDocumentOnBeforePurchHeaderModify', '', false, false)]

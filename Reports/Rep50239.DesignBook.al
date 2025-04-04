@@ -3,7 +3,7 @@ report 50239 "Design Book"
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
     RDLCLayout = 'Reports Layouts/ER-DesignBook.rdlc';
-
+    Caption = 'Look Book';
     dataset
     {
         dataitem("Customer Look Version"; "Customer Look Version")

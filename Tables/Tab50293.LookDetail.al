@@ -35,6 +35,13 @@ table 50293 "Look Detail"
         {
             DataClassification = ToBeClassified;
             // TableRelation = Design.code where(Category = field(Category), Type = field(Type), Gender = field(Gender));
+            trigger OnValidate()
+            var
+                DesignRec: Record Design;
+            begin
+                if not DesignRec.Get(Rec.Design) then
+                    Error('The Design "%1" does not exist in the Design table. Please select a valid Design.', Rec.Design);
+            end;
 
             trigger OnLookup()
             var
@@ -43,9 +50,21 @@ table 50293 "Look Detail"
             begin
                 if Look.Get(Rec."Look Code") then begin
                     Clear(Design);
+
+                    // Set filters for the Design table
                     Design.SetRange(Category, Rec.Category);
                     Design.SetRange(Type, Rec.Type);
-                    Design.SetRange(Gender, Look.Gender);
+
+                    // Allow both Look.Gender and Unisex designs
+                    Design.SetFilter(Gender, '%1|%2', Look.Gender, Look.Gender::Unisex);
+
+                    // Set the sorting key to include Gender Sort Order
+                    Design.SetCurrentKey("Gender Sort Order");
+
+                    // Sort by Gender Sort Order to prioritize "Unisex" designs
+                    Design.SetAscending("Gender Sort Order", true);
+
+                    // Run the lookup page
                     if Page.RunModal(Page::Designs, Design) = Action::LookupOK then
                         Rec.Design := Design.Code;
                 end;

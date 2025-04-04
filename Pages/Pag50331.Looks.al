@@ -45,6 +45,7 @@ page 50331 Looks
                 }
 
                 field(Gender; rec.Gender) { ApplicationArea = all; }
+                field("Dress Code"; rec."Dress Code") { ApplicationArea = all; }
             }
 
         }
@@ -123,36 +124,78 @@ page 50331 Looks
                 PromotedOnly = true;
                 trigger OnAction()
                 var
-                    myInt: Integer;
                     DocAttachement: Record "Record Link";
-                    RecordRef: RecordRef;
-                    FieldRef: FieldRef;
-                    LinkID: Integer;
-                    Front: Text[1000];
                     Looks: Record "Look";
                     SharepointSetup: Record "Sharepoint Connector Setup";
                     SharepointSiteLink: Text[1000];
                     SharepointFrontPic: Text[100];
                     SharepointSidesPic: Text[100];
                     SharepointBackPic: Text[100];
+                    LinkID: Integer;
+                    UserChoice: Integer;
                 begin
+                    // Define SharePoint paths
                     SharepointSiteLink := '/sites/Designs2/Shared Documents/Looks/';
                     SharepointFrontPic := '/Default/front.png';
                     SharepointSidesPic := '/Default/sides.png';
                     SharepointBackPic := '/Default/back.png';
-                    SharepointSetup.Get();
-                    if Looks.Get(rec.Code) then begin
-                        DocAttachement.setrange("Record ID", Looks.RecordId);
-                        if not DocAttachement.FindFirst() then begin
-                            LinkID := Looks.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec.Code + SharepointbackPic, 'Back');
-                            LinkID := Looks.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec.Code + SharepointfrontPic, 'Front');
-                            LinkID := Looks.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec.Code + SharepointsidesPic, 'Sides');
-                            Looks.Modify();
 
+                    // Get SharePoint setup
+                    SharepointSetup.Get();
+
+                    // Prompt the user to select which images to add
+                    UserChoice := Dialog.STRMENU(
+                        'Front,Sides,Back,All',
+                        1
+                    );
+
+                    // Check if the Look record exists
+                    if Looks.Get(Rec.Code) then begin
+                        DocAttachement.SetRange("Record ID", Looks.RecordId);
+
+                        // Add links based on user selection
+                        case UserChoice of
+                            1:
+                                begin // Front
+                                    DocAttachement.SetRange(Description, 'Front');
+                                    if not DocAttachement.FindFirst() then
+                                        LinkID := Looks.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec.Code + SharepointFrontPic, 'Front');
+                                end;
+                            2:
+                                begin // Sides
+                                    DocAttachement.SetRange(Description, 'Sides');
+                                    if not DocAttachement.FindFirst() then
+                                        LinkID := Looks.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec.Code + SharepointSidesPic, 'Sides');
+                                end;
+                            3:
+                                begin // Back
+                                    DocAttachement.SetRange(Description, 'Back');
+                                    if not DocAttachement.FindFirst() then
+                                        LinkID := Looks.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec.Code + SharepointBackPic, 'Back');
+                                end;
+                            4:
+                                begin // All
+                                      // Front
+                                    DocAttachement.SetRange(Description, 'Front');
+                                    if not DocAttachement.FindFirst() then
+                                        LinkID := Looks.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec.Code + SharepointFrontPic, 'Front');
+
+                                    // Sides
+                                    DocAttachement.SetRange(Description, 'Sides');
+                                    if not DocAttachement.FindFirst() then
+                                        LinkID := Looks.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec.Code + SharepointSidesPic, 'Sides');
+
+                                    // Back
+                                    DocAttachement.SetRange(Description, 'Back');
+                                    if not DocAttachement.FindFirst() then
+                                        LinkID := Looks.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec.Code + SharepointBackPic, 'Back');
+                                end;
                         end;
+
+                        // Save changes to the Look record
+                        Looks.Modify();
                     end;
                 end;
-
             }
         }
     }

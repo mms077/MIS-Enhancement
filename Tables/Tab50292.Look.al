@@ -47,6 +47,11 @@ table 50292 Look
 
 
         }
+        field(9; "Dress Code"; code[20])
+        {
+
+            TableRelation = Dress.Code;
+        }
         /* field(9; "Add 1"; MediaSet)
          {
 

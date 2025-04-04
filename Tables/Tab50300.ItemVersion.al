@@ -49,6 +49,8 @@ table 50300 "Item Version"
             begin
                 if Item.get(Rec."Item No.") then
                     Rec."Item Description" := Item.Description;
+                if not Item.Get(Rec."Item No.") then
+                    Error('The Item "%1" does not exist in the Item table. Please select a valid Item.', Rec."Item No.");
             end;
 
             trigger OnLookup()

@@ -142,55 +142,121 @@ page 50333 "Look Version"
                     end;
                 end;
             }
-            action("Add Link")
-            {
-                ApplicationArea = All;
-                Image = Link;
-                Promoted = true;
-                PromotedIsBig = true;
-                PromotedCategory = Process;
-                PromotedOnly = true;
-                trigger OnAction()
-                var
-                    myInt: Integer;
-                    DocAttachement: Record "Record Link";
-                    RecordRef: RecordRef;
-                    FieldRef: FieldRef;
-                    LinkID: Integer;
-                    Front: Text[1000];
-                    LookVersion: Record "Look Version";
-                    SharepointSetup: Record "Sharepoint Connector Setup";
-                    SharepointSiteLink: Text[1000];
-                    SharepointFrontPic: Text[100];
-                    SharepointSidesPic: Text[100];
-                    SharepointBackPic: Text[100];
-                    SharepointAdd1Pic: Text[100];
-                    SharepointAdd2Pic: Text[100];
-                    SharepointAdd3Pic: Text[100];
-                begin
-                    SharepointSiteLink := '/sites/Designs2/Shared Documents/Looks/';
-                    SharepointFrontPic := '/front.png';
-                    SharepointSidesPic := '/sides.png';
-                    SharepointBackPic := '/back.png';
-                    SharepointAdd1Pic := '/add1.png';
-                    SharepointAdd2Pic := '/add2.png';
-                    SharepointAdd3Pic := '/add3.png';
-                    SharepointSetup.Get();
-                    if LookVersion.Get(rec.Code, Rec."Look Code") then begin
-                        DocAttachement.setrange("Record ID", LookVersion.RecordId);
-                        if not DocAttachement.FindFirst() then begin
-                            LinkID := LookVersion.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec."Look Code" + '/' + Rec."Code" + SharepointbackPic, 'Back');
-                            LinkID := LookVersion.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec."Look Code" + '/' + Rec."Code" + SharepointfrontPic, 'Front');
-                            LinkID := LookVersion.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec."Look Code" + '/' + Rec."Code" + SharepointsidesPic, 'Sides');
-                            LinkID := LookVersion.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec."Look Code" + '/' + Rec."Code" + Sharepointadd1Pic, 'Add-1');
-                            LinkID := LookVersion.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec."Look Code" + '/' + Rec."Code" + Sharepointadd2Pic, 'Add-2');
-                            LinkID := LookVersion.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec."Look Code" + '/' + Rec."Code" + Sharepointadd3Pic, 'Add-3');
-                            LookVersion.Modify();
-                        end;
-                    end;
-                end;
+           action("Add Link")
+{
+    ApplicationArea = All;
+    Image = Link;
+    Promoted = true;
+    PromotedIsBig = true;
+    PromotedCategory = Process;
+    PromotedOnly = true;
+    trigger OnAction()
+    var
+        DocAttachement: Record "Record Link";
+        LookVersion: Record "Look Version";
+        SharepointSetup: Record "Sharepoint Connector Setup";
+        SharepointSiteLink: Text[1000];
+        SharepointFrontPic: Text[100];
+        SharepointSidesPic: Text[100];
+        SharepointBackPic: Text[100];
+        SharepointAdd1Pic: Text[100];
+        SharepointAdd2Pic: Text[100];
+        SharepointAdd3Pic: Text[100];
+        LinkID: Integer;
+        UserChoice: Integer;
+    begin
+        // Define SharePoint paths
+        SharepointSiteLink := '/sites/Designs2/Shared Documents/Looks/';
+        SharepointFrontPic := '/front.png';
+        SharepointSidesPic := '/sides.png';
+        SharepointBackPic := '/back.png';
+        SharepointAdd1Pic := '/add1.png';
+        SharepointAdd2Pic := '/add2.png';
+        SharepointAdd3Pic := '/add3.png';
 
-            }
+        // Get SharePoint setup
+        SharepointSetup.Get();
+
+        // Prompt the user to select which images to add
+        UserChoice := Dialog.STRMENU(
+            'Front,Sides,Back,Add-1,Add-2,Add-3,All',
+            7
+        );
+
+        // Check if the LookVersion record exists
+        if LookVersion.Get(Rec.Code, Rec."Look Code") then begin
+            DocAttachement.SetRange("Record ID", LookVersion.RecordId);
+
+            // Add links based on user selection
+            case UserChoice of
+                1: begin // Front
+                    DocAttachement.SetRange(Description, 'Front');
+                    if not DocAttachement.FindFirst() then
+                        LinkID := LookVersion.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec."Look Code" + '/' + Rec."Code" + SharepointFrontPic, 'Front');
+                end;
+                2: begin // Sides
+                    DocAttachement.SetRange(Description, 'Sides');
+                    if not DocAttachement.FindFirst() then
+                        LinkID := LookVersion.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec."Look Code" + '/' + Rec."Code" + SharepointSidesPic, 'Sides');
+                end;
+                3: begin // Back
+                    DocAttachement.SetRange(Description, 'Back');
+                    if not DocAttachement.FindFirst() then
+                        LinkID := LookVersion.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec."Look Code" + '/' + Rec."Code" + SharepointBackPic, 'Back');
+                end;
+                4: begin // Add-1
+                    DocAttachement.SetRange(Description, 'Add-1');
+                    if not DocAttachement.FindFirst() then
+                        LinkID := LookVersion.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec."Look Code" + '/' + Rec."Code" + SharepointAdd1Pic, 'Add-1');
+                end;
+                5: begin // Add-2
+                    DocAttachement.SetRange(Description, 'Add-2');
+                    if not DocAttachement.FindFirst() then
+                        LinkID := LookVersion.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec."Look Code" + '/' + Rec."Code" + SharepointAdd2Pic, 'Add-2');
+                end;
+                6: begin // Add-3
+                    DocAttachement.SetRange(Description, 'Add-3');
+                    if not DocAttachement.FindFirst() then
+                        LinkID := LookVersion.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec."Look Code" + '/' + Rec."Code" + SharepointAdd3Pic, 'Add-3');
+                end;
+                7: begin // All
+                    // Front
+                    DocAttachement.SetRange(Description, 'Front');
+                    if not DocAttachement.FindFirst() then
+                        LinkID := LookVersion.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec."Look Code" + '/' + Rec."Code" + SharepointFrontPic, 'Front');
+
+                    // Sides
+                    DocAttachement.SetRange(Description, 'Sides');
+                    if not DocAttachement.FindFirst() then
+                        LinkID := LookVersion.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec."Look Code" + '/' + Rec."Code" + SharepointSidesPic, 'Sides');
+
+                    // Back
+                    DocAttachement.SetRange(Description, 'Back');
+                    if not DocAttachement.FindFirst() then
+                        LinkID := LookVersion.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec."Look Code" + '/' + Rec."Code" + SharepointBackPic, 'Back');
+
+                    // Add-1
+                    DocAttachement.SetRange(Description, 'Add-1');
+                    if not DocAttachement.FindFirst() then
+                        LinkID := LookVersion.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec."Look Code" + '/' + Rec."Code" + SharepointAdd1Pic, 'Add-1');
+
+                    // Add-2
+                    DocAttachement.SetRange(Description, 'Add-2');
+                    if not DocAttachement.FindFirst() then
+                        LinkID := LookVersion.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec."Look Code" + '/' + Rec."Code" + SharepointAdd2Pic, 'Add-2');
+
+                    // Add-3
+                    DocAttachement.SetRange(Description, 'Add-3');
+                    if not DocAttachement.FindFirst() then
+                        LinkID := LookVersion.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec."Look Code" + '/' + Rec."Code" + SharepointAdd3Pic, 'Add-3');
+                end;
+            end;
+
+            // Save changes to the LookVersion record
+            LookVersion.Modify();
+        end;
+    end;
+}
         }
     }
     trigger OnAfterGetCurrRecord()

@@ -46,7 +46,7 @@ codeunit 50207 "Split Line"
             TempItemRec.SetAscending("Budget Quantity", false);
             if TempItemRec.FindSet() then
                 repeat
-                    //If the available QTY  is bigger than Required Qty we only need the required QTY.   
+                    //If the available QTY  is bigger than Required Qty we only need the required QTY.
                     if TempItemRec."Budget Quantity" > RequiredQty then begin
                         //If the location is not the same as the shipping location we need to create a TO.
                         if TempItemRec."No." = SalesOrderHeader."Shipping Location" then
@@ -155,8 +155,14 @@ codeunit 50207 "Split Line"
         AssemblyHeader.Validate("Variant Code", SalesLine."Variant Code");
         AssemblyHeader.Validate("Location Code", AssemblyLoc);
         //AssemblyHeader.Validate("Location Code", NeededRawMaterial."Sales Line Location Code");
+
+        // Get the base UOM
+        Item.Get(SalesLine."No.");
+
+        // Set the quantity in base UOM
         AssemblyHeader.Validate("Quantity", AssemblyQty);
-        AssemblyHeader.Validate("Unit of Measure Code", NeededRawMaterial."Sales Line UOM Code");
+        AssemblyHeader.Validate("Unit of Measure Code", Item."Base Unit of Measure");
+
         AssemblyHeader.Insert(true);
         #region[Create Assembly Header]
 
@@ -255,7 +261,7 @@ codeunit 50207 "Split Line"
             TempItemRec.SetAscending("Budget Quantity", false);
             if TempItemRec.FindSet() then
                 repeat
-                    //If the available QTY  is bigger than Required Qty we only need the required QTY.   
+                    //If the available QTY  is bigger than Required Qty we only need the required QTY.
                     if TempItemRec."Budget Quantity" > RequiredQty then begin
                         //If the location is not the same as the shipping location we need to create a TO.
                         if TempItemRec."No." = SalesOrderHeader."Shipping Location" then
@@ -327,7 +333,7 @@ codeunit 50207 "Split Line"
             TempItemRec.SetAscending("Budget Quantity", false);
             if TempItemRec.FindSet() then
                 repeat
-                    //If the available QTY  is bigger than Required Qty we only need the required QTY.   
+                    //If the available QTY  is bigger than Required Qty we only need the required QTY.
                     if TempItemRec."Budget Quantity" > RequiredQty then begin
                         //If the location is not the same as the shipping location we need to create a TO.
                         if TempItemRec."No." = SalesOrderHeader."Shipping Location" then
@@ -397,7 +403,7 @@ codeunit 50207 "Split Line"
             TempItemRec.SetAscending("Budget Quantity", false);
             if TempItemRec.FindSet() then
                 repeat
-                    //If the available QTY  is bigger than Required Qty we only need the required QTY.   
+                    //If the available QTY  is bigger than Required Qty we only need the required QTY.
                     if TempItemRec."Budget Quantity" > RequiredQty then begin
                         //If the location is not the same as the shipping location we need to create a TO.
                         if TempItemRec."No." = SalesOrderHeader."Shipping Location" then
@@ -472,6 +478,7 @@ codeunit 50207 "Split Line"
         ReservationManagementCU: Codeunit "Reservation Management";
         FullAutoReservation: Boolean;
         directionEnum: Enum "Transfer Direction";
+        Item: Record Item;
     begin
         Clear(TransferOrder);
         TransferOrder.SetRange("Related SO", SalesOrderLine."Document No.");
@@ -479,14 +486,19 @@ codeunit 50207 "Split Line"
         if TransferOrder.FindFirst() then begin
             TransferOrderLine.SetRange("Document No.", TransferOrder."No.");
             TransferOrderLine.SetCurrentKey("Line No.");
-            if TransferOrderLine.FindLast() then begin//TODO: check if the TO has the same item before
+            if TransferOrderLine.FindLast() then begin
                 LastLineNo := TransferOrderLine."Line No.";
                 TransferOrderLine.Init();
                 TransferOrderLine."Document No." := TransferOrder."No.";
                 TransferOrderLine."Line No." := LastLineNo + 10000;
                 TransferOrderLine.Validate("Item No.", SalesOrderLine."No.");
                 TransferOrderLine.Validate("Variant Code", SalesOrderLine."Variant Code");
-                TransferOrderLine.Validate("Unit of Measure Code", SalesOrderLine."Unit of Measure Code");
+
+                // Get the base UOM
+                Item.Get(SalesOrderLine."No.");
+
+                // Set the base UOM first, then the quantity
+                TransferOrderLine.Validate("Unit of Measure Code", Item."Base Unit of Measure");
                 TransferOrderLine.Validate("Shipment Date", SalesOrderLine."Shipment Date");
                 TransferOrderLine.Validate("Quantity", Qty);
                 TransferOrderLine.Validate("Related SO", SalesOrderLine."Document No.");
@@ -518,7 +530,12 @@ codeunit 50207 "Split Line"
             TransferOrderLine."Line No." := 10000;
             TransferOrderLine.Validate("Item No.", SalesOrderLine."No.");
             TransferOrderLine.Validate("Variant Code", SalesOrderLine."Variant Code");
-            TransferOrderLine.Validate("Unit of Measure Code", SalesOrderLine."Unit of Measure Code");
+
+            // Get the base UOM
+            Item.Get(SalesOrderLine."No.");
+
+            // Set the base UOM first, then the quantity
+            TransferOrderLine.Validate("Unit of Measure Code", Item."Base Unit of Measure");
             TransferOrderLine.Validate("Shipment Date", SalesOrderLine."Shipment Date");
             TransferOrderLine.Validate("Quantity", Qty);
             TransferOrderLine.Validate("Related SO", SalesOrderLine."Document No.");
@@ -543,6 +560,7 @@ codeunit 50207 "Split Line"
         ReservationManagementCU: Codeunit "Reservation Management";
         FullAutoReservation: Boolean;
         directionEnum: Enum "Transfer Direction";
+        Item: Record Item;
     begin
         Clear(TransferOrder);
         TransferOrder.SetRange("Related SO", SalesOrderLine."Document No.");
@@ -550,14 +568,19 @@ codeunit 50207 "Split Line"
         if TransferOrder.FindFirst() then begin
             TransferOrderLine.SetRange("Document No.", TransferOrder."No.");
             TransferOrderLine.SetCurrentKey("Line No.");
-            if TransferOrderLine.FindLast() then begin//TODO: check if the TO has the same item before
+            if TransferOrderLine.FindLast() then begin
                 LastLineNo := TransferOrderLine."Line No.";
                 TransferOrderLine.Init();
                 TransferOrderLine."Document No." := TransferOrder."No.";
                 TransferOrderLine."Line No." := LastLineNo + 10000;
                 TransferOrderLine.Validate("Item No.", SalesOrderLine."No.");
                 TransferOrderLine.Validate("Variant Code", SalesOrderLine."Variant Code");
-                TransferOrderLine.Validate("Unit of Measure Code", SalesOrderLine."Unit of Measure Code");
+
+                // Get the base UOM
+                Item.Get(SalesOrderLine."No.");
+
+                // Set the base UOM first, then the quantity
+                TransferOrderLine.Validate("Unit of Measure Code", Item."Base Unit of Measure");
                 TransferOrderLine.Validate("Shipment Date", SalesOrderLine."Shipment Date");
                 TransferOrderLine.Validate("Quantity", Qty);
                 TransferOrderLine.Validate("Related SO", SalesOrderLine."Document No.");
@@ -594,7 +617,12 @@ codeunit 50207 "Split Line"
             TransferOrderLine."Line No." := 10000;
             TransferOrderLine.Validate("Item No.", SalesOrderLine."No.");
             TransferOrderLine.Validate("Variant Code", SalesOrderLine."Variant Code");
-            TransferOrderLine.Validate("Unit of Measure Code", SalesOrderLine."Unit of Measure Code");
+
+            // Get the base UOM
+            Item.Get(SalesOrderLine."No.");
+
+            // Set the base UOM first, then the quantity
+            TransferOrderLine.Validate("Unit of Measure Code", Item."Base Unit of Measure");
             TransferOrderLine.Validate("Shipment Date", SalesOrderLine."Shipment Date");
             TransferOrderLine.Validate("Quantity", Qty);
             TransferOrderLine.Validate("Related SO", SalesOrderLine."Document No.");

@@ -113,6 +113,7 @@ page 50331 Looks
                 PromotedCategory = Process;
                 PromotedOnly = true;
                 RunObject = report "Design Book";
+                Caption = 'Look Book';
             }
             action("Add Link")
             {

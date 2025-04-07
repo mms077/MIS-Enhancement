@@ -1098,36 +1098,32 @@ codeunit 50202 EventSubscribers
         SelectedLocation: Code[10];
         SalesHeaderRec: Record "Sales Header";
         OriginalStatus: Enum "Sales Document Status";
+        ICPartner: Record "IC Partner";
     begin
         // Find shipping locations
-        ShippingLocations.Reset();
-        ShippingLocations.SetRange("Shipping Location", true);
-        if ShippingLocations.FindFirst() then
-            SalesHeader.Validate("Shipping Location", ShippingLocations.Code)
-        else
-            Error('No shipping locations defined in the system. Please set up at least one location as a shipping location.');
-        //ShippingLocationCount := ShippingLocations.Count;
-
-        // if ShippingLocationCount > 1 then begin
-        //     // Multiple shipping locations found - show selection dialog
-        //     LocationList.SetTableView(ShippingLocations);
-        //     LocationList.LookupMode(true);
-        //     if LocationList.RunModal() = Action::LookupOK then begin
-        //         LocationList.GetRecord(Location);
-        //         SelectedLocation := Location.Code;
-        //     end else
-        //         Error('You must select a shipping location to continue.');
-        // end else if ShippingLocationCount = 1 then begin
-        //     // Only one shipping location - select automatically
-        //     ShippingLocations.FindFirst();
-        //     SelectedLocation := ShippingLocations.Code;
-        // end else
+        // ShippingLocations.Reset();
+        // ShippingLocations.SetRange("Shipping Location", true);
+        // if ShippingLocations.FindFirst() then
+        //     SalesHeader.Validate("Shipping Location", ShippingLocations.Code)
+        // else
         //     Error('No shipping locations defined in the system. Please set up at least one location as a shipping location.');
 
-        // Update the Sales Header with the selected shipping location
-        // if SelectedLocation <> '' then begin
-        //     SalesHeader.Validate("Shipping Location", SelectedLocation);
-        // end;
+
+        ShippingLocationCount := ShippingLocations.Count;
+
+        if ShippingLocationCount > 1 then begin
+            // Multiple shipping locations found - show selection dialog
+            ICPartner.Get(ICInboxSalesHeader."IC Partner Code");
+            ICPartner.testfield("Default Shipping Location");
+            SalesHeader.Validate("Shipping Location", ICPartner."Default Shipping Location");
+            SalesHeader.Validate("Location Code", ICPartner."Default Shipping Location");
+        end
+        else begin
+            // Only one shipping location found - use it directly
+            ShippingLocations.FindFirst();
+            SalesHeader.Validate("Shipping Location", ShippingLocations.Code);
+            SalesHeader.Validate("Location Code", ICPartner."Default Shipping Location");
+        end;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"ICInboxOutboxMgt", 'OnBeforeICInboxSalesLineInsert', '', false, false)]
@@ -1190,6 +1186,7 @@ codeunit 50202 EventSubscribers
     //     else
     //         SplitLineCU.SplitLinePurchaseIC(SalesLine, SalesHeader);
     // end;
+
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"ICInboxOutboxMgt", 'OnAfterCreateSalesLines', '', false, false)]
     local procedure OnAfterCreateSalesLines(ICInboxSalesLine: Record "IC Inbox Sales Line"; var SalesLine: Record "Sales Line"; var SalesHeader: Record "Sales Header")

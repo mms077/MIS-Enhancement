@@ -16538,6 +16538,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension IC Outbox Transaction - Field IC Source No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 377408248 - Field 2808447784 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 377408248">
+          <source>Default Shipping Location</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension IC Partner - Field Default Shipping Location - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 3276313895 - Method 1732875299 - NamedType 672599587" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 3276313895">
           <source>Item Description should be less than or equal 45 characters</source>
           <note from="Developer" annotates="general" priority="2"></note>

@@ -332,6 +332,29 @@ pageextension 50200 ItemCard extends "Item Card"
                 PromotedOnly = true;
                 RunObject = codeunit 50203;
             }*/
+            action("Print Label")
+            {
+                ApplicationArea = All;
+                Image = Print;
+                Promoted = true;
+                PromotedCategory = Category4;
+                PromotedOnly = true;
+                Caption = 'Print Item Label';
+
+                trigger OnAction()
+                var
+                    ItemLabelPrintingRep: Report "Item Label Printing";
+                    RecItem: Record Item;
+                begin
+                    // Set the item number directly on the report request page
+                    Clear(ItemLabelPrintingRep);
+                    ItemLabelPrintingRep.InitializeRequest(Rec."No.");
+
+                    RecItem.SetRange("No.", Rec."No.");
+                    ItemLabelPrintingRep.SetTableView(RecItem);
+                    ItemLabelPrintingRep.RunModal();
+                end;
+            }
         }
     }
     trigger OnOpenPage()

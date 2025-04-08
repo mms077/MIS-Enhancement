@@ -367,5 +367,6 @@ permissionset 50200 MasterItemStructure
         page "Workflow User Names - ER" = X,
         tabledata "Staff Particularity" = RIMD,
         table "Staff Particularity" = X,
-        page "Staff Particularity" = X;
+        page "Staff Particularity" = X,
+        codeunit "Fix Aver Pics" = X;
 }

@@ -75,14 +75,48 @@ table 50264 Staff
                 end;
             end;
         }
-        field(10; Particularity; Code[20])
+        field(10; "Particularity 1"; Code[20])
         {
             DataClassification = ToBeClassified;
             TableRelation = "Staff Particularity".Code;
+            trigger OnValidate()
+            var
+                Txt001: Label 'Particularity 1 cannot be the same as Particularity 2 or Particularity 3.';
+            begin
+                if "Particularity 1" <> '' then
+                    if (rec."Particularity 1" = rec."Particularity 2") or (rec."Particularity 1" = rec."Particularity 3") then
+                        Error(Txt001);
+            end;
         }
         field(11; "Validated by"; Text[250])
         {
             DataClassification = ToBeClassified;
+        }
+        field(12; "Particularity 2"; Code[20])
+        {
+            DataClassification = ToBeClassified;
+            TableRelation = "Staff Particularity".Code;
+            trigger OnValidate()
+            var
+                Txt001: Label 'Particularity 2 cannot be the same as Particularity 1 or Particularity 3.';
+            begin
+                if "Particularity 2" <> '' then
+                    if (rec."Particularity 2" = rec."Particularity 1") or (rec."Particularity 2" = rec."Particularity 3") then
+                        Error(Txt001);
+            end;
+        }
+        field(13; "Particularity 3"; Code[20])
+        {
+            DataClassification = ToBeClassified;
+            TableRelation = "Staff Particularity".Code;
+            trigger OnValidate()
+            var
+                Txt001: Label 'Particularity 3 cannot be the same as Particularity 1 or Particularity 2.';
+            begin
+                if "Particularity 3" <> '' then
+                    if (rec."Particularity 3" = rec."Particularity 1") or (rec."Particularity 3" = rec."Particularity 2") then
+                        Error(Txt001);
+            end;
         }
     }
     keys

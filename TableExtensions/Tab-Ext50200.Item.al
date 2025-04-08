@@ -201,7 +201,7 @@ tableextension 50200 Item extends Item
         RawMaterial.SetRange("Code", Rec."No.");
         RawMaterial.DeleteAll(true);
     end;
-    
+
     trigger OnAfterInsert()
     begin
         CheckItemNoLength(Rec);
@@ -222,9 +222,16 @@ tableextension 50200 Item extends Item
     end;
 
     trigger OnRename()
+    var
+        ItemVersion: Record "Item Version";
     begin
-        /*CheckItemNoLength(Rec);
-        CheckItemDescriptionLength(Rec);*/
+        // Update all related Item Version records
+        ItemVersion.SetRange("Item No.", xRec."No."); // Filter by the old Item No.
+        if ItemVersion.FindSet() then
+            repeat
+                ItemVersion."Item No." := Rec."No."; // Update to the new Item No.
+                ItemVersion.Modify();
+            until ItemVersion.Next() = 0;
     end;
 
     procedure CheckItemNoLength(ItemPar: Record Item)

@@ -52,6 +52,11 @@ table 50213 Design
             Caption = 'Has Picture';
             Editable = false;
         }
+        field(11; "Gender Sort Order"; Integer)
+        {
+            Caption = 'Gender Sort Order';
+            Editable = false;
+        }
     }
     keys
     {
@@ -87,11 +92,45 @@ table 50213 Design
             Error(Txt001);
     end;
 
+    trigger OnInsert()
+    begin
+        Rec."Gender Sort Order" := CalculateGenderSortOrder();
+    end;
+
+    procedure CalculateGenderSortOrder(): Integer
+    begin
+        case Gender of
+            Gender::Unisex:
+                exit(1);
+            Gender::Male:
+                exit(2);
+            Gender::Female:
+                exit(3);
+            else
+                exit(4);
+        end;
+    end;
+
     trigger OnModify()
     begin
+        Rec."Gender Sort Order" := CalculateGenderSortOrder();
+
         if Rec.Picture.Count = 0 then
             Rec."Has Picture" := false
         else
             Rec."Has Picture" := true;
+    end;
+
+    trigger OnRename()
+    var
+        LookDetail: Record "Look Detail";
+    begin
+        // Update all related Look Detail records
+        LookDetail.SetRange(Design, xRec.Code); // Filter by the old Design code
+        if LookDetail.FindSet() then
+            repeat
+                LookDetail.Design := Rec.Code; // Update to the new Design code
+                LookDetail.Modify();
+            until LookDetail.Next() = 0;
     end;
 }

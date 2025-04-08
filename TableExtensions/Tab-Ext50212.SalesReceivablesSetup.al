@@ -45,5 +45,11 @@ tableextension 50212 "Sales & Receivables Setup - ER" extends "Sales & Receivabl
             DataClassification = ToBeClassified;
             TableRelation = "No. Series";
         }
+        field(50309; "Dress Nos."; Code[20])
+        {
+            DataClassification = ToBeClassified;
+            TableRelation = "No. Series";
+        }
+
     }
 }

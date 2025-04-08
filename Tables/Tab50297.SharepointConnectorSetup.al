@@ -1,7 +1,7 @@
 table 50297 "Sharepoint Connector Setup"
 {
     DataClassification = ToBeClassified;
-
+    DataPerCompany = false;
     fields
     {
         field(1; "Primary Key"; Code[10])

@@ -40,6 +40,7 @@ pageextension 50211 "Sales & Receivables Setup - ER" extends "Sales & Receivable
             field("Look Nos."; rec."Look Nos.") { ApplicationArea = all; }
             field("Look Version Nos."; rec."Look Version Nos.") { ApplicationArea = all; }
             field("Item Look Version Nos."; rec."Item Look Version Nos.") { ApplicationArea = all; }
+            field("Dress Nos."; rec."Dress Nos.") { ApplicationArea = all; }
         }
         addbefore(Control1900383207)
         {

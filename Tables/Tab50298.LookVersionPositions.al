@@ -30,7 +30,7 @@ table 50298 "Look Version Positions"
         field(4; "Position"; code[20])
         {
             DataClassification = ToBeClassified;
-            TableRelation = "Customer Departments"."Department Code" where("Customer No." = field("Customer No."));
+            TableRelation = "Department Positions"."Position Code" where("Customer No." = field("Customer No."));
 
         }
 

@@ -86,7 +86,10 @@ tableextension 50217 "Sales Header" extends "Sales Header"
             Caption = 'Previously Released';
             DataClassification = ToBeClassified;
         }
-
+        field(50309; "Shipping Location"; Code[10])
+        {
+            DataClassification = ToBeClassified;
+        }
 
 
     }

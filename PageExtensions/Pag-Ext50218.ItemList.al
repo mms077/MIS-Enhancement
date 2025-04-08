@@ -67,43 +67,45 @@ pageextension 50218 "Item List" extends "Item List"
                     Management.RunTheProcess(State::Start, SalesHeader, Process::"Just Create Variant", SalesLine, '')
                 end;
             }
-            action("Clear Pic Issue")
-            {
-                ApplicationArea = All;
-                Image = MaintenanceLedger;
-                Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = true;
-                PromotedOnly = true;
-                trigger OnAction()
-                var
-                    myInt: Integer;
-                    ItemRec: Record Item;
-                begin
-                    //Clear item pics
-                    if ItemRec.FindSet() then
-                        repeat
-                            Clear(ItemRec.Picture);
-                            ItemRec.Modify(true);
-                        until ItemRec.Next() = 0;
-                end;
-            }
-            action("Fix Pic Issue")
-            {
-                ApplicationArea = All;
-                Image = MaintenanceLedger;
-                Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = true;
-                PromotedOnly = true;
-                trigger OnAction()
-                var
-                    myInt: Integer;
-                    ItemRec: Record Item;
-                begin
-                    ItemMediaSet;
-                end;
-            }
+            // action("Clear Pic Issue")
+            // {
+            //     ApplicationArea = All;
+            //     Image = MaintenanceLedger;
+            //     Promoted = true;
+            //     PromotedCategory = Process;
+            //     PromotedIsBig = true;
+            //     PromotedOnly = true;
+            //     trigger OnAction()
+            //     var
+            //         myInt: Integer;
+            //         ItemRec: Record Item;
+            //     begin
+            //         //Clear item pics
+            //         if ItemRec.FindSet() then
+            //             repeat
+            //                 Clear(ItemRec.Picture);
+            //                 ItemRec.Modify(true);
+            //             until ItemRec.Next() = 0;
+            //     end;
+            // }
+            // action("Fix Pic Issue")
+            // {
+            //     ApplicationArea = All;
+            //     Image = MaintenanceLedger;
+            //     Promoted = true;
+            //     PromotedCategory = Process;
+            //     PromotedIsBig = true;
+            //     PromotedOnly = true;
+            //     trigger OnAction()
+            //     var
+            //         myInt: Integer;
+            //         ItemRec: Record Item;
+            //         Cu: Codeunit "Fix Aver Pics";
+            //     begin
+            //         // ItemMediaSet;
+            //         cu.ItemMediaSet();
+            //     end;
+            // }
         }
 
     }

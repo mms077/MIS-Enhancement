@@ -3788,6 +3788,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit EventSubscribers - Method OnAfterSalesQuoteToOrderRun - NamedType Txt001</note>
         </trans-unit>
+        <trans-unit id="Codeunit 462252242 - Method 876333285 - NamedType 1947992821" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You are not Global Sync Admin</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Fix Aver Pics - Method ItemMediaSet - NamedType Txt003</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2949077030 - NamedType 1947992821" size-unit="char" translate="yes" xml:space="preserve">
           <source>You are not Global Sync Admin</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -13283,6 +13288,61 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Finished Label Printing - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 2981619438 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Line Label Printing EN</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Item Label Printing - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2981619438 - Control 2696085190 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer Project</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Item Label Printing - Control Req Cust Project - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2981619438 - Control 118909726 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Item Label Printing - Control Req Customer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2981619438 - Control 4118876454 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Department</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Item Label Printing - Control Req Department - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2981619438 - Control 3624076424 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Item Label Printing - Control Req Item No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2981619438 - Control 553171529 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Position</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Item Label Printing - Control Req Position - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2981619438 - Control 3556795767 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Item Label Printing - Control Req Quantity - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2981619438 - Control 3929252516 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Staff</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Item Label Printing - Control Req Staff - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2981619438 - Control 3750223043 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit of Measure</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Item Label Printing - Control Req Unit of Measure - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2981619438 - Control 3083397435 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Variant</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Item Label Printing - Control Req Variant - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2981619438 - Control 1877321498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Size Option</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Item Label Printing - Control SizeOption - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 2670538952 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Close Income Statement</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -15212,6 +15272,11 @@
           <source>Item Features</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ItemCard - Action Item Features - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2876958691 - Action 3234235265 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
+          <source>Print Item Label</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ItemCard - Action Print Label - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 2876958691 - Action 4152081216 - Method 1377591017 - NamedType 672599587" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 2876958691">
           <source>Updated Successfully</source>

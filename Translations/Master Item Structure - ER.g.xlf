@@ -15283,6 +15283,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ItemCard - Action Update Item References - Method OnAction - NamedType Txt001</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2491090426 - Control 1598437641 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3870787835">
+          <source>Check this box if the location is a shipping location.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Location Card MIS - Control Shipping Location - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2491090426 - Control 1598437641 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3870787835">
+          <source>Shipping Location</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Location Card MIS - Control Shipping Location - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3961762325 - Action 979575244 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3196174509">
           <source>Finalize and prepare to print the document or journal. The values and quantities are posted to the related accounts. A report request window where you can specify what to include on the print-out.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -15867,6 +15877,16 @@
           <source>Role_ID eq '%1'</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Tenant Permission Subform - Action EditInExcel - Method OnAction - NamedType Filters</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 72740766 - Control 1607352469 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 66664215">
+          <source>The related sales order.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Transfer Order MIS - Control Related SO - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 72740766 - Control 1607352469 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 66664215">
+          <source>Related SO</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Transfer Order MIS - Control Related SO - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3316333792 - Control 3897449568 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 337631938">
           <source>Allow to Adjust ACY Rate for Posted Purchase Invoice</source>
@@ -16583,6 +16603,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension IC Outbox Transaction - Field IC Source No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 377408248 - Field 2808447784 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 377408248">
+          <source>Default Shipping Location</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension IC Partner - Field Default Shipping Location - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 3276313895 - Method 1732875299 - NamedType 672599587" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 3276313895">
           <source>Item Description should be less than or equal 45 characters</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -16762,6 +16787,11 @@
           <source>Variance Combination Text</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Variant - Field Variance Combination Text - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 270929510 - Field 1598437641 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3891454143">
+          <source>Shipping Location</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Location MIS - Field Shipping Location - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1351594800 - Field 1487222247 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1351594800">
           <source>Item Category</source>
@@ -17788,6 +17818,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Header - Field Sales Quote No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1192395785 - Field 1598437641 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Shipping Location</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Header - Field Shipping Location - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1192395785 - Field 898580358 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Warehouse Shipment No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -18437,6 +18472,21 @@
           <source>Extension Number</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Salesperson/Purchaser - Field Extension Number - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 11087229 - Field 1607352469 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 151805736">
+          <source>Related SO</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Transfer Header MIS - Field Related SO - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 449390806 - Field 1607352469 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 558353423">
+          <source>Related SO</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Transfer Line MIS - Field Related SO - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 449390806 - Field 266255719 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 558353423">
+          <source>SO Line No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Transfer Line MIS - Field SO Line No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 78743420 - Field 1152423399 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 78743420">
           <source>Allocation Code</source>

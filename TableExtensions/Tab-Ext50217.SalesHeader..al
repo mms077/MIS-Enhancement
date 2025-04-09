@@ -90,8 +90,18 @@ tableextension 50217 "Sales Header" extends "Sales Header"
         {
             DataClassification = ToBeClassified;
         }
-
-
+        field(50200; "Grouping Criteria Field No."; Integer)
+        {
+            Caption = 'Field No.';
+            DataClassification = ToBeClassified;
+            TableRelation = "Grouping Criteria"."Field Number";
+            // This field might be hidden on the page later
+        }
+        field(50201; "Grouping Criteria Field Name"; Text[100])
+        {
+            Caption = 'Field Name';
+            DataClassification = ToBeClassified;
+        }
     }
     procedure GetICProjectCode(): Code[20]
     var

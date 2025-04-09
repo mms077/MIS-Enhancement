@@ -100,6 +100,26 @@ pageextension 50216 "Sales Order" extends "Sales Order"
                     Error('Please fill the Promised Delivery Date and Requested Delivery Date');
             end;
         }
+        addafter(Release)
+        {
+            action("Group Sales Lines")
+            {
+                ApplicationArea = All;
+                Caption = 'Group Sales Lines';
+                ToolTip = 'Groups the sales lines based on the selected Grouping Criteria Field.';
+                Image = Group;
+                Promoted = true;
+                PromotedCategory = Process;
+
+                trigger OnAction()
+                var
+                    SalesOrderGroupingMgt: Codeunit "Sales Order Grouping Mgt.";
+                begin
+                    // Call the grouping logic from the codeunit
+                    SalesOrderGroupingMgt.GroupSalesLines(Rec);
+                end;
+            }
+        }
         addafter("Create Inventor&y Put-away/Pick")
         {
             action("Dashboard")

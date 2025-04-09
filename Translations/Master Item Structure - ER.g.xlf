@@ -15603,6 +15603,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Lines Achives List - Control TonalityCode - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1673401186 - Action 2719761758 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>Groups the sales lines based on the selected Grouping Criteria Field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order - Action Group Sales Lines - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1673401186 - Action 2719761758 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>Group Sales Lines</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order - Action Group Sales Lines - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1673401186 - Control 1740754582 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
           <source>IC Company Name</source>
           <note from="Developer" annotates="general" priority="2"></note>

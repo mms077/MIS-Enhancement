@@ -146,7 +146,7 @@ page 50331 Looks
 
                     // Prompt the user to select which images to add
                     UserChoice := Dialog.STRMENU(
-                        'Front,Sides,Back,All',
+                        'Front,Sides,Back,Thumbnail,All',
                         1
                     );
 
@@ -175,11 +175,21 @@ page 50331 Looks
                                         LinkID := Looks.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec.Code + SharepointBackPic, 'Back');
                                 end;
                             4:
+                                begin // Front
+                                    DocAttachement.SetRange(Description, 'Thumbnail');
+                                    if not DocAttachement.FindFirst() then
+                                        LinkID := Looks.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec.Code + SharepointFrontPic, 'Thumbnail');
+                                end;
+                            5:
                                 begin // All
                                       // Front
                                     DocAttachement.SetRange(Description, 'Front');
                                     if not DocAttachement.FindFirst() then
                                         LinkID := Looks.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec.Code + SharepointFrontPic, 'Front');
+                                    // Thumbnail
+                                    DocAttachement.SetRange(Description, 'Thumbnail');
+                                    if not DocAttachement.FindFirst() then
+                                        LinkID := Looks.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec.Code + SharepointFrontPic, 'Thumbnail');
 
                                     // Sides
                                     DocAttachement.SetRange(Description, 'Sides');

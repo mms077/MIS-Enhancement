@@ -6,7 +6,7 @@ page 50333 "Look Version"
     SourceTable = "Look Version";
     // UsageCategory = Lists;
 
-    layout  
+    layout
     {
         area(content)
         {
@@ -179,7 +179,7 @@ page 50333 "Look Version"
 
                     // Prompt the user to select which images to add
                     UserChoice := Dialog.STRMENU(
-                        'Front,Sides,Back,Add-1,Add-2,Add-3,All',
+                        'Front,Sides,Back,Add-1,Add-2,Add-3,Thumbnail,All',
                         7
                     );
 
@@ -226,6 +226,12 @@ page 50333 "Look Version"
                                         LinkID := LookVersion.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec."Look Code" + '/' + Rec."Code" + SharepointAdd3Pic, 'Add-3');
                                 end;
                             7:
+                                begin // Thumbnail
+                                    DocAttachement.SetRange(Description, 'Thumbnail');
+                                    if not DocAttachement.FindFirst() then
+                                        LinkID := LookVersion.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec."Look Code" + '/' + Rec."Code" + SharepointFrontPic, 'Thumbnail');
+                                end;
+                            8:
                                 begin // All
                                       // Front
                                     DocAttachement.SetRange(Description, 'Front');
@@ -241,6 +247,10 @@ page 50333 "Look Version"
                                     DocAttachement.SetRange(Description, 'Back');
                                     if not DocAttachement.FindFirst() then
                                         LinkID := LookVersion.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec."Look Code" + '/' + Rec."Code" + SharepointBackPic, 'Back');
+                                    // Thumbnail
+                                    DocAttachement.SetRange(Description, 'Thumbnail');
+                                    if not DocAttachement.FindFirst() then
+                                        LinkID := LookVersion.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec."Look Code" + '/' + Rec."Code" + SharepointFrontPic, 'Thumbnail');
 
                                     // Add-1
                                     DocAttachement.SetRange(Description, 'Add-1');

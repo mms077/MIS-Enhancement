@@ -19,6 +19,43 @@ table 50294 "Customer Look Version"
             begin
                 rec.code := "Customer No." + '-' + rec."Look Version Code";
             end;
+
+            trigger OnLookup()
+            var
+                Customer: Record Customer;
+                TempCustomer: Record Customer temporary;
+                Companies: Record "Company Information";
+                CurrentCompanyName: Text[30];
+            begin
+                // Get the name of the current company
+                CurrentCompanyName := CurrentCompany;
+
+                // Loop through all companies to collect customers
+                if Companies.FindSet() then
+                    repeat
+                        if Companies.Name = CurrentCompanyName then begin
+                            // Query customers in the current company
+                            if Customer.FindSet() then
+                                repeat
+                                    TempCustomer := Customer; // Copy the customer to the temporary table
+                                    TempCustomer.Insert();
+                                until Customer.Next() = 0;
+                        end else begin
+                            // Switch to the other company and query customers
+                            Customer.ChangeCompany(Companies.Name);
+                            if Customer.FindSet() then
+                                repeat
+                                    TempCustomer := Customer; // Copy the customer to the temporary table
+                                    TempCustomer.Insert();
+                                until Customer.Next() = 0;
+                        end;
+                    until Companies.Next() = 0;
+
+                // Open the temporary customer list for selection
+                if Page.RunModal(Page::"Customer List", TempCustomer) = Action::LookupOK then begin
+                    Rec."Customer No." := TempCustomer."No.";
+                end;
+            end;
         }
         field(3; "Look Code"; Code[50])
         {

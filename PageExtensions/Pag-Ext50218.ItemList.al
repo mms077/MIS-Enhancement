@@ -117,6 +117,8 @@ pageextension 50218 "Item List" extends "Item List"
             CostVisible := true
         else
             CostVisible := false;
+        if CurrPage.LookupMode then
+            CurrPage.Editable(false);
     end;
 
     trigger OnAfterGetRecord()
@@ -185,4 +187,5 @@ pageextension 50218 "Item List" extends "Item List"
         PlottingFile: Record "Plotting File";
         UserSetup: Record "User Setup";
         Txt003: Label 'You are not Global Sync Admin';
+
 }

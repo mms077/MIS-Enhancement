@@ -90,4 +90,33 @@ table 50292 Look
         end;
     end;
 
+    trigger OnDelete()
+    var
+        LookVersion: Record "Look Version";
+        LookVersionPosition: Record "Look Version Positions";
+        CustomerLookVersion: Record "Customer Look Version";
+        LookDetail: Record "Look Detail";
+    begin
+        // Delete related Look Detail records
+        LookDetail.SetRange("Look Code", Rec.Code);
+        if LookDetail.FindSet() then
+            LookDetail.DeleteAll();
+        // Delete related Look Version records
+        LookVersion.SetRange("Look Code", Rec.Code);
+        if LookVersion.FindSet() then
+            repeat
+                // Delete related Look Version Position records
+                LookVersionPosition.SetRange("Look Version Code", LookVersion.Code);
+                if LookVersionPosition.FindSet() then
+                    LookVersionPosition.DeleteAll();
+
+                // Delete related Customer Look Version records
+                CustomerLookVersion.SetRange("Look Version Code", LookVersion.Code);
+                if CustomerLookVersion.FindSet() then
+                    CustomerLookVersion.DeleteAll();
+
+                // Delete the Look Version record
+                LookVersion.Delete();
+            until LookVersion.Next() = 0;
+    end;
 }

@@ -47,6 +47,7 @@ table 50293 "Look Detail"
             var
                 Design: Record Design;
                 Look: Record Look;
+                DesignPage: Page "Designs"; // Replace "Designs" with the actual page ID or name
             begin
                 if Look.Get(Rec."Look Code") then begin
                     Clear(Design);
@@ -60,13 +61,16 @@ table 50293 "Look Detail"
 
                     // Set the sorting key to include Gender Sort Order
                     Design.SetCurrentKey("Gender Sort Order");
-
-                    // Sort by Gender Sort Order to prioritize "Unisex" designs
                     Design.SetAscending("Gender Sort Order", true);
 
-                    // Run the lookup page
-                    if Page.RunModal(Page::Designs, Design) = Action::LookupOK then
-                        Rec.Design := Design.Code;
+                    // Open the Design page in lookup mode and make it read-only
+                    DesignPage.SetTableView(Design);
+                    if DesignPage.LookupMode(true) then begin  // Ensures the page is opened in lookup mode
+                        DesignPage.Editable(false); // Explicitly make the page non-editable
+                        if DesignPage.RunModal() = Action::LookupOK then begin
+                            Rec.Design := Design.Code; // Get the selected record directly
+                        end;
+                    end;
                 end;
             end;
 

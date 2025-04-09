@@ -138,6 +138,46 @@ page 50311 "ER - Manufacturing Orders"
                     end;
                 end;
             }
+            action("Force Close MO without Scan")
+            {
+                ApplicationArea = all;
+                Image = NumberGroup;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                trigger OnAction()
+                var
+                    ScanCuttingSheet: Page "Scan Cutting Sheet";
+                    AssemblyHeader: Record "Assembly Header";
+                    CuttingSheetDashboared: Record "Cutting Sheets Dashboard";
+                begin
+                    if Rec.Status = Rec.Status::Closed then
+                        Error('You cannot Force Close MO');
+                    Clear(CuttingSheetDashboared);
+                    CuttingSheetDashboared.SetFilter("ER - Manufacturing Order No.", Rec."No.");
+                    if CuttingSheetDashboared.FindFirst() then begin
+                        repeat
+                            CuttingSheetDashboared."1" := CuttingSheetDashboared."1"::"out";
+                            CuttingSheetDashboared."2" := CuttingSheetDashboared."2"::"out";
+                            CuttingSheetDashboared."3" := CuttingSheetDashboared."3"::"out";
+                            CuttingSheetDashboared."4" := CuttingSheetDashboared."4"::"out";
+                            CuttingSheetDashboared."5" := CuttingSheetDashboared."5"::"out";
+                            CuttingSheetDashboared."6" := CuttingSheetDashboared."6"::"out";
+                            CuttingSheetDashboared."7" := CuttingSheetDashboared."7"::"out";
+                            CuttingSheetDashboared.Modify();
+                        until CuttingSheetDashboared.Next() = 0;
+
+                        // Update the status after processing all records
+                        Rec.Status := Rec.Status::Closed;
+                        Rec.Modify();
+
+                        // Display the message once after the loop
+                        Message('Force Closure Successfully Done');
+                    end;
+                end;
+            }
+
             action("Activities Time Spent")
             {
                 ApplicationArea = all;
@@ -227,7 +267,7 @@ page 50311 "ER - Manufacturing Orders"
                 begin
                     CurrPage.SetSelectionFilter(ERManufacturingOrders);
                     if ERManufacturingOrders.FindSet() then
-                        Report.Run(Report::"Assembly to Stock Label Print" , true, true, ERManufacturingOrders);
+                        Report.Run(Report::"Assembly to Stock Label Print", true, true, ERManufacturingOrders);
                 end;
             }
             action(PlottingFile)

@@ -12,6 +12,7 @@ page 50336 "Customer Look Version"
         {
             repeater(General)
             {
+                field("Company Name"; rec."Company Name") { ApplicationArea = all; }
                 field("Customer No."; Rec."Customer No.")
                 {
                     ApplicationArea = All;

@@ -1,7 +1,7 @@
 page 50351 Dresses
 {
     ApplicationArea = All;
-    Caption = 'Dresses';
+    Caption = 'Dress Code';
     PageType = List;
     SourceTable = Dress;
     UsageCategory = Lists;

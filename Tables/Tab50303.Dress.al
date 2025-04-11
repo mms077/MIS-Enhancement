@@ -7,7 +7,7 @@ table 50303 Dress
         field(1; "Code"; Code[50])
         {
             Caption = 'Code';
-            Editable = false;
+            Editable = true;
 
         }
         field(2; Description; Text[250])
@@ -16,12 +16,9 @@ table 50303 Dress
 
 
         }
-       
-        field(3; "No. Series"; Code[20])
-        {
-            DataClassification = ToBeClassified;
-        }
-       
+
+
+
 
 
     }
@@ -38,11 +35,11 @@ table 50303 Dress
         SalesSetup: Record "Sales & Receivables Setup";
         NoSeriesMgt: Codeunit "No. Series";
     begin
-        if Code = '' then begin
-            SalesSetup.Get();
-            SalesSetup.TestField("Dress Nos.");
-            rec.Code := NoSeriesMgt.GetNextNo(SalesSetup."Dress Nos.");
-        end;
+        // if Code = '' then begin
+        //     SalesSetup.Get();
+        //     SalesSetup.TestField("Dress Nos.");
+        //     rec.Code := NoSeriesMgt.GetNextNo(SalesSetup."Dress Nos.");
+        // end;
     end;
 
 }

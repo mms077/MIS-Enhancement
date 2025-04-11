@@ -956,6 +956,59 @@ codeunit 50201 MasterItem
         end;
     end;
 
+    procedure CreateCuttingSheetScanningEntry3(WorkflowActivitiesER: Record "Workflow Activities - ER"; AssemblyNoPar: Code[20]; UserName: code[50]): Option "In","Out"
+    var
+        CuttingSheetScanningDetails: Record "Cutting Sheet Scanning Details";
+        ScanType: Option "Scan In","Scan Out";
+        CuttingSheetDashboard: Record "Cutting Sheets Dashboard";
+        Txt001: Label 'Scan In 👍';
+        Txt002: Label 'Scan Out 👍';
+        ScanOption: Option "In","Out";
+    begin
+        CuttingSheetScanningDetails.SetRange("Assembly No.", AssemblyNoPar);
+        //Check last entry if existed if it's IN or Out
+        if CuttingSheetScanningDetails.FindLast() then
+            if CuttingSheetScanningDetails."Scan Type" = CuttingSheetScanningDetails."Scan Type"::"Scan In" then begin
+                //Create Cutting Sheet Scanning Details for OUT
+                CreateCuttingSheetScanningDetails(AssemblyNoPar, ScanType::"Scan Out", UserName);
+                //Update Dashboard
+                CuttingSheetDashboard.Get(AssemblyNoPar);
+                CuttingSheetDashboard.CalcFields("Total Sequence");
+                //Not Last Approval
+                if CuttingSheetDashboard."Total Sequence" <> CuttingSheetDashboard."Current Sequence No." then begin
+                    UpdateDashboardFields2(WorkflowActivitiesER, CuttingSheetDashboard, ScanType::"Scan Out", false, CuttingSheetScanningDetailsCreated);
+                end
+                //Last Approval
+                else begin
+                    CuttingSheetDashboard."Ending Time" := CurrentDateTime;
+                    UpdateDashboardFields2(WorkflowActivitiesER, CuttingSheetDashboard, ScanType::"Scan Out", false, CuttingSheetScanningDetailsCreated);
+                    //CuttingSheetDashboard.Modify();
+                end;
+                exit(ScanOption::"Out");
+                Message(Txt002);
+            end
+            //Last Scan was Scan Out
+            else begin
+                //Create Cutting Sheet Scanning Details for IN  (Not First Time)
+                CreateCuttingSheetScanningDetails(AssemblyNoPar, ScanType::"Scan In", UserName);
+                //Update Dashboard
+                CuttingSheetDashboard.Get(AssemblyNoPar);
+                UpdateDashboardFields2(WorkflowActivitiesER, CuttingSheetDashboard, ScanType::"Scan In", false, CuttingSheetScanningDetailsCreated);
+                exit(ScanOption::"In");
+                Message(Txt001);
+            end
+        else begin
+            //Create Cutting Sheet Scanning Details for IN first Scan
+            CreateCuttingSheetScanningDetails(AssemblyNoPar, ScanType::"Scan In", UserName);
+            //Update Dashboard
+            CuttingSheetDashboard.Get(AssemblyNoPar);
+            CuttingSheetDashboard."Starting Time" := CurrentDateTime;
+            UpdateDashboardFields2(WorkflowActivitiesER, CuttingSheetDashboard, ScanType::"Scan In", false, CuttingSheetScanningDetailsCreated);
+            exit(ScanOption::"In");
+            Message(Txt001);
+        end;
+    end;
+
     procedure CreateCuttingSheetScanningDetails(AssemblyNoPar: code[20]; ScanType: Option "Scan In","Scan Out"; UserName: Code[50])
     var
     begin
@@ -1060,6 +1113,119 @@ codeunit 50201 MasterItem
                         ERManufacturingOrder.Get(CuttingSheetDashboard."ER - Manufacturing Order No.");
                         ERManufacturingOrder.Status := ERManufacturingOrder.Status::Closed;
                     end;
+                end;
+        end;
+
+        if ScanType = ScanType::"Scan Out" then begin
+            CuttingSheetDashboard.CalcFields("Total Sequence", "ER - Manufacturing Order No.");
+            //Last stage dont add sequence number
+            if CuttingSheetDashboard."Current Sequence No." <> CuttingSheetDashboard."Total Sequence" then begin
+                //Skip the embroidery if not available
+                if (CuttingSheetDashboard."Current Sequence No." = 2) and (CuttingSheetDashboard."3" = CuttingSheetDashboard."3"::"Not Available") then
+                    CuttingSheetDashboard."Current Sequence No." := CuttingSheetDashboard."Current Sequence No." + 2
+                else
+                    CuttingSheetDashboard."Current Sequence No." := CuttingSheetDashboard."Current Sequence No." + 1;
+
+                //Update ER Manufacturing Order Current Sequence
+                ERManufacturingOrder.Get(CuttingSheetDashboard."ER - Manufacturing Order No.");
+                ERManufacturingOrder."Current Sequence No." := CuttingSheetDashboard."Current Sequence No.";
+            end;
+        end;
+        /* else
+            CuttingSheetDashboard."Scanned In" := true;*/
+        if ERManufacturingOrder.Modify(true) then;
+        CuttingSheetDashboard.Modify();
+    end;
+
+    procedure UpdateDashboardFields2(var WorkflowActivitiesER: Record "Workflow Activities - ER"; var CuttingSheetDashboard: Record "Cutting Sheets Dashboard"; ScanType: Option "Scan In","Scan Out"; LastScan: Boolean; var CuttSheetScanDetailsPar: Record "Cutting Sheet Scanning Details")
+    var
+        FieldCaption1: Integer;
+        FieldCaption2: Integer;
+        FieldCaption3: Integer;
+        FieldCaption4: Integer;
+        FieldCaption5: Integer;
+        FieldCaption6: Integer;
+        FieldCaption7: Integer;
+        ERManufacturingOrder: Record "ER - Manufacturing Order";
+    begin
+        Evaluate(FieldCaption1, CuttingSheetDashboard.FIELDCAPTION("1"));
+        Evaluate(FieldCaption2, CuttingSheetDashboard.FIELDCAPTION("2"));
+        Evaluate(FieldCaption3, CuttingSheetDashboard.FIELDCAPTION("3"));
+        Evaluate(FieldCaption4, CuttingSheetDashboard.FIELDCAPTION("4"));
+        Evaluate(FieldCaption5, CuttingSheetDashboard.FIELDCAPTION("5"));
+        Evaluate(FieldCaption6, CuttingSheetDashboard.FIELDCAPTION("6"));
+        Evaluate(FieldCaption7, CuttingSheetDashboard.FIELDCAPTION("7"));
+
+        case WorkflowActivitiesER."Workflow User Group Sequence" of
+            1:
+                begin
+                    CuttSheetScanDetailsPar."Sequence No." := CuttingSheetDashboard."Current Sequence No.";
+                    CuttSheetScanDetailsPar.Modify();
+                    if ScanType = ScanType::"Scan In" then
+                        CuttingSheetDashboard."1" := CuttingSheetDashboard."1"::"IN"
+                    else begin
+                        CuttingSheetDashboard."1" := CuttingSheetDashboard."1"::"OUT"
+                    end
+                end;
+            2:
+                begin
+                    CuttSheetScanDetailsPar."Sequence No." := CuttingSheetDashboard."Current Sequence No.";
+                    CuttSheetScanDetailsPar.Modify();
+                    if ScanType = ScanType::"Scan In" then
+                        CuttingSheetDashboard."2" := CuttingSheetDashboard."2"::"IN"
+                    else
+                        CuttingSheetDashboard."2" := CuttingSheetDashboard."2"::"OUT"
+                end;
+            3:
+                begin
+                    CuttSheetScanDetailsPar."Sequence No." := CuttingSheetDashboard."Current Sequence No.";
+                    CuttSheetScanDetailsPar.Modify();
+                    if ScanType = ScanType::"Scan In" then
+                        CuttingSheetDashboard."3" := CuttingSheetDashboard."3"::"IN"
+                    else
+                        CuttingSheetDashboard."3" := CuttingSheetDashboard."3"::"OUT"
+                end;
+            4:
+                begin
+                    CuttSheetScanDetailsPar."Sequence No." := CuttingSheetDashboard."Current Sequence No.";
+                    CuttSheetScanDetailsPar.Modify();
+                    if ScanType = ScanType::"Scan In" then begin
+                        CuttingSheetDashboard."4" := CuttingSheetDashboard."4"::"IN";
+                        //Open Links related to this item
+                        OpenItemLinks(CuttingSheetDashboard);
+                    end else
+                        CuttingSheetDashboard."4" := CuttingSheetDashboard."4"::"OUT"
+                end;
+            5:
+                begin
+                    CuttSheetScanDetailsPar."Sequence No." := CuttingSheetDashboard."Current Sequence No.";
+                    CuttSheetScanDetailsPar.Modify();
+                    if ScanType = ScanType::"Scan In" then
+                        CuttingSheetDashboard."5" := CuttingSheetDashboard."5"::"IN"
+                    else
+                        CuttingSheetDashboard."5" := CuttingSheetDashboard."5"::"OUT"
+                end;
+            6:
+                begin
+                    CuttSheetScanDetailsPar."Sequence No." := CuttingSheetDashboard."Current Sequence No.";
+                    CuttSheetScanDetailsPar.Modify();
+                    if ScanType = ScanType::"Scan In" then
+                        CuttingSheetDashboard."6" := CuttingSheetDashboard."6"::"IN"
+                    else
+                        CuttingSheetDashboard."6" := CuttingSheetDashboard."6"::"OUT"
+                end;
+            7:
+                begin
+                    CuttSheetScanDetailsPar."Sequence No." := CuttingSheetDashboard."Current Sequence No.";
+                    CuttSheetScanDetailsPar.Modify();
+                    if ScanType = ScanType::"Scan In" then
+                        CuttingSheetDashboard."7" := CuttingSheetDashboard."7"::"IN"
+                    else
+                        CuttingSheetDashboard."7" := CuttingSheetDashboard."7"::"OUT";
+                    // CuttingSheetDashboard.CalcFields("ER - Manufacturing Order No.");
+                    // ERManufacturingOrder.Get(CuttingSheetDashboard."ER - Manufacturing Order No.");
+                    // ERManufacturingOrder.Status := ERManufacturingOrder.Status::Closed;
+
                 end;
         end;
 
@@ -1247,7 +1413,7 @@ GlobalSyncData: Codeunit "Global Sync Data";*/
         CuttingSheetScanningDetails.SetRange("Assembly No.", AssemblyNo);
         CuttingSheetScanningDetails.SetRange("Scan Type", CuttingSheetScanningDetails."Scan Type"::"Scan In");
         if CuttingSheetScanningDetails.FindLast() then begin
-          //  SalesReceivableSetup.TestField("Scan In/Out Interval");
+            //  SalesReceivableSetup.TestField("Scan In/Out Interval");
             Difference := (CurrentDateTime - CuttingSheetScanningDetails.SystemCreatedAt) / 60000;
             if Difference < SalesReceivableSetup."Scan In/Out Interval" then
                 Error(Txt001);

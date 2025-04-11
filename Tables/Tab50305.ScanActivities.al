@@ -1,4 +1,4 @@
-table 50304 "Scan Activities"
+table 50305 "Scan Activities"
 {
     Caption = 'Scan Activities';
     DataPerCompany = false;

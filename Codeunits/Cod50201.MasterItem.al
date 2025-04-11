@@ -822,6 +822,87 @@ codeunit 50201 MasterItem
         end;
     end;
 
+    procedure CreateCuttingSheetScanningEntry2(AssemblyNoPar: Code[20]; UserName: Code[50]): Option "In","Out"
+    var
+        CuttingSheetScanningDetails: Record "Cutting Sheet Scanning Details";
+        ScanType: Option "Scan In","Scan Out";
+        CuttingSheetDashboard: Record "Cutting Sheets Dashboard";
+        ScanActivities: Record "Scan Activities";
+        AssemblyHeader: Record "Assembly Header";
+        Item: Record Item;
+        Txt001: Label 'Scan In 👍';
+        Txt002: Label 'Scan Out 👍';
+        Txt003: Label 'No Scan Activities found for Design "%1" and Sequence "%2".';
+        Txt004: Label 'Invalid sequence for Scan Out. Expected sequence: %1.';
+        ScanOption: Option "In","Out";
+        CurrentActivity: Text[100];
+    begin
+        // Get the Assembly Header for the assembly
+        if not AssemblyHeader.Get(AssemblyHeader."Document Type"::Order, AssemblyNoPar) then
+            Error('No Assembly Header found for Assembly "%1".', AssemblyNoPar);
+
+        // Get the item associated with the assembly
+        if not Item.Get(AssemblyHeader."Item No.") then
+            Error('Item "%1" does not exist.', AssemblyHeader."Item No.");
+
+        // Validate the design code
+        if Item."Design Code" = '' then
+            Error('No Design Code found for Item "%1".', Item."No.");
+        CuttingSheetDashboard.Get(AssemblyNoPar);
+        // Fetch the scan activities for the design and current sequence
+        ScanActivities.SetRange("Design Code", Item."Design Code");
+        ScanActivities.SetRange("Sequence No.", CuttingSheetDashboard."Current Sequence No.");
+        if not ScanActivities.FindFirst() then
+            Error(Txt003, Item."Design Code", CuttingSheetDashboard."Current Sequence No.");
+
+        // Get the current activity name
+        CurrentActivity := ScanActivities."Activity Name";
+
+        // Check the last scan type (In or Out)
+        CuttingSheetScanningDetails.SetRange("Assembly No.", AssemblyNoPar);
+        if CuttingSheetScanningDetails.FindLast() then begin
+            if CuttingSheetScanningDetails."Scan Type" = CuttingSheetScanningDetails."Scan Type"::"Scan In" then begin
+                // Validate sequence for Scan Out
+                if CuttingSheetDashboard."Current Sequence No." <> ScanActivities."Sequence No." then
+                    Error(Txt004, ScanActivities."Sequence No.");
+
+                // Create Cutting Sheet Scanning Details for OUT
+                CreateCuttingSheetScanningDetails(AssemblyNoPar, ScanType::"Scan Out", UserName);
+
+                // Update Dashboard
+                CuttingSheetDashboard.CalcFields("Total Sequence");
+                if CuttingSheetDashboard."Total Sequence" <> CuttingSheetDashboard."Current Sequence No." then
+                    UpdateDashboardFields(CuttingSheetDashboard, ScanType::"Scan Out", false, CuttingSheetScanningDetailsCreated)
+                else begin
+                    CuttingSheetDashboard."Ending Time" := CurrentDateTime;
+                    UpdateDashboardFields(CuttingSheetDashboard, ScanType::"Scan Out", false, CuttingSheetScanningDetailsCreated);
+                end;
+
+                exit(ScanOption::"Out");
+                Message(Txt002);
+            end else begin
+                // Create Cutting Sheet Scanning Details for IN (Not First Time)
+                CreateCuttingSheetScanningDetails(AssemblyNoPar, ScanType::"Scan In", UserName);
+
+                // Update Dashboard
+                UpdateDashboardFields(CuttingSheetDashboard, ScanType::"Scan In", false, CuttingSheetScanningDetailsCreated);
+
+                exit(ScanOption::"In");
+                Message(Txt001);
+            end;
+        end else begin
+            // Create Cutting Sheet Scanning Details for IN (First Scan)
+            CreateCuttingSheetScanningDetails(AssemblyNoPar, ScanType::"Scan In", UserName);
+
+            // Update Dashboard
+            CuttingSheetDashboard."Starting Time" := CurrentDateTime;
+            UpdateDashboardFields(CuttingSheetDashboard, ScanType::"Scan In", false, CuttingSheetScanningDetailsCreated);
+
+            exit(ScanOption::"In");
+            Message(Txt001);
+        end;
+    end;
+
     procedure CreateCuttingSheetScanningEntry(AssemblyNoPar: Code[20]; UserName: code[50]): Option "In","Out"
     var
         CuttingSheetScanningDetails: Record "Cutting Sheet Scanning Details";
@@ -1166,7 +1247,7 @@ GlobalSyncData: Codeunit "Global Sync Data";*/
         CuttingSheetScanningDetails.SetRange("Assembly No.", AssemblyNo);
         CuttingSheetScanningDetails.SetRange("Scan Type", CuttingSheetScanningDetails."Scan Type"::"Scan In");
         if CuttingSheetScanningDetails.FindLast() then begin
-            SalesReceivableSetup.TestField("Scan In/Out Interval");
+          //  SalesReceivableSetup.TestField("Scan In/Out Interval");
             Difference := (CurrentDateTime - CuttingSheetScanningDetails.SystemCreatedAt) / 60000;
             if Difference < SalesReceivableSetup."Scan In/Out Interval" then
                 Error(Txt001);

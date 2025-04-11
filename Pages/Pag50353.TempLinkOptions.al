@@ -1,4 +1,4 @@
-page 50352 "Temp Link Options"
+page 50353 "Temp Link Options"
 {
     PageType = List;
     SourceTable = "Temp Link Options";

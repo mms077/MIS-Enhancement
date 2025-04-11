@@ -49,27 +49,28 @@ table 50293 "Look Detail"
                 Look: Record Look;
                 DesignPage: Page "Designs"; // Replace "Designs" with the actual page ID or name
             begin
-                if Look.Get(Rec."Look Code") then begin
-                    Clear(Design);
+                  if Look.Get(Rec."Look Code") then begin
+        Clear(Design);
 
-                    // Set filters for the Design table
-                    Design.SetRange(Category, Rec.Category);
-                    Design.SetRange(Type, Rec.Type);
+        // Set filters for the Design table
+        Design.SetRange(Category, Rec.Category);
+        Design.SetRange(Type, Rec.Type);
 
-                    // Allow both Look.Gender and Unisex designs
-                    Design.SetFilter(Gender, '%1|%2', Look.Gender, Look.Gender::Unisex);
+        // Allow both Look.Gender and Unisex designs
+        Design.SetFilter(Gender, '%1|%2', Look.Gender, Look.Gender::Unisex);
 
-                    // Set the sorting key to include Gender Sort Order
-                    Design.SetCurrentKey("Gender Sort Order");
-                    Design.SetAscending("Gender Sort Order", true);
+        // Set the sorting key to include Gender Sort Order
+        Design.SetCurrentKey("Gender Sort Order");
+        Design.SetAscending("Gender Sort Order", true);
 
-                    // Open the Design page in lookup mode and make it read-only
-                    DesignPage.SetTableView(Design);
-                    if DesignPage.LookupMode(true) then begin  // Ensures the page is opened in lookup mode
-                        DesignPage.Editable(false); // Explicitly make the page non-editable
-                        if DesignPage.RunModal() = Action::LookupOK then begin
-                            Rec.Design := Design.Code; // Get the selected record directly
-                        end;
+        // Open the Design page in lookup mode
+        DesignPage.SetTableView(Design);
+        DesignPage.LookupMode(true); // Ensures the page is opened in lookup mode
+
+        // Run the page and retrieve the selected record
+        if DesignPage.RunModal() = Action::LookupOK then begin
+            DesignPage.GetRecord(Design); // Retrieve the selected record from the page
+            Rec.Design := Design.Code; 
                     end;
                 end;
             end;

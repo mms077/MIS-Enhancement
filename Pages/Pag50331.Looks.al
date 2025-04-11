@@ -357,6 +357,17 @@ page 50331 Looks
     end;
 
 
+    trigger OnQueryClosePage(CloseAction: Action): Boolean
+    var
+        Look: Record Look;
+    begin
+        Look.Reset();
+        Look.SetRange("Dress Code", ''); // Filter for records with an empty Dress Code
+        if Look.FindFirst() then
+            Error('One or more records are missing a Dress Code. Please ensure all records have a Dress Code before closing the page.');
+    end;
+
+
     var
         User: Record User;
         Base64Convert: Codeunit "Base64 Convert";

@@ -10,6 +10,7 @@ table 50298 "Look Version Positions"
         {
             Caption = 'Customer No.';
             TableRelation = Customer;
+            ValidateTableRelation = false;
 
         }
         field(2; "Look Code"; Code[50])
@@ -22,15 +23,15 @@ table 50298 "Look Version Positions"
 
         field(3; "Look Version Code"; Code[50])
         {
-            Caption = 'Look Version Code';  
+            Caption = 'Look Version Code';
             Editable = false;
             TableRelation = "Look Version".Code;
 
         }
-        field(4; "Position"; code[20])
+        field(4; "Position"; code[50])
         {
             DataClassification = ToBeClassified;
-            TableRelation = "Customer Departments"."Department Code" where("Customer No." = field("Customer No."));
+            TableRelation = "Department Positions"."Position Code" where("Customer No." = field("Customer No."));
 
         }
 

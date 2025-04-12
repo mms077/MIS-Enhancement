@@ -1,10 +1,10 @@
 page 50336 "Customer Look Version"
 {
-    ApplicationArea = All;
+    //ApplicationArea = All;
     Caption = 'Customer Look Version';
     PageType = List;
     SourceTable = "Customer Look Version";
-    UsageCategory = Lists;
+    // UsageCategory = Lists;
     //DeleteAllowed = false;
     layout
     {
@@ -12,6 +12,7 @@ page 50336 "Customer Look Version"
         {
             repeater(General)
             {
+                field("Company Name"; rec."Company Name") { ApplicationArea = all; }
                 field("Customer No."; Rec."Customer No.")
                 {
                     ApplicationArea = All;

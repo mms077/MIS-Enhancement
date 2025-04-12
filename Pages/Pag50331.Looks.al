@@ -45,6 +45,7 @@ page 50331 Looks
                 }
 
                 field(Gender; rec.Gender) { ApplicationArea = all; }
+                field("Dress Code"; rec."Dress Code") { ApplicationArea = all; }
             }
 
         }
@@ -112,6 +113,7 @@ page 50331 Looks
                 PromotedCategory = Process;
                 PromotedOnly = true;
                 RunObject = report "Design Book";
+                Caption = 'Look Book';
             }
             action("Add Link")
             {
@@ -123,39 +125,93 @@ page 50331 Looks
                 PromotedOnly = true;
                 trigger OnAction()
                 var
-                    myInt: Integer;
+                    TempLinkOptions: Record "Temp Link Options" temporary;
                     DocAttachement: Record "Record Link";
-                    RecordRef: RecordRef;
-                    FieldRef: FieldRef;
-                    LinkID: Integer;
-                    Front: Text[1000];
                     Looks: Record "Look";
                     SharepointSetup: Record "Sharepoint Connector Setup";
                     SharepointSiteLink: Text[1000];
                     SharepointFrontPic: Text[100];
                     SharepointSidesPic: Text[100];
                     SharepointBackPic: Text[100];
+                    SharepointThumbnPic: Text[100];
+                    LinkID: Integer;
                 begin
+                    SharepointSetup.Get();
+                    // Define SharePoint paths
                     SharepointSiteLink := '/sites/Designs2/Shared Documents/Looks/';
                     SharepointFrontPic := '/Default/front.png';
                     SharepointSidesPic := '/Default/sides.png';
                     SharepointBackPic := '/Default/back.png';
-                    SharepointSetup.Get();
-                    if Looks.Get(rec.Code) then begin
-                        DocAttachement.setrange("Record ID", Looks.RecordId);
-                        if not DocAttachement.FindFirst() then begin
-                            LinkID := Looks.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec.Code + SharepointbackPic, 'Back');
-                            LinkID := Looks.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec.Code + SharepointfrontPic, 'Front');
-                            LinkID := Looks.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec.Code + SharepointsidesPic, 'Sides');
+                    SharepointThumbnPic := '/Default/Thumbnail.png';
+                    // Populate the temporary table with link options
+                    AddLinkOption(TempLinkOptions, 1, 'Front');
+                    AddLinkOption(TempLinkOptions, 2, 'Sides');
+                    AddLinkOption(TempLinkOptions, 3, 'Back');
+                    AddLinkOption(TempLinkOptions, 4, 'Thumbnail');
+                    AddLinkOption(TempLinkOptions, 5, 'All');
+
+                    // Open the wizard page
+                    if Page.RunModal(Page::"Temp Link Options", TempLinkOptions) = Action::LookupOK then begin
+                        if Looks.Get(Rec.Code) then begin
+                            DocAttachement.SetRange("Record ID", Looks.RecordId);
+
+                            // Process selected options
+                            if TempLinkOptions.FindSet() then
+                                repeat
+                                    if TempLinkOptions.Selected then begin
+                                        case TempLinkOptions.ID of
+                                            1:
+                                                AddLinkURL(DocAttachement, Looks, SharepointSetup, SharepointSiteLink, Rec.Code, SharepointFrontPic, 'Front');
+                                            2:
+                                                AddLinkURL(DocAttachement, Looks, SharepointSetup, SharepointSiteLink, Rec.Code, SharepointSidesPic, 'Sides');
+                                            3:
+                                                AddLinkURL(DocAttachement, Looks, SharepointSetup, SharepointSiteLink, Rec.Code, SharepointBackPic, 'Back');
+                                            4:
+                                                AddLinkURL(DocAttachement, Looks, SharepointSetup, SharepointSiteLink, Rec.Code, SharepointThumbnPic, 'Thumbnail');
+                                            5:
+                                                begin
+                                                    AddLinkURL(DocAttachement, Looks, SharepointSetup, SharepointSiteLink, Rec.Code, SharepointFrontPic, 'Front');
+                                                    AddLinkURL(DocAttachement, Looks, SharepointSetup, SharepointSiteLink, Rec.Code, SharepointSidesPic, 'Sides');
+                                                    AddLinkURL(DocAttachement, Looks, SharepointSetup, SharepointSiteLink, Rec.Code, SharepointBackPic, 'Back');
+                                                end;
+                                        end;
+                                    end;
+                                until TempLinkOptions.Next() = 0;
+
+                            // Save changes to the Look record
                             Looks.Modify();
-
-                        end;
-                    end;
+                        end else
+                            Error('Look record not found.');
+                    end else
+                        Message('No options were selected.');
                 end;
-
             }
         }
     }
+    procedure AddLinkOption(var TempLinkOptions: Record "Temp Link Options" temporary; ID: Integer; Name: Text[100])
+    begin
+        TempLinkOptions.ID := ID;
+        TempLinkOptions.Name := Name;
+        TempLinkOptions.Insert();
+    end;
+
+    procedure AddLinkURL(var DocAttachement: Record "Record Link"; var Looks: Record "Look"; SharepointSetup: Record "Sharepoint Connector Setup"; SharepointSiteLink: Text[1000]; RecCode: Code[20]; PicturePath: Text[100]; Description: Text[100])
+    var
+        LinkURL: Text[1000];
+    begin
+        DocAttachement.SetRange(Description, Description);
+        LinkURL := SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + RecCode + PicturePath;
+
+        if not DocAttachement.FindFirst() then begin
+            Looks.AddLink(LinkURL, Description);
+            Message('Link added for %1.', Description);
+        end else
+            Message('Link for %1 already exists.', Description);
+    end;
+
+
+
+
     trigger OnAfterGetCurrRecord()
     var
         SalesSetup: Record "Sales & Receivables Setup";
@@ -300,6 +356,17 @@ page 50331 Looks
               rec.Modify();
           end;
   */
+    end;
+
+
+    trigger OnQueryClosePage(CloseAction: Action): Boolean
+    var
+        Look: Record Look;
+    begin
+        Look.Reset();
+        Look.SetRange("Dress Code", ''); // Filter for records with an empty Dress Code
+        if Look.FindFirst() then
+            Error('One or more records are missing a Dress Code. Please ensure all records have a Dress Code before closing the page.');
     end;
 
 

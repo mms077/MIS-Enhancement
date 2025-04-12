@@ -45,5 +45,7 @@ tableextension 50212 "Sales & Receivables Setup - ER" extends "Sales & Receivabl
             DataClassification = ToBeClassified;
             TableRelation = "No. Series";
         }
+      
+
     }
 }

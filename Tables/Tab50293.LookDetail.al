@@ -35,19 +35,43 @@ table 50293 "Look Detail"
         {
             DataClassification = ToBeClassified;
             // TableRelation = Design.code where(Category = field(Category), Type = field(Type), Gender = field(Gender));
+            trigger OnValidate()
+            var
+                DesignRec: Record Design;
+            begin
+                if not DesignRec.Get(Rec.Design) then
+                    Error('The Design "%1" does not exist in the Design table. Please select a valid Design.', Rec.Design);
+            end;
 
             trigger OnLookup()
             var
                 Design: Record Design;
                 Look: Record Look;
+                DesignPage: Page "Designs"; // Replace "Designs" with the actual page ID or name
             begin
-                if Look.Get(Rec."Look Code") then begin
-                    Clear(Design);
-                    Design.SetRange(Category, Rec.Category);
-                    Design.SetRange(Type, Rec.Type);
-                    Design.SetRange(Gender, Look.Gender);
-                    if Page.RunModal(Page::Designs, Design) = Action::LookupOK then
-                        Rec.Design := Design.Code;
+                  if Look.Get(Rec."Look Code") then begin
+        Clear(Design);
+
+        // Set filters for the Design table
+        Design.SetRange(Category, Rec.Category);
+        Design.SetRange(Type, Rec.Type);
+
+        // Allow both Look.Gender and Unisex designs
+        Design.SetFilter(Gender, '%1|%2', Look.Gender, Look.Gender::Unisex);
+
+        // Set the sorting key to include Gender Sort Order
+        Design.SetCurrentKey("Gender Sort Order");
+        Design.SetAscending("Gender Sort Order", true);
+
+        // Open the Design page in lookup mode
+        DesignPage.SetTableView(Design);
+        DesignPage.LookupMode(true); // Ensures the page is opened in lookup mode
+
+        // Run the page and retrieve the selected record
+        if DesignPage.RunModal() = Action::LookupOK then begin
+            DesignPage.GetRecord(Design); // Retrieve the selected record from the page
+            Rec.Design := Design.Code; 
+                    end;
                 end;
             end;
 

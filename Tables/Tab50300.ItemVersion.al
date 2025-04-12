@@ -49,6 +49,8 @@ table 50300 "Item Version"
             begin
                 if Item.get(Rec."Item No.") then
                     Rec."Item Description" := Item.Description;
+                if not Item.Get(Rec."Item No.") then
+                    Error('The Item "%1" does not exist in the Item table. Please select a valid Item.', Rec."Item No.");
             end;
 
             trigger OnLookup()
@@ -56,15 +58,17 @@ table 50300 "Item Version"
                 Item: Record Item;
                 ItemPage: Page "Item List";
             begin
+                Clear(Item);
                 Item.SetFilter("No.", Rec."Item No.");
                 Item.SetFilter("Design Code", rec.Design);
                 if Item.FindSet() then begin
-                    Rec."Item Description" := Item.Description;
                     ItemPage.SetTableView(Item);
-                    ItemPage.LookupMode(true);
-                    if ItemPage.RunModal() = Action::LookupOK then begin
-                        ItemPage.GetRecord(Item);
-                        Rec.Validate("Item No.", Item."No.");
+                    if ItemPage.LookupMode(true) then begin
+                        ItemPage.Editable(false);
+                        if ItemPage.RunModal() = Action::LookupOK then begin
+                            Rec.Validate("Item No.", Item."No.");
+                            Rec."Item Description" := Item.Description;
+                        end;
                     end;
                 end;
             end;

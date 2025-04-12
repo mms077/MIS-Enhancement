@@ -268,6 +268,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Customer Look Version - Field Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2275371915 - Field 3997336476 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Company Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Customer Look Version - Field Company Name - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2275371915 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -587,6 +592,11 @@
           <source> ,Male,Female,Unisex</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Design - Field Gender - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Table 926452758 - Field 44496101 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gender Sort Order</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Design - Field Gender Sort Order - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 926452758 - Field 2315540138 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Has Picture</source>
@@ -1052,6 +1062,21 @@
           <source>Name Local</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Design Type - Field Name Local - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 110737437 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dress</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Dress - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 110737437 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Dress - Field Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 110737437 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Dress - Field Description - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2182577496 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ER - Manufacturing Order</source>
@@ -1892,6 +1917,11 @@
           <source>Description</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Look - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3357772017 - Field 1118754834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dress Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look - Field Dress Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3357772017 - Field 1862273439 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Front Picture</source>
@@ -3448,6 +3478,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Staff Sizes - Field Type - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 568515872 - Field 3641927271 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Temp Link Options - Field ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 568515872 - Field 2961552353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Temp Link Options - Field Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 568515872 - Field 90423963 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Selected</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Temp Link Options - Field Selected - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3295767762 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>TempGLAccountDim</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4738,6 +4783,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Document Attachments - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1453492223 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dress Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Dresses - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3281803833 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ER - Manufacturing Orders</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -5462,6 +5512,11 @@
           <source>Picture</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Looks - Control ItemPicture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1017280232 - Action 3197101429 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Look Book</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Looks - Action Design Book - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 661335896 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Measurement Categories</source>
@@ -6218,6 +6273,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Staff Wizard - Action Continueaction - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 568515872 - Control 2961552353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Option Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Temp Link Options - Control Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 568515872 - Control 90423963 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Selected</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Temp Link Options - Control Selected - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 568515872 - Action 2079045816 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>OK</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Temp Link Options - Action OK - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3038539334 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tonalities</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -6502,6 +6572,11 @@
           <source>Size Option</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Assembly to Stock Label Print - Control SizeOption - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3197101429 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Look Book</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Design Book - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 118002655 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Detailed Warehouse Shipment</source>

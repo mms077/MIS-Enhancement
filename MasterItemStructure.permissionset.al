@@ -368,5 +368,11 @@ permissionset 50200 MasterItemStructure
         tabledata "Staff Particularity" = RIMD,
         table "Staff Particularity" = X,
         page "Staff Particularity" = X,
-        codeunit "Fix Aver Pics" = X;
+        codeunit "Fix Aver Pics" = X,
+        tabledata Dress = RIMD,
+        tabledata "Temp Link Options" = RIMD,
+        table Dress = X,
+        table "Temp Link Options" = X,
+        page Dresses = X,
+        page "Temp Link Options" = X;
 }

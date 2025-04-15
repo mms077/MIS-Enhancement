@@ -105,7 +105,7 @@ page 50293 "Scan Cutting Sheet"
                                 if ScanActivities.FindSet() then begin
                                     WorkflowActivitiesER.SetFilter("Activity Name", ScanActivities."Activity Name");
                                     if WorkflowActivitiesER.FindFirst() then begin
-                                        ScanOption := MasterItemCU.CreateCuttingSheetScanningEntry3(WorkflowActivitiesER, AssemblyHeader."No.", User);
+                                        ScanOption := MasterItemCU.CreateCuttingSheetScanningEntryScanActivities(WorkflowActivitiesER, AssemblyHeader."No.", User);
                                     end;
 
                                 end;

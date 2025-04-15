@@ -956,7 +956,7 @@ codeunit 50201 MasterItem
         end;
     end;
 
-    procedure CreateCuttingSheetScanningEntry3(WorkflowActivitiesER: Record "Workflow Activities - ER"; AssemblyNoPar: Code[20]; UserName: code[50]): Option "In","Out"
+    procedure CreateCuttingSheetScanningEntryScanActivities(WorkflowActivitiesER: Record "Workflow Activities - ER"; AssemblyNoPar: Code[20]; UserName: code[50]): Option "In","Out"
     var
         CuttingSheetScanningDetails: Record "Cutting Sheet Scanning Details";
         ScanType: Option "Scan In","Scan Out";

@@ -146,6 +146,48 @@ pageextension 50216 "Sales Order" extends "Sales Order"
                 end;
             }
         }
+        addafter("F&unctions") // Or choose another appropriate anchor
+        {
+            action(GeneratePackingList)
+            {
+                Caption = 'Generate Packing List';
+                ToolTip = 'Calculates and generates the packing list for this sales order in the background.';
+                ApplicationArea = All;
+                Image = CalculateInventory;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+
+                trigger OnAction()
+                var
+                    PackingListMgt: Codeunit "Packing List Management";
+                begin
+                    PackingListMgt.GeneratePackingList(Rec);
+                end;
+            }
+            // Moved ShowPackingList here as well
+            action(ShowPackingList)
+            {
+                Caption = 'Packing List';
+                ToolTip = 'View the generated packing list for this sales order.';
+                ApplicationArea = All;
+                Image = Filed;
+                Promoted = true;
+                PromotedCategory = Category4; // Changed from Navigate
+
+                trigger OnAction()
+                var
+                    PackingListHeader: Record "Packing List Header";
+                begin
+                    PackingListHeader.SetRange("Document Type", Rec."Document Type");
+                    PackingListHeader.SetRange("Document No.", Rec."No.");
+                    if PackingListHeader.FindFirst() then
+                        Page.Run(Page::"Packing List", PackingListHeader)
+                    else
+                        Message('No packing list has been generated for this order yet.');
+                end;
+            }
+        }
     }
     trigger OnAfterGetCurrRecord()
     var

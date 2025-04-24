@@ -97,7 +97,7 @@ pageextension 50202 "Sales Order Subform" extends "Sales Order Subform"
                 end;
 
             }
-            field("Sales Line Reference"; Rec.SystemId) { ApplicationArea = all; Editable = false; }
+            field("Sales Line Reference"; Rec."Sales Line Reference") { ApplicationArea = all; Editable = false; }
             field("Needed RM Batch"; Rec."Needed RM Batch")
             {
                 ApplicationArea = all;
@@ -389,6 +389,20 @@ pageextension 50202 "Sales Order Subform" extends "Sales Order Subform"
                     Page.Run(Page::"Sales Line Unit Ref. List", SalesLineUnitRef);
                 end;
             }
+            action("DashboardUnit")
+            {
+                ApplicationArea = all;
+                Image = ShowChart;
+                Caption = 'Dashboard/Unit';
+                RunObject = page "Design Sheet Dashboard";
+                RunPageLink = "Sales Line Reference" = field("Sales Line Reference");
+                trigger OnAction()
+                var
+                    SalesLine: Record "Sales Line";
+                begin
+
+                end;
+            }
         }
     }
 
@@ -426,12 +440,15 @@ pageextension 50202 "Sales Order Subform" extends "Sales Order Subform"
 
         // Let the standard insertion happen first to get the SystemId
         if Rec.Insert() then begin
+            Rec."Sales Line Reference" := CreateGuid();
+            Rec.Modify();
             // Only create unit refs for item type lines with quantity > 0
             if (Rec.Type = Rec.Type::Item) and (Rec.Quantity > 0) then begin
                 // Create one unit reference record per quantity
                 for Counter := 1 to Rec.Quantity do begin
                     SalesLineUnitRef.Init();
-                    SalesLineUnitRef."Sales Line Ref." := Rec.SystemId;
+                    SalesLineUnitRef."Sales Line Unit" := CreateGuid();
+                    SalesLineUnitRef."Sales Line Ref." := Rec."Sales Line Reference";
                     SalesLineUnitRef."Item No." := Rec."No.";
                     SalesLineUnitRef.Description := Rec.Description;
                     SalesLineUnitRef.Quantity := 1;
@@ -457,7 +474,7 @@ pageextension 50202 "Sales Order Subform" extends "Sales Order Subform"
         // Check if this is an item with quantity
         if (Rec.Type = Rec.Type::Item) and (Rec.Quantity > 0) then begin
             // Check if entries already exist for this sales line
-            SalesLineUnitRef.SetRange("Sales Line Ref.", Rec.SystemId);
+            SalesLineUnitRef.SetRange("Sales Line Ref.", Rec."Sales Line Reference");
             EntryExists := not SalesLineUnitRef.IsEmpty();
 
             // If entries exist, check if count matches quantity
@@ -478,7 +495,8 @@ pageextension 50202 "Sales Order Subform" extends "Sales Order Subform"
                         // Quantity increased - add new records
                         for Counter := OldCount + 1 to Rec.Quantity do begin
                             SalesLineUnitRef.Init();
-                            SalesLineUnitRef."Sales Line Ref." := Rec.SystemId;
+                            SalesLineUnitRef."Sales Line Unit" := CreateGuid();
+                            SalesLineUnitRef."Sales Line Ref." := Rec."Sales Line Reference";
                             SalesLineUnitRef."Item No." := Rec."No.";
                             SalesLineUnitRef.Description := Rec.Description;
                             SalesLineUnitRef.Quantity := 1;
@@ -491,7 +509,8 @@ pageextension 50202 "Sales Order Subform" extends "Sales Order Subform"
                 // No entries exist, create them
                 for Counter := 1 to Rec.Quantity do begin
                     SalesLineUnitRef.Init();
-                    SalesLineUnitRef."Sales Line Ref." := Rec.SystemId;
+                    SalesLineUnitRef."Sales Line Unit" := CreateGuid();
+                    SalesLineUnitRef."Sales Line Ref." := Rec."Sales Line Reference";
                     SalesLineUnitRef."Item No." := Rec."No.";
                     SalesLineUnitRef.Description := Rec.Description;
                     SalesLineUnitRef.Quantity := 1;

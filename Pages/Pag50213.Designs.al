@@ -188,7 +188,7 @@ page 50213 Designs
                     UpdateHasPicture();
                 end;
             }
-            action("Add Scan activities")
+            action("Add Design activities")
             {
                 ApplicationArea = All;
                 Image = Add;
@@ -196,7 +196,7 @@ page 50213 Designs
                 PromotedIsBig = true;
                 PromotedCategory = Process;
                 PromotedOnly = true;
-                RunObject = page "Scan Activities";
+                RunObject = page "Design Activities";
                 RunPageLink = "Design Code" = field(Code);
                 trigger OnAction()
                 begin

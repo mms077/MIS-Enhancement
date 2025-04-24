@@ -26,7 +26,7 @@ table 50305 "Scan Activities"
         {
             Caption = 'Activity Name';
             Editable = true;
-            TableRelation = "Workflow Activities - ER"."Activity Name";
+            TableRelation = "Scan Design Stages- ER"."Activity Name";
         }
         field(3; "Design Code"; Code[50])
         {

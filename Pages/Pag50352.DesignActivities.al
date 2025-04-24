@@ -1,7 +1,7 @@
-page 50352 "Scan Activities"
+page 50352 "Design Activities"
 {
-    ApplicationArea = All;
-    Caption = 'Scan Activities';
+    //ApplicationArea = All;
+    Caption = 'Design Activities';
     PageType = List;
     SourceTable = "Scan Activities";
     UsageCategory = Lists;

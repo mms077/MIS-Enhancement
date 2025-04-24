@@ -289,7 +289,7 @@ codeunit 50219 "Packing List Management"
                     TempItemUnit.Volume, TempItemUnit."Length", TempItemUnit."Width",
                     TempItemUnit."Height", CurrentBoxNo, CurrentBoxSizeCode,
                     CurrentBoxVolume, CurrentBoxLength, CurrentBoxWidth, CurrentBoxHeight,
-                    RemainingBoxVolume);
+                    RemainingBoxVolume, GroupingValue);
 
                 // If no suitable existing box found, create a new box
                 if not FoundExistingBox then begin
@@ -299,14 +299,14 @@ codeunit 50219 "Packing List Management"
                     // Find suitable box size for the current item
                     FindSuitableBox(BoxSize, TempItemUnit."Length", TempItemUnit."Width",
                         TempItemUnit."Height", TempItemUnit.Volume, CurrentBoxSizeCode,
-                        CurrentBoxVolume, CurrentBoxLength, CurrentBoxWidth, CurrentBoxHeight, OversizeBoxCode, GroupingValue);
+                        CurrentBoxVolume, CurrentBoxLength, CurrentBoxWidth, CurrentBoxHeight, OversizeBoxCode);
 
                     // Initialize remaining volume with the total box volume
                     RemainingBoxVolume := CurrentBoxVolume;
 
                     // Add new box to tracker
                     AddBoxToTracker(TempBoxTracker, CurrentBoxNo, CurrentBoxSizeCode,
-                        CurrentBoxVolume, CurrentBoxLength, CurrentBoxWidth, CurrentBoxHeight, RemainingBoxVolume, NextLineNo);
+                        CurrentBoxVolume, CurrentBoxLength, CurrentBoxWidth, CurrentBoxHeight, RemainingBoxVolume, NextLineNo, GroupingValue);
                 end;
 
                 // At this point we either found an existing box or created a new one
@@ -402,7 +402,7 @@ codeunit 50219 "Packing List Management"
 
                     // Add to tracker with the volume of this item already used
                     AddBoxToTracker(TempBoxTracker, BoxNo, BoxSizeCode, BoxVolume,
-                        BoxLength, BoxWidth, BoxHeight, BoxVolume - PackingListLine."Unit Volume", Counter);
+                        BoxLength, BoxWidth, BoxHeight, BoxVolume - PackingListLine."Unit Volume", Counter, PackingListLine."Grouping Criteria Value");
                 end;
             until PackingListLine.Next() = 0;
     end;
@@ -410,7 +410,7 @@ codeunit 50219 "Packing List Management"
     // Adds a box to the box tracker temp table
     local procedure AddBoxToTracker(var TempBoxTracker: Record "Packing List Line" temporary; BoxNo: Integer;
         BoxSizeCode: Code[20]; BoxVolume: Decimal; BoxLength: Decimal; BoxWidth: Decimal;
-        BoxHeight: Decimal; RemainingVolume: Decimal; var NextLineNo: Integer)
+        BoxHeight: Decimal; RemainingVolume: Decimal; var NextLineNo: Integer; GroupingValue: Text[250])
     begin
         // Always increment NextLineNo to guarantee uniqueness
         NextLineNo += 1;
@@ -423,6 +423,7 @@ codeunit 50219 "Packing List Management"
         TempBoxTracker."Unit Height" := BoxHeight;
         TempBoxTracker."Unit Volume" := BoxVolume - RemainingVolume; // Store used volume
         TempBoxTracker.Description := Format(RemainingVolume); // Store remaining volume as string in description
+        TempBoxTracker."Grouping Criteria Value" := GroupingValue; // Set grouping value for the box
         TempBoxTracker.Insert();
     end;
 
@@ -441,16 +442,17 @@ codeunit 50219 "Packing List Management"
         end;
     end;
 
-    // Finds an existing box with the same size that has enough capacity for the item
+    // Finds an existing box with the same size and grouping value that has enough capacity for the item
     local procedure FindExistingBoxWithCapacity(var TempBoxTracker: Record "Packing List Line" temporary;
         ItemVolume: Decimal; ItemLength: Decimal; ItemWidth: Decimal; ItemHeight: Decimal;
         var BoxNo: Integer; var BoxSizeCode: Code[20]; var BoxVolume: Decimal;
         var BoxLength: Decimal; var BoxWidth: Decimal; var BoxHeight: Decimal;
-        var RemainingVolume: Decimal): Boolean
+        var RemainingVolume: Decimal; GroupingValue: Text[250]): Boolean
     var
         RemainingVolumeInBox: Decimal;
     begin
         TempBoxTracker.Reset();
+        TempBoxTracker.SetRange("Grouping Criteria Value", GroupingValue); // Only consider boxes with the same grouping value
         if TempBoxTracker.FindSet() then
             repeat
                 // Check if the current box has enough remaining capacity
@@ -548,7 +550,7 @@ codeunit 50219 "Packing List Management"
         ItemWidth: Decimal; ItemHeight: Decimal; ItemVolume: Decimal;
         var BoxSizeCode: Code[20]; var BoxVolume: Decimal;
         var BoxLength: Decimal; var BoxWidth: Decimal;
-        var BoxHeight: Decimal; OversizeBoxCode: Code[20]; GroupingCriteria: Text[250])
+        var BoxHeight: Decimal; OversizeBoxCode: Code[20])
     var
         BoxFound: Boolean;
     begin
@@ -559,7 +561,6 @@ codeunit 50219 "Packing List Management"
         BoxSize.SetFilter(Height, '>=%1', ItemHeight);
         BoxSize.SetFilter(Volume, '>=%1', ItemVolume);
         BoxSize.SetRange("Is Oversize Box", false);
-        BoxSize.SetFilter("Grouping Criteria", GroupingCriteria); // Only consider boxes with the same grouping criteria
         BoxSize.SetCurrentKey(Volume); // Sort by volume to find smallest suitable box
         BoxSize.Ascending(true);
 

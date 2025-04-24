@@ -52,6 +52,12 @@ table 50304 "Box Size"
             DecimalPlaces = 2 : 5;
             Editable = false;
         }
+        field(14; "Grouping Criteria"; Text[250])
+        {
+            Caption = 'Grouping Criteria';
+            DataClassification = SystemMetadata;
+            Description = 'Used to group box sizes for packing purposes.';
+        }
         field(100; "Is Oversize Box"; Boolean)
         {
             Caption = 'Is Oversize Box';

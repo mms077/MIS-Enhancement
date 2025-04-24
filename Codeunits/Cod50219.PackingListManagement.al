@@ -18,6 +18,7 @@ codeunit 50219 "Packing List Management"
         ProgressMsg: Label 'Generating Packing List for Order #1...\\Step #2 of #3', Comment = '%1 = Sales Order No., %2 = Current Step, %3 = Total Steps', Locked = true;
         FinalizingMsg: Label 'Finalizing Packing List...', Locked = true;
         NoGroupingFieldErr: Label 'No Grouping Criteria Field No. selected on Sales Order %1.', Comment = '%1 = Sales Order No.', Locked = true;
+        CurrentBoxNo: Integer; // Track box number globally for the packing list
     begin
         SalesHeader.TestField("No."); // Ensure we have a valid header
 
@@ -45,7 +46,8 @@ codeunit 50219 "Packing List Management"
         // --- Step 3: Process Grouped Lines ---
         Step += 1;
         ProgressDialog.Update(2, Step);
-        ProcessGroupedLines(PackingListHeader, TempGroupedRecIds, BoxSize, OversizeBoxCode, ProgressDialog, LogMessageCategory);
+        CurrentBoxNo := 0; // Initialize once here
+        ProcessGroupedLines(PackingListHeader, TempGroupedRecIds, BoxSize, OversizeBoxCode, ProgressDialog, LogMessageCategory, CurrentBoxNo);
 
         // --- Step 4: Finalize ---
         Step += 1;
@@ -127,14 +129,13 @@ codeunit 50219 "Packing List Management"
         exit(DefaultOversizeCode);
     end;
 
-    local procedure ProcessGroupedLines(var PackingListHeader: Record "Packing List Header"; var TempGroupedRecIds: Record "Temp Grouped Line RecIds" temporary; var BoxSize: Record "Box Size"; OversizeBoxCode: Code[20]; var ProgressDialog: Dialog; LogMessageCategory: Text)
+    local procedure ProcessGroupedLines(var PackingListHeader: Record "Packing List Header"; var TempGroupedRecIds: Record "Temp Grouped Line RecIds" temporary; var BoxSize: Record "Box Size"; OversizeBoxCode: Code[20]; var ProgressDialog: Dialog; LogMessageCategory: Text; var CurrentBoxNo: Integer)
     var
         TempItemUnit: Record "Temp Packing Item Unit" temporary;
         SalesLine: Record "Sales Line";
         Item: Record Item;
         GroupingValue: Text[250];
         LastGroupingValue: Text[250];
-        CurrentBoxNo: Integer;
         PackingListLineNo: Integer;
         TotalGroupVolume: Decimal;
         MaxItemLength, MaxItemWidth, MaxItemHeight : Decimal;
@@ -143,7 +144,7 @@ codeunit 50219 "Packing List Management"
         GroupProcessingMsg: Label 'Processing Group: %1', Comment = '%1 = Grouping Value', Locked = true;
         ItemNotFoundWarning: Label 'Item %1 not found for Sales Line %2.', Comment = '%1 = Item No., %2 = Sales Line No.', Locked = true;
     begin
-        CurrentBoxNo := 0;
+        // CurrentBoxNo is initialized ONCE in GeneratePackingList and must NOT be reset for each group. This ensures unique box numbers across all groups.
         PackingListLineNo := 0;
         TotalGroupVolume := 0;
         MaxItemLength := 0;
@@ -154,7 +155,7 @@ codeunit 50219 "Packing List Management"
         TempItemUnit.DeleteAll();
 
         // Consider adding SetCurrentKey if performance is an issue and a suitable key exists
-        // TempGroupedRecIds.SetCurrentKey("Grouping Value");
+        TempGroupedRecIds.SetCurrentKey("Grouping Value");
         TempGroupedRecIds.Reset();
         if TempGroupedRecIds.FindSet() then begin
             repeat
@@ -246,9 +247,14 @@ codeunit 50219 "Packing List Management"
         ItemsInCurrentBox: Integer;
         TempBoxTracker: Record "Packing List Line" temporary; // Used to track boxes and their remaining capacity
         FoundExistingBox: Boolean;
+        Counter: Integer;
+        NextLineNo: Integer;
     begin
         if not TempItemUnit.FindSet() then // Nothing to process for this group
             exit;
+
+        // Remove any logic that resets or sets CurrentBoxNo here!
+        // CurrentBoxNo is only incremented when a new box is created below.
 
         // Initialize box tracking variables
         CurrentBoxSizeCode := '';
@@ -258,6 +264,7 @@ codeunit 50219 "Packing List Management"
         CurrentBoxHeight := 0;
         RemainingBoxVolume := 0;
         ItemsInCurrentBox := 0;
+        NextLineNo := GetNextPackingListLineNo(PackingListHeader."Document Type", PackingListHeader."Document No.");
 
         // Load existing boxes from this document into temp table for tracking
         LoadExistingBoxesInfo(PackingListHeader, TempBoxTracker);
@@ -267,7 +274,7 @@ codeunit 50219 "Packing List Management"
             // Find suitable box for the current item
             ItemFits := false;
             FoundExistingBox := false;
-
+            Counter += 1; // Reset counter for new box entries
             // First, check if item would fit in the currently active box (if any)
             if CurrentBoxSizeCode <> '' then begin
                 ItemFits := DoesItemFitInBox(TempItemUnit.Volume, TempItemUnit."Length",
@@ -292,14 +299,14 @@ codeunit 50219 "Packing List Management"
                     // Find suitable box size for the current item
                     FindSuitableBox(BoxSize, TempItemUnit."Length", TempItemUnit."Width",
                         TempItemUnit."Height", TempItemUnit.Volume, CurrentBoxSizeCode,
-                        CurrentBoxVolume, CurrentBoxLength, CurrentBoxWidth, CurrentBoxHeight, OversizeBoxCode);
+                        CurrentBoxVolume, CurrentBoxLength, CurrentBoxWidth, CurrentBoxHeight, OversizeBoxCode, GroupingValue);
 
                     // Initialize remaining volume with the total box volume
                     RemainingBoxVolume := CurrentBoxVolume;
 
                     // Add new box to tracker
                     AddBoxToTracker(TempBoxTracker, CurrentBoxNo, CurrentBoxSizeCode,
-                        CurrentBoxVolume, CurrentBoxLength, CurrentBoxWidth, CurrentBoxHeight, RemainingBoxVolume);
+                        CurrentBoxVolume, CurrentBoxLength, CurrentBoxWidth, CurrentBoxHeight, RemainingBoxVolume, NextLineNo);
                 end;
 
                 // At this point we either found an existing box or created a new one
@@ -316,7 +323,8 @@ codeunit 50219 "Packing List Management"
 
                 // Create packing list line for this item
                 if SalesLine.Get(TempItemUnit."Source Line RecId") then begin
-                    PackingListLineNo += 1;
+                    NextLineNo += 1;
+                    PackingListLineNo := NextLineNo;
                     PackingListLine.Init();
                     PackingListLine."Document Type" := PackingListHeader."Document Type";
                     PackingListLine."Document No." := PackingListHeader."Document No.";
@@ -353,6 +361,7 @@ codeunit 50219 "Packing List Management"
         BoxWidth: Decimal;
         BoxHeight: Decimal;
         ItemVolumeSum: Decimal;
+        Counter: Integer;
     begin
         // Clear any existing data
         TempBoxTracker.Reset();
@@ -364,6 +373,7 @@ codeunit 50219 "Packing List Management"
         PackingListLine.SetRange("Document No.", PackingListHeader."Document No.");
         if PackingListLine.FindSet() then
             repeat
+                Counter += 1;
                 // Check if this box is already in the tracker
                 TempBoxTracker.Reset();
                 TempBoxTracker.SetRange("Box No.", PackingListLine."Box No.");
@@ -392,7 +402,7 @@ codeunit 50219 "Packing List Management"
 
                     // Add to tracker with the volume of this item already used
                     AddBoxToTracker(TempBoxTracker, BoxNo, BoxSizeCode, BoxVolume,
-                        BoxLength, BoxWidth, BoxHeight, BoxVolume - PackingListLine."Unit Volume");
+                        BoxLength, BoxWidth, BoxHeight, BoxVolume - PackingListLine."Unit Volume", Counter);
                 end;
             until PackingListLine.Next() = 0;
     end;
@@ -400,10 +410,12 @@ codeunit 50219 "Packing List Management"
     // Adds a box to the box tracker temp table
     local procedure AddBoxToTracker(var TempBoxTracker: Record "Packing List Line" temporary; BoxNo: Integer;
         BoxSizeCode: Code[20]; BoxVolume: Decimal; BoxLength: Decimal; BoxWidth: Decimal;
-        BoxHeight: Decimal; RemainingVolume: Decimal)
+        BoxHeight: Decimal; RemainingVolume: Decimal; var NextLineNo: Integer)
     begin
+        // Always increment NextLineNo to guarantee uniqueness
+        NextLineNo += 1;
         TempBoxTracker.Init();
-        TempBoxTracker."Line No." := BoxNo * 10000; // Use line no to make unique entries
+        TempBoxTracker."Line No." := NextLineNo;
         TempBoxTracker."Box No." := BoxNo;
         TempBoxTracker."Box Size Code" := BoxSizeCode;
         TempBoxTracker."Unit Length" := BoxLength; // Repurpose fields to store box dimensions
@@ -531,22 +543,23 @@ codeunit 50219 "Packing List Management"
         exit(false);
     end;
 
-    // Finds a suitable box size for an item based on its dimensions and volume
+    // Finds a suitable box size for an item based on its dimensions, volume, and grouping criteria
     local procedure FindSuitableBox(var BoxSize: Record "Box Size"; ItemLength: Decimal;
         ItemWidth: Decimal; ItemHeight: Decimal; ItemVolume: Decimal;
         var BoxSizeCode: Code[20]; var BoxVolume: Decimal;
         var BoxLength: Decimal; var BoxWidth: Decimal;
-        var BoxHeight: Decimal; OversizeBoxCode: Code[20])
+        var BoxHeight: Decimal; OversizeBoxCode: Code[20]; GroupingCriteria: Text[250])
     var
         BoxFound: Boolean;
     begin
-        // Look for the smallest box that can fit the item
+        // Look for the smallest box that can fit the item and matches the grouping criteria
         BoxSize.Reset();
         BoxSize.SetFilter(Length, '>=%1', ItemLength);
         BoxSize.SetFilter(Width, '>=%1', ItemWidth);
         BoxSize.SetFilter(Height, '>=%1', ItemHeight);
         BoxSize.SetFilter(Volume, '>=%1', ItemVolume);
         BoxSize.SetRange("Is Oversize Box", false);
+        BoxSize.SetFilter("Grouping Criteria", GroupingCriteria); // Only consider boxes with the same grouping criteria
         BoxSize.SetCurrentKey(Volume); // Sort by volume to find smallest suitable box
         BoxSize.Ascending(true);
 
@@ -576,5 +589,22 @@ codeunit 50219 "Packing List Management"
                 BoxHeight := 10000;
             end;
         end;
+    end;
+
+    // Helper to get the next available line number for a document
+    local procedure GetNextPackingListLineNo(DocumentType: Enum "Sales Document Type"; DocumentNo: Code[20]): Integer
+    var
+        PackingListLine: Record "Packing List Line";
+        MaxLineNo: Integer;
+    begin
+        MaxLineNo := 0;
+        PackingListLine.SetRange("Document Type", DocumentType);
+        PackingListLine.SetRange("Document No.", DocumentNo);
+        if PackingListLine.FindSet() then
+            repeat
+                if PackingListLine."Line No." > MaxLineNo then
+                    MaxLineNo := PackingListLine."Line No.";
+            until PackingListLine.Next() = 0;
+        exit(MaxLineNo);
     end;
 }

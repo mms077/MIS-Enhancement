@@ -7,13 +7,12 @@
             "type": "al",
             "environmentType": "Sandbox",
             "environmentName": "Copy_Prod_140425_UAT",
-            "startupObjectId": 50351,
+            "startupObjectId": 9305,
             "startupObjectType": "Page",
             "breakOnError": true,
             "launchBrowser": true,
-            "schemaUpdateMode": "ForceSync",
-            "enableLongRunningSqlStatements": true,
-            "enableSqlInformationDebugger": true
+            //"schemaUpdateMode": "ForceSync",
+            "dependencyPublishingOption": "Ignore"
         }
     ]
 }

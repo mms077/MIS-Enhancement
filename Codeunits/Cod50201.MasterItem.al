@@ -1426,6 +1426,8 @@ GlobalSyncData: Codeunit "Global Sync Data";*/
         ManagementCU: Codeunit Management;
         NeededRawMaterial: Record "Needed Raw Material";
         SalesHeader: Record "Sales Header";
+        SalesLineUnitRef: Record "Sales Line Unit Ref.";
+        Counter: Integer;
     begin
         if SalesHeader.Get(SalesLinePar."Document Type", SalesLinePar."Document No.") then;
         ParameterHeader.Init();

@@ -438,30 +438,7 @@ pageextension 50202 "Sales Order Subform" extends "Sales Order Subform"
         Counter: Integer;
     begin
 
-        // Let the standard insertion happen first to get the SystemId
-        if Rec.Insert() then begin
-            Rec."Sales Line Reference" := CreateGuid();
-            Rec.Modify();
-            // Only create unit refs for item type lines with quantity > 0
-            if (Rec.Type = Rec.Type::Item) and (Rec.Quantity > 0) then begin
-                // Create one unit reference record per quantity
-                for Counter := 1 to Rec.Quantity do begin
-                    SalesLineUnitRef.Init();
-                    SalesLineUnitRef."Sales Line Unit" := CreateGuid();
-                    SalesLineUnitRef."Sales Line Ref." := Rec."Sales Line Reference";
-                    SalesLineUnitRef."Item No." := Rec."No.";
-                    SalesLineUnitRef.Description := Rec.Description;
-                    SalesLineUnitRef.Quantity := 1;
-                    // Add any other fields you want to copy from the sales line
-                    SalesLineUnitRef.Insert();
-                end;
-            end;
-            // Return true to indicate the record was inserted
-            exit(true);
-        end;
-        // Return false if the insertion failed
-        exit(false);
-
+     
     end;
 
     trigger OnModifyRecord(): Boolean

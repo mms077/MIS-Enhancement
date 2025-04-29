@@ -223,10 +223,31 @@ codeunit 50202 EventSubscribers
     local procedure OnAfterInsertSalesOrderLine(var SalesOrderLine: Record "Sales Line"; SalesOrderHeader: Record "Sales Header"; SalesQuoteLine: Record "Sales Line"; SalesQuoteHeader: Record "Sales Header")
     var
         CUManagement: Codeunit Management;
+        SalesLineUnitRef: Record "Sales Line Unit Ref.";
+        Counter: Integer;
     begin
         //Create Assembly for Sales Order (Not Intercompany)
-        if CUManagement.IsCompanyFullProduction then
+        if CUManagement.IsCompanyFullProduction then begin
+            //create GUID 
+            SalesOrderLine."Sales Line Reference" := CreateGuid();
             SalesOrderLine.Validate("Qty. to Assemble to Order", SalesOrderLine.Quantity);
+            SalesOrderLine.Modify();
+            // Only create unit refs for item type lines with quantity > 0
+            if (SalesOrderLine.Type = SalesOrderLine.Type::Item) and (SalesOrderLine.Quantity > 0) then begin
+                // Create one unit reference record per quantity
+                for Counter := 1 to SalesOrderLine.Quantity do begin
+                    SalesLineUnitRef.Init();
+                    //create GUID
+                    SalesLineUnitRef."Sales Line Unit" := CreateGuid();
+                    SalesLineUnitRef."Sales Line Ref." := SalesOrderLine."Sales Line Reference";
+                    SalesLineUnitRef."Item No." := SalesOrderLine."No.";
+                    SalesLineUnitRef.Description := SalesOrderLine.Description;
+                    SalesLineUnitRef.Quantity := 1;
+                    // Add any other fields you want to copy from the sales line
+                    SalesLineUnitRef.Insert();
+                end;
+            end;
+        end;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", 'OnAfterInsertAllSalesOrderLines', '', false, false)]

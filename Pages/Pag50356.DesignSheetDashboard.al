@@ -1,7 +1,7 @@
 page 50356 "Design Sheet Dashboard"
 {
     //ApplicationArea = All;
-    Caption = 'Dashboard';
+    Caption = 'Scan Activities';
     PageType = List;
     SourceTable = "Design Sheets Dashboard";
     UsageCategory = Lists;
@@ -85,10 +85,10 @@ page 50356 "Design Sheet Dashboard"
                 {
                     ApplicationArea = All;
                 }
-               /* field("ER - Manufacturing Order No."; Rec."ER - Manufacturing Order No.")
-                {
-                    ApplicationArea = all;
-                }*/
+                /* field("ER - Manufacturing Order No."; Rec."ER - Manufacturing Order No.")
+                 {
+                     ApplicationArea = all;
+                 }*/
 
                 /*field(Plotting; Rec."1")
                  {

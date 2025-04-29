@@ -241,8 +241,10 @@ codeunit 50202 EventSubscribers
                     SalesLineUnitRef."Sales Line Unit" := CreateGuid();
                     SalesLineUnitRef."Sales Line Ref." := SalesOrderLine."Sales Line Reference";
                     SalesLineUnitRef."Item No." := SalesOrderLine."No.";
+                    SalesLineUnitRef."Variant Code" := SalesOrderLine."Variant Code";
                     SalesLineUnitRef.Description := SalesOrderLine.Description;
                     SalesLineUnitRef.Quantity := 1;
+                    SalesLineUnitRef."Unit of Measure Code" := SalesOrderLine."Unit of Measure Code";
                     // Add any other fields you want to copy from the sales line
                     SalesLineUnitRef.Insert();
                 end;

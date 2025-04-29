@@ -27,6 +27,16 @@ table 50306 "Sales Line Unit Ref."
         {
             Caption = 'Description';
         }
+        field(6; "Variant Code"; Code[10])
+        {
+            DataClassification = ToBeClassified;
+            TableRelation = "Item Variant".Code;
+        }
+        field(7; "Unit of Measure Code"; code[10])
+        {
+            DataClassification = ToBeClassified;
+            TableRelation = "Unit of Measure".Code;
+        }
     }
 
     keys

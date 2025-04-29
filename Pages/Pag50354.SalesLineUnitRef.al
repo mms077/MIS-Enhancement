@@ -11,11 +11,14 @@ page 50354 "Sales Line Unit Ref. List"
         {
             repeater(GroupName)
             {
-              //  field("Sales Line Ref."; Rec."Sales Line Ref.") { ApplicationArea = all; Editable = false; }
+                //  field("Sales Line Ref."; Rec."Sales Line Ref.") { ApplicationArea = all; Editable = false; }
                 field("Sales Line Unit"; Rec."Sales Line Unit") { ApplicationArea = all; Editable = false; }
                 field("Item No."; Rec."Item No.") { ApplicationArea = all; }
+
+                field("Variant Code"; Rec."Variant Code") { ApplicationArea = all; }
                 field(Description; Rec.Description) { ApplicationArea = all; }
                 field(Quantity; Rec.Quantity) { ApplicationArea = all; }
+                field("Unit of Measure Code"; Rec."Unit of Measure Code") { ApplicationArea = all; }
 
             }
         }
@@ -29,7 +32,7 @@ page 50354 "Sales Line Unit Ref. List"
     {
         area(Processing)
         {
-          
+
         }
     }
 }

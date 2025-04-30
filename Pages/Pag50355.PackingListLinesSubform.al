@@ -80,92 +80,129 @@ page 50355 "Packing List Lines Subform" // Assigning next available ID for the s
     {
         area(Processing)
         {
-            // action(ReassignBox)
-            // {
-            //     Caption = 'Reassign Box';
-            //     ToolTip = 'Move selected lines to a different or new box.';
-            //     ApplicationArea = All;
-            //     Image = MoveNegativeLines; // Example icon
+            action(UpdateBoxSizeForBox)
+            {
+                Caption = 'Update Box Size for Box';
+                ToolTip = 'Update the box size for all lines with the same box number.';
+                ApplicationArea = All;
+                Image = Change;
+                trigger OnAction()
+                var
+                    PackingListLine: Record "Packing List Line";
+                    NewBoxSizeCode: Code[20];
+                    BoxSize: Record "Box Size";
+                begin
+                    // Get the selected line
+                    PackingListLine.Copy(Rec);
+                    // Prompt for new box size
+                    if Page.RunModal(Page::"Box Size List", BoxSize) = Action::LookupOK then begin
 
-            //     trigger OnAction()
-            //     var
-            //         PackingListLine: Record "Packing List Line";
-            //         NewBoxNo: Integer;
-            //         NewBoxSizeCode: Code[20];
-            //         ConfirmManagement: Codeunit "Confirm Management";
-            //         BoxSize: Record "Box Size";
-            //         PackingListHeader: Record "Packing List Header";
-            //         NextBoxNo: Integer;
-            //     begin
-            //         CurrPage.SetSelectionFilter(PackingListLine);
-            //         if not PackingListLine.FindFirst() then
-            //             exit;
+                        NewBoxSizeCode := BoxSize.Code;
+                        // Update all lines with the same Document Type, Document No., and Box No.
+                        PackingListLine.SetRange("Document Type", Rec."Document Type");
+                        PackingListLine.SetRange("Document No.", Rec."Document No.");
+                        PackingListLine.SetRange("Box No.", Rec."Box No.");
+                        if PackingListLine.FindSet() then
+                            repeat
+                                PackingListLine."Box Size Code" := NewBoxSizeCode;
+                                PackingListLine.Modify();
+                            until PackingListLine.Next() = 0;
+                        CurrPage.Update();
+                        Message('Box size updated for all lines in box %1.', Rec."Box No.");
+                    end;
+                end;
+            }
 
-            //         // Simple prompt for now, could be a dedicated page
-            //         if not (InputBox('Enter New Box No. (0 for New Box):', PackingListLine."Box No.", NewBoxNo) and
-            //                 InputBox('Enter New Box Size Code:', PackingListLine."Box Size Code", NewBoxSizeCode)) then
-            //             Error('Reassignment cancelled.');
-
-            //         // Validate Box Size Code
-            //         if not BoxSize.Get(NewBoxSizeCode) then
-            //             Error('Box Size Code %1 does not exist.', NewBoxSizeCode);
-
-            //         // Check if creating a new box
-            //         if NewBoxNo = 0 then begin
-            //             if PackingListHeader.Get(PackingListLine."Document Type", PackingListLine."Document No.") then begin
-            //                 // Find the next available box number for this document
-            //                 NextBoxNo := PackingListHeader."No. of Boxes Calculated" + 1; // Simple approach
-            //                 // Could also query max Box No. from lines for robustness
-            //                 NewBoxNo := NextBoxNo;
-            //                 // Update header count - needs careful handling if multiple users do this
-            //                 PackingListHeader."No. of Boxes Calculated" := NewBoxNo;
-            //                 PackingListHeader.Modify();
-            //             end else
-            //                 Error('Could not find Packing List Header.'); // Should not happen
-            //         end;
-
-
-            //         // Confirmation
-            //         if not ConfirmManagement.GetResponseOrDefault(StrSubstNo('Reassign %1 selected lines to Box No. %2 (Size: %3)?', PackingListLine.Count, NewBoxNo, NewBoxSizeCode), true) then
-            //             Error('Reassignment cancelled.');
-
-            //         // Perform the update
-            //         repeat
-            //             // **Important**: Add validation here to ensure the moved item's Grouping Criteria Value
-            //             // matches the criteria of other items already in the target NewBoxNo (if it's not a new box).
-            //             // This requires querying existing lines in the target box. For simplicity, skipping this strict validation for now.
-
-            //             PackingListLine."Box No." := NewBoxNo;
-            //             PackingListLine."Box Size Code" := NewBoxSizeCode;
-            //             PackingListLine.Modify();
-            //         until PackingListLine.Next() = 0;
-
-            //         CurrPage.Update();
-            //         Message('%1 lines reassigned.', PackingListLine.Count);
-            //     end;
-            // }
+            action(MoveToDifferentBox)
+            {
+                Caption = 'Move to Different Box';
+                ToolTip = 'Move the selected item to a different box, enforcing fit, grouping, and document constraints.';
+                ApplicationArea = All;
+                Image = MoveNegativeLines;
+                trigger OnAction()
+                var
+                    PackingListLine: Record "Packing List Line";
+                    TargetBoxNo: Integer;
+                    TargetBoxSizeCode: Code[20];
+                    BoxSize: Record "Box Size";
+                    GroupingValue: Text[250];
+                    FitOK: Boolean;
+                    BoxNumbers: List of [Integer];
+                    BoxLabels: Text[250];
+                    SelectedIndex: Integer;
+                    BoxLookup: Record "Packing List Line";
+                    OldLine: Record "Packing List Line";
+                    OldBoxNo: Integer;
+                begin
+                    PackingListLine.Copy(Rec);
+                    GroupingValue := PackingListLine."Grouping Criteria Value";
+                    OldBoxNo := Rec."Box No.";
+                    if not Confirm('Move to a new box? (Yes = New Box, No = Existing Box)') then begin
+                        // Collect available box numbers with the same grouping value
+                        BoxLookup.SetRange("Document Type", Rec."Document Type");
+                        BoxLookup.SetRange("Document No.", Rec."Document No.");
+                        BoxLookup.SetRange("Grouping Criteria Value", GroupingValue);
+                        BoxLookup.SetCurrentKey("Box No.");
+                        if BoxLookup.FindSet() then
+                            repeat
+                                if not BoxNumbers.Contains(BoxLookup."Box No.") then begin
+                                    BoxNumbers.Add(BoxLookup."Box No.");
+                                    BoxLabels := BoxLabels + Format(BoxLookup."Box No.") + ' (' + BoxLookup."Box Size Code" + ')' + ',';
+                                end;
+                            until BoxLookup.Next() = 0;
+                        BoxLabels := BoxLabels.Remove(StrLen(BoxLabels), 1); // Remove trailing comma
+                        if BoxNumbers.Count = 0 then begin
+                            Message('No existing boxes with the same grouping value. Use Yes to create a new box.');
+                            exit;
+                        end;
+                        SelectedIndex := StrMenu(BoxLabels, 1, 'Select Target Box:');
+                        if SelectedIndex < 1 then
+                            exit;
+                        TargetBoxNo := BoxNumbers.Get(SelectedIndex);
+                        // Check fit
+                        BoxLookup.SetRange("Box No.", TargetBoxNo);
+                        if BoxLookup.FindFirst() then begin
+                            BoxSize.Get(BoxLookup."Box Size Code");
+                            FitOK := (Rec."Unit Length" <= BoxSize.Length) and (Rec."Unit Width" <= BoxSize.Width) and (Rec."Unit Height" <= BoxSize.Height) and (Rec."Unit Volume" <= BoxSize.Volume);
+                            if not FitOK then begin
+                                Message('Item does not fit in the selected box.');
+                                exit;
+                            end;
+                            // Move item
+                            Rec."Box No." := TargetBoxNo;
+                            Rec.Modify();
+                            CurrPage.Update();
+                            Message('Item moved to box %1.', TargetBoxNo);
+                        end;
+                    end else begin
+                        // Prompt for box size
+                        if Page.RunModal(Page::"Box Size List", BoxSize) = Action::LookupOK then begin
+                            TargetBoxSizeCode := BoxSize.Code;
+                            // Check fit
+                            FitOK := (Rec."Unit Length" <= BoxSize.Length) and (Rec."Unit Width" <= BoxSize.Width) and (Rec."Unit Height" <= BoxSize.Height) and (Rec."Unit Volume" <= BoxSize.Volume);
+                            if not FitOK then begin
+                                Message('Item does not fit in the new box.');
+                                exit;
+                            end;
+                            if OldLine.Get(Rec."Document Type", Rec."Document No.", Rec."Line No.") then begin
+                                PackingListLine.SetRange("Document Type", OldLine."Document Type");
+                                PackingListLine.SetRange("Document No.", OldLine."Document No.");
+                                PackingListLine.SetFilter("Box No.", StrSubstNo('>%1', OldBoxNo));
+                                //if PackingListLine.FindSet() then
+                                PackingListLine.ModifyAll("Box No.", PackingListLine."Box No." + 2); // Increment all boxes after the old box number
+                                CurrPage.Update();
+                                Clear(PackingListLine);
+                                PackingListLine.Get(OldLine."Document Type", OldLine."Document No.", OldLine."Line No.");
+                                PackingListLine.Validate("Box No.", OldLine."Box No." + 1);
+                                PackingListLine.Validate("Box Size Code", TargetBoxSizeCode);
+                                PackingListLine.Modify(false);
+                            end;
+                            CurrPage.Update();
+                            Message('Item moved to new box %1. All other boxes incremented.', OldLine."Box No." + 1);
+                        end;
+                    end;
+                end;
+            }
         }
     }
-
-    // local procedure InputBox(Prompt: Text; DefaultValue: Variant; var ResultValue: Variant): Boolean
-    // var
-    //     InputString: Text;
-    // begin
-    //     InputString := Format(DefaultValue); // Start with default
-    //     if StrMenu(Prompt + '\Current: ' + InputString, 1, '&OK,&Cancel') = 1 then begin
-    //         if Page.RunModal(Page::"Input Dialog", Rec, FieldNo("Document No."), InputString) = Action::OK then begin
-    //             // Attempt to evaluate the input based on the type of ResultValue
-    //             // This is a simplified example; robust type handling is needed
-    //             if ResultValue is Integer then
-    //                 Evaluate(ResultValue, InputString)
-    //             else
-    //                 if ResultValue is Code[20] then
-    //                     Evaluate(ResultValue, InputString) // Assumes Code[20] for Box Size Code
-    //                 else
-    //                     Error('Unsupported data type for input box.'); // Handle other types if needed
-    //             exit(true);
-    //         end;
-    //     end;
-    //     exit(false);
-    // end;
 }

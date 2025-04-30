@@ -1,10 +1,5 @@
 codeunit 50219 "Packing List Management"
 {
-    // Removed OnRun trigger
-
-    // Removed EnqueuePackingListGeneration procedure
-
-    // Renamed GeneratePackingListInternal to GeneratePackingList and made public
     procedure GeneratePackingList(SalesHeader: Record "Sales Header")
     var
         PackingListHeader: Record "Packing List Header";

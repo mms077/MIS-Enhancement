@@ -22,6 +22,12 @@ page 50355 "Packing List Lines Subform" // Assigning next available ID for the s
                     ApplicationArea = All;
                     ToolTip = 'Specifies the size of the box this item unit is assigned to.';
                 }
+                field("Grouping Criteria Value"; Rec."Grouping Criteria Value")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the grouping criteria value used for this item''s box assignment.';
+                    Editable = false; // Can be made editable if needed
+                }
                 field("Item No."; Rec."Item No.")
                 {
                     ApplicationArea = All;
@@ -41,12 +47,6 @@ page 50355 "Packing List Lines Subform" // Assigning next available ID for the s
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the line number from the original source document.';
-                }
-                field("Grouping Criteria Value"; Rec."Grouping Criteria Value")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the grouping criteria value used for this item''s box assignment.';
-                    Visible = false; // Can be made visible if needed
                 }
                 field("Unit Length"; Rec."Unit Length")
                 {
@@ -133,15 +133,25 @@ page 50355 "Packing List Lines Subform" // Assigning next available ID for the s
                     BoxLookup: Record "Packing List Line";
                     OldLine: Record "Packing List Line";
                     OldBoxNo: Integer;
+                    OnlyOneInBox: Boolean;
+                    RemainingInBox: Boolean;
                 begin
                     PackingListLine.Copy(Rec);
                     GroupingValue := PackingListLine."Grouping Criteria Value";
                     OldBoxNo := Rec."Box No.";
+
+                    // Check if this is the only item in the box
+                    PackingListLine.SetRange("Document Type", Rec."Document Type");
+                    PackingListLine.SetRange("Document No.", Rec."Document No.");
+                    PackingListLine.SetRange("Box No.", Rec."Box No.");
+                    OnlyOneInBox := PackingListLine.Count = 1;
+
                     if not Confirm('Move to a new box? (Yes = New Box, No = Existing Box)') then begin
                         // Collect available box numbers with the same grouping value
                         BoxLookup.SetRange("Document Type", Rec."Document Type");
                         BoxLookup.SetRange("Document No.", Rec."Document No.");
                         BoxLookup.SetRange("Grouping Criteria Value", GroupingValue);
+                        BoxLookup.SetFilter("Box No.", '<>%1', Rec."Box No.");
                         BoxLookup.SetCurrentKey("Box No.");
                         if BoxLookup.FindSet() then
                             repeat
@@ -168,13 +178,39 @@ page 50355 "Packing List Lines Subform" // Assigning next available ID for the s
                                 Message('Item does not fit in the selected box.');
                                 exit;
                             end;
-                            // Move item
-                            Rec."Box No." := TargetBoxNo;
-                            Rec.Modify();
+                            // Restriction: If original box is now empty, decrement all box numbers greater than the old box number by 1
+                            if OnlyOneInBox then begin
+
+                                // Move item
+                                if TargetBoxNo < Rec."Box No." then begin
+                                    Rec."Box No." := TargetBoxNo;
+                                    Rec.Modify();
+                                end;
+                                PackingListLine.Reset();
+                                PackingListLine.SetRange("Document Type", Rec."Document Type");
+                                PackingListLine.SetRange("Document No.", Rec."Document No.");
+                                PackingListLine.SetFilter("Box No.", StrSubstNo('>%1', OldBoxNo));
+                                if PackingListLine.FindSet() then
+                                    repeat
+                                        PackingListLine.Validate("Box No.", PackingListLine."Box No." - 1);
+                                        PackingListLine.Modify();
+                                    until PackingListLine.Next() = 0;
+                                // CurrPage.Update();
+                            end
+                            else begin
+                                // Move item
+                                Rec."Box No." := TargetBoxNo;
+                                Rec.Modify();
+                            end;
                             CurrPage.Update();
                             Message('Item moved to box %1.', TargetBoxNo);
                         end;
                     end else begin
+                        // Restriction: If only one item in box, cannot create new box
+                        if OnlyOneInBox then begin
+                            Message('Cannot create a new box when this is the only item in the current box. Please update the box size instead.');
+                            exit;
+                        end;
                         // Prompt for box size
                         if Page.RunModal(Page::"Box Size List", BoxSize) = Action::LookupOK then begin
                             TargetBoxSizeCode := BoxSize.Code;
@@ -188,8 +224,11 @@ page 50355 "Packing List Lines Subform" // Assigning next available ID for the s
                                 PackingListLine.SetRange("Document Type", OldLine."Document Type");
                                 PackingListLine.SetRange("Document No.", OldLine."Document No.");
                                 PackingListLine.SetFilter("Box No.", StrSubstNo('>%1', OldBoxNo));
-                                //if PackingListLine.FindSet() then
-                                PackingListLine.ModifyAll("Box No.", PackingListLine."Box No." + 2); // Increment all boxes after the old box number
+                                if PackingListLine.FindSet() then
+                                    repeat
+                                        PackingListLine.Validate("Box No.", PackingListLine."Box No." + 1);
+                                        PackingListLine.Modify();
+                                    until PackingListLine.Next() = 0; // Increment all boxes after the old box number
                                 CurrPage.Update();
                                 Clear(PackingListLine);
                                 PackingListLine.Get(OldLine."Document Type", OldLine."Document No.", OldLine."Line No.");

@@ -394,8 +394,8 @@ pageextension 50202 "Sales Order Subform" extends "Sales Order Subform"
                 ApplicationArea = all;
                 Image = ShowChart;
                 Caption = 'Dashboard/Unit';
-                RunObject = page "Design Sheet Dashboard";
-                RunPageLink = "Sales Line Reference" = field("Sales Line Reference");
+                // RunObject = page "Design Sheet Dashboard";
+                // RunPageLink = "Sales Line Reference" = field("Sales Line Reference");
                 trigger OnAction()
                 var
                     SalesLine: Record "Sales Line";
@@ -438,7 +438,7 @@ pageextension 50202 "Sales Order Subform" extends "Sales Order Subform"
         Counter: Integer;
     begin
 
-     
+
     end;
 
     trigger OnModifyRecord(): Boolean

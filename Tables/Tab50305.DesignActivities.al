@@ -1,6 +1,6 @@
-table 50305 "Scan Activities"
+table 50305 "Design Activities"
 {
-    Caption = 'Scan Activities';
+    Caption = 'Design Activities';
     DataPerCompany = false;
 
     fields

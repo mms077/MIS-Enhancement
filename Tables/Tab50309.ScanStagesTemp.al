@@ -1,7 +1,8 @@
-table 50307 "Scan Design Stages- ER"
+table 50309 "Scan Design Stages- ER Temp"
 {
     Caption = 'Scan Design Stages - ER';
     DataClassification = ToBeClassified;
+    TableType = Temporary;
 
     fields
     {
@@ -21,13 +22,7 @@ table 50307 "Scan Design Stages- ER"
             Caption = 'Activity Name';
             NotBlank = true;
         }
-        field(4; "Design Code Filter"; Code[50])
-        {
-            FieldClass = FlowField;
-            CalcFormula = Lookup("Item"."Design Code" WHERE("No." = FIELD("Item No.")));
-            Editable = false;
-        }
-        field(5; "Item No."; code[10])
+        field(4; "Is Done"; Boolean)
         {
             DataClassification = ToBeClassified;
         }

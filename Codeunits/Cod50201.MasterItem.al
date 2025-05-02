@@ -850,13 +850,13 @@ codeunit 50201 MasterItem
             Error('No Design Code found for Item "%1".', Item."No.");
         CuttingSheetDashboard.Get(AssemblyNoPar);
         // Fetch the scan activities for the design and current sequence
-        ScanActivities.SetRange("Design Code", Item."Design Code");
+        ScanActivities.SetRange("Design", Item."Design Code");
         ScanActivities.SetRange("Sequence No.", CuttingSheetDashboard."Current Sequence No.");
         if not ScanActivities.FindFirst() then
             Error(Txt003, Item."Design Code", CuttingSheetDashboard."Current Sequence No.");
 
         // Get the current activity name
-        CurrentActivity := ScanActivities."Activity Name";
+        CurrentActivity := ScanActivities."Scan Activity Name";
 
         // Check the last scan type (In or Out)
         CuttingSheetScanningDetails.SetRange("Assembly No.", AssemblyNoPar);

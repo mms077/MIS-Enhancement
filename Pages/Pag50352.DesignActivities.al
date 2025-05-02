@@ -3,7 +3,7 @@ page 50352 "Design Activities"
     //ApplicationArea = All;
     Caption = 'Design Activities';
     PageType = List;
-    SourceTable = "Scan Activities";
+    SourceTable = "Design Activities";
     UsageCategory = Lists;
     layout
     {

@@ -521,7 +521,7 @@ codeunit 50207 "Split Line"
             if InTransitLocation <> '' then
                 TransferOrder.Validate("In-Transit Code", InTransitLocation)
             else
-                TransferOrder.Validate("Direct Transfer", true);
+                TransferOrder."Direct Transfer" := true;
             TransferOrder.Validate("Shipment Date", SalesOrderLine."Shipment Date");
             TransferOrder.Validate("Receipt Date", SalesOrderLine."Shipment Date");
             TransferOrder.Insert();
@@ -608,7 +608,7 @@ codeunit 50207 "Split Line"
             if InTransitLocation <> '' then
                 TransferOrder.Validate("In-Transit Code", InTransitLocation)
             else
-                TransferOrder.Validate("Direct Transfer", true);
+                TransferOrder."Direct Transfer" := true;
             TransferOrder.Validate("Shipment Date", SalesOrderLine."Shipment Date");
             TransferOrder.Validate("Receipt Date", SalesOrderLine."Shipment Date");
             TransferOrder.Insert();

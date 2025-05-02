@@ -12,8 +12,7 @@
             "breakOnError": true,
             "launchBrowser": true,
             "schemaUpdateMode": "ForceSync",
-            "enableLongRunningSqlStatements": true,
-            "enableSqlInformationDebugger": true
+            "dependencyPublishingOption": "Ignore"
         }
     ]
 }

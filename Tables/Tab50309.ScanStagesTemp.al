@@ -26,6 +26,14 @@ table 50309 "Scan Design Stages- ER Temp"
         {
             DataClassification = ToBeClassified;
         }
+        field(5; "Item No."; code[10])
+        {
+            DataClassification = ToBeClassified;
+        }
+     field(6; "Design Code"; Code[50])
+{
+    Caption = 'Design Code';
+}
     }
     keys
     {

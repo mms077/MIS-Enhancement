@@ -3,13 +3,13 @@ page 50357 "Scan Unit Ref"
     PageType = Card;
     ApplicationArea = All;
     UsageCategory = Lists;
-    SourceTable = "Scan Design Stages- ER";
+    SourceTable = "Scan Design Stages- ER Temp";
 
     layout
     {
         area(Content)
         {
-            repeater(GroupName)
+            group(GroupName)
             {
                 field(UnitRef; UnitRef)
                 {
@@ -18,7 +18,7 @@ page 50357 "Scan Unit Ref"
                     var
                         MasterItemCU: Codeunit MasterItem;
                         AssemblyHeader: Record "Assembly Header";
-                        DesignActivities: Record "design Activities"; // Replace with the actual table name for scan activities
+                        ScanDesignStages: Record "Scan Design Stages- ER"; // Replace with the actual table name for scan activities
                         Dashboard: Record "Cutting Sheets Dashboard"; // Replace with the actual table name for the dashboard
                         Txt001: Label 'No Assembly found in the group %1';
                         Txt0001: Label 'Scan In 👍';
@@ -32,45 +32,65 @@ page 50357 "Scan Unit Ref"
                         SalesLine: Record "Sales Line";
                         SalesUnit: Record "Sales Line Unit Ref.";
                         ProcessedAssemblies: Dictionary of [Code[20], Boolean]; // To track processed assemblies
+                        DesignActivities: Record "Design Activities";
 
                     begin
+                        //make to scan false
+                        ResetDesignActivitiesToScan;
+                        rec.DeleteAll();
                         DesignCode := '';
                         // Logic to refresh the subpage when UnitRef changes
-                        Clear(DesignActivities);
+                        Clear(ScanDesignStages);
                         Clear(MO);
-                        if MO.Get(UnitRef) then begin
-                            Clear(AssemblyHeader);
-                            AssemblyHeader.SetFilter("ER - Manufacturing Order No.", MO."No.");
-                            if AssemblyHeader.FindFirst() then begin
-                                Rec."Item No." := AssemblyHeader."Item No.";
-                                Rec.Modify();
-                                CurrPage.Update();
-                            end
+                        if UnitRef <> '' then begin
+                            if MO.Get(UnitRef) then begin
+                                Clear(AssemblyHeader);
+                                AssemblyHeader.SetFilter("ER - Manufacturing Order No.", MO."No.");
+                                if AssemblyHeader.FindFirst() then begin
+                                    // i need to fill the ScanDesignStages rec from "Scan Design Stages- ER" table
+                                    Rec.TRANSFERFIELDS(ScanDesignStages);
+                                    Rec.Insert();
+                                    Rec."Item No." := AssemblyHeader."Item No.";
+                                    Rec."Design Code" := GetItemDesign(Rec."Item No.");
+                                    Rec.Modify();
 
-                        end else begin
-                            Clear(AssemblyHeader);
-                            AssemblyHeader.SetRange("No.", UnitRef);
-                            if AssemblyHeader.FindSet() then begin
-
-                                Rec."Item No." := AssemblyHeader."Item No.";
-                                Rec.Modify();
-                                CurrPage.Update();
-
-                            end else begin
-                                SalesUnit.SetFilter("Sales Line Unit", UnitRef);
-                                if SalesUnit.FindFirst() then begin
                                     Clear(SalesLine);
-                                    SalesLine.SetFilter("Sales Line Reference", SalesUnit."Sales Line Ref.");
+                                    SalesLine.SetFilter("Document No.", AssemblyHeader."Source No.");
+                                    SalesLine.SetRange("Document Type", SalesLine."Document Type"::Order);
                                     if SalesLine.FindFirst() then begin
-                                        Rec."Item No." := SalesLine."No.";
-                                        Rec.Modify();
-                                        CurrPage.Update();
+                                        SalesUnit.SetFilter("Sales Line Ref.", SalesLine."Sales Line Reference");
+                                        if SalesUnit.FindFirst() then begin
+
+                                            CurrPage.Update();
+                                        end
+
+                                    end else begin
+                                        Clear(AssemblyHeader);
+                                        AssemblyHeader.SetRange("No.", UnitRef);
+                                        if AssemblyHeader.FindSet() then begin
+
+                                            Rec."Item No." := AssemblyHeader."Item No.";
+                                            Rec."Design Code" := GetItemDesign(Rec."Item No.");
+                                            Rec.Modify();
+                                            CurrPage.Update();
+
+                                        end else begin
+                                            SalesUnit.SetFilter("Sales Line Unit", UnitRef);
+                                            if SalesUnit.FindFirst() then begin
+                                                Clear(SalesLine);
+                                                SalesLine.SetFilter("Sales Line Reference", SalesUnit."Sales Line Ref.");
+                                                if SalesLine.FindFirst() then begin
+                                                    Rec."Item No." := SalesLine."No.";
+                                                    Rec."Design Code" := GetItemDesign(Rec."Item No.");
+                                                    Rec.Modify();
+                                                    CurrPage.Update();
+                                                end;
+                                            END;
+                                        END;
                                     end;
-                                END;
-                            END;
+                                end;
+                            end;
                         end;
-
-
                     end;
                 }
 
@@ -160,13 +180,15 @@ page 50357 "Scan Unit Ref"
                     end;
                 }
             }
-        }
-        area(Factboxes)
-        {
-            part(DesignActivityStagesPart; "Design Activities")
+
+
+            part(DesignActivityStagesPart; "Design Activities Temp")
             {
+
                 // SubPageLink updated to use a valid field from the Design Activities table
-                SubPageLink = "Design Code" = field("Design Code Filter");
+                SubPageLink = "Design Code" = field("Design Code");
+                SubPageView = sorting("Sequence No.");
+                Editable = true;
             }
         }
     }
@@ -192,6 +214,18 @@ page 50357 "Scan Unit Ref"
         Clear(Item);
         Item.get(ItemNo);
         exit(Item."Design Code");
+    end;
+
+    local procedure ResetDesignActivitiesToScan()
+    var
+        DesignActivities: Record "Design Activities";
+    begin
+        Clear(DesignActivities);
+        if DesignActivities.FindSet() then
+            repeat
+                DesignActivities."To Scan" := false;
+                DesignActivities.Modify();
+            until DesignActivities.Next() = 0;
     end;
 
     var

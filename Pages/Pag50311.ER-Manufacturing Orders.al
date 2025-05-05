@@ -148,17 +148,16 @@ page 50311 "ER - Manufacturing Orders"
                 PromotedOnly = true;
                 trigger OnAction()
                 var
-                    ScanWizard: Page "Scan Unit Ref"; // Replace with the actual wizard page ID or name
+                    ScanWizard: Page "Scan Unit Ref";
                     AssemblyHeader: Record "Assembly Header";
                 begin
-                    Clear(AssemblyHeader);
-                    AssemblyHeader.SetRange("ER - Manufacturing Order No.", Rec."No.");
-                    if AssemblyHeader.FindFirst() then begin
-                        ScanWizard.SetTableView(AssemblyHeader); // Pass the filtered AssemblyHeader to the wizard
-                        ScanWizard.RunModal(); // Open the wizard
-                    end;
+                    // Clear(AssemblyHeader);
+                    // AssemblyHeader.SetRange("ER - Manufacturing Order No.", Rec."No.");
+                    // if AssemblyHeader.FindFirst() then begin
+                    //     ScanWizard.SetTableView(AssemblyHeader); // Pass the filtered AssemblyHeader to the wizard
+                    ScanWizard.Run(); // Open the wizard
                 end;
-            }
+                 }
             action("Force Close MO without Scan")
             {
                 ApplicationArea = all;

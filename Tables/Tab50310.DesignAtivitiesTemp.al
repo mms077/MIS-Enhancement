@@ -1,8 +1,7 @@
-table 50305 "Design Activities"
+table 50310 "Design Activities Temp"
 {
     Caption = 'Design Activities';
-    DataPerCompany = false;
-
+    TableType = Temporary;
     fields
     {
         field(1; "Activity Code"; Code[50])
@@ -55,9 +54,24 @@ table 50305 "Design Activities"
         field(8; "To Scan"; Boolean)
         {
             DataClassification = ToBeClassified;
-         
+            trigger OnValidate()
+            var
+                DesignActivities: Record "Design Activities";
+            begin
+                if "To Scan" then begin
+                    // Set all other lines to false
+                    Clear(DesignActivities);
+                    DesignActivities.SetFilter("Design Code", rec."Design Code");
+                    DesignActivities.SetFilter("Activity Name", '<>%1', rec."Activity Name");
+                    if DesignActivities.FindSet() then begin
+                        repeat
+                            DesignActivities."To Scan" := false;
+                            DesignActivities.Modify();
+                        until DesignActivities.Next() = 0;
+                    end;
+                end;
+            end;
         }
-
     }
 
     keys

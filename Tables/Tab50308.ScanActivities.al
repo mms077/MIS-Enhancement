@@ -5,11 +5,11 @@ table 50308 "Scan Activities"
 
     fields
     {
-        field(1; "Sales Line Unit Ref."; Guid)
+        field(1; "Sales Line Unit Id."; Guid)
         {
             DataClassification = ToBeClassified;
         }
-        field(2; "Sales Line  Ref."; Guid)
+        field(2; "Sales Line Id"; Guid)
         {
             DataClassification = ToBeClassified;
         }
@@ -32,56 +32,61 @@ table 50308 "Scan Activities"
             DataClassification = ToBeClassified;
             Editable = false;
         }
-        field(6; "Design"; Code[50])
+        field(6; "Design Code"; Code[50])
         {
             DataClassification = ToBeClassified;
             TableRelation = Design.Code;
         }
-        field(7; "Item Category"; Code[50])
-        {
-            Caption = 'Item Category';
-            FieldClass = FlowField;
-            CalcFormula = lookup(Item."Item Category Code" where("No." = field("Item No.")));
-            Editable = false;
-        }
 
 
-        field(8; "Variant Code"; Code[10])
+        field(7; "Variant Code"; Code[10])
         {
             TableRelation = "Item Variant".Code;
             Editable = false;
         }
 
-
-
-        field(9; "Source No."; Code[20])
+        field(8; "Source No."; Code[20])
         {
             Caption = 'Source No.';
 
             Editable = false;
         }
-        field(10; "Scan Activity Name"; Text[100])
+        field(9; "Activity Code"; Text[100])
+        {
+            DataClassification = ToBeClassified;
+            //  TableRelation = "Scan Design Stages- ER"."Activity Name";
+        }
+        field(10; "Activity Name"; Text[100])
         {
             DataClassification = ToBeClassified;
             TableRelation = "Scan Design Stages- ER"."Activity Name";
         }
-        field(11; "In/Out"; Option)
+        field(11; "Activity Remark"; Text[100])
+        {
+            DataClassification = ToBeClassified;
+            TableRelation = "Scan Design Stages- ER"."Activity Name";
+        }
+        field(12; "Activity Type"; Option)
         {
             DataClassification = ToBeClassified;
             OptionMembers = " ","In","Out";
         }
-        field(12; "Starting Time"; DateTime)
+        field(13; "Activity Date"; DateTime)
         {
             Editable = false;
         }
-        field(13; "Sequence No."; Integer)
+        field(14; "Activity Time"; Time)
+        {
+            Editable = false;
+        }
+        field(15; "Sequence No."; Integer)
         {
             DataClassification = ToBeClassified;
         }
     }
     keys
     {
-        key(PK; "Sales Line Unit Ref.")
+        key(PK; "Sales Line Unit Id.", "Sales Line Id", "Activity Type")
         {
             Clustered = true;
         }

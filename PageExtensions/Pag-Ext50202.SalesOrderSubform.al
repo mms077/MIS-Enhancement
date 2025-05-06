@@ -394,8 +394,8 @@ pageextension 50202 "Sales Order Subform" extends "Sales Order Subform"
                 ApplicationArea = all;
                 Image = ShowChart;
                 Caption = 'Dashboard/Unit';
-                // RunObject = page "Design Sheet Dashboard";
-                // RunPageLink = "Sales Line Reference" = field("Sales Line Reference");
+                RunObject = page "Scan Activities List";
+                RunPageLink = "Sales Line Id" = field("Sales Line Reference");
                 trigger OnAction()
                 var
                     SalesLine: Record "Sales Line";

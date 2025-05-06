@@ -822,6 +822,31 @@ codeunit 50201 MasterItem
         end;
     end;
 
+    procedure CheckUserResponibilityScanning(AssemblyNo: Code[20]; Username: Code[50]; CurrentSequence: Integer)
+    var
+        CuttingSheetDashboard: Record "Cutting Sheets Dashboard";
+        SalesRecivableSetup: Record "Sales & Receivables Setup";
+        WorkflowUserGroupMemberER: Record "Workflow User Group Member-ER";
+        Txt001: Label 'User is not existing in this workflow 👎';
+        Txt002: Label 'You are not allowed to approve at this stage 👎';
+    begin
+        if CurrentSequence = 0 then
+            Error('Please select stage to Scan');
+        SalesRecivableSetup.Get();
+        if not WorkflowUserGroupMemberER.Get(SalesRecivableSetup."Cutting Sheet Workflow Group", Username) then begin
+            //To show the message to user before error
+            Message(Txt001);
+            Error(Txt001);
+        end;
+        CuttingSheetDashboard.Get(AssemblyNo);
+        if CurrentSequence <> WorkflowUserGroupMemberER."Sequence No." then begin
+            //To show the message to user before error
+            Message(Txt002);
+            Error(Txt002);
+        end;
+    end;
+
+
     procedure CreateCuttingSheetScanningEntry2(AssemblyNoPar: Code[20]; UserName: Code[50]): Option "In","Out"
     var
         CuttingSheetScanningDetails: Record "Cutting Sheet Scanning Details";
@@ -850,13 +875,13 @@ codeunit 50201 MasterItem
             Error('No Design Code found for Item "%1".', Item."No.");
         CuttingSheetDashboard.Get(AssemblyNoPar);
         // Fetch the scan activities for the design and current sequence
-        ScanActivities.SetRange("Design", Item."Design Code");
+        ScanActivities.SetRange("Design Code", Item."Design Code");
         ScanActivities.SetRange("Sequence No.", CuttingSheetDashboard."Current Sequence No.");
         if not ScanActivities.FindFirst() then
             Error(Txt003, Item."Design Code", CuttingSheetDashboard."Current Sequence No.");
 
         // Get the current activity name
-        CurrentActivity := ScanActivities."Scan Activity Name";
+        CurrentActivity := ScanActivities."Activity Name";
 
         // Check the last scan type (In or Out)
         CuttingSheetScanningDetails.SetRange("Assembly No.", AssemblyNoPar);

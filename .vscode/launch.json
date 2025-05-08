@@ -6,13 +6,12 @@
             "request": "launch",
             "type": "al",
             "environmentType": "Sandbox",
-            "environmentName": "Copy_Prod_301224",
+            "environmentName": "Copy_Prod_140425_UAT",
             "startupObjectId": 50351,
             "startupObjectType": "Page",
             "breakOnError": true,
             "launchBrowser": true,
             "schemaUpdateMode": "ForceSync",
-            "dependencyPublishingOption": "Ignore"
         }
     ]
 }

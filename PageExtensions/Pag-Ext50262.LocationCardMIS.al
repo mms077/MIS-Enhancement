@@ -2,13 +2,12 @@ pageextension 50262 "Location Card MIS" extends "Location Card"
 {
     layout
     {
-        addafter("Use As In-Transit")
+        addlast(General)
         {
-            field("Shipping Location"; Rec."Shipping Location")
+            field("Shipping Zone Code"; Rec."Shipping Zone Code")
             {
+                Caption = 'Shipping Zone Code';
                 ApplicationArea = All;
-                Caption = 'Shipping Location';
-                ToolTip = 'Check this box if the location is a shipping location.';
             }
         }
     }

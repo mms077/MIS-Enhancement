@@ -65,6 +65,7 @@ codeunit 50219 "Packing List Management"
         PackingListHeader."Document No." := SalesHeader."No.";
         PackingListHeader.Status := PackingListHeader.Status::"In Progress";
         PackingListHeader."Generation DateTime" := CurrentDateTime();
+        PackingListHeader."Location Code" := SalesHeader."Location Code";
         PackingListHeader.Insert();
     end;
 
@@ -602,5 +603,61 @@ codeunit 50219 "Packing List Management"
                     MaxLineNo := PackingListLine."Line No.";
             until PackingListLine.Next() = 0;
         exit(MaxLineNo);
+    end;
+
+    procedure CreateBinsForPackingList(var PackingListHeader: Record "Packing List Header")
+    var
+        PackingListLine: Record "Packing List Line";
+        Bin: Record Bin;
+        LocationCode: Code[10];
+        ZoneCode: Code[10];
+        BinCode: Code[20];
+        BoxNo: Integer;
+        LocationRec: Record Location;
+    begin
+        if PackingListHeader."Bins Created" then
+            Error('Bins have already been created for this packing list.');
+        LocationCode := PackingListHeader."Location Code";
+        // Optionally, set ZoneCode from a default or config, or extend Packing List Header if needed
+        ZoneCode := '';
+        PackingListLine.SetRange("Document Type", PackingListHeader."Document Type");
+        PackingListLine.SetRange("Document No.", PackingListHeader."Document No.");
+        // Get zone from location
+        if not LocationRec.Get(PackingListHeader."Location Code") then
+            Error('Location not found.');
+        if LocationRec."Shipping Zone Code" = '' then
+            Error('Shipping Zone Code must be set on the Location Card.');
+        ZoneCode := LocationRec."Shipping Zone Code";
+        if PackingListLine.FindSet() then
+            repeat
+                BoxNo := PackingListLine."Box No.";
+                BinCode := StrSubstNo('PL-%1-%2', DelStr(PackingListHeader."Document No.", 1, 3), BoxNo);
+                if not Bin.Get(LocationCode, BinCode) then begin
+                    Bin.Init();
+                    Bin."Location Code" := LocationCode;
+                    Bin."Zone Code" := ZoneCode;
+                    Bin.Code := BinCode;
+                    Bin."Packing List Document No." := PackingListHeader."Document No.";
+                    Bin.Insert();
+                end;
+                // Set the Bin Code and Location Code on the Packing List Line
+                PackingListLine."Bin Code" := BinCode;
+                PackingListLine."Location Code" := LocationCode;
+                PackingListLine.Modify();
+            until PackingListLine.Next() = 0;
+        PackingListHeader."Bins Created" := true;
+        PackingListHeader.Modify(true);
+    end;
+
+    procedure DeleteBinsForPackingList(var PackingListHeader: Record "Packing List Header")
+    var
+        Bin: Record Bin;
+    begin
+        if not PackingListHeader."Bins Created" then
+            Error('No bins have been created for this packing list.');
+        Bin.SetRange("Packing List Document No.", PackingListHeader."Document No.");
+        Bin.DeleteAll(true);
+        PackingListHeader."Bins Created" := false;
+        PackingListHeader.Modify(true);
     end;
 }

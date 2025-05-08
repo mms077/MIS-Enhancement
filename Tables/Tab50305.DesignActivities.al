@@ -22,47 +22,54 @@ table 50305 "Design Activities"
                         "Activity Name" := WorkflowActivitiesER."Activity Name";
             end;
         }
-        field(2; "Activity Name"; Text[100])
+        field(2; "Activity Id"; Integer)
         {
-            Caption = 'Activity Name';
+            Caption = 'Activity Id';
             Editable = true;
-            TableRelation = "Scan Design Stages- ER"."Activity Name";
+            TableRelation = "Scan Design Stages- ER".Index;
         }
-        field(3; "Design Code"; Code[50])
+        field(3; "Activity Name"; Text[100])
+        {
+
+            FieldClass = FlowField;
+            CalcFormula = lookup("Scan Design Stages- ER"."Activity Name" where(Index = field("Activity Id")));
+            Editable = false;
+        }
+        field(4; "Design Code"; Code[50])
         {
             Caption = 'Design Code';
             TableRelation = Design.Code;
         }
-        field(4; "Sequence No."; Integer)
+        field(5; "Sequence No."; Integer)
         {
             DataClassification = ToBeClassified;
         }
-        field(5; "Stage Type"; Option)
+        field(6; "Stage Type"; Option)
         {
             Caption = 'Stage Type';
             OptionMembers = " ",Mandatory,Optional;
             DataClassification = ToBeClassified;
         }
-        field(6; "Allow Non-Sequential Scanning"; Boolean)
+        field(7; "Allow Non-Sequential Scanning"; Boolean)
         {
             Caption = 'Allow Non-Sequential Scanning';
             DataClassification = ToBeClassified;
         }
-        field(7; "Done"; Text[1])
+        field(8; "Done"; Text[1])
         {
             DataClassification = ToBeClassified;
         }
-        field(8; "To Scan"; Boolean)
+        field(9; "To Scan"; Boolean)
         {
             DataClassification = ToBeClassified;
-         
+
         }
 
     }
 
     keys
     {
-        key(PK; "Design Code", "Activity Name", "Sequence No.")
+        key(PK; "Design Code", "Activity Id", "Sequence No.")
         {
             Clustered = true;
         }

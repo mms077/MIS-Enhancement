@@ -13,6 +13,7 @@ page 50352 "Design Activities"
             {
                 field("Activity Code"; Rec."Activity Code") { ApplicationArea = all; Visible = false; }
 
+                field("Activity Id"; Rec."Activity Id") { ApplicationArea = all; }
                 field("Activity Name"; Rec."Activity Name") { ApplicationArea = all; }
 
                 field("Sequence No."; Rec."Sequence No.") { ApplicationArea = all; }

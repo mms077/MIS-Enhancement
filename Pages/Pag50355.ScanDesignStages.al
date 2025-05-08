@@ -11,8 +11,9 @@ page 50355 "Scan Design Stages- ER List"
         {
             repeater("Scan Design Stages")
             {
+                field(Index; Rec.Index) { ApplicationArea = all; }
                 field("Workflow User Group Code"; Rec."Workflow User Group Code") { ApplicationArea = all; }
-               //ield("Workflow User Group Sequence"; rec."Workflow User Group Sequence") { ApplicationArea = all; }
+                //ield("Workflow User Group Sequence"; rec."Workflow User Group Sequence") { ApplicationArea = all; }
                 field("Activity Name"; Rec."Activity Name") { ApplicationArea = all; }
 
             }

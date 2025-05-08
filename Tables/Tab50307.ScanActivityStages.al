@@ -31,12 +31,24 @@ table 50307 "Scan Design Stages- ER"
         {
             DataClassification = ToBeClassified;
         }
+        field(6; Index; Integer)
+        {
+            DataClassification = ToBeClassified;
+            AutoIncrement = true;
+        }
     }
     keys
     {
-        key(PK; "Workflow User Group Code", "Activity Name")
+        key(PK; Index)
         {
             Clustered = true;
+        }
+    }
+    fieldgroups
+    {
+        fieldgroup(DropDown; Index, "Activity Name")
+        {
+    
         }
     }
 }

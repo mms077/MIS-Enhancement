@@ -37,9 +37,14 @@ table 50306 "Sales Line Unit Ref."
             DataClassification = ToBeClassified;
             TableRelation = "Unit of Measure".Code;
         }
-        field(9; "Scan Status"; Text[1000])
+        field(9; "Scan In"; Text[1000])
         {
-            Caption = 'Scan Status';
+            Caption = 'Scan In';
+            DataClassification = ToBeClassified;
+        }
+        field(10; "Scan Out"; Text[1000])
+        {
+            Caption = 'Scan Out';
             DataClassification = ToBeClassified;
         }
     }

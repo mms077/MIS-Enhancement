@@ -19,6 +19,8 @@ page 50354 "Sales Line Unit Ref. List"
                 field(Description; Rec.Description) { ApplicationArea = all; }
                 field(Quantity; Rec.Quantity) { ApplicationArea = all; }
                 field("Unit of Measure Code"; Rec."Unit of Measure Code") { ApplicationArea = all; }
+                field("Scan In"; Rec."Scan In") { ApplicationArea = all; }
+                field("Scan Out"; Rec."Scan Out") { ApplicationArea = all; }
 
             }
         }

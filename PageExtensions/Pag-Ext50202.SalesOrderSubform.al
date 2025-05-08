@@ -346,8 +346,8 @@ pageextension 50202 "Sales Order Subform" extends "Sales Order Subform"
                 ApplicationArea = all;
                 Caption = 'Unit Sales Line Ref.';
                 Image = TaskQualityMeasure;
-                // RunPageLink = "Sales Line Ref." = field(SystemId);
-                // RunObject = Page "Sales Line Unit Ref. List";
+                RunPageLink = "Sales Line Ref." = field("Sales Line Reference");
+                RunObject = Page "Sales Line Unit Ref. List";
                 trigger OnAction()
                 var
                     SalesLineUnitRef: Record "Sales Line Unit Ref.";
@@ -355,38 +355,38 @@ pageextension 50202 "Sales Order Subform" extends "Sales Order Subform"
                     Counter: Integer;
                     EntryExists: Boolean;
                 begin
-                    // First, check if entries already exist for this sales line
-                    SalesLineUnitRef.SetRange("Sales Line Ref.", Rec.SystemId);
-                    EntryExists := not SalesLineUnitRef.IsEmpty();
+                    // // First, check if entries already exist for this sales line
+                    // SalesLineUnitRef.SetRange("Sales Line Ref.", Rec.SystemId);
+                    // EntryExists := not SalesLineUnitRef.IsEmpty();
 
-                    // If entries exist but quantity changed, delete existing entries
-                    if EntryExists then begin
-                        SalesLineUnitRef.FindSet();
-                        if SalesLineUnitRef.Count <> Rec.Quantity then begin
-                            SalesLineUnitRef.DeleteAll();
-                            EntryExists := false;
-                        end;
-                    end;
+                    // // If entries exist but quantity changed, delete existing entries
+                    // if EntryExists then begin
+                    //     SalesLineUnitRef.FindSet();
+                    //     if SalesLineUnitRef.Count <> Rec.Quantity then begin
+                    //         SalesLineUnitRef.DeleteAll();
+                    //         EntryExists := false;
+                    //     end;
+                    // end;
 
-                    // Create new entries if they don't exist or were deleted
-                    if not EntryExists then begin
-                        for Counter := 1 to Rec.Quantity do begin
-                            SalesLineUnitRef.Init();
-                            SalesLineUnitRef."Sales Line Unit" := CreateGuid();
-                            SalesLineUnitRef."Sales Line Ref." := Rec.SystemId;
-                            SalesLineUnitRef."Item No." := Rec."No.";
-                            SalesLineUnitRef.Description := Rec.Description;
-                            SalesLineUnitRef.Quantity := 1;
-                            // Add any other fields you want to copy from the sales line
-                            SalesLineUnitRef.Insert();
-                        end;
-                    end;
+                    // // Create new entries if they don't exist or were deleted
+                    // if not EntryExists then begin
+                    //     for Counter := 1 to Rec.Quantity do begin
+                    //         SalesLineUnitRef.Init();
+                    //         SalesLineUnitRef."Sales Line Unit" := CreateGuid();
+                    //         SalesLineUnitRef."Sales Line Ref." := Rec.SystemId;
+                    //         SalesLineUnitRef."Item No." := Rec."No.";
+                    //         SalesLineUnitRef.Description := Rec.Description;
+                    //         SalesLineUnitRef.Quantity := 1;
+                    //         // Add any other fields you want to copy from the sales line
+                    //         SalesLineUnitRef.Insert();
+                    //     end;
+                    // end;
 
-                    // Open the Sales Line Unit Ref. List page
-                    Clear(SalesLineUnitRef);
-                    // Open the Sales Line Unit Ref. List page
-                    SalesLineUnitRef.SetRange("Sales Line Ref.", Rec.SystemId);
-                    Page.Run(Page::"Sales Line Unit Ref. List", SalesLineUnitRef);
+                    // // Open the Sales Line Unit Ref. List page
+                    // Clear(SalesLineUnitRef);
+                    // // Open the Sales Line Unit Ref. List page
+                    // SalesLineUnitRef.SetRange("Sales Line Ref.", Rec.SystemId);
+                    // Page.Run(Page::"Sales Line Unit Ref. List", SalesLineUnitRef);
                 end;
             }
             action("DashboardUnit")

@@ -187,32 +187,32 @@ page 50293 "Scan Cutting Sheet"
         SalesLine: Record "Sales Line";
         SalesLineUnitRef: Record "Sales Line Unit Ref.";
     begin
-        // Fetch the design related to the assembly group
-        AssemblyHeader.setfilter("ER - Manufacturing Order No.", ScanRef);
-        if AssemblyHeader.FindSet() then begin
-            Item.Get(AssemblyHeader."Item No.");
-            Design.Get(Item."Design Code");
-            Clear(SalesLine);
-            SalesLine.SetFilter("Document No.", AssemblyHeader."Source No.");
-            SalesLine.Setrange("Document Type", SalesLine."Document Type"::Order);
-            if SalesLine.FindFirst() then begin
-                Clear(SalesLineUnitRef);
+        // // Fetch the design related to the assembly group
+        // AssemblyHeader.setfilter("ER - Manufacturing Order No.", ScanRef);
+        // if AssemblyHeader.FindSet() then begin
+        //     Item.Get(AssemblyHeader."Item No.");
+        //     Design.Get(Item."Design Code");
+        //     Clear(SalesLine);
+        //     SalesLine.SetFilter("Document No.", AssemblyHeader."Source No.");
+        //     SalesLine.Setrange("Document Type", SalesLine."Document Type"::Order);
+        //     if SalesLine.FindFirst() then begin
+        //         Clear(SalesLineUnitRef);
 
-                // Retrieve scan stages for the design
-                DesignActivities.SetRange("Design Code", Design.Code);
-                if DesignActivities.FindSet() then begin
-                    repeat
-                       // IsDone := DesignActivities."Is Done"; // Adjust field name as needed
+        //         // Retrieve scan stages for the design
+        //         DesignActivities.SetRange("Design Code", Design.Code);
+        //         if DesignActivities.FindSet() then begin
+        //             repeat
+        //                // IsDone := DesignActivities."Is Done"; // Adjust field name as needed
 
-                        // Insert into the temporary table
-                        TempStages.Init();
-                        TempStages."Activity Name" := DesignActivities."Activity Name";
-                        TempStages."Is Done" := IsDone;
-                        TempStages.Insert();
-                    until DesignActivities.Next() = 0;
-                end;
-            end;
-        end;
+        //                 // Insert into the temporary table
+        //                 // TempStages.Init();
+        //                 // TempStages."Activity Name" := DesignActivities."Activity Name";
+        //                 // TempStages."Is Done" := IsDone;
+        //                 // TempStages.Insert();
+        //             until DesignActivities.Next() = 0;
+        //         end;
+        //     end;
+        // end;
     end;
 
     var

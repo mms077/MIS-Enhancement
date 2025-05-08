@@ -22,22 +22,31 @@ table 50309 "Scan Design Stages- ER Temp"
             Caption = 'Activity Name';
             NotBlank = true;
         }
-        field(4; "Is Done"; Boolean)
+        field(4; "Design Code"; Code[50])
         {
-            DataClassification = ToBeClassified;
+            FieldClass = FlowField;
+            CalcFormula = Lookup("Item"."Design Code" WHERE("No." = FIELD("Item No.")));
+            Editable = false;
         }
         field(5; "Item No."; code[10])
         {
             DataClassification = ToBeClassified;
         }
-     field(6; "Design Code"; Code[50])
-{
-    Caption = 'Design Code';
-}
+        field(6; Index; Integer)
+        {
+            DataClassification = ToBeClassified;
+            AutoIncrement = true;
+        }
+        field(7; "Activity Selected"; Text[100])
+        {
+            FieldClass = FlowField;
+            CalcFormula = lookup("Design Activities"."Activity Name" where("To Scan" = filter(true)));
+        }
+
     }
     keys
     {
-        key(PK; "Workflow User Group Code", "Activity Name")
+        key(PK; Index)
         {
             Clustered = true;
         }

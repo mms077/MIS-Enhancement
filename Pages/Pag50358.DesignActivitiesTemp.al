@@ -39,12 +39,16 @@ page 50358 "Design Activities Temp"
                                 until DesignActivities.Next() = 0;
                             end;
                         end;
+                        if Rec."To Scan" then begin
+                            if rec.Done = '✅' then
+                                Error('Already Scanned!');
+                        end;
                     end;
                 }
             }
 
         }
-    
+
     }
 
     actions
@@ -54,14 +58,4 @@ page 50358 "Design Activities Temp"
 
         }
     }
-
-    trigger OnAfterGetRecord()
-    var
-        myInt: Integer;
-    begin
-
-    end;
-
-    var
-
 }

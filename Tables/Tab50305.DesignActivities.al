@@ -5,23 +5,23 @@ table 50305 "Design Activities"
 
     fields
     {
-        field(1; "Activity Code"; Code[50])
-        {
-            Caption = 'Activity Code';
-            TableRelation = "Workflow Activities - ER"."Workflow User Group Code";
-            trigger OnValidate()
-            var
-                myInt: Integer;
-                WorkflowActivitiesER: Record "Workflow Activities - ER";
-            begin
-                // Populate Activity Name based on Activity Code
-                if "Activity Code" <> '' then
-                    if not WorkflowActivitiesER.Get("Activity Code") then
-                        Error('Activity Code "%1" does not exist.', "Activity Code")
-                    else
-                        "Activity Name" := WorkflowActivitiesER."Activity Name";
-            end;
-        }
+        // field(1; "Activity Code"; Code[50])
+        // {
+        //     Caption = 'Activity Code';
+        //     TableRelation = "Workflow Activities - ER"."Workflow User Group Code";
+        //     trigger OnValidate()
+        //     var
+        //         myInt: Integer;
+        //         WorkflowActivitiesER: Record "Workflow Activities - ER";
+        //     begin
+        //         // Populate Activity Name based on Activity Code
+        //         if "Activity Code" <> '' then
+        //             if not WorkflowActivitiesER.Get("Activity Code") then
+        //                 Error('Activity Code "%1" does not exist.', "Activity Code")
+        //             else
+        //                 "Activity Name" := WorkflowActivitiesER."Activity Name";
+        //     end;
+        // }
         field(2; "Activity Id"; Integer)
         {
             Caption = 'Activity Id';
@@ -63,6 +63,11 @@ table 50305 "Design Activities"
         {
             DataClassification = ToBeClassified;
 
+        }
+        field(10; "Unit Ref"; code[100])
+        {
+            FieldClass = FlowField;
+            CalcFormula = lookup("Scan Design Stages- ER Temp"."Unit Ref");
         }
 
     }

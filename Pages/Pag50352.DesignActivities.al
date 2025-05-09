@@ -11,7 +11,7 @@ page 50352 "Design Activities"
         {
             repeater(General)
             {
-                field("Activity Code"; Rec."Activity Code") { ApplicationArea = all; Visible = false; }
+                //field("Activity Code"; Rec."Activity Code") { ApplicationArea = all; Visible = false; }
 
                 field("Activity Id"; Rec."Activity Id") { ApplicationArea = all; }
                 field("Activity Name"; Rec."Activity Name") { ApplicationArea = all; }
@@ -38,6 +38,5 @@ page 50352 "Design Activities"
 
         }
     }
-
 
 }

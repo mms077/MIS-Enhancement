@@ -18,11 +18,9 @@ page 50357 "Scan Unit Ref"
                     var
                         MasterItemCU: Codeunit MasterItem;
                         AssemblyHeader: Record "Assembly Header";
-                        ScanDesignStages: Record "Scan Design Stages- ER"; // Replace with the actual table name for scan activities
-                        Dashboard: Record "Cutting Sheets Dashboard"; // Replace with the actual table name for the dashboard
+                        ScanDesignStages: Record "Scan Design Stages- ER";
+                        Dashboard: Record "Cutting Sheets Dashboard";
                         Txt001: Label 'No Assembly found in the group %1';
-                        Txt0001: Label 'Scan In 👍';
-                        Txt0002: Label 'Scan Out 👍';
                         ScanOption: Option "In","Out";
                         Item: Record Item;
                         WorkflowActivitiesER: Record "Workflow Activities - ER";
@@ -31,10 +29,14 @@ page 50357 "Scan Unit Ref"
                         Txt003: Label 'The current sequence number %1 exceeds the maximum sequence number %2 in the scan activities.';
                         SalesLine: Record "Sales Line";
                         SalesUnit: Record "Sales Line Unit Ref.";
-                        ProcessedAssemblies: Dictionary of [Code[20], Boolean]; // To track processed assemblies
+                        ProcessedAssemblies: Dictionary of [Code[20], Boolean];
                         DesignActivities: Record "Design Activities";
-                    //  ScanActivities: Record "Scan Activities";
+                        Status: Text[10];
+                        FoundMissing: Boolean;
+                    //StageIndex:Integer;
                     begin
+                        if UnitRef <> '' then
+                            Rec."Unit Ref" := UnitRef;
                         //make to scan false
                         ResetDesignActivitiesToScan;
                         rec.DeleteAll();
@@ -43,6 +45,7 @@ page 50357 "Scan Unit Ref"
                         Clear(ScanDesignStages);
                         Clear(MO);
                         if UnitRef <> '' then begin
+
                             if MO.Get(UnitRef) then begin
                                 Clear(AssemblyHeader);
                                 AssemblyHeader.SetFilter("ER - Manufacturing Order No.", MO."No.");
@@ -53,19 +56,103 @@ page 50357 "Scan Unit Ref"
                                     Rec."Item No." := AssemblyHeader."Item No.";
                                     Rec."Design Code" := GetItemDesign(Rec."Item No.");
                                     Rec.Modify();
-                                    CurrPage.Update();
+                                    // i need here to go through every line and check o nsales unit ref if for example coloring on table Scan Design Stages- ER List is 1 to check in salesunit line if the scan out is {1} to fill the done field on the line by ✅
+                                    Clear(DesignActivities);
+                                    Clear(ScanDesignStages);
+                                    DesignActivities.SetFilter("Design Code", Rec."Design Code");
+                                    if DesignActivities.FindSet() then begin
+                                        repeat
+                                            // Get the ScanDesignStages record for the current activity
+                                            ScanDesignStages.SetRange(Index, DesignActivities."Activity Id");
+                                            if ScanDesignStages.FindFirst() then begin
+                                                // Initialize as ✅ first
+                                                Status := '✅';
+                                                FoundMissing := false; // Boolean flag to track if any SalesUnit is missing the index
 
-                                end;
+                                                // Loop Sales Lines
+                                                SalesLine.SetFilter("Document No.", AssemblyHeader."Source No.");
+                                                SalesLine.SetRange("Document Type", SalesLine."Document Type"::Order);
+                                                if SalesLine.FindSet() then begin
+                                                    repeat
+                                                        // Loop Sales Units for the Sales Line
+                                                        SalesUnit.SetFilter("Sales Line Ref.", SalesLine."Sales Line Reference");
+                                                        if SalesUnit.FindSet() then begin
+                                                            repeat
+                                                                // Check if Scan Out contains the index
+                                                                if STRPOS(SalesUnit."Scan Out", Format(ScanDesignStages.Index)) = 0 then begin
+                                                                    // Found a missing index -> mark as ❌
+                                                                    Status := '❌';
+                                                                    FoundMissing := true;
+                                                                    break; // exit SalesUnit loop
+                                                                end;
+                                                            until SalesUnit.Next() = 0;
+
+                                                            if FoundMissing then
+                                                                break; // exit SalesLine loop
+                                                        end;
+                                                    until SalesLine.Next() = 0;
+                                                end;
+
+                                                // After processing all, set the status
+                                                DesignActivities.Done := Status;
+                                                DesignActivities.Modify();
+                                            end;
+                                        until DesignActivities.Next() = 0;
+                                    end;
+                                end
                             end else begin
                                 Clear(AssemblyHeader);
                                 AssemblyHeader.SetRange("No.", UnitRef);
                                 if AssemblyHeader.FindSet() then begin
 
+                                    Rec.TRANSFERFIELDS(ScanDesignStages);
+                                    Rec.Insert();
                                     Rec."Item No." := AssemblyHeader."Item No.";
                                     Rec."Design Code" := GetItemDesign(Rec."Item No.");
                                     Rec.Modify();
-                                    CurrPage.Update();
+                                    // i need here to go through every line and check o nsales unit ref if for example coloring on table Scan Design Stages- ER List is 1 to check in salesunit line if the scan out is {1} to fill the done field on the line by ✅
+                                    Clear(DesignActivities);
+                                    Clear(ScanDesignStages);
+                                    DesignActivities.SetFilter("Design Code", Rec."Design Code");
+                                    if DesignActivities.FindSet() then begin
+                                        repeat
+                                            // Get the ScanDesignStages record for the current activity
+                                            ScanDesignStages.SetRange(Index, DesignActivities."Activity Id");
+                                            if ScanDesignStages.FindFirst() then begin
+                                                // Initialize as ✅ first
+                                                Status := '✅';
+                                                FoundMissing := false; // Boolean flag to track if any SalesUnit is missing the index
 
+                                                // Loop Sales Lines
+                                                SalesLine.SetFilter("Document No.", AssemblyHeader."Source No.");
+                                                SalesLine.SetRange("Document Type", SalesLine."Document Type"::Order);
+                                                if SalesLine.FindSet() then begin
+                                                    repeat
+                                                        // Loop Sales Units for the Sales Line
+                                                        SalesUnit.SetFilter("Sales Line Ref.", SalesLine."Sales Line Reference");
+                                                        if SalesUnit.FindSet() then begin
+                                                            repeat
+                                                                // Check if Scan Out contains the index
+                                                                if STRPOS(SalesUnit."Scan Out", Format(ScanDesignStages.Index)) = 0 then begin
+                                                                    // Found a missing index -> mark as ❌
+                                                                    Status := '❌';
+                                                                    FoundMissing := true;
+                                                                    break; // exit SalesUnit loop
+                                                                end;
+                                                            until SalesUnit.Next() = 0;
+
+                                                            if FoundMissing then
+                                                                break; // exit SalesLine loop
+                                                        end;
+                                                    until SalesLine.Next() = 0;
+                                                end;
+
+                                                // After processing all, set the status
+                                                DesignActivities.Done := Status;
+                                                DesignActivities.Modify();
+                                            end;
+                                        until DesignActivities.Next() = 0;
+                                    end
                                 end else begin
                                     SalesUnit.SetFilter("Sales Line Unit", UnitRef);
                                     if SalesUnit.FindFirst() then begin
@@ -75,10 +162,16 @@ page 50357 "Scan Unit Ref"
                                             Rec."Item No." := SalesLine."No.";
                                             Rec."Design Code" := GetItemDesign(Rec."Item No.");
                                             Rec.Modify();
-                                            CurrPage.Update();
+                                            // Check if Scan Out contains the index
+                                            if STRPOS(SalesUnit."Scan Out", Format(ScanDesignStages.Index)) = 0 then begin
+                                                // Found a missing index -> mark as ❌
+                                                Status := '❌';
+                                                FoundMissing := true;
+                                            end;
                                         end;
                                     END;
                                 END;
+
                             end;
                         end;
                     end;
@@ -110,13 +203,11 @@ page 50357 "Scan Unit Ref"
                         DesignActivities: Record "Design Activities";
                         ScanActivities: Record "Scan Activities";
                         ProcessedSourceNos: Dictionary of [Code[20], Boolean]; // To track processed Source Nos
-                        QtyCounter: Integer;
                         AuthToken: Text;
                         ScanDesignStagesER: Record "Scan Design Stages- ER";
+                        RequestSucsessed: Boolean;
                     begin
-                        // rec.DeleteAll();
-                        QtyCounter := 1;
-                        // Initialize the dictionary
+
                         Clear(ProcessedSourceNos);
                         if UnitRef = '' then
                             Error('You must fill Unit Ref First');
@@ -171,15 +262,19 @@ page 50357 "Scan Unit Ref"
                                                                 ScanActivities."Activity Time" := Time;
                                                                 ScanActivities.Insert();
                                                                 //call api to insert 
+                                                                RequestSucsessed := false;
                                                                 AuthToken := GenerateToken();
-                                                                FillRequest(AuthToken, ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec);
+                                                                RequestSucsessed := FillRequest(AuthToken, ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec);
                                                                 // Delete both "In" and "Out" activities after API call
-                                                                Clear(ScanActivities);
-                                                                ScanActivities.SetFilter("Sales Line Unit Id.", SalesUnit."Sales Line Unit");
-                                                                ScanActivities.SetFilter("Sales Line Id", SalesLine."Sales Line Reference");
-                                                                if ScanActivities.FindSet() then
-                                                                    ScanActivities.DeleteAll();
-                                                                UpdateScanOutField(SalesUnit);
+                                                                if RequestSucsessed then begin
+                                                                    Clear(ScanActivities);
+                                                                    ScanActivities.SetFilter("Sales Line Unit Id.", SalesUnit."Sales Line Unit");
+                                                                    ScanActivities.SetFilter("Sales Line Id", SalesLine."Sales Line Reference");
+                                                                    if ScanActivities.FindSet() then begin
+                                                                        ScanActivities.DeleteAll();
+                                                                        UpdateScanOutField(SalesUnit);
+                                                                    end;
+                                                                end;
                                                             end else begin
                                                                 // Insert "In" activity if no "In" exists
                                                                 Clear(ScanActivities);
@@ -199,12 +294,12 @@ page 50357 "Scan Unit Ref"
                                                                 ScanActivities."Activity Date" := CurrentDateTime;
                                                                 ScanActivities."Activity Time" := Time;
                                                                 ScanActivities.Insert();
-                                                                //call api to insert 
+                                                                RequestSucsessed := false;
                                                                 AuthToken := GenerateToken();
-                                                                FillRequest(AuthToken, ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec);
+                                                                RequestSucsessed := FillRequest(AuthToken, ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec);
                                                                 // fill scanIn in SalesUnit in order to know which stage are done
-
-                                                                UpdateScanInField(SalesUnit)
+                                                                if RequestSucsessed then
+                                                                    UpdateScanInField(SalesUnit)
                                                             end;
                                                         until SalesUnit.Next() = 0;
                                                     end;
@@ -229,7 +324,6 @@ page 50357 "Scan Unit Ref"
                                             SalesLine.SetRange("Document Type", SalesLine."Document Type"::Order);
                                             if SalesLine.FindSet() then begin
                                                 repeat
-
                                                     // Loop for each quantity in the Sales Line
                                                     SalesUnit.SetFilter("Sales Line Ref.", SalesLine."Sales Line Reference");
                                                     if SalesUnit.FindFirst() then begin
@@ -259,6 +353,18 @@ page 50357 "Scan Unit Ref"
                                                                 ScanActivities."Activity Date" := CurrentDateTime;
                                                                 ScanActivities."Activity Time" := Time;
                                                                 ScanActivities.Insert();
+                                                                //call api to insert 
+                                                                AuthToken := GenerateToken();
+                                                                FillRequest(AuthToken, ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec);
+                                                                // Delete both "In" and "Out" activities after API call
+                                                                Clear(ScanActivities);
+                                                                ScanActivities.SetFilter("Sales Line Unit Id.", SalesUnit."Sales Line Unit");
+                                                                ScanActivities.SetFilter("Sales Line Id", SalesLine."Sales Line Reference");
+                                                                if ScanActivities.FindSet() then begin
+                                                                    ScanActivities.DeleteAll();
+                                                                    UpdateScanOutField(SalesUnit);
+
+                                                                end;
                                                             end else begin
                                                                 // Insert "In" activity if no "In" exists
                                                                 Clear(ScanActivities);
@@ -278,6 +384,12 @@ page 50357 "Scan Unit Ref"
                                                                 ScanActivities."Activity Date" := CurrentDateTime;
                                                                 ScanActivities."Activity Time" := Time;
                                                                 ScanActivities.Insert();
+                                                                //call api to insert 
+                                                                AuthToken := GenerateToken();
+                                                                FillRequest(AuthToken, ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec);
+                                                                // fill scanIn in SalesUnit in order to know which stage are done
+
+                                                                UpdateScanInField(SalesUnit)
                                                             end;
                                                         until SalesUnit.Next() = 0;
                                                     end;
@@ -322,6 +434,18 @@ page 50357 "Scan Unit Ref"
                                                 ScanActivities."Activity Date" := CurrentDateTime;
                                                 ScanActivities."Activity Time" := Time;
                                                 ScanActivities.Insert();
+                                                //call api to insert 
+                                                AuthToken := GenerateToken();
+                                                FillRequest(AuthToken, ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec);
+                                                // Delete both "In" and "Out" activities after API call
+                                                Clear(ScanActivities);
+                                                ScanActivities.SetFilter("Sales Line Unit Id.", SalesUnit."Sales Line Unit");
+                                                ScanActivities.SetFilter("Sales Line Id", SalesLine."Sales Line Reference");
+                                                if ScanActivities.FindSet() then begin
+                                                    ScanActivities.DeleteAll();
+                                                    UpdateScanOutField(SalesUnit);
+
+                                                end;
                                             end else begin
                                                 // Insert "In" activity if no "In" exists
                                                 Clear(ScanActivities);
@@ -341,6 +465,12 @@ page 50357 "Scan Unit Ref"
                                                 ScanActivities."Activity Date" := CurrentDateTime;
                                                 ScanActivities."Activity Time" := Time;
                                                 ScanActivities.Insert();
+                                                //call api to insert 
+                                                AuthToken := GenerateToken();
+                                                FillRequest(AuthToken, ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec);
+                                                // fill scanIn in SalesUnit in order to know which stage are done
+
+                                                UpdateScanInField(SalesUnit)
                                             end;
                                         until SalesUnit.Next() = 0;
                                     end else begin
@@ -359,47 +489,73 @@ page 50357 "Scan Unit Ref"
 
                                             // Check if an "In" activity exists
                                             if ScanActivities.FindFirst() then begin
-                                                // Insert "Out" activity
                                                 Clear(ScanActivities);
-                                                ScanActivities.Init();
-                                                ScanActivities."Sales Line Unit Id." := SalesUnit."Sales Line Unit";
-                                                ScanActivities."Sales Line Id" := SalesLine."Sales Line Reference";
-                                                ScanActivities."Activity Type" := ScanActivities."Activity Type"::"Out"; // Insert "Out" activity
-                                                ScanActivities."Assembly No." := AssemblyHeader."No.";
-                                                ScanActivities."ER - Manufacturing Order No." := MO."No.";
-                                                ScanActivities."Item No." := SalesLine."No.";
-                                                ScanActivities."Design Code" := GetItemDesign(Rec."Item No.");
-                                                ScanActivities."Variant Code" := AssemblyHeader."Variant Code";
-                                                ScanActivities."Source No." := SalesLine."Document No.";
-                                                ScanActivities."Activity Code" := '';
-                                                ScanActivities."Activity Name" := GetActivityNameSelected(Rec."Design Code");
-                                                ScanActivities."Activity Remark" := '';
-                                                ScanActivities."Activity Date" := CurrentDateTime;
-                                                ScanActivities."Activity Time" := Time;
-                                                ScanActivities.Insert();
-                                            end else begin
-                                                // Insert "In" activity if no "In" exists
-                                                Clear(ScanActivities);
-                                                ScanActivities.Init();
-                                                ScanActivities."Sales Line Unit Id." := SalesUnit."Sales Line Unit";
-                                                ScanActivities."Sales Line Id" := SalesLine."Sales Line Reference";
-                                                ScanActivities."Activity Type" := ScanActivities."Activity Type"::"In"; // Insert "In" activity
-                                                ScanActivities."Assembly No." := AssemblyHeader."No.";
-                                                ScanActivities."ER - Manufacturing Order No." := MO."No.";
-                                                ScanActivities."Item No." := SalesLine."No.";
-                                                ScanActivities."Design Code" := GetItemDesign(Rec."Item No.");
-                                                ScanActivities."Variant Code" := AssemblyHeader."Variant Code";
-                                                ScanActivities."Source No." := SalesLine."Document No.";
-                                                ScanActivities."Activity Code" := '';
-                                                ScanActivities."Activity Name" := GetActivityNameSelected(Rec."Design Code");
-                                                ScanActivities."Activity Remark" := '';
-                                                ScanActivities."Activity Date" := CurrentDateTime;
-                                                ScanActivities."Activity Time" := Time;
-                                                ScanActivities.Insert();
+                                                ScanActivities.SetFilter("Sales Line Unit Id.", SalesUnit."Sales Line Unit");
+                                                ScanActivities.SetFilter("Sales Line Id", SalesLine."Sales Line Reference");
+                                                ScanActivities.setrange("Activity Type", ScanActivities."Activity Type"::"In");
+
+                                                // Check if an "In" activity exists
+                                                if ScanActivities.FindFirst() then begin
+                                                    // Insert "Out" activity
+                                                    Clear(ScanActivities);
+                                                    ScanActivities.Init();
+                                                    ScanActivities."Sales Line Unit Id." := SalesUnit."Sales Line Unit";
+                                                    ScanActivities."Sales Line Id" := SalesLine."Sales Line Reference";
+                                                    ScanActivities."Activity Type" := ScanActivities."Activity Type"::"Out"; // Insert "Out" activity
+                                                    ScanActivities."Assembly No." := AssemblyHeader."No.";
+                                                    ScanActivities."ER - Manufacturing Order No." := MO."No.";
+                                                    ScanActivities."Item No." := SalesLine."No.";
+                                                    ScanActivities."Design Code" := GetItemDesign(Rec."Item No.");
+                                                    ScanActivities."Variant Code" := AssemblyHeader."Variant Code";
+                                                    ScanActivities."Source No." := SalesLine."Document No.";
+                                                    ScanActivities."Activity Code" := '';
+                                                    ScanActivities."Activity Name" := GetActivityNameSelected(Rec."Design Code");
+                                                    ScanActivities."Activity Remark" := '';
+                                                    ScanActivities."Activity Date" := CurrentDateTime;
+                                                    ScanActivities."Activity Time" := Time;
+                                                    ScanActivities.Insert();
+                                                    //call api to insert 
+                                                    AuthToken := GenerateToken();
+                                                    FillRequest(AuthToken, ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec);
+                                                    // Delete both "In" and "Out" activities after API call
+                                                    Clear(ScanActivities);
+                                                    ScanActivities.SetFilter("Sales Line Unit Id.", SalesUnit."Sales Line Unit");
+                                                    ScanActivities.SetFilter("Sales Line Id", SalesLine."Sales Line Reference");
+                                                    if ScanActivities.FindSet() then begin
+                                                        ScanActivities.DeleteAll();
+                                                        UpdateScanOutField(SalesUnit);
+
+                                                    end;
+                                                end else begin
+                                                    // Insert "In" activity if no "In" exists
+                                                    Clear(ScanActivities);
+                                                    ScanActivities.Init();
+                                                    ScanActivities."Sales Line Unit Id." := SalesUnit."Sales Line Unit";
+                                                    ScanActivities."Sales Line Id" := SalesLine."Sales Line Reference";
+                                                    ScanActivities."Activity Type" := ScanActivities."Activity Type"::"In"; // Insert "In" activity
+                                                    ScanActivities."Assembly No." := AssemblyHeader."No.";
+                                                    ScanActivities."ER - Manufacturing Order No." := MO."No.";
+                                                    ScanActivities."Item No." := SalesLine."No.";
+                                                    ScanActivities."Design Code" := GetItemDesign(Rec."Item No.");
+                                                    ScanActivities."Variant Code" := AssemblyHeader."Variant Code";
+                                                    ScanActivities."Source No." := SalesLine."Document No.";
+                                                    ScanActivities."Activity Code" := '';
+                                                    ScanActivities."Activity Name" := GetActivityNameSelected(Rec."Design Code");
+                                                    ScanActivities."Activity Remark" := '';
+                                                    ScanActivities."Activity Date" := CurrentDateTime;
+                                                    ScanActivities."Activity Time" := Time;
+                                                    ScanActivities.Insert();
+                                                    //call api to insert 
+                                                    AuthToken := GenerateToken();
+                                                    FillRequest(AuthToken, ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec);
+                                                    // fill scanIn in SalesUnit in order to know which stage are done
+
+                                                    UpdateScanInField(SalesUnit);
+                                                end;
                                             end;
                                         end;
-                                    end;
 
+                                    end;
                                 end;
                             end;
                         end;
@@ -409,7 +565,6 @@ page 50357 "Scan Unit Ref"
             part(DesignActivityStagesPart; "Design Activities Temp")
             {
 
-                // SubPageLink updated to use a valid field from the Design Activities table
                 SubPageLink = "Design Code" = field("Design Code");
                 SubPageView = sorting("Sequence No.");
                 Editable = true;
@@ -421,16 +576,7 @@ page 50357 "Scan Unit Ref"
     {
         area(Processing)
         {
-            // action(ActionName)
-            // {
-            //     trigger OnAction()
-            //     var
-            //         Token: Text;
-            //     begin
-            //         Token := GenerateToken();
-            //         FillRequest(Token);
-            //     end;
-            // }
+
         }
     }
     local procedure GetItemDesign(ItemNo: Code[20]): Code[50]
@@ -451,6 +597,7 @@ page 50357 "Scan Unit Ref"
         if DesignActivities.FindSet() then
             repeat
                 DesignActivities."To Scan" := false;
+                DesignActivities.Done := '';
                 DesignActivities.Modify();
             until DesignActivities.Next() = 0;
     end;
@@ -505,7 +652,7 @@ page 50357 "Scan Unit Ref"
             // Update the "Scan In" field
             SalesUnitRef."Scan In" := CurrentScanIn;
             SalesUnitRef.Modify();
-           
+
         end;
 
     end;
@@ -522,23 +669,23 @@ page 50357 "Scan Unit Ref"
         rec.CalcFields("Activity Selected");
         ScanDesignStagesER.SetFilter("Activity Name", rec."Activity Selected");
         if ScanDesignStagesER.FindFirst() then begin
-        
-                // Get the current value of "Scan Out"
-                CurrentScanOut := SalesUnitRef."Scan Out";
 
-                // Append the current activity index to "Scan Out"
-                if CurrentScanOut = '' then
-                    CurrentScanOut := '{' + Format(ScanDesignStagesER."Index") + '}'
-                else
-                    CurrentScanOut := StrSubstNo('%1,%2', CurrentScanOut.TrimEnd('}'), Format(ScanDesignStagesER."Index")) + '}';
+            // Get the current value of "Scan Out"
+            CurrentScanOut := SalesUnitRef."Scan Out";
 
-                // Update the "Scan Out" field
-                SalesUnitRef."Scan Out" := CurrentScanOut;
-                SalesUnitRef.Modify();
-             
-            end;
+            // Append the current activity index to "Scan Out"
+            if CurrentScanOut = '' then
+                CurrentScanOut := '{' + Format(ScanDesignStagesER."Index") + '}'
+            else
+                CurrentScanOut := StrSubstNo('%1,%2', CurrentScanOut.TrimEnd('}'), Format(ScanDesignStagesER."Index")) + '}';
+
+            // Update the "Scan Out" field
+            SalesUnitRef."Scan Out" := CurrentScanOut;
+            SalesUnitRef.Modify();
+
         end;
-   
+    end;
+
 
     procedure GenerateToken(): Text
     var
@@ -581,7 +728,8 @@ page 50357 "Scan Unit Ref"
             if not HttpResponse.IsSuccessStatusCode then
                 exit;
             HttpResponse.Content.ReadAs(HttpResponseMsg);
-            JsonResponse.ReadFrom('{"status": "success","message": "Connected.","data": {"token": "166044c5cf3a83e0c2d135aee14b91a0"}}');
+            //  JsonResponse.ReadFrom(HttpResponseMsg);
+            JsonResponse.ReadFrom('{"status": "success","message": "Connected.","data": {"token": "cd1a6649f6019b0fa5f1a067d009df2e"}}');
             //  JsonResponse.ReadFrom(HttpResponseMsg);
             if JsonResponse.Get('data', Jtoken) then begin
                 // if Jtoken.IsValue then
@@ -597,31 +745,18 @@ page 50357 "Scan Unit Ref"
     End;
 
 
-    local procedure FillRequest(Token: Text; ScanRec: Record "Scan Activities"; SalesUnitRec: Record "Sales Line Unit Ref."; AssemblyHeaderRec: Record "Assembly Header"; MO: Record "ER - Manufacturing Order"; SalesLineRec: Record "Sales Line"; Rec: Record "Scan Design Stages- ER Temp")
+    local procedure FillRequest(Token: Text; ScanRec: Record "Scan Activities"; SalesUnitRec: Record "Sales Line Unit Ref."; AssemblyHeaderRec: Record "Assembly Header"; MO: Record "ER - Manufacturing Order"; SalesLineRec: Record "Sales Line"; Rec: Record "Scan Design Stages- ER Temp"): Boolean
     var
 
         ScanDetails: JsonObject;
-        ItemCustomAttributes: JsonArray;
-        CustomAttributes: JsonObject;
         txt: Text;
-        Item: Record Item;
         HttpClient: HttpClient;
         Request: HttpRequestMessage;
         Response: HttpResponseMessage;
         ResponseMsg: Text;
         Content: HttpContent;
         ContentHeaders: HttpHeaders;
-        Authorization: Label 'Authorization';
-        QueryFieldFilter: label 'searchCriteria%5BfilterGroups%5D%5B0%5D%5Bfilters%5D%5B0%5D%5Bfield%5D';
-        QueryValueFilter: Label 'searchCriteria%5BfilterGroups%5D%5B0%5D%5Bfilters%5D%5B0%5D%5Bvalue%5D';
-        QuestMark: Label '?';
-        BSlach: Label '/';
-        OutStr: OutStream;
-        InStr: InStream;
         FileName: Text;
-        Result: Text;
-        tempblob: Codeunit "Temp Blob";
-        Payload: JsonObject;
         RootObject: JsonObject;
         DataArray: JsonArray;
     begin
@@ -632,7 +767,7 @@ page 50357 "Scan Unit Ref"
         Clear(txt);
 
         // Build the JSON object (1 item)
-        ScanDetails.Add('sales_line_unit_id', SalesUnitRec."Sales Line Unit" + 'r3wqty2ws7w7');
+        ScanDetails.Add('sales_line_unit_id', SalesUnitRec."Sales Line Unit" + 'r3wqty2wss42ws7w7');
         ScanDetails.Add('sales_line_id', SalesLineRec."Sales Line Reference");
         ScanDetails.Add('assembly_no', AssemblyHeaderRec."No.");
         ScanDetails.Add('mo_no', MO."No.");
@@ -674,10 +809,15 @@ page 50357 "Scan Unit Ref"
             if Response.HttpStatusCode = 200 then begin
                 Response.Content.ReadAs(ResponseMsg);
                 Message('Response: %1', ResponseMsg);
-            end else
+                exit(true); // Return true for success
+            end else begin
                 Error('HTTP Error: %1 - %2', Response.HttpStatusCode, Response.ReasonPhrase());
-        end else
+                exit(false); // Return false for failure
+            end;
+        end else begin
             Error('Failed to send the HTTP request.');
+            exit(false); // Return false for failure
+        end;
 
 
     end;
@@ -685,7 +825,7 @@ page 50357 "Scan Unit Ref"
 
 
     var
-        UnitRef: Code[50];
+        UnitRef: Code[100];
         User: Code[50];
         DesignCode: code[50];
         rep: Codeunit ReportManagement;

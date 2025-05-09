@@ -42,6 +42,10 @@ table 50309 "Scan Design Stages- ER Temp"
             FieldClass = FlowField;
             CalcFormula = lookup("Design Activities"."Activity Name" where("To Scan" = filter(true)));
         }
+        field(8; "Unit Ref"; Code[100])
+        {
+            DataClassification = ToBeClassified;
+        }
 
     }
     keys

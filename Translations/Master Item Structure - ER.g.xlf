@@ -2084,9 +2084,14 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table Look Version Positions - Field Look Version Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2092225633 - Field 56735747 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Position</source>
+          <source>Position Code</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Look Version Positions - Field Position - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2092225633 - Field 1953365538 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Position Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look Version Positions - Field Position Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2043821806 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Measurement</source>

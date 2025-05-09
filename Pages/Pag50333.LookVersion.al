@@ -285,13 +285,20 @@ page 50333 "Look Version"
 
 
         //display front image
-
-        DocAttachement.setrange("Record ID", rec.RecordId);
-        DocAttachement.SetFilter(Description, 'Front');
+        DocAttachement.SetRange("Record ID", rec.RecordId);
+        DocAttachement.SetFilter(Description, 'Thumbnail');
         if DocAttachement.FindFirst() then begin
             SharepointSetup.Get();
             Front := DELSTR(DocAttachement.URL1, 1, STRLEN(SharepointSetup."Sharepoint URL Http"));
-            //Message(Front);
+        end;
+        if front = '' then begin
+            DocAttachement.setrange("Record ID", rec.RecordId);
+            DocAttachement.SetFilter(Description, 'Front');
+            if DocAttachement.FindFirst() then begin
+                SharepointSetup.Get();
+                Front := DELSTR(DocAttachement.URL1, 1, STRLEN(SharepointSetup."Sharepoint URL Http"));
+                //Message(Front);
+            end;
         end;
         DocAttachement.setrange("Record ID", rec.RecordId);
         DocAttachement.SetFilter(Description, 'Back');
@@ -334,9 +341,11 @@ page 50333 "Look Version"
 
         //add pic to Fronty image
         if Front <> '' then begin
+            Clear(rec."Front Picture");
+            Rec.Modify();
+            Commit();
             frontFileName := FileMgt.GetFileName(Front);
             FrontInStr := SharepointMgt.OpenFileLookVersion(Front, Rec);
-            Clear(rec."Front Picture");
             Rec."Front Picture".ImportStream(FrontInStr, FrontFileName);
             rec.Modify();
         end;

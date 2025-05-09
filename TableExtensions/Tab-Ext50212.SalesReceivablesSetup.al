@@ -45,7 +45,12 @@ tableextension 50212 "Sales & Receivables Setup - ER" extends "Sales & Receivabl
             DataClassification = ToBeClassified;
             TableRelation = "No. Series";
         }
-      
 
+        field(50309; "Scanning Workflow Group"; Code[20])
+        {
+            Caption = 'Scanning Workflow Group';
+            DataClassification = ToBeClassified;
+            TableRelation = "Workflow User Group scan".Code;
+        }
     }
 }

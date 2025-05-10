@@ -44,30 +44,23 @@ page 50358 "Design Activities Temp"
                             if rec.Done = '✅' then
                                 Error('Already Scanned!');
                         end;
-                        if (Rec."To Scan") and (rec."Sequence No." <> 1 )then begin
+                        if (Rec."To Scan") and (rec."Sequence No." <> 1) then begin
                             //check scanning conditions
-                            // i need to check if the selected rec is ❌ and mandatory and allow non seq is false then check the rec before if its ✅ before
-                            if (rec.Done = '❌') and (Rec."Stage Type" = Rec."Stage Type"::Mandatory) and not (Rec."Allow Non-Sequential Scanning") then begin
-                                Clear(PreviousActivity);
-                                if PreviousActivity.Get(Rec."Design Code", Rec."Activity Id" - 1, (Rec."Sequence No." - 1)) then begin
-                                    if PreviousActivity.Done <> '✅' then
-                                        Error('The previous activity must be completed before scanning this one.');
-                                end else
-                                    Error('Previous activity not found.');
+
+
+                            // Check all mandatory activities before the current Activity Id
+                            if (Rec.Done = '❌') and not (Rec."Allow Non-Sequential Scanning") then begin
+                                Clear(DesignActivities);
+                                DesignActivities.setfilter("Design Code", Rec."Design Code");
+                                DesignActivities.SetRange("Activity Id", 1, Rec."Activity Id" - 1); // Activities before the current one
+                                DesignActivities.SetRange("Stage Type", DesignActivities."Stage Type"::Mandatory); // Only mandatory activities
+                                DesignActivities.SetFilter(Done, '❌');
+                                if DesignActivities.FindSet() then begin
+                                    repeat
+                                            Error('All mandatory activities before this one must be completed before scanning.');
+                                    until DesignActivities.Next() = 0;
+                                end;
                             end;
-
-
-
-                            if (rec.Done = '❌') and (Rec."Stage Type" = Rec."Stage Type"::Mandatory) and not (Rec."Allow Non-Sequential Scanning") then begin
-                                Clear(PreviousActivity);
-                                if PreviousActivity.Get(Rec."Design Code", Rec."Activity Id" - 1, Rec."Sequence No." - 1) then begin
-                                    if PreviousActivity.Done <> '✅' then
-                                        if PreviousActivity."Stage Type" = PreviousActivity."Stage Type"::Mandatory then
-                                            Error('The previous activity must be completed before scanning this one.');
-                                end else
-                                    Error('Previous activity not found.');
-                            end;
-                            // for non sequential i need the activities to be selected by sequemce instead if its non sequential
                         end;
 
                     end;

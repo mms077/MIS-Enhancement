@@ -1,6 +1,6 @@
 table 50307 "Scan Design Stages- ER"
 {
-    Caption = 'Scan Design Stages - ER';
+    Caption = 'Design Scan Stages - ER';
     DataClassification = ToBeClassified;
 
     fields
@@ -9,7 +9,7 @@ table 50307 "Scan Design Stages- ER"
         {
             Caption = 'Workflow User Group Code';
             NotBlank = true;
-            TableRelation = "Workflow User Group-ER".Code;
+            TableRelation = "Workflow User Group Scan".Code;
         }
         // field(2; "Workflow User Group Sequence"; Integer)
         // {
@@ -48,7 +48,7 @@ table 50307 "Scan Design Stages- ER"
     {
         fieldgroup(DropDown; Index, "Activity Name")
         {
-    
+
         }
     }
 }

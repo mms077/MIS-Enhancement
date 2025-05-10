@@ -1,6 +1,6 @@
 table 50309 "Scan Design Stages- ER Temp"
 {
-    Caption = 'Scan Design Stages - ER';
+    Caption = 'Design Scan Stages - ER';
     DataClassification = ToBeClassified;
     TableType = Temporary;
 

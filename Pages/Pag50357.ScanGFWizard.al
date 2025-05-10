@@ -14,6 +14,7 @@ page 50357 "Scan Unit Ref"
                 field(UnitRef; UnitRef)
                 {
                     ApplicationArea = All;
+                    Caption = 'Scanning Reference';
                     trigger OnValidate()
                     var
                         MasterItemCU: Codeunit MasterItem;
@@ -1011,7 +1012,7 @@ page 50357 "Scan Unit Ref"
 
 
         // Add the Authorization header
-        HttpClient.DefaultRequestHeaders.Add('Authorization', StrSubstNo( AccessToken));
+        HttpClient.DefaultRequestHeaders.Add('Authorization', StrSubstNo(AccessToken));
 
         // Add the Accept header
         HttpClient.DefaultRequestHeaders.Add('Accept', 'application/json');
@@ -1115,7 +1116,7 @@ page 50357 "Scan Unit Ref"
 
 
         // Add the Authorization header
-        HttpClient.DefaultRequestHeaders.Add('Authorization', StrSubstNo( AccessToken));
+        HttpClient.DefaultRequestHeaders.Add('Authorization', StrSubstNo(AccessToken));
 
         // Add the Accept header
         HttpClient.DefaultRequestHeaders.Add('Accept', 'application/json');
@@ -1219,7 +1220,7 @@ page 50357 "Scan Unit Ref"
 
 
         // Add the Authorization header
-        HttpClient.DefaultRequestHeaders.Add('Authorization', StrSubstNo( AccessToken));
+        HttpClient.DefaultRequestHeaders.Add('Authorization', StrSubstNo(AccessToken));
 
         // Add the Accept header
         HttpClient.DefaultRequestHeaders.Add('Accept', 'application/json');

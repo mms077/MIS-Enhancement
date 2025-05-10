@@ -20,7 +20,7 @@ page 50352 "Design Activities"
                 field("Stage Type"; Rec."Stage Type") { ApplicationArea = all; }
 
                 field("Allow Non-Sequential Scanning"; Rec."Allow Non-Sequential Scanning") { ApplicationArea = all; }
-                field(Done; Rec.Done) { ApplicationArea = all; }
+                //field(Done; Rec.Done) { ApplicationArea = all; }
                 //    field("To Scan"; Rec."To Scan") { ApplicationArea = all; }
             }
 

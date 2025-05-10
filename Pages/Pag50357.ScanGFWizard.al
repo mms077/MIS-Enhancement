@@ -48,7 +48,7 @@ page 50357 "Scan Unit Ref"
 
                             if MO.Get(UnitRef) then begin
                                 //fill existing scan
-                                FillExistingScanHistory(UnitRef);
+                                FillExistingScanHistoryForMO(UnitRef);
                                 Clear(AssemblyHeader);
                                 AssemblyHeader.SetFilter("ER - Manufacturing Order No.", MO."No.");
                                 if AssemblyHeader.FindFirst() then begin
@@ -106,7 +106,7 @@ page 50357 "Scan Unit Ref"
                                 Clear(AssemblyHeader);
                                 AssemblyHeader.SetRange("No.", UnitRef);
                                 if AssemblyHeader.FindSet() then begin
-
+                                    FillExistingScanHistoryforAssembly(UnitRef);
                                     Rec.TRANSFERFIELDS(ScanDesignStages);
                                     Rec.Insert();
                                     Rec."Item No." := AssemblyHeader."Item No.";
@@ -155,28 +155,57 @@ page 50357 "Scan Unit Ref"
                                             end;
                                         until DesignActivities.Next() = 0;
                                     end
-                                end else begin
-                                    SalesUnit.SetFilter("Sales Line Unit", UnitRef);
+                                end
+
+                                else begin
+                                    Status := '✅';
+                                    FoundMissing := false;
+
+                                    MasterItemCU.CheckUserResponibilityScanning(GetSequenceSelected(GetItemDesign(Rec."Item No.")), User, GetActivitySelected(GetItemDesign(Rec."Item No.")));
+
+                                    Clear(SalesUnit);
+                                    // Loop for each quantity in the Sales Line
+                                    SalesUnit.SetFilter("Sales Line Ref.", UnitRef);
                                     if SalesUnit.FindFirst() then begin
-                                        Clear(SalesLine);
-                                        SalesLine.SetFilter("Sales Line Reference", SalesUnit."Sales Line Ref.");
-                                        if SalesLine.FindFirst() then begin
-                                            Rec."Item No." := SalesLine."No.";
-                                            Rec."Design Code" := GetItemDesign(Rec."Item No.");
-                                            Rec.Modify();
+                                        repeat
                                             // Check if Scan Out contains the index
                                             if STRPOS(SalesUnit."Scan Out", Format(ScanDesignStages.Index)) = 0 then begin
                                                 // Found a missing index -> mark as ❌
                                                 Status := '❌';
                                                 FoundMissing := true;
+                                                break; // exit SalesUnit loop
                                             end;
-                                        end;
-                                    END;
-                                END;
+                                        until SalesUnit.Next() = 0;
 
+
+
+                                    end else begin
+                                        Status := '✅';
+                                        FoundMissing := false;
+                                        SalesUnit.SetFilter("Sales Line Unit", UnitRef);
+                                        if SalesUnit.FindFirst() then begin
+                                            Clear(SalesLine);
+                                            SalesLine.SetFilter("Sales Line Reference", SalesUnit."Sales Line Ref.");
+                                            if SalesLine.FindFirst() then begin
+                                                Rec."Item No." := SalesLine."No.";
+                                                Rec."Design Code" := GetItemDesign(Rec."Item No.");
+                                                Rec.Modify();
+                                                // Check if Scan Out contains the index
+                                                if STRPOS(SalesUnit."Scan Out", Format(ScanDesignStages.Index)) = 0 then begin
+                                                    // Found a missing index -> mark as ❌
+                                                    Status := '❌';
+                                                    FoundMissing := true;
+                                                end;
+                                            end;
+                                        END;
+                                    END;
+
+                                end;
                             end;
                         end;
                     end;
+
+
                 }
 
                 field(User; User)
@@ -576,7 +605,7 @@ page 50357 "Scan Unit Ref"
         {
             part(ExistingScansPart; "Existing Scans")
             {
-                //  SubPageLink = "Unit Ref" = field("Unit Ref");
+                SubPageLink = "Unit Ref" = field("Unit Ref");
                 ApplicationArea = All;
             }
         }
@@ -845,7 +874,7 @@ page 50357 "Scan Unit Ref"
 
     end;
 
-    local procedure FillExistingScanHistory(MOFilter: Text)
+    local procedure FillExistingScanHistoryForMO(Filter: Text)
     var
         APIUrl: Text;
         HttpClient: HttpClient;
@@ -863,11 +892,11 @@ page 50357 "Scan Unit Ref"
         // Set the MO number filter
         clear(CleanedResponse);
         // Build the API URL
-        APIUrl := StrSubstNo('https://portal.emilerassam.com/api/core/scan/?filter=mo_no eq ''%1''&orderby=activity_date desc', MOFilter);
+        APIUrl := StrSubstNo('https://portal.emilerassam.com/api/core/scan/?filter=mo_no eq ''%1''&orderby=activity_date desc', Filter);
 
 
         // Add the Authorization header
-        HttpClient.DefaultRequestHeaders.Add('Authorization', StrSubstNo('Bearer %1', 'a2dc2b707f5311f2ca441cefe82d444e'));
+        HttpClient.DefaultRequestHeaders.Add('Authorization', StrSubstNo('Bearer %1', '06d32d9f241d069a9dae80c2b1af3a7b'));
 
         // Add the Accept header
         HttpClient.DefaultRequestHeaders.Add('Accept', 'application/json');
@@ -888,9 +917,322 @@ page 50357 "Scan Unit Ref"
                             if JsonToken.IsObject then begin
                                 JsonObject := JsonToken.AsObject();
                                 ScanHistory.Init();
-                                ScanHistory."ER - Manufacturing Order No." := MOFilter;
+                                ScanHistory."Unit Ref" := UnitRef;
+                                ScanHistory."ER - Manufacturing Order No." := Filter;
                                 if JsonObject.Get('sales_line_unit_id', JsonToken) then
                                     ScanHistory."Sales Line Unit Id." := JsonToken.AsValue().AsText();
+                                if JsonObject.Get('sales_line_id', JsonToken) then
+                                    ScanHistory."Sales Line Id" := JsonToken.AsValue().AsText();
+
+                                if JsonObject.Get('assembly_no', JsonToken) then
+                                    ScanHistory."Assembly No." := JsonToken.AsValue().AsText();
+                                // if JsonObject.Get('mo_no', JsonToken) then
+                                //     ScanHistory."ER - Manufacturing Order No." := JsonToken.AsValue().AsText();
+                                if JsonObject.Get('item_code', JsonToken) then
+                                    ScanHistory."Item No." := JsonToken.AsValue().AsText();
+                                // Extract Design Code
+                                if JsonObject.Get('design_code', JsonToken) then
+                                    ScanHistory."Design Code" := JsonToken.AsValue().AsText();
+                                if JsonObject.Get('variant_code', JsonToken) then
+                                    ScanHistory."Variant Code" := JsonToken.AsValue().AsText();
+                                if JsonObject.Get('so_no', JsonToken) then
+                                    ScanHistory."Source No." := JsonToken.AsValue().AsText();
+                                if JsonObject.Get('activity_code', JsonToken) then
+                                    Evaluate(ScanHistory."Activity Code", JsonToken.AsValue().AsText());
+                                if JsonObject.Get('activity_name', JsonToken) then
+                                    ScanHistory."Activity Name" := JsonToken.AsValue().AsText();
+                                if JsonObject.Get('activity_remark', JsonToken) then
+                                    ScanHistory."Activity Remark" := JsonToken.AsValue().AsText();
+                                // Correctly map the JSON value to the option field
+                                if JsonObject.Get('activity_type', JsonToken) then begin
+                                    case JsonToken.AsValue().AsText() of
+                                        'In':
+                                            ScanHistory."Activity Type" := ScanHistory."Activity Type"::"In";
+                                        'Out':
+                                            ScanHistory."Activity Type" := ScanHistory."Activity Type"::"Out";
+                                        else
+                                            Error('Invalid activity type: %1', JsonToken.AsValue().AsText());
+                                    end;
+                                end;
+
+                                // Extract Activity Date (get only the date part)
+                                if JsonObject.Get('activity_date', JsonToken) then
+                                    Evaluate(ScanHistory."Activity Date", CopyStr(JsonToken.AsValue().AsText(), 1, 10));
+
+
+                                if JsonObject.Get('activity_time', JsonToken) then
+                                    Evaluate(ScanHistory."Activity Time", JsonToken.AsValue().AsText());
+
+                                // Insert the record
+                                ScanHistory.Insert();
+                            end;
+                        end;
+                    end else
+                        Error('Failed to parse the data array from the API response.');
+                end else
+                    Error('Failed to get the data array from the API response.');
+
+            end else
+                Error('HTTP Error: %1 - %2', HttpResponse.HttpStatusCode, HttpResponse.ReasonPhrase());
+        end else
+            Error('Failed to send the HTTP GET request.');
+    end;
+
+    local procedure FillExistingScanHistoryforAssembly(Filter: Text)
+    var
+        APIUrl: Text;
+        HttpClient: HttpClient;
+        HttpResponse: HttpResponseMessage;
+        ResponseText: Text;
+        JsonResponse: JsonObject;
+        JsonArray: JsonArray;
+        JsonValue: JsonValue;
+        JsonObject: JsonObject;
+        JsonToken: JsonToken;
+        ScanHistory: Record "Scan Activities-History";
+        CleanedResponse: Text;
+    begin
+        DeleteExistingScans;
+        // Set the MO number filter
+        clear(CleanedResponse);
+        // Build the API URL
+        APIUrl := StrSubstNo('https://portal.emilerassam.com/api/core/scan/?filter=assembly_no eq ''%1''&orderby=activity_date desc', Filter);
+
+
+        // Add the Authorization header
+        HttpClient.DefaultRequestHeaders.Add('Authorization', StrSubstNo('Bearer %1', '06d32d9f241d069a9dae80c2b1af3a7b'));
+
+        // Add the Accept header
+        HttpClient.DefaultRequestHeaders.Add('Accept', 'application/json');
+        // Send the GET request
+        if HttpClient.Get(APIUrl, HttpResponse) then begin
+            if HttpResponse.IsSuccessStatusCode then begin
+                // Read the response content
+                HttpResponse.Content.ReadAs(ResponseText);
+
+                CleanedResponse := CleanJsonString(ResponseText);
+                // Parse the JSON response
+                JsonResponse.ReadFrom(CleanedResponse);
+                if JsonResponse.Get('data', JsonToken) then begin
+                    if JsonToken.IsArray then begin
+                        JsonArray := JsonToken.AsArray();
+                        // Loop through the array and insert records into the history scanned table
+                        foreach JsonToken in JsonArray do begin
+                            if JsonToken.IsObject then begin
+                                JsonObject := JsonToken.AsObject();
+                                ScanHistory.Init();
+                                ScanHistory."Unit Ref" := UnitRef;
+                                ScanHistory."Assembly No." := Filter;
+                                if JsonObject.Get('sales_line_unit_id', JsonToken) then
+                                    ScanHistory."Sales Line Unit Id." := JsonToken.AsValue().AsText();
+                                if JsonObject.Get('sales_line_id', JsonToken) then
+                                    ScanHistory."Sales Line Id" := JsonToken.AsValue().AsText();
+
+                                // if JsonObject.Get('assembly_no', JsonToken) then
+                                //     ScanHistory."Assembly No." := JsonToken.AsValue().AsText();
+                                if JsonObject.Get('mo_no', JsonToken) then
+                                    ScanHistory."ER - Manufacturing Order No." := JsonToken.AsValue().AsText();
+                                if JsonObject.Get('item_code', JsonToken) then
+                                    ScanHistory."Item No." := JsonToken.AsValue().AsText();
+                                // Extract Design Code
+                                if JsonObject.Get('design_code', JsonToken) then
+                                    ScanHistory."Design Code" := JsonToken.AsValue().AsText();
+                                if JsonObject.Get('variant_code', JsonToken) then
+                                    ScanHistory."Variant Code" := JsonToken.AsValue().AsText();
+                                if JsonObject.Get('so_no', JsonToken) then
+                                    ScanHistory."Source No." := JsonToken.AsValue().AsText();
+                                if JsonObject.Get('activity_code', JsonToken) then
+                                    Evaluate(ScanHistory."Activity Code", JsonToken.AsValue().AsText());
+                                if JsonObject.Get('activity_name', JsonToken) then
+                                    ScanHistory."Activity Name" := JsonToken.AsValue().AsText();
+                                if JsonObject.Get('activity_remark', JsonToken) then
+                                    ScanHistory."Activity Remark" := JsonToken.AsValue().AsText();
+                                // Correctly map the JSON value to the option field
+                                if JsonObject.Get('activity_type', JsonToken) then begin
+                                    case JsonToken.AsValue().AsText() of
+                                        'In':
+                                            ScanHistory."Activity Type" := ScanHistory."Activity Type"::"In";
+                                        'Out':
+                                            ScanHistory."Activity Type" := ScanHistory."Activity Type"::"Out";
+                                        else
+                                            Error('Invalid activity type: %1', JsonToken.AsValue().AsText());
+                                    end;
+                                end;
+
+                                // Extract Activity Date (get only the date part)
+                                if JsonObject.Get('activity_date', JsonToken) then
+                                    Evaluate(ScanHistory."Activity Date", CopyStr(JsonToken.AsValue().AsText(), 1, 10));
+
+
+                                if JsonObject.Get('activity_time', JsonToken) then
+                                    Evaluate(ScanHistory."Activity Time", JsonToken.AsValue().AsText());
+
+                                // Insert the record
+                                ScanHistory.Insert();
+                            end;
+                        end;
+                    end else
+                        Error('Failed to parse the data array from the API response.');
+                end else
+                    Error('Failed to get the data array from the API response.');
+
+            end else
+                Error('HTTP Error: %1 - %2', HttpResponse.HttpStatusCode, HttpResponse.ReasonPhrase());
+        end else
+            Error('Failed to send the HTTP GET request.');
+    end;
+
+    local procedure FillExistingScanHistoryforSalesLineRef(Filter: Text)
+    var
+        APIUrl: Text;
+        HttpClient: HttpClient;
+        HttpResponse: HttpResponseMessage;
+        ResponseText: Text;
+        JsonResponse: JsonObject;
+        JsonArray: JsonArray;
+        JsonValue: JsonValue;
+        JsonObject: JsonObject;
+        JsonToken: JsonToken;
+        ScanHistory: Record "Scan Activities-History";
+        CleanedResponse: Text;
+    begin
+        DeleteExistingScans;
+        // Set the MO number filter
+        clear(CleanedResponse);
+        // Build the API URL
+        APIUrl := StrSubstNo('https://portal.emilerassam.com/api/core/scan/?filter=sales_line_id eq ''%1''&orderby=activity_date desc', Filter);
+
+
+        // Add the Authorization header
+        HttpClient.DefaultRequestHeaders.Add('Authorization', StrSubstNo('Bearer %1', '06d32d9f241d069a9dae80c2b1af3a7b'));
+
+        // Add the Accept header
+        HttpClient.DefaultRequestHeaders.Add('Accept', 'application/json');
+        // Send the GET request
+        if HttpClient.Get(APIUrl, HttpResponse) then begin
+            if HttpResponse.IsSuccessStatusCode then begin
+                // Read the response content
+                HttpResponse.Content.ReadAs(ResponseText);
+
+                CleanedResponse := CleanJsonString(ResponseText);
+                // Parse the JSON response
+                JsonResponse.ReadFrom(CleanedResponse);
+                if JsonResponse.Get('data', JsonToken) then begin
+                    if JsonToken.IsArray then begin
+                        JsonArray := JsonToken.AsArray();
+                        // Loop through the array and insert records into the history scanned table
+                        foreach JsonToken in JsonArray do begin
+                            if JsonToken.IsObject then begin
+                                JsonObject := JsonToken.AsObject();
+                                ScanHistory.Init();
+                                ScanHistory."Unit Ref" := UnitRef;
+                                ScanHistory."Sales Line Id" := Filter;
+                                if JsonObject.Get('sales_line_unit_id', JsonToken) then
+                                    ScanHistory."Sales Line Unit Id." := JsonToken.AsValue().AsText();
+                                // if JsonObject.Get('sales_line_id', JsonToken) then
+                                //     ScanHistory."Sales Line Id" := JsonToken.AsValue().AsText();
+
+                                if JsonObject.Get('assembly_no', JsonToken) then
+                                    ScanHistory."Assembly No." := JsonToken.AsValue().AsText();
+                                if JsonObject.Get('mo_no', JsonToken) then
+                                    ScanHistory."ER - Manufacturing Order No." := JsonToken.AsValue().AsText();
+                                if JsonObject.Get('item_code', JsonToken) then
+                                    ScanHistory."Item No." := JsonToken.AsValue().AsText();
+                                // Extract Design Code
+                                if JsonObject.Get('design_code', JsonToken) then
+                                    ScanHistory."Design Code" := JsonToken.AsValue().AsText();
+                                if JsonObject.Get('variant_code', JsonToken) then
+                                    ScanHistory."Variant Code" := JsonToken.AsValue().AsText();
+                                if JsonObject.Get('so_no', JsonToken) then
+                                    ScanHistory."Source No." := JsonToken.AsValue().AsText();
+                                if JsonObject.Get('activity_code', JsonToken) then
+                                    Evaluate(ScanHistory."Activity Code", JsonToken.AsValue().AsText());
+                                if JsonObject.Get('activity_name', JsonToken) then
+                                    ScanHistory."Activity Name" := JsonToken.AsValue().AsText();
+                                if JsonObject.Get('activity_remark', JsonToken) then
+                                    ScanHistory."Activity Remark" := JsonToken.AsValue().AsText();
+                                // Correctly map the JSON value to the option field
+                                if JsonObject.Get('activity_type', JsonToken) then begin
+                                    case JsonToken.AsValue().AsText() of
+                                        'In':
+                                            ScanHistory."Activity Type" := ScanHistory."Activity Type"::"In";
+                                        'Out':
+                                            ScanHistory."Activity Type" := ScanHistory."Activity Type"::"Out";
+                                        else
+                                            Error('Invalid activity type: %1', JsonToken.AsValue().AsText());
+                                    end;
+                                end;
+
+                                // Extract Activity Date (get only the date part)
+                                if JsonObject.Get('activity_date', JsonToken) then
+                                    Evaluate(ScanHistory."Activity Date", CopyStr(JsonToken.AsValue().AsText(), 1, 10));
+
+
+                                if JsonObject.Get('activity_time', JsonToken) then
+                                    Evaluate(ScanHistory."Activity Time", JsonToken.AsValue().AsText());
+
+                                // Insert the record
+                                ScanHistory.Insert();
+                            end;
+                        end;
+                    end else
+                        Error('Failed to parse the data array from the API response.');
+                end else
+                    Error('Failed to get the data array from the API response.');
+
+            end else
+                Error('HTTP Error: %1 - %2', HttpResponse.HttpStatusCode, HttpResponse.ReasonPhrase());
+        end else
+            Error('Failed to send the HTTP GET request.');
+    end;
+
+    local procedure FillExistingScanHistoryforSalesLineUnit(Filter: Text)
+    var
+        APIUrl: Text;
+        HttpClient: HttpClient;
+        HttpResponse: HttpResponseMessage;
+        ResponseText: Text;
+        JsonResponse: JsonObject;
+        JsonArray: JsonArray;
+        JsonValue: JsonValue;
+        JsonObject: JsonObject;
+        JsonToken: JsonToken;
+        ScanHistory: Record "Scan Activities-History";
+        CleanedResponse: Text;
+    begin
+        DeleteExistingScans;
+        // Set the MO number filter
+        clear(CleanedResponse);
+        // Build the API URL
+        APIUrl := StrSubstNo('https://portal.emilerassam.com/api/core/scan/?filter=sales_line_unit_id eq ''%1''&orderby=activity_date desc', Filter);
+
+
+        // Add the Authorization header
+        HttpClient.DefaultRequestHeaders.Add('Authorization', StrSubstNo('Bearer %1', '06d32d9f241d069a9dae80c2b1af3a7b'));
+
+        // Add the Accept header
+        HttpClient.DefaultRequestHeaders.Add('Accept', 'application/json');
+        // Send the GET request
+        if HttpClient.Get(APIUrl, HttpResponse) then begin
+            if HttpResponse.IsSuccessStatusCode then begin
+                // Read the response content
+                HttpResponse.Content.ReadAs(ResponseText);
+
+                CleanedResponse := CleanJsonString(ResponseText);
+                // Parse the JSON response
+                JsonResponse.ReadFrom(CleanedResponse);
+                if JsonResponse.Get('data', JsonToken) then begin
+                    if JsonToken.IsArray then begin
+                        JsonArray := JsonToken.AsArray();
+                        // Loop through the array and insert records into the history scanned table
+                        foreach JsonToken in JsonArray do begin
+                            if JsonToken.IsObject then begin
+                                JsonObject := JsonToken.AsObject();
+                                ScanHistory.Init();
+                                ScanHistory."Unit Ref" := UnitRef;
+                                ScanHistory."Sales Line Unit Id." := Filter;
+                                // if JsonObject.Get('sales_line_unit_id', JsonToken) then
+                                //     ScanHistory."Sales Line Unit Id." := JsonToken.AsValue().AsText();
                                 if JsonObject.Get('sales_line_id', JsonToken) then
                                     ScanHistory."Sales Line Id" := JsonToken.AsValue().AsText();
 

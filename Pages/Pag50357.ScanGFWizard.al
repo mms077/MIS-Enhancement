@@ -33,6 +33,7 @@ page 50357 "Scan Unit Ref"
                         DesignActivities: Record "Design Activities";
                         Status: Text[10];
                         FoundMissing: Boolean;
+                        Token: Text;
                     //StageIndex:Integer;
                     begin
                         if UnitRef <> '' then
@@ -48,7 +49,8 @@ page 50357 "Scan Unit Ref"
 
                             if MO.Get(UnitRef) then begin
                                 //fill existing scan
-                                FillExistingScanHistoryForMO(UnitRef);
+                                Token := GenerateToken();
+                                FillExistingScanHistoryForMO(UnitRef, Token);
                                 Clear(AssemblyHeader);
                                 AssemblyHeader.SetFilter("ER - Manufacturing Order No.", MO."No.");
                                 if AssemblyHeader.FindFirst() then begin
@@ -106,7 +108,8 @@ page 50357 "Scan Unit Ref"
                                 Clear(AssemblyHeader);
                                 AssemblyHeader.SetRange("No.", UnitRef);
                                 if AssemblyHeader.FindSet() then begin
-                                    FillExistingScanHistoryforAssembly(UnitRef);
+                                    Token := GenerateToken();
+                                    FillExistingScanHistoryforAssembly(UnitRef, Token);
                                     Rec.TRANSFERFIELDS(ScanDesignStages);
                                     Rec.Insert();
                                     Rec."Item No." := AssemblyHeader."Item No.";
@@ -167,6 +170,8 @@ page 50357 "Scan Unit Ref"
                                     // Loop for each quantity in the Sales Line
                                     SalesUnit.SetFilter("Sales Line Ref.", UnitRef);
                                     if SalesUnit.FindFirst() then begin
+                                        Token := GenerateToken();
+                                        FillExistingScanHistoryforSalesLineRef(UnitRef, Token);
                                         repeat
                                             // Check if Scan Out contains the index
                                             if STRPOS(SalesUnit."Scan Out", Format(ScanDesignStages.Index)) = 0 then begin
@@ -184,6 +189,8 @@ page 50357 "Scan Unit Ref"
                                         FoundMissing := false;
                                         SalesUnit.SetFilter("Sales Line Unit", UnitRef);
                                         if SalesUnit.FindFirst() then begin
+                                            Token := GenerateToken();
+                                            FillExistingScanHistoryforSalesLineUnit(UnitRef, Token);
                                             Clear(SalesLine);
                                             SalesLine.SetFilter("Sales Line Reference", SalesUnit."Sales Line Ref.");
                                             if SalesLine.FindFirst() then begin
@@ -755,7 +762,8 @@ page 50357 "Scan Unit Ref"
         JsonValue: JsonValue;
         DataObject: JsonObject;
         AuthToken: Text;
-    //  APISetup: Record "MT5 API Setup";
+        //  APISetup: Record "MT5 API Setup";
+        CleanedResp: Text;
     BEGIN
 
         BodyContent.Add('grant_type', 'client_credentials');
@@ -780,8 +788,11 @@ page 50357 "Scan Unit Ref"
             if not HttpResponse.IsSuccessStatusCode then
                 exit;
             HttpResponse.Content.ReadAs(HttpResponseMsg);
+            CleanedResp := '';
+
+            CleanedResp := CleanStringTokenResponse(HttpResponseMsg);
             //  JsonResponse.ReadFrom(HttpResponseMsg);
-            JsonResponse.ReadFrom('{"status": "success","message": "Connected.","data": {"token": "a2dc2b707f5311f2ca441cefe82d444e"}}');
+            JsonResponse.ReadFrom(CleanedResp);
             //  JsonResponse.ReadFrom(HttpResponseMsg);
             if JsonResponse.Get('data', Jtoken) then begin
                 // if Jtoken.IsValue then
@@ -874,7 +885,7 @@ page 50357 "Scan Unit Ref"
 
     end;
 
-    local procedure FillExistingScanHistoryForMO(Filter: Text)
+    local procedure FillExistingScanHistoryForMO(Filter: Text; AccessToken: text)
     var
         APIUrl: Text;
         HttpClient: HttpClient;
@@ -896,7 +907,7 @@ page 50357 "Scan Unit Ref"
 
 
         // Add the Authorization header
-        HttpClient.DefaultRequestHeaders.Add('Authorization', StrSubstNo('Bearer %1', '06d32d9f241d069a9dae80c2b1af3a7b'));
+        HttpClient.DefaultRequestHeaders.Add('Authorization', AccessToken);
 
         // Add the Accept header
         HttpClient.DefaultRequestHeaders.Add('Accept', 'application/json');
@@ -978,7 +989,7 @@ page 50357 "Scan Unit Ref"
             Error('Failed to send the HTTP GET request.');
     end;
 
-    local procedure FillExistingScanHistoryforAssembly(Filter: Text)
+    local procedure FillExistingScanHistoryforAssembly(Filter: Text; AccessToken: text)
     var
         APIUrl: Text;
         HttpClient: HttpClient;
@@ -1000,7 +1011,7 @@ page 50357 "Scan Unit Ref"
 
 
         // Add the Authorization header
-        HttpClient.DefaultRequestHeaders.Add('Authorization', StrSubstNo('Bearer %1', '06d32d9f241d069a9dae80c2b1af3a7b'));
+        HttpClient.DefaultRequestHeaders.Add('Authorization', StrSubstNo( AccessToken));
 
         // Add the Accept header
         HttpClient.DefaultRequestHeaders.Add('Accept', 'application/json');
@@ -1082,7 +1093,7 @@ page 50357 "Scan Unit Ref"
             Error('Failed to send the HTTP GET request.');
     end;
 
-    local procedure FillExistingScanHistoryforSalesLineRef(Filter: Text)
+    local procedure FillExistingScanHistoryforSalesLineRef(Filter: Text; AccessToken: Text)
     var
         APIUrl: Text;
         HttpClient: HttpClient;
@@ -1104,7 +1115,7 @@ page 50357 "Scan Unit Ref"
 
 
         // Add the Authorization header
-        HttpClient.DefaultRequestHeaders.Add('Authorization', StrSubstNo('Bearer %1', '06d32d9f241d069a9dae80c2b1af3a7b'));
+        HttpClient.DefaultRequestHeaders.Add('Authorization', StrSubstNo( AccessToken));
 
         // Add the Accept header
         HttpClient.DefaultRequestHeaders.Add('Accept', 'application/json');
@@ -1186,7 +1197,7 @@ page 50357 "Scan Unit Ref"
             Error('Failed to send the HTTP GET request.');
     end;
 
-    local procedure FillExistingScanHistoryforSalesLineUnit(Filter: Text)
+    local procedure FillExistingScanHistoryforSalesLineUnit(Filter: Text; AccessToken: Text)
     var
         APIUrl: Text;
         HttpClient: HttpClient;
@@ -1208,7 +1219,7 @@ page 50357 "Scan Unit Ref"
 
 
         // Add the Authorization header
-        HttpClient.DefaultRequestHeaders.Add('Authorization', StrSubstNo('Bearer %1', '06d32d9f241d069a9dae80c2b1af3a7b'));
+        HttpClient.DefaultRequestHeaders.Add('Authorization', StrSubstNo( AccessToken));
 
         // Add the Accept header
         HttpClient.DefaultRequestHeaders.Add('Accept', 'application/json');
@@ -1313,6 +1324,25 @@ page 50357 "Scan Unit Ref"
             CleanText := CopyStr(CleanText, 2, TextLength - 2);
 
         exit(CleanText);
+    end;
+
+    procedure CleanStringTokenResponse(InputText: Text): Text
+    var
+        ResultText: Text;
+        TextLength: Integer;
+    begin
+        ResultText := InputText;
+
+        // Remove leading and trailing double quotes
+        TextLength := StrLen(ResultText);
+        if (TextLength >= 2) and (CopyStr(ResultText, 1, 1) = '"') and (CopyStr(ResultText, TextLength, 1) = '"') then
+            ResultText := CopyStr(ResultText, 2, TextLength - 2);
+
+        // Remove all slashes
+        while StrPos(ResultText, '\') > 0 do
+            ResultText := DelStr(ResultText, StrPos(ResultText, '\'), 1);
+
+        exit(ResultText);
     end;
 
     var

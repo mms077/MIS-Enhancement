@@ -15,10 +15,13 @@ page 50362 "Existing Scans"
                 {
                     ApplicationArea = All;
                 }
+                field("Sales Line Id"; Rec."Sales Line Id") { ApplicationArea = all; }
+                field("Sales Line Unit Id."; Rec."Sales Line Unit Id.") { ApplicationArea = all; }
                 field("Activity Type"; Rec."Activity Type")
                 {
                     ApplicationArea = All;
                 }
+                field("Activity Code"; Rec."Activity Code") { ApplicationArea = all; }
                 field("Activity Date"; Rec."Activity Date")
                 {
                     ApplicationArea = All;
@@ -35,7 +38,7 @@ page 50362 "Existing Scans"
     {
         area(Processing)
         {
-           
+
         }
     }
 }

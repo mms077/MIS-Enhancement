@@ -225,11 +225,13 @@ codeunit 50202 EventSubscribers
         CUManagement: Codeunit Management;
         SalesLineUnitRef: Record "Sales Line Unit Ref.";
         Counter: Integer;
+        GraphGeneralTools: Codeunit "Graph Mgt - General Tools";
     begin
         //Create Assembly for Sales Order (Not Intercompany)
         if CUManagement.IsCompanyFullProduction then begin
             //create GUID 
-            SalesOrderLine."Sales Line Reference" := CreateGuid();
+            //SalesOrderLine."Sales Line Reference" := CreateGuid();
+            SalesOrderLine."Sales Line Reference" := GraphGeneralTools.GetIdWithoutBrackets(CreateGuid());
             SalesOrderLine.Validate("Qty. to Assemble to Order", SalesOrderLine.Quantity);
             SalesOrderLine.Modify();
             // Only create unit refs for item type lines with quantity > 0
@@ -238,7 +240,7 @@ codeunit 50202 EventSubscribers
                 for Counter := 1 to SalesOrderLine.Quantity do begin
                     SalesLineUnitRef.Init();
                     //create GUID
-                    SalesLineUnitRef."Sales Line Unit" := CreateGuid();
+                    SalesLineUnitRef."Sales Line Unit" := GraphGeneralTools.GetIdWithoutBrackets(CreateGuid());
                     SalesLineUnitRef."Sales Line Ref." := SalesOrderLine."Sales Line Reference";
                     SalesLineUnitRef."Item No." := SalesOrderLine."No.";
                     SalesLineUnitRef."Variant Code" := SalesOrderLine."Variant Code";

@@ -29,7 +29,7 @@ page 50354 "Packing List"
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the status of the packing list.';
-                    // Allow manual status updates? Maybe based on permissions.
+                    Editable = NOT Rec."Bins Created";
                 }
                 field("No. of Boxes Calculated"; Rec."No. of Boxes Calculated")
                 {
@@ -43,12 +43,53 @@ page 50354 "Packing List"
                     ToolTip = 'Specifies when the packing list was generated.';
                     Editable = false;
                 }
+                field("Location Code"; Rec."Location Code")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the location for this packing list.';
+                    Editable = NOT Rec."Bins Created";
+                }
             }
             part(PackingLines; "Packing List Lines Subform")
             {
                 ApplicationArea = All;
                 SubPageLink = "Document Type" = field("Document Type"), "Document No." = field("Document No.");
                 UpdatePropagation = Both;
+            }
+        }
+    }
+
+    actions
+    {
+        area(Processing)
+        {
+            action(CreateBins)
+            {
+                Caption = 'Create Bins';
+                Image = CreateBins;
+                ApplicationArea = All;
+                Enabled = NOT Rec."Bins Created";
+                trigger OnAction()
+                var
+                    PackingListMgt: Codeunit "Packing List Management";
+                begin
+                    PackingListMgt.CreateBinsForPackingList(Rec);
+                    CurrPage.Update();
+                end;
+            }
+            action(DeleteBins)
+            {
+                Caption = 'Delete Bins';
+                Image = Delete;
+                ApplicationArea = All;
+                Enabled = Rec."Bins Created";
+                trigger OnAction()
+                var
+                    PackingListMgt: Codeunit "Packing List Management";
+                begin
+                    PackingListMgt.DeleteBinsForPackingList(Rec);
+                    CurrPage.Update();
+                end;
             }
         }
     }

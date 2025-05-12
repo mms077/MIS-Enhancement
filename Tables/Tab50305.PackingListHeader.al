@@ -36,6 +36,17 @@ table 50305 "Packing List Header"
             Editable = false;
             DataClassification = SystemMetadata;
         }
+        field(13; "Location Code"; Code[10])
+        {
+            Caption = 'Location Code';
+            TableRelation = Location;
+            DataClassification = SystemMetadata;
+        }
+        field(14; "Bins Created"; Boolean)
+        {
+            Caption = 'Bins Created';
+            DataClassification = SystemMetadata;
+        }
     }
 
     keys

@@ -16,11 +16,13 @@ page 50355 "Packing List Lines Subform" // Assigning next available ID for the s
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the box number this item unit is assigned to.';
+                    Editable = IsEditable;
                 }
                 field("Box Size Code"; Rec."Box Size Code")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the size of the box this item unit is assigned to.';
+                    Editable = IsEditable;
                 }
                 field("Grouping Criteria Value"; Rec."Grouping Criteria Value")
                 {
@@ -32,21 +34,25 @@ page 50355 "Packing List Lines Subform" // Assigning next available ID for the s
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the item number.';
+                    Editable = IsEditable;
                 }
                 field(Description; Rec.Description)
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the description of the item.';
+                    Editable = IsEditable;
                 }
                 field("Variant Code"; Rec."Variant Code")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the variant code of the item.';
+                    Editable = IsEditable;
                 }
                 field("Source Document Line No."; Rec."Source Document Line No.")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the line number from the original source document.';
+                    Editable = false;
                 }
                 field("Unit Length"; Rec."Unit Length")
                 {
@@ -71,6 +77,13 @@ page 50355 "Packing List Lines Subform" // Assigning next available ID for the s
                     ApplicationArea = All;
                     ToolTip = 'Specifies the volume of one unit of the item.';
                     Visible = false;
+                }
+                field("Bin Code"; Rec."Bin Code")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the bin code for the item.';
+                    Editable = false;
+                    TableRelation = Bin.Code where("Location Code" = field("Location Code"));
                 }
             }
         }
@@ -244,4 +257,19 @@ page 50355 "Packing List Lines Subform" // Assigning next available ID for the s
             }
         }
     }
+
+
+    local procedure GetHeaderBinsCreated(): Boolean
+    var
+        PackingListHeader: Record "Packing List Header";
+    begin
+        PackingListHeader.SetRange("Document Type", Rec."Document Type");
+        PackingListHeader.SetRange("Document No.", Rec."Document No.");
+        if PackingListHeader.FindFirst() then
+            exit(PackingListHeader."Bins Created");
+        exit(false);
+    end;
+
+    var
+        IsEditable: Boolean;
 }

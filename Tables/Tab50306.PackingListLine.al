@@ -91,6 +91,18 @@ table 50306 "Packing List Line"
             Editable = false;
             DataClassification = SystemMetadata;
         }
+        field(39; "Location Code"; Code[10])
+        {
+            Caption = 'Location Code';
+            TableRelation = Location;
+            DataClassification = SystemMetadata;
+        }
+        field(40; "Bin Code"; Code[20])
+        {
+            Caption = 'Bin Code';
+            TableRelation = Bin.Code where("Location Code" = field("Location Code"));
+            DataClassification = SystemMetadata;
+        }
     }
 
     keys

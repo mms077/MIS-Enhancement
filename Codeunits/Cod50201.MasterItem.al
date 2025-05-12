@@ -839,7 +839,8 @@ codeunit 50201 MasterItem
         //     Error(Txt001);
         // end;
         // WorkflowUserGroupMemberER.Get(SalesRecivableSetup."Scanning Workflow Group", Username,ActivitySelected);
-        if CurrentSequence <> ActivitySelected then begin
+        WorkflowUserGroupMemberER.get(SalesRecivableSetup."Scanning Workflow Group", Username, ActivitySelected);
+        if CurrentSequence <> WorkflowUserGroupMemberER."Activity Code" then begin
             //To show the message to user before error
             Message(Txt002);
             Error(Txt002);

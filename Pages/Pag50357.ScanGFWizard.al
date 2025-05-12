@@ -77,6 +77,7 @@ page 50357 "Scan Unit Ref"
                                                 // Loop Sales Lines
                                                 SalesLine.SetFilter("Document No.", AssemblyHeader."Source No.");
                                                 SalesLine.SetRange("Document Type", SalesLine."Document Type"::Order);
+                                                SalesLine.SetFilter("Assembly No.", AssemblyHeader."No.");
                                                 if SalesLine.FindSet() then begin
                                                     repeat
                                                         // Loop Sales Units for the Sales Line
@@ -132,6 +133,7 @@ page 50357 "Scan Unit Ref"
                                                 // Loop Sales Lines
                                                 SalesLine.SetFilter("Document No.", AssemblyHeader."Source No.");
                                                 SalesLine.SetRange("Document Type", SalesLine."Document Type"::Order);
+                                                SalesLine.SetFilter("Assembly No.", AssemblyHeader."No.");
                                                 if SalesLine.FindSet() then begin
                                                     repeat
                                                         // Loop Sales Units for the Sales Line
@@ -245,7 +247,7 @@ page 50357 "Scan Unit Ref"
                         ScanDesignStagesER: Record "Scan Design Stages- ER";
                         RequestSucsessed: Boolean;
                     begin
-
+                        AuthToken := '';
                         Clear(ProcessedSourceNos);
                         if UnitRef = '' then
                             Error('You must fill Unit Ref First');
@@ -255,6 +257,8 @@ page 50357 "Scan Unit Ref"
                         Clear(MO);
                         if UnitRef <> '' then begin
                             if MO.Get(UnitRef) then begin
+                                AuthToken := GenerateToken();
+                                FillExistingScanHistoryForMO(UnitRef, AuthToken);
                                 Clear(AssemblyHeader);
                                 AssemblyHeader.SetFilter("ER - Manufacturing Order No.", MO."No.");
                                 if AssemblyHeader.FindFirst() then begin
@@ -268,6 +272,7 @@ page 50357 "Scan Unit Ref"
                                             Clear(SalesLine);
                                             SalesLine.SetFilter("Document No.", AssemblyHeader."Source No.");
                                             SalesLine.SetRange("Document Type", SalesLine."Document Type"::Order);
+                                            SalesLine.SetFilter("Assembly No.", AssemblyHeader."No.");
                                             if SalesLine.FindSet() then begin
                                                 repeat
                                                     // Loop for each quantity in the Sales Line
@@ -301,6 +306,7 @@ page 50357 "Scan Unit Ref"
                                                                 ScanActivities.Insert();
                                                                 //call api to insert 
                                                                 RequestSucsessed := false;
+                                                                AuthToken := '';
                                                                 AuthToken := GenerateToken();
                                                                 RequestSucsessed := FillRequest(AuthToken, ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec, Activity_Remark);
                                                                 // Delete both "In" and "Out" activities after API call
@@ -333,6 +339,7 @@ page 50357 "Scan Unit Ref"
                                                                 ScanActivities."Activity Time" := Time;
                                                                 ScanActivities.Insert();
                                                                 RequestSucsessed := false;
+                                                                AuthToken := '';
                                                                 AuthToken := GenerateToken();
                                                                 RequestSucsessed := FillRequest(AuthToken, ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec, Activity_Remark);
                                                                 // fill scanIn in SalesUnit in order to know which stage are done
@@ -360,6 +367,7 @@ page 50357 "Scan Unit Ref"
                                             Clear(SalesLine);
                                             SalesLine.SetFilter("Document No.", AssemblyHeader."Source No.");
                                             SalesLine.SetRange("Document Type", SalesLine."Document Type"::Order);
+                                            SalesLine.SetFilter("Assembly No.", AssemblyHeader."No.");
                                             if SalesLine.FindSet() then begin
                                                 repeat
                                                     // Loop for each quantity in the Sales Line
@@ -392,6 +400,7 @@ page 50357 "Scan Unit Ref"
                                                                 ScanActivities."Activity Time" := Time;
                                                                 ScanActivities.Insert();
                                                                 //call api to insert 
+                                                                AuthToken := '';
                                                                 AuthToken := GenerateToken();
                                                                 FillRequest(AuthToken, ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec, Activity_Remark);
                                                                 // Delete both "In" and "Out" activities after API call
@@ -423,6 +432,7 @@ page 50357 "Scan Unit Ref"
                                                                 ScanActivities."Activity Time" := Time;
                                                                 ScanActivities.Insert();
                                                                 //call api to insert 
+                                                                AuthToken := '';
                                                                 AuthToken := GenerateToken();
                                                                 FillRequest(AuthToken, ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec, Activity_Remark);
                                                                 // fill scanIn in SalesUnit in order to know which stage are done
@@ -504,6 +514,7 @@ page 50357 "Scan Unit Ref"
                                                 ScanActivities."Activity Time" := Time;
                                                 ScanActivities.Insert();
                                                 //call api to insert 
+                                                AuthToken := '';
                                                 AuthToken := GenerateToken();
                                                 FillRequest(AuthToken, ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec, Activity_Remark);
                                                 // fill scanIn in SalesUnit in order to know which stage are done
@@ -553,6 +564,7 @@ page 50357 "Scan Unit Ref"
                                                     ScanActivities."Activity Time" := Time;
                                                     ScanActivities.Insert();
                                                     //call api to insert 
+                                                    AuthToken := '';
                                                     AuthToken := GenerateToken();
                                                     FillRequest(AuthToken, ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec, Activity_Remark);
                                                     // Delete both "In" and "Out" activities after API call
@@ -584,6 +596,7 @@ page 50357 "Scan Unit Ref"
                                                     ScanActivities."Activity Time" := Time;
                                                     ScanActivities.Insert();
                                                     //call api to insert 
+                                                    AuthToken := '';
                                                     AuthToken := GenerateToken();
                                                     FillRequest(AuthToken, ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec, Activity_Remark);
                                                     // fill scanIn in SalesUnit in order to know which stage are done
@@ -721,7 +734,7 @@ page 50357 "Scan Unit Ref"
 
     local procedure UpdateScanOutField(SalesUnitRef: Record "Sales Line Unit Ref.")
     var
-     //   DesignActivitiesTemp: Record "Design Activities Temp";
+        //   DesignActivitiesTemp: Record "Design Activities Temp";
         ScanDesignStagesER: Record "Scan Design Stages- ER";
         SequenceNo: Integer;
         CurrentScanOut: Text;

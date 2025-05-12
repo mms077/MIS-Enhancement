@@ -207,7 +207,6 @@ page 50357 "Scan Unit Ref"
                                             end;
                                         END;
                                     END;
-
                                 end;
                             end;
                         end;
@@ -303,7 +302,7 @@ page 50357 "Scan Unit Ref"
                                                                 //call api to insert 
                                                                 RequestSucsessed := false;
                                                                 AuthToken := GenerateToken();
-                                                                RequestSucsessed := FillRequest(AuthToken, ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec);
+                                                                RequestSucsessed := FillRequest(AuthToken, ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec, Activity_Remark);
                                                                 // Delete both "In" and "Out" activities after API call
                                                                 if RequestSucsessed then begin
                                                                     Clear(ScanActivities);
@@ -335,7 +334,7 @@ page 50357 "Scan Unit Ref"
                                                                 ScanActivities.Insert();
                                                                 RequestSucsessed := false;
                                                                 AuthToken := GenerateToken();
-                                                                RequestSucsessed := FillRequest(AuthToken, ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec);
+                                                                RequestSucsessed := FillRequest(AuthToken, ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec, Activity_Remark);
                                                                 // fill scanIn in SalesUnit in order to know which stage are done
                                                                 if RequestSucsessed then
                                                                     UpdateScanInField(SalesUnit)
@@ -394,7 +393,7 @@ page 50357 "Scan Unit Ref"
                                                                 ScanActivities.Insert();
                                                                 //call api to insert 
                                                                 AuthToken := GenerateToken();
-                                                                FillRequest(AuthToken, ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec);
+                                                                FillRequest(AuthToken, ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec, Activity_Remark);
                                                                 // Delete both "In" and "Out" activities after API call
                                                                 Clear(ScanActivities);
                                                                 ScanActivities.SetFilter("Sales Line Unit Id.", SalesUnit."Sales Line Unit");
@@ -425,7 +424,7 @@ page 50357 "Scan Unit Ref"
                                                                 ScanActivities.Insert();
                                                                 //call api to insert 
                                                                 AuthToken := GenerateToken();
-                                                                FillRequest(AuthToken, ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec);
+                                                                FillRequest(AuthToken, ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec, Activity_Remark);
                                                                 // fill scanIn in SalesUnit in order to know which stage are done
 
                                                                 UpdateScanInField(SalesUnit)
@@ -475,7 +474,7 @@ page 50357 "Scan Unit Ref"
                                                 ScanActivities.Insert();
                                                 //call api to insert 
                                                 AuthToken := GenerateToken();
-                                                FillRequest(AuthToken, ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec);
+                                                FillRequest(AuthToken, ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec, Activity_Remark);
                                                 // Delete both "In" and "Out" activities after API call
                                                 Clear(ScanActivities);
                                                 ScanActivities.SetFilter("Sales Line Unit Id.", SalesUnit."Sales Line Unit");
@@ -506,7 +505,7 @@ page 50357 "Scan Unit Ref"
                                                 ScanActivities.Insert();
                                                 //call api to insert 
                                                 AuthToken := GenerateToken();
-                                                FillRequest(AuthToken, ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec);
+                                                FillRequest(AuthToken, ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec, Activity_Remark);
                                                 // fill scanIn in SalesUnit in order to know which stage are done
 
                                                 UpdateScanInField(SalesUnit)
@@ -555,7 +554,7 @@ page 50357 "Scan Unit Ref"
                                                     ScanActivities.Insert();
                                                     //call api to insert 
                                                     AuthToken := GenerateToken();
-                                                    FillRequest(AuthToken, ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec);
+                                                    FillRequest(AuthToken, ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec, Activity_Remark);
                                                     // Delete both "In" and "Out" activities after API call
                                                     Clear(ScanActivities);
                                                     ScanActivities.SetFilter("Sales Line Unit Id.", SalesUnit."Sales Line Unit");
@@ -586,7 +585,7 @@ page 50357 "Scan Unit Ref"
                                                     ScanActivities.Insert();
                                                     //call api to insert 
                                                     AuthToken := GenerateToken();
-                                                    FillRequest(AuthToken, ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec);
+                                                    FillRequest(AuthToken, ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec, Activity_Remark);
                                                     // fill scanIn in SalesUnit in order to know which stage are done
 
                                                     UpdateScanInField(SalesUnit);
@@ -599,6 +598,11 @@ page 50357 "Scan Unit Ref"
                             end;
                         end;
                     end;
+                }
+                field(Activity_Remark; Activity_Remark)
+                {
+                    Caption = 'Activity Remark';
+
                 }
             }
             part(DesignActivityStagesPart; "Design Activities Temp")
@@ -690,12 +694,10 @@ page 50357 "Scan Unit Ref"
 
     local procedure UpdateScanInField(SalesUnitRef: Record "Sales Line Unit Ref.")
     var
-        DesignActivitiesTemp: Record "Design Activities Temp";
         ScanDesignStagesER: Record "Scan Design Stages- ER";
         SequenceNo: Integer;
         CurrentScanIn: Text;
     begin
-        Clear(DesignActivitiesTemp);
         Clear(ScanDesignStagesER);
         rec.CalcFields("Activity Selected");
         ScanDesignStagesER.SetFilter("Activity Name", rec."Activity Selected");
@@ -719,12 +721,11 @@ page 50357 "Scan Unit Ref"
 
     local procedure UpdateScanOutField(SalesUnitRef: Record "Sales Line Unit Ref.")
     var
-        DesignActivitiesTemp: Record "Design Activities Temp";
+     //   DesignActivitiesTemp: Record "Design Activities Temp";
         ScanDesignStagesER: Record "Scan Design Stages- ER";
         SequenceNo: Integer;
         CurrentScanOut: Text;
     begin
-        Clear(DesignActivitiesTemp);
         Clear(ScanDesignStagesER);
         rec.CalcFields("Activity Selected");
         ScanDesignStagesER.SetFilter("Activity Name", rec."Activity Selected");
@@ -809,7 +810,7 @@ page 50357 "Scan Unit Ref"
     End;
 
 
-    local procedure FillRequest(Token: Text; ScanRec: Record "Scan Activities"; SalesUnitRec: Record "Sales Line Unit Ref."; AssemblyHeaderRec: Record "Assembly Header"; MO: Record "ER - Manufacturing Order"; SalesLineRec: Record "Sales Line"; Rec: Record "Scan Design Stages- ER Temp"): Boolean
+    local procedure FillRequest(Token: Text; ScanRec: Record "Scan Activities"; SalesUnitRec: Record "Sales Line Unit Ref."; AssemblyHeaderRec: Record "Assembly Header"; MO: Record "ER - Manufacturing Order"; SalesLineRec: Record "Sales Line"; Rec: Record "Scan Design Stages- ER Temp"; ActivityRemark: Text): Boolean
     var
 
         ScanDetails: JsonObject;
@@ -836,12 +837,12 @@ page 50357 "Scan Unit Ref"
         ScanDetails.Add('assembly_no', AssemblyHeaderRec."No.");
         ScanDetails.Add('mo_no', MO."No.");
         ScanDetails.Add('item_code', AssemblyHeaderRec."Item No.");
-        ScanDetails.Add('design_code', GetActivityNameSelected(Rec."Design Code"));
+        ScanDetails.Add('design_code', Rec."Design Code");
         ScanDetails.Add('variant_code', AssemblyHeaderRec."Variant Code");
         ScanDetails.Add('so_no', SalesLineRec."Document No.");
         ScanDetails.Add('activity_code', '');
         ScanDetails.Add('activity_name', '');
-        ScanDetails.Add('activity_remark', '');
+        ScanDetails.Add('activity_remark', ActivityRemark);
         ScanDetails.Add('activity_type', Format(ScanRec."Activity Type"));
         ScanDetails.Add('activity_date', '2025-05-06 10:30:00');
         ScanDetails.Add('activity_time', 3); // Use integer here if the API expects a number
@@ -1348,6 +1349,7 @@ page 50357 "Scan Unit Ref"
 
     var
         UnitRef: Code[100];
+        Activity_Remark: Text[1000];
         User: Code[50];
         DesignCode: code[50];
         rep: Codeunit ReportManagement;

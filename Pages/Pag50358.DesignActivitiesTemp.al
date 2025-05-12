@@ -51,12 +51,12 @@ page 50358 "Design Activities Temp"
                             // Check all mandatory activities before the current Activity Id
                             if (Rec.Done = '❌') and not (Rec."Allow Non-Sequential Scanning") then begin
                                 Clear(DesignActivities);
-                                DesignActivities.setfilter("Design Code", Rec."Design Code");
-                                DesignActivities.SetRange("Activity Id", 1, Rec."Activity Id" - 1); // Activities before the current one
+                                DesignActivities.Setfilter("Design Code", Rec."Design Code");
+                                DesignActivities.SetRange("Sequence No.", 1, Rec."Sequence No." - 1); // Activities before the current one
                                 DesignActivities.SetRange("Stage Type", DesignActivities."Stage Type"::Mandatory); // Only mandatory activities
-                                DesignActivities.SetFilter(Done, '❌');
                                 if DesignActivities.FindSet() then begin
                                     repeat
+                                        if DesignActivities.Done = '❌' then
                                             Error('All mandatory activities before this one must be completed before scanning.');
                                     until DesignActivities.Next() = 0;
                                 end;

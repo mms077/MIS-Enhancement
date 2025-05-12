@@ -1,4 +1,4 @@
-tableextension 50350 "Bin" extends Bin
+tableextension 50350 "Bin-MIS" extends Bin
 {
     fields
     {

@@ -138,7 +138,7 @@ page 50311 "ER - Manufacturing Orders"
                     end;
                 end;
             }
-            action("Scan2")
+            action("Scanning Ref.")
             {
                 ApplicationArea = all;
                 Image = NumberGroup;
@@ -157,7 +157,7 @@ page 50311 "ER - Manufacturing Orders"
                     //     ScanWizard.SetTableView(AssemblyHeader); // Pass the filtered AssemblyHeader to the wizard
                     ScanWizard.Run(); // Open the wizard
                 end;
-                 }
+            }
             action("Force Close MO without Scan")
             {
                 ApplicationArea = all;

@@ -4,7 +4,7 @@
   "id": "7e779673-0dcf-4203-a446-b62151f37caf",
   "name": "Master Item Structure - ER",
   "publisher": "Exquitech",
-  "version": "2.0.1.38",
+  "version": "2.0.1.39",
   "brief": "Master Item Structure",
   "description": "Related to Design Business",
   "privacyStatement": "",
@@ -45,8 +45,8 @@
     }
     ],
   "screenshots": [],
-  "platform": "22.0.0.0",
-  "application": "22.0.54157.54644",
+  "platform": "25.0.0.0",
+  "application": "25.5.0.0",
   "idRanges": [
     {
       "from": 50200,
@@ -58,6 +58,5 @@
     "allowDownloadingSource": false,
     "includeSourceInSymbolFile": true
   },
-  "runtime": "10.2",
-  "features": ["TranslationFile"]
+  "runtime": "14.3"
 }

@@ -215,25 +215,100 @@ codeunit 50202 EventSubscribers
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order (Yes/No)", 'OnBeforeConfirmConvertToOrder', '', false, false)]
     local procedure OnBeforeConfirmConvertToOrder(SalesHeader: Record "Sales Header"; var Result: Boolean; var IsHandled: Boolean)
+    var
+        Location: Record Location;
+        LocationList: Page "Location List";
+        ShippingLocations: Record Location;
+        ShippingLocationCount: Integer;
+        SelectedLocation: Code[10];
+        SalesHeaderRec: Record "Sales Header";
+        OriginalStatus: Enum "Sales Document Status";
     begin
         SalesHeader.TestField(SalesHeader.Status, SalesHeader.Status::Released);
+
+        // Find shipping locations
+        ShippingLocations.Reset();
+        ShippingLocations.SetRange("Shipping Location", true);
+        ShippingLocationCount := ShippingLocations.Count;
+
+        if ShippingLocationCount > 1 then begin
+            // Multiple shipping locations found - show selection dialog
+            LocationList.SetTableView(ShippingLocations);
+            LocationList.LookupMode(true);
+            if LocationList.RunModal() = Action::LookupOK then begin
+                LocationList.GetRecord(Location);
+                SelectedLocation := Location.Code;
+            end else
+                Error('You must select a shipping location to continue.');
+        end else if ShippingLocationCount = 1 then begin
+            // Only one shipping location - select automatically
+            ShippingLocations.FindFirst();
+            SelectedLocation := ShippingLocations.Code;
+        end else
+            Error('No shipping locations defined in the system. Please set up at least one location as a shipping location.');
+
+        // Update the Sales Header with the selected shipping location
+        if SelectedLocation <> '' then begin
+            // Get a modifiable copy of the sales header
+            SalesHeaderRec.Get(SalesHeader.RecordId);
+
+            // Save original status and set to open to allow modification
+            OriginalStatus := SalesHeaderRec.Status;
+            SalesHeaderRec.Status := SalesHeaderRec.Status::Open;
+            SalesHeaderRec.Modify(true);
+
+            // Set the location code
+            SalesHeaderRec.Validate("Shipping Location", SelectedLocation);
+            // SalesHeaderRec.Modify(true);
+
+            // Restore original status
+            SalesHeaderRec.Status := OriginalStatus;
+            SalesHeaderRec.Modify(true);
+        end;
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", 'OnAfterInsertSalesOrderLine', '', false, false)]
-    local procedure OnAfterInsertSalesOrderLine(var SalesOrderLine: Record "Sales Line"; SalesOrderHeader: Record "Sales Header"; SalesQuoteLine: Record "Sales Line"; SalesQuoteHeader: Record "Sales Header")
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", 'OnBeforeInsertSalesOrderHeader', '', false, false)]
+    local procedure OnBeforeInsertSalesOrderHeader(var SalesOrderHeader: Record "Sales Header"; var SalesQuoteHeader: Record "Sales Header")
+    begin
+        SalesOrderHeader.validate("Location Code", SalesOrderHeader."Shipping Location");
+    end;
+
+    [EventSubscriber(ObjectType::Table, database::"Sales Header", 'OnBeforeUpdateLocationCode', '', false, false)]
+    local procedure OnBeforeUpdateLocationCode(var SalesHeader: Record "Sales Header"; LocationCode: Code[10]; var IsHandled: Boolean)
+    begin
+        if (SalesHeader."Document Type" = SalesHeader."Document Type"::Order) and (SalesHeader."Location Code" = SalesHeader."Shipping Location") then
+            IsHandled := true;
+    end;
+
+    [EventSubscriber(ObjectType::Table, database::"Sales Header", 'OnAfterInitFromSalesHeader', '', false, false)]
+    local procedure OnAfterInitFromSalesHeader(var SalesHeader: Record "Sales Header"; SourceSalesHeader: Record "Sales Header")
+    begin
+        if (SalesHeader."Document Type" = SalesHeader."Document Type"::Order) and (SalesHeader."Location Code" <> SalesHeader."Shipping Location") then
+            SalesHeader."Location Code" := SalesHeader."Shipping Location";
+    end;
+    /// <summary>
+    /// Feature: Split Line
+    /// Note: This event is used to mitigate the issue of gross required being wrong after the sales line has been inserted
+    /// </summary>
+    /// <param name="SalesOrderLine"></param>
+    /// <param name="SalesOrderHeader"></param>
+    /// <param name="SalesQuoteLine"></param>
+    /// <param name="SalesQuoteHeader"></param>
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", 'OnBeforeInsertSalesOrderLine', '', false, false)]
+    local procedure OnBeforeInsertSalesOrderLine(var SalesOrderLine: Record "Sales Line"; SalesOrderHeader: Record "Sales Header"; SalesQuoteLine: Record "Sales Line"; SalesQuoteHeader: Record "Sales Header")
     var
         CUManagement: Codeunit Management;
+        SplitLineCU: Codeunit "Split Line";
         SalesLineUnitRef: Record "Sales Line Unit Ref.";
         Counter: Integer;
         GraphGeneralTools: Codeunit "Graph Mgt - General Tools";
     begin
-        //Create Assembly for Sales Order (Not Intercompany)
         if CUManagement.IsCompanyFullProduction then begin
             //create GUID 
             //SalesOrderLine."Sales Line Reference" := CreateGuid();
             SalesOrderLine."Sales Line Reference" := GraphGeneralTools.GetIdWithoutBrackets(CreateGuid());
-            SalesOrderLine.Validate("Qty. to Assemble to Order", SalesOrderLine.Quantity);
-            SalesOrderLine.Modify();
+            // SalesOrderLine.Validate("Qty. to Assemble to Order", SalesOrderLine.Quantity);
+            // SalesOrderLine.Modify();
             // Only create unit refs for item type lines with quantity > 0
             if (SalesOrderLine.Type = SalesOrderLine.Type::Item) and (SalesOrderLine.Quantity > 0) then begin
                 // Create one unit reference record per quantity
@@ -251,8 +326,49 @@ codeunit 50202 EventSubscribers
                     SalesLineUnitRef.Insert();
                 end;
             end;
+
+
+            if CUManagement.IsCompanyFullProduction then
+                SplitLineCU.SplitLineFullProduction(SalesOrderLine, SalesOrderHeader, SalesQuoteHeader)
+            else
+                SplitLineCU.SplitLinePurchase(SalesOrderLine, SalesOrderHeader, SalesQuoteHeader);
         end;
     end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", 'OnAfterInsertSalesOrderLine', '', false, false)]
+    local procedure OnAfterInsertSalesOrderLine(var SalesOrderLine: Record "Sales Line"; SalesOrderHeader: Record "Sales Header"; SalesQuoteLine: Record "Sales Line"; SalesQuoteHeader: Record "Sales Header")
+    var
+        TransferOrderLine: Record "Transfer Line";
+        ReservationManagementCU: Codeunit "Reservation Management";
+        directionEnum: Enum "Transfer Direction";
+        FullAutoReservation: Boolean;
+        ReservedQty: Decimal;
+        ReservedQtyBase: Decimal;
+        begin
+            Clear(ReservedQty);
+            Clear(ReservedQtyBase);
+            Clear(TransferOrderLine);
+            TransferOrderLine.SetRange("Related SO", SalesOrderHeader."No.");
+            TransferOrderLine.SetRange("SO Line No.", SalesOrderLine."Line No.");
+            if TransferOrderLine.Findset() then begin
+                repeat
+                    ReservationManagementCU.SetReservSource(TransferOrderLine, DirectionEnum::Inbound);
+                    ReservationManagementCU.SetReservSource(SalesOrderLine);
+                    ReservationManagementCU.AutoReserve(FullAutoReservation, TransferOrderLine."Document No.", TransferOrderLine."Shipment Date", TransferOrderLine.Quantity, TransferOrderLine."Quantity (Base)");
+                    ReservedQty += TransferOrderLine.Quantity;
+                    ReservedQtyBase += TransferOrderLine."Quantity (Base)";
+                until TransferOrderLine.Next() = 0;
+                If SalesOrderLine."Quantity (Base)" > ReservedQtyBase then begin
+                    clear(ReservationManagementCU);
+                    ReservationManagementCU.SetReservSource(SalesOrderLine);
+                    ReservationManagementCU.AutoReserve(FullAutoReservation, SalesOrderLine."Document No.", SalesOrderLine."Shipment Date", SalesOrderLine.Quantity - ReservedQty, SalesOrderLine."Quantity (Base)" - ReservedQtyBase);
+                end;
+            end
+            else begin
+                ReservationManagementCU.SetReservSource(SalesOrderLine);
+                ReservationManagementCU.AutoReserve(FullAutoReservation, SalesOrderLine."Document No.", SalesOrderLine."Shipment Date", SalesOrderLine.Quantity, SalesOrderLine."Quantity (Base)")
+            end;
+        end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", 'OnAfterInsertAllSalesOrderLines', '', false, false)]
     local procedure OnAfterInsertAllSalesOrderLines(var SalesOrderLine: Record "Sales Line"; SalesQuoteHeader: Record "Sales Header"; var SalesOrderHeader: Record "Sales Header")
@@ -314,90 +430,6 @@ codeunit 50202 EventSubscribers
             SalesOrderHeader.Modify(true)
         end;
 
-        //Update Needed Raw Materials Sales Order No.
-        Clear(NeededRawMaterial);
-        NeededRawMaterial.SetRange("Sales Order No.", SalesQuoteHeader."No.");
-        if NeededRawMaterial.FindSet() then
-            NeededRawMaterial.ModifyAll("Sales Order No.", SalesOrderHeader."No.");
-        //Update Assembly Order No.
-        Clear(NeededRawMaterial);
-        NeededRawMaterial.SetRange("Sales Order No.", SalesOrderHeader."No.");
-        if NeededRawMaterial.FindSet() then
-            repeat
-                if SalesLineLoc.get(SalesLineLoc."Document Type"::Order, SalesOrderHeader."No.", NeededRawMaterial."Sales Order Line No.") then begin
-                    SalesLineLoc.CalcFields("Assembly No.");
-                    NeededRawMaterial."Assembly Order No." := SalesLineLoc."Assembly No.";
-                    NeededRawMaterial.Modify();
-                    //Update Parameters Header
-                    Clear(ParameterHeaderLoc);
-                    if ParameterHeaderLoc.Get(SalesLineLoc."Parameters Header ID") then begin
-                        ParameterHeaderLoc."Sales Line Document No." := SalesLineLoc."Document No.";
-                        ParameterHeaderLoc."Sales Line Document Type" := SalesLineLoc."Document Type";
-                        ParameterHeaderLoc.Modify();
-                    end;
-                    Clear(ParentParameterHeaderLoc);
-                    if ParentParameterHeaderLoc.Get(SalesLineLoc."Parameters Header ID") then begin
-                        ParentParameterHeaderLoc."Sales Line Document No." := SalesLineLoc."Document No.";
-                        ParentParameterHeaderLoc."Sales Line Document Type" := SalesLineLoc."Document Type";
-                        ParentParameterHeaderLoc.Modify();
-                    end;
-                end;
-            until NeededRawMaterial.Next() = 0;
-
-        //Check Item Availability by location
-        //Only if company Full Production
-        if CUManagement.IsCompanyFullProduction then begin
-            SalesOrdrLines_Local.Reset();
-            SalesOrdrLines_Local.SetRange("Document Type", SalesOrderLine."Document Type");
-            SalesOrdrLines_Local.SetRange("Document No.", SalesOrderLine."Document No.");
-            SalesOrdrLines_Local.SetFilter("Assembly No.", '<>%1', '');
-            if SalesOrdrLines_Local.FindFirst() then
-                repeat
-                    Clear(Item);
-                    AvailableQty := 0;
-                    //TASK-27333: If disregard item is on, dont check for availability in the location  
-                    if GnrlLedgStpRec.get() then
-                        if not GnrlLedgStpRec."Disregard Item Availability" then begin
-                            if Item.Get(SalesOrdrLines_Local."No.") then;
-                            Item.SetRange("Location Filter", SalesOrdrLines_Local."Location Code");
-                            Item.SetRange("Variant Filter", SalesOrdrLines_Local."Variant Code");
-                            Item.CalcFields(Inventory, "FP Order Receipt (Qty.)", "Rel. Order Receipt (Qty.)", "Qty. on Assembly Order", "Qty. on Purch. Order", "Trans. Ord. Receipt (Qty.)", "Qty. On Sales Order", "Qty. on Component Lines", "Qty. on Asm. Component", "Trans. Ord. Shipment (Qty.)");
-                            AvailableQty := Item.Inventory
-                                        + (Item."FP Order Receipt (Qty.)" + Item."Rel. Order Receipt (Qty.)" + Item."Qty. on Assembly Order" + Item."Qty. on Purch. Order" + Item."Trans. Ord. Receipt (Qty.)")
-                                        - (Item."Qty. on Sales Order" + Item."Qty. on Component Lines" + Item."Qty. on Asm. Component" + Item."Trans. Ord. Shipment (Qty.)");
-                        end;
-                    //If available quantity less than requested quantity but greater than 0 --> just the difference
-                    if (AvailableQty < SalesOrdrLines_Local."Quantity") and (AvailableQty >= 0) then begin
-                        SalesOrdrLines_Local.Validate("Qty. to Assemble to Order", SalesOrdrLines_Local.Quantity - AvailableQty);
-                        if SalesOrdrLines_Local.Type = SalesOrdrLines_Local.Type::Item then begin
-                            SalesOrdrLines_Local.Validate(Reserve, SalesOrdrLines_Local.Reserve::Always);
-                            SalesOrdrLines_Local.AutoReserve();
-                        end;
-                        SalesOrdrLines_Local.Validate("Qty. to Assemble to Order", SalesOrdrLines_Local.Quantity - AvailableQty);
-                        SalesOrdrLines_Local.Modify(true);
-                    end else
-                        //If available quantity Negative --> all the requested should be assembled
-                        if (AvailableQty < 0) then begin
-                            SalesOrdrLines_Local.Validate("Qty. to Assemble to Order", SalesOrdrLines_Local.Quantity);
-                            if SalesOrdrLines_Local.Type = SalesOrdrLines_Local.Type::Item then begin
-                                SalesOrdrLines_Local.Validate(Reserve, SalesOrdrLines_Local.Reserve::Always);
-                                SalesOrdrLines_Local.AutoReserve();
-                            end;
-                            SalesOrdrLines_Local.Validate("Qty. to Assemble to Order", SalesOrdrLines_Local.Quantity);
-                            SalesOrdrLines_Local.Modify(true)
-                        end else
-                            //If available quantity greater than requested quantity
-                            if AvailableQty >= SalesOrdrLines_Local.Quantity then begin
-                                SalesOrdrLines_Local.Validate("Qty. to Assemble to Order", 0);
-                                if SalesOrdrLines_Local.Type = SalesOrdrLines_Local.Type::Item then begin
-                                    SalesOrdrLines_Local.Validate(Reserve, SalesOrdrLines_Local.Reserve::Always);
-                                    SalesOrdrLines_Local.AutoReserve();
-                                end;
-                                SalesOrdrLines_Local.Validate("Qty. to Assemble to Order", 0);
-                                SalesOrdrLines_Local.Modify(true);
-                            end;
-                until SalesOrdrLines_Local.Next() = 0;
-        end;
     end;
 
     procedure PerformManualRelease(var SalesHeader: Record "Sales Header")
@@ -810,13 +842,13 @@ codeunit 50202 EventSubscribers
         ParameterHeader: Record "Parameter Header";
         NeededRawMaterial: Record "Needed Raw Material";
     begin
-        if AssemblyHeader."Parameters Header ID" <> 0 then begin
-            ParameterHeader.get(AssemblyHeader."Parameters Header ID");
-            ManagementCU.CreateNeededRawMaterial(ParameterHeader);
-            NeededRawMaterial.SetRange("Assembly Order No.", AssemblyHeader."No.");
-            if NeededRawMaterial.FindSet() then
-                ManagementCU.CreateAssemblyOrder(NeededRawMaterial, ParameterHeader, ParameterHeader);
-        end;
+        // if AssemblyHeader."Parameters Header ID" <> 0 then begin
+        //     ParameterHeader.get(AssemblyHeader."Parameters Header ID");
+        //     ManagementCU.CreateNeededRawMaterial(ParameterHeader);
+        //     NeededRawMaterial.SetRange("Assembly Order No.", AssemblyHeader."No.");
+        //     if NeededRawMaterial.FindSet() then
+        //         ManagementCU.CreateAssemblyOrder(NeededRawMaterial, ParameterHeader, ParameterHeader);
+        // end;
     end;
 
     [EventSubscriber(ObjectType::Table, database::"Assemble-to-Order Link", 'OnUpdateAsmOnBeforeSynchronizeAsmFromSalesLine', '', false, false)]
@@ -835,15 +867,15 @@ codeunit 50202 EventSubscribers
 
         //based on the parameter header the assembly is assemble to order or not
         //if (AssemblyHeader."Parameters Header ID" = 0) and
-        if (not (AssemblyHeader."Document Type" = AssemblyHeader."Document Type"::Quote)) then begin
-            //Mandatory fields before creating assembly order lines
-            AssemblyHeader.TestField("Location Code");
-            //If parameter header id is not 0 this means that this assembly is linked to sales line so no need in this case to check qty
-            if AssemblyHeader."Parameters Header ID" = 0 then
-                AssemblyHeader.TestField(Quantity);
-            CreateAssemblyOrderNeededRawMaterial(AssemblyHeader);
-            IsHandled := true;
-        end;
+        // if (not (AssemblyHeader."Document Type" = AssemblyHeader."Document Type"::Quote)) then begin
+        //     //Mandatory fields before creating assembly order lines
+        //     AssemblyHeader.TestField("Location Code");
+        //     //If parameter header id is not 0 this means that this assembly is linked to sales line so no need in this case to check qty
+        //     if AssemblyHeader."Parameters Header ID" = 0 then
+        //         AssemblyHeader.TestField(Quantity);
+        //     CreateAssemblyOrderNeededRawMaterial(AssemblyHeader);
+        //     IsHandled := true;
+        // end;
     end;
 
     procedure CreateAssemblyOrderNeededRawMaterial(var AssemblyHeaderPar: Record "Assembly Header")
@@ -915,7 +947,7 @@ codeunit 50202 EventSubscribers
                         Clear(AssemblyLine);
                         AssemblyLine.Init();
                         AssemblyLine."Document Type" := AssemblyHeaderPar."Document Type";
-                        AssemblyLine."Document No." := AssemblyHeaderPar."No.";
+                        AssemblyLine."Document No." := PostedAssemblyLine."Document No.";
                         AssemblyLine."Line No." := PostedAssemblyLine."Line No.";
                         AssemblyLine.Validate(Type, PostedAssemblyLine.Type);
                         AssemblyLine.Validate("No.", PostedAssemblyLine."No.");
@@ -1073,11 +1105,54 @@ codeunit 50202 EventSubscribers
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"ICInboxOutboxMgt", 'OnBeforeICInboxSalesHeaderInsert', '', false, false)]
     local procedure OnBeforeICInboxSalesHeaderInsert(var ICInboxSalesHeader: Record "IC Inbox Sales Header"; ICOutboxPurchaseHeader: Record "IC Outbox Purchase Header")
+    var
+
     begin
         ICInboxSalesHeader."IC Source No." := ICOutboxPurchaseHeader."IC Source No.";
         ICInboxSalesHeader."IC Company Name" := ICOutboxPurchaseHeader."IC Company Name";
         ICInboxSalesHeader."IC Customer SO No." := ICOutboxPurchaseHeader."IC Customer SO No.";
         ICInboxSalesHeader."IC Customer Project Code" := ICOutboxPurchaseHeader."IC Customer Project Code";
+
+
+
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"ICInboxOutboxMgt", 'OnCreateSalesDocumentOnBeforeSalesHeaderInsert', '', false, false)]
+    local procedure OnCreateSalesDocumentOnBeforeSalesHeaderInsert(var SalesHeader: Record "Sales Header"; ICInboxSalesHeader: Record "IC Inbox Sales Header")
+    var
+        Location: Record Location;
+        LocationList: Page "Location List";
+        ShippingLocations: Record Location;
+        ShippingLocationCount: Integer;
+        SelectedLocation: Code[10];
+        SalesHeaderRec: Record "Sales Header";
+        OriginalStatus: Enum "Sales Document Status";
+        ICPartner: Record "IC Partner";
+    begin
+        // Find shipping locations
+        // ShippingLocations.Reset();
+        // ShippingLocations.SetRange("Shipping Location", true);
+        // if ShippingLocations.FindFirst() then
+        //     SalesHeader.Validate("Shipping Location", ShippingLocations.Code)
+        // else
+        //     Error('No shipping locations defined in the system. Please set up at least one location as a shipping location.');
+
+
+        ShippingLocationCount := ShippingLocations.Count;
+
+        if ShippingLocationCount > 1 then begin
+            // Multiple shipping locations found - show selection dialog
+            ICPartner.Get(ICInboxSalesHeader."IC Partner Code");
+            ICPartner.testfield("Default Shipping Location");
+            SalesHeader.Validate("Shipping Location", ICPartner."Default Shipping Location");
+            SalesHeader.Validate("Location Code", ICPartner."Default Shipping Location");
+        end
+        else begin
+            // Only one shipping location found - use it directly
+            ShippingLocations.FindFirst();
+            SalesHeader.Validate("Shipping Location", ShippingLocations.Code);
+            SalesHeader.Validate("Location Code", ICPartner."Default Shipping Location");
+        end;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"ICInboxOutboxMgt", 'OnBeforeICInboxSalesLineInsert', '', false, false)]
@@ -1127,12 +1202,35 @@ codeunit 50202 EventSubscribers
         SalesHeader."IC Customer Project Code" := ICInboxSalesHeader."IC Customer Project Code";
     end;
 
+
+    // [EventSubscriber(ObjectType::Codeunit, Codeunit::"ICInboxOutboxMgt", 'OnBeforeValidateSalesLineDeliveryDates', '', false, false)]
+    // local procedure OnBeforeValidateSalesLineDeliveryDates(var SalesLine: Record "Sales Line"; ICInboxSalesLine: Record "IC Inbox Sales Line"; var IsHandled: Boolean)
+    // begin
+    // end;
+    //     CUManagement: Codeunit Management;
+    //     SplitLineCU: Codeunit "Split Line";
+    // begin
+    //     if CUManagement.IsCompanyFullProduction then
+    //         SplitLineCU.SplitLineFullProductionIC(SalesLine, SalesHeader)
+    //     else
+    //         SplitLineCU.SplitLinePurchaseIC(SalesLine, SalesHeader);
+    // end;
+
+
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"ICInboxOutboxMgt", 'OnAfterCreateSalesLines', '', false, false)]
     local procedure OnAfterCreateSalesLines(ICInboxSalesLine: Record "IC Inbox Sales Line"; var SalesLine: Record "Sales Line"; var SalesHeader: Record "Sales Header")
     var
         ManagementCU: Codeunit Management;
         NeededRawMaterial: Record "Needed Raw Material";
         ParameterHeader: Record "Parameter Header";
+        SplitLineCU: Codeunit "Split Line";
+
+        TransferOrderLine: Record "Transfer Line";
+        ReservationManagementCU: Codeunit "Reservation Management";
+        directionEnum: Enum "Transfer Direction";
+        FullAutoReservation: Boolean;
+        ReservedQty: Decimal;
+        ReservedQtyBase: Decimal;
     begin
         SalesLine."IC Parent Parameter Header ID" := ICInboxSalesLine."Parent Parameter Header ID";
         SalesLine."IC Parameters Header ID" := ICInboxSalesLine."Parameters Header ID";
@@ -1140,14 +1238,41 @@ codeunit 50202 EventSubscribers
         SalesLine."Allocation Type" := ICInboxSalesLine."Allocation Type";
         SalesLine."Allocation Code" := ICInboxSalesLine."Allocation Code";
         //Automatically Create Assembly for the Non Available quantity if the company is Full Production
-        Clear(NeededRawMaterial);
-        NeededRawMaterial.SetRange(Batch, SalesLine."Needed RM Batch");
-        if NeededRawMaterial.FindSet() then begin
-            Clear(ParameterHeader);
-            if ParameterHeader.Get(SalesLine."Parameters Header ID") then
-                ManagementCU.CreateAssemblyOrder(NeededRawMaterial, ParameterHeader, ParameterHeader, SalesLine);
-        end;
+        // Clear(NeededRawMaterial);
+        // NeededRawMaterial.SetRange(Batch, SalesLine."Needed RM Batch");
+        // if NeededRawMaterial.FindSet() then begin
+        //     Clear(ParameterHeader);
+        //     if ParameterHeader.Get(SalesLine."Parameters Header ID") then
+        //         ManagementCU.CreateAssemblyOrder(NeededRawMaterial, ParameterHeader, ParameterHeader, SalesLine);
+        // end;
+        if ManagementCU.IsCompanyFullProduction then
+            SplitLineCU.SplitLineFullProductionIC(SalesLine, SalesHeader)
+        else
+            SplitLineCU.SplitLinePurchaseIC(SalesLine, SalesHeader);
 
+        Clear(ReservedQty);
+        Clear(ReservedQtyBase);
+        Clear(TransferOrderLine);
+        TransferOrderLine.SetRange("Related SO", SalesHeader."No.");
+        TransferOrderLine.SetRange("SO Line No.", SalesLine."Line No.");
+        if TransferOrderLine.Findset() then begin
+            repeat
+                ReservationManagementCU.SetReservSource(TransferOrderLine, DirectionEnum::Inbound);
+                ReservationManagementCU.SetReservSource(SalesLine);
+                ReservationManagementCU.AutoReserve(FullAutoReservation, TransferOrderLine."Document No.", TransferOrderLine."Shipment Date", TransferOrderLine.Quantity, TransferOrderLine."Quantity (Base)");
+                ReservedQty += TransferOrderLine.Quantity;
+                ReservedQtyBase += TransferOrderLine."Quantity (Base)";
+            until TransferOrderLine.Next() = 0;
+            If SalesLine."Quantity (Base)" > ReservedQtyBase then begin
+                clear(ReservationManagementCU);
+                ReservationManagementCU.SetReservSource(SalesLine);
+                ReservationManagementCU.AutoReserve(FullAutoReservation, SalesLine."Document No.", SalesLine."Shipment Date", SalesLine.Quantity - ReservedQty, SalesLine."Quantity (Base)" - ReservedQtyBase);
+            end;
+        end
+        else begin
+            ReservationManagementCU.SetReservSource(SalesLine);
+            ReservationManagementCU.AutoReserve(FullAutoReservation, SalesLine."Document No.", SalesLine."Shipment Date", SalesLine.Quantity, SalesLine."Quantity (Base)")
+        end;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"ICInboxOutboxMgt", 'OnCreatePurchDocumentOnBeforePurchHeaderModify', '', false, false)]

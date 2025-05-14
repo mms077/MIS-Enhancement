@@ -13,6 +13,46 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table AC Currency Total - Field CurrencyCode - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 983222780 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Box Size</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Box Size - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 983222780 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Box Size - Field Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 983222780 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Box Size - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 983222780 - Field 3581037481 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Height</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Box Size - Field Height - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 983222780 - Field 977610000 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Is Oversize Box</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Box Size - Field Is Oversize Box - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 983222780 - Field 1881551368 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Length</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Box Size - Field Length - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 983222780 - Field 1307873908 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Volume</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Box Size - Field Volume - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 983222780 - Field 613790498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Width</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Box Size - Field Width - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3011597373 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Brand</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1283,6 +1323,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Fit - Field Name - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 817157480 - Field 3070320983 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Field Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Grouping Criteria - Field Field Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 817157480 - Field 3766508163 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Field Number</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Grouping Criteria - Field Field Number - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 817157480 - FieldGroup 2253035989 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Grouping Criteria</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Grouping Criteria - FieldGroup DropDown - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1547159842 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Image Detail</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2392,6 +2447,116 @@
           <source>SO_NO</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table OrderHistory - Field SO_NO - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3402293696 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Packing List Header</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Packing List Header - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3402293696 - Field 486908828 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Packing List Header - Field Document No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3402293696 - Field 2363328873 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Packing List Header - Field Document Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3402293696 - Field 4138895801 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Generation Date/Time</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Packing List Header - Field Generation DateTime - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3402293696 - Field 3502616383 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No. of Boxes Calculated</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Packing List Header - Field No. of Boxes Calculated - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3402293696 - Field 513339096 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Packing List Header - Field Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3402293696 - Field 513339096 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open,In Progress,Packed,Shipped,Requires Manual Packing</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Packing List Header - Field Status - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Table 3941253095 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Packing List Line</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Packing List Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3941253095 - Field 2989159974 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Box No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Packing List Line - Field Box No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3941253095 - Field 2099902119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Box Size Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Packing List Line - Field Box Size Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3941253095 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Packing List Line - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3941253095 - Field 486908828 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Packing List Line - Field Document No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3941253095 - Field 2363328873 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Packing List Line - Field Document Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3941253095 - Field 3860199369 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Grouping Criteria Value</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Packing List Line - Field Grouping Criteria Value - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3941253095 - Field 568743302 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Packing List Line - Field Item No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3941253095 - Field 3320823955 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Packing List Line - Field Line No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3941253095 - Field 3371451125 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source Document Line No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Packing List Line - Field Source Document Line No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3941253095 - Field 161324851 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit Height</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Packing List Line - Field Unit Height - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3941253095 - Field 246081686 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit Length</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Packing List Line - Field Unit Length - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3941253095 - Field 4034345114 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit Volume</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Packing List Line - Field Unit Volume - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3941253095 - Field 2963447468 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit Width</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Packing List Line - Field Unit Width - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3941253095 - Field 3450651614 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Variant Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Packing List Line - Field Variant Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1163939514 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Parameter Header</source>
@@ -3748,20 +3913,70 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Staff Sizes - Field Type - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 568515872 - Field 3641927271 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>ID</source>
+        <trans-unit id="Table 1508302274 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Temporary Grouped Line RecordIds</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Temp Link Options - Field ID - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Temp Grouped Line RecIds - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 568515872 - Field 2961552353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Name</source>
+        <trans-unit id="Table 1508302274 - Field 3824896224 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Grouping Value</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Temp Link Options - Field Name - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Temp Grouped Line RecIds - Field Grouping Value - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 568515872 - Field 90423963 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Selected</source>
+        <trans-unit id="Table 1508302274 - Field 2901903106 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line RecordId</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Temp Link Options - Field Selected - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Temp Grouped Line RecIds - Field Line RecordId - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1682090530 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Temporary Packing Item Unit</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Temp Packing Item Unit - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1682090530 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Temp Packing Item Unit - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1682090530 - Field 883711285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Entry No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Temp Packing Item Unit - Field Entry No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1682090530 - Field 3581037481 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Height</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Temp Packing Item Unit - Field Height - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1682090530 - Field 568743302 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Temp Packing Item Unit - Field Item No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1682090530 - Field 1881551368 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Length</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Temp Packing Item Unit - Field Length - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1682090530 - Field 1629033094 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source Line RecordId</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Temp Packing Item Unit - Field Source Line RecId - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1682090530 - Field 3450651614 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Variant Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Temp Packing Item Unit - Field Variant Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1682090530 - Field 1307873908 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Volume</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Temp Packing Item Unit - Field Volume - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1682090530 - Field 613790498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Width</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Temp Packing Item Unit - Field Width - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3295767762 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>TempGLAccountDim</source>
@@ -4468,6 +4683,46 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Assembly Orders API - Property EntitySetCaption</note>
         </trans-unit>
+        <trans-unit id="Page 701630606 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Box Sizes</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Box Size List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 701630606 - Control 3004954119 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the unique code for the box size.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Box Size List - Control Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 701630606 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a description for the box size.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Box Size List - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 701630606 - Control 3581037481 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the height of the box.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Box Size List - Control Height - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 701630606 - Control 977610000 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if this code represents an oversize/manual packing scenario rather than a physical box.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Box Size List - Control Is Oversize Box - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 701630606 - Control 1881551368 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the length of the box.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Box Size List - Control Length - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 701630606 - Control 1307873908 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the calculated volume of the box (Length * Width * Height).</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Box Size List - Control Volume - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 701630606 - Control 613790498 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the width of the box.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Box Size List - Control Width - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 663099901 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Brandings</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -5163,6 +5418,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Features Types - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4002566052 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Field List</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Field List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4002566052 - Control 3070320983 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Field Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Field List - Control Field Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4002566052 - Control 3766508163 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Field Number</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Field List - Control Field Number - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2001920188 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Fits</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -5182,6 +5452,26 @@
           <source>G/L Entries</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page GLEntries API - Property EntitySetCaption</note>
+        </trans-unit>
+        <trans-unit id="Page 817157480 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Grouping Criteria</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Grouping Criteria - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 817157480 - Control 3070320983 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Field Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Grouping Criteria - Control Field Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 817157480 - Control 3766508163 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Field Number</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Grouping Criteria - Control Field Number - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 817157480 - Action 66295949 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Add Field</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Grouping Criteria - Action AddField - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3681661391 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Image Details</source>
@@ -5907,6 +6197,101 @@
           <source>Sales Order</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page OrderHistory - Control Sales Order - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3761295861 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Packing List</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Packing List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3761295861 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Packing List - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3761295861 - Control 486908828 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the source document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Packing List - Control Document No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3761295861 - Control 2363328873 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the type of the source document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Packing List - Control Document Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3761295861 - Control 4138895801 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies when the packing list was generated.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Packing List - Control Generation DateTime - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3761295861 - Control 3502616383 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the total number of boxes calculated for this packing list.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Packing List - Control No. of Boxes Calculated - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3761295861 - Control 513339096 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the status of the packing list.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Packing List - Control Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4256560696 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Lines</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Packing List Lines Subform - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4256560696 - Control 2989159974 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the box number this item unit is assigned to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Packing List Lines Subform - Control Box No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4256560696 - Control 2099902119 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the size of the box this item unit is assigned to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Packing List Lines Subform - Control Box Size Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4256560696 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the description of the item.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Packing List Lines Subform - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4256560696 - Control 3860199369 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the grouping criteria value used for this item's box assignment.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Packing List Lines Subform - Control Grouping Criteria Value - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4256560696 - Control 568743302 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the item number.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Packing List Lines Subform - Control Item No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4256560696 - Control 3371451125 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the line number from the original source document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Packing List Lines Subform - Control Source Document Line No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4256560696 - Control 161324851 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the height of one unit of the item.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Packing List Lines Subform - Control Unit Height - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4256560696 - Control 246081686 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the length of one unit of the item.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Packing List Lines Subform - Control Unit Length - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4256560696 - Control 4034345114 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the volume of one unit of the item.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Packing List Lines Subform - Control Unit Volume - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4256560696 - Control 2963447468 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the width of one unit of the item.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Packing List Lines Subform - Control Unit Width - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4256560696 - Control 3450651614 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the variant code of the item.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Packing List Lines Subform - Control Variant Code - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2811994119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Parameter Headers</source>
@@ -13788,6 +14173,61 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Finished Label Printing - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 2981619438 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Line Label Printing EN</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Item Label Printing - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2981619438 - Control 2696085190 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer Project</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Item Label Printing - Control Req Cust Project - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2981619438 - Control 118909726 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Item Label Printing - Control Req Customer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2981619438 - Control 4118876454 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Department</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Item Label Printing - Control Req Department - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2981619438 - Control 3624076424 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Item Label Printing - Control Req Item No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2981619438 - Control 553171529 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Position</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Item Label Printing - Control Req Position - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2981619438 - Control 3556795767 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Item Label Printing - Control Req Quantity - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2981619438 - Control 3929252516 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Staff</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Item Label Printing - Control Req Staff - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2981619438 - Control 3750223043 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit of Measure</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Item Label Printing - Control Req Unit of Measure - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2981619438 - Control 3083397435 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Variant</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Item Label Printing - Control Req Variant - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2981619438 - Control 1877321498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Size Option</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Item Label Printing - Control SizeOption - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 2670538952 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Close Income Statement</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -15718,10 +16158,25 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ItemCard - Action Item Features - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2876958691 - Action 3234235265 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
+          <source>Print Item Label</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ItemCard - Action Print Label - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2876958691 - Action 4152081216 - Method 1377591017 - NamedType 672599587" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 2876958691">
           <source>Updated Successfully</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ItemCard - Action Update Item References - Method OnAction - NamedType Txt001</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2491090426 - Control 1598437641 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3870787835">
+          <source>Check this box if the location is a shipping location.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Location Card MIS - Control Shipping Location - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2491090426 - Control 1598437641 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3870787835">
+          <source>Shipping Location</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Location Card MIS - Control Shipping Location - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3961762325 - Action 979575244 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3196174509">
           <source>Finalize and prepare to print the document or journal. The values and quantities are posted to the related accounts. A report request window where you can specify what to include on the print-out.</source>
@@ -15983,6 +16438,36 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Lines Achives List - Control TonalityCode - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1673401186 - Action 2719761758 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>Groups the sales lines based on the selected Grouping Criteria Field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order - Action Group Sales Lines - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1673401186 - Action 2719761758 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>Group Sales Lines</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order - Action Group Sales Lines - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1673401186 - Action 2307520164 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>Calculates and generates the packing list for this sales order in the background.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order - Action GeneratePackingList - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1673401186 - Action 2307520164 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>Generate Packing List</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order - Action GeneratePackingList - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1673401186 - Action 2308229412 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>View the generated packing list for this sales order.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order - Action ShowPackingList - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1673401186 - Action 2308229412 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>Packing List</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order - Action ShowPackingList - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1673401186 - Control 1740754582 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
           <source>IC Company Name</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -16002,6 +16487,16 @@
           <source>IC Customer Name</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order - Control ICCustomerName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1673401186 - Control 4198331032 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>Grouping Criteria</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order - Control GroupingCriteria - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1673401186 - Control 2699898059 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>Select the field to be used for grouping related lines.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order - Control Grouping Criteria Field Name - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 1673401186 - Change 2098020936 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
           <source>Customer Project</source>
@@ -16032,6 +16527,26 @@
           <source>Label Printing No Asm</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order List - Action Label Printing No Asm - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3332899200 - Action 2307520164 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3332899200">
+          <source>Calculates and generates the packing list for the selected sales order(s) in the background.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order List - Action GeneratePackingList - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3332899200 - Action 2307520164 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3332899200">
+          <source>Generate Packing List</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order List - Action GeneratePackingList - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3332899200 - Action 2308229412 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3332899200">
+          <source>View the generated packing list for the selected sales order.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order List - Action ShowPackingList - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3332899200 - Action 2308229412 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3332899200">
+          <source>Packing List</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order List - Action ShowPackingList - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3332899200 - Action 1592124705 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3332899200">
           <source>ER Reports</source>
@@ -16317,6 +16832,16 @@
           <source>Role_ID eq '%1'</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Tenant Permission Subform - Action EditInExcel - Method OnAction - NamedType Filters</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 72740766 - Control 1607352469 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 66664215">
+          <source>The related sales order.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Transfer Order MIS - Control Related SO - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 72740766 - Control 1607352469 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 66664215">
+          <source>Related SO</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Transfer Order MIS - Control Related SO - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3316333792 - Control 3897449568 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 337631938">
           <source>Allow to Adjust ACY Rate for Posted Purchase Invoice</source>
@@ -17033,6 +17558,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension IC Outbox Transaction - Field IC Source No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 377408248 - Field 2808447784 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 377408248">
+          <source>Default Shipping Location</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension IC Partner - Field Default Shipping Location - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 3276313895 - Method 1732875299 - NamedType 672599587" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 3276313895">
           <source>Item Description should be less than or equal 45 characters</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -17212,6 +17742,11 @@
           <source>Variance Combination Text</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Variant - Field Variance Combination Text - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 270929510 - Field 1598437641 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3891454143">
+          <source>Shipping Location</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Location MIS - Field Shipping Location - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1351594800 - Field 1487222247 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1351594800">
           <source>Item Category</source>
@@ -18193,6 +18728,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Cr.Memo Line - ER - Field Tonality - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1192395785 - Field 2699898059 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Field Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Header - Field Grouping Criteria Field Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1192395785 - Field 623429755 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Field No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Header - Field Grouping Criteria Field No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1192395785 - Field 1740754582 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>IC Company Name</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -18237,6 +18782,11 @@
           <source>Sales Quote No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Header - Field Sales Quote No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1192395785 - Field 1598437641 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Shipping Location</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Header - Field Shipping Location - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1192395785 - Field 898580358 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Warehouse Shipment No.</source>
@@ -18897,6 +19447,21 @@
           <source>Extension Number</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Salesperson/Purchaser - Field Extension Number - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 11087229 - Field 1607352469 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 151805736">
+          <source>Related SO</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Transfer Header MIS - Field Related SO - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 449390806 - Field 1607352469 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 558353423">
+          <source>Related SO</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Transfer Line MIS - Field Related SO - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 449390806 - Field 266255719 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 558353423">
+          <source>SO Line No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Transfer Line MIS - Field SO Line No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 78743420 - Field 1152423399 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 78743420">
           <source>Allocation Code</source>

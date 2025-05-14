@@ -139,6 +139,59 @@ pageextension 50217 "Sales Order List" extends "Sales Order List"
 
         }
 
+        addafter(Release) // Use standard anchor
+        {
+            action(GeneratePackingList)
+            {
+                Caption = 'Generate Packing List';
+                ToolTip = 'Calculates and generates the packing list for the selected sales order(s) in the background.';
+                ApplicationArea = All;
+                Image = CalculateInventory;
+                Promoted = true;
+                PromotedCategory = Process;
+
+                trigger OnAction()
+                var
+                    SalesHeader: Record "Sales Header";
+                    PackingListMgt: Codeunit "Packing List Management";
+                begin
+                    CurrPage.SetSelectionFilter(SalesHeader);
+                    if SalesHeader.FindSet() then
+                        repeat
+                            PackingListMgt.GeneratePackingList(SalesHeader);
+                        until SalesHeader.Next() = 0;
+                end;
+            }
+        }
+
+        addafter(Release) // Use standard anchor
+        {
+            action(ShowPackingList)
+            {
+                Caption = 'Packing List';
+                ToolTip = 'View the generated packing list for the selected sales order.';
+                ApplicationArea = All;
+                Image = Filed;
+                Promoted = true;
+                PromotedCategory = Report; // Changed category
+
+                trigger OnAction()
+                var
+                    PackingListHeader: Record "Packing List Header";
+                begin
+                    CurrPage.SetSelectionFilter(Rec);
+                    if Rec.Count <> 1 then
+                        Error('Please select a single sales order to view the packing list.');
+
+                    PackingListHeader.SetRange("Document Type", Rec."Document Type");
+                    PackingListHeader.SetRange("Document No.", Rec."No.");
+                    if PackingListHeader.FindFirst() then
+                        Page.Run(Page::"Packing List", PackingListHeader)
+                    else
+                        Message('No packing list has been generated for this order yet.');
+                end;
+            }
+        }
 
         addfirst(Reporting)
         {

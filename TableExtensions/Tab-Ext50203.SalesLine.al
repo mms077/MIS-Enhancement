@@ -17,7 +17,7 @@ tableextension 50203 "Sales Line" extends "Sales Line"
         field(50202; Color; Integer)
         {
             Caption = 'Color';
-            Editable = false;
+            //Editable = false;
             TableRelation = "Item Color"."Color ID" where("Item No." = field("No."));
         }
         field(50203; "Assembly No."; Code[20])

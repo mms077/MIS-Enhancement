@@ -50,6 +50,39 @@ pageextension 50216 "Sales Order" extends "Sales Order"
                 Editable = false;
             }
         }
+        addafter("Shipping and Billing")
+        {
+            group(GroupingCriteria)
+            {
+                Caption = 'Grouping Criteria';
+                field("Grouping Criteria Field No."; Rec."Grouping Criteria Field No.")
+                {
+                    ApplicationArea = All;
+                    LookupPageId = "Grouping Criteria";
+                    Lookup = true;
+                    trigger OnValidate()
+                    var
+                        GroupingCriteriaRec: Record "Grouping Criteria";
+                    begin
+                        // Set the field name based on the selected field number
+                        if Rec."Grouping Criteria Field No." <> 0 then begin
+                            GroupingCriteriaRec.Get(Rec."Grouping Criteria Field No.");
+                            Rec."Grouping Criteria Field Name" := GroupingCriteriaRec."Field Name";
+                            Rec.Modify();
+                        end else begin
+                            Rec."Grouping Criteria Field Name" := '';
+                            Rec.Modify();
+                        end;
+                    end;
+                }
+                field("Grouping Criteria Field Name"; Rec."Grouping Criteria Field Name")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Select the field to be used for grouping related lines.';
+                    Editable = false; // Make editable to allow lookup trigger
+                }
+            }
+        }
         modify("Cust Project")
         {
             Importance = Promoted;
@@ -66,6 +99,26 @@ pageextension 50216 "Sales Order" extends "Sales Order"
                 if ((Rec."Promised Delivery Date" = 0D) or (Rec."Requested Delivery Date" = 0D)) then
                     Error('Please fill the Promised Delivery Date and Requested Delivery Date');
             end;
+        }
+        addafter(Release)
+        {
+            action("Group Sales Lines")
+            {
+                ApplicationArea = All;
+                Caption = 'Group Sales Lines';
+                ToolTip = 'Groups the sales lines based on the selected Grouping Criteria Field.';
+                Image = Group;
+                Promoted = true;
+                PromotedCategory = Process;
+
+                trigger OnAction()
+                var
+                    SalesOrderGroupingMgt: Codeunit "Sales Order Grouping Mgt.";
+                begin
+                    // Call the grouping logic from the codeunit
+                    SalesOrderGroupingMgt.GroupSalesLines(Rec);
+                end;
+            }
         }
         addafter("Create Inventor&y Put-away/Pick")
         {
@@ -90,6 +143,48 @@ pageextension 50216 "Sales Order" extends "Sales Order"
                 trigger OnAction()
                 begin
 
+                end;
+            }
+        }
+        addafter("F&unctions") // Or choose another appropriate anchor
+        {
+            action(GeneratePackingList)
+            {
+                Caption = 'Generate Packing List';
+                ToolTip = 'Calculates and generates the packing list for this sales order in the background.';
+                ApplicationArea = All;
+                Image = CalculateInventory;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+
+                trigger OnAction()
+                var
+                    PackingListMgt: Codeunit "Packing List Management";
+                begin
+                    PackingListMgt.GeneratePackingList(Rec);
+                end;
+            }
+            // Moved ShowPackingList here as well
+            action(ShowPackingList)
+            {
+                Caption = 'Packing List';
+                ToolTip = 'View the generated packing list for this sales order.';
+                ApplicationArea = All;
+                Image = Filed;
+                Promoted = true;
+                PromotedCategory = Category4; // Changed from Navigate
+
+                trigger OnAction()
+                var
+                    PackingListHeader: Record "Packing List Header";
+                begin
+                    PackingListHeader.SetRange("Document Type", Rec."Document Type");
+                    PackingListHeader.SetRange("Document No.", Rec."No.");
+                    if PackingListHeader.FindFirst() then
+                        Page.Run(Page::"Packing List", PackingListHeader)
+                    else
+                        Message('No packing list has been generated for this order yet.');
                 end;
             }
         }

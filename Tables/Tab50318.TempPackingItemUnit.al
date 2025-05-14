@@ -1,4 +1,4 @@
-table 50307 "Temp Packing Item Unit"
+table 50318  "Temp Packing Item Unit"
 {
     TableType = Temporary;
     Caption = 'Temporary Packing Item Unit';

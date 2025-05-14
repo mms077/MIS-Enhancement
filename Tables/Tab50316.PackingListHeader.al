@@ -1,4 +1,4 @@
-table 50305 "Packing List Header"
+table 50316 "Packing List Header"
 {
     DataClassification = CustomerContent;
     Caption = 'Packing List Header';

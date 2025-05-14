@@ -308,6 +308,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Customer Look Version - Field Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2275371915 - Field 3997336476 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Company Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Customer Look Version - Field Company Name - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2275371915 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -628,6 +633,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Design - Field Gender - Property OptionCaption</note>
         </trans-unit>
+        <trans-unit id="Table 926452758 - Field 44496101 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gender Sort Order</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Design - Field Gender Sort Order - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 926452758 - Field 2315540138 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Has Picture</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -657,6 +667,96 @@
           <source>Type</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Design - Field Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 395748651 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Design Activities</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Design Activities - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 395748651 - Field 952633700 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Activity Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Design Activities - Field Activity Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 395748651 - Field 3186634526 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Activity Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Design Activities - Field Activity Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 395748651 - Field 3179694581 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow Non-Sequential Scanning</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Design Activities - Field Allow Non-Sequential Scanning - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 395748651 - Field 2090732705 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Design Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Design Activities - Field Design Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 395748651 - Field 1178809860 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Done</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Design Activities - Field Done - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 395748651 - Field 3014885516 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sequence No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Design Activities - Field Sequence No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 395748651 - Field 3422105488 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Stage Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Design Activities - Field Stage Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 395748651 - Field 1816364000 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>To Scan</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Design Activities - Field To Scan - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1826632567 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Design Activities</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Design Activities Temp - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1826632567 - Field 952633700 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Activity Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Design Activities Temp - Field Activity Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1826632567 - Field 3186634526 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Activity Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Design Activities Temp - Field Activity Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1826632567 - Field 3179694581 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow Non-Sequential Scanning</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Design Activities Temp - Field Allow Non-Sequential Scanning - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1826632567 - Field 2090732705 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Design Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Design Activities Temp - Field Design Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1826632567 - Field 1178809860 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Done</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Design Activities Temp - Field Done - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1826632567 - Field 3014885516 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sequence No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Design Activities Temp - Field Sequence No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1826632567 - Field 3422105488 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Stage Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Design Activities Temp - Field Stage Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1826632567 - Field 1816364000 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>To Scan</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Design Activities Temp - Field To Scan - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 565462797 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Design Detail</source>
@@ -1092,6 +1192,21 @@
           <source>Name Local</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Design Type - Field Name Local - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 110737437 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dress</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Dress - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 110737437 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Dress - Field Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 110737437 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Dress - Field Description - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2182577496 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ER - Manufacturing Order</source>
@@ -1947,6 +2062,11 @@
           <source>Description</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Look - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3357772017 - Field 1118754834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dress Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Look - Field Dress Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3357772017 - Field 1862273439 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Front Picture</source>
@@ -3163,6 +3283,186 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table RM Category Design Section - Field RM Category Name - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 445508737 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Line Unit Ref.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Line Unit Ref. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 445508737 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Line Unit Ref. - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 445508737 - Field 568743302 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Line Unit Ref. - Field Item No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 445508737 - Field 2704404533 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Line Unit Ref. - Field Quantity - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 445508737 - Field 673927467 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Line Ref.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Line Unit Ref. - Field Sales Line Ref. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 445508737 - Field 2983025948 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Line Unit</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Line Unit Ref. - Field Sales Line Unit - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 445508737 - Field 3160761821 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Scan Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Line Unit Ref. - Field Scan Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 445508737 - Field 2385270358 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit of Measure Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Line Unit Ref. - Field Unit of Measure Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 445508737 - Field 3450651614 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Variant Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Line Unit Ref. - Field Variant Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4081421792 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Scan Activities</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Scan Activities - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4081421792 - Field 952633700 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Activity Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Scan Activities - Field Activity Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4081421792 - Field 514778619 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Activity Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Scan Activities - Field Activity Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4081421792 - Field 3186634526 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Activity Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Scan Activities - Field Activity Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4081421792 - Field 1389485793 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Activity Remark</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Scan Activities - Field Activity Remark - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4081421792 - Field 4274736396 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Activity Time</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Scan Activities - Field Activity Time - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4081421792 - Field 1489664975 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Activity Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Scan Activities - Field Activity Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4081421792 - Field 1527686331 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Assembly No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Scan Activities - Field Assembly No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4081421792 - Field 2090732705 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Design Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Scan Activities - Field Design Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4081421792 - Field 856769781 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ER - Manufacturing Order No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Scan Activities - Field ER - Manufacturing Order No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4081421792 - Field 568743302 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Scan Activities - Field Item No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4081421792 - Field 536900853 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Line Id</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Scan Activities - Field Sales Line Id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4081421792 - Field 3542658069 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Line Unit Id.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Scan Activities - Field Sales Line Unit Id. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4081421792 - Field 3014885516 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sequence No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Scan Activities - Field Sequence No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4081421792 - Field 1882905478 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Scan Activities - Field Source No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4081421792 - Field 3450651614 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Variant Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Scan Activities - Field Variant Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2535380908 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Scan Design Stages - ER</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Scan Design Stages- ER - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2535380908 - Field 3186634526 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Activity Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Scan Design Stages- ER - Field Activity Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2535380908 - Field 231367657 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Design Code Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Scan Design Stages- ER - Field Design Code Filter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2535380908 - Field 568743302 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Scan Design Stages- ER - Field Item No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2535380908 - Field 3550745236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Workflow User Group Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Scan Design Stages- ER - Field Workflow User Group Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 878974784 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Scan Design Stages - ER</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Scan Design Stages- ER Temp - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 878974784 - Field 3186634526 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Activity Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Scan Design Stages- ER Temp - Field Activity Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 878974784 - Field 2090732705 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Design Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Scan Design Stages- ER Temp - Field Design Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 878974784 - Field 1342333902 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Is Done</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Scan Design Stages- ER Temp - Field Is Done - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 878974784 - Field 568743302 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Scan Design Stages- ER Temp - Field Item No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 878974784 - Field 3550745236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Workflow User Group Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Scan Design Stages- ER Temp - Field Workflow User Group Code - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2937872379 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Section</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4078,6 +4378,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit MasterItem - Method CheckUserResponibility - NamedType Txt002</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2954326539 - Method 3653834251 - NamedType 672599587" size-unit="char" translate="yes" xml:space="preserve">
+          <source>User is not existing in this workflow 👎</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MasterItem - Method CheckUserResponibilityScanning - NamedType Txt001</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2954326539 - Method 3653834251 - NamedType 2585689438" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You are not allowed to approve at this stage 👎</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MasterItem - Method CheckUserResponibilityScanning - NamedType Txt002</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2954326539 - Method 2373703956 - NamedType 672599587" size-unit="char" translate="yes" xml:space="preserve">
           <source>Scan In 👍</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4087,6 +4397,36 @@
           <source>Scan Out 👍</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit MasterItem - Method CreateCuttingSheetScanningEntry - NamedType Txt002</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2954326539 - Method 2308351742 - NamedType 672599587" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Scan In 👍</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MasterItem - Method CreateCuttingSheetScanningEntry2 - NamedType Txt001</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2954326539 - Method 2308351742 - NamedType 2585689438" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Scan Out 👍</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MasterItem - Method CreateCuttingSheetScanningEntry2 - NamedType Txt002</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2954326539 - Method 2308351742 - NamedType 1947992821" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No Scan Activities found for Design "%1" and Sequence "%2".</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MasterItem - Method CreateCuttingSheetScanningEntry2 - NamedType Txt003</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2954326539 - Method 2308351742 - NamedType 3054477032" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invalid sequence for Scan Out. Expected sequence: %1.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MasterItem - Method CreateCuttingSheetScanningEntry2 - NamedType Txt004</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2954326539 - Method 1958895072 - NamedType 672599587" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Scan In 👍</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MasterItem - Method CreateCuttingSheetScanningEntryScanActivities - NamedType Txt001</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2954326539 - Method 1958895072 - NamedType 2585689438" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Scan Out 👍</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MasterItem - Method CreateCuttingSheetScanningEntryScanActivities - NamedType Txt002</note>
         </trans-unit>
         <trans-unit id="Codeunit 2954326539 - Method 3290922292 - NamedType 672599587" size-unit="char" translate="yes" xml:space="preserve">
           <source>Raw Material %1 created successfully!</source>
@@ -4708,6 +5048,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Departments Wizard - Action Continueaction - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 395748651 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Design Activities</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Design Activities - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1826632567 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Design Activities</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Design Activities Temp - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3657229380 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Design Details</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -5007,6 +5357,11 @@
           <source>Document Attachments</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Document Attachments - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1453492223 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dress Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Dresses - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3281803833 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ER - Manufacturing Orders</source>
@@ -5768,6 +6123,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Looks - Control ItemPicture - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1017280232 - Action 3197101429 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Look Book</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Looks - Action Design Book - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 661335896 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Measurement Categories</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -6473,15 +6833,30 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales &amp; Receivables Picture - Action TakePicture - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3439479634 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Scan Activities</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Scan Activities List - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3817361890 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Scan Cutting Sheet</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Scan Cutting Sheet - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 3817361890 - Control 2903438222 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Assembly Group No.</source>
+        <trans-unit id="Page 3817361890 - NamedType 2290210046" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 - %2</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Scan Cutting Sheet - Control AssemblyGrpNo - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Scan Cutting Sheet - NamedType TxtStageLine</note>
+        </trans-unit>
+        <trans-unit id="Page 3817361890 - NamedType 2045026689" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Scan Stages for Design %1:\n%2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Scan Cutting Sheet - NamedType TxtStages</note>
+        </trans-unit>
+        <trans-unit id="Page 3817361890 - Control 2220891138 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>MO/Assembly/SalesUnit</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Scan Cutting Sheet - Control ScanRef - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3817361890 - Control 1814464443 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>User</source>
@@ -6502,6 +6877,96 @@
           <source>Scan Out 👍</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Scan Cutting Sheet - Control User - Method OnValidate - NamedType Txt0002</note>
+        </trans-unit>
+        <trans-unit id="Page 3817361890 - Control 3682813245 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>User</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Scan Cutting Sheet - Control User2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3817361890 - Control 3682813245 - Method 2126772001 - NamedType 672599587" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No Assembly found in the group %1</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Scan Cutting Sheet - Control User2 - Method OnValidate - NamedType Txt001</note>
+        </trans-unit>
+        <trans-unit id="Page 3817361890 - Control 3682813245 - Method 2126772001 - NamedType 756722971" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Scan In 👍</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Scan Cutting Sheet - Control User2 - Method OnValidate - NamedType Txt0001</note>
+        </trans-unit>
+        <trans-unit id="Page 3817361890 - Control 3682813245 - Method 2126772001 - NamedType 2669812822" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Scan Out 👍</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Scan Cutting Sheet - Control User2 - Method OnValidate - NamedType Txt0002</note>
+        </trans-unit>
+        <trans-unit id="Page 3817361890 - Control 3682813245 - Method 2126772001 - NamedType 1947992821" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The current sequence number %1 exceeds the maximum sequence number %2 in the scan activities.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Scan Cutting Sheet - Control User2 - Method OnValidate - NamedType Txt003</note>
+        </trans-unit>
+        <trans-unit id="Page 3472663156 - Method 3958471058 - NamedType 1246219133" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Authorization</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Scan Unit Ref - Method FillRequest - NamedType Authorization</note>
+        </trans-unit>
+        <trans-unit id="Page 3472663156 - Method 3958471058 - NamedType 1489996292" size-unit="char" translate="yes" xml:space="preserve">
+          <source>searchCriteria%5BfilterGroups%5D%5B0%5D%5Bfilters%5D%5B0%5D%5Bfield%5D</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Scan Unit Ref - Method FillRequest - NamedType QueryFieldFilter</note>
+        </trans-unit>
+        <trans-unit id="Page 3472663156 - Method 3958471058 - NamedType 1790214299" size-unit="char" translate="yes" xml:space="preserve">
+          <source>searchCriteria%5BfilterGroups%5D%5B0%5D%5Bfilters%5D%5B0%5D%5Bvalue%5D</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Scan Unit Ref - Method FillRequest - NamedType QueryValueFilter</note>
+        </trans-unit>
+        <trans-unit id="Page 3472663156 - Method 3958471058 - NamedType 2455927117" size-unit="char" translate="yes" xml:space="preserve">
+          <source>?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Scan Unit Ref - Method FillRequest - NamedType QuestMark</note>
+        </trans-unit>
+        <trans-unit id="Page 3472663156 - Method 3958471058 - NamedType 2224364193" size-unit="char" translate="yes" xml:space="preserve">
+          <source>/</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Scan Unit Ref - Method FillRequest - NamedType BSlach</note>
+        </trans-unit>
+        <trans-unit id="Page 3472663156 - Control 3587572809 - Method 2126772001 - NamedType 672599587" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No Assembly found in the group %1</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Scan Unit Ref - Control UnitRef - Method OnValidate - NamedType Txt001</note>
+        </trans-unit>
+        <trans-unit id="Page 3472663156 - Control 3587572809 - Method 2126772001 - NamedType 756722971" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Scan In 👍</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Scan Unit Ref - Control UnitRef - Method OnValidate - NamedType Txt0001</note>
+        </trans-unit>
+        <trans-unit id="Page 3472663156 - Control 3587572809 - Method 2126772001 - NamedType 2669812822" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Scan Out 👍</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Scan Unit Ref - Control UnitRef - Method OnValidate - NamedType Txt0002</note>
+        </trans-unit>
+        <trans-unit id="Page 3472663156 - Control 3587572809 - Method 2126772001 - NamedType 1947992821" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The current sequence number %1 exceeds the maximum sequence number %2 in the scan activities.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Scan Unit Ref - Control UnitRef - Method OnValidate - NamedType Txt003</note>
+        </trans-unit>
+        <trans-unit id="Page 3472663156 - Control 1814464443 - Method 2126772001 - NamedType 672599587" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No Assembly found in the group %1</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Scan Unit Ref - Control User - Method OnValidate - NamedType Txt001</note>
+        </trans-unit>
+        <trans-unit id="Page 3472663156 - Control 1814464443 - Method 2126772001 - NamedType 756722971" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Scan In 👍</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Scan Unit Ref - Control User - Method OnValidate - NamedType Txt0001</note>
+        </trans-unit>
+        <trans-unit id="Page 3472663156 - Control 1814464443 - Method 2126772001 - NamedType 2669812822" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Scan Out 👍</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Scan Unit Ref - Control User - Method OnValidate - NamedType Txt0002</note>
+        </trans-unit>
+        <trans-unit id="Page 3472663156 - Control 1814464443 - Method 2126772001 - NamedType 1947992821" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The current sequence number %1 exceeds the maximum sequence number %2 in the scan activities.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Scan Unit Ref - Control User - Method OnValidate - NamedType Txt003</note>
         </trans-unit>
         <trans-unit id="Page 2848099522 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Section Group</source>
@@ -6617,6 +7082,21 @@
           <source>Next</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Staff Wizard - Action Continueaction - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 568515872 - Control 2961552353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Option Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Temp Link Options - Control Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 568515872 - Control 90423963 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Selected</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Temp Link Options - Control Selected - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 568515872 - Action 2079045816 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>OK</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Temp Link Options - Action OK - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3038539334 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tonalities</source>
@@ -6902,6 +7382,11 @@
           <source>Size Option</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Assembly to Stock Label Print - Control SizeOption - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3197101429 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Look Book</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Design Book - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 118002655 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Detailed Warehouse Shipment</source>
@@ -16143,10 +16628,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order Subform - Method ValidateMissedFields - NamedType Txt005</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2026081320 - Action 3388269950 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2026081320">
+          <source>Dashboard/Unit</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order Subform - Action DashboardUnit - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2026081320 - Action 3913971 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2026081320">
           <source>Label Printing No Asm</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order Subform - Action Label Printing No Asm - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2026081320 - Action 3448418145 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2026081320">
+          <source>Unit Sales Line Ref.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order Subform - Action Unit Sales Line Ref. - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 2026081320 - Action 3561864605 - Method 1377591017 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 2026081320">
           <source>With Staff,Without Staff,Just Create Variant</source>
@@ -18493,6 +18988,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Invoice Line - ER - Field Qty Assignment Wizard Id - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2297860855 - Field 302436335 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2079186865">
+          <source>Sales Line Reference</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Invoice Line - ER - Field Sales Line Reference - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2297860855 - Field 3964473375 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2079186865">
           <source>Size</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -18632,6 +19132,11 @@
           <source>Reserved Qty in the Inventory</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Line - Field Reserved Qty in the Inventory - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2574427010 - Field 302436335 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2574427010">
+          <source>Sales Line Reference</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Line - Field Sales Line Reference - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2574427010 - Field 3964473375 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2574427010">
           <source>Size</source>

@@ -1,4 +1,4 @@
-page 50353 "Box Size List"
+page 50365 "Box Size List"
 {
     PageType = List;
     ApplicationArea = All;

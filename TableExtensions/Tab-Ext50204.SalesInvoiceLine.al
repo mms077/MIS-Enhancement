@@ -153,5 +153,9 @@ tableextension 50204 "Sales Invoice Line - ER" extends "Sales Invoice Line"
             FieldClass = FlowField;
             CalcFormula = lookup("Item Variant"."Item Brandings Set ID" where("Item No." = field("No."), "Code" = field("Variant Code")));
         }
+        field(50230; "Sales Line Reference"; Guid)
+        {
+            DataClassification = ToBeClassified;
+        }
     }
 }

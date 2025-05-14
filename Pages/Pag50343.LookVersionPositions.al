@@ -1,10 +1,10 @@
 page 50343 "Look Version Positions"
 {
-    ApplicationArea = All;
+   // ApplicationArea = All;
     Caption = 'Look Version Positions';
     PageType = List;
     SourceTable = "Look Version Positions";
-    UsageCategory = Lists;
+    //UsageCategory = Lists;
     //DeleteAllowed = false;
     layout
     {

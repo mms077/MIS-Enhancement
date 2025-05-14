@@ -1,10 +1,10 @@
 page 50333 "Look Version"
 {
-    ApplicationArea = All;
+    //ApplicationArea = All;
     Caption = 'Look Version';
     PageType = List;
     SourceTable = "Look Version";
-    UsageCategory = Lists;
+    // UsageCategory = Lists;
 
     layout
     {
@@ -152,12 +152,8 @@ page 50333 "Look Version"
                 PromotedOnly = true;
                 trigger OnAction()
                 var
-                    myInt: Integer;
+                    TempLinkOptions: Record "Temp Link Options" temporary;
                     DocAttachement: Record "Record Link";
-                    RecordRef: RecordRef;
-                    FieldRef: FieldRef;
-                    LinkID: Integer;
-                    Front: Text[1000];
                     LookVersion: Record "Look Version";
                     SharepointSetup: Record "Sharepoint Connector Setup";
                     SharepointSiteLink: Text[1000];
@@ -167,7 +163,11 @@ page 50333 "Look Version"
                     SharepointAdd1Pic: Text[100];
                     SharepointAdd2Pic: Text[100];
                     SharepointAdd3Pic: Text[100];
+                    SharepointThumbPic: Text[100];
+                    LinkID: Integer;
                 begin
+                    SharepointSetup.Get();
+                    // Define SharePoint paths
                     SharepointSiteLink := '/sites/Designs2/Shared Documents/Looks/';
                     SharepointFrontPic := '/front.png';
                     SharepointSidesPic := '/sides.png';
@@ -175,24 +175,68 @@ page 50333 "Look Version"
                     SharepointAdd1Pic := '/add1.png';
                     SharepointAdd2Pic := '/add2.png';
                     SharepointAdd3Pic := '/add3.png';
-                    SharepointSetup.Get();
-                    if LookVersion.Get(rec.Code, Rec."Look Code") then begin
-                        DocAttachement.setrange("Record ID", LookVersion.RecordId);
-                        if not DocAttachement.FindFirst() then begin
-                            LinkID := LookVersion.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec."Look Code" + '/' + Rec."Code" + SharepointbackPic, 'Back');
-                            LinkID := LookVersion.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec."Look Code" + '/' + Rec."Code" + SharepointfrontPic, 'Front');
-                            LinkID := LookVersion.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec."Look Code" + '/' + Rec."Code" + SharepointsidesPic, 'Sides');
-                            LinkID := LookVersion.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec."Look Code" + '/' + Rec."Code" + Sharepointadd1Pic, 'Add-1');
-                            LinkID := LookVersion.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec."Look Code" + '/' + Rec."Code" + Sharepointadd2Pic, 'Add-2');
-                            LinkID := LookVersion.AddLink(SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + Rec."Look Code" + '/' + Rec."Code" + Sharepointadd3Pic, 'Add-3');
-                            LookVersion.Modify();
-                        end;
-                    end;
-                end;
+                    SharepointThumbPic := '/add3.png';
 
+                    // Populate the temporary table with link options
+                    AddLinkOption(TempLinkOptions, 1, 'Front');
+                    AddLinkOption(TempLinkOptions, 2, 'Sides');
+                    AddLinkOption(TempLinkOptions, 3, 'Back');
+                    AddLinkOption(TempLinkOptions, 4, 'Add-1');
+                    AddLinkOption(TempLinkOptions, 5, 'Add-2');
+                    AddLinkOption(TempLinkOptions, 6, 'Add-3');
+                    AddLinkOption(TempLinkOptions, 7, 'Thumbnail');
+                    AddLinkOption(TempLinkOptions, 8, 'All');
+
+                    // Open the wizard page
+                    if Page.RunModal(Page::"Temp Link Options", TempLinkOptions) = Action::LookupOK then begin
+                        if LookVersion.Get(Rec.Code, Rec."Look Code") then begin
+                            DocAttachement.SetRange("Record ID", LookVersion.RecordId);
+
+                            // Process selected options
+                            if TempLinkOptions.FindSet() then
+                                repeat
+                                    if TempLinkOptions.Selected then begin
+                                        case TempLinkOptions.ID of
+                                            1:
+                                                AddLinkURL(DocAttachement, LookVersion, SharepointSetup, SharepointSiteLink, Rec."Look Code", Rec.Code, SharepointFrontPic, 'Front');
+                                            2:
+                                                AddLinkURL(DocAttachement, LookVersion, SharepointSetup, SharepointSiteLink, Rec."Look Code", Rec.Code, SharepointSidesPic, 'Sides');
+                                            3:
+                                                AddLinkURL(DocAttachement, LookVersion, SharepointSetup, SharepointSiteLink, Rec."Look Code", Rec.Code, SharepointBackPic, 'Back');
+                                            4:
+                                                AddLinkURL(DocAttachement, LookVersion, SharepointSetup, SharepointSiteLink, Rec."Look Code", Rec.Code, SharepointAdd1Pic, 'Add-1');
+                                            5:
+                                                AddLinkURL(DocAttachement, LookVersion, SharepointSetup, SharepointSiteLink, Rec."Look Code", Rec.Code, SharepointAdd2Pic, 'Add-2');
+                                            6:
+                                                AddLinkURL(DocAttachement, LookVersion, SharepointSetup, SharepointSiteLink, Rec."Look Code", Rec.Code, SharepointAdd3Pic, 'Add-3');
+                                            7:
+                                                AddLinkURL(DocAttachement, LookVersion, SharepointSetup, SharepointSiteLink, Rec."Look Code", Rec.Code, SharepointFrontPic, 'Thumbnail');
+                                            8:
+                                                begin
+                                                    // Add all links
+                                                    AddLinkURL(DocAttachement, LookVersion, SharepointSetup, SharepointSiteLink, Rec."Look Code", Rec.Code, SharepointFrontPic, 'Front');
+                                                    AddLinkURL(DocAttachement, LookVersion, SharepointSetup, SharepointSiteLink, Rec."Look Code", Rec.Code, SharepointSidesPic, 'Sides');
+                                                    AddLinkURL(DocAttachement, LookVersion, SharepointSetup, SharepointSiteLink, Rec."Look Code", Rec.Code, SharepointBackPic, 'Back');
+                                                    AddLinkURL(DocAttachement, LookVersion, SharepointSetup, SharepointSiteLink, Rec."Look Code", Rec.Code, SharepointAdd1Pic, 'Add-1');
+                                                    AddLinkURL(DocAttachement, LookVersion, SharepointSetup, SharepointSiteLink, Rec."Look Code", Rec.Code, SharepointAdd2Pic, 'Add-2');
+                                                    AddLinkURL(DocAttachement, LookVersion, SharepointSetup, SharepointSiteLink, Rec."Look Code", Rec.Code, SharepointAdd3Pic, 'Add-3');
+                                                    AddLinkURL(DocAttachement, LookVersion, SharepointSetup, SharepointSiteLink, Rec."Look Code", Rec.Code, SharepointFrontPic, 'Thumbnail');
+                                                end;
+                                        end;
+                                    end;
+                                until TempLinkOptions.Next() = 0;
+
+                            // Save changes to the LookVersion record
+                            LookVersion.Modify();
+                        end else
+                            Error('Look Version record not found.');
+                    end else
+                        Message('No options were selected.');
+                end;
             }
         }
     }
+
     trigger OnAfterGetCurrRecord()
     var
         SalesSetup: Record "Sales & Receivables Setup";
@@ -372,4 +416,26 @@ page 50333 "Look Version"
         Add1FileName: Text[250];
         Add2FileName: Text[250];
         Add3FileName: Text[250];
+
+    procedure AddLinkOption(var TempLinkOptions: Record "Temp Link Options" temporary; ID: Integer; Name: Text[100])
+    begin
+        TempLinkOptions.ID := ID;
+        TempLinkOptions.Name := Name;
+        TempLinkOptions.Insert();
+    end;
+
+    procedure AddLinkURL(var DocAttachement: Record "Record Link"; var LookVersion: Record "Look Version"; SharepointSetup: Record "Sharepoint Connector Setup"; SharepointSiteLink: Text[1000]; LookCode: Code[20]; VersionCode: Code[20]; PicturePath: Text[100]; Description: Text[100])
+    var
+        LinkURL: Text[1000];
+    begin
+        DocAttachement.SetRange(Description, Description);
+        LinkURL := SharepointSetup."Sharepoint URL Http" + SharepointSiteLink + LookCode + '/' + VersionCode + PicturePath;
+
+        if not DocAttachement.FindFirst() then begin
+            LookVersion.AddLink(LinkURL, Description);
+            Message('Link added for %1.', Description);
+        end else
+            Message('Link for %1 already exists.', Description);
+    end;
+
 }

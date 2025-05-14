@@ -1,10 +1,10 @@
 page 50337 "Item Look Version"
 {
-    ApplicationArea = All;
+    //ApplicationArea = All;
     Caption = 'Item Look Version';
     PageType = List;
     SourceTable = "Item Version";
-    UsageCategory = Lists;
+    //UsageCategory = Lists;
     layout
     {
         area(content)

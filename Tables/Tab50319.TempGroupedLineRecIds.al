@@ -1,4 +1,4 @@
-table 50308 "Temp Grouped Line RecIds"
+table 50319  "Temp Grouped Line RecIds"
 {
     TableType = Temporary;
     Caption = 'Temporary Grouped Line RecordIds';

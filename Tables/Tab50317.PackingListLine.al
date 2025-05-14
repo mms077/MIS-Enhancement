@@ -1,4 +1,4 @@
-table 50306 "Packing List Line"
+table 50317 "Packing List Line"
 {
     DataClassification = CustomerContent;
     Caption = 'Packing List Line';

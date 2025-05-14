@@ -189,6 +189,10 @@ tableextension 50203 "Sales Line" extends "Sales Line"
                                                                            "Variant Code" = field("Variant Code"),
                                                                            "Location Code" = field("Location Code")));
         }
+        field(50230; "Sales Line Reference"; Guid)
+        {
+            DataClassification = ToBeClassified;
+        }
 
 
         modify("Variant Code")

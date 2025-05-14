@@ -1,4 +1,4 @@
-page 50352 "Field List"
+page 50364 "Field List"
 {
     PageType = List;
     ApplicationArea = All;

@@ -97,6 +97,7 @@ pageextension 50202 "Sales Order Subform" extends "Sales Order Subform"
                 end;
 
             }
+            field("Sales Line Reference"; Rec."Sales Line Reference") { ApplicationArea = all; Editable = false; }
             field("Needed RM Batch"; Rec."Needed RM Batch")
             {
                 ApplicationArea = all;
@@ -340,6 +341,22 @@ pageextension 50202 "Sales Order Subform" extends "Sales Order Subform"
                     Report.Run(Report::"Sales Line Label Printing FR", true, true, SalesLine);
                 end;
             }
+            action("Unit Sales Line Ref.")
+            {
+                ApplicationArea = all;
+                Caption = 'Unit Sales Line Ref.';
+                Image = TaskQualityMeasure;
+                RunPageLink = "Sales Line Ref." = field("Sales Line Reference");
+                RunObject = Page "Sales Line Unit Ref. List";
+            }
+            action("DashboardUnit")
+            {
+                ApplicationArea = all;
+                Image = ShowChart;
+                Caption = 'Dashboard/Unit';
+                RunObject = page "Scan Activities List";
+                RunPageLink = "Sales Line Id" = field("Sales Line Reference");
+            }
         }
     }
 
@@ -355,7 +372,6 @@ pageextension 50202 "Sales Order Subform" extends "Sales Order Subform"
         //Update Reservation Warning
         UpdateReservationWarning(Rec);
     end;
-
     trigger OnOpenPage()
     var
         MasterItemCodeunit: Codeunit MasterItem;

@@ -118,6 +118,7 @@ pageextension 50225 "Posted Sales Invoice Subform" extends "Posted Sales Invoice
             {
                 ApplicationArea = all;
             }
+            field("Sales Line Reference"; Rec."Sales Line Reference") { ApplicationArea = all; Editable = false; }
         }
         addafter("No.")
         {

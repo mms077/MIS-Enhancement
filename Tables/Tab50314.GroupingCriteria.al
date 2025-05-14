@@ -1,4 +1,4 @@
-table 50303 "Grouping Criteria"
+table 50314  "Grouping Criteria"
 {
     DataClassification = ToBeClassified;
     LookupPageId = "Grouping Criteria";

@@ -1,4 +1,4 @@
-page 50355 "Packing List Lines Subform" // Assigning next available ID for the subform page part
+page 50367 "Packing List Lines Subform" // Assigning next available ID for the subform page part
 {
     PageType = ListPart;
     ApplicationArea = All;

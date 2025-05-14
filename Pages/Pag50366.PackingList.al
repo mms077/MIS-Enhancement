@@ -1,4 +1,4 @@
-page 50354 "Packing List"
+page 50366 "Packing List"
 {
     PageType = Document;
     ApplicationArea = All;

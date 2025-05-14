@@ -299,11 +299,40 @@ codeunit 50202 EventSubscribers
     var
         CUManagement: Codeunit Management;
         SplitLineCU: Codeunit "Split Line";
+        SalesLineUnitRef: Record "Sales Line Unit Ref.";
+        Counter: Integer;
+        GraphGeneralTools: Codeunit "Graph Mgt - General Tools";
     begin
-        if CUManagement.IsCompanyFullProduction then
-            SplitLineCU.SplitLineFullProduction(SalesOrderLine, SalesOrderHeader, SalesQuoteHeader)
-        else
-            SplitLineCU.SplitLinePurchase(SalesOrderLine, SalesOrderHeader, SalesQuoteHeader);
+        if CUManagement.IsCompanyFullProduction then begin
+            //create GUID 
+            //SalesOrderLine."Sales Line Reference" := CreateGuid();
+            SalesOrderLine."Sales Line Reference" := GraphGeneralTools.GetIdWithoutBrackets(CreateGuid());
+            // SalesOrderLine.Validate("Qty. to Assemble to Order", SalesOrderLine.Quantity);
+            // SalesOrderLine.Modify();
+            // Only create unit refs for item type lines with quantity > 0
+            if (SalesOrderLine.Type = SalesOrderLine.Type::Item) and (SalesOrderLine.Quantity > 0) then begin
+                // Create one unit reference record per quantity
+                for Counter := 1 to SalesOrderLine.Quantity do begin
+                    SalesLineUnitRef.Init();
+                    //create GUID
+                    SalesLineUnitRef."Sales Line Unit" := GraphGeneralTools.GetIdWithoutBrackets(CreateGuid());
+                    SalesLineUnitRef."Sales Line Ref." := SalesOrderLine."Sales Line Reference";
+                    SalesLineUnitRef."Item No." := SalesOrderLine."No.";
+                    SalesLineUnitRef."Variant Code" := SalesOrderLine."Variant Code";
+                    SalesLineUnitRef.Description := SalesOrderLine.Description;
+                    SalesLineUnitRef.Quantity := 1;
+                    SalesLineUnitRef."Unit of Measure Code" := SalesOrderLine."Unit of Measure Code";
+                    // Add any other fields you want to copy from the sales line
+                    SalesLineUnitRef.Insert();
+                end;
+            end;
+
+
+            if CUManagement.IsCompanyFullProduction then
+                SplitLineCU.SplitLineFullProduction(SalesOrderLine, SalesOrderHeader, SalesQuoteHeader)
+            else
+                SplitLineCU.SplitLinePurchase(SalesOrderLine, SalesOrderHeader, SalesQuoteHeader);
+        end;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", 'OnAfterInsertSalesOrderLine', '', false, false)]
@@ -315,31 +344,31 @@ codeunit 50202 EventSubscribers
         FullAutoReservation: Boolean;
         ReservedQty: Decimal;
         ReservedQtyBase: Decimal;
-    begin
-        Clear(ReservedQty);
-        Clear(ReservedQtyBase);
-        Clear(TransferOrderLine);
-        TransferOrderLine.SetRange("Related SO", SalesOrderHeader."No.");
-        TransferOrderLine.SetRange("SO Line No.", SalesOrderLine."Line No.");
-        if TransferOrderLine.Findset() then begin
-            repeat
-                ReservationManagementCU.SetReservSource(TransferOrderLine, DirectionEnum::Inbound);
+        begin
+            Clear(ReservedQty);
+            Clear(ReservedQtyBase);
+            Clear(TransferOrderLine);
+            TransferOrderLine.SetRange("Related SO", SalesOrderHeader."No.");
+            TransferOrderLine.SetRange("SO Line No.", SalesOrderLine."Line No.");
+            if TransferOrderLine.Findset() then begin
+                repeat
+                    ReservationManagementCU.SetReservSource(TransferOrderLine, DirectionEnum::Inbound);
+                    ReservationManagementCU.SetReservSource(SalesOrderLine);
+                    ReservationManagementCU.AutoReserve(FullAutoReservation, TransferOrderLine."Document No.", TransferOrderLine."Shipment Date", TransferOrderLine.Quantity, TransferOrderLine."Quantity (Base)");
+                    ReservedQty += TransferOrderLine.Quantity;
+                    ReservedQtyBase += TransferOrderLine."Quantity (Base)";
+                until TransferOrderLine.Next() = 0;
+                If SalesOrderLine."Quantity (Base)" > ReservedQtyBase then begin
+                    clear(ReservationManagementCU);
+                    ReservationManagementCU.SetReservSource(SalesOrderLine);
+                    ReservationManagementCU.AutoReserve(FullAutoReservation, SalesOrderLine."Document No.", SalesOrderLine."Shipment Date", SalesOrderLine.Quantity - ReservedQty, SalesOrderLine."Quantity (Base)" - ReservedQtyBase);
+                end;
+            end
+            else begin
                 ReservationManagementCU.SetReservSource(SalesOrderLine);
-                ReservationManagementCU.AutoReserve(FullAutoReservation, TransferOrderLine."Document No.", TransferOrderLine."Shipment Date", TransferOrderLine.Quantity, TransferOrderLine."Quantity (Base)");
-                ReservedQty += TransferOrderLine.Quantity;
-                ReservedQtyBase += TransferOrderLine."Quantity (Base)";
-            until TransferOrderLine.Next() = 0;
-            If SalesOrderLine."Quantity (Base)" > ReservedQtyBase then begin
-                clear(ReservationManagementCU);
-                ReservationManagementCU.SetReservSource(SalesOrderLine);
-                ReservationManagementCU.AutoReserve(FullAutoReservation, SalesOrderLine."Document No.", SalesOrderLine."Shipment Date", SalesOrderLine.Quantity - ReservedQty, SalesOrderLine."Quantity (Base)" - ReservedQtyBase);
+                ReservationManagementCU.AutoReserve(FullAutoReservation, SalesOrderLine."Document No.", SalesOrderLine."Shipment Date", SalesOrderLine.Quantity, SalesOrderLine."Quantity (Base)")
             end;
-        end
-        else begin
-            ReservationManagementCU.SetReservSource(SalesOrderLine);
-            ReservationManagementCU.AutoReserve(FullAutoReservation, SalesOrderLine."Document No.", SalesOrderLine."Shipment Date", SalesOrderLine.Quantity, SalesOrderLine."Quantity (Base)")
         end;
-    end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", 'OnAfterInsertAllSalesOrderLines', '', false, false)]
     local procedure OnAfterInsertAllSalesOrderLines(var SalesOrderLine: Record "Sales Line"; SalesQuoteHeader: Record "Sales Header"; var SalesOrderHeader: Record "Sales Header")

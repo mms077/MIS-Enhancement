@@ -1,4 +1,4 @@
-table 50304 "Box Size"
+table 50315 "Box Size"
 {
     DataClassification = CustomerContent;
     Caption = 'Box Size';

@@ -136,6 +136,9 @@ codeunit 50207 "Split Line"
         SalesHeader: Record "Sales Header";
         GnrlLedgStpRec: Record "General Ledger Setup";
         ManagementCU: Codeunit "Management";
+        SalesLineUnitRef: Record "Sales Line Unit Ref.";
+        AssemblyUnitLink: Record "Assembly Unit Link";
+        i: Integer;
     begin
         AssemblyHeader.Init();
         AssemblyHeader.Validate("Document Type", AssemblyHeader."Document Type"::Order);
@@ -162,7 +165,18 @@ codeunit 50207 "Split Line"
         // Set the quantity in base UOM
         AssemblyHeader.Validate("Quantity", AssemblyQty);
         AssemblyHeader.Validate("Unit of Measure Code", Item."Base Unit of Measure");
-
+        Clear(SalesLineUnitRef);
+        SalesLineUnitRef.SetRange("Sales Line Ref.", SalesLine.SystemId);
+        if SalesLineUnitRef.FindSet() then
+            repeat
+                AssemblyUnitLink.Init();
+                AssemblyUnitLink.Validate("Document Type", AssemblyHeader."Document Type");
+                AssemblyUnitLink.Validate("No.", AssemblyHeader."No.");
+                AssemblyUnitLink.Validate("Sales Line Ref.", SalesLine.SystemId);
+                AssemblyUnitLink.Validate("Sales Line Unit", SalesLineUnitRef."Sales Line Unit");
+                AssemblyUnitLink.Insert();
+                i += 1;
+            until (SalesLineUnitRef.Next() = 0) or (i = AssemblyQty);
         AssemblyHeader.Insert(true);
         #region[Create Assembly Header]
 
@@ -479,6 +493,9 @@ codeunit 50207 "Split Line"
         FullAutoReservation: Boolean;
         directionEnum: Enum "Transfer Direction";
         Item: Record Item;
+        AssemblyUnitLink: Record "Assembly Unit Link";
+        TransferLineUnitLink: Record "Transfer Line Unit Link";
+        SalesLineUnitRef: Record "Sales Line Unit Ref.";
     begin
         Clear(TransferOrder);
         TransferOrder.SetRange("Related SO", SalesOrderLine."Document No.");
@@ -504,6 +521,22 @@ codeunit 50207 "Split Line"
                 TransferOrderLine.Validate("Related SO", SalesOrderLine."Document No.");
                 TransferOrderLine.Validate("SO Line No.", SalesOrderLine."Line No.");
                 TransferOrderLine.Insert();
+
+                clear(AssemblyUnitLink);
+                clear(TransferLineUnitLink);
+                Clear(SalesLineUnitRef);
+                SalesLineUnitRef.SetRange("Sales Line Ref.", SalesOrderLine.SystemId);
+                if SalesLineUnitRef.FindSet() then
+                    repeat
+                        if not AssemblyUnitLink.Get(AssemblyUnitLink."Document Type"::Order, SalesOrderLine."No.", SalesLineUnitRef."Sales Line Unit") then begin
+                            TransferLineUnitLink.Init();
+                            TransferLineUnitLink.Validate("Document No.", TransferOrderLine."Document No.");
+                            TransferLineUnitLink.Validate("Line No.", TransferOrderLine."Line No.");
+                            TransferLineUnitLink.Validate("Sales Line Ref.", SalesOrderLine.SystemId);
+                            TransferLineUnitLink.Validate("Sales Line Unit", SalesLineUnitRef."Sales Line Unit");
+                            TransferLineUnitLink.Insert();
+                        end;
+                    until SalesLineUnitRef.Next() = 0;
                 ReservationManagementCU.SetReservSource(TransferOrderLine, directionEnum::Outbound);
                 ReservationManagementCU.AutoReserve(FullAutoReservation, TransferOrderLine."Document No.", TransferOrderLine."Shipment Date", TransferOrderLine.Quantity, TransferOrderLine."Quantity (Base)")
             end;
@@ -541,7 +574,21 @@ codeunit 50207 "Split Line"
             TransferOrderLine.Validate("Related SO", SalesOrderLine."Document No.");
             TransferOrderLine.Validate("SO Line No.", SalesOrderLine."Line No.");
             TransferOrderLine.Insert();
-
+            clear(AssemblyUnitLink);
+            clear(TransferLineUnitLink);
+            Clear(SalesLineUnitRef);
+            SalesLineUnitRef.SetRange("Sales Line Ref.", SalesOrderLine.SystemId);
+            if SalesLineUnitRef.FindSet() then
+                repeat
+                    if not AssemblyUnitLink.Get(AssemblyUnitLink."Document Type"::Order, SalesOrderLine."No.", SalesLineUnitRef."Sales Line Unit") then begin
+                        TransferLineUnitLink.Init();
+                        TransferLineUnitLink.Validate("Document No.", TransferOrderLine."Document No.");
+                        TransferLineUnitLink.Validate("Line No.", TransferOrderLine."Line No.");
+                        TransferLineUnitLink.Validate("Sales Line Ref.", SalesOrderLine.SystemId);
+                        TransferLineUnitLink.Validate("Sales Line Unit", SalesLineUnitRef."Sales Line Unit");
+                        TransferLineUnitLink.Insert();
+                    end;
+                until SalesLineUnitRef.Next() = 0;
 
             ReservationManagementCU.SetReservSource(TransferOrderLine, directionEnum::Outbound);
             ReservationManagementCU.AutoReserve(FullAutoReservation, TransferOrderLine."Document No.", TransferOrderLine."Shipment Date", TransferOrderLine.Quantity, TransferOrderLine."Quantity (Base)")
@@ -561,6 +608,8 @@ codeunit 50207 "Split Line"
         FullAutoReservation: Boolean;
         directionEnum: Enum "Transfer Direction";
         Item: Record Item;
+        AssemblyUnitLink: Record "Assembly Unit Link";
+        TransferLineUnitLink: Record "Transfer Line Unit Link";
     begin
         Clear(TransferOrder);
         TransferOrder.SetRange("Related SO", SalesOrderLine."Document No.");
@@ -586,6 +635,21 @@ codeunit 50207 "Split Line"
                 TransferOrderLine.Validate("Related SO", SalesOrderLine."Document No.");
                 TransferOrderLine.Validate("SO Line No.", SalesOrderLine."Line No.");
                 TransferOrderLine.Insert();
+
+                clear(AssemblyUnitLink);
+                AssemblyUnitLink.SetRange("Document Type", AssemblyHeader."Document Type");
+                AssemblyUnitLink.SetRange("No.", AssemblyHeader."No.");
+                AssemblyUnitLink.SetRange("Sales Line Ref.", SalesOrderLine.SystemId);
+                if AssemblyUnitLink.FindSet() then
+                    repeat
+                        TransferLineUnitLink.Init();
+                        TransferLineUnitLink.Validate("Document No.", TransferOrderLine."Document No.");
+                        TransferLineUnitLink.Validate("Line No.", TransferOrderLine."Line No.");
+                        TransferLineUnitLink.Validate("Sales Line Ref.", SalesOrderLine.SystemId);
+                        TransferLineUnitLink.Validate("Sales Line Unit", AssemblyUnitLink."Sales Line Unit");
+                        TransferLineUnitLink.Insert();
+                    until AssemblyUnitLink.Next() = 0;
+
 
                 ReservationManagementCU.SetReservSource(TransferOrderLine, directionEnum::Outbound);
                 // Add assembly order as a second reservation source
@@ -628,6 +692,21 @@ codeunit 50207 "Split Line"
             TransferOrderLine.Validate("Related SO", SalesOrderLine."Document No.");
             TransferOrderLine.Validate("SO Line No.", SalesOrderLine."Line No.");
             TransferOrderLine.Insert();
+
+            clear(AssemblyUnitLink);
+            AssemblyUnitLink.SetRange("Document Type", AssemblyHeader."Document Type");
+            AssemblyUnitLink.SetRange("No.", AssemblyHeader."No.");
+            AssemblyUnitLink.SetRange("Sales Line Ref.", SalesOrderLine.SystemId);
+            if AssemblyUnitLink.FindSet() then
+                repeat
+                    TransferLineUnitLink.Init();
+                    TransferLineUnitLink.Validate("Document No.", TransferOrderLine."Document No.");
+                    TransferLineUnitLink.Validate("Line No.", TransferOrderLine."Line No.");
+                    TransferLineUnitLink.Validate("Sales Line Ref.", SalesOrderLine.SystemId);
+                    TransferLineUnitLink.Validate("Sales Line Unit", AssemblyUnitLink."Sales Line Unit");
+                    TransferLineUnitLink.Insert();
+                until AssemblyUnitLink.Next() = 0;
+
             ReservationManagementCU.SetReservSource(TransferOrderLine, directionEnum::Outbound);
 
             // Add assembly order as a second reservation source

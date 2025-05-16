@@ -138,7 +138,7 @@ page 50311 "ER - Manufacturing Orders"
                     end;
                 end;
             }
-            action("Scanning Ref.")
+            action("Add Activity")
             {
                 ApplicationArea = all;
                 Image = NumberGroup;
@@ -151,11 +151,7 @@ page 50311 "ER - Manufacturing Orders"
                     ScanWizard: Page "Scan Unit Ref";
                     AssemblyHeader: Record "Assembly Header";
                 begin
-                    // Clear(AssemblyHeader);
-                    // AssemblyHeader.SetRange("ER - Manufacturing Order No.", Rec."No.");
-                    // if AssemblyHeader.FindFirst() then begin
-                    //     ScanWizard.SetTableView(AssemblyHeader); // Pass the filtered AssemblyHeader to the wizard
-                    ScanWizard.Run(); // Open the wizard
+                    ScanWizard.Run(); 
                 end;
             }
             action("Force Close MO without Scan")

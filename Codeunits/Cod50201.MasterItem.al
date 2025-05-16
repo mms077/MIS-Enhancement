@@ -823,14 +823,14 @@ codeunit 50201 MasterItem
     end;
 
     //procedure CheckUserResponibilityScanning(AssemblyNo: Code[20]; Username: Code[50]; CurrentSequence: Integer)
-    procedure CheckUserResponibilityScanning(CurrentSequence: Integer; Username: Code[50]; ActivitySelected: integer)
+    procedure CheckUserResponibilityScanning(CurrentActivity: Code[50]; Username: Code[50]; ActivitySelected: code[50])
     var
         SalesRecivableSetup: Record "Sales & Receivables Setup";
         WorkflowUserGroupMemberER: Record "Workflow User Memb-Scan";
         Txt001: Label 'User is not existing in this workflow 👎';
         Txt002: Label 'You are not allowed to approve at this stage 👎';
     begin
-        if CurrentSequence = 0 then
+        if CurrentActivity = '' then
             Error('Please select stage to Scan');
         SalesRecivableSetup.Get();
         //if not WorkflowUserGroupMemberER.Get(SalesRecivableSetup."Cutting Sheet Workflow Group", Username) then begin
@@ -840,7 +840,7 @@ codeunit 50201 MasterItem
         // end;
         // WorkflowUserGroupMemberER.Get(SalesRecivableSetup."Scanning Workflow Group", Username,ActivitySelected);
         WorkflowUserGroupMemberER.get(SalesRecivableSetup."Scanning Workflow Group", Username, ActivitySelected);
-        if CurrentSequence <> WorkflowUserGroupMemberER."Activity Code" then begin
+        if CurrentActivity <> WorkflowUserGroupMemberER."Activity Code" then begin
             //To show the message to user before error
             Message(Txt002);
             Error(Txt002);

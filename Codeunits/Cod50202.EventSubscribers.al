@@ -307,6 +307,7 @@ codeunit 50202 EventSubscribers
             //create GUID 
             //SalesOrderLine."Sales Line Reference" := CreateGuid();
             SalesOrderLine."Sales Line Reference" := GraphGeneralTools.GetIdWithoutBrackets(CreateGuid());
+            SalesOrderLine."Sales Line Reference Text" := GraphGeneralTools.GetIdWithoutBrackets(SalesOrderLine."Sales Line Reference");
             // SalesOrderLine.Validate("Qty. to Assemble to Order", SalesOrderLine.Quantity);
             // SalesOrderLine.Modify();
             // Only create unit refs for item type lines with quantity > 0
@@ -316,7 +317,7 @@ codeunit 50202 EventSubscribers
                     SalesLineUnitRef.Init();
                     //create GUID
                     SalesLineUnitRef."Sales Line Unit" := GraphGeneralTools.GetIdWithoutBrackets(CreateGuid());
-                    SalesLineUnitRef."Sales Line Ref." := SalesOrderLine."Sales Line Reference";
+                    SalesLineUnitRef."Sales Line Ref." := SalesOrderLine."Sales Line Reference Text";
                     SalesLineUnitRef."Item No." := SalesOrderLine."No.";
                     SalesLineUnitRef."Variant Code" := SalesOrderLine."Variant Code";
                     SalesLineUnitRef.Description := SalesOrderLine.Description;
@@ -344,31 +345,31 @@ codeunit 50202 EventSubscribers
         FullAutoReservation: Boolean;
         ReservedQty: Decimal;
         ReservedQtyBase: Decimal;
-        begin
-            Clear(ReservedQty);
-            Clear(ReservedQtyBase);
-            Clear(TransferOrderLine);
-            TransferOrderLine.SetRange("Related SO", SalesOrderHeader."No.");
-            TransferOrderLine.SetRange("SO Line No.", SalesOrderLine."Line No.");
-            if TransferOrderLine.Findset() then begin
-                repeat
-                    ReservationManagementCU.SetReservSource(TransferOrderLine, DirectionEnum::Inbound);
-                    ReservationManagementCU.SetReservSource(SalesOrderLine);
-                    ReservationManagementCU.AutoReserve(FullAutoReservation, TransferOrderLine."Document No.", TransferOrderLine."Shipment Date", TransferOrderLine.Quantity, TransferOrderLine."Quantity (Base)");
-                    ReservedQty += TransferOrderLine.Quantity;
-                    ReservedQtyBase += TransferOrderLine."Quantity (Base)";
-                until TransferOrderLine.Next() = 0;
-                If SalesOrderLine."Quantity (Base)" > ReservedQtyBase then begin
-                    clear(ReservationManagementCU);
-                    ReservationManagementCU.SetReservSource(SalesOrderLine);
-                    ReservationManagementCU.AutoReserve(FullAutoReservation, SalesOrderLine."Document No.", SalesOrderLine."Shipment Date", SalesOrderLine.Quantity - ReservedQty, SalesOrderLine."Quantity (Base)" - ReservedQtyBase);
-                end;
-            end
-            else begin
+    begin
+        Clear(ReservedQty);
+        Clear(ReservedQtyBase);
+        Clear(TransferOrderLine);
+        TransferOrderLine.SetRange("Related SO", SalesOrderHeader."No.");
+        TransferOrderLine.SetRange("SO Line No.", SalesOrderLine."Line No.");
+        if TransferOrderLine.Findset() then begin
+            repeat
+                ReservationManagementCU.SetReservSource(TransferOrderLine, DirectionEnum::Inbound);
                 ReservationManagementCU.SetReservSource(SalesOrderLine);
-                ReservationManagementCU.AutoReserve(FullAutoReservation, SalesOrderLine."Document No.", SalesOrderLine."Shipment Date", SalesOrderLine.Quantity, SalesOrderLine."Quantity (Base)")
+                ReservationManagementCU.AutoReserve(FullAutoReservation, TransferOrderLine."Document No.", TransferOrderLine."Shipment Date", TransferOrderLine.Quantity, TransferOrderLine."Quantity (Base)");
+                ReservedQty += TransferOrderLine.Quantity;
+                ReservedQtyBase += TransferOrderLine."Quantity (Base)";
+            until TransferOrderLine.Next() = 0;
+            If SalesOrderLine."Quantity (Base)" > ReservedQtyBase then begin
+                clear(ReservationManagementCU);
+                ReservationManagementCU.SetReservSource(SalesOrderLine);
+                ReservationManagementCU.AutoReserve(FullAutoReservation, SalesOrderLine."Document No.", SalesOrderLine."Shipment Date", SalesOrderLine.Quantity - ReservedQty, SalesOrderLine."Quantity (Base)" - ReservedQtyBase);
             end;
+        end
+        else begin
+            ReservationManagementCU.SetReservSource(SalesOrderLine);
+            ReservationManagementCU.AutoReserve(FullAutoReservation, SalesOrderLine."Document No.", SalesOrderLine."Shipment Date", SalesOrderLine.Quantity, SalesOrderLine."Quantity (Base)")
         end;
+    end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", 'OnAfterInsertAllSalesOrderLines', '', false, false)]
     local procedure OnAfterInsertAllSalesOrderLines(var SalesOrderLine: Record "Sales Line"; SalesQuoteHeader: Record "Sales Header"; var SalesOrderHeader: Record "Sales Header")

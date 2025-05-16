@@ -5,12 +5,11 @@ table 50307 "Scan Design Stages- ER"
 
     fields
     {
-        field(1; "Workflow User Group Code"; Code[20])
+        field(1; "Activity Code"; code[50])
         {
-            Caption = 'Workflow User Group Code';
-            NotBlank = true;
-            TableRelation = "Workflow User Group Scan".Code;
+            DataClassification = ToBeClassified;
         }
+
         // field(2; "Workflow User Group Sequence"; Integer)
         // {
         //     Caption = 'Workflow User Group Sequence';
@@ -21,7 +20,7 @@ table 50307 "Scan Design Stages- ER"
             Caption = 'Activity Name';
             NotBlank = true;
         }
-        field(4; "Design Code Filter"; Code[50])
+        field(4; "Design Code"; Code[50])
         {
             FieldClass = FlowField;
             CalcFormula = Lookup("Item"."Design Code" WHERE("No." = FIELD("Item No.")));
@@ -31,22 +30,50 @@ table 50307 "Scan Design Stages- ER"
         {
             DataClassification = ToBeClassified;
         }
-        field(6; Index; Integer)
+        field(6; "Workflow User Group Code"; Code[20])
+        {
+            Caption = 'Workflow User Group Code';
+            NotBlank = true;
+            TableRelation = "Workflow User Group Scan".Code;
+        }
+
+        field(7; "Activity Selected"; Text[100])
+        {
+            FieldClass = FlowField;
+            CalcFormula = lookup("Design Activities"."Activity Name" where("To Scan" = filter(true)));
+        }
+        field(8; "Unit Ref"; Code[100])
         {
             DataClassification = ToBeClassified;
-            AutoIncrement = true;
+        }
+        field(9; "To View"; Boolean)
+        {
+            DataClassification = ToBeClassified;
+        }
+        field(10; "To Scan"; Boolean)
+        {
+            DataClassification = ToBeClassified;
+
+        }
+        field(11; Done; Text[10])
+        {
+            DataClassification = ToBeClassified;
+        }
+        field(12; "Scanned"; Boolean)
+        {
+            DataClassification = ToBeClassified;
         }
     }
     keys
     {
-        key(PK; Index)
+        key(PK; "Activity Code")
         {
             Clustered = true;
         }
     }
     fieldgroups
     {
-        fieldgroup(DropDown; Index, "Activity Name")
+        fieldgroup(DropDown; "Activity Code", "Activity Name")
         {
 
         }

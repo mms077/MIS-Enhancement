@@ -6,7 +6,12 @@ table 50309 "Scan Design Stages- ER Temp"
 
     fields
     {
-        field(1; "Workflow User Group Code"; Code[20])
+        field(1; "Activity Code"; code[50])
+        {
+            DataClassification = ToBeClassified;
+
+        }
+        field(2; "Workflow User Group Code"; Code[20])
         {
             Caption = 'Workflow User Group Code';
             NotBlank = true;
@@ -32,11 +37,7 @@ table 50309 "Scan Design Stages- ER Temp"
         {
             DataClassification = ToBeClassified;
         }
-        field(6; Index; Integer)
-        {
-            DataClassification = ToBeClassified;
-            AutoIncrement = true;
-        }
+
         field(7; "Activity Selected"; Text[100])
         {
             FieldClass = FlowField;
@@ -46,11 +47,28 @@ table 50309 "Scan Design Stages- ER Temp"
         {
             DataClassification = ToBeClassified;
         }
+       field(9; "To View"; Boolean)
+        {
+            DataClassification = ToBeClassified;
+        }
+        field(10; "To Scan"; Boolean)
+        {
+            DataClassification = ToBeClassified;
+
+        }
+        field(11; Done; Text[10])
+        {
+            DataClassification = ToBeClassified;
+        }
+        field(12; "Scanned"; Boolean)
+        {
+            DataClassification = ToBeClassified;
+        }
 
     }
     keys
     {
-        key(PK; Index)
+        key(PK; "Activity Code")
         {
             Clustered = true;
         }

@@ -22,17 +22,17 @@ table 50305 "Design Activities"
         //                 "Activity Name" := WorkflowActivitiesER."Activity Name";
         //     end;
         // }
-        field(2; "Activity Id"; Integer)
+        field(2; "Activity Code"; Code[50])
         {
-            Caption = 'Activity Id';
+            Caption = 'Activity Code';
             Editable = true;
-            TableRelation = "Scan Design Stages- ER".Index;
+            TableRelation = "Scan Design Stages- ER"."Activity Code";
         }
         field(3; "Activity Name"; Text[100])
         {
 
             FieldClass = FlowField;
-            CalcFormula = lookup("Scan Design Stages- ER"."Activity Name" where(Index = field("Activity Id")));
+            CalcFormula = lookup("Scan Design Stages- ER"."Activity Name" where("Activity Code" = field("Activity Code")));
             Editable = false;
         }
         field(4; "Design Code"; Code[50])
@@ -64,17 +64,23 @@ table 50305 "Design Activities"
             DataClassification = ToBeClassified;
 
         }
+        
         field(10; "Unit Ref"; code[100])
         {
             FieldClass = FlowField;
             CalcFormula = lookup("Scan Design Stages- ER Temp"."Unit Ref");
+        }
+        field(11; "To View"; Boolean)
+        {
+            DataClassification = ToBeClassified;
+
         }
 
     }
 
     keys
     {
-        key(PK; "Design Code", "Activity Id", "Sequence No.")
+        key(PK; "Design Code", "Activity Code", "Sequence No.")
         {
             Clustered = true;
         }

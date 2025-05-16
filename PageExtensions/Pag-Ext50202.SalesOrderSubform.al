@@ -97,7 +97,27 @@ pageextension 50202 "Sales Order Subform" extends "Sales Order Subform"
                 end;
 
             }
-            field("Sales Line Reference"; Rec."Sales Line Reference") { ApplicationArea = all; Editable = false; }
+            field("Sales Line Reference"; Rec."Sales Line Reference")
+            {
+                ApplicationArea = all;
+                Editable = false;
+                Visible = false;
+
+            }
+            field("Sales Line Reference Text"; Rec."Sales Line Reference Text")
+            {
+                ApplicationArea = all;
+                Editable = false;
+                DrillDown = true;
+                trigger OnDrillDown()
+                var
+                    TargetRec: Record "Sales Line Unit Ref.";
+                begin
+                    TargetRec.SetFilter("Sales Line Ref.", Rec."Sales Line Reference Text");
+                    if TargetRec.FindSet() then
+                        PAGE.Run(PAGE::"Sales Line Unit Ref. List", TargetRec);
+                end;
+            }
             field("Needed RM Batch"; Rec."Needed RM Batch")
             {
                 ApplicationArea = all;
@@ -346,17 +366,17 @@ pageextension 50202 "Sales Order Subform" extends "Sales Order Subform"
                 ApplicationArea = all;
                 Caption = 'Unit Sales Line Ref.';
                 Image = TaskQualityMeasure;
-                RunPageLink = "Sales Line Ref." = field("Sales Line Reference");
+                RunPageLink = "Sales Line Ref." = field("Sales Line Reference Text");
                 RunObject = Page "Sales Line Unit Ref. List";
             }
-            action("DashboardUnit")
-            {
-                ApplicationArea = all;
-                Image = ShowChart;
-                Caption = 'Dashboard/Unit';
-                RunObject = page "Scan Activities List";
-                RunPageLink = "Sales Line Id" = field("Sales Line Reference");
-            }
+            // action("DashboardUnit")
+            // {
+            //     ApplicationArea = all;
+            //     Image = ShowChart;
+            //     Caption = 'Dashboard/Unit';
+            //     RunObject = page "Scan Activities List";
+            //     RunPageLink = "Sales Line Id" = field("Sales Line Reference");
+            // }
         }
     }
 
@@ -372,6 +392,7 @@ pageextension 50202 "Sales Order Subform" extends "Sales Order Subform"
         //Update Reservation Warning
         UpdateReservationWarning(Rec);
     end;
+
     trigger OnOpenPage()
     var
         MasterItemCodeunit: Codeunit MasterItem;

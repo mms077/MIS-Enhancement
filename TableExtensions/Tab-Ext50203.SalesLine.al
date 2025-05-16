@@ -192,6 +192,13 @@ tableextension 50203 "Sales Line" extends "Sales Line"
         field(50230; "Sales Line Reference"; Guid)
         {
             DataClassification = ToBeClassified;
+            // i need to make this as a link to open a page
+        }
+        field(50231; "Sales Line Reference Text"; Text[250])
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Sales Line Reference';
+
         }
 
 

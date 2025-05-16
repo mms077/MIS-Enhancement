@@ -2,7 +2,7 @@ page 50362 "Existing Scans"
 {
     PageType = ListPart;
     ApplicationArea = All;
-    SourceTable = "Scan Activities-History"; // Replace with the actual table name for scans
+    SourceTable = "Scan Activities-History"; 
     Caption = 'Existing Scans';
 
     layout

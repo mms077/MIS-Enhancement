@@ -14,11 +14,10 @@ table 50311 "Workflow User Memb-Scan"
         {
             Caption = 'Name';
         }
-        field(3; "Activity Code"; Integer)
+        field(3; "Activity Code"; Code[50])
         {
             Caption = 'Activity Code';
-            MinValue = 1;
-            TableRelation = "Scan Design Stages- ER".Index;
+            TableRelation = "Scan Design Stages- ER"."Activity Code";
         }
     }
 

@@ -10,7 +10,7 @@ table 50313 "Scan Activities-History"
         {
             DataClassification = ToBeClassified;
         }
-        field(2; "Sales Line Id"; Guid)
+        field(2; "Sales Line Id"; Text[100])
         {
             DataClassification = ToBeClassified;
         }

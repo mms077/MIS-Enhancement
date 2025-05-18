@@ -823,7 +823,7 @@ codeunit 50201 MasterItem
     end;
 
     //procedure CheckUserResponibilityScanning(AssemblyNo: Code[20]; Username: Code[50]; CurrentSequence: Integer)
-    procedure CheckUserResponibilityScanning(CurrentActivity: Code[50]; Username: Code[50]; ActivitySelected: code[50])
+    procedure CheckUserResponibilityScanning(CurrentActivity: Code[50]; Username: Code[50])
     var
         SalesRecivableSetup: Record "Sales & Receivables Setup";
         WorkflowUserGroupMemberER: Record "Workflow User Memb-Scan";
@@ -839,7 +839,7 @@ codeunit 50201 MasterItem
         //     Error(Txt001);
         // end;
         // WorkflowUserGroupMemberER.Get(SalesRecivableSetup."Scanning Workflow Group", Username,ActivitySelected);
-        WorkflowUserGroupMemberER.get(SalesRecivableSetup."Scanning Workflow Group", Username, ActivitySelected);
+        WorkflowUserGroupMemberER.get(SalesRecivableSetup."Scanning Workflow Group", Username, CurrentActivity);
         if CurrentActivity <> WorkflowUserGroupMemberER."Activity Code" then begin
             //To show the message to user before error
             Message(Txt002);

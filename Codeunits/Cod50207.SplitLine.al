@@ -174,9 +174,6 @@ codeunit 50207 "Split Line"
             AssemblyHeader."Grouping Criteria" := AssemblyHeader."Item No." + '-' + AssemblyHeader."Item Size" + '-' + AssemblyHeader."Item Fit" + '-' + AssemblyHeader."Item Cut Code" + '-WithoutEmb';
         AssemblyHeader."Quantity to Assemble" := AssemblyHeader.Quantity;
         AssemblyHeader.Modify();
-
-
-
         #endregion[Create Assembly Header]
 
 
@@ -215,34 +212,7 @@ codeunit 50207 "Split Line"
     end;
 
     #region[Item Tracking]
-    // local procedure CreateReservationEntry()
-    // begin
-    //     if not Item.Get(PurchaseLines."No.") then
-    //         exit;
-    //     Item.TestField("Item Tracking Code");
-    //     Item.TestField("Lot Nos.");
 
-    //     ReservationEntry.Init();
-    //     ReservationEntry."Entry No." := NextEntryNo;
-    //     ReservationEntry."Item No." := PurchaseLines."No.";
-    //     ReservationEntry.Description := PurchaseLines.Description;
-    //     ReservationEntry."Location Code" := PurchaseLines."Location Code";
-    //     ReservationEntry."Variant Code" := PurchaseLines."Variant Code";
-    //     ReservationEntry.Validate("Quantity (Base)", PurchaseLines."Qty. to Receive (Base)");
-    //     ReservationEntry."Reservation Status" := ReservationEntry."Reservation Status"::Surplus;
-    //     ReservationEntry."Source Type" := Database::"Purchase Line";
-    //     ReservationEntry."Source Subtype" := ReservationEntry."Source Subtype"::"1";
-    //     ReservationEntry."Source ID" := PurchaseLines."Document No.";
-    //     ReservationEntry."Source Ref. No." := PurchaseLines."Line No.";
-    //     ReservationEntry."Expected Receipt Date" := PurchaseLines."Expected Receipt Date";
-    //     ReservationEntry."Qty. per Unit of Measure" := PurchaseLines."Qty. per Unit of Measure";
-    //     ReservationEntry.VALIDATE("Lot No.", NoSeriesMgt.GetNextNo(Item."Lot Nos.", WorkDate(), true));
-    //     ReservationEntry."Item Tracking" := ReservationEntry."Item Tracking"::"Lot No.";
-    //     ReservationEntry."Created By" := UserId;
-    //     ReservationEntry.Positive := true;
-    //     ReservationEntry."Creation Date" := WorkDate();
-    //     ReservationEntry.Insert();
-    // end;
     #endregion[Item Tracking]
 
     Procedure WithEmbroidery(AssemblyHeaderPar: Record "Assembly Header"): Boolean
@@ -645,50 +615,17 @@ codeunit 50207 "Split Line"
                 TransferOrderLine.Validate("SO Line No.", SalesOrderLine."Line No.");
                 TransferOrderLine.Insert();
 
-                //ReservationManagementCU.SetReservSource(TransferOrderLine, directionEnum::Outbound);
                 // Add assembly order as a second reservation source
                 if AssemblyHeader."No." <> '' then begin
-                    LastEntryNo := TrackingSpecAsb.GetLastEntryNo();
                     for i := 1 to AssemblyHeader.Quantity do begin
-                        //     LastEntryNo += 1;
                         Serial := NosCU.GetNextNo(Item."Serial Nos.");
-                        //     TrackingSpecAsb.Init();
-                        //     TrackingSpecAsb."Entry No." := LastEntryNo;
-                        //     TrackingSpecAsb."Item No." := AssemblyHeader."Item No.";
-                        //     TrackingSpecAsb."Variant Code" := AssemblyHeader."Variant Code";
-                        //     TrackingSpecAsb."Location Code" := AssemblyHeader."Location Code";
-                        //     TrackingSpecAsb."Qty. per Unit of Measure" := AssemblyHeader."Qty. per Unit of Measure";
-                        //     TrackingSpecAsb."Quantity (Base)" := 1;
-                        //     TrackingSpecAsb."Source Type" := Database::"Assembly Header";
-                        //     TrackingSpecAsb."Source Subtype" := TrackingSpecAsb."Source Subtype"::"1";
-                        //     TrackingSpecAsb."Source ID" := AssemblyHeader."No.";
-                        //     TrackingSpecAsb."Serial No." := Serial;
-                        //     TrackingSpecAsb.Insert();
-                        //     AssemblyReservation.CreateReservationSetFrom(TrackingSpecAsb);
-                        //     AssemblyReservation.CreateReservation(AssemblyHeader, AssemblyHeader.Description, AssemblyHeader."Due Date", 1, 1, AssemblyReservationEntry);
-                        //     // TrackingSpecTransfer.Init();
-                        // TrackingSpecTransfer."Entry No." := LastEntryNo;
-                        // TrackingSpecTransfer."Item No." := AssemblyHeader."Item No.";
-                        // TrackingSpecTransfer."Variant Code" := AssemblyHeader."Variant Code";
-                        // TrackingSpecTransfer."Location Code" := AssemblyHeader."Location Code";
-                        // TrackingSpecTransfer."Qty. per Unit of Measure" := AssemblyHeader."Qty. per Unit of Measure";
-                        // TrackingSpecTransfer."Quantity (Base)" := 1;
-                        // TrackingSpecTransfer."Source Type" := Database::"Assembly Header";
-                        // TrackingSpecTransfer."Source Subtype" := TrackingSpecTransfer."Source Subtype"::"1";
-                        // TrackingSpecTransfer."Source ID" := AssemblyHeader."No.";
-                        // TrackingSpecTransfer."Serial No." := Serial;
-                        // TrackingSpecTransfer.Insert();
                         TrackingSpecAsb.InitTrackingSpecification(Database::"Assembly Header", 1, AssemblyHeader."No.", '', 0, 0, AssemblyHeader."Variant Code", AssemblyHeader."Location Code", AssemblyHeader."Qty. per Unit of Measure");
-                        //ReservationManagementCU.CollectTrackingSpecification();
                         TrackingSpecAsb."Serial No." := Serial;
                         TransferReserve.CreateReservationSetFrom(TrackingSpecAsb);
-                        TransferReserve.CreateReservation(TransferOrderLine, TransferOrderLine.Description, TransferOrderLine."Shipment Date", 1, 1, AssemblyReservationEntry, directionEnum::Outbound);
                         AssemblyReservationEntry.CopyTrackingFromSpec(TrackingSpecAsb);
-                        //ReservationManagementCU.SetCalcReservEntry(TrackingSpec, AssemblyReservationEntry);
+                        TransferReserve.CreateReservation(TransferOrderLine, TransferOrderLine.Description, TransferOrderLine."Shipment Date", 1, 1, AssemblyReservationEntry, directionEnum::Outbound);
                     end;
                 end;
-                //ReservationManagementCU.SetReservSource(AssemblyHeader);
-                //ReservationManagementCU.AutoReserve(FullAutoReservation, TransferOrderLine."Document No.", TransferOrderLine."Shipment Date", TransferOrderLine.Quantity, TransferOrderLine."Quantity (Base)")
             end;
         end
         else begin
@@ -724,57 +661,17 @@ codeunit 50207 "Split Line"
             TransferOrderLine.Validate("Related SO", SalesOrderLine."Document No.");
             TransferOrderLine.Validate("SO Line No.", SalesOrderLine."Line No.");
             TransferOrderLine.Insert();
-            // ReservationManagementCU.SetReservSource(TransferOrderLine, directionEnum::Outbound);
 
             // Add assembly order as a second reservation source
             if AssemblyHeader."No." <> '' then
-                LastEntryNo := TrackingSpecAsb.GetLastEntryNo();
-
-
-
-            for i := 1 to AssemblyHeader.Quantity do begin
-                //     LastEntryNo += 1;
-                Serial := NosCU.GetNextNo(Item."Serial Nos.");
-                //     TrackingSpecAsb.Init();
-                //     TrackingSpecAsb."Entry No." := LastEntryNo;
-                //     TrackingSpecAsb."Item No." := AssemblyHeader."Item No.";
-                //     TrackingSpecAsb."Variant Code" := AssemblyHeader."Variant Code";
-                //     TrackingSpecAsb."Location Code" := AssemblyHeader."Location Code";
-                //     TrackingSpecAsb."Qty. per Unit of Measure" := AssemblyHeader."Qty. per Unit of Measure";
-                //     TrackingSpecAsb."Quantity (Base)" := 1;
-                //     TrackingSpecAsb."Source Type" := Database::"Assembly Header";
-                //     TrackingSpecAsb."Source Subtype" := TrackingSpecAsb."Source Subtype"::"1";
-                //     TrackingSpecAsb."Source ID" := AssemblyHeader."No.";
-                //     TrackingSpecAsb."Serial No." := Serial;
-                //     TrackingSpecAsb.Insert();
-                // AssemblyReservation.CreateReservationSetFrom(TrackingSpecAsb);
-                // AssemblyReservation.CreateReservation(AssemblyHeader, AssemblyHeader.Description, AssemblyHeader."Due Date", 1, 1, AssemblyReservationEntry);
-                // TrackingSpecTransfer.Init();
-                // TrackingSpecTransfer."Entry No." := LastEntryNo;
-                // TrackingSpecTransfer."Item No." := TransferOrderLine."Item No.";
-                // TrackingSpecTransfer."Variant Code" := TransferOrderLine."Variant Code";
-                // TrackingSpecTransfer."Location Code" := TransferOrderLine."Transfer-from Code";
-                // TrackingSpecTransfer."Qty. per Unit of Measure" := TransferOrderLine."Qty. per Unit of Measure";
-                // TrackingSpecTransfer."Quantity (Base)" := 1;
-                // TrackingSpecTransfer."Source Type" := Database::"Transfer Line";
-                // TrackingSpecTransfer."Source Subtype" := TrackingSpecTransfer."Source Subtype"::"0";
-                // TrackingSpecTransfer."Source ID" := TransferOrderLine."Document No.";
-                // TrackingSpecTransfer."Source Ref. No." := TransferOrderLine."Line No.";
-                // TrackingSpecTransfer."Serial No." := Serial;
-                // TrackingSpecTransfer.Insert();
-                TrackingSpecAsb.InitTrackingSpecification(Database::"Assembly Header", 1, AssemblyHeader."No.", '', 0, 0, AssemblyHeader."Variant Code", AssemblyHeader."Location Code", AssemblyHeader."Qty. per Unit of Measure");
-                //ReservationManagementCU.CollectTrackingSpecification();
-                TrackingSpecAsb."Serial No." := Serial;
-                //TrackingSpecTransfer.InitTrackingSpecification(Database::"Transfer Line", 0, TransferOrderLine."Document No.", '', 0, TransferOrderLine."Line No.", TransferOrderLine."Variant Code", TransferOrderLine."Transfer-from Code", TransferOrderLine."Qty. per Unit of Measure");
-                // TrackingSpecTransfer.CopyTrackingFromTrackingSpec(TrackingSpecAsb);
-                TransferReserve.CreateReservationSetFrom(TrackingSpecAsb);
-                TransferReserve.CreateReservation(TransferOrderLine, TransferOrderLine.Description, TransferOrderLine."Shipment Date", 1, 1, AssemblyReservationEntry, directionEnum::Outbound);
-                AssemblyReservationEntry.CopyTrackingFromSpec(TrackingSpecAsb);
-                //ReservationManagementCU.SetCalcReservEntry(TrackingSpecTransfer, AssemblyReservationEntry);
-                //ReservationManagementCU.SetCalcReservEntry(TrackingSpec, AssemblyReservationEntry);
-            end;
-
-            //ReservationManagementCU.AutoReserve(FullAutoReservation, TransferOrderLine."Document No.", TransferOrderLine."Shipment Date", TransferOrderLine.Quantity, TransferOrderLine."Quantity (Base)")
+                for i := 1 to AssemblyHeader.Quantity do begin
+                    Serial := NosCU.GetNextNo(Item."Serial Nos.");
+                    TrackingSpecAsb.InitTrackingSpecification(Database::"Assembly Header", 1, AssemblyHeader."No.", '', 0, 0, AssemblyHeader."Variant Code", AssemblyHeader."Location Code", AssemblyHeader."Qty. per Unit of Measure");
+                    TrackingSpecAsb."Serial No." := Serial;
+                    TransferReserve.CreateReservationSetFrom(TrackingSpecAsb);
+                    AssemblyReservationEntry.CopyTrackingFromSpec(TrackingSpecAsb);
+                    TransferReserve.CreateReservation(TransferOrderLine, TransferOrderLine.Description, TransferOrderLine."Shipment Date", 1, 1, AssemblyReservationEntry, directionEnum::Outbound);
+                end;
         end;
     end;
 

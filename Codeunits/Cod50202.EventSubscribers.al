@@ -344,31 +344,38 @@ codeunit 50202 EventSubscribers
         FullAutoReservation: Boolean;
         ReservedQty: Decimal;
         ReservedQtyBase: Decimal;
-        begin
-            Clear(ReservedQty);
-            Clear(ReservedQtyBase);
-            Clear(TransferOrderLine);
-            TransferOrderLine.SetRange("Related SO", SalesOrderHeader."No.");
-            TransferOrderLine.SetRange("SO Line No.", SalesOrderLine."Line No.");
-            if TransferOrderLine.Findset() then begin
+        TransferLineOutReserve: Codeunit "Transfer Line-Reserve";
+        TransferLineInReserve: Codeunit "Transfer Line-Reserve";
+        SOLineTrackingSpec: record "Tracking Specification";
+        OutReservationEntry: Record "Reservation Entry";
+        InReservationEntry: Record "Reservation Entry";
+    begin
+        Clear(ReservedQty);
+        Clear(ReservedQtyBase);
+        Clear(TransferOrderLine);
+        TransferOrderLine.SetRange("Related SO", SalesOrderHeader."No.");
+        TransferOrderLine.SetRange("SO Line No.", SalesOrderLine."Line No.");
+        if TransferOrderLine.FindFirst() then begin
+            if TransferLineOutReserve.FindReservEntrySet(TransferOrderLine, OutReservationEntry, directionEnum::Outbound) then begin
                 repeat
-                    ReservationManagementCU.SetReservSource(TransferOrderLine, DirectionEnum::Inbound);
-                    ReservationManagementCU.SetReservSource(SalesOrderLine);
-                    ReservationManagementCU.AutoReserve(FullAutoReservation, TransferOrderLine."Document No.", TransferOrderLine."Shipment Date", TransferOrderLine.Quantity, TransferOrderLine."Quantity (Base)");
-                    ReservedQty += TransferOrderLine.Quantity;
-                    ReservedQtyBase += TransferOrderLine."Quantity (Base)";
-                until TransferOrderLine.Next() = 0;
+                    SOLineTrackingSpec.InitTrackingSpecification(Database::"Sales Line", 1, SalesOrderLine."Document No.", '', 0, SalesOrderLine."Line No.", SalesOrderLine."Variant Code", SalesOrderLine."Location Code", SalesOrderLine."Qty. per Unit of Measure");
+                    SOLineTrackingSpec.CopyTrackingFromReservEntry(OutReservationEntry);
+                    TransferLineInReserve.CreateReservationSetFrom(SOLineTrackingSpec);
+                    InReservationEntry.CopyTrackingFromReservEntry(OutReservationEntry);
+                    TransferLineInReserve.CreateReservation(TransferOrderLine, TransferOrderLine.Description, TransferOrderLine."Shipment Date", 1, 1, InReservationEntry, directionEnum::Inbound);
+                until OutReservationEntry.Next() = 0;
                 If SalesOrderLine."Quantity (Base)" > ReservedQtyBase then begin
                     clear(ReservationManagementCU);
                     ReservationManagementCU.SetReservSource(SalesOrderLine);
                     ReservationManagementCU.AutoReserve(FullAutoReservation, SalesOrderLine."Document No.", SalesOrderLine."Shipment Date", SalesOrderLine.Quantity - ReservedQty, SalesOrderLine."Quantity (Base)" - ReservedQtyBase);
                 end;
-            end
-            else begin
-                ReservationManagementCU.SetReservSource(SalesOrderLine);
-                ReservationManagementCU.AutoReserve(FullAutoReservation, SalesOrderLine."Document No.", SalesOrderLine."Shipment Date", SalesOrderLine.Quantity, SalesOrderLine."Quantity (Base)")
             end;
+        end
+        else begin
+            ReservationManagementCU.SetReservSource(SalesOrderLine);
+            ReservationManagementCU.AutoReserve(FullAutoReservation, SalesOrderLine."Document No.", SalesOrderLine."Shipment Date", SalesOrderLine.Quantity, SalesOrderLine."Quantity (Base)")
         end;
+    end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", 'OnAfterInsertAllSalesOrderLines', '', false, false)]
     local procedure OnAfterInsertAllSalesOrderLines(var SalesOrderLine: Record "Sales Line"; SalesQuoteHeader: Record "Sales Header"; var SalesOrderHeader: Record "Sales Header")

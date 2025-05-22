@@ -489,6 +489,11 @@ codeunit 50207 "Split Line"
         i: Integer;
         TrackingSpec: Record "Tracking Specification";
         DummyRes: Record "Reservation Entry";
+        ItemLedgerEntry: Record "Item Ledger Entry";
+        QtyTransfered: Decimal;
+        Math: Codeunit Math;
+        TransferLineReserve: Codeunit "Transfer Line-Reserve";
+        TransferReservEntry: Record "Reservation Entry";
     begin
         Clear(TransferOrder);
         TransferOrder.SetRange("Related SO", SalesOrderLine."Document No.");
@@ -514,8 +519,34 @@ codeunit 50207 "Split Line"
                 TransferOrderLine.Validate("Related SO", SalesOrderLine."Document No.");
                 TransferOrderLine.Validate("SO Line No.", SalesOrderLine."Line No.");
                 TransferOrderLine.Insert();
-                ReservationManagementCU.SetReservSource(TransferOrderLine, directionEnum::Outbound);
-                ReservationManagementCU.AutoReserve(FullAutoReservation, TransferOrderLine."Document No.", TransferOrderLine."Shipment Date", TransferOrderLine.Quantity, TransferOrderLine."Quantity (Base)")
+
+
+
+                clear(ItemLedgerEntry);
+                ItemLedgerEntry.SetRange("Item No.", SalesOrderLine."No.");
+                ItemLedgerEntry.SetRange("Variant Code", SalesOrderLine."Variant Code");
+                ItemLedgerEntry.SetRange("Location Code", FromLocation);
+                ItemLedgerEntry.SetFilter("Remaining Quantity", '>0');
+                if ItemLedgerEntry.FindSet() then
+                    repeat
+                        if (ItemLedgerEntry."Serial No." <> '') then begin
+                            TrackingSpec.CopyTrackingFromItemLedgEntry(ItemLedgerEntry);
+                            TransferLineReserve.CreateReservationSetFrom(TrackingSpec);
+                            TransferReservEntry.CopyTrackingFromSpec(TrackingSpec);
+                            TransferLineReserve.CreateReservation(TransferOrderLine, TransferOrderLine.Description, TransferOrderLine."Shipment Date", 1, 1, TransferReservEntry, directionEnum::Outbound);
+                            QtyTransfered += 1;
+                        end
+                        else begin
+                            for i := 1 to Math.Min(ItemLedgerEntry."Remaining Quantity", QtyTransfered - Qty) do begin
+                                TrackingSpec.InitTrackingSpecification(Database::"Item Ledger Entry", 1, ItemLedgerEntry."Item No.", '', 0, ItemLedgerEntry."Entry No.", ItemLedgerEntry."Variant Code", ItemLedgerEntry."Location Code", ItemLedgerEntry."Qty. per Unit of Measure");
+                                TrackingSpec."Serial No." := NosCU.GetNextNo(Item."Serial Nos.");
+                                TransferLineReserve.CreateReservationSetFrom(TrackingSpec);
+                                TransferReservEntry.CopyTrackingFromSpec(TrackingSpec);
+                                TransferLineReserve.CreateReservation(TransferOrderLine, TransferOrderLine.Description, TransferOrderLine."Shipment Date", 1, 1, TransferReservEntry, directionEnum::Outbound);
+                                QtyTransfered += 1;
+                            end;
+                        end;
+                    until (ItemLedgerEntry.Next() = 0) or (QtyTransfered >= Qty);
             end;
         end
         else begin
@@ -553,15 +584,31 @@ codeunit 50207 "Split Line"
             TransferOrderLine.Insert();
 
 
-            ReservationManagementCU.SetReservSource(TransferOrderLine, directionEnum::Outbound);
-
-            //for i := 1 to AssemblyHeader.Quantity do begin
-            // TrackingSpec.InitTrackingSpecification(Database::"Item Ledger Entry", 1, Itemledger."No.", '', 0, 0, AssemblyHeader."Variant Code", AssemblyHeader."Location Code", AssemblyHeader."Qty. per Unit of Measure");
-            // TrackingSpec.InsertSpecification();
-            //end;
-
-            //ReservationManagementCU.SetCalcReservEntry(TrackingSpec, DummyRes);
-            ReservationManagementCU.AutoReserve(FullAutoReservation, TransferOrderLine."Document No.", TransferOrderLine."Shipment Date", TransferOrderLine.Quantity, TransferOrderLine."Quantity (Base)")
+            clear(ItemLedgerEntry);
+            ItemLedgerEntry.SetRange("Item No.", SalesOrderLine."No.");
+            ItemLedgerEntry.SetRange("Variant Code", SalesOrderLine."Variant Code");
+            ItemLedgerEntry.SetRange("Location Code", FromLocation);
+            ItemLedgerEntry.SetFilter("Remaining Quantity", '>0');
+            if ItemLedgerEntry.FindSet() then
+                repeat
+                    if (ItemLedgerEntry."Serial No." <> '') then begin
+                        TrackingSpec.CopyTrackingFromItemLedgEntry(ItemLedgerEntry);
+                        TransferLineReserve.CreateReservationSetFrom(TrackingSpec);
+                        TransferReservEntry.CopyTrackingFromSpec(TrackingSpec);
+                        TransferLineReserve.CreateReservation(TransferOrderLine, TransferOrderLine.Description, TransferOrderLine."Shipment Date", 1, 1, TransferReservEntry, directionEnum::Outbound);
+                        QtyTransfered += 1;
+                    end
+                    else begin
+                        for i := 1 to Math.Min(ItemLedgerEntry."Remaining Quantity", QtyTransfered - Qty) do begin
+                            TrackingSpec.InitTrackingSpecification(Database::"Item Ledger Entry", 1, ItemLedgerEntry."Item No.", '', 0, ItemLedgerEntry."Entry No.", ItemLedgerEntry."Variant Code", ItemLedgerEntry."Location Code", ItemLedgerEntry."Qty. per Unit of Measure");
+                            TrackingSpec."Serial No." := NosCU.GetNextNo(Item."Serial Nos.");
+                            TransferLineReserve.CreateReservationSetFrom(TrackingSpec);
+                            TransferReservEntry.CopyTrackingFromSpec(TrackingSpec);
+                            TransferLineReserve.CreateReservation(TransferOrderLine, TransferOrderLine.Description, TransferOrderLine."Shipment Date", 1, 1, TransferReservEntry, directionEnum::Outbound);
+                            QtyTransfered += 1;
+                        end;
+                    end;
+                until (ItemLedgerEntry.Next() = 0) or (QtyTransfered >= Qty);
         end;
     end;
 

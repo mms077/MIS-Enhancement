@@ -72,7 +72,7 @@ table 50313 "Scan Activities-History"
             DataClassification = ToBeClassified;
             OptionMembers = " ","In","Out";
         }
-        field(13; "Activity Date"; DateTime)
+        field(13; "Activity Date"; Date)
         {
             Editable = false;
         }
@@ -91,7 +91,7 @@ table 50313 "Scan Activities-History"
     }
     keys
     {
-        key(PK; "Sales Line Unit Id.", "Sales Line Id", "Activity Type")
+        key(PK; "Sales Line Unit Id.", "Sales Line Id", "Activity Type", "Activity Code")
         {
             Clustered = true;
         }

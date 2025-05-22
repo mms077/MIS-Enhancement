@@ -19,6 +19,13 @@ table 50311 "Workflow User Memb-Scan"
             Caption = 'Activity Code';
             TableRelation = "Scan Design Stages- ER"."Activity Code";
         }
+        field(4; "Activity Name"; text[250])
+        {
+            Caption = 'Activity Name';
+            // TableRelation = "Scan Design Stages- ER"."Activity Name";
+            FieldClass = FlowField;
+            CalcFormula = lookup("Scan Design Stages- ER"."Activity Name" where("Activity Code" = field("Activity Code")));
+        }
     }
 
     keys
@@ -32,6 +39,10 @@ table 50311 "Workflow User Memb-Scan"
 
     fieldgroups
     {
+        fieldgroup(DropDown; "Activity Name")
+        {
+
+        }
     }
 }
 

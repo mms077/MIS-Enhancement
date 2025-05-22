@@ -3,7 +3,7 @@ page 50358 "Design Activities Temp"
     //ApplicationArea = All;
     Caption = 'Design Activities';
     PageType = CardPart;
-    SourceTable = "Scan Design Stages- ER";
+    SourceTable = "Scan Design Stages- ER Temp";
     UsageCategory = Lists;
     layout
     {
@@ -14,13 +14,11 @@ page 50358 "Design Activities Temp"
                 field("Activity Code"; Rec."Activity Code") { ApplicationArea = all; }
                 field("Activity Name"; Rec."Activity Name") { ApplicationArea = all; Editable = false; }
                 field(Done; Rec.Done) { ApplicationArea = all; }
-                field(Scanned; Rec.Scanned) { ApplicationArea = all; }
-                field("To Scan"; Rec."To Scan") { ApplicationArea = all; }
+                field("Sequence No."; Rec."Sequence No.") { ApplicationArea = all; Editable = true; }
+                field("Stage Type"; Rec."Stage Type") { ApplicationArea = all; Editable = true; }
 
-                //field("Sequence No."; Rec."Sequence No.") { ApplicationArea = all; Editable = true; }
-                // field("Stage Type"; Rec."Stage Type") { ApplicationArea = all; Editable = true; }
-
-                // field("Allow Non-Sequential Scanning"; Rec."Allow Non-Sequential Scanning") { ApplicationArea = all; Editable = true; }
+                field("Allow Non-Sequential Scanning"; Rec."Allow Non-Sequential Scanning") { ApplicationArea = all; Editable = true; }
+                field(Scanned; Rec.Scanned) { ApplicationArea = all; Editable = true; }
                 //field(Done; Rec.Done) { ApplicationArea = all; }
                 /* field("To Scan"; Rec."To Scan")
                  {

@@ -43,6 +43,7 @@ table 50305 "Design Activities"
         field(5; "Sequence No."; Integer)
         {
             DataClassification = ToBeClassified;
+            MinValue = 1;
         }
         field(6; "Stage Type"; Option)
         {
@@ -64,7 +65,7 @@ table 50305 "Design Activities"
             DataClassification = ToBeClassified;
 
         }
-        
+
         field(10; "Unit Ref"; code[100])
         {
             FieldClass = FlowField;

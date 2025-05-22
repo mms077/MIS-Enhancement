@@ -2,7 +2,7 @@ table 50309 "Scan Design Stages- ER Temp"
 {
     Caption = 'Design Scan Stages - ER';
     DataClassification = ToBeClassified;
-    TableType = Temporary;
+    //TableType = Temporary;
 
     fields
     {
@@ -29,8 +29,8 @@ table 50309 "Scan Design Stages- ER Temp"
         }
         field(4; "Design Code"; Code[50])
         {
-            FieldClass = FlowField;
-            CalcFormula = Lookup("Item"."Design Code" WHERE("No." = FIELD("Item No.")));
+            // FieldClass = FlowField;
+            //CalcFormula = Lookup("Item"."Design Code" WHERE("No." = FIELD("Item No.")));
             Editable = false;
         }
         field(5; "Item No."; code[10])
@@ -47,7 +47,7 @@ table 50309 "Scan Design Stages- ER Temp"
         {
             DataClassification = ToBeClassified;
         }
-       field(9; "To View"; Boolean)
+        field(9; "To View"; Boolean)
         {
             DataClassification = ToBeClassified;
         }
@@ -62,6 +62,25 @@ table 50309 "Scan Design Stages- ER Temp"
         }
         field(12; "Scanned"; Boolean)
         {
+            DataClassification = ToBeClassified;
+        }
+        field(13; "User Name"; text[250])
+        {
+            DataClassification = ToBeClassified;
+        }
+         field(14; "Sequence No."; Integer)
+        {
+            DataClassification = ToBeClassified;
+        }
+        field(15; "Stage Type"; Option)
+        {
+            Caption = 'Stage Type';
+            OptionMembers = " ",Mandatory,Optional;
+            DataClassification = ToBeClassified;
+        }
+        field(16; "Allow Non-Sequential Scanning"; Boolean)
+        {
+            Caption = 'Allow Non-Sequential Scanning';
             DataClassification = ToBeClassified;
         }
 

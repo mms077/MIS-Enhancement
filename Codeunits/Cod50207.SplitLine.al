@@ -452,6 +452,7 @@ codeunit 50207 "Split Line"
     begin
         Clear(LocationRec);
         Clear(ItemPerLoc);
+        LocationRec.SetRange("Use As In-Transit", false);
         if LocationRec.FindSet() then
             repeat
                 ItemPerLoc.SetFilter("No.", SalesOrderLine."No.");

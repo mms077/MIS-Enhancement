@@ -676,22 +676,6 @@ codeunit 50207 "Split Line"
                 TransferOrderLine.Validate("Related SO", SalesOrderLine."Document No.");
                 TransferOrderLine.Validate("SO Line No.", SalesOrderLine."Line No.");
                 TransferOrderLine.Insert();
-
-                clear(AssemblyUnitLink);
-                AssemblyUnitLink.SetRange("Document Type", AssemblyHeader."Document Type");
-                AssemblyUnitLink.SetRange("No.", AssemblyHeader."No.");
-                AssemblyUnitLink.SetRange("Sales Line Ref.", SalesOrderLine.SystemId);
-                if AssemblyUnitLink.FindSet() then
-                    repeat
-                        TransferLineUnitLink.Init();
-                        TransferLineUnitLink.Validate("Document No.", TransferOrderLine."Document No.");
-                        TransferLineUnitLink.Validate("Line No.", TransferOrderLine."Line No.");
-                        TransferLineUnitLink.Validate("Sales Line Ref.", SalesOrderLine.SystemId);
-                        TransferLineUnitLink.Validate("Sales Line Unit", AssemblyUnitLink."Sales Line Unit");
-                        TransferLineUnitLink.Insert();
-                    until AssemblyUnitLink.Next() = 0;
-
-
                 // Add assembly order as a second reservation source
                 if AssemblyHeader."No." <> '' then begin
                     for i := 1 to AssemblyHeader.Quantity do begin

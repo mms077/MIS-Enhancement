@@ -35,7 +35,7 @@ page 50357 "Scan Unit Ref"
                         Status: Text[10];
                         FoundMissing: Boolean;
                         Token: Text;
-                        WorkFlowMember: Record "Workflow User Group Member-ER";
+                    //WorkFlowMember: Record workflowusn;
                     begin
                         Rec.DeleteAll();
                     end;
@@ -381,7 +381,7 @@ page 50357 "Scan Unit Ref"
                         // CASE 2: Assembly Header
                         else begin
                             Clear(AssemblyHeader);
-                            AssemblyHeader.SetFilter("ER - Manufacturing Order No.", UnitRef);
+                            AssemblyHeader.SetFilter("No.", UnitRef);
                             if AssemblyHeader.FindFirst() then begin
                                 repeat
                                     if not ProcessedSourceNos.ContainsKey(AssemblyHeader."Source No.") then begin
@@ -541,6 +541,15 @@ page 50357 "Scan Unit Ref"
         if ActivityCode <> '' then
             exit(ActivityCode);
 
+    end;
+
+    local procedure GetActivityName(ActivityCode: Code[50]): Text[250]
+    var
+        ScanDesignStagesER: Record "Scan Design Stages- ER";
+    begin
+        Clear(ScanDesignStagesER);
+        ScanDesignStagesER.Get(ActivityCode);
+        exit(ScanDesignStagesER."Activity Name");
     end;
 
     local procedure UpdateScanInField(SalesUnitRef: Record "Sales Line Unit Ref.")
@@ -797,7 +806,7 @@ page 50357 "Scan Unit Ref"
         DateText: Text;
         ActivityDate: Date;
         Seconds: Integer;
-        TimeOnly: Integer;
+        TimeValue: Time;
     begin
         DeleteExistingScans;
         // Set the MO number filter
@@ -897,17 +906,7 @@ page 50357 "Scan Unit Ref"
             Error('Failed to send the HTTP GET request.');
     end;
 
-    local procedure SecondsToTime(Seconds: Integer): Integer
-    var
-        Hours: Integer;
-        Minutes: Integer;
-        Secs: Integer;
-    begin
-        Hours := Seconds div 3600;
-        Minutes := (Seconds mod 3600) div 60;
-        Secs := Seconds mod 60;
-        exit(CreateTime(Hours, Minutes, Secs));
-    end;
+
 
 
     local procedure CreateTime(Hour: Integer; Minute: Integer; Second: Integer): Integer
@@ -929,6 +928,8 @@ page 50357 "Scan Unit Ref"
         JsonToken: JsonToken;
         ScanHistory: Record "Scan Activities-History";
         CleanedResponse: Text;
+        Milliseconds: BigInteger;
+        ActivityTime: Time;
     begin
         DeleteExistingScans;
         // Set the MO number filter
@@ -1003,8 +1004,8 @@ page 50357 "Scan Unit Ref"
 
 
                                 if JsonObject.Get('activity_time', JsonToken) then
-                                    Evaluate(ScanHistory."Activity Time", JsonToken.AsValue().AsText());
-
+                                    Evaluate(Milliseconds, JsonToken.AsValue().AsText());
+                                message(format(000000T + (Milliseconds * 10000)));
                                 // Insert the record
                                 ScanHistory.Insert();
                             end;
@@ -1019,6 +1020,8 @@ page 50357 "Scan Unit Ref"
         end else
             Error('Failed to send the HTTP GET request.');
     end;
+
+
 
     local procedure FillExistingScanHistoryforSalesLineRef(Filter: Text; AccessToken: Text)
     var
@@ -1357,6 +1360,8 @@ page 50357 "Scan Unit Ref"
     local procedure AddActivityToArray(ScanRec: Record "Scan Activities"; SalesUnitRec: Record "Sales Line Unit Ref."; AssemblyHeaderRec: Record "Assembly Header"; MO: Record "ER - Manufacturing Order"; SalesLineRec: Record "Sales Line"; Rec: Record "Scan Design Stages- ER Temp"; ActivityRemark: Text; var ActivitiesArray: JsonArray)
     var
         ScanDetails: JsonObject;
+        TimeText: Text;
+        FullDateTimeText: Text;
     begin
         ScanDetails.Add('sales_line_unit_id', SalesUnitRec."Sales Line Unit");
         ScanDetails.Add('sales_line_id', SalesLineRec."Sales Line Reference");
@@ -1367,14 +1372,17 @@ page 50357 "Scan Unit Ref"
         ScanDetails.Add('variant_code', AssemblyHeaderRec."Variant Code");
         ScanDetails.Add('so_no', SalesLineRec."Document No.");
         ScanDetails.Add('activity_code', ActivityCode);
-        ScanDetails.Add('activity_name', '');
+        ScanDetails.Add('activity_name', GetActivityName(ActivityCode));
         ScanDetails.Add('activity_remark', ActivityRemark);
         if ScanRec."Activity Type" = ScanRec."Activity Type"::"In" then
             ScanDetails.Add('activity_type', 'In')
         else
             ScanDetails.Add('activity_type', 'Out');
-        ScanDetails.Add('activity_date', Format(CurrentDateTime, 0, '<Year4>-<Month,2>-<Day,2> <Hours24,2>:<Minutes,2>:<Seconds,2>'));
-        ScanDetails.Add('activity_time', time.Second);
+        FullDateTimeText := Format(CurrentDateTime, 0, '<Year4>-<Month,2>-<Day,2> <Hours24,2>:<Minutes,2>:<Seconds,2>');
+        TimeText := CopyStr(FullDateTimeText, 12, 8); // Extract time part: HH:MM:SS
+
+        ScanDetails.Add('activity_date', FullDateTimeText);
+        ScanDetails.Add('activity_time', TimeText);
         ActivitiesArray.Add(ScanDetails);
     end;
 

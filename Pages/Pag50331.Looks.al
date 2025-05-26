@@ -173,6 +173,7 @@ page 50331 Looks
                                                     AddLinkURL(DocAttachement, Looks, SharepointSetup, SharepointSiteLink, Rec.Code, SharepointFrontPic, 'Front');
                                                     AddLinkURL(DocAttachement, Looks, SharepointSetup, SharepointSiteLink, Rec.Code, SharepointSidesPic, 'Sides');
                                                     AddLinkURL(DocAttachement, Looks, SharepointSetup, SharepointSiteLink, Rec.Code, SharepointBackPic, 'Back');
+                                                    AddLinkURL(DocAttachement, Looks, SharepointSetup, SharepointSiteLink, Rec.Code, SharepointThumbnPic, 'Thumbnail');
                                                 end;
                                         end;
                                     end;
@@ -204,7 +205,7 @@ page 50331 Looks
 
         if not DocAttachement.FindFirst() then begin
             Looks.AddLink(LinkURL, Description);
-            Message('Link added for %1.', Description);
+            //Message('Link added for %1.', Description);
         end else
             Message('Link for %1 already exists.', Description);
     end;
@@ -222,6 +223,7 @@ page 50331 Looks
         RecordLinkMgt: Codeunit "Record Link Management";
         CustomerLookVersion: Record "Customer Look Version";
         Front: Text[1000];
+        Thumbnail: Text[1000];
         Back: Text[1000];
         Sides: Text[1000];
         Noseries: Record "No. Series Line";
@@ -238,32 +240,8 @@ page 50331 Looks
         SharepointSetup: Record "Sharepoint Connector Setup";
         SharepointURL: text[1000];
     begin
-        /* RecordRef.Open(50290);
-         FieldRef := RecordRef.Field(1);
-         FieldRef.Value := Rec.Code;
-         if RecordRef.Find('=') then begin
-             DocAttachement.setrange("Record ID", RecordRef.RecordId);
-             if not DocAttachement.FindFirst() then begin
-                 LinkID := RecordRef.AddLink('', 'Back');
-                 LinkID := RecordRef.AddLink('', 'Front');
-                 LinkID := RecordRef.AddLink('', 'Sides');
-                 //Message('Text000', LinkID);
-             end;
-         end;*/
+
         Front := '';
-        /* if Look.FindLast() then
-             if Rec.Code = '' then begin
-                 SalesSetup.Get();
-                 SalesSetup.TestField("Look Nos.");
-                 Noseries.SetFilter("Series Code", Look."No. Series");
-                 if Noseries.FindFirst() then begin
-                     if Noseries."Last No. Used" <> '' then begin
-                         Noseries."Last No. Used" := Look.Code;
-                         Noseries.Modify();
-                     end;
-                 end;
-                 NoSeriesMgt.InitSeries(SalesSetup."Look Nos.", xRec."No. Series", 0D, rec.code, rec."No. Series");
-             end;*/
 
         //display front image
         RecordRef.Close();
@@ -271,51 +249,40 @@ page 50331 Looks
         FieldRef := RecordRef.Field(1);
         FieldRef.Value := rec.Code;
         if RecordRef.Find('=') then begin
-            DocAttachement.setrange("Record ID", RecordRef.RecordId);
-            DocAttachement.SetFilter(Description, 'Front');
+            DocAttachement.SetRange("Record ID", RecordRef.RecordId);
+            DocAttachement.SetFilter(Description, 'Thumbnail');
             if DocAttachement.FindFirst() then begin
                 SharepointSetup.Get();
                 Front := DELSTR(DocAttachement.URL1, 1, STRLEN(SharepointSetup."Sharepoint URL Http"));
-                //Message(Front);
+            end;
+
+            if front = '' then begin
+                DocAttachement.SetRange("Record ID", RecordRef.RecordId);
+                DocAttachement.SetFilter(Description, 'Front');
+                if DocAttachement.FindFirst() then begin
+                    SharepointSetup.Get();
+                    Front := DELSTR(DocAttachement.URL1, 1, STRLEN(SharepointSetup."Sharepoint URL Http"));
+                end;
             end;
             DocAttachement.setrange("Record ID", RecordRef.RecordId);
             DocAttachement.SetFilter(Description, 'Back');
             if DocAttachement.FindFirst() then begin
                 SharepointSetup.Get();
                 Back := DELSTR(DocAttachement.URL1, 1, STRLEN(SharepointSetup."Sharepoint URL Http"));
-                //Message(Front);
             end;
             DocAttachement.setrange("Record ID", RecordRef.RecordId);
             DocAttachement.SetFilter(Description, 'Sides');
             if DocAttachement.FindFirst() then begin
                 SharepointSetup.Get();
                 Sides := DELSTR(DocAttachement.URL1, 1, STRLEN(SharepointSetup."Sharepoint URL Http"));
-                //Message(Front);
             end;
-            /*  DocAttachement.setrange("Record ID", RecordRef.RecordId);
-              DocAttachement.SetFilter(Description, 'Add-1');
-              if DocAttachement.FindFirst() then begin
-                  Add1 := DocAttachement.URL1;
-                  //Message(Front);
-              end;
-              DocAttachement.setrange("Record ID", RecordRef.RecordId);
-              DocAttachement.SetFilter(Description, 'Add-2');
-              if DocAttachement.FindFirst() then begin
-                  Add2 := DocAttachement.URL1;
-                  //Message(Front);
-              end;
-              DocAttachement.setrange("Record ID", RecordRef.RecordId);
-              DocAttachement.SetFilter(Description, 'Add-3');
-              if DocAttachement.FindFirst() then begin
-                  Add3 := DocAttachement.URL1;
-                  //Message(Front);
-              end;*/
         end;
-
-
 
         //add pic to Fronty image
         if Front <> '' then begin
+            Clear(rec."Front Picture");
+            Rec.Modify();
+            Commit();
             frontFileName := FileMgt.GetFileName(Front);
             FrontInStr := SharepointMgt.OpenFileLooks(Front, Rec);
             Rec."Front Picture".ImportStream(FrontInStr, FrontFileName);
@@ -336,26 +303,6 @@ page 50331 Looks
             rec.Modify();
         end;
 
-
-        /*  if Add1 <> '' then begin
-              Add1FileName := FileMgt.GetFileName(Add1);
-              Add1Instr := SharepointMgt.OpenFileLooks(Add1, Rec);
-              Rec."Add 1".ImportStream(Add1Instr, Add1FileName);
-              rec.Modify();
-          end;
-          if Add2 <> '' then begin
-              Add2FileName := FileMgt.GetFileName(Add2);
-              Add2Instr := SharepointMgt.OpenFileLooks(Add2, Rec);
-              Rec."Add 2".ImportStream(Add2Instr, Add2FileName);
-              rec.Modify();
-          end;
-          if Add3 <> '' then begin
-              Add3FileName := FileMgt.GetFileName(Add3);
-              Add3Instr := SharepointMgt.OpenFileLooks(Add3, Rec);
-              Rec."Add 3".ImportStream(Add3Instr, Add3FileName);
-              rec.Modify();
-          end;
-  */
     end;
 
 

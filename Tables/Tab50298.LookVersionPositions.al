@@ -28,14 +28,30 @@ table 50298 "Look Version Positions"
             TableRelation = "Look Version".Code;
 
         }
-        field(4; "Position"; code[50])
+        field(4; "Position"; Code[50])
         {
+            Caption = 'Position Code';
             DataClassification = ToBeClassified;
             TableRelation = "Department Positions"."Position Code" where("Customer No." = field("Customer No."));
 
+            trigger OnValidate()
+            var
+                Positions: Record Position;
+                DepartmentPosition: Record "Department Positions";
+            begin
+                if Positions.Get(Rec.Position) then begin
+                    "Position Name" := Positions."Name"
+
+                end else begin
+                    "Position Name" := '';
+
+                end;
+            end;
         }
-
-
+        field(5; "Position Name"; Text[100])
+        {
+            DataClassification = ToBeClassified;
+        }
     }
     keys
     {

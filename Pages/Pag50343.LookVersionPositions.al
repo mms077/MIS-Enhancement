@@ -1,6 +1,6 @@
 page 50343 "Look Version Positions"
 {
-   // ApplicationArea = All;
+    // ApplicationArea = All;
     Caption = 'Look Version Positions';
     PageType = List;
     SourceTable = "Look Version Positions";
@@ -32,7 +32,7 @@ page 50343 "Look Version Positions"
                     Visible = false;
                 }
                 field(Position; rec.Position) { ApplicationArea = all; }
-
+                field("Position Name"; Rec."Position Name") { ApplicationArea = all; Editable = false; }
             }
 
         }

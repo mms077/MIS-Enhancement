@@ -49,18 +49,28 @@ page 50368 "Daily Transfer"
                     ToolTip = 'Specifies the source location for the transfer.';
                     Editable = HeaderFieldsEditable;
                 }
+                field("To Location"; Rec."To Location")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the destination location for the transfer.';
+                    Editable = HeaderFieldsEditable;
+                }
                 field("Status"; Rec."Status")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the status of the daily transfer.';
                     Editable = HeaderFieldsEditable;
                 }
+            }
+            group(Scanner)
+            {
+                Caption = 'Scanner Input';
+
                 field("Scanner Input"; Rec."Scanner Input")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Scan serial number or assembly order number to populate lines.';
                     ShowMandatory = true;
-
                     trigger OnValidate()
                     begin
                         CurrPage.Lines.Page.Update(false);
@@ -94,21 +104,22 @@ page 50368 "Daily Transfer"
                     CurrPage.Update(false);
                 end;
             }
-            action(RemoveDuplicates)
+            action(CreateWarehouseDocuments)
             {
                 ApplicationArea = All;
-                Caption = 'Remove Duplicate Lines';
-                Image = Delete;
-                ToolTip = 'Remove duplicate lines with the same serial number.';
-
+                Caption = 'Create Warehouse Shipment & Pick';
+                Image = Shipment;
+                ToolTip = 'Create warehouse shipments and picks for the transfer orders referenced in the daily transfer lines.';
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
                 trigger OnAction()
                 var
                     DailyTransferMgt: Codeunit "Daily Transfer Management";
                 begin
-                    if Confirm('Do you want to remove duplicate lines based on serial numbers?') then begin
-                        DailyTransferMgt.RemoveDuplicateLines(Rec."Code");
-                        CurrPage.Lines.Page.Update(false);
-                        Message('Duplicate lines have been removed.');
+                    if Confirm('Do you want to create warehouse shipments and picks for the transfer orders in this daily transfer?') then begin
+                        DailyTransferMgt.CreateWarehouseShipmentAndPick(Rec);
+                        CurrPage.Update(false);
                     end;
                 end;
             }

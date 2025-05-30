@@ -33,30 +33,30 @@ table 50320 "Daily Transfer Header"
             Caption = 'From Location';
             DataClassification = CustomerContent;
             TableRelation = Location.Code;
-
-            trigger OnValidate()
-            var
-                DailyTransferMgt: Codeunit "Daily Transfer Management";
-            begin
-                DailyTransferMgt.ValidateFromLocation(Rec);
-            end;
         }
-        field(5; "Scanner Input"; Code[50])
+        field(5; "To Location"; Code[10])
+        {
+            Caption = 'To Location';
+            DataClassification = CustomerContent;
+            TableRelation = Location.Code;
+        }
+        field(6; "Scanner Input"; Code[50])
         {
             Caption = 'Scanner Input';
             DataClassification = CustomerContent;
 
             trigger OnValidate()
             begin
+                TestField("From Location");
                 ProcessScannerInput();
             end;
         }
-        field(6; "Status"; Enum "Daily Transfer Status")
+        field(7; "Status"; Enum "Daily Transfer Status")
         {
             Caption = 'Status';
             DataClassification = CustomerContent;
         }
-        field(7; "No. Series"; Code[20])
+        field(8; "No. Series"; Code[20])
         {
             Caption = 'No. Series';
             DataClassification = CustomerContent;

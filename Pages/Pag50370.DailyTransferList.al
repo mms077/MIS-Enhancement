@@ -78,6 +78,23 @@ page 50370 "Daily Transfer List"
                     DailyTransferPage.Run();
                 end;
             }
+            action(CreateWarehouseDocuments)
+            {
+                ApplicationArea = All;
+                Caption = 'Create Warehouse Shipment & Pick';
+                Image = Shipment;
+                ToolTip = 'Create warehouse shipments and picks for the transfer orders referenced in the selected daily transfer.';
+
+                trigger OnAction()
+                var
+                    DailyTransferMgt: Codeunit "Daily Transfer Management";
+                begin
+                    if Confirm('Do you want to create warehouse shipments and picks for the transfer orders in the selected daily transfer?') then begin
+                        DailyTransferMgt.CreateWarehouseShipmentAndPick(Rec);
+                        Message('Warehouse document creation process completed.');
+                    end;
+                end;
+            }
         }
         area(Navigation)
         {

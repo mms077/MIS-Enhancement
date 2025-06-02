@@ -76,6 +76,8 @@ codeunit 50220 "Daily Transfer Management"
         ReservationEntry.SetRange("Source Subtype", 1);
         if ReservationEntry.FindSet() then
             repeat
+                if ReservationEntry."Location Code" <> DailyTransferHeader."From Location" then
+                    Error('Serial %1 is not in Location %2', SerialNo, DailyTransferHeader."From Location");
                 SerialNo := ReservationEntry."Serial No.";
                 if SerialNo <> '' then begin
                     // Check if serial is still in the from location
@@ -105,10 +107,11 @@ codeunit 50220 "Daily Transfer Management"
         // Find serials produced by this posted assembly order
         ItemLedgerEntry.SetRange("Document No.", PostedAssemblyOrderNo);
         ItemLedgerEntry.SetRange("Entry Type", ItemLedgerEntry."Entry Type"::"Assembly Output");
-        ItemLedgerEntry.SetRange("Location Code", DailyTransferHeader."From Location");
         ItemLedgerEntry.SetFilter("Remaining Quantity", '>0');
         if ItemLedgerEntry.FindSet() then
             repeat
+                if ItemLedgerEntry."Location Code" <> DailyTransferHeader."From Location" then
+                    Error('Serial %1 is not in Location %2', SerialNo, DailyTransferHeader."From Location");
                 SerialNo := ItemLedgerEntry."Serial No.";
                 if SerialNo <> '' then begin
                     // Find transfer order connection
@@ -116,6 +119,7 @@ codeunit 50220 "Daily Transfer Management"
                         CreateDailyTransferLine(DailyTransferHeader, SerialNo, TransferHeader."No.", TransferLine."Line No.", '');
                 end;
             until ItemLedgerEntry.Next() = 0;
+
     end;
 
     local procedure ProcessSerialNumber(DailyTransferHeader: Record "Daily Transfer Header"; SerialNo: Code[50])
@@ -126,10 +130,11 @@ codeunit 50220 "Daily Transfer Management"
     begin
         // Check if serial exists in the from location
         ItemLedgerEntry.SetRange("Serial No.", SerialNo);
-        ItemLedgerEntry.SetRange("Location Code", DailyTransferHeader."From Location");
         ItemLedgerEntry.SetFilter("Remaining Quantity", '>0');
         if ItemLedgerEntry.FindFirst() then begin
             // Find transfer order connection
+            if ItemLedgerEntry."Location Code" <> DailyTransferHeader."From Location" then
+                Error('Serial %1 is not in Location %2', SerialNo, DailyTransferHeader."From Location");
             if FindTransferOrderForSerial(SerialNo, TransferHeader, TransferLine) then
                 CreateDailyTransferLine(DailyTransferHeader, SerialNo, TransferHeader."No.", TransferLine."Line No.", '');
         end;
@@ -230,8 +235,11 @@ codeunit 50220 "Daily Transfer Management"
         WhseRqst: Record "Warehouse Request";
         GetSourceDocuments: Report "Get Source Documents";
         TOCode: Code[20];
+        PostedWhseShipmentHeaderNo: Code[20];
+        PostedWhseRecptHeaderNo: Code[20];
     begin
-
+        If DailyTransferHeaderCode.Status <> DailyTransferHeaderCode.Status::"Open" then
+            Error('Daily Transfer Header %1 is not in Open status.', DailyTransferHeaderCode.Code);
         // Get all lines for this daily transfer
         DailyTransferLine.SetRange("No.", DailyTransferHeaderCode.Code);
         DailyTransferLine.SetFilter("Transfer Order No.", '<>%1', '');
@@ -251,18 +259,22 @@ codeunit 50220 "Daily Transfer Management"
             until DailyTransferLine.Next() = 0;
 
             // Open the created warehouse shipment
-            ProcessWhseShipment(WhseShipmentHeader, DailyTransferHeaderCode."From Location", WhShpLine, SerialNoSet);
+            PostedWhseShipmentHeaderNo := ProcessWhseShipment(WhseShipmentHeader, DailyTransferHeaderCode."From Location", WhShpLine, SerialNoSet);
 
             CreateWarehouseReceiptHeader(WhseReceiptHeader, DailyTransferHeaderCode."To Location");
             foreach TOCode in ProcessedTOLines do
                 CreateWarehouseReceiptForTransferLine(WhseReceiptHeader, TOCode);
-            ProcessWhseReceipt(WhseReceiptHeader."No.", DailyTransferHeaderCode."To Location");
+            PostedWhseRecptHeaderNo := ProcessWhseReceipt(WhseReceiptHeader."No.", DailyTransferHeaderCode."To Location");
         end else begin
             Error('No transfer lines found for daily transfer header %1.', DailyTransferHeaderCode.Code);
         end;
+        DailyTransferHeaderCode."Posted Whse. Shipment No." := PostedWhseShipmentHeaderNo;
+        DailyTransferHeaderCode."Posted Whse. Receipt No." := PostedWhseRecptHeaderNo;
+        DailyTransferHeaderCode.Status := DailyTransferHeaderCode.Status::"Completed";
+        DailyTransferHeaderCode.Modify();
     end;
 
-    local procedure ProcessWhseReceipt(WhseReceiptHeaderNo: Code[20]; ReceiptLocation: Code[10])
+    local procedure ProcessWhseReceipt(WhseReceiptHeaderNo: Code[20]; ReceiptLocation: Code[10]): Code[20]
     var
         WhseRecptLine: Record "Warehouse Receipt Line";
         WhsePostReceipt: Codeunit "Whse.-Post Receipt";
@@ -289,6 +301,7 @@ codeunit 50220 "Daily Transfer Management"
                     WhseActReg.Run(WhseActivityLine);
             end;
         end;
+        exit(PostedWhseReceiptHeader."No.");
     end;
 
     procedure CreateWarehouseReceiptHeader(var WhseReceiptHeader: Record "Warehouse Receipt Header"; ShipmentLocation: Code[10])
@@ -357,7 +370,7 @@ codeunit 50220 "Daily Transfer Management"
         WhseShipmentHeader.Insert();
     end;
 
-    local procedure ProcessWhseShipment(WhseShipmentHeader: Record "Warehouse Shipment Header"; ShipmentLocation: Code[10]; var WhShpLine: Record "Warehouse Shipment Line"; var SerialNoSet: List of [Code[50]])
+    local procedure ProcessWhseShipment(WhseShipmentHeader: Record "Warehouse Shipment Header"; ShipmentLocation: Code[10]; var WhShpLine: Record "Warehouse Shipment Line"; var SerialNoSet: List of [Code[50]]): Code[20]
     var
         WhseActReg: Codeunit "Whse.-Activity-Register";
         WhsePostShipment: Codeunit "Whse.-Post Shipment";
@@ -368,7 +381,10 @@ codeunit 50220 "Daily Transfer Management"
         FirstWhseDocNo: Code[20];
         LastWhseDocNo: Code[20];
         Location: Record Location;
+        WhseShipNo: Code[20];
+        PostedWhseShipmentHeader: Record "Posted Whse. Shipment Header";
     begin
+        WhseShipNo := WhseShipmentHeader."No.";
         Location.get(WhseShipmentHeader."Location Code");
         WhseShipmentRelease.Release(WhseShipmentHeader);
         WhShpLine.SetRange("No.", WhseShipmentHeader."No.");
@@ -407,6 +423,7 @@ codeunit 50220 "Daily Transfer Management"
             WhseActReg.Run(WarehouseActivityLine);
         //Post the Warehouse Shipment
         WhsePostShipment.Run(WhShpLine);
+
         Clear(WarehouseActivityLine);
         WarehouseActivityLine.SetRange("Whse. Document No.", WhShpLine."No.");
         if WarehouseActivityLine.FindSet() then
@@ -416,6 +433,9 @@ codeunit 50220 "Daily Transfer Management"
             WhseShipmentRelease.Reopen(WhseShipmentHeader);
             WhseShipmentHeader.Delete(true);
         end;
+        PostedWhseShipmentHeader.SetRange("Whse. Shipment No.", WhseShipNo);
+        if PostedWhseShipmentHeader.FindFirst() then
+            exit(PostedWhseShipmentHeader."No.")
     end;
 
     procedure ReleaseTransferHeader(TONo: Code[20])

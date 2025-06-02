@@ -5,7 +5,7 @@ page 50369 "Daily Transfer Lines Subform"
     SourceTable = "Daily Transfer Line";
     Caption = 'Daily Transfer Lines';
     AutoSplitKey = true;
-
+    InsertAllowed = false;
     layout
     {
         area(Content)
@@ -60,32 +60,22 @@ page 50369 "Daily Transfer Lines Subform"
             }
         }
     }
-
-    actions
-    {
-        area(Processing)
-        {
-            action(DeleteLine)
-            {
-                ApplicationArea = All;
-                Caption = 'Delete Line';
-                Image = Delete;
-                ToolTip = 'Delete the selected line.';
-
-                trigger OnAction()
-                begin
-                    if Confirm('Do you want to delete this line?') then begin
-                        Rec.Delete(true);
-                        CurrPage.Update();
-                    end;
-                end;
-            }
-        }
-    }
     trigger OnNewRecord(BelowxRec: Boolean)
     var
         DailyTransferMgt: Codeunit "Daily Transfer Management";
     begin
         Rec."Line No." := DailyTransferMgt.GetNextLineNo(Rec."No.");
+    end;
+
+    trigger OnDeleteRecord(): Boolean
+    var
+        DailyTransfer: Record "Daily Transfer Header";
+    begin
+        DailyTransfer.Get(Rec."No.");
+        if DailyTransfer.Status <> DailyTransfer.Status::"Open" then begin
+            Error('Cannot delete line from a completed or closed daily transfer.');
+            exit(false);
+        end;
+        CurrPage.Update(false);
     end;
 }

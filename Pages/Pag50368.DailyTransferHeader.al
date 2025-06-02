@@ -1,4 +1,4 @@
-page 50368 "Daily Transfer"
+page 50368 "Daily Transfer Header"
 {
     PageType = Document;
     ApplicationArea = All;
@@ -61,6 +61,18 @@ page 50368 "Daily Transfer"
                     ToolTip = 'Specifies the status of the daily transfer.';
                     Editable = HeaderFieldsEditable;
                 }
+                field("Posted Whse. Shipment No."; Rec."Posted Whse. Shipment No.")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the posted warehouse shipment number related to this daily transfer.';
+                    Editable = false;
+                }
+                field("Posted Whse. Receipt No."; Rec."Posted Whse. Receipt No.")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the posted warehouse receipt number related to this daily transfer.';
+                    Editable = false;
+                }
             }
             group(Scanner)
             {
@@ -71,6 +83,7 @@ page 50368 "Daily Transfer"
                     ApplicationArea = All;
                     ToolTip = 'Scan serial number or assembly order number to populate lines.';
                     ShowMandatory = true;
+                    Editable = ScannerEditable;
                     trigger OnValidate()
                     begin
                         CurrPage.Lines.Page.Update(false);
@@ -128,10 +141,13 @@ page 50368 "Daily Transfer"
 
     var
         HeaderFieldsEditable: Boolean;
+        ScannerEditable: Boolean;
+
 
     trigger OnAfterGetRecord()
     begin
         UpdateHeaderFieldsEditable();
+        ScannerIsEditable();
     end;
 
     trigger OnNewRecord(BelowxRec: Boolean)
@@ -141,10 +157,16 @@ page 50368 "Daily Transfer"
             Rec."User" := UserId;
         end;
         UpdateHeaderFieldsEditable();
+        ScannerIsEditable();
     end;
 
     local procedure UpdateHeaderFieldsEditable()
     begin
         HeaderFieldsEditable := not Rec.HasLines();
+    end;
+
+    local procedure ScannerIsEditable()
+    begin
+        ScannerEditable := Rec."Status" = Rec."Status"::"Open";
     end;
 }

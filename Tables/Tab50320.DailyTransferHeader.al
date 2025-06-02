@@ -63,6 +63,20 @@ table 50320 "Daily Transfer Header"
             TableRelation = "No. Series".Code;
             Editable = false;
         }
+        field(9; "Posted Whse. Shipment No."; Code[20])
+        {
+            Caption = 'Posted Whse. Shipment';
+            DataClassification = CustomerContent;
+            TableRelation = "Posted Whse. Shipment Header"."No.";
+            Editable = false;
+        }
+        field(10; "Posted Whse. Receipt No."; Code[20])
+        {
+            Caption = 'Posted Whse. Receipt';
+            DataClassification = CustomerContent;
+            TableRelation = "Posted Whse. Receipt Header"."No.";
+            Editable = false;
+        }
     }
 
     keys

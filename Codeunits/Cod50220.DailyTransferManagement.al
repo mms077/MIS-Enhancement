@@ -268,6 +268,8 @@ codeunit 50220 "Daily Transfer Management"
         PostedWhseReceiptHeader: Record "Posted Whse. Receipt Header";
         PostedWhseRcptLine: Record "Posted Whse. Receipt Line";
         CreatePutAwayFromWhseSource: Report "Whse.-Source - Create Document";
+        WhseActReg: Codeunit "Whse.-Activity-Register";
+        WhseActivityLine: Record "Warehouse Activity Line";
     begin
         WhseRecptLine.Get(WhseReceiptHeaderNo, '10000');
         WhsePostReceipt.Run(WhseRecptLine);
@@ -281,6 +283,10 @@ codeunit 50220 "Daily Transfer Management"
                 CreatePutAwayFromWhseSource.SetHideValidationDialog(true);
                 CreatePutAwayFromWhseSource.UseRequestPage(false);
                 CreatePutAwayFromWhseSource.RunModal();
+                WhseActivityLine.SetRange("Whse. Document No.", PostedWhseRcptLine."No.");
+                WhseActivityLine.SetRange("Whse. Document Line No.", PostedWhseRcptLine."Line No.");
+                if WhseActivityLine.FindFirst() then
+                    WhseActReg.Run(WhseActivityLine);
             end;
         end;
     end;

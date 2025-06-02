@@ -242,6 +242,7 @@ codeunit 50220 "Daily Transfer Management"
             CreateWarehouseShiphmentHeader(WhseShipmentHeader, DailyTransferHeaderCode."From Location");
             // Group by transfer order and validate warehouse setup
             repeat
+                SerialNoSet.Add(DailyTransferLine."Serial No.");
                 if not ProcessedTOLines.Contains(DailyTransferLine."Transfer Order No.") then begin
                     ReleaseTransferHeader(DailyTransferLine."Transfer Order No.");
                     CreateWarehouseShipmentForTransferLine(WhseShipmentHeader, DailyTransferLine."Transfer Order No.", DailyTransferLine."Transfer Line No.", WhShpLine);
@@ -250,7 +251,7 @@ codeunit 50220 "Daily Transfer Management"
             until DailyTransferLine.Next() = 0;
 
             // Open the created warehouse shipment
-            ProcessWhseShipment(WhseShipmentHeader, DailyTransferHeaderCode."From Location", WhShpLine);
+            ProcessWhseShipment(WhseShipmentHeader, DailyTransferHeaderCode."From Location", WhShpLine, SerialNoSet);
 
             CreateWarehouseReceiptHeader(WhseReceiptHeader, DailyTransferHeaderCode."To Location");
             foreach TOCode in ProcessedTOLines do
@@ -284,8 +285,7 @@ codeunit 50220 "Daily Transfer Management"
                 CreatePutAwayFromWhseSource.UseRequestPage(false);
                 CreatePutAwayFromWhseSource.RunModal();
                 WhseActivityLine.SetRange("Whse. Document No.", PostedWhseRcptLine."No.");
-                WhseActivityLine.SetRange("Whse. Document Line No.", PostedWhseRcptLine."Line No.");
-                if WhseActivityLine.FindFirst() then
+                if WhseActivityLine.FindSet() then
                     WhseActReg.Run(WhseActivityLine);
             end;
         end;
@@ -327,65 +327,14 @@ codeunit 50220 "Daily Transfer Management"
     var
         WhseShipmentLine: Record "Warehouse Shipment Line";
         TransferLine: Record "Transfer Line";
-        Location: Record Location;
         NoSeries: Codeunit "No. Series";
         WhseManagement: Codeunit "Whse. Management";
         WarehouseSetup: Record "Warehouse Setup";
         TransferWhseMgt: Codeunit "Transfer Warehouse Mgt.";
 
-        WarehouseActivityLine: Record "Warehouse Activity Line";
-        DailyTransferLine: Record "Daily Transfer Line";
-        WhseShipmentCreatePick: Report "Whse.-Shipment - Create Pick";
-        SerialNoSet: List of [Code[50]];
-        FirstWhseDocNo: Code[20];
-        LastWhseDocNo: Code[20];
-        WhseShipmentRelease: Codeunit "Whse.-Shipment Release";
     begin
-        Location.get(WhseShipmentHeader."Location Code");
-
-
         TransferLine.get(TransferOrderNo, TransferLineNo);
         TransferWhseMgt.FromTransLine2ShptLine(WhseShipmentHeader, TransferLine);
-        WhseShipmentRelease.Release(WhseShipmentHeader);
-        WhShpLine.SetRange("No.", WhseShipmentHeader."No.");
-        WhShpLine.SetCurrentKey("Line No.");
-        WhShpLine.SetAscending("Line No.", true);
-        if WhShpLine.FindLast() then begin
-            WhseShipmentCreatePick.SetWhseShipmentLine(WhShpLine, WhseShipmentHeader);
-            WhseShipmentCreatePick.SetHideValidationDialog(true);
-            WhseShipmentCreatePick.UseRequestPage(false);
-            WhseShipmentCreatePick.RunModal();
-        end;
-
-
-        DailyTransferLine.SetRange("Transfer Order No.", TransferOrderNo);
-        dailyTransferLine.SetRange("Transfer Line No.", TransferLineNo);
-        if DailyTransferLine.FindSet() then
-            repeat
-                if DailyTransferLine."Serial No." <> '' then
-                    SerialNoSet.Add(DailyTransferLine."Serial No.");
-            until DailyTransferLine.Next() = 0;
-
-        // Filter Warehouse Activity Line for this transfer order/line, but exclude serials in SerialNoSet
-        WarehouseActivityLine.SetRange("Whse. Document No.", WhShpLine."No.");
-        WarehouseActivityLine.SetRange("Whse. Document Line No.", WhShpLine."Line No."); // Outbound
-        if WarehouseActivityLine.FindSet() then
-            repeat
-                if not SerialNoSet.Contains(WarehouseActivityLine."Serial No.") then begin
-                    if WarehouseActivityLine."Action Type" = WarehouseActivityLine."Action Type"::"Take" then begin
-                        // Set Qty. to Handle (Base) to 0 for all lines not in SerialNoSet
-                        WarehouseActivityLine.Validate("Bin Code", Location."From-Assembly Bin Code");
-                        WarehouseActivityLine.Validate("Qty. to Handle (Base)", 0);
-                        WarehouseActivityLine.Modify();
-                    end else begin
-                        WarehouseActivityLine.Validate("Qty. to Handle (Base)", 0);
-                        WarehouseActivityLine.Modify();
-                    end;
-                end else if WarehouseActivityLine."Action Type" = WarehouseActivityLine."Action Type"::"Take" then begin
-                    WarehouseActivityLine.Validate("Bin Code", Location."From-Assembly Bin Code");
-                    WarehouseActivityLine.Modify();
-                end;
-            until WarehouseActivityLine.Next() = 0;
     end;
 
     local procedure CreateWarehouseShiphmentHeader(var WhseShipmentHeader: Record "Warehouse Shipment Header"; ShipmentLocation: Code[10])
@@ -408,16 +357,51 @@ codeunit 50220 "Daily Transfer Management"
         WhseShipmentHeader.Insert();
     end;
 
-    local procedure ProcessWhseShipment(WhseShipmentHeader: Record "Warehouse Shipment Header"; ShipmentLocation: Code[10]; var WhShpLine: Record "Warehouse Shipment Line")
+    local procedure ProcessWhseShipment(WhseShipmentHeader: Record "Warehouse Shipment Header"; ShipmentLocation: Code[10]; var WhShpLine: Record "Warehouse Shipment Line"; var SerialNoSet: List of [Code[50]])
     var
         WhseActReg: Codeunit "Whse.-Activity-Register";
         WhsePostShipment: Codeunit "Whse.-Post Shipment";
         WhseShipmentRelease: Codeunit "Whse.-Shipment Release";
         WarehouseActivityLine: Record "Warehouse Activity Line";
+        DailyTransferLine: Record "Daily Transfer Line";
+        WhseShipmentCreatePick: Report "Whse.-Shipment - Create Pick";
+        FirstWhseDocNo: Code[20];
+        LastWhseDocNo: Code[20];
+        Location: Record Location;
     begin
+        Location.get(WhseShipmentHeader."Location Code");
+        WhseShipmentRelease.Release(WhseShipmentHeader);
+        WhShpLine.SetRange("No.", WhseShipmentHeader."No.");
+        WhShpLine.SetCurrentKey("Line No.");
+        WhShpLine.SetAscending("Line No.", true);
+        if WhShpLine.FindLast() then begin
+            WhseShipmentCreatePick.SetWhseShipmentLine(WhShpLine, WhseShipmentHeader);
+            WhseShipmentCreatePick.SetHideValidationDialog(true);
+            WhseShipmentCreatePick.UseRequestPage(false);
+            WhseShipmentCreatePick.RunModal();
+        end;
+
+        // Filter Warehouse Activity Line for this transfer order/line, but exclude serials in SerialNoSet
+        WarehouseActivityLine.SetRange("Whse. Document No.", WhShpLine."No.");
+        if WarehouseActivityLine.FindSet() then
+            repeat
+                if not SerialNoSet.Contains(WarehouseActivityLine."Serial No.") then begin
+                    if WarehouseActivityLine."Action Type" = WarehouseActivityLine."Action Type"::"Take" then begin
+                        // Set Qty. to Handle (Base) to 0 for all lines not in SerialNoSet
+                        WarehouseActivityLine.Validate("Bin Code", Location."From-Assembly Bin Code");
+                        WarehouseActivityLine.Validate("Qty. to Handle (Base)", 0);
+                        WarehouseActivityLine.Modify();
+                    end else begin
+                        WarehouseActivityLine.Validate("Qty. to Handle (Base)", 0);
+                        WarehouseActivityLine.Modify();
+                    end;
+                end else if WarehouseActivityLine."Action Type" = WarehouseActivityLine."Action Type"::"Take" then begin
+                    WarehouseActivityLine.Validate("Bin Code", Location."From-Assembly Bin Code");
+                    WarehouseActivityLine.Modify();
+                end;
+            until WarehouseActivityLine.Next() = 0;
 
         WarehouseActivityLine.SetRange("Whse. Document No.", WhShpLine."No.");
-        WarehouseActivityLine.SetRange("Whse. Document Line No.", WhShpLine."Line No.");
         if WarehouseActivityLine.FindSet() then
             //Register the Warehouse Pick
             WhseActReg.Run(WarehouseActivityLine);
@@ -425,13 +409,13 @@ codeunit 50220 "Daily Transfer Management"
         WhsePostShipment.Run(WhShpLine);
         Clear(WarehouseActivityLine);
         WarehouseActivityLine.SetRange("Whse. Document No.", WhShpLine."No.");
-        WarehouseActivityLine.SetRange("Whse. Document Line No.", WhShpLine."Line No.");
         if WarehouseActivityLine.FindSet() then
             WarehouseActivityLine.DeleteAll();
         Clear(WhseShipmentHeader);
-        WhseShipmentHeader.Get(WhShpLine."No.");
-        WhseShipmentRelease.Reopen(WhseShipmentHeader);
-        WhseShipmentHeader.Delete();
+        if WhseShipmentHeader.Get(WhShpLine."No.") then begin
+            WhseShipmentRelease.Reopen(WhseShipmentHeader);
+            WhseShipmentHeader.Delete(true);
+        end;
     end;
 
     procedure ReleaseTransferHeader(TONo: Code[20])
@@ -448,4 +432,5 @@ codeunit 50220 "Daily Transfer Management"
 
     var
         WhShpLine: Record "Warehouse Shipment Line";
+        SerialNoSet: List of [Code[50]];
 }

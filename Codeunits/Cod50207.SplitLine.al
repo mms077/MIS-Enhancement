@@ -176,6 +176,9 @@ codeunit 50207 "Split Line"
         AssemblyHeader.Modify();
         #endregion[Create Assembly Header]
 
+
+
+
         #region[Create Assembly Line]
         Clear(NeededRMLoc);
         LineNumber := 10000;
@@ -207,6 +210,10 @@ codeunit 50207 "Split Line"
 
         ManagementCU.CreateCuttingSheetDashboard(AssemblyHeader, ParameterHeaderPar."Customer No.");
     end;
+
+    #region[Item Tracking]
+
+    #endregion[Item Tracking]
 
     Procedure WithEmbroidery(AssemblyHeaderPar: Record "Assembly Header"): Boolean
     var
@@ -445,6 +452,7 @@ codeunit 50207 "Split Line"
     begin
         Clear(LocationRec);
         Clear(ItemPerLoc);
+        LocationRec.SetRange("Use As In-Transit", false);
         if LocationRec.FindSet() then
             repeat
                 ItemPerLoc.SetFilter("No.", SalesOrderLine."No.");
@@ -479,6 +487,14 @@ codeunit 50207 "Split Line"
         FullAutoReservation: Boolean;
         directionEnum: Enum "Transfer Direction";
         Item: Record Item;
+        i: Integer;
+        TrackingSpec: Record "Tracking Specification";
+        DummyRes: Record "Reservation Entry";
+        ItemLedgerEntry: Record "Item Ledger Entry";
+        QtyTransfered: Decimal;
+        Math: Codeunit Math;
+        TransferLineReserve: Codeunit "Transfer Line-Reserve";
+        TransferReservEntry: Record "Reservation Entry";
     begin
         Clear(TransferOrder);
         TransferOrder.SetRange("Related SO", SalesOrderLine."Document No.");
@@ -504,8 +520,34 @@ codeunit 50207 "Split Line"
                 TransferOrderLine.Validate("Related SO", SalesOrderLine."Document No.");
                 TransferOrderLine.Validate("SO Line No.", SalesOrderLine."Line No.");
                 TransferOrderLine.Insert();
-                ReservationManagementCU.SetReservSource(TransferOrderLine, directionEnum::Outbound);
-                ReservationManagementCU.AutoReserve(FullAutoReservation, TransferOrderLine."Document No.", TransferOrderLine."Shipment Date", TransferOrderLine.Quantity, TransferOrderLine."Quantity (Base)")
+
+
+
+                clear(ItemLedgerEntry);
+                ItemLedgerEntry.SetRange("Item No.", SalesOrderLine."No.");
+                ItemLedgerEntry.SetRange("Variant Code", SalesOrderLine."Variant Code");
+                ItemLedgerEntry.SetRange("Location Code", FromLocation);
+                ItemLedgerEntry.SetFilter("Remaining Quantity", '>0');
+                if ItemLedgerEntry.FindSet() then
+                    repeat
+                        if (ItemLedgerEntry."Serial No." <> '') then begin
+                            TrackingSpec.CopyTrackingFromItemLedgEntry(ItemLedgerEntry);
+                            TransferLineReserve.CreateReservationSetFrom(TrackingSpec);
+                            TransferReservEntry.CopyTrackingFromSpec(TrackingSpec);
+                            TransferLineReserve.CreateReservation(TransferOrderLine, TransferOrderLine.Description, TransferOrderLine."Shipment Date", 1, 1, TransferReservEntry, directionEnum::Outbound);
+                            QtyTransfered += 1;
+                        end
+                        else begin
+                            for i := 1 to Math.Min(ItemLedgerEntry."Remaining Quantity", QtyTransfered - Qty) do begin
+                                TrackingSpec.InitTrackingSpecification(Database::"Item Ledger Entry", 1, ItemLedgerEntry."Item No.", '', 0, ItemLedgerEntry."Entry No.", ItemLedgerEntry."Variant Code", ItemLedgerEntry."Location Code", ItemLedgerEntry."Qty. per Unit of Measure");
+                                TrackingSpec."Serial No." := NosCU.GetNextNo(Item."Serial Nos.");
+                                TransferLineReserve.CreateReservationSetFrom(TrackingSpec);
+                                TransferReservEntry.CopyTrackingFromSpec(TrackingSpec);
+                                TransferLineReserve.CreateReservation(TransferOrderLine, TransferOrderLine.Description, TransferOrderLine."Shipment Date", 1, 1, TransferReservEntry, directionEnum::Outbound);
+                                QtyTransfered += 1;
+                            end;
+                        end;
+                    until (ItemLedgerEntry.Next() = 0) or (QtyTransfered >= Qty);
             end;
         end
         else begin
@@ -543,8 +585,31 @@ codeunit 50207 "Split Line"
             TransferOrderLine.Insert();
 
 
-            ReservationManagementCU.SetReservSource(TransferOrderLine, directionEnum::Outbound);
-            ReservationManagementCU.AutoReserve(FullAutoReservation, TransferOrderLine."Document No.", TransferOrderLine."Shipment Date", TransferOrderLine.Quantity, TransferOrderLine."Quantity (Base)")
+            clear(ItemLedgerEntry);
+            ItemLedgerEntry.SetRange("Item No.", SalesOrderLine."No.");
+            ItemLedgerEntry.SetRange("Variant Code", SalesOrderLine."Variant Code");
+            ItemLedgerEntry.SetRange("Location Code", FromLocation);
+            ItemLedgerEntry.SetFilter("Remaining Quantity", '>0');
+            if ItemLedgerEntry.FindSet() then
+                repeat
+                    if (ItemLedgerEntry."Serial No." <> '') then begin
+                        TrackingSpec.CopyTrackingFromItemLedgEntry(ItemLedgerEntry);
+                        TransferLineReserve.CreateReservationSetFrom(TrackingSpec);
+                        TransferReservEntry.CopyTrackingFromSpec(TrackingSpec);
+                        TransferLineReserve.CreateReservation(TransferOrderLine, TransferOrderLine.Description, TransferOrderLine."Shipment Date", 1, 1, TransferReservEntry, directionEnum::Outbound);
+                        QtyTransfered += 1;
+                    end
+                    else begin
+                        for i := 1 to Math.Min(ItemLedgerEntry."Remaining Quantity", QtyTransfered - Qty) do begin
+                            TrackingSpec.InitTrackingSpecification(Database::"Item Ledger Entry", 1, ItemLedgerEntry."Item No.", '', 0, ItemLedgerEntry."Entry No.", ItemLedgerEntry."Variant Code", ItemLedgerEntry."Location Code", ItemLedgerEntry."Qty. per Unit of Measure");
+                            TrackingSpec."Serial No." := NosCU.GetNextNo(Item."Serial Nos.");
+                            TransferLineReserve.CreateReservationSetFrom(TrackingSpec);
+                            TransferReservEntry.CopyTrackingFromSpec(TrackingSpec);
+                            TransferLineReserve.CreateReservation(TransferOrderLine, TransferOrderLine.Description, TransferOrderLine."Shipment Date", 1, 1, TransferReservEntry, directionEnum::Outbound);
+                            QtyTransfered += 1;
+                        end;
+                    end;
+                until (ItemLedgerEntry.Next() = 0) or (QtyTransfered >= Qty);
         end;
     end;
 
@@ -561,6 +626,17 @@ codeunit 50207 "Split Line"
         FullAutoReservation: Boolean;
         directionEnum: Enum "Transfer Direction";
         Item: Record Item;
+        i: Integer;
+        AssemblyReservation: Codeunit "Assembly Header-Reserve";
+        TransferReserve: Codeunit "Transfer Line-Reserve";
+        AssemblyReservationEntry: Record "Reservation Entry";
+        TrackingSpecAsb: Record "Tracking Specification";
+        TrackingSpecTransfer: Record "Tracking Specification";
+        TrackingSpecificationSO: Record "Tracking Specification";
+        Serial: Code[20];
+        LastEntryNo: Integer;
+        binding: Enum "Reservation Binding";
+        itemTrackingMgt: Codeunit "Item Tracking management";
     begin
         Clear(TransferOrder);
         TransferOrder.SetRange("Related SO", SalesOrderLine."Document No.");
@@ -587,12 +663,17 @@ codeunit 50207 "Split Line"
                 TransferOrderLine.Validate("SO Line No.", SalesOrderLine."Line No.");
                 TransferOrderLine.Insert();
 
-                ReservationManagementCU.SetReservSource(TransferOrderLine, directionEnum::Outbound);
                 // Add assembly order as a second reservation source
-                if AssemblyHeader."No." <> '' then
-                    ReservationManagementCU.SetReservSource(AssemblyHeader);
-
-                ReservationManagementCU.AutoReserve(FullAutoReservation, TransferOrderLine."Document No.", TransferOrderLine."Shipment Date", TransferOrderLine.Quantity, TransferOrderLine."Quantity (Base)")
+                if AssemblyHeader."No." <> '' then begin
+                    for i := 1 to AssemblyHeader.Quantity do begin
+                        Serial := NosCU.GetNextNo(Item."Serial Nos.");
+                        TrackingSpecAsb.InitTrackingSpecification(Database::"Assembly Header", 1, AssemblyHeader."No.", '', 0, 0, AssemblyHeader."Variant Code", AssemblyHeader."Location Code", AssemblyHeader."Qty. per Unit of Measure");
+                        TrackingSpecAsb."Serial No." := Serial;
+                        TransferReserve.CreateReservationSetFrom(TrackingSpecAsb);
+                        AssemblyReservationEntry.CopyTrackingFromSpec(TrackingSpecAsb);
+                        TransferReserve.CreateReservation(TransferOrderLine, TransferOrderLine.Description, TransferOrderLine."Shipment Date", 1, 1, AssemblyReservationEntry, directionEnum::Outbound);
+                    end;
+                end;
             end;
         end
         else begin
@@ -628,12 +709,17 @@ codeunit 50207 "Split Line"
             TransferOrderLine.Validate("Related SO", SalesOrderLine."Document No.");
             TransferOrderLine.Validate("SO Line No.", SalesOrderLine."Line No.");
             TransferOrderLine.Insert();
-            ReservationManagementCU.SetReservSource(TransferOrderLine, directionEnum::Outbound);
 
             // Add assembly order as a second reservation source
             if AssemblyHeader."No." <> '' then
-                ReservationManagementCU.SetReservSource(AssemblyHeader);
-            ReservationManagementCU.AutoReserve(FullAutoReservation, TransferOrderLine."Document No.", TransferOrderLine."Shipment Date", TransferOrderLine.Quantity, TransferOrderLine."Quantity (Base)")
+                for i := 1 to AssemblyHeader.Quantity do begin
+                    Serial := NosCU.GetNextNo(Item."Serial Nos.");
+                    TrackingSpecAsb.InitTrackingSpecification(Database::"Assembly Header", 1, AssemblyHeader."No.", '', 0, 0, AssemblyHeader."Variant Code", AssemblyHeader."Location Code", AssemblyHeader."Qty. per Unit of Measure");
+                    TrackingSpecAsb."Serial No." := Serial;
+                    TransferReserve.CreateReservationSetFrom(TrackingSpecAsb);
+                    AssemblyReservationEntry.CopyTrackingFromSpec(TrackingSpecAsb);
+                    TransferReserve.CreateReservation(TransferOrderLine, TransferOrderLine.Description, TransferOrderLine."Shipment Date", 1, 1, AssemblyReservationEntry, directionEnum::Outbound);
+                end;
         end;
     end;
 

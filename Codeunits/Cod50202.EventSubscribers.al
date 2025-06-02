@@ -345,29 +345,96 @@ codeunit 50202 EventSubscribers
         FullAutoReservation: Boolean;
         ReservedQty: Decimal;
         ReservedQtyBase: Decimal;
+        TransferLineOutReserve: Codeunit "Transfer Line-Reserve";
+        TransferLineInReserve: Codeunit "Transfer Line-Reserve";
+        TOLineTrackingSpec: record "Tracking Specification";
+        OutReservationEntry: Record "Reservation Entry";
+        InReservationEntry: Record "Reservation Entry";
+
+
+        ItemLedgerReserve: Codeunit "Item Ledger Entry-Reserve";
+        LedgerReservationEntry: Record "Reservation Entry";
+        SalesLineReserve: Codeunit "Sales Line-Reserve";
+        ItemLedgerEntry: Record "Item Ledger Entry";
+        QtyTransfered: Decimal;
+        TrackingSpec: record "Tracking Specification";
+        SalesReservationEntry: Record "Reservation Entry";
+        i: Integer;
+        Math: Codeunit Math;
+        NosCU: Codeunit "No. Series";
+        Item: Record Item;
     begin
         Clear(ReservedQty);
         Clear(ReservedQtyBase);
         Clear(TransferOrderLine);
+        Item.get(SalesOrderLine."No.");
         TransferOrderLine.SetRange("Related SO", SalesOrderHeader."No.");
         TransferOrderLine.SetRange("SO Line No.", SalesOrderLine."Line No.");
-        if TransferOrderLine.Findset() then begin
-            repeat
-                ReservationManagementCU.SetReservSource(TransferOrderLine, DirectionEnum::Inbound);
-                ReservationManagementCU.SetReservSource(SalesOrderLine);
-                ReservationManagementCU.AutoReserve(FullAutoReservation, TransferOrderLine."Document No.", TransferOrderLine."Shipment Date", TransferOrderLine.Quantity, TransferOrderLine."Quantity (Base)");
-                ReservedQty += TransferOrderLine.Quantity;
-                ReservedQtyBase += TransferOrderLine."Quantity (Base)";
-            until TransferOrderLine.Next() = 0;
-            If SalesOrderLine."Quantity (Base)" > ReservedQtyBase then begin
-                clear(ReservationManagementCU);
-                ReservationManagementCU.SetReservSource(SalesOrderLine);
-                ReservationManagementCU.AutoReserve(FullAutoReservation, SalesOrderLine."Document No.", SalesOrderLine."Shipment Date", SalesOrderLine.Quantity - ReservedQty, SalesOrderLine."Quantity (Base)" - ReservedQtyBase);
+        if TransferOrderLine.FindFirst() then begin
+            if TransferLineOutReserve.FindReservEntrySet(TransferOrderLine, OutReservationEntry, directionEnum::Outbound) then begin
+                repeat
+                    TOLineTrackingSpec.InitTrackingSpecification(Database::"Transfer Line", 1, TransferOrderLine."Document No.", '', 0, TransferOrderLine."Line No.", TransferOrderLine."Variant Code", TransferOrderLine."Transfer-to Code", TransferOrderLine."Qty. per Unit of Measure");
+                    TOLineTrackingSpec.CopyTrackingFromReservEntry(OutReservationEntry);
+                    SalesLineReserve.CreateReservationSetFrom(TOLineTrackingSpec);
+                    InReservationEntry.CopyTrackingFromSpec(TOLineTrackingSpec);
+                    SalesLineReserve.CreateReservation(SalesOrderLine, SalesOrderLine.Description, SalesOrderLine."Shipment Date", 1, 1, InReservationEntry);
+                    ReservedQtyBase += 1;
+                until OutReservationEntry.Next() = 0;
+                If SalesOrderLine."Quantity (Base)" > ReservedQtyBase then begin
+                    clear(ItemLedgerEntry);
+                    ItemLedgerEntry.SetRange("Item No.", SalesOrderLine."No.");
+                    ItemLedgerEntry.SetRange("Variant Code", SalesOrderLine."Variant Code");
+                    ItemLedgerEntry.SetRange("Location Code", SalesOrderLine."Location Code");
+                    ItemLedgerEntry.SetFilter("Remaining Quantity", '>0');
+                    if ItemLedgerEntry.FindSet() then
+                        repeat
+                            if (ItemLedgerEntry."Serial No." <> '') then begin
+                                TrackingSpec.CopyTrackingFromItemLedgEntry(ItemLedgerEntry);
+                                SalesLineReserve.CreateReservationSetFrom(TrackingSpec);
+                                SalesReservationEntry.CopyTrackingFromSpec(TrackingSpec);
+                                SalesLineReserve.CreateReservation(SalesOrderLine, SalesOrderLine.Description, SalesOrderLine."Shipment Date", 1, 1, SalesReservationEntry);
+                                ReservedQtyBase += 1;
+                            end
+                            else begin
+                                for i := 1 to Math.Min(ItemLedgerEntry."Remaining Quantity", SalesOrderLine."Quantity (Base)" - ReservedQtyBase) do begin
+                                    TrackingSpec.InitTrackingSpecification(Database::"Item Ledger Entry", 1, ItemLedgerEntry."Item No.", '', 0, ItemLedgerEntry."Entry No.", ItemLedgerEntry."Variant Code", ItemLedgerEntry."Location Code", ItemLedgerEntry."Qty. per Unit of Measure");
+                                    TrackingSpec."Serial No." := NosCU.GetNextNo(Item."Serial Nos.");
+                                    SalesLineReserve.CreateReservationSetFrom(TrackingSpec);
+                                    SalesReservationEntry.CopyTrackingFromSpec(TrackingSpec);
+                                    SalesLineReserve.CreateReservation(SalesOrderLine, SalesOrderLine.Description, SalesOrderLine."Shipment Date", 1, 1, SalesReservationEntry);
+                                    ReservedQtyBase += 1;
+                                end;
+                            end;
+                        until (ItemLedgerEntry.Next() = 0) or (ReservedQtyBase >= SalesOrderLine."Quantity (Base)");
+                end;
             end;
         end
         else begin
-            ReservationManagementCU.SetReservSource(SalesOrderLine);
-            ReservationManagementCU.AutoReserve(FullAutoReservation, SalesOrderLine."Document No.", SalesOrderLine."Shipment Date", SalesOrderLine.Quantity, SalesOrderLine."Quantity (Base)")
+            clear(ItemLedgerEntry);
+            ItemLedgerEntry.SetRange("Item No.", SalesOrderLine."No.");
+            ItemLedgerEntry.SetRange("Variant Code", SalesOrderLine."Variant Code");
+            ItemLedgerEntry.SetRange("Location Code", SalesOrderLine."Location Code");
+            ItemLedgerEntry.SetFilter("Remaining Quantity", '>0');
+            if ItemLedgerEntry.FindSet() then
+                repeat
+                    if (ItemLedgerEntry."Serial No." <> '') then begin
+                        TrackingSpec.CopyTrackingFromItemLedgEntry(ItemLedgerEntry);
+                        SalesLineReserve.CreateReservationSetFrom(TrackingSpec);
+                        SalesReservationEntry.CopyTrackingFromSpec(TrackingSpec);
+                        SalesLineReserve.CreateReservation(SalesOrderLine, SalesOrderLine.Description, SalesOrderLine."Shipment Date", 1, 1, SalesReservationEntry);
+                        ReservedQtyBase += 1;
+                    end
+                    else begin
+                        for i := 1 to Math.Min(ItemLedgerEntry."Remaining Quantity", SalesOrderLine."Quantity (Base)" - ReservedQtyBase) do begin
+                            TrackingSpec.InitTrackingSpecification(Database::"Item Ledger Entry", 1, ItemLedgerEntry."Item No.", '', 0, ItemLedgerEntry."Entry No.", ItemLedgerEntry."Variant Code", ItemLedgerEntry."Location Code", ItemLedgerEntry."Qty. per Unit of Measure");
+                            TrackingSpec."Serial No." := NosCU.GetNextNo(Item."Serial Nos.");
+                            SalesLineReserve.CreateReservationSetFrom(TrackingSpec);
+                            SalesReservationEntry.CopyTrackingFromSpec(TrackingSpec);
+                            SalesLineReserve.CreateReservation(SalesOrderLine, SalesOrderLine.Description, SalesOrderLine."Shipment Date", 1, 1, SalesReservationEntry);
+                            ReservedQtyBase += 1;
+                        end;
+                    end;
+                until (ItemLedgerEntry.Next() = 0) or (ReservedQtyBase >= SalesOrderLine."Quantity (Base)");
         end;
     end;
 

@@ -44,5 +44,14 @@ table 50263 "Department Positions"
         {
             Clustered = true;
         }
+
+    }
+    fieldgroups
+    {
+        fieldgroup(DropDown; "Department Code","Department Name", "Position Code","Position Name")
+        {
+
+        }
+
     }
 }

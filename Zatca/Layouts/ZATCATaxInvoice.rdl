@@ -11,574 +11,6 @@
       <rd:DataSourceID>a34661e7-336e-4d3d-a43c-ba005f3873e3</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="ZATCA_Invoice_Type">
-          <DataField>ZATCA_Invoice_Type</DataField>
-        </Field>
-        <Field Name="Invoice_Document_Reference">
-          <DataField>Invoice_Document_Reference</DataField>
-        </Field>
-        <Field Name="Instruction_Note">
-          <DataField>Instruction_Note</DataField>
-        </Field>
-        <Field Name="CompanyPicture">
-          <DataField>CompanyPicture</DataField>
-        </Field>
-        <Field Name="QRPicture">
-          <DataField>QRPicture</DataField>
-        </Field>
-        <Field Name="ReportTitle">
-          <DataField>ReportTitle</DataField>
-        </Field>
-        <Field Name="NominalLabel">
-          <DataField>NominalLabel</DataField>
-        </Field>
-        <Field Name="IRNLabel">
-          <DataField>IRNLabel</DataField>
-        </Field>
-        <Field Name="IssueDateLabel">
-          <DataField>IssueDateLabel</DataField>
-        </Field>
-        <Field Name="SupplyDateLabel">
-          <DataField>SupplyDateLabel</DataField>
-        </Field>
-        <Field Name="SellerIdentificationLabel">
-          <DataField>SellerIdentificationLabel</DataField>
-        </Field>
-        <Field Name="SellerNameLabel">
-          <DataField>SellerNameLabel</DataField>
-        </Field>
-        <Field Name="VATRegistrationNumber">
-          <DataField>VATRegistrationNumber</DataField>
-        </Field>
-        <Field Name="AdditionalSellerIDType">
-          <DataField>AdditionalSellerIDType</DataField>
-        </Field>
-        <Field Name="CRType">
-          <DataField>CRType</DataField>
-        </Field>
-        <Field Name="AddistonalSellerIDNumber">
-          <DataField>AddistonalSellerIDNumber</DataField>
-        </Field>
-        <Field Name="AddressLabel">
-          <DataField>AddressLabel</DataField>
-        </Field>
-        <Field Name="StreetNameLabel">
-          <DataField>StreetNameLabel</DataField>
-        </Field>
-        <Field Name="BuildingNumberLabel">
-          <DataField>BuildingNumberLabel</DataField>
-        </Field>
-        <Field Name="DistrictLabel">
-          <DataField>DistrictLabel</DataField>
-        </Field>
-        <Field Name="TaxInvoiceLabel">
-          <DataField>TaxInvoiceLabel</DataField>
-        </Field>
-        <Field Name="CountryCodeLabel">
-          <DataField>CountryCodeLabel</DataField>
-        </Field>
-        <Field Name="PostalCodeLabel">
-          <DataField>PostalCodeLabel</DataField>
-        </Field>
-        <Field Name="CityLabel">
-          <DataField>CityLabel</DataField>
-        </Field>
-        <Field Name="BuyerIdentificationLabel">
-          <DataField>BuyerIdentificationLabel</DataField>
-        </Field>
-        <Field Name="BuyerNameLabel">
-          <DataField>BuyerNameLabel</DataField>
-        </Field>
-        <Field Name="TaxInvoiceLabelAraic">
-          <DataField>TaxInvoiceLabelAraic</DataField>
-        </Field>
-        <Field Name="IRNLabelAraic">
-          <DataField>IRNLabelAraic</DataField>
-        </Field>
-        <Field Name="IssueDateLabelAraic">
-          <DataField>IssueDateLabelAraic</DataField>
-        </Field>
-        <Field Name="SupplyDateLabelAraic">
-          <DataField>SupplyDateLabelAraic</DataField>
-        </Field>
-        <Field Name="SellerIdentificationLabelAraic">
-          <DataField>SellerIdentificationLabelAraic</DataField>
-        </Field>
-        <Field Name="SellerNameLabelAraic">
-          <DataField>SellerNameLabelAraic</DataField>
-        </Field>
-        <Field Name="VATRegistrationNumberAraic">
-          <DataField>VATRegistrationNumberAraic</DataField>
-        </Field>
-        <Field Name="AdditionalSellerIDTypeAraic">
-          <DataField>AdditionalSellerIDTypeAraic</DataField>
-        </Field>
-        <Field Name="CRTypeAraic">
-          <DataField>CRTypeAraic</DataField>
-        </Field>
-        <Field Name="AdditionalSellerIDNumberAraic">
-          <DataField>AdditionalSellerIDNumberAraic</DataField>
-        </Field>
-        <Field Name="AddressLabelAraic">
-          <DataField>AddressLabelAraic</DataField>
-        </Field>
-        <Field Name="StreetNameLabelAraic">
-          <DataField>StreetNameLabelAraic</DataField>
-        </Field>
-        <Field Name="BuildingNumberLabelAraic">
-          <DataField>BuildingNumberLabelAraic</DataField>
-        </Field>
-        <Field Name="DistrictLabelAraic">
-          <DataField>DistrictLabelAraic</DataField>
-        </Field>
-        <Field Name="CountryCodeLabelAraic">
-          <DataField>CountryCodeLabelAraic</DataField>
-        </Field>
-        <Field Name="PostalCodeLabelAraic">
-          <DataField>PostalCodeLabelAraic</DataField>
-        </Field>
-        <Field Name="CityLabelAraic">
-          <DataField>CityLabelAraic</DataField>
-        </Field>
-        <Field Name="BuyerIdentificationLabelAraic">
-          <DataField>BuyerIdentificationLabelAraic</DataField>
-        </Field>
-        <Field Name="BuyerNameLabelAraic">
-          <DataField>BuyerNameLabelAraic</DataField>
-        </Field>
-        <Field Name="LineItemsLabel">
-          <DataField>LineItemsLabel</DataField>
-        </Field>
-        <Field Name="ProductOrServiceDescriptionLabel">
-          <DataField>ProductOrServiceDescriptionLabel</DataField>
-        </Field>
-        <Field Name="UnitPriceLabel">
-          <DataField>UnitPriceLabel</DataField>
-        </Field>
-        <Field Name="QuantityLabel">
-          <DataField>QuantityLabel</DataField>
-        </Field>
-        <Field Name="VatRateLabel">
-          <DataField>VatRateLabel</DataField>
-        </Field>
-        <Field Name="VatAmountLabel">
-          <DataField>VatAmountLabel</DataField>
-        </Field>
-        <Field Name="SubtotalExclusiveofVatLabel">
-          <DataField>SubtotalExclusiveofVatLabel</DataField>
-        </Field>
-        <Field Name="SubtotalInclusiveofVatLabel">
-          <DataField>SubtotalInclusiveofVatLabel</DataField>
-        </Field>
-        <Field Name="DiscountorRebateTotalAmountLabel">
-          <DataField>DiscountorRebateTotalAmountLabel</DataField>
-        </Field>
-        <Field Name="InvoiceTotalAmountexlVatLabel">
-          <DataField>InvoiceTotalAmountexlVatLabel</DataField>
-        </Field>
-        <Field Name="VATTotalAmountLabel">
-          <DataField>VATTotalAmountLabel</DataField>
-        </Field>
-        <Field Name="InvoiceGrossTotalinclVATLabel">
-          <DataField>InvoiceGrossTotalinclVATLabel</DataField>
-        </Field>
-        <Field Name="InvoiceTotalPayableAmntLabel">
-          <DataField>InvoiceTotalPayableAmntLabel</DataField>
-        </Field>
-        <Field Name="SpecialTaxTreatmentLabel">
-          <DataField>SpecialTaxTreatmentLabel</DataField>
-        </Field>
-        <Field Name="ApplicabilityofSpecialTaxTreatmentLabel">
-          <DataField>ApplicabilityofSpecialTaxTreatmentLabel</DataField>
-        </Field>
-        <Field Name="PaymentTermsLabel">
-          <DataField>PaymentTermsLabel</DataField>
-        </Field>
-        <Field Name="PaymentMethodLabel">
-          <DataField>PaymentMethodLabel</DataField>
-        </Field>
-        <Field Name="PaymentTermslowercasaeLabel">
-          <DataField>PaymentTermslowercasaeLabel</DataField>
-        </Field>
-        <Field Name="TypeOfNoteLabel">
-          <DataField>TypeOfNoteLabel</DataField>
-        </Field>
-        <Field Name="DebitNoteReferenceDescriptionLabel">
-          <DataField>DebitNoteReferenceDescriptionLabel</DataField>
-        </Field>
-        <Field Name="DebitNoteReferenceLabel">
-          <DataField>DebitNoteReferenceLabel</DataField>
-        </Field>
-        <Field Name="DebitNoteReasonLabel">
-          <DataField>DebitNoteReasonLabel</DataField>
-        </Field>
-        <Field Name="InvoiceDiscountLabel">
-          <DataField>InvoiceDiscountLabel</DataField>
-        </Field>
-        <Field Name="SpecialTaxLabel">
-          <DataField>SpecialTaxLabel</DataField>
-        </Field>
-        <Field Name="SpecialTaxDescriptionLabel">
-          <DataField>SpecialTaxDescriptionLabel</DataField>
-        </Field>
-        <Field Name="prepaymentSubTotalLabel">
-          <DataField>prepaymentSubTotalLabel</DataField>
-        </Field>
-        <Field Name="PrepaymentAmountLabel">
-          <DataField>PrepaymentAmountLabel</DataField>
-        </Field>
-        <Field Name="PrepaymentLabel">
-          <DataField>PrepaymentLabel</DataField>
-        </Field>
-        <Field Name="PrepaymentVatAmountLabel">
-          <DataField>PrepaymentVatAmountLabel</DataField>
-        </Field>
-        <Field Name="PrepaymentVatRateLabel">
-          <DataField>PrepaymentVatRateLabel</DataField>
-        </Field>
-        <Field Name="TotalPrepaymentLabel">
-          <DataField>TotalPrepaymentLabel</DataField>
-        </Field>
-        <Field Name="LineItemsLabelArabic">
-          <DataField>LineItemsLabelArabic</DataField>
-        </Field>
-        <Field Name="ProductOrServiceDescriptionLabelArabic">
-          <DataField>ProductOrServiceDescriptionLabelArabic</DataField>
-        </Field>
-        <Field Name="UnitPriceLabelArabic">
-          <DataField>UnitPriceLabelArabic</DataField>
-        </Field>
-        <Field Name="QuantityLabelArabic">
-          <DataField>QuantityLabelArabic</DataField>
-        </Field>
-        <Field Name="VatRateLabelArabic">
-          <DataField>VatRateLabelArabic</DataField>
-        </Field>
-        <Field Name="VatAmountLabelArabic">
-          <DataField>VatAmountLabelArabic</DataField>
-        </Field>
-        <Field Name="SubtotalExclusiveofVatLabelArabic">
-          <DataField>SubtotalExclusiveofVatLabelArabic</DataField>
-        </Field>
-        <Field Name="SubtotalInclusiveofVatLabelArabic">
-          <DataField>SubtotalInclusiveofVatLabelArabic</DataField>
-        </Field>
-        <Field Name="DiscountorRebateTotalAmountLabelArabic">
-          <DataField>DiscountorRebateTotalAmountLabelArabic</DataField>
-        </Field>
-        <Field Name="InvoiceTotalAmountexlVatLabelArabic">
-          <DataField>InvoiceTotalAmountexlVatLabelArabic</DataField>
-        </Field>
-        <Field Name="VATTotalAmountLabelArabic">
-          <DataField>VATTotalAmountLabelArabic</DataField>
-        </Field>
-        <Field Name="InvoiceGrossTotalinclVATLabelArabic">
-          <DataField>InvoiceGrossTotalinclVATLabelArabic</DataField>
-        </Field>
-        <Field Name="InvoiceTotalPayableAmntLabelArabic">
-          <DataField>InvoiceTotalPayableAmntLabelArabic</DataField>
-        </Field>
-        <Field Name="SpecialTaxTreatmentLabelArabic">
-          <DataField>SpecialTaxTreatmentLabelArabic</DataField>
-        </Field>
-        <Field Name="ApplicabilityofSpecialTaxTreatmentLabelArabic">
-          <DataField>ApplicabilityofSpecialTaxTreatmentLabelArabic</DataField>
-        </Field>
-        <Field Name="PaymentTermsLabelArabic">
-          <DataField>PaymentTermsLabelArabic</DataField>
-        </Field>
-        <Field Name="PaymentMethodLabelArabic">
-          <DataField>PaymentMethodLabelArabic</DataField>
-        </Field>
-        <Field Name="TypeOfNoteLabelArabic">
-          <DataField>TypeOfNoteLabelArabic</DataField>
-        </Field>
-        <Field Name="DebitNoteReferenceDescriptionLabelArabic">
-          <DataField>DebitNoteReferenceDescriptionLabelArabic</DataField>
-        </Field>
-        <Field Name="DebitNoteReferenceLabelArabic">
-          <DataField>DebitNoteReferenceLabelArabic</DataField>
-        </Field>
-        <Field Name="DebitNoteReasonLabelArabic">
-          <DataField>DebitNoteReasonLabelArabic</DataField>
-        </Field>
-        <Field Name="InvoiceDiscountLabelArabic">
-          <DataField>InvoiceDiscountLabelArabic</DataField>
-        </Field>
-        <Field Name="SpecialTaxLabelArabic">
-          <DataField>SpecialTaxLabelArabic</DataField>
-        </Field>
-        <Field Name="SpecialTaxDescriptionLabelArabic">
-          <DataField>SpecialTaxDescriptionLabelArabic</DataField>
-        </Field>
-        <Field Name="prepaymentSubTotalLabelArabic">
-          <DataField>prepaymentSubTotalLabelArabic</DataField>
-        </Field>
-        <Field Name="PrepaymentAmountLabelArabic">
-          <DataField>PrepaymentAmountLabelArabic</DataField>
-        </Field>
-        <Field Name="PrepaymentLabelArabic">
-          <DataField>PrepaymentLabelArabic</DataField>
-        </Field>
-        <Field Name="PrepaymentVatAmountLabelArabic">
-          <DataField>PrepaymentVatAmountLabelArabic</DataField>
-        </Field>
-        <Field Name="PrepaymentVatRateLabelArabic">
-          <DataField>PrepaymentVatRateLabelArabic</DataField>
-        </Field>
-        <Field Name="TotalPrepaymentLabelArabic">
-          <DataField>TotalPrepaymentLabelArabic</DataField>
-        </Field>
-        <Field Name="G_InvTotAmntEXVAT">
-          <DataField>G_InvTotAmntEXVAT</DataField>
-        </Field>
-        <Field Name="G_InvTotAmntEXVATFormat">
-          <DataField>G_InvTotAmntEXVATFormat</DataField>
-        </Field>
-        <Field Name="G_InvGrossTotAmnt">
-          <DataField>G_InvGrossTotAmnt</DataField>
-        </Field>
-        <Field Name="G_InvGrossTotAmntFormat">
-          <DataField>G_InvGrossTotAmntFormat</DataField>
-        </Field>
-        <Field Name="Amount_Including_VAT">
-          <DataField>Amount_Including_VAT</DataField>
-        </Field>
-        <Field Name="Amount_Including_VATFormat">
-          <DataField>Amount_Including_VATFormat</DataField>
-        </Field>
-        <Field Name="G_SelectedCurrency">
-          <DataField>G_SelectedCurrency</DataField>
-        </Field>
-        <Field Name="G_PTEnglishDesc">
-          <DataField>G_PTEnglishDesc</DataField>
-        </Field>
-        <Field Name="G_PTArabicDesc">
-          <DataField>G_PTArabicDesc</DataField>
-        </Field>
-        <Field Name="G_PMEnglishDesc">
-          <DataField>G_PMEnglishDesc</DataField>
-        </Field>
-        <Field Name="G_PMArabicDesc">
-          <DataField>G_PMArabicDesc</DataField>
-        </Field>
-        <Field Name="CompanyName">
-          <DataField>CompanyName</DataField>
-        </Field>
-        <Field Name="CompanyNameArabicValue">
-          <DataField>CompanyNameArabicValue</DataField>
-        </Field>
-        <Field Name="StreetNameValue">
-          <DataField>StreetNameValue</DataField>
-        </Field>
-        <Field Name="StreetNameArabicValue">
-          <DataField>StreetNameArabicValue</DataField>
-        </Field>
-        <Field Name="BuildingNumberValue">
-          <DataField>BuildingNumberValue</DataField>
-        </Field>
-        <Field Name="CityValue">
-          <DataField>CityValue</DataField>
-        </Field>
-        <Field Name="CityArabicValue">
-          <DataField>CityArabicValue</DataField>
-        </Field>
-        <Field Name="DistrictValue">
-          <DataField>DistrictValue</DataField>
-        </Field>
-        <Field Name="DistrictArabicValue">
-          <DataField>DistrictArabicValue</DataField>
-        </Field>
-        <Field Name="CR_NumberValue">
-          <DataField>CR_NumberValue</DataField>
-        </Field>
-        <Field Name="VATRegNumberValue">
-          <DataField>VATRegNumberValue</DataField>
-        </Field>
-        <Field Name="CountyCodeValue">
-          <DataField>CountyCodeValue</DataField>
-        </Field>
-        <Field Name="PostalCodeValue">
-          <DataField>PostalCodeValue</DataField>
-        </Field>
-        <Field Name="CustomerName">
-          <DataField>CustomerName</DataField>
-        </Field>
-        <Field Name="CustomerVATRegNumber">
-          <DataField>CustomerVATRegNumber</DataField>
-        </Field>
-        <Field Name="CustomerCountyCode">
-          <DataField>CustomerCountyCode</DataField>
-        </Field>
-        <Field Name="CustomerPostalCode">
-          <DataField>CustomerPostalCode</DataField>
-        </Field>
-        <Field Name="CustomerNameArabic">
-          <DataField>CustomerNameArabic</DataField>
-        </Field>
-        <Field Name="CustomerStreetName">
-          <DataField>CustomerStreetName</DataField>
-        </Field>
-        <Field Name="CustomerBuildingNumber">
-          <DataField>CustomerBuildingNumber</DataField>
-        </Field>
-        <Field Name="CustomerDistrict">
-          <DataField>CustomerDistrict</DataField>
-        </Field>
-        <Field Name="CustomerCity">
-          <DataField>CustomerCity</DataField>
-        </Field>
-        <Field Name="CustomerStreetNameArabic">
-          <DataField>CustomerStreetNameArabic</DataField>
-        </Field>
-        <Field Name="CustomerDistrictArabic">
-          <DataField>CustomerDistrictArabic</DataField>
-        </Field>
-        <Field Name="CustomerCityArabic">
-          <DataField>CustomerCityArabic</DataField>
-        </Field>
-        <Field Name="InvoiceNo">
-          <DataField>InvoiceNo</DataField>
-        </Field>
-        <Field Name="InvoiceDate">
-          <DataField>InvoiceDate</DataField>
-        </Field>
-        <Field Name="InvoiceShipmentDate">
-          <DataField>InvoiceShipmentDate</DataField>
-        </Field>
-        <Field Name="Invoice_Discount_Amount">
-          <DataField>Invoice_Discount_Amount</DataField>
-        </Field>
-        <Field Name="Invoice_Discount_AmountFormat">
-          <DataField>Invoice_Discount_AmountFormat</DataField>
-        </Field>
-        <Field Name="IsStandardInvoice">
-          <DataField>IsStandardInvoice</DataField>
-        </Field>
-        <Field Name="IsDebitNote">
-          <DataField>IsDebitNote</DataField>
-        </Field>
-        <Field Name="IsSimplifiedInvoice">
-          <DataField>IsSimplifiedInvoice</DataField>
-        </Field>
-        <Field Name="LCY_Code">
-          <DataField>LCY_Code</DataField>
-        </Field>
-        <Field Name="No_">
-          <DataField>No_</DataField>
-        </Field>
-        <Field Name="G_VATTotAmnt">
-          <DataField>G_VATTotAmnt</DataField>
-        </Field>
-        <Field Name="G_VATTotAmntFormat">
-          <DataField>G_VATTotAmntFormat</DataField>
-        </Field>
-        <Field Name="G_VATTotAmntLCY">
-          <DataField>G_VATTotAmntLCY</DataField>
-        </Field>
-        <Field Name="G_VATTotAmntLCYFormat">
-          <DataField>G_VATTotAmntLCYFormat</DataField>
-        </Field>
-        <Field Name="G_DiscountTotal">
-          <DataField>G_DiscountTotal</DataField>
-        </Field>
-        <Field Name="G_DiscountTotalFormat">
-          <DataField>G_DiscountTotalFormat</DataField>
-        </Field>
-        <Field Name="Unit_Price">
-          <DataField>Unit_Price</DataField>
-        </Field>
-        <Field Name="Unit_PriceFormat">
-          <DataField>Unit_PriceFormat</DataField>
-        </Field>
-        <Field Name="Quantity">
-          <DataField>Quantity</DataField>
-        </Field>
-        <Field Name="QuantityFormat">
-          <DataField>QuantityFormat</DataField>
-        </Field>
-        <Field Name="VAT__">
-          <DataField>VAT__</DataField>
-        </Field>
-        <Field Name="VAT__Format">
-          <DataField>VAT__Format</DataField>
-        </Field>
-        <Field Name="VAT_Amount">
-          <DataField>VAT_Amount</DataField>
-        </Field>
-        <Field Name="VAT_AmountFormat">
-          <DataField>VAT_AmountFormat</DataField>
-        </Field>
-        <Field Name="G_TotalExclVAT">
-          <DataField>G_TotalExclVAT</DataField>
-        </Field>
-        <Field Name="G_TotalExclVATFormat">
-          <DataField>G_TotalExclVATFormat</DataField>
-        </Field>
-        <Field Name="G_TotalInclVAT">
-          <DataField>G_TotalInclVAT</DataField>
-        </Field>
-        <Field Name="G_TotalInclVATFormat">
-          <DataField>G_TotalInclVATFormat</DataField>
-        </Field>
-        <Field Name="Description">
-          <DataField>Description</DataField>
-        </Field>
-        <Field Name="G_ItemNameArabic">
-          <DataField>G_ItemNameArabic</DataField>
-        </Field>
-        <Field Name="G_TotalPrepayment">
-          <DataField>G_TotalPrepayment</DataField>
-        </Field>
-        <Field Name="G_TotalPrepaymentFormat">
-          <DataField>G_TotalPrepaymentFormat</DataField>
-        </Field>
-        <Field Name="Line_Discount_Amount">
-          <DataField>Line_Discount_Amount</DataField>
-        </Field>
-        <Field Name="Line_Discount_AmountFormat">
-          <DataField>Line_Discount_AmountFormat</DataField>
-        </Field>
-        <Field Name="InvoiceHasDiscount">
-          <DataField>InvoiceHasDiscount</DataField>
-        </Field>
-        <Field Name="Prepayment_Line">
-          <DataField>Prepayment_Line</DataField>
-        </Field>
-        <Field Name="InvoiceHasPrepayment">
-          <DataField>InvoiceHasPrepayment</DataField>
-        </Field>
-        <Field Name="ZATCA_VAT_Category">
-          <DataField>ZATCA_VAT_Category</DataField>
-        </Field>
-        <Field Name="VatCategoryPercLine">
-          <DataField>VatCategoryPercLine</DataField>
-        </Field>
-        <Field Name="VatCategoryPercLineFormat">
-          <DataField>VatCategoryPercLineFormat</DataField>
-        </Field>
-        <Field Name="InvoiceHasSpecialTax">
-          <DataField>InvoiceHasSpecialTax</DataField>
-        </Field>
-        <Field Name="SpecialTaxTreatmentReasonDescription">
-          <DataField>SpecialTaxTreatmentReasonDescription</DataField>
-        </Field>
-        <Field Name="SpecialTaxTreatmentReasonDescription_Ar">
-          <DataField>SpecialTaxTreatmentReasonDescription_Ar</DataField>
-        </Field>
-        <Field Name="ShowOnPrepaymentLine">
-          <DataField>ShowOnPrepaymentLine</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -13559,12 +12991,6 @@
       </Page>
     </ReportSection>
   </ReportSections>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -13604,4 +13030,572 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="ZATCA_Invoice_Type">
+          <DataField>ZATCA_Invoice_Type</DataField>
+        </Field>
+        <Field Name="Invoice_Document_Reference">
+          <DataField>Invoice_Document_Reference</DataField>
+        </Field>
+        <Field Name="Instruction_Note">
+          <DataField>Instruction_Note</DataField>
+        </Field>
+        <Field Name="CompanyPicture">
+          <DataField>CompanyPicture</DataField>
+        </Field>
+        <Field Name="QRPicture">
+          <DataField>QRPicture</DataField>
+        </Field>
+        <Field Name="ReportTitle">
+          <DataField>ReportTitle</DataField>
+        </Field>
+        <Field Name="NominalLabel">
+          <DataField>NominalLabel</DataField>
+        </Field>
+        <Field Name="IRNLabel">
+          <DataField>IRNLabel</DataField>
+        </Field>
+        <Field Name="IssueDateLabel">
+          <DataField>IssueDateLabel</DataField>
+        </Field>
+        <Field Name="SupplyDateLabel">
+          <DataField>SupplyDateLabel</DataField>
+        </Field>
+        <Field Name="SellerIdentificationLabel">
+          <DataField>SellerIdentificationLabel</DataField>
+        </Field>
+        <Field Name="SellerNameLabel">
+          <DataField>SellerNameLabel</DataField>
+        </Field>
+        <Field Name="VATRegistrationNumber">
+          <DataField>VATRegistrationNumber</DataField>
+        </Field>
+        <Field Name="AdditionalSellerIDType">
+          <DataField>AdditionalSellerIDType</DataField>
+        </Field>
+        <Field Name="CRType">
+          <DataField>CRType</DataField>
+        </Field>
+        <Field Name="AddistonalSellerIDNumber">
+          <DataField>AddistonalSellerIDNumber</DataField>
+        </Field>
+        <Field Name="AddressLabel">
+          <DataField>AddressLabel</DataField>
+        </Field>
+        <Field Name="StreetNameLabel">
+          <DataField>StreetNameLabel</DataField>
+        </Field>
+        <Field Name="BuildingNumberLabel">
+          <DataField>BuildingNumberLabel</DataField>
+        </Field>
+        <Field Name="DistrictLabel">
+          <DataField>DistrictLabel</DataField>
+        </Field>
+        <Field Name="TaxInvoiceLabel">
+          <DataField>TaxInvoiceLabel</DataField>
+        </Field>
+        <Field Name="CountryCodeLabel">
+          <DataField>CountryCodeLabel</DataField>
+        </Field>
+        <Field Name="PostalCodeLabel">
+          <DataField>PostalCodeLabel</DataField>
+        </Field>
+        <Field Name="CityLabel">
+          <DataField>CityLabel</DataField>
+        </Field>
+        <Field Name="BuyerIdentificationLabel">
+          <DataField>BuyerIdentificationLabel</DataField>
+        </Field>
+        <Field Name="BuyerNameLabel">
+          <DataField>BuyerNameLabel</DataField>
+        </Field>
+        <Field Name="TaxInvoiceLabelAraic">
+          <DataField>TaxInvoiceLabelAraic</DataField>
+        </Field>
+        <Field Name="IRNLabelAraic">
+          <DataField>IRNLabelAraic</DataField>
+        </Field>
+        <Field Name="IssueDateLabelAraic">
+          <DataField>IssueDateLabelAraic</DataField>
+        </Field>
+        <Field Name="SupplyDateLabelAraic">
+          <DataField>SupplyDateLabelAraic</DataField>
+        </Field>
+        <Field Name="SellerIdentificationLabelAraic">
+          <DataField>SellerIdentificationLabelAraic</DataField>
+        </Field>
+        <Field Name="SellerNameLabelAraic">
+          <DataField>SellerNameLabelAraic</DataField>
+        </Field>
+        <Field Name="VATRegistrationNumberAraic">
+          <DataField>VATRegistrationNumberAraic</DataField>
+        </Field>
+        <Field Name="AdditionalSellerIDTypeAraic">
+          <DataField>AdditionalSellerIDTypeAraic</DataField>
+        </Field>
+        <Field Name="CRTypeAraic">
+          <DataField>CRTypeAraic</DataField>
+        </Field>
+        <Field Name="AdditionalSellerIDNumberAraic">
+          <DataField>AdditionalSellerIDNumberAraic</DataField>
+        </Field>
+        <Field Name="AddressLabelAraic">
+          <DataField>AddressLabelAraic</DataField>
+        </Field>
+        <Field Name="StreetNameLabelAraic">
+          <DataField>StreetNameLabelAraic</DataField>
+        </Field>
+        <Field Name="BuildingNumberLabelAraic">
+          <DataField>BuildingNumberLabelAraic</DataField>
+        </Field>
+        <Field Name="DistrictLabelAraic">
+          <DataField>DistrictLabelAraic</DataField>
+        </Field>
+        <Field Name="CountryCodeLabelAraic">
+          <DataField>CountryCodeLabelAraic</DataField>
+        </Field>
+        <Field Name="PostalCodeLabelAraic">
+          <DataField>PostalCodeLabelAraic</DataField>
+        </Field>
+        <Field Name="CityLabelAraic">
+          <DataField>CityLabelAraic</DataField>
+        </Field>
+        <Field Name="BuyerIdentificationLabelAraic">
+          <DataField>BuyerIdentificationLabelAraic</DataField>
+        </Field>
+        <Field Name="BuyerNameLabelAraic">
+          <DataField>BuyerNameLabelAraic</DataField>
+        </Field>
+        <Field Name="LineItemsLabel">
+          <DataField>LineItemsLabel</DataField>
+        </Field>
+        <Field Name="ProductOrServiceDescriptionLabel">
+          <DataField>ProductOrServiceDescriptionLabel</DataField>
+        </Field>
+        <Field Name="UnitPriceLabel">
+          <DataField>UnitPriceLabel</DataField>
+        </Field>
+        <Field Name="QuantityLabel">
+          <DataField>QuantityLabel</DataField>
+        </Field>
+        <Field Name="VatRateLabel">
+          <DataField>VatRateLabel</DataField>
+        </Field>
+        <Field Name="VatAmountLabel">
+          <DataField>VatAmountLabel</DataField>
+        </Field>
+        <Field Name="SubtotalExclusiveofVatLabel">
+          <DataField>SubtotalExclusiveofVatLabel</DataField>
+        </Field>
+        <Field Name="SubtotalInclusiveofVatLabel">
+          <DataField>SubtotalInclusiveofVatLabel</DataField>
+        </Field>
+        <Field Name="DiscountorRebateTotalAmountLabel">
+          <DataField>DiscountorRebateTotalAmountLabel</DataField>
+        </Field>
+        <Field Name="InvoiceTotalAmountexlVatLabel">
+          <DataField>InvoiceTotalAmountexlVatLabel</DataField>
+        </Field>
+        <Field Name="VATTotalAmountLabel">
+          <DataField>VATTotalAmountLabel</DataField>
+        </Field>
+        <Field Name="InvoiceGrossTotalinclVATLabel">
+          <DataField>InvoiceGrossTotalinclVATLabel</DataField>
+        </Field>
+        <Field Name="InvoiceTotalPayableAmntLabel">
+          <DataField>InvoiceTotalPayableAmntLabel</DataField>
+        </Field>
+        <Field Name="SpecialTaxTreatmentLabel">
+          <DataField>SpecialTaxTreatmentLabel</DataField>
+        </Field>
+        <Field Name="ApplicabilityofSpecialTaxTreatmentLabel">
+          <DataField>ApplicabilityofSpecialTaxTreatmentLabel</DataField>
+        </Field>
+        <Field Name="PaymentTermsLabel">
+          <DataField>PaymentTermsLabel</DataField>
+        </Field>
+        <Field Name="PaymentMethodLabel">
+          <DataField>PaymentMethodLabel</DataField>
+        </Field>
+        <Field Name="PaymentTermslowercasaeLabel">
+          <DataField>PaymentTermslowercasaeLabel</DataField>
+        </Field>
+        <Field Name="TypeOfNoteLabel">
+          <DataField>TypeOfNoteLabel</DataField>
+        </Field>
+        <Field Name="DebitNoteReferenceDescriptionLabel">
+          <DataField>DebitNoteReferenceDescriptionLabel</DataField>
+        </Field>
+        <Field Name="DebitNoteReferenceLabel">
+          <DataField>DebitNoteReferenceLabel</DataField>
+        </Field>
+        <Field Name="DebitNoteReasonLabel">
+          <DataField>DebitNoteReasonLabel</DataField>
+        </Field>
+        <Field Name="InvoiceDiscountLabel">
+          <DataField>InvoiceDiscountLabel</DataField>
+        </Field>
+        <Field Name="SpecialTaxLabel">
+          <DataField>SpecialTaxLabel</DataField>
+        </Field>
+        <Field Name="SpecialTaxDescriptionLabel">
+          <DataField>SpecialTaxDescriptionLabel</DataField>
+        </Field>
+        <Field Name="prepaymentSubTotalLabel">
+          <DataField>prepaymentSubTotalLabel</DataField>
+        </Field>
+        <Field Name="PrepaymentAmountLabel">
+          <DataField>PrepaymentAmountLabel</DataField>
+        </Field>
+        <Field Name="PrepaymentLabel">
+          <DataField>PrepaymentLabel</DataField>
+        </Field>
+        <Field Name="PrepaymentVatAmountLabel">
+          <DataField>PrepaymentVatAmountLabel</DataField>
+        </Field>
+        <Field Name="PrepaymentVatRateLabel">
+          <DataField>PrepaymentVatRateLabel</DataField>
+        </Field>
+        <Field Name="TotalPrepaymentLabel">
+          <DataField>TotalPrepaymentLabel</DataField>
+        </Field>
+        <Field Name="LineItemsLabelArabic">
+          <DataField>LineItemsLabelArabic</DataField>
+        </Field>
+        <Field Name="ProductOrServiceDescriptionLabelArabic">
+          <DataField>ProductOrServiceDescriptionLabelArabic</DataField>
+        </Field>
+        <Field Name="UnitPriceLabelArabic">
+          <DataField>UnitPriceLabelArabic</DataField>
+        </Field>
+        <Field Name="QuantityLabelArabic">
+          <DataField>QuantityLabelArabic</DataField>
+        </Field>
+        <Field Name="VatRateLabelArabic">
+          <DataField>VatRateLabelArabic</DataField>
+        </Field>
+        <Field Name="VatAmountLabelArabic">
+          <DataField>VatAmountLabelArabic</DataField>
+        </Field>
+        <Field Name="SubtotalExclusiveofVatLabelArabic">
+          <DataField>SubtotalExclusiveofVatLabelArabic</DataField>
+        </Field>
+        <Field Name="SubtotalInclusiveofVatLabelArabic">
+          <DataField>SubtotalInclusiveofVatLabelArabic</DataField>
+        </Field>
+        <Field Name="DiscountorRebateTotalAmountLabelArabic">
+          <DataField>DiscountorRebateTotalAmountLabelArabic</DataField>
+        </Field>
+        <Field Name="InvoiceTotalAmountexlVatLabelArabic">
+          <DataField>InvoiceTotalAmountexlVatLabelArabic</DataField>
+        </Field>
+        <Field Name="VATTotalAmountLabelArabic">
+          <DataField>VATTotalAmountLabelArabic</DataField>
+        </Field>
+        <Field Name="InvoiceGrossTotalinclVATLabelArabic">
+          <DataField>InvoiceGrossTotalinclVATLabelArabic</DataField>
+        </Field>
+        <Field Name="InvoiceTotalPayableAmntLabelArabic">
+          <DataField>InvoiceTotalPayableAmntLabelArabic</DataField>
+        </Field>
+        <Field Name="SpecialTaxTreatmentLabelArabic">
+          <DataField>SpecialTaxTreatmentLabelArabic</DataField>
+        </Field>
+        <Field Name="ApplicabilityofSpecialTaxTreatmentLabelArabic">
+          <DataField>ApplicabilityofSpecialTaxTreatmentLabelArabic</DataField>
+        </Field>
+        <Field Name="PaymentTermsLabelArabic">
+          <DataField>PaymentTermsLabelArabic</DataField>
+        </Field>
+        <Field Name="PaymentMethodLabelArabic">
+          <DataField>PaymentMethodLabelArabic</DataField>
+        </Field>
+        <Field Name="TypeOfNoteLabelArabic">
+          <DataField>TypeOfNoteLabelArabic</DataField>
+        </Field>
+        <Field Name="DebitNoteReferenceDescriptionLabelArabic">
+          <DataField>DebitNoteReferenceDescriptionLabelArabic</DataField>
+        </Field>
+        <Field Name="DebitNoteReferenceLabelArabic">
+          <DataField>DebitNoteReferenceLabelArabic</DataField>
+        </Field>
+        <Field Name="DebitNoteReasonLabelArabic">
+          <DataField>DebitNoteReasonLabelArabic</DataField>
+        </Field>
+        <Field Name="InvoiceDiscountLabelArabic">
+          <DataField>InvoiceDiscountLabelArabic</DataField>
+        </Field>
+        <Field Name="SpecialTaxLabelArabic">
+          <DataField>SpecialTaxLabelArabic</DataField>
+        </Field>
+        <Field Name="SpecialTaxDescriptionLabelArabic">
+          <DataField>SpecialTaxDescriptionLabelArabic</DataField>
+        </Field>
+        <Field Name="prepaymentSubTotalLabelArabic">
+          <DataField>prepaymentSubTotalLabelArabic</DataField>
+        </Field>
+        <Field Name="PrepaymentAmountLabelArabic">
+          <DataField>PrepaymentAmountLabelArabic</DataField>
+        </Field>
+        <Field Name="PrepaymentLabelArabic">
+          <DataField>PrepaymentLabelArabic</DataField>
+        </Field>
+        <Field Name="PrepaymentVatAmountLabelArabic">
+          <DataField>PrepaymentVatAmountLabelArabic</DataField>
+        </Field>
+        <Field Name="PrepaymentVatRateLabelArabic">
+          <DataField>PrepaymentVatRateLabelArabic</DataField>
+        </Field>
+        <Field Name="TotalPrepaymentLabelArabic">
+          <DataField>TotalPrepaymentLabelArabic</DataField>
+        </Field>
+        <Field Name="G_InvTotAmntEXVAT">
+          <DataField>G_InvTotAmntEXVAT</DataField>
+        </Field>
+        <Field Name="G_InvTotAmntEXVATFormat">
+          <DataField>G_InvTotAmntEXVATFormat</DataField>
+        </Field>
+        <Field Name="G_InvGrossTotAmnt">
+          <DataField>G_InvGrossTotAmnt</DataField>
+        </Field>
+        <Field Name="G_InvGrossTotAmntFormat">
+          <DataField>G_InvGrossTotAmntFormat</DataField>
+        </Field>
+        <Field Name="Amount_Including_VAT">
+          <DataField>Amount_Including_VAT</DataField>
+        </Field>
+        <Field Name="Amount_Including_VATFormat">
+          <DataField>Amount_Including_VATFormat</DataField>
+        </Field>
+        <Field Name="G_SelectedCurrency">
+          <DataField>G_SelectedCurrency</DataField>
+        </Field>
+        <Field Name="G_PTEnglishDesc">
+          <DataField>G_PTEnglishDesc</DataField>
+        </Field>
+        <Field Name="G_PTArabicDesc">
+          <DataField>G_PTArabicDesc</DataField>
+        </Field>
+        <Field Name="G_PMEnglishDesc">
+          <DataField>G_PMEnglishDesc</DataField>
+        </Field>
+        <Field Name="G_PMArabicDesc">
+          <DataField>G_PMArabicDesc</DataField>
+        </Field>
+        <Field Name="CompanyName">
+          <DataField>CompanyName</DataField>
+        </Field>
+        <Field Name="CompanyNameArabicValue">
+          <DataField>CompanyNameArabicValue</DataField>
+        </Field>
+        <Field Name="StreetNameValue">
+          <DataField>StreetNameValue</DataField>
+        </Field>
+        <Field Name="StreetNameArabicValue">
+          <DataField>StreetNameArabicValue</DataField>
+        </Field>
+        <Field Name="BuildingNumberValue">
+          <DataField>BuildingNumberValue</DataField>
+        </Field>
+        <Field Name="CityValue">
+          <DataField>CityValue</DataField>
+        </Field>
+        <Field Name="CityArabicValue">
+          <DataField>CityArabicValue</DataField>
+        </Field>
+        <Field Name="DistrictValue">
+          <DataField>DistrictValue</DataField>
+        </Field>
+        <Field Name="DistrictArabicValue">
+          <DataField>DistrictArabicValue</DataField>
+        </Field>
+        <Field Name="CR_NumberValue">
+          <DataField>CR_NumberValue</DataField>
+        </Field>
+        <Field Name="VATRegNumberValue">
+          <DataField>VATRegNumberValue</DataField>
+        </Field>
+        <Field Name="CountyCodeValue">
+          <DataField>CountyCodeValue</DataField>
+        </Field>
+        <Field Name="PostalCodeValue">
+          <DataField>PostalCodeValue</DataField>
+        </Field>
+        <Field Name="CustomerName">
+          <DataField>CustomerName</DataField>
+        </Field>
+        <Field Name="CustomerVATRegNumber">
+          <DataField>CustomerVATRegNumber</DataField>
+        </Field>
+        <Field Name="CustomerCountyCode">
+          <DataField>CustomerCountyCode</DataField>
+        </Field>
+        <Field Name="CustomerPostalCode">
+          <DataField>CustomerPostalCode</DataField>
+        </Field>
+        <Field Name="CustomerNameArabic">
+          <DataField>CustomerNameArabic</DataField>
+        </Field>
+        <Field Name="CustomerStreetName">
+          <DataField>CustomerStreetName</DataField>
+        </Field>
+        <Field Name="CustomerBuildingNumber">
+          <DataField>CustomerBuildingNumber</DataField>
+        </Field>
+        <Field Name="CustomerDistrict">
+          <DataField>CustomerDistrict</DataField>
+        </Field>
+        <Field Name="CustomerCity">
+          <DataField>CustomerCity</DataField>
+        </Field>
+        <Field Name="CustomerStreetNameArabic">
+          <DataField>CustomerStreetNameArabic</DataField>
+        </Field>
+        <Field Name="CustomerDistrictArabic">
+          <DataField>CustomerDistrictArabic</DataField>
+        </Field>
+        <Field Name="CustomerCityArabic">
+          <DataField>CustomerCityArabic</DataField>
+        </Field>
+        <Field Name="InvoiceNo">
+          <DataField>InvoiceNo</DataField>
+        </Field>
+        <Field Name="InvoiceDate">
+          <DataField>InvoiceDate</DataField>
+        </Field>
+        <Field Name="InvoiceShipmentDate">
+          <DataField>InvoiceShipmentDate</DataField>
+        </Field>
+        <Field Name="Invoice_Discount_Amount">
+          <DataField>Invoice_Discount_Amount</DataField>
+        </Field>
+        <Field Name="Invoice_Discount_AmountFormat">
+          <DataField>Invoice_Discount_AmountFormat</DataField>
+        </Field>
+        <Field Name="IsStandardInvoice">
+          <DataField>IsStandardInvoice</DataField>
+        </Field>
+        <Field Name="IsDebitNote">
+          <DataField>IsDebitNote</DataField>
+        </Field>
+        <Field Name="IsSimplifiedInvoice">
+          <DataField>IsSimplifiedInvoice</DataField>
+        </Field>
+        <Field Name="LCY_Code">
+          <DataField>LCY_Code</DataField>
+        </Field>
+        <Field Name="No_">
+          <DataField>No_</DataField>
+        </Field>
+        <Field Name="G_VATTotAmnt">
+          <DataField>G_VATTotAmnt</DataField>
+        </Field>
+        <Field Name="G_VATTotAmntFormat">
+          <DataField>G_VATTotAmntFormat</DataField>
+        </Field>
+        <Field Name="G_VATTotAmntLCY">
+          <DataField>G_VATTotAmntLCY</DataField>
+        </Field>
+        <Field Name="G_VATTotAmntLCYFormat">
+          <DataField>G_VATTotAmntLCYFormat</DataField>
+        </Field>
+        <Field Name="G_DiscountTotal">
+          <DataField>G_DiscountTotal</DataField>
+        </Field>
+        <Field Name="G_DiscountTotalFormat">
+          <DataField>G_DiscountTotalFormat</DataField>
+        </Field>
+        <Field Name="Unit_Price">
+          <DataField>Unit_Price</DataField>
+        </Field>
+        <Field Name="Unit_PriceFormat">
+          <DataField>Unit_PriceFormat</DataField>
+        </Field>
+        <Field Name="Quantity">
+          <DataField>Quantity</DataField>
+        </Field>
+        <Field Name="QuantityFormat">
+          <DataField>QuantityFormat</DataField>
+        </Field>
+        <Field Name="VAT__">
+          <DataField>VAT__</DataField>
+        </Field>
+        <Field Name="VAT__Format">
+          <DataField>VAT__Format</DataField>
+        </Field>
+        <Field Name="VAT_Amount">
+          <DataField>VAT_Amount</DataField>
+        </Field>
+        <Field Name="VAT_AmountFormat">
+          <DataField>VAT_AmountFormat</DataField>
+        </Field>
+        <Field Name="G_TotalExclVAT">
+          <DataField>G_TotalExclVAT</DataField>
+        </Field>
+        <Field Name="G_TotalExclVATFormat">
+          <DataField>G_TotalExclVATFormat</DataField>
+        </Field>
+        <Field Name="G_TotalInclVAT">
+          <DataField>G_TotalInclVAT</DataField>
+        </Field>
+        <Field Name="G_TotalInclVATFormat">
+          <DataField>G_TotalInclVATFormat</DataField>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+        </Field>
+        <Field Name="G_ItemNameArabic">
+          <DataField>G_ItemNameArabic</DataField>
+        </Field>
+        <Field Name="G_TotalPrepayment">
+          <DataField>G_TotalPrepayment</DataField>
+        </Field>
+        <Field Name="G_TotalPrepaymentFormat">
+          <DataField>G_TotalPrepaymentFormat</DataField>
+        </Field>
+        <Field Name="Line_Discount_Amount">
+          <DataField>Line_Discount_Amount</DataField>
+        </Field>
+        <Field Name="Line_Discount_AmountFormat">
+          <DataField>Line_Discount_AmountFormat</DataField>
+        </Field>
+        <Field Name="InvoiceHasDiscount">
+          <DataField>InvoiceHasDiscount</DataField>
+        </Field>
+        <Field Name="Prepayment_Line">
+          <DataField>Prepayment_Line</DataField>
+        </Field>
+        <Field Name="InvoiceHasPrepayment">
+          <DataField>InvoiceHasPrepayment</DataField>
+        </Field>
+        <Field Name="ZATCA_VAT_Category">
+          <DataField>ZATCA_VAT_Category</DataField>
+        </Field>
+        <Field Name="VatCategoryPercLine">
+          <DataField>VatCategoryPercLine</DataField>
+        </Field>
+        <Field Name="VatCategoryPercLineFormat">
+          <DataField>VatCategoryPercLineFormat</DataField>
+        </Field>
+        <Field Name="InvoiceHasSpecialTax">
+          <DataField>InvoiceHasSpecialTax</DataField>
+        </Field>
+        <Field Name="SpecialTaxTreatmentReasonDescription">
+          <DataField>SpecialTaxTreatmentReasonDescription</DataField>
+        </Field>
+        <Field Name="SpecialTaxTreatmentReasonDescription_Ar">
+          <DataField>SpecialTaxTreatmentReasonDescription_Ar</DataField>
+        </Field>
+        <Field Name="ShowOnPrepaymentLine">
+          <DataField>ShowOnPrepaymentLine</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

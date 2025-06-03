@@ -15023,6 +15023,1036 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Standard Purchase - NamedType VendorRefLabel</note>
         </trans-unit>
+        <trans-unit id="Report 1297000446 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ZATCA Credit Note</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 165193792" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Additional seller ID number</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType AddistonalSellerIDNumber</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 3102559722" size-unit="char" translate="yes" xml:space="preserve">
+          <source>رقم المعرفات الإضافية للبائع</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType AdditionalSellerIDNumberAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 1009479775" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Additional seller ID type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType AdditionalSellerIDType</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 1921314911" size-unit="char" translate="yes" xml:space="preserve">
+          <source>نوع المعرفات الإضافية للبائع</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType AdditionalSellerIDTypeAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 2797193676" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Address</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType AddressLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 3374239876" size-unit="char" translate="yes" xml:space="preserve">
+          <source>العنوان</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType AddressLabelAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 2070903342" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Applicability of special tax treatment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType ApplicabilityofSpecialTaxTreatmentLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 3187198620" size-unit="char" translate="yes" xml:space="preserve">
+          <source>وصف المعاملة  الضريبية  المنطبقة  على التوريد</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType ApplicabilityofSpecialTaxTreatmentLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 2771909829" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Building number</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType BuildingNumberLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 1868803509" size-unit="char" translate="yes" xml:space="preserve">
+          <source>رقم المبنى</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType BuildingNumberLabelAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 1696938143" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Buyer Identification</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType BuyerIdentificationLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 798924575" size-unit="char" translate="yes" xml:space="preserve">
+          <source>تحديد هوية العميل</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType BuyerIdentificationLabelAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 2042621684" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Buyer name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType BuyerNameLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 1958053628" size-unit="char" translate="yes" xml:space="preserve">
+          <source>الاسم</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType BuyerNameLabelAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 663354371" size-unit="char" translate="yes" xml:space="preserve">
+          <source>City</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType CityLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 3559837475" size-unit="char" translate="yes" xml:space="preserve">
+          <source>اسم المدينة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType CityLabelAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 2498308293" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Country code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType CountryCodeLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 1742485941" size-unit="char" translate="yes" xml:space="preserve">
+          <source>رمز البلد</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType CountryCodeLabelAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 2027518219" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Commercial Registration (CR)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType CRType</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 692542139" size-unit="char" translate="yes" xml:space="preserve">
+          <source>السجل التجاري</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType CRTypeAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 2176255160" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reason for issuance of credit / debit note as per the VAT implementing Regulation</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType DebitNoteReasonLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 1750740970" size-unit="char" translate="yes" xml:space="preserve">
+          <source>سبب إصدار الإشعار من لأسباب التالية</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType DebitNoteReasonLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 2054260375" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A reference to the original invoice(s) that the credit / debit note is related to</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType DebitNoteReferenceDescriptionLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 2407489961" size-unit="char" translate="yes" xml:space="preserve">
+          <source>الإشارة إلى الفاتورة الصادرة عن التوريد اللمبدئي الذي يتعلق به الإشعار الدائن أو المدين</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType DebitNoteReferenceDescriptionLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 3312063805" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reference</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType DebitNoteReferenceLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 3014240427" size-unit="char" translate="yes" xml:space="preserve">
+          <source>المرجع</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType DebitNoteReferenceLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 2255577127" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Discount or rebate Total Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType DiscountorRebateTotalAmountLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 4280268505" size-unit="char" translate="yes" xml:space="preserve">
+          <source>اجمالى مبلغ الخصومات أو الحسومات</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType DiscountorRebateTotalAmountLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 72165404" size-unit="char" translate="yes" xml:space="preserve">
+          <source>District</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType DistrictLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 3093140660" size-unit="char" translate="yes" xml:space="preserve">
+          <source>المقاطعة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType DistrictLabelAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 1549603822" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Discount at Document Level</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType InvoiceDiscountLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 4238878044" size-unit="char" translate="yes" xml:space="preserve">
+          <source>خصم على مستوى الفاتورة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType InvoiceDiscountLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 2050116368" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice Gross Total (inclusive of VAT)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType InvoiceGrossTotalinclVATLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 3458814098" size-unit="char" translate="yes" xml:space="preserve">
+          <source>إجمالي قيمة  الفاتورة (شامل ضريبة القيمة  المضافة)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType InvoiceGrossTotalinclVATLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 3207563389" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice Total Amount (excluding VAT)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType InvoiceTotalAmountexlVatLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 1712859883" size-unit="char" translate="yes" xml:space="preserve">
+          <source>المبلغ الخاضع للضريبة  (غير شامل ضريبة  القيمة  المضافة)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType InvoiceTotalAmountexlVatLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 3508562939" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice Total Payable Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType InvoiceTotalPayableAmntLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 2359588301" size-unit="char" translate="yes" xml:space="preserve">
+          <source>إجمالي مبلغ الفاتورة المستحق الدفع</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType InvoiceTotalPayableAmntLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 1088691045" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice reference number (IRN)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType IRNLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 3595558229" size-unit="char" translate="yes" xml:space="preserve">
+          <source>الرقم التسلسلي</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType IRNLabelAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 984342877" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Issue Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType IssueDateLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 2937993277" size-unit="char" translate="yes" xml:space="preserve">
+          <source>تاريخ اصدار الفاتورة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType IssueDateLabelAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 2470685250" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line Items</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType LineItemsLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 1910247424" size-unit="char" translate="yes" xml:space="preserve">
+          <source>معلومات وبيانات السلعة أو الخدمة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType LineItemsLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 2858731109" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment method</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType PaymentMethodLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 1381799203" size-unit="char" translate="yes" xml:space="preserve">
+          <source>طريقة  الدفع</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType PaymentMethodLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 3672978075" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment Terms</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType PaymentTermsLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 3406511277" size-unit="char" translate="yes" xml:space="preserve">
+          <source>شروط الدفع</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType PaymentTermsLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 3925721329" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment terms</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType PaymentTermslowercasaeLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 3519103402" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Postal code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType PostalCodeLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 448785810" size-unit="char" translate="yes" xml:space="preserve">
+          <source>الرمز البريدي</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType PostalCodeLabelAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 2990065617" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Prepayment Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType PrepaymentAmountLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 3821690031" size-unit="char" translate="yes" xml:space="preserve">
+          <source>إجمالي مبلغ الدفع المسبق</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType PrepaymentAmountLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 1401665837" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Prepayment Information</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType PrepaymentLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 465428987" size-unit="char" translate="yes" xml:space="preserve">
+          <source>معلومات الدفع المسبق</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType PrepaymentLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 1390932271" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Prepayment Subtotal (Exclusive of VAT)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType prepaymentSubTotalLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 3111369457" size-unit="char" translate="yes" xml:space="preserve">
+          <source>المجموع الفرعي للدفع المسبق(غير الشامل للضريبة القيمة المضافة)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType prepaymentSubTotalLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 149861096" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Prepayment VAT Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType PrepaymentVatAmountLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 1285746490" size-unit="char" translate="yes" xml:space="preserve">
+          <source>مبلغ القيمة المضافة المدفوعة مقدما</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType PrepaymentVatAmountLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 2794636838" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Prepayment Vat Rate</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType PrepaymentVatRateLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 1337242276" size-unit="char" translate="yes" xml:space="preserve">
+          <source>معدل القيمة المضافة المدفوعة مقدما</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType PrepaymentVatRateLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 810562037" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Product or Service Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType ProductOrServiceDescriptionLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 2045605523" size-unit="char" translate="yes" xml:space="preserve">
+          <source>وصف السلعة أو الخدمة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType ProductOrServiceDescriptionLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 3026701823" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType QuantityLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 3765847073" size-unit="char" translate="yes" xml:space="preserve">
+          <source>الكمية</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType QuantityLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 3892982719" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Company Identification</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType SellerIdentificationLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 2336262847" size-unit="char" translate="yes" xml:space="preserve">
+          <source>هوية الشركة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType SellerIdentificationLabelAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 1609335828" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Company name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType SellerNameLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 2067858332" size-unit="char" translate="yes" xml:space="preserve">
+          <source>اسم الشركة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType SellerNameLabelAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 2822794517" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Credit Note</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType SimplifiedInvoiceLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 2207981811" size-unit="char" translate="yes" xml:space="preserve">
+          <source>إشعار دائن</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType SimplifiedInvoiceLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 1040400728" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Applicability of special tax treatment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType SpecialTaxDescriptionLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 3122332618" size-unit="char" translate="yes" xml:space="preserve">
+          <source>وصف المعاملة الضريبية المنطبقة على التوريد</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType SpecialTaxDescriptionLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 3886668454" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Special Tax Treatment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType SpecialTaxLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 2484576036" size-unit="char" translate="yes" xml:space="preserve">
+          <source>المعاملة الضريبية الخاصة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType SpecialTaxLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 2652635914" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Special Tax Treatment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType SpecialTaxTreatmentLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 3126898104" size-unit="char" translate="yes" xml:space="preserve">
+          <source>المعاملة  الضريبية  الخاصة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType SpecialTaxTreatmentLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 3616182148" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Street Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType StreetNameLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 3603317804" size-unit="char" translate="yes" xml:space="preserve">
+          <source>اسم الشارع</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType StreetNameLabelAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 2168655456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Subtotal Exclusive of VAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType SubtotalExclusiveofVatLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 1165139970" size-unit="char" translate="yes" xml:space="preserve">
+          <source>إجمالي المبلغ غير شامل ضريبة القيمة المضافة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType SubtotalExclusiveofVatLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 2639959018" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Subtotal Inclusive of VAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType SubtotalInclusiveofVatLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 3204980568" size-unit="char" translate="yes" xml:space="preserve">
+          <source>إجمالي المبلغ شامل ضريبة القيمة المضافة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType SubtotalInclusiveofVatLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 3733760819" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Supply Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType SupplyDateLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 3052306867" size-unit="char" translate="yes" xml:space="preserve">
+          <source>تاريخ التوريد</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType SupplyDateLabelAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 3551342086" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Credit Note</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType TaxInvoiceLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 2958732094" size-unit="char" translate="yes" xml:space="preserve">
+          <source>إشعار دائن</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType TaxInvoiceLabelAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 235563603" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Advance Payment Amount (Inclusive of VAT)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType TotalPrepaymentLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 1124899669" size-unit="char" translate="yes" xml:space="preserve">
+          <source>مبلغ الدفعة المقدمة (شامل ضريبة القيمة المضافة) </source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType TotalPrepaymentLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 424614961" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Type Of Note</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType TypeOfNoteLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 3468587471" size-unit="char" translate="yes" xml:space="preserve">
+          <source>نوع الإشعار</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType TypeOfNoteLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 2821200415" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit Price</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType UnitPriceLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 1450059777" size-unit="char" translate="yes" xml:space="preserve">
+          <source>سعر الوحدة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType UnitPriceLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 2851888019" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType VatAmountLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 3060751509" size-unit="char" translate="yes" xml:space="preserve">
+          <source>مبلغ ضريبة القيمة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType VatAmountLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 2610728009" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT rate</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType VatRateLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 1741815383" size-unit="char" translate="yes" xml:space="preserve">
+          <source>معدل ضريبة القيمة المضافة المطبق</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType VatRateLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 1010434227" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT registration number</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType VATRegistrationNumber</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 2477146931" size-unit="char" translate="yes" xml:space="preserve">
+          <source>رقم تسجيل ضريبة القيمة المضافة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType VATRegistrationNumberAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 1824566085" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Total Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType VATTotalAmountLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 3644461635" size-unit="char" translate="yes" xml:space="preserve">
+          <source>إجمالي مبلغ ضريبة  القيمة  المضافة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType VATTotalAmountLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ZATCA Tax Invoice</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 165193792" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Additional seller ID number</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType AddistonalSellerIDNumber</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 3102559722" size-unit="char" translate="yes" xml:space="preserve">
+          <source>رقم المعرفات الإضافية للبائع</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType AdditionalSellerIDNumberAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 1009479775" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Additional seller ID type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType AdditionalSellerIDType</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 1921314911" size-unit="char" translate="yes" xml:space="preserve">
+          <source>نوع المعرفات الإضافية للبائع</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType AdditionalSellerIDTypeAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 2797193676" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Address</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType AddressLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 3374239876" size-unit="char" translate="yes" xml:space="preserve">
+          <source>العنوان</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType AddressLabelAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 2070903342" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Applicability of special tax treatment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType ApplicabilityofSpecialTaxTreatmentLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 3187198620" size-unit="char" translate="yes" xml:space="preserve">
+          <source>وصف المعاملة  الضريبية  المنطبقة  على التوريد</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType ApplicabilityofSpecialTaxTreatmentLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 2771909829" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Building number</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType BuildingNumberLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 1868803509" size-unit="char" translate="yes" xml:space="preserve">
+          <source>رقم المبنى</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType BuildingNumberLabelAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 1696938143" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Buyer Identification</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType BuyerIdentificationLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 798924575" size-unit="char" translate="yes" xml:space="preserve">
+          <source>تحديد هوية العميل</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType BuyerIdentificationLabelAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 2042621684" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Buyer name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType BuyerNameLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 1958053628" size-unit="char" translate="yes" xml:space="preserve">
+          <source>الاسم</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType BuyerNameLabelAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 663354371" size-unit="char" translate="yes" xml:space="preserve">
+          <source>City</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType CityLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 3559837475" size-unit="char" translate="yes" xml:space="preserve">
+          <source>اسم المدينة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType CityLabelAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 2498308293" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Country code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType CountryCodeLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 1742485941" size-unit="char" translate="yes" xml:space="preserve">
+          <source>رمز البلد</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType CountryCodeLabelAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 2027518219" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Commercial Registration (CR)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType CRType</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 692542139" size-unit="char" translate="yes" xml:space="preserve">
+          <source>السجل التجاري</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType CRTypeAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 2502633356" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Debit Note</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType DebitNoteLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 4200991774" size-unit="char" translate="yes" xml:space="preserve">
+          <source>إشعار مدين</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType DebitNoteLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 2176255160" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reason for issuance of credit / debit note as per the VAT implementing Regulation</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType DebitNoteReasonLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 1750740970" size-unit="char" translate="yes" xml:space="preserve">
+          <source>سبب إصدار الإشعار من لأسباب التالية</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType DebitNoteReasonLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 2054260375" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A reference to the original invoice(s) that the credit / debit note is related to</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType DebitNoteReferenceDescriptionLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 2407489961" size-unit="char" translate="yes" xml:space="preserve">
+          <source>الإشارة إلى الفاتورة الصادرة عن التوريد اللمبدئي الذي يتعلق به الإشعار الدائن أو المدين</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType DebitNoteReferenceDescriptionLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 3312063805" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reference</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType DebitNoteReferenceLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 3014240427" size-unit="char" translate="yes" xml:space="preserve">
+          <source>المرجع</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType DebitNoteReferenceLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 2255577127" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Discount or rebate Total Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType DiscountorRebateTotalAmountLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 4280268505" size-unit="char" translate="yes" xml:space="preserve">
+          <source>اجمالى مبلغ الخصومات أو الحسومات</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType DiscountorRebateTotalAmountLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 72165404" size-unit="char" translate="yes" xml:space="preserve">
+          <source>District</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType DistrictLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 3093140660" size-unit="char" translate="yes" xml:space="preserve">
+          <source>المقاطعة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType DistrictLabelAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 1549603822" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Discount at Document Level</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType InvoiceDiscountLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 4238878044" size-unit="char" translate="yes" xml:space="preserve">
+          <source>خصم على مستوى الفاتورة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType InvoiceDiscountLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 2050116368" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice Gross Total (inclusive of VAT)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType InvoiceGrossTotalinclVATLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 3458814098" size-unit="char" translate="yes" xml:space="preserve">
+          <source>إجمالي قيمة  الفاتورة (شامل ضريبة القيمة  المضافة)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType InvoiceGrossTotalinclVATLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 3207563389" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice Total Amount (excluding VAT)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType InvoiceTotalAmountexlVatLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 1712859883" size-unit="char" translate="yes" xml:space="preserve">
+          <source>المبلغ الخاضع للضريبة  (غير شامل ضريبة  القيمة  المضافة)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType InvoiceTotalAmountexlVatLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 3508562939" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice Total Payable Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType InvoiceTotalPayableAmntLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 2359588301" size-unit="char" translate="yes" xml:space="preserve">
+          <source>إجمالي مبلغ الفاتورة المستحق الدفع</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType InvoiceTotalPayableAmntLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 1088691045" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice reference number (IRN)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType IRNLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 3595558229" size-unit="char" translate="yes" xml:space="preserve">
+          <source>الرقم التسلسلي</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType IRNLabelAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 984342877" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Issue Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType IssueDateLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 2937993277" size-unit="char" translate="yes" xml:space="preserve">
+          <source>تاريخ اصدار الفاتورة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType IssueDateLabelAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 2470685250" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line Items</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType LineItemsLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 1910247424" size-unit="char" translate="yes" xml:space="preserve">
+          <source>معلومات وبيانات السلعة أو الخدمة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType LineItemsLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 2858731109" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment method</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType PaymentMethodLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 1381799203" size-unit="char" translate="yes" xml:space="preserve">
+          <source>طريقة  الدفع</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType PaymentMethodLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 3672978075" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment Terms</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType PaymentTermsLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 3406511277" size-unit="char" translate="yes" xml:space="preserve">
+          <source>شروط الدفع</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType PaymentTermsLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 3925721329" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment terms</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType PaymentTermslowercasaeLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 3519103402" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Postal code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType PostalCodeLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 448785810" size-unit="char" translate="yes" xml:space="preserve">
+          <source>الرمز البريدي</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType PostalCodeLabelAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 2990065617" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Prepayment Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType PrepaymentAmountLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 3821690031" size-unit="char" translate="yes" xml:space="preserve">
+          <source>إجمالي مبلغ الدفع المسبق</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType PrepaymentAmountLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 1401665837" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Prepayment Information</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType PrepaymentLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 465428987" size-unit="char" translate="yes" xml:space="preserve">
+          <source>معلومات الدفع المسبق</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType PrepaymentLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 1390932271" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Prepayment Subtotal (Exclusive of VAT)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType prepaymentSubTotalLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 3111369457" size-unit="char" translate="yes" xml:space="preserve">
+          <source>المجموع الفرعي للدفع المسبق(غير الشامل للضريبة القيمة المضافة)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType prepaymentSubTotalLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 149861096" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Prepayment VAT Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType PrepaymentVatAmountLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 1285746490" size-unit="char" translate="yes" xml:space="preserve">
+          <source>مبلغ القيمة المضافة المدفوعة مقدما</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType PrepaymentVatAmountLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 2794636838" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Prepayment Vat Rate</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType PrepaymentVatRateLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 1337242276" size-unit="char" translate="yes" xml:space="preserve">
+          <source>معدل القيمة المضافة المدفوعة مقدما</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType PrepaymentVatRateLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 810562037" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Product or Service Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType ProductOrServiceDescriptionLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 2045605523" size-unit="char" translate="yes" xml:space="preserve">
+          <source>وصف السلعة أو الخدمة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType ProductOrServiceDescriptionLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 3026701823" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType QuantityLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 3765847073" size-unit="char" translate="yes" xml:space="preserve">
+          <source>الكمية</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType QuantityLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 3892982719" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Company Identification</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType SellerIdentificationLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 2336262847" size-unit="char" translate="yes" xml:space="preserve">
+          <source>هوية الشركة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType SellerIdentificationLabelAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 1609335828" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Company name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType SellerNameLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 2067858332" size-unit="char" translate="yes" xml:space="preserve">
+          <source>اسم الشركة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType SellerNameLabelAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 2822794517" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Simplified Tax Invoice</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType SimplifiedInvoiceLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 2207981811" size-unit="char" translate="yes" xml:space="preserve">
+          <source>فاتورة ضريبيّة مبسّطة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType SimplifiedInvoiceLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 1040400728" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Applicability of special tax treatment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType SpecialTaxDescriptionLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 3122332618" size-unit="char" translate="yes" xml:space="preserve">
+          <source>وصف المعاملة الضريبية المنطبقة على التوريد</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType SpecialTaxDescriptionLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 3886668454" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Special Tax Treatment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType SpecialTaxLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 2484576036" size-unit="char" translate="yes" xml:space="preserve">
+          <source>المعاملة الضريبية الخاصة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType SpecialTaxLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 2652635914" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Special Tax Treatment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType SpecialTaxTreatmentLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 3126898104" size-unit="char" translate="yes" xml:space="preserve">
+          <source>المعاملة  الضريبية  الخاصة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType SpecialTaxTreatmentLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 3616182148" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Street Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType StreetNameLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 3603317804" size-unit="char" translate="yes" xml:space="preserve">
+          <source>اسم الشارع</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType StreetNameLabelAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 2168655456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Subtotal Exclusive of VAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType SubtotalExclusiveofVatLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 1165139970" size-unit="char" translate="yes" xml:space="preserve">
+          <source>إجمالي المبلغ غير شامل ضريبة القيمة المضافة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType SubtotalExclusiveofVatLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 2639959018" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Subtotal Inclusive of VAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType SubtotalInclusiveofVatLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 3204980568" size-unit="char" translate="yes" xml:space="preserve">
+          <source>إجمالي المبلغ شامل ضريبة القيمة المضافة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType SubtotalInclusiveofVatLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 3733760819" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Supply Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType SupplyDateLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 3052306867" size-unit="char" translate="yes" xml:space="preserve">
+          <source>تاريخ التوريد</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType SupplyDateLabelAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 3551342086" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tax Invoice </source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType TaxInvoiceLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 2958732094" size-unit="char" translate="yes" xml:space="preserve">
+          <source> فاتورة ضريبية</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType TaxInvoiceLabelAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 235563603" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Advance Payment Amount (Inclusive of VAT)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType TotalPrepaymentLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 1124899669" size-unit="char" translate="yes" xml:space="preserve">
+          <source>مبلغ الدفعة المقدمة (شامل ضريبة القيمة المضافة) </source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType TotalPrepaymentLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 424614961" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Type Of Note</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType TypeOfNoteLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 3468587471" size-unit="char" translate="yes" xml:space="preserve">
+          <source>نوع الإشعار</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType TypeOfNoteLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 2821200415" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit Price</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType UnitPriceLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 1450059777" size-unit="char" translate="yes" xml:space="preserve">
+          <source>سعر الوحدة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType UnitPriceLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 2851888019" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType VatAmountLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 3060751509" size-unit="char" translate="yes" xml:space="preserve">
+          <source>مبلغ ضريبة القيمة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType VatAmountLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 2610728009" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT rate</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType VatRateLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 1741815383" size-unit="char" translate="yes" xml:space="preserve">
+          <source>معدل ضريبة القيمة المضافة المطبق</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType VatRateLabelArabic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 1010434227" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT registration number</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType VATRegistrationNumber</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 2477146931" size-unit="char" translate="yes" xml:space="preserve">
+          <source>رقم تسجيل ضريبة القيمة المضافة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType VATRegistrationNumberAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 1824566085" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Total Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType VATTotalAmountLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 3644461635" size-unit="char" translate="yes" xml:space="preserve">
+          <source>إجمالي مبلغ ضريبة  القيمة  المضافة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType VATTotalAmountLabelArabic</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1662713252 - Action 2530043067 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1662713252">
           <source>Assembly Approval</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -15952,6 +16982,11 @@
           <source>Tonality</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Whse. Shipment Subform - Control TonalityCode - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2450593146 - Action 1782754275 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 33730832">
+          <source>Print</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Zatca Integration Log Ext - Action Print Doc - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 658563870 - Field 1550636527 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 658563870">
           <source>Balance ACY</source>

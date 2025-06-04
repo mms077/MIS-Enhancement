@@ -76,7 +76,7 @@ table 50313 "Scan Activities-History"
         {
             Editable = false;
         }
-        field(14; "Activity Time"; Time)
+        field(14; "Activity Time"; Text[100])
         {
             Editable = false;
         }

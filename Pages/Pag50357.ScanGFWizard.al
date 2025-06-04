@@ -91,6 +91,7 @@ page 50357 "Scan Unit Ref"
                                     if WorkFlowMember.FindSet() then
                                         repeat
                                             DesignActivity.SetFilter("Activity Code", WorkFlowMember."Activity Code");
+                                            DesignActivity.SetFilter("Design Code", GetItemDesign(AssemblyHeader."Item No."));
                                             if DesignActivity.FindSet() then
                                                 repeat
                                                     Rec.Init();
@@ -129,7 +130,7 @@ page 50357 "Scan Unit Ref"
                                                 if SalesLine.FindSet() then begin
                                                     repeat
                                                         // Loop Sales Units for the Sales Line
-                                                        SalesUnit.SetFilter("Sales Line Ref.", SalesLine."Sales Line Reference");
+                                                        SalesUnit.SetFilter("Sales Line Ref.", SalesLine."Sales Line Reference Text");
                                                         if SalesUnit.FindFirst() then begin
                                                             repeat
                                                                 // Check if Scan Out contains the index
@@ -177,6 +178,7 @@ page 50357 "Scan Unit Ref"
                                     if WorkFlowMember.FindSet() then
                                         repeat
                                             DesignActivity.SetFilter("Activity Code", WorkFlowMember."Activity Code");
+                                            DesignActivity.SetFilter("Design Code", GetItemDesign(AssemblyHeader."Item No."));
                                             if DesignActivity.FindSet() then
                                                 repeat
                                                     Rec.Init();
@@ -215,7 +217,7 @@ page 50357 "Scan Unit Ref"
                                                 if SalesLine.FindSet() then begin
                                                     repeat
                                                         // Loop Sales Units for the Sales Line
-                                                        SalesUnit.SetFilter("Sales Line Ref.", SalesLine."Sales Line Reference");
+                                                        SalesUnit.SetFilter("Sales Line Ref.", SalesLine."Sales Line Reference Text");
                                                         if SalesUnit.FindFirst() then begin
                                                             repeat
                                                                 // Check if Scan Out contains the index
@@ -392,7 +394,7 @@ page 50357 "Scan Unit Ref"
                                         SalesLine.SetRange("Line No.", AssemblyHeader."Source Line No.");
                                         if SalesLine.FindSet() then begin
                                             repeat
-                                                SalesUnit.SetFilter("Sales Line Ref.", SalesLine."Sales Line Reference");
+                                                SalesUnit.SetFilter("Sales Line Ref.", SalesLine."Sales Line Reference Text");
                                                 if SalesUnit.FindFirst() then begin
                                                     repeat
                                                         HandleScanActivity(SalesLine, SalesUnit, AssemblyHeader, MO, Rec, ActivitiesArray);
@@ -420,7 +422,7 @@ page 50357 "Scan Unit Ref"
                                         SalesLine.SetRange("Line No.", AssemblyHeader."Source Line No.");
                                         if SalesLine.FindSet() then begin
                                             repeat
-                                                SalesUnit.SetFilter("Sales Line Ref.", SalesLine."Sales Line Reference");
+                                                SalesUnit.SetFilter("Sales Line Ref.", SalesLine."Sales Line Reference Text");
                                                 if SalesUnit.FindFirst() then begin
                                                     repeat
                                                         HandleScanActivity(SalesLine, SalesUnit, AssemblyHeader, MO, Rec, ActivitiesArray);
@@ -905,13 +907,7 @@ page 50357 "Scan Unit Ref"
                                 end;
 
                                 if JsonObject.Get('activity_time', JsonToken) then
-                                    if JsonToken.IsValue() then begin
-                                        JsonValue := JsonToken.AsValue();
-
-                                        ScanHistory."Activity Time" := CurrentDateTime.Time;
-                                    end;
-
-
+                                    ScanHistory."Activity Time" := JsonToken.AsValue().AsText();
                                 // Insert the record
                                 ScanHistory.Insert();
                             end;
@@ -1131,7 +1127,7 @@ page 50357 "Scan Unit Ref"
 
 
                                 if JsonObject.Get('activity_time', JsonToken) then
-                                    Evaluate(ScanHistory."Activity Time", JsonToken.AsValue().AsText());
+                                    ScanHistory."Activity Time" := JsonToken.AsValue().AsText();
 
                                 // Insert the record
                                 ScanHistory.Insert();
@@ -1302,15 +1298,17 @@ page 50357 "Scan Unit Ref"
     begin
         Clear(ScanActivities);
         ScanActivities.SetFilter("Sales Line Unit Id.", SalesUnit."Sales Line Unit");
-        ScanActivities.SetFilter("Sales Line Id", SalesLine."Sales Line Reference");
+        ScanActivities.SetFilter("Sales Line Id", SalesLine."Sales Line Reference Text");
         ScanActivities.SetRange("Activity Type", ScanActivities."Activity Type"::"In");
+        ScanActivities.setrange("Activity Code", ActivityCode); // <-- Add this line to filter by Activity Code
 
         if ScanActivities.FindFirst() then begin
-            InsertActivity(ScanActivities."Activity Type"::Out, SalesLine, SalesUnit, AssemblyHeader, MO, Rec);
+            //  if ScanActivities."Activity Code" = ActivityCode then begin
+            InsertActivity(ScanActivities."Activity Type"::Out, SalesLine, SalesUnit, AssemblyHeader, MO, Rec, ActivityCode);
             AddActivityToArray(ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec, Activity_Remark, ActivitiesArray);
             UpdateScanOutField(SalesUnit);
         end else begin
-            InsertActivity(ScanActivities."Activity Type"::"In", SalesLine, SalesUnit, AssemblyHeader, MO, Rec);
+            InsertActivity(ScanActivities."Activity Type"::"In", SalesLine, SalesUnit, AssemblyHeader, MO, Rec, ActivityCode);
             AddActivityToArray(ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec, Activity_Remark, ActivitiesArray);
             UpdateScanInField(SalesUnit);
         end;
@@ -1324,14 +1322,14 @@ page 50357 "Scan Unit Ref"
             Error('Related Sales Line not found.');
     end;
 
-    procedure InsertActivity(ActivityType: Option; SalesLine: Record "Sales Line"; SalesUnit: Record "Sales Line Unit Ref."; AssemblyHeader: Record "Assembly Header"; MO: Record "ER - Manufacturing Order"; Rec: Record "Scan Design Stages- ER Temp")
+    procedure InsertActivity(ActivityType: Option; SalesLine: Record "Sales Line"; SalesUnit: Record "Sales Line Unit Ref."; AssemblyHeader: Record "Assembly Header"; MO: Record "ER - Manufacturing Order"; Rec: Record "Scan Design Stages- ER Temp"; ActivityCode: Code[20])
     var
         ScanActivities: Record "Scan Activities";
     begin
         Clear(ScanActivities);
         ScanActivities.Init();
         ScanActivities."Sales Line Unit Id." := SalesUnit."Sales Line Unit";
-        ScanActivities."Sales Line Id" := SalesLine."Sales Line Reference";
+        ScanActivities."Sales Line Id" := SalesLine."Sales Line Reference Text";
         ScanActivities."Activity Type" := ActivityType;
         ScanActivities."Assembly No." := AssemblyHeader."No.";
         ScanActivities."ER - Manufacturing Order No." := MO."No.";
@@ -1339,7 +1337,7 @@ page 50357 "Scan Unit Ref"
         ScanActivities."Design Code" := GetItemDesign(SalesLine."No.");
         ScanActivities."Variant Code" := AssemblyHeader."Variant Code";
         ScanActivities."Source No." := SalesLine."Document No.";
-        ScanActivities."Activity Code" := '';
+        ScanActivities."Activity Code" := ActivityCode;
         ScanActivities."Activity Name" := GetActivitySelected;
         ScanActivities."Activity Remark" := '';
         ScanActivities."Activity Date" := CurrentDateTime;
@@ -1363,7 +1361,7 @@ page 50357 "Scan Unit Ref"
         clear(ActivitiesArray);
         // Gather all scan activities related to this SalesUnit and SalesLine
         ScanActivities.SetFilter("Sales Line Unit Id.", SalesUnit."Sales Line Unit");
-        ScanActivities.SetFilter("Sales Line Id", SalesLine."Sales Line Reference");
+        ScanActivities.SetFilter("Sales Line Id", SalesLine."Sales Line Reference Text");
 
         if ScanActivities.FindSet() then
             repeat
@@ -1385,7 +1383,7 @@ page 50357 "Scan Unit Ref"
         FullDateTimeText: Text;
     begin
         ScanDetails.Add('sales_line_unit_id', SalesUnitRec."Sales Line Unit");
-        ScanDetails.Add('sales_line_id', SalesLineRec."Sales Line Reference");
+        ScanDetails.Add('sales_line_id', SalesLineRec."Sales Line Reference Text");
         ScanDetails.Add('assembly_no', AssemblyHeaderRec."No.");
         ScanDetails.Add('mo_no', MO."No.");
         ScanDetails.Add('item_code', AssemblyHeaderRec."Item No.");

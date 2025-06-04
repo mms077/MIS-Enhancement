@@ -86,7 +86,7 @@ table 50308 "Scan Activities"
     }
     keys
     {
-        key(PK; "Sales Line Unit Id.", "Sales Line Id", "Activity Type")
+        key(PK; "Sales Line Unit Id.", "Sales Line Id", "Activity Type", "Activity Code")
         {
             Clustered = true;
         }

@@ -388,6 +388,7 @@ codeunit 50202 EventSubscribers
                     if ItemLedgerEntry.FindSet() then
                         repeat
                             if (ItemLedgerEntry."Serial No." <> '') then begin
+                                TrackingSpec.InitTrackingSpecification(Database::"Item Ledger Entry", 1, ItemLedgerEntry."Item No.", '', 0, ItemLedgerEntry."Entry No.", ItemLedgerEntry."Variant Code", ItemLedgerEntry."Location Code", ItemLedgerEntry."Qty. per Unit of Measure");
                                 TrackingSpec.CopyTrackingFromItemLedgEntry(ItemLedgerEntry);
                                 SalesLineReserve.CreateReservationSetFrom(TrackingSpec);
                                 SalesReservationEntry.CopyTrackingFromSpec(TrackingSpec);

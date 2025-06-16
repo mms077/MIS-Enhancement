@@ -241,7 +241,6 @@ pageextension 50207 "Assembly Order" extends "Assembly Order"
     end;
 
     var
-        [InDataSet]
         ApproveVisible, AllowDirectRelease : Boolean;
         MasterItemCU: Codeunit MasterItem;
 

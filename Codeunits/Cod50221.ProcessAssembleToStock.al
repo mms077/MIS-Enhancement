@@ -5,7 +5,38 @@ codeunit 50221 "Process Assemble to Stock"
      /// <param name="AssemblyHeader">The assembly header to process</param>
      /// <param name="FromLocation">Source location for the transfer</param>
      /// <param name="ToLocation">Destination location for the transfer</param>
-    procedure ProcessAssembleToStock(var AssemblyHeader: Record "Assembly Header"; FromLocation: Code[10]; ToLocation: Code[10])
+    procedure ProcessAssembleToStock(var AssemblyHeader: Record "Assembly Header")
+    var
+        ProcessAssembleToStockCU: Codeunit "Process Assemble to Stock";
+        LocationSelectionDialog: Page "Location Selection Dialog";
+        FromLocationCode: Code[10];
+        ToLocationCode: Code[10];
+    begin
+        if not ValidateAssemblyForProcessing(AssemblyHeader) then
+            Error('Assembly order cannot be processed. Check that it is open, has an item number, quantity > 0, and is not assemble-to-order.');
+
+        FromLocationCode := AssemblyHeader."Location Code";
+
+        // Prompt user for destination location using custom dialog
+        LocationSelectionDialog.SetFromLocation(FromLocationCode);
+        if LocationSelectionDialog.RunModal() = Action::OK then begin
+            ToLocationCode := LocationSelectionDialog.GetToLocation();
+
+            if ToLocationCode = '' then
+                Error('Please select a destination location.');
+
+            ProcessAssembleToStockCU.RunAssembleToStock(AssemblyHeader, FromLocationCode, ToLocationCode, true);
+        end;
+    end;
+
+    /// <summary>
+    /// Processes an assembly order for assemble-to-stock scenario by creating item tracking and transfer orders
+    /// </summary>
+    /// <param name="AssemblyHeader">The assembly header to process</param>
+    /// <param name="FromLocation">Source location for the transfer</param>
+    /// <param name="ToLocation">Destination location for the transfer</param>
+    /// <param name="ShowMessage">Whether to show success message</param>
+    procedure RunAssembleToStock(var AssemblyHeader: Record "Assembly Header"; FromLocation: Code[10]; ToLocation: Code[10]; ShowMessage: Boolean)
     var
         TransferOrder: Record "Transfer Header";
         TransferOrderLine: Record "Transfer Line";
@@ -33,7 +64,9 @@ codeunit 50221 "Process Assemble to Stock"
 
         // Create transfer order and reservations (this will handle the item tracking)
         CreateTransferOrderForAssembly(AssemblyHeader, FromLocation, ToLocation);
-        Message('Transfer order created successfully for Assembly Order %1', AssemblyHeader."No.");
+
+        if ShowMessage then
+            Message('Transfer order created successfully for Assembly Order %1', AssemblyHeader."No.");
     end;
 
     local procedure CreateTransferOrderForAssembly(var AssemblyHeader: Record "Assembly Header"; FromLocation: Code[10]; ToLocation: Code[10])
@@ -145,5 +178,10 @@ codeunit 50221 "Process Assemble to Stock"
             exit(false);
 
         exit(true);
+    end;
+
+    internal procedure CheckifReleased(var AssemblyHeader: Record "Assembly Header")
+    begin
+        AssemblyHeader.TestField("Status", AssemblyHeader.Status::Released);
     end;
 }

@@ -111,42 +111,6 @@ pageextension 50207 "Assembly Order" extends "Assembly Order"
         }
         addafter(Print)
         {
-            action("Process Assemble to Stock")
-            {
-                ApplicationArea = all;
-                Caption = 'Process Assemble to Stock';
-                Image = MoveToNextPeriod;
-                Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = true;
-                PromotedOnly = true;
-                Enabled = not Rec."Assemble to Order";
-                ToolTip = 'Create item tracking on the assembly and a new transfer order with outbound reservation.';
-                trigger OnAction()
-                var
-                    ProcessAssembleToStockCU: Codeunit "Process Assemble to Stock";
-                    LocationSelectionDialog: Page "Location Selection Dialog";
-                    FromLocationCode: Code[10];
-                    ToLocationCode: Code[10];
-                begin
-                    if not ProcessAssembleToStockCU.ValidateAssemblyForProcessing(Rec) then
-                        Error('Assembly order cannot be processed. Check that it is open, has an item number, quantity > 0, and is not assemble-to-order.');
-
-                    FromLocationCode := Rec."Location Code";
-
-                    // Prompt user for destination location using custom dialog
-                    LocationSelectionDialog.SetFromLocation(FromLocationCode);
-                    if LocationSelectionDialog.RunModal() = Action::OK then begin
-                        ToLocationCode := LocationSelectionDialog.GetToLocation();
-
-                        if ToLocationCode = '' then
-                            Error('Please select a destination location.');
-
-                        ProcessAssembleToStockCU.ProcessAssembleToStock(Rec, FromLocationCode, ToLocationCode);
-                        CurrPage.Update(false);
-                    end;
-                end;
-            }
             action("Cutting Sheet")
             {
                 ApplicationArea = all;

@@ -1412,7 +1412,21 @@ codeunit 50202 EventSubscribers
     end;
     #endregion
 
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Assembly-Post", 'OnBeforeOnRun', '', false, false)]
+    local procedure OnBeforeOnRun(var AssemblyHeader: Record "Assembly Header"; SuppressCommit: Boolean)
+    var
+        ProccessAssembleToStock: Codeunit "Process Assemble to Stock";
+    begin
+        ProccessAssembleToStock.CheckifReleased(AssemblyHeader);
+    end;
 
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Release Assembly Document", 'OnBeforeReleaseAssemblyDoc', '', false, false)]
+    local procedure OnBeforeReleaseAssemblyDoc(var AssemblyHeader: Record "Assembly Header")
+    var
+        ProccessAssembleToStock: Codeunit "Process Assemble to Stock";
+    begin
+        ProccessAssembleToStock.ProcessAssembleToStock(AssemblyHeader);
+    end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::ReportManagement, 'OnAfterSubstituteReport', '', false, false)]
     local procedure OnSubstituteReport(ReportId: Integer; var NewReportId: Integer)

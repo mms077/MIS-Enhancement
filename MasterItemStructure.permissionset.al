@@ -420,6 +420,7 @@ permissionset 50200 MasterItemStructure
         table "Workflow User Memb-Scan" = X,
         codeunit "Daily Transfer Management" = X,
         codeunit "Process Assemble to Stock" = X,
+        codeunit "Split Line Reserv. Tracking" = X,
         page "Assembly Unit Link List" = X,
         page "Daily Transfer Header" = X,
         page "Daily Transfer Lines Subform" = X,

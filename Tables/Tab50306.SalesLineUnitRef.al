@@ -5,7 +5,7 @@ table 50306 "Sales Line Unit Ref."
 
     fields
     {
-        field(1; "Sales Line Ref."; Guid)
+        field(1; "Sales Line Ref."; Text[250])
         {
             Caption = 'Sales Line Ref.';
             TableRelation = "Sales Line".SystemId;
@@ -47,11 +47,24 @@ table 50306 "Sales Line Unit Ref."
             Caption = 'Scan Out';
             DataClassification = ToBeClassified;
         }
+        field(11; "Serial No."; Code[50])
+        {
+            DataClassification = ToBeClassified;
+        }
+        field(12; "Document No."; Code[20])
+        {
+            Caption = 'Document No.';
+            //TableRelation = "Sales Header"."No." where("Document Type" = field("Document Type"));
+        }
+        field(13; "Line No."; Integer)
+        {
+            Caption = 'Line No.';
+        }
     }
 
     keys
     {
-        key(PK; "Sales Line Unit") // Primary key based on Design Code and Activity Name
+        key(PK; "Sales Line Unit")
         {
             Clustered = true;
         }

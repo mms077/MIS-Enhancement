@@ -302,6 +302,8 @@ codeunit 50202 EventSubscribers
         SalesLineUnitRef: Record "Sales Line Unit Ref.";
         Counter: Integer;
         GraphGeneralTools: Codeunit "Graph Mgt - General Tools";
+        //ReservationMgmt: Codeunit "Reservation Management";
+        ReservationEntry: Record "Reservation Entry";
     begin
         if CUManagement.IsCompanyFullProduction then begin
             //create GUID 
@@ -312,29 +314,42 @@ codeunit 50202 EventSubscribers
             // SalesOrderLine.Modify();
             // Only create unit refs for item type lines with quantity > 0
             if (SalesOrderLine.Type = SalesOrderLine.Type::Item) and (SalesOrderLine.Quantity > 0) then begin
-                // Create one unit reference record per quantity
-                for Counter := 1 to SalesOrderLine.Quantity do begin
-                    SalesLineUnitRef.Init();
-                    //create GUID
-                    SalesLineUnitRef."Sales Line Unit" := GraphGeneralTools.GetIdWithoutBrackets(CreateGuid());
-                    SalesLineUnitRef."Sales Line Ref." := SalesOrderLine."Sales Line Reference Text";
-                    SalesLineUnitRef."Item No." := SalesOrderLine."No.";
-                    SalesLineUnitRef."Variant Code" := SalesOrderLine."Variant Code";
-                    SalesLineUnitRef.Description := SalesOrderLine.Description;
-                    SalesLineUnitRef.Quantity := 1;
-                    SalesLineUnitRef."Unit of Measure Code" := SalesOrderLine."Unit of Measure Code";
-                    // Add any other fields you want to copy from the sales line
-                    SalesLineUnitRef.Insert();
+                // Filter reservation entries for this sales line
+                ReservationEntry.Reset();
+                ReservationEntry.SetFilter("Source ID", SalesOrderLine."Document No.");
+                ReservationEntry.SetRange("Source Type", 37);
+                ReservationEntry.SetRange("Source Ref. No.", SalesOrderLine."Line No.");
+                if ReservationEntry.FindSet() then begin
+                    Counter := 1;
+                    repeat
+                        // Insert one unit reference record per reservation entry (serial number)
+                        SalesLineUnitRef.Init();
+                        SalesLineUnitRef."Document No." := SalesOrderLine."Document No.";
+                        SalesLineUnitRef."Line No." := SalesOrderLine."Line No.";
+                        SalesLineUnitRef."Serial No." := ReservationEntry."Serial No.";
+                        // Set other fields as needed
+                        SalesLineUnitRef."Item No." := SalesOrderLine."No.";
+                        SalesLineUnitRef."Variant Code" := SalesOrderLine."Variant Code";
+                        SalesLineUnitRef.Description := SalesOrderLine.Description;
+                        SalesLineUnitRef.Quantity := 1;
+                        SalesLineUnitRef."Unit of Measure Code" := SalesOrderLine."Unit of Measure Code";
+                        // Add any other fields you want to copy from the sales line
+                        SalesLineUnitRef.Insert();
+                        Counter += 1;
+                    until (Counter > SalesOrderLine.Quantity) or (ReservationEntry.Next() = 0);
                 end;
             end;
 
 
-            if CUManagement.IsCompanyFullProduction then
-                SplitLineCU.SplitLineFullProduction(SalesOrderLine, SalesOrderHeader, SalesQuoteHeader)
-            else
-                SplitLineCU.SplitLinePurchase(SalesOrderLine, SalesOrderHeader, SalesQuoteHeader);
         end;
+
+
+        if CUManagement.IsCompanyFullProduction then
+            SplitLineCU.SplitLineFullProduction(SalesOrderLine, SalesOrderHeader, SalesQuoteHeader)
+        else
+            SplitLineCU.SplitLinePurchase(SalesOrderLine, SalesOrderHeader, SalesQuoteHeader);
     end;
+
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", 'OnAfterInsertSalesOrderLine', '', false, false)]
     local procedure OnAfterInsertSalesOrderLine(var SalesOrderLine: Record "Sales Line"; SalesOrderHeader: Record "Sales Header"; SalesQuoteLine: Record "Sales Line"; SalesQuoteHeader: Record "Sales Header")

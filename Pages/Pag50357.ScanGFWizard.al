@@ -275,54 +275,44 @@ page 50357 "Scan Unit Ref"
                                         if DesignActivities.Done = '✅' then
                                             DesignActivities.Scanned := true;
                                         DesignActivities.Modify();
+
                                     end else begin
-                                        // No SalesUnit found, set status to ❓
-                                        Status := '❓';
-                                        DesignActivities.Done := Status;
-                                        DesignActivities.Scanned := false;
-                                        DesignActivities.Modify()
+                                        Status := '✅';
+                                        FoundMissing := false;
+                                        SalesUnit.SetFilter("Sales Line Unit", UnitRef);
+                                        if SalesUnit.FindFirst() then begin
+                                            Token := GenerateToken();
+                                            FillExistingScanHistoryforSalesLineUnit(UnitRef, Token);
+                                            Clear(SalesLine);
+                                            SalesLine.SetFilter("Sales Line Reference", SalesUnit."Sales Line Ref.");
+                                            if SalesLine.FindFirst() then begin
+                                                Rec."Item No." := SalesLine."No.";
+                                                Rec."Design Code" := GetItemDesign(Rec."Item No.");
+                                                Rec.Modify();
+                                                // Check if Scan Out contains the index
+                                                if STRPOS(SalesUnit."Scan Out", Format(ScanDesignStages."Activity Code")) = 0 then begin
+                                                    // Found a missing index -> mark as ❌
+                                                    Status := '❌';
+                                                    FoundMissing := true;
+                                                end;
+                                            end;
+                                            // After processing all, set the status
+                                            DesignActivities.Done := Status;
+                                            if DesignActivities.Done = '✅' then
+                                                DesignActivities.Scanned := true;
+                                            DesignActivities.Modify();
+                                        end else begin
+                                            // No SalesUnit found, set status to ❓
+                                            Status := '❓';
+                                            DesignActivities.Done := Status;
+                                            DesignActivities.Scanned := false;
+                                            DesignActivities.Modify();
+                                        end;
                                     end;
 
-                                end
-                            end;
-
-
-
-
-                        end else begin
-                            Status := '✅';
-                            FoundMissing := false;
-                            SalesUnit.SetFilter("Sales Line Unit", UnitRef);
-                            if SalesUnit.FindFirst() then begin
-                                Token := GenerateToken();
-                                FillExistingScanHistoryforSalesLineUnit(UnitRef, Token);
-                                Clear(SalesLine);
-                                SalesLine.SetFilter("Sales Line Reference", SalesUnit."Sales Line Ref.");
-                                if SalesLine.FindFirst() then begin
-                                    Rec."Item No." := SalesLine."No.";
-                                    Rec."Design Code" := GetItemDesign(Rec."Item No.");
-                                    Rec.Modify();
-                                    // Check if Scan Out contains the index
-                                    if STRPOS(SalesUnit."Scan Out", Format(ScanDesignStages."Activity Code")) = 0 then begin
-                                        // Found a missing index -> mark as ❌
-                                        Status := '❌';
-                                        FoundMissing := true;
-                                    end;
                                 end;
-                                // After processing all, set the status
-                                DesignActivities.Done := Status;
-                                if DesignActivities.Done = '✅' then
-                                    DesignActivities.Scanned := true;
-                                DesignActivities.Modify();
-                            end else begin
-                                // No SalesUnit found, set status to ❓
-                                Status := '❓';
-                                DesignActivities.Done := Status;
-                                DesignActivities.Scanned := false;
-                                DesignActivities.Modify();
                             end;
-                        end;
-
+                        end
                     end;
 
                 }

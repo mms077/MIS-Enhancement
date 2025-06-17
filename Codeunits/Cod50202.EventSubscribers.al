@@ -410,6 +410,34 @@ codeunit 50202 EventSubscribers
             end;
         end
         else begin
+
+            //if the qty is in the transfer order (ex: assembly to stock not posted), we reserve inbound
+            Clear(TransferOrderLine);
+            TransferOrderLine.SetRange("Item No.", SalesOrderLine."No.");
+            TransferOrderLine.SetRange("Variant Code", SalesOrderLine."Variant Code");
+            TransferOrderLine.SetRange("Transfer-from Code", FromLocation);
+            TransferOrderLine.SetRange("Transfer-to Code", ToLocation);
+            TransferOrderLine.CalcFields("Reserved Qty. Inbnd. (Base)");
+            TransferOrderLine.SetRange("Reserved Qty. Inbnd. (Base)", 0);
+            if TransferOrderLine.FindSet() then begin
+                repeat
+                    Clear(TransferReservEntry);
+                    TransferReservEntry.SetRange("Source Type", Database::"Transfer Line");
+                    TransferReservEntry.SetRange("Source Subtype", 0);
+                    TransferReservEntry.SetRange("Source ID", TransferOrderLine."Document No.");
+                    TransferReservEntry.SetRange("Source Ref. No.", TransferOrderLine."Line No.");
+                    TransferReservEntry.SetRange("Item No.", TransferOrderLine."Item No.");
+                    if TransferReservEntry.FindSet() then
+                        repeat
+                            TrackingSpec.InitTrackingSpecification(Database::"Sales Line", 1, SalesOrderLine."No.", '', 0, SalesOrderLine."Line No.", SalesOrderLine."Variant Code", SalesOrderLine."Location Code", SalesOrderLine."Qty. per Unit of Measure");
+                            TrackingSpec.CopyTrackingFromReservEntry(TransferReservEntry);
+                            TransferLineReserve.CreateReservationSetFrom(TrackingSpec);
+                            TransferReservEntryInbd.CopyTrackingFromSpec(TrackingSpec);
+                            TransferLineReserve.CreateReservation(TransferOrderLine, TransferOrderLine.Description, TransferOrderLine."Shipment Date", 1, 1, TransferReservEntryInbd, directionEnum::Inbound);
+                            QtyTransfered += 1;
+                        until (TransferReservEntry.Next() = 0) or (QtyTransfered >= Qty);
+                until (TransferOrderLine.Next() = 0) or (QtyTransfered >= Qty);
+            end;
             clear(ItemLedgerEntry);
             ItemLedgerEntry.SetRange("Item No.", SalesOrderLine."No.");
             ItemLedgerEntry.SetRange("Variant Code", SalesOrderLine."Variant Code");

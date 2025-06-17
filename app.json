@@ -4,7 +4,7 @@
   "id": "7e779673-0dcf-4203-a446-b62151f37caf",
   "name": "Master Item Structure - ER",
   "publisher": "Exquitech",
-  "version": "2.0.1.41",
+  "version": "2.0.1.44",
   "brief": "Master Item Structure",
   "description": "Related to Design Business",
   "privacyStatement": "",
@@ -23,19 +23,19 @@
       "id": "6f416723-34f6-492f-8997-b627c7e05ce8",
       "name": "Global Sync",
       "publisher": "Exquitech",
-      "version": "1.0.0.94"
+      "version": "1.0.1.0"
     },
     {
       "id": "72711e17-9372-481a-a4a6-da050933dd9c",
       "name": "Exquitech Editor",
       "publisher": "Exquitech",
-      "version": "1.0.0.18"
+      "version": "1.0.0.24"
     },
     {
       "id": "719139df-e871-457b-9033-6e1338f93430",
       "name": "ZATCA E-Invoicing",
       "publisher": "Exquitech",
-      "version": "2.3.0.0"
+      "version": "2.4.0.1"
     },
     {
       "id": "10cb69d9-bc8a-4d27-970a-9e110e9db2a5",

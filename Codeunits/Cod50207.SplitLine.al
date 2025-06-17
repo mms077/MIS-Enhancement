@@ -136,6 +136,9 @@ codeunit 50207 "Split Line"
         SalesHeader: Record "Sales Header";
         GnrlLedgStpRec: Record "General Ledger Setup";
         ManagementCU: Codeunit "Management";
+        SalesLineUnitRef: Record "Sales Line Unit Ref.";
+        AssemblyUnitLink: Record "Assembly Unit Link";
+        i: Integer;
     begin
         AssemblyHeader.Init();
         AssemblyHeader.Validate("Document Type", AssemblyHeader."Document Type"::Order);
@@ -162,7 +165,18 @@ codeunit 50207 "Split Line"
         // Set the quantity in base UOM
         AssemblyHeader.Validate("Quantity", AssemblyQty);
         AssemblyHeader.Validate("Unit of Measure Code", Item."Base Unit of Measure");
-
+        Clear(SalesLineUnitRef);
+        SalesLineUnitRef.SetRange("Sales Line Ref.", SalesLine.SystemId);
+        if SalesLineUnitRef.FindSet() then
+            repeat
+                AssemblyUnitLink.Init();
+                AssemblyUnitLink.Validate("Document Type", AssemblyHeader."Document Type");
+                AssemblyUnitLink.Validate("No.", AssemblyHeader."No.");
+                AssemblyUnitLink.Validate("Sales Line Ref.", SalesLine.SystemId);
+                AssemblyUnitLink.Validate("Sales Line Unit", SalesLineUnitRef."Sales Line Unit");
+                AssemblyUnitLink.Insert();
+                i += 1;
+            until (SalesLineUnitRef.Next() = 0) or (i = AssemblyQty);
         AssemblyHeader.Insert(true);
         #region[Create Assembly Header]
 
@@ -662,7 +676,6 @@ codeunit 50207 "Split Line"
                 TransferOrderLine.Validate("Related SO", SalesOrderLine."Document No.");
                 TransferOrderLine.Validate("SO Line No.", SalesOrderLine."Line No.");
                 TransferOrderLine.Insert();
-
                 // Add assembly order as a second reservation source
                 if AssemblyHeader."No." <> '' then begin
                     for i := 1 to AssemblyHeader.Quantity do begin

@@ -63,6 +63,21 @@ table 50307 "Scan Design Stages- ER"
         {
             DataClassification = ToBeClassified;
         }
+        field(7; "Transfer Trigger"; Boolean)
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Transfer Trigger';
+            trigger OnValidate()
+            begin
+                if "Transfer Trigger" then begin
+                    if Rec.FindSet() then
+                        repeat
+                            if (Rec.Index <> Index) and (Rec."Transfer Trigger") then
+                                Error('Only one record can have the Transfer Trigger set.');
+                        until Rec.Next() = 0;
+                end;
+            end;
+        }
     }
     keys
     {

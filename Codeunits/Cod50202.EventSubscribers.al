@@ -305,6 +305,13 @@ codeunit 50202 EventSubscribers
         //ReservationMgmt: Codeunit "Reservation Management";
         ReservationEntry: Record "Reservation Entry";
     begin
+
+
+
+        if CUManagement.IsCompanyFullProduction then
+            SplitLineCU.SplitLineFullProduction(SalesOrderLine, SalesOrderHeader, SalesQuoteHeader)
+        else
+            SplitLineCU.SplitLinePurchase(SalesOrderLine, SalesOrderHeader, SalesQuoteHeader);
         if CUManagement.IsCompanyFullProduction then begin
             //create GUID 
             //SalesOrderLine."Sales Line Reference" := CreateGuid();
@@ -342,12 +349,6 @@ codeunit 50202 EventSubscribers
 
 
         end;
-
-
-        if CUManagement.IsCompanyFullProduction then
-            SplitLineCU.SplitLineFullProduction(SalesOrderLine, SalesOrderHeader, SalesQuoteHeader)
-        else
-            SplitLineCU.SplitLinePurchase(SalesOrderLine, SalesOrderHeader, SalesQuoteHeader);
     end;
 
 

@@ -15,7 +15,6 @@ page 50355 "Scan Design Stages- ER List"
                 field("Workflow User Group Code"; Rec."Workflow User Group Code") { ApplicationArea = all; }
                 //ield("Workflow User Group Sequence"; rec."Workflow User Group Sequence") { ApplicationArea = all; }
                 field("Activity Name"; Rec."Activity Name") { ApplicationArea = all; }
-                field("Transfer Trigger"; Rec."Transfer Trigger") { ApplicationArea = all; }
             }
         }
         area(Factboxes)

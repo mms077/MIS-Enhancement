@@ -312,45 +312,61 @@ codeunit 50202 EventSubscribers
             SplitLineCU.SplitLineFullProduction(SalesOrderLine, SalesOrderHeader, SalesQuoteHeader)
         else
             SplitLineCU.SplitLinePurchase(SalesOrderLine, SalesOrderHeader, SalesQuoteHeader);
+
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", OnTransferQuoteToOrderLinesOnAfterSalesOrderLineReserve, '', false, false)]
+    local procedure OnTransferQuoteToOrderLinesOnAfterSalesOrderLineReserve(SalesLineQuote: Record "Sales Line"; var SalesLineOrder: Record "Sales Line")
+    var
+        CUManagement: Codeunit Management;
+        SplitLineCU: Codeunit "Split Line";
+        SalesLineUnitRef: Record "Sales Line Unit Ref.";
+        Counter: Integer;
+        GraphGeneralTools: Codeunit "Graph Mgt - General Tools";
+        //ReservationMgmt: Codeunit "Reservation Management";
+        ReservationEntry: Record "Reservation Entry";
+    begin
         if CUManagement.IsCompanyFullProduction then begin
             //create GUID 
             //SalesOrderLine."Sales Line Reference" := CreateGuid();
-            SalesOrderLine."Sales Line Reference" := GraphGeneralTools.GetIdWithoutBrackets(CreateGuid());
-            SalesOrderLine."Sales Line Reference Text" := GraphGeneralTools.GetIdWithoutBrackets(SalesOrderLine."Sales Line Reference");
+            SalesLineOrder."Sales Line Reference" := GraphGeneralTools.GetIdWithoutBrackets(CreateGuid());
+            SalesLineOrder."Sales Line Reference Text" := GraphGeneralTools.GetIdWithoutBrackets(SalesLineOrder."Sales Line Reference");
+            SalesLineOrder.Modify();
             // SalesOrderLine.Validate("Qty. to Assemble to Order", SalesOrderLine.Quantity);
             // SalesOrderLine.Modify();
             // Only create unit refs for item type lines with quantity > 0
-            if (SalesOrderLine.Type = SalesOrderLine.Type::Item) and (SalesOrderLine.Quantity > 0) then begin
+            if (SalesLineOrder.Type = SalesLineOrder.Type::Item) and (SalesLineOrder.Quantity > 0) then begin
                 // Filter reservation entries for this sales line
                 ReservationEntry.Reset();
-                ReservationEntry.SetFilter("Source ID", SalesOrderLine."Document No.");
+                ReservationEntry.SetFilter("Source ID", SalesLineOrder."Document No.");
                 ReservationEntry.SetRange("Source Type", 37);
-                ReservationEntry.SetRange("Source Ref. No.", SalesOrderLine."Line No.");
+                ReservationEntry.SetRange("Source Ref. No.", SalesLineOrder."Line No.");
                 if ReservationEntry.FindSet() then begin
                     Counter := 1;
                     repeat
                         // Insert one unit reference record per reservation entry (serial number)
                         SalesLineUnitRef.Init();
-                        SalesLineUnitRef."Document No." := SalesOrderLine."Document No.";
-                        SalesLineUnitRef."Line No." := SalesOrderLine."Line No.";
+                        SalesLineUnitRef."Sales Line Unit" := GraphGeneralTools.GetIdWithoutBrackets(CreateGuid());
+                        SalesLineUnitRef."Sales Line Ref." := SalesLineOrder."Sales Line Reference";
+                        SalesLineUnitRef."Document No." := SalesLineOrder."Document No.";
+                        SalesLineUnitRef."Line No." := SalesLineOrder."Line No.";
                         SalesLineUnitRef."Serial No." := ReservationEntry."Serial No.";
                         // Set other fields as needed
-                        SalesLineUnitRef."Item No." := SalesOrderLine."No.";
-                        SalesLineUnitRef."Variant Code" := SalesOrderLine."Variant Code";
-                        SalesLineUnitRef.Description := SalesOrderLine.Description;
+                        SalesLineUnitRef."Item No." := SalesLineOrder."No.";
+                        SalesLineUnitRef."Variant Code" := SalesLineOrder."Variant Code";
+                        SalesLineUnitRef.Description := SalesLineOrder.Description;
                         SalesLineUnitRef.Quantity := 1;
-                        SalesLineUnitRef."Unit of Measure Code" := SalesOrderLine."Unit of Measure Code";
+                        SalesLineUnitRef."Unit of Measure Code" := SalesLineOrder."Unit of Measure Code";
                         // Add any other fields you want to copy from the sales line
                         SalesLineUnitRef.Insert();
                         Counter += 1;
-                    until (Counter > SalesOrderLine.Quantity) or (ReservationEntry.Next() = 0);
+                    until (Counter > SalesLineOrder.Quantity) or (ReservationEntry.Next() = 0);
                 end;
             end;
 
 
         end;
     end;
-
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", 'OnAfterInsertSalesOrderLine', '', false, false)]
     local procedure OnAfterInsertSalesOrderLine(var SalesOrderLine: Record "Sales Line"; SalesOrderHeader: Record "Sales Header"; SalesQuoteLine: Record "Sales Line"; SalesQuoteHeader: Record "Sales Header")

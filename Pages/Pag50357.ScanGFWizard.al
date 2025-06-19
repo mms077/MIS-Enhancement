@@ -218,7 +218,7 @@ page 50357 "Scan Unit Ref"
                                                 if SalesLine.FindSet() then begin
                                                     repeat
                                                         // Loop Sales Units for the Sales Line
-                                                        SalesUnit.SetFilter("Sales Line Ref.", SalesLine."Sales Line Reference Text");
+                                                        SalesUnit.SetFilter("Sales Line Ref.", SalesLine."Sales Line Reference");
                                                         if SalesUnit.FindFirst() then begin
                                                             repeat
                                                                 // Check if Scan Out contains the index
@@ -232,11 +232,6 @@ page 50357 "Scan Unit Ref"
 
                                                             if FoundMissing then
                                                                 break; // exit SalesLine loop
-                                                        end else begin
-                                                            // No SalesUnit found for this SalesLine, set status to ❓
-                                                            Status := '❓';
-                                                            // Optionally, break here if you want to stop at the first missing SalesUnit
-                                                            break;
                                                         end;
                                                     until SalesLine.Next() = 0;
                                                 end;
@@ -450,7 +445,7 @@ page 50357 "Scan Unit Ref"
                                                 SalesUnit.SetFilter("Sales Line Ref.", SalesLine."Sales Line Reference");
                                                 if SalesUnit.FindFirst() then begin
                                                     repeat
-                                                           IF (STRPOS(SalesUnit."Scan In", ActivityCode) = 0) or (STRPOS(SalesUnit."Scan Out", ActivityCode) = 0)  then 
+                                                        IF (STRPOS(SalesUnit."Scan In", ActivityCode) = 0) or (STRPOS(SalesUnit."Scan Out", ActivityCode) = 0) then
                                                             HandleScanActivity(SalesLine, SalesUnit, AssemblyHeader, MO, Rec, ActivitiesArray);
                                                     until SalesUnit.Next() = 0;
                                                 end;
@@ -479,7 +474,7 @@ page 50357 "Scan Unit Ref"
                                                 SalesUnit.SetFilter("Sales Line Ref.", SalesLine."Sales Line Reference Text");
                                                 if SalesUnit.FindFirst() then begin
                                                     repeat
-                                                            IF (STRPOS(SalesUnit."Scan In", ActivityCode) = 0) or (STRPOS(SalesUnit."Scan Out", ActivityCode) = 0)  then 
+                                                        IF (STRPOS(SalesUnit."Scan In", ActivityCode) = 0) or (STRPOS(SalesUnit."Scan Out", ActivityCode) = 0) then
                                                             HandleScanActivity(SalesLine, SalesUnit, AssemblyHeader, MO, Rec, ActivitiesArray);
                                                     until SalesUnit.Next() = 0;
                                                 end;
@@ -495,7 +490,7 @@ page 50357 "Scan Unit Ref"
                                 SalesUnit.SetFilter("Sales Line Ref.", UnitRef);
                                 if SalesUnit.FindFirst() then begin
                                     repeat
-                                          IF (STRPOS(SalesUnit."Scan In", ActivityCode) = 0) or (STRPOS(SalesUnit."Scan Out", ActivityCode) = 0)  then begin
+                                        IF (STRPOS(SalesUnit."Scan In", ActivityCode) = 0) or (STRPOS(SalesUnit."Scan Out", ActivityCode) = 0) then begin
                                             GetSalesLineFromSalesUnit(SalesUnit, SalesLine);
                                             HandleScanActivity(SalesLine, SalesUnit, AssemblyHeader, MO, Rec, ActivitiesArray);
                                         end;
@@ -507,7 +502,7 @@ page 50357 "Scan Unit Ref"
                                     Clear(SalesUnit);
                                     SalesUnit.SetFilter("Serial No.", UnitRef);
                                     if SalesUnit.FindFirst() then begin
-                                        IF (STRPOS(SalesUnit."Scan In", ActivityCode) = 0) or (STRPOS(SalesUnit."Scan Out", ActivityCode) = 0)  then begin
+                                        IF (STRPOS(SalesUnit."Scan In", ActivityCode) = 0) or (STRPOS(SalesUnit."Scan Out", ActivityCode) = 0) then begin
                                             GetSalesLineFromSalesUnit(SalesUnit, SalesLine);
                                             HandleScanActivity(SalesLine, SalesUnit, AssemblyHeader, MO, Rec, ActivitiesArray);
                                         end;
@@ -845,7 +840,7 @@ page 50357 "Scan Unit Ref"
                                 ScanHistory."Unit Ref" := UnitRef;
                                 ScanHistory."ER - Manufacturing Order No." := Filter;
                                 if JsonObject.Get('sales_line_unit_id', JsonToken) then
-                                    ScanHistory."Sales Line Unit Id." := JsonToken.AsValue().AsText();
+                                    ScanHistory."Serial No." := JsonToken.AsValue().AsText();
                                 if JsonObject.Get('sales_line_id', JsonToken) then
                                     ScanHistory."Sales Line Id" := JsonToken.AsValue().AsText();
 
@@ -962,7 +957,7 @@ page 50357 "Scan Unit Ref"
                                 ScanHistory."Unit Ref" := UnitRef;
                                 ScanHistory."Assembly No." := Filter;
                                 if JsonObject.Get('sales_line_unit_id', JsonToken) then
-                                    ScanHistory."Sales Line Unit Id." := JsonToken.AsValue().AsText();
+                                    ScanHistory."Serial No." := JsonToken.AsValue().AsText();
                                 if JsonObject.Get('sales_line_id', JsonToken) then
                                     ScanHistory."Sales Line Id" := JsonToken.AsValue().AsText();
 
@@ -1068,7 +1063,7 @@ page 50357 "Scan Unit Ref"
                                 ScanHistory."Unit Ref" := UnitRef;
                                 ScanHistory."Sales Line Id" := Filter;
                                 if JsonObject.Get('sales_line_unit_id', JsonToken) then
-                                    ScanHistory."Sales Line Unit Id." := JsonToken.AsValue().AsText();
+                                    ScanHistory."Serial No." := JsonToken.AsValue().AsText();
                                 // if JsonObject.Get('sales_line_id', JsonToken) then
                                 //     ScanHistory."Sales Line Id" := JsonToken.AsValue().AsText();
 
@@ -1170,7 +1165,7 @@ page 50357 "Scan Unit Ref"
                                 JsonObject := JsonToken.AsObject();
                                 ScanHistory.Init();
                                 ScanHistory."Unit Ref" := UnitRef;
-                                ScanHistory."Sales Line Unit Id." := Filter;
+                                ScanHistory."Serial No." := Filter;
                                 // if JsonObject.Get('sales_line_unit_id', JsonToken) then
                                 //     ScanHistory."Sales Line Unit Id." := JsonToken.AsValue().AsText();
                                 if JsonObject.Get('sales_line_id', JsonToken) then
@@ -1367,7 +1362,7 @@ page 50357 "Scan Unit Ref"
         TimeText: Text;
         FullDateTimeText: Text;
     begin
-        ScanDetails.Add('sales_line_unit_id', SalesUnitRec."Sales Line Unit");
+        ScanDetails.Add('sales_line_unit_id', SalesUnitRec."Serial No.");
         ScanDetails.Add('sales_line_id', SalesLineRec."Sales Line Reference Text");
         ScanDetails.Add('assembly_no', AssemblyHeaderRec."No.");
         ScanDetails.Add('mo_no', MO."No.");

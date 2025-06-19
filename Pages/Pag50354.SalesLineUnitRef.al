@@ -177,7 +177,7 @@ page 50354 "Sales Line Unit Ref. List"
                                 JsonObject := JsonToken.AsObject();
                                 ScanHistory.Init();
                                 ScanHistory."Unit Ref" := Filter;
-                                ScanHistory."Sales Line Unit Id." := Filter;
+                                ScanHistory."Serial No." := Filter;
                                 // if JsonObject.Get('sales_line_unit_id', JsonToken) then
                                 //     ScanHistory."Sales Line Unit Id." := JsonToken.AsValue().AsText();
                                 if JsonObject.Get('sales_line_id', JsonToken) then

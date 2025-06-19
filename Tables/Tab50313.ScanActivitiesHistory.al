@@ -6,7 +6,7 @@ table 50313 "Scan Activities-History"
 
     fields
     {
-        field(1; "Sales Line Unit Id."; Guid)
+        field(1; "Serial No."; code[50])
         {
             DataClassification = ToBeClassified;
         }
@@ -91,7 +91,7 @@ table 50313 "Scan Activities-History"
     }
     keys
     {
-        key(PK; "Sales Line Unit Id.", "Sales Line Id", "Activity Type", "Activity Code")
+        key(PK; "Serial No.", "Sales Line Id", "Activity Type", "Activity Code")
         {
             Clustered = true;
         }

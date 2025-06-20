@@ -3,7 +3,7 @@ codeunit 50202 EventSubscribers
     Permissions = tabledata "Bank Account Ledger Entry" = m;
     #region [Document Attachment]
     //Add Documents To Plotting File / Branding / Design  / Item Color / Item Design Section Color / Branding Details / Item Variant +
-    [EventSubscriber(ObjectType::Page, Page::"Document Attachment Factbox", 'OnBeforeDrillDown', '', false, false)]
+    [EventSubscriber(ObjectType::Page, Page::"Doc. Attachment List Factbox", 'OnBeforeDocumentAttachmentDetailsRunModal', '', false, false)]
     local procedure OnBeforeDrillDown(DocumentAttachment: Record "Document Attachment"; var RecRef: RecordRef);
     var
         PlottingImage: Record "Plotting File";

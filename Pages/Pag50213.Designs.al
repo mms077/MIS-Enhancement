@@ -100,7 +100,7 @@ page 50213 Designs
                 Caption = 'Picture';
                 SubPageLink = "Code" = FIELD("Code");
             }
-            part("Attached Documents"; "Document Attachment Factbox")
+            part("Attached Documents"; "Doc. Attachment List Factbox")
             {
                 ApplicationArea = All;
                 Caption = 'Attachments';

@@ -50,7 +50,7 @@ page 50236 "Design Form"
                 Caption = 'Picture';
                 SubPageLink = "Code" = FIELD("Code");
             }
-            part("Attached Documents"; "Document Attachment Factbox")
+            part("Attached Documents"; "Doc. Attachment List Factbox")
             {
                 ApplicationArea = All;
                 Caption = 'Attachments';

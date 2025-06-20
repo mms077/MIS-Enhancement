@@ -33,8 +33,6 @@ page 50353 "Temp Link Options"
             {
                 ApplicationArea = All;
                 Caption = 'OK';
-                Promoted = true;
-                PromotedCategory = Process;
                 trigger OnAction()
                 begin
                     CurrPage.Close();

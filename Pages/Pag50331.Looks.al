@@ -58,7 +58,7 @@ page 50331 Looks
                 SubPageLink = "Code" = FIELD("Code");
             }
 
-            part("Attached Documents"; "Document Attachment Factbox")
+            part("Attached Documents"; "Doc. Attachment List Factbox")
             {
                 ApplicationArea = All;
                 Caption = 'Attachments';
@@ -216,7 +216,7 @@ page 50331 Looks
     trigger OnAfterGetCurrRecord()
     var
         SalesSetup: Record "Sales & Receivables Setup";
-        NoSeriesMgt: Codeunit NoSeriesManagement;
+        NoSeriesMgt: Codeunit "No. Series";
         DocAttachement: Record "Record Link";
         RecordRef: RecordRef;
         FieldRef: FieldRef;

@@ -59,7 +59,7 @@ page 50255 "Plotting Files"
                 Caption = 'Picture';
                 SubPageLink = "ID" = field("ID");
             }
-            part("Attached Documents"; "Document Attachment Factbox")
+            part("Attached Documents"; "Doc. Attachment List Factbox")
             {
                 ApplicationArea = All;
                 Caption = 'Attachments';

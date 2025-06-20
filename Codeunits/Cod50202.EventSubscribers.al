@@ -1425,7 +1425,8 @@ codeunit 50202 EventSubscribers
     var
         ProccessAssembleToStock: Codeunit "Process Assemble to Stock";
     begin
-        ProccessAssembleToStock.ProcessAssembleToStock(AssemblyHeader);
+        if AssemblyHeader."Source No." <> '' then
+            ProccessAssembleToStock.CheckifReleased(AssemblyHeader);
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::ReportManagement, 'OnAfterSubstituteReport', '', false, false)]

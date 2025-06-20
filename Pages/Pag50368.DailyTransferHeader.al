@@ -117,12 +117,12 @@ page 50368 "Daily Transfer Header"
                     CurrPage.Update(false);
                 end;
             }
-            action(CreateWarehouseDocuments)
+            action(ProcessDailyTransfer)
             {
                 ApplicationArea = All;
-                Caption = 'Create Warehouse Shipment & Pick';
+                Caption = 'Process Daily Transfer';
                 Image = Shipment;
-                ToolTip = 'Create warehouse shipments and picks for the transfer orders referenced in the daily transfer lines.';
+                ToolTip = 'Process the daily transfer by creating warehouse shipments and picks.';
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
@@ -130,7 +130,7 @@ page 50368 "Daily Transfer Header"
                 var
                     DailyTransferMgt: Codeunit "Daily Transfer Management";
                 begin
-                    if Confirm('Do you want to create warehouse shipments and picks for the transfer orders in this daily transfer?') then begin
+                    if Confirm('Do you want to process the transfer?') then begin
                         DailyTransferMgt.CreateWarehouseShipmentAndPick(Rec);
                         CurrPage.Update(false);
                     end;

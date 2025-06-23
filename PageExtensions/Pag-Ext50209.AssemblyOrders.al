@@ -473,8 +473,8 @@ pageextension 50209 "Assembly Orders" extends "Assembly Orders"
     end;
 
     var
-        [InDataSet]
-        ApproveVisible, AllowDirectRelease : Boolean;
+        ApproveVisible: Boolean;
+        AllowDirectRelease: Boolean;
         MasterItemCU: Codeunit MasterItem;
         Txt001: label 'The Assembly Orders should have same Item No. to group them';
         Txt002: label 'The Assembly Orders should have same Item Size to group them';

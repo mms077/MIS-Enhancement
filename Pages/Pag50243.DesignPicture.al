@@ -130,7 +130,6 @@ page 50243 "Design Picture"
 
     var
         Camera: Codeunit Camera;
-        [InDataSet]
         CameraAvailable: Boolean;
         OverrideImageQst: Label 'The existing picture will be replaced. Do you want to continue?';
         DeleteImageQst: Label 'Are you sure you want to delete the picture?';
@@ -138,7 +137,7 @@ page 50243 "Design Picture"
         DeleteExportEnabled: Boolean;
         HideActions: Boolean;
         MustSpecifyDescriptionErr: Label 'You must add a description to the item before you can import a picture.';
-        MimeTypeTok: Label 'image/jpeg', Locked = true;
+                MimeTypeTok: Label 'image/jpeg', Locked = true;
 
     procedure TakeNewPicture()
     begin

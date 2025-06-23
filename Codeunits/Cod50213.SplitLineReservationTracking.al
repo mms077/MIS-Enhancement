@@ -47,6 +47,33 @@ codeunit 50213 "Split Line Reserv. Tracking"
                     ReservedQtyBase += 1;
                 until OutReservationEntry.Next() = 0;
                 If SalesOrderLine."Quantity (Base)" > ReservedQtyBase then begin
+                    Clear(TransferOrderLine);
+                    TransferOrderLine.SetRange("Item No.", SalesOrderLine."No.");
+                    TransferOrderLine.SetRange("Variant Code", SalesOrderLine."Variant Code");
+                    TransferOrderLine.SetRange("Transfer-to Code", SalesOrderLine."Location Code");
+                    TransferOrderLine.CalcFields("Reserved Qty. Inbnd. (Base)");
+                    TransferOrderLine.SetRange("Reserved Qty. Inbnd. (Base)", 0);
+                    if TransferOrderLine.FindSet() then begin
+                        repeat
+                            Clear(TransferReservEntry);
+                            TransferReservEntry.SetRange("Source Type", Database::"Transfer Line");
+                            TransferReservEntry.SetRange("Source Subtype", 0);
+                            TransferReservEntry.SetRange("Source ID", TransferOrderLine."Document No.");
+                            TransferReservEntry.SetRange("Source Ref. No.", TransferOrderLine."Line No.");
+                            TransferReservEntry.SetRange("Item No.", TransferOrderLine."Item No.");
+                            if TransferReservEntry.FindSet() then
+                                repeat
+                                    TrackingSpec.InitTrackingSpecification(Database::"Sales Line", 1, SalesOrderLine."Document No.", '', 0, SalesOrderLine."Line No.", SalesOrderLine."Variant Code", SalesOrderLine."Location Code", SalesOrderLine."Qty. per Unit of Measure");
+                                    TrackingSpec.CopyTrackingFromReservEntry(TransferReservEntry);
+                                    TransferLineReserve.CreateReservationSetFrom(TrackingSpec);
+                                    TransferReservEntryInbd.CopyTrackingFromSpec(TrackingSpec);
+                                    TransferLineReserve.CreateReservation(TransferOrderLine, TransferOrderLine.Description, TransferOrderLine."Shipment Date", 1, 1, TransferReservEntryInbd, directionEnum::Inbound);
+                                    ReservedQtyBase += 1;
+                                until (TransferReservEntry.Next() = 0) or (ReservedQtyBase >= SalesOrderLine."Quantity (Base)");
+                        until (TransferOrderLine.Next() = 0) or (ReservedQtyBase >= SalesOrderLine."Quantity (Base)");
+                    end;
+                end;
+                If SalesOrderLine."Quantity (Base)" > ReservedQtyBase then begin
                     clear(ItemLedgerEntry);
                     ItemLedgerEntry.SetRange("Item No.", SalesOrderLine."No.");
                     ItemLedgerEntry.SetRange("Variant Code", SalesOrderLine."Variant Code");

@@ -83,6 +83,10 @@ table 50308 "Scan Activities"
         {
             DataClassification = ToBeClassified;
         }
+        field(16; "Activity Environment"; Text[250])
+        {
+            DataClassification = ToBeClassified;
+        }
     }
     keys
     {

@@ -200,6 +200,10 @@ tableextension 50203 "Sales Line" extends "Sales Line"
             Caption = 'Sales Line Reference';
 
         }
+        field(50232; "Packaging Qty"; Decimal)
+        {
+            DataClassification = ToBeClassified;
+        }
 
 
         modify("Variant Code")

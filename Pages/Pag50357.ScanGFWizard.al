@@ -1434,48 +1434,52 @@ page 50357 "Scan Unit Ref"
             if DesignActivitiesToScan.Scanned then
                 Error('Already Scanned!');
 
+            if not DesignActivitiesToScan."Allow Non-Sequential Scanning" then begin
+                
+                if (DesignActivitiesToScan."Sequence No." > 1) then begin
+                    // Check all previous activities (not just mandatory)
+                    Clear(DesignActivitiesRecs);
+                    DesignActivitiesRecs.SetFilter("Design Code", DesignActivitiesToScan."Design Code");
+                    DesignActivitiesRecs.SetRange("Sequence No.", 1, DesignActivitiesToScan."Sequence No." - 1); // All previous activities
+                    DesignActivitiesRecs.SetRange("Stage Type", DesignActivitiesRecs."Stage Type"::Mandatory);
+                    if DesignActivitiesRecs.FindSet() then begin
+                        repeat
+                            if DesignActivitiesRecs.Scanned = false then
+                                Error('All previous activities in the sequence must be completed before scanning this one.');
+                        until DesignActivitiesRecs.Next() = 0;
+                    end;
+                end;
+            end;
             if (DesignActivitiesToScan."Sequence No." > 1) then begin
-                // Check all previous activities (not just mandatory)
-                Clear(DesignActivitiesRecs);
-                DesignActivitiesRecs.SetFilter("Design Code", DesignActivitiesToScan."Design Code");
-                DesignActivitiesRecs.SetRange("Sequence No.", 1, DesignActivitiesToScan."Sequence No." - 1); // All previous activities
-                if DesignActivitiesRecs.FindSet() then begin
-                    repeat
-                        if DesignActivitiesRecs.Scanned = false then
-                            Error('All previous activities in the sequence must be completed before scanning this one.');
-                    until DesignActivitiesRecs.Next() = 0;
-                end;
-            end;
-        end;
-        if (DesignActivitiesToScan."Sequence No." > 1) then begin
-            //check scanning conditions
+                //check scanning conditions
 
 
-            // Check all mandatory activities before the current Activity Id
-            if (DesignActivitiesToScan.Done = '❌') and not (DesignActivitiesToScan."Allow Non-Sequential Scanning") then begin
-                Clear(DesignActivitiesRecs);
-                DesignActivitiesRecs.Setfilter("Design Code", DesignActivitiesToScan."Design Code");
-                DesignActivitiesRecs.SetRange("Sequence No.", 1, DesignActivitiesToScan."Sequence No." - 1); // Activities before the current one
-                DesignActivitiesRecs.SetRange("Stage Type", DesignActivitiesToScan."Stage Type"::Mandatory); // Only mandatory activities
-                if DesignActivitiesRecs.FindSet() then begin
-                    repeat
-                        if DesignActivitiesRecs.Scanned = false then
-                            Error('All mandatory activities before this one must be completed before scanning.');
-                    until DesignActivitiesRecs.Next() = 0;
+                // Check all mandatory activities before the current Activity Id
+                if (DesignActivitiesToScan.Done = '❌') and not (DesignActivitiesToScan."Allow Non-Sequential Scanning") then begin
+                    Clear(DesignActivitiesRecs);
+                    DesignActivitiesRecs.Setfilter("Design Code", DesignActivitiesToScan."Design Code");
+                    DesignActivitiesRecs.SetRange("Sequence No.", 1, DesignActivitiesToScan."Sequence No." - 1); // Activities before the current one
+                    DesignActivitiesRecs.SetRange("Stage Type", DesignActivitiesToScan."Stage Type"::Mandatory); // Only mandatory activities
+                    if DesignActivitiesRecs.FindSet() then begin
+                        repeat
+                            if DesignActivitiesRecs.Scanned = false then
+                                Error('All mandatory activities before this one must be completed before scanning.');
+                        until DesignActivitiesRecs.Next() = 0;
+                    end;
                 end;
-            end;
-        end
-        else begin
-            if DesignActivitiesToScan."Stage Type" = DesignActivitiesToScan."Stage Type"::" " then begin
-                Clear(DesignActivitiesRecs);
-                DesignActivitiesRecs.Setfilter("Design Code", DesignActivitiesToScan."Design Code");
-                DesignActivitiesRecs.SetRange("Sequence No.", 1, DesignActivitiesToScan."Sequence No." - 1); // Activities before the current one
-                                                                                                             //DesignActivitiesRecs.SetRange("Stage Type", DesignActivitiesToScan."Stage Type"::Mandatory); // Only mandatory activities
-                if DesignActivitiesRecs.FindSet() then begin
-                    repeat
-                        if DesignActivitiesRecs.Scanned = false then
-                            Error('All Activities before this one must be completed.');
-                    until DesignActivitiesRecs.Next() = 0;
+            end
+            else begin
+                if DesignActivitiesToScan."Stage Type" = DesignActivitiesToScan."Stage Type"::" " then begin
+                    Clear(DesignActivitiesRecs);
+                    DesignActivitiesRecs.Setfilter("Design Code", DesignActivitiesToScan."Design Code");
+                    DesignActivitiesRecs.SetRange("Sequence No.", 1, DesignActivitiesToScan."Sequence No." - 1); // Activities before the current one
+                                                                                                                 //DesignActivitiesRecs.SetRange("Stage Type", DesignActivitiesToScan."Stage Type"::Mandatory); // Only mandatory activities
+                    if DesignActivitiesRecs.FindSet() then begin
+                        repeat
+                            if DesignActivitiesRecs.Scanned = false then
+                                Error('All Activities before this one must be completed.');
+                        until DesignActivitiesRecs.Next() = 0;
+                    end;
                 end;
             end;
         end;
@@ -1497,11 +1501,15 @@ page 50357 "Scan Unit Ref"
             AssemblyHeader.SetFilter("ER - Manufacturing Order No.", ManufacturingOrder."No.");
             if AssemblyHeader.FindFirst() then
                 repeat
+                    if AssemblyHeader.Status <> AssemblyHeader.Status::Released then
+                        CODEUNIT.Run(CODEUNIT::"Release Assembly Document", AssemblyHeader);
                     CODEUNIT.Run(CODEUNIT::"Assembly-Post", AssemblyHeader);
                 until AssemblyHeader.Next() = 0;
         end else begin
             Clear(AssemblyHeader);
             if AssemblyHeader.get(AssemblyHeader."Document Type"::Order, Filter) then begin
+                if AssemblyHeader.Status <> AssemblyHeader.Status::Released then
+                    CODEUNIT.Run(CODEUNIT::"Release Assembly Document", AssemblyHeader);
                 CODEUNIT.Run(CODEUNIT::"Assembly-Post", AssemblyHeader);
             end else begin
                 Clear(SalesLine);
@@ -1511,6 +1519,8 @@ page 50357 "Scan Unit Ref"
                     AssemblyHeader.SetFilter("Source No.", SalesLine."Document No.");
                     AssemblyHeader.setrange("Source Line No.", SalesLine."Line No.");
                     if AssemblyHeader.FindFirst() then begin
+                        if AssemblyHeader.Status <> AssemblyHeader.Status::Released then
+                            CODEUNIT.Run(CODEUNIT::"Release Assembly Document", AssemblyHeader);
                         CODEUNIT.Run(CODEUNIT::"Assembly-Post", AssemblyHeader);
                     end;
                 end else begin

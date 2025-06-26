@@ -97,6 +97,28 @@ pageextension 50202 "Sales Order Subform" extends "Sales Order Subform"
                 end;
 
             }
+            field("Sales Line Reference"; Rec."Sales Line Reference")
+            {
+                ApplicationArea = all;
+                Editable = false;
+                Visible = false;
+
+            }
+            field("Sales Line Reference Text"; Rec."Sales Line Reference Text")
+            {
+                ApplicationArea = all;
+                Editable = false;
+                DrillDown = true;
+                trigger OnDrillDown()
+                var
+                    TargetRec: Record "Sales Line Unit Ref.";
+                begin
+                    TargetRec.SetFilter("Sales Line Ref.", Rec."Sales Line Reference");
+                    if TargetRec.FindSet() then
+                        PAGE.Run(PAGE::"Sales Line Unit Ref. List", TargetRec);
+                end;
+            }
+            field("Packaging Qty"; Rec."Packaging Qty") { ApplicationArea = all; Editable = false; }
             field("Needed RM Batch"; Rec."Needed RM Batch")
             {
                 ApplicationArea = all;
@@ -340,10 +362,29 @@ pageextension 50202 "Sales Order Subform" extends "Sales Order Subform"
                     Report.Run(Report::"Sales Line Label Printing FR", true, true, SalesLine);
                 end;
             }
+            action("Unit Sales Line Ref.")
+            {
+                ApplicationArea = all;
+                Caption = 'Unit Sales Line Ref.';
+                Image = TaskQualityMeasure;
+                RunPageLink = "Sales Line Ref." = field("Sales Line Reference");
+                RunObject = Page "Sales Line Unit Ref. List";
+            }
+            // action("DashboardUnit")
+            // {
+            //     ApplicationArea = all;
+            //     Image = ShowChart;
+            //     Caption = 'Dashboard/Unit';
+            //     RunObject = page "Scan Activities List";
+            //     RunPageLink = "Sales Line Id" = field("Sales Line Reference");
+            // }
         }
     }
 
     trigger OnAfterGetRecord()
+    var
+        SalesRecSetup: Record "Sales & Receivables Setup";
+        SalesLineUnitRef: Record "Sales Line Unit Ref.";
     begin
         //Update Color Name
         UpdateColorName(Rec);
@@ -354,7 +395,25 @@ pageextension 50202 "Sales Order Subform" extends "Sales Order Subform"
 
         //Update Reservation Warning
         UpdateReservationWarning(Rec);
+
+        //update Packaging QTy
+        SalesRecSetup.Get();
+        if Rec."Packaging Qty" > 0 then begin
+            Rec."Packaging Qty" := 0;
+            Rec.Modify();
+        end;
+        Clear(SalesLineUnitRef);
+        SalesLineUnitRef.SetFilter("Sales Line Ref.", Rec."Sales Line Reference");
+        if SalesLineUnitRef.FindSet() then
+            repeat
+                IF STRPOS(SalesLineUnitRef."Scan Out", SalesRecSetup."Packaging Stage") > 0 then begin
+                    Rec."Packaging Qty" := Rec."Packaging Qty" + SalesLineUnitRef.Quantity;
+                    Rec.Modify();
+                end;
+            until SalesLineUnitRef.Next() = 0;
+
     end;
+
 
     trigger OnOpenPage()
     var

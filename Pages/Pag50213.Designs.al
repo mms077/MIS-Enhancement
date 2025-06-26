@@ -188,6 +188,21 @@ page 50213 Designs
                     UpdateHasPicture();
                 end;
             }
+            action("Add Design activities")
+            {
+                ApplicationArea = All;
+                Image = Add;
+                Promoted = true;
+                PromotedIsBig = true;
+                PromotedCategory = Process;
+                PromotedOnly = true;
+                RunObject = page "Design Activities";
+                RunPageLink = "Design Code" = field(Code);
+                trigger OnAction()
+                begin
+
+                end;
+            }
         }
     }
     trigger OnAfterGetRecord()

@@ -1,6 +1,6 @@
 page 50353 "Temp Link Options"
 {
-    PageType = List;
+    PageType = ListPart;
     SourceTable = "Temp Link Options";
     ApplicationArea = All;
     SourceTableTemporary = true;

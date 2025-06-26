@@ -207,6 +207,7 @@ pageextension 50207 "Assembly Order" extends "Assembly Order"
         SalesRecSetup.Get();
         if Rec.Quantity > 0 then begin
             Rec."Qty To Package" := Rec.Quantity;
+            Rec."Qty Packaged" := 0;
             Rec.Modify();
         end;
         Clear(SalesLineUnitRef);
@@ -275,6 +276,6 @@ pageextension 50207 "Assembly Order" extends "Assembly Order"
     var
         [InDataSet]
         ApproveVisible, AllowDirectRelease : Boolean;
-      
+
 
 }

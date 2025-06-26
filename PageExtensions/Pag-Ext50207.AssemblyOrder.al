@@ -192,14 +192,36 @@ pageextension 50207 "Assembly Order" extends "Assembly Order"
     trigger OnAfterGetCurrRecord()
     begin
         VisibilityControl;
+        //incrementpackagedqty on every
         FillQtyToPackageAndQtyPackaged;
     end;
 
     local procedure FillQtyToPackageAndQtyPackaged()
     var
         myInt: Integer;
+        SalesRecSetup: Record "Sales & Receivables Setup";
+        SalesLineUnitRef: Record "Sales Line Unit Ref.";
+        SalesLine: Record "Sales Line";
     begin
-
+        //update Packaging QTy
+        SalesRecSetup.Get();
+        if Rec.Quantity > 0 then begin
+            Rec."Qty To Package" := Rec.Quantity;
+            Rec.Modify();
+        end;
+        Clear(SalesLineUnitRef);
+        SalesLine.SetFilter("Document No.", rec."Source No.");
+        SalesLine.SetRange("Line No.", rec."Source Line No.");
+        if SalesLine.FindFirst() then begin
+            SalesLineUnitRef.SetFilter("Sales Line Ref.", SalesLine."Sales Line Reference");
+            if SalesLineUnitRef.FindSet() then
+                repeat
+                    IF STRPOS(SalesLineUnitRef."Scan Out", SalesRecSetup."Packaging Stage") > 0 then begin
+                        Rec."Qty Packaged" := Rec."Qty Packaged" + SalesLineUnitRef.Quantity;
+                        Rec.Modify();
+                    end;
+                until SalesLineUnitRef.Next() = 0;
+        end;
     end;
 
     procedure ApproveAssembly()
@@ -251,7 +273,8 @@ pageextension 50207 "Assembly Order" extends "Assembly Order"
     end;
 
     var
+        [InDataSet]
         ApproveVisible, AllowDirectRelease : Boolean;
-        MasterItemCU: Codeunit MasterItem;
+      
 
 }

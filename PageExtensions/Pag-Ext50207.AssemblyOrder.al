@@ -56,6 +56,8 @@ pageextension 50207 "Assembly Order" extends "Assembly Order"
             {
                 ApplicationArea = all;
             }
+            field("Qty To Package"; Rec."Qty To Package") { ApplicationArea = all; Editable = false; }
+            field("Qty Packaged"; Rec."Qty Packaged") { ApplicationArea = all; Editable = false; }
         }
 
     }
@@ -190,6 +192,14 @@ pageextension 50207 "Assembly Order" extends "Assembly Order"
     trigger OnAfterGetCurrRecord()
     begin
         VisibilityControl;
+        FillQtyToPackageAndQtyPackaged;
+    end;
+
+    local procedure FillQtyToPackageAndQtyPackaged()
+    var
+        myInt: Integer;
+    begin
+
     end;
 
     procedure ApproveAssembly()

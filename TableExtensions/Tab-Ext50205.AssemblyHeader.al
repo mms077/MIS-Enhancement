@@ -129,6 +129,14 @@ tableextension 50205 "Assembly Header" extends "Assembly Header"
             CalcFormula = lookup("Item Variant"."Item Brandings Set ID" where(Code = field("Variant Code"), "Item No." = field("Item No.")));
             TableRelation = "Item Brandings Set"."Item Branding Set ID";
         }
+        field(50219; "Qty To Package"; Decimal)
+        {
+            DataClassification = ToBeClassified;
+        }
+        field(50220; "Qty Packaged"; Decimal)
+        {
+            DataClassification = ToBeClassified;
+        }
     }
     keys
     {

@@ -417,6 +417,7 @@ page 50357 "Scan Unit Ref"
                         DeletedCount: Integer;
                     // ScanActivities: Record "Scan Activities";
                     begin
+
                         CheckIfScanningActivityAllowed;
                         //check if on "Scan Design Stages- ER"; is scanned to give an error already scanned
                         CheckIfActivityScanned;
@@ -1272,10 +1273,11 @@ page 50357 "Scan Unit Ref"
     procedure HandleScanActivity(SalesLine: Record "Sales Line"; SalesUnit: Record "Sales Line Unit Ref."; AssemblyHeader: Record "Assembly Header"; MO: Record "ER - Manufacturing Order"; Rec: Record "Scan Design Stages- ER Temp"; var ActivitiesArray: JsonArray)
     var
         ScanActivities: Record "Scan Activities";
+        SalesRecSetup: Record "Sales & Receivables Setup";
     begin
         // call a function that return the stages scanned
         //if the activity code needed to be scanned is contained in scan in i need to exit this function
-
+        SalesRecSetup.get;
         Clear(ScanActivities);
         ScanActivities.SetFilter("Sales Line Unit Id.", SalesUnit."Sales Line Unit");
         ScanActivities.SetFilter("Sales Line Id", SalesLine."Sales Line Reference");
@@ -1287,6 +1289,9 @@ page 50357 "Scan Unit Ref"
             InsertActivity(ScanActivities."Activity Type"::Out, SalesLine, SalesUnit, AssemblyHeader, MO, Rec, ActivityCode);
             AddActivityToArray(ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec, Activity_Remark, ActivitiesArray);
             UpdateScanOutField(SalesUnit);
+            //check if activity code is packaging to post assemblies
+            if ActivityCode = SalesRecSetup."Packaging Stage" then
+                PostRelatedAssemblies(UnitRef);
         end else begin
             InsertActivity(ScanActivities."Activity Type"::"In", SalesLine, SalesUnit, AssemblyHeader, MO, Rec, ActivityCode);
             AddActivityToArray(ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec, Activity_Remark, ActivitiesArray);
@@ -1476,6 +1481,49 @@ page 50357 "Scan Unit Ref"
         end;
     end;
 
+    local procedure PostRelatedAssemblies(Filter: code[50])
+    var
+        myInt: Integer;
+        ManufacturingOrder: Record "ER - Manufacturing Order";
+        AssemblyHeader: Record "Assembly Header";
+        SalesLine: Record "Sales Line";
+        SalesUnit: Record "Sales Line Unit Ref.";
+        ReservationEntry: Record "Reservation Entry";
+    begin
+        Clear(ManufacturingOrder);
+        Clear(AssemblyHeader);
+        Clear(ReservationEntry);
+        if ManufacturingOrder.Get(Filter) then begin
+            AssemblyHeader.SetFilter("ER - Manufacturing Order No.", ManufacturingOrder."No.");
+            if AssemblyHeader.FindFirst() then
+                repeat
+                    CODEUNIT.Run(CODEUNIT::"Assembly-Post", AssemblyHeader);
+                until AssemblyHeader.Next() = 0;
+        end else begin
+            Clear(AssemblyHeader);
+            if AssemblyHeader.get(AssemblyHeader."Document Type"::Order, Filter) then begin
+                CODEUNIT.Run(CODEUNIT::"Assembly-Post", AssemblyHeader);
+            end else begin
+                Clear(SalesLine);
+                SalesLine.SetFilter("Sales Line Reference", Filter);
+                if SalesLine.FindFirst() then begin
+                    Clear(AssemblyHeader);
+                    AssemblyHeader.SetFilter("Source No.", SalesLine."Document No.");
+                    AssemblyHeader.setrange("Source Line No.", SalesLine."Line No.");
+                    if AssemblyHeader.FindFirst() then begin
+                        CODEUNIT.Run(CODEUNIT::"Assembly-Post", AssemblyHeader);
+                    end;
+                end else begin
+                    SalesUnit.SetFilter("Serial No.", Filter);
+                    if SalesUnit.FindFirst() then begin
+
+                    end;
+
+                end;
+
+            end;
+        end;
+    end;
 
     trigger OnOpenPage()
     var

@@ -1,4 +1,4 @@
-page 50354 "Sales Line Unit Ref. List"
+page 50354 "Line Unit Ref. List"
 {
     PageType = List;
     ApplicationArea = All;
@@ -12,7 +12,7 @@ page 50354 "Sales Line Unit Ref. List"
             repeater(GroupName)
             {
                 //  field("Sales Line Ref."; Rec."Sales Line Ref.") { ApplicationArea = all; Editable = false; }
-                field("Sales Line Unit"; Rec."Sales Line Unit")
+                field("Serial No."; Rec."Serial No.")
                 {
                     ApplicationArea = all;
                     Editable = false;
@@ -23,7 +23,7 @@ page 50354 "Sales Line Unit Ref. List"
                         Token: Text;
                     begin
                         Token := GenerateToken();
-                        FillExistingScanHistoryforSalesLineUnit(Rec."Sales Line Unit", Token);
+                        FillExistingScanHistoryforSalesLineUnit(Rec."Serial No.", Token);
                         if TargetRec.FindSet() then
                             PAGE.Run(PAGE::"Existing Scans", TargetRec);
                     end;
@@ -36,7 +36,7 @@ page 50354 "Sales Line Unit Ref. List"
                 field("Unit of Measure Code"; Rec."Unit of Measure Code") { ApplicationArea = all; }
                 field("Scan In"; Rec."Scan In") { ApplicationArea = all; }
                 field("Scan Out"; Rec."Scan Out") { ApplicationArea = all; }
-                field("Serial No."; "Serial No.") { ApplicationArea = all; Editable = false; }
+              
 
             }
         }

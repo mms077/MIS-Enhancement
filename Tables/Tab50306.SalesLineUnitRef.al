@@ -53,18 +53,23 @@ table 50306 "Sales Line Unit Ref."
         }
         field(12; "Document No."; Code[20])
         {
-            Caption = 'Document No.';
+            Caption = 'Sales Doc No.';
             //TableRelation = "Sales Header"."No." where("Document Type" = field("Document Type"));
         }
         field(13; "Line No."; Integer)
         {
             Caption = 'Line No.';
         }
+        field(14; "Assembly No."; Code[20])
+        {
+
+            //TableRelation = "Sales Header"."No." where("Document Type" = field("Document Type"));
+        }
     }
 
     keys
     {
-        key(PK; "Sales Line Unit")
+        key(PK; "Serial No.")
         {
             Clustered = true;
         }

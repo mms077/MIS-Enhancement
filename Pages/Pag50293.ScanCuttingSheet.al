@@ -78,80 +78,80 @@ page 50293 "Scan Cutting Sheet"
                         ProcessedAssemblies: Dictionary of [Code[20], Boolean]; // To track processed assemblies
 
                     begin
-                        //add event to validate on it if the MO is not released it should give an error
-                        OnBeforeScanCuttingSheet(ScanRef);
-                        AssemblyHeader.SetRange("ER - Manufacturing Order No.", ScanRef);
-                        if AssemblyHeader.FindSet() then
-                            repeat
+                        // //add event to validate on it if the MO is not released it should give an error
+                        // OnBeforeScanCuttingSheet(ScanRef);
+                        // AssemblyHeader.SetRange("ER - Manufacturing Order No.", ScanRef);
+                        // if AssemblyHeader.FindSet() then
+                        //     repeat
 
-                                //Check if the user is responsible for scanning
-                                MasterItemCU.CheckUserResponibility(AssemblyHeader."No.", User);
-                                Commit();
-                                //Enter Scan In or Scan Out details
-                                ScanOption := MasterItemCU.CreateCuttingSheetScanningEntry(AssemblyHeader."No.", User);
+                        //         //Check if the user is responsible for scanning
+                        //         MasterItemCU.CheckUserResponibility(AssemblyHeader."No.", User);
+                        //         Commit();
+                        //         //Enter Scan In or Scan Out details
+                        //         ScanOption := MasterItemCU.CreateCuttingSheetScanningEntry(AssemblyHeader."No.", User);
 
-                            until AssemblyHeader.Next() = 0
-                        else
-                            Error('No Assembly found in this group', ScanRef);
+                        //     until AssemblyHeader.Next() = 0
+                        // else
+                        //     Error('No Assembly found in this group', ScanRef);
 
-                        if ScanOption = ScanOption::"In" then
-                            Message(Txt0001)
-                        else
-                            Message(Txt0002);
+                        // if ScanOption = ScanOption::"In" then
+                        //     Message(Txt0001)
+                        // else
+                        //     Message(Txt0002);
 
-                        Clear(DesignActivities);
-                        Clear(MO);
-                        if MO.Get(ScanRef) then begin
-                            Clear(AssemblyHeader);
-                            AssemblyHeader.SetFilter("ER - Manufacturing Order No.", MO."No.");
-                            if AssemblyHeader.FindFirst() then
-                                repeat
-                                    // Check if the assembly has already been processed
-                                    if not ProcessedAssemblies.ContainsKey(AssemblyHeader."No.") then begin
-                                        ProcessedAssemblies.Add(AssemblyHeader."No.", true); // Mark as processed
-                                        SalesLine.SetFilter("Document No.", AssemblyHeader."Source No.");
-                                        SalesLine.SetRange("Document Type", SalesLine."Document Type"::Order);
-                                        if SalesLine.FindFirst() then begin
-                                            SalesUnit.SetFilter("Sales Line Ref.", SalesLine."Sales Line Reference");
-                                            if SalesUnit.FindFirst() then begin
-                                                repeat
-                                                // Perform the scan for every unit
+                        // Clear(DesignActivities);
+                        // Clear(MO);
+                        // if MO.Get(ScanRef) then begin
+                        //     Clear(AssemblyHeader);
+                        //     AssemblyHeader.SetFilter("ER - Manufacturing Order No.", MO."No.");
+                        //     if AssemblyHeader.FindFirst() then
+                        //         repeat
+                        //             // Check if the assembly has already been processed
+                        //             if not ProcessedAssemblies.ContainsKey(AssemblyHeader."No.") then begin
+                        //                 ProcessedAssemblies.Add(AssemblyHeader."No.", true); // Mark as processed
+                        //                 SalesLine.SetFilter("Document No.", AssemblyHeader."Source No.");
+                        //                 SalesLine.SetRange("Document Type", SalesLine."Document Type"::Order);
+                        //                 if SalesLine.FindFirst() then begin
+                        //                     SalesUnit.SetFilter("Sales Line Ref.", SalesLine."Sales Line Reference");
+                        //                     if SalesUnit.FindFirst() then begin
+                        //                         repeat
+                        //                         // Perform the scan for every unit
 
-                                                until SalesUnit.Next() = 0;
-                                            end;
-                                        end;
-                                    END;
-                                until AssemblyHeader.Next() = 0;
+                        //                         until SalesUnit.Next() = 0;
+                        //                     end;
+                        //                 end;
+                        //             END;
+                        //         until AssemblyHeader.Next() = 0;
 
-                        end else begin
-                            Clear(AssemblyHeader);
-                            AssemblyHeader.SetRange("No.", ScanRef);
-                            if AssemblyHeader.FindSet() then begin
-                                repeat
-                                    // Check if the assembly has already been processed
-                                    if not ProcessedAssemblies.ContainsKey(AssemblyHeader."No.") then begin
-                                        ProcessedAssemblies.Add(AssemblyHeader."No.", true); // Mark as processed
-                                        SalesLine.SetFilter("Document No.", AssemblyHeader."Source No.");
-                                        SalesLine.SetRange("Document Type", SalesLine."Document Type"::Order);
-                                        if SalesLine.FindFirst() then begin
-                                            SalesUnit.SetFilter("Sales Line Ref.", SalesLine."Sales Line Reference");
-                                            if SalesUnit.FindFirst() then begin
-                                                repeat
-                                                // Perform the scan for every unit
+                        // end else begin
+                        //     Clear(AssemblyHeader);
+                        //     AssemblyHeader.SetRange("No.", ScanRef);
+                        //     if AssemblyHeader.FindSet() then begin
+                        //         repeat
+                        //             // Check if the assembly has already been processed
+                        //             if not ProcessedAssemblies.ContainsKey(AssemblyHeader."No.") then begin
+                        //                 ProcessedAssemblies.Add(AssemblyHeader."No.", true); // Mark as processed
+                        //                 SalesLine.SetFilter("Document No.", AssemblyHeader."Source No.");
+                        //                 SalesLine.SetRange("Document Type", SalesLine."Document Type"::Order);
+                        //                 if SalesLine.FindFirst() then begin
+                        //                     SalesUnit.SetFilter("Sales Line Ref.", SalesLine."Sales Line Reference");
+                        //                     if SalesUnit.FindFirst() then begin
+                        //                         repeat
+                        //                         // Perform the scan for every unit
 
-                                                until SalesUnit.Next() = 0;
-                                            end;
-                                        end;
-                                    end;
-                                until AssemblyHeader.Next() = 0;
-                            end else begin
-                                SalesUnit.SetFilter("Sales Line Unit", ScanRef);
-                                if SalesUnit.FindFirst() then begin
+                        //                         until SalesUnit.Next() = 0;
+                        //                     end;
+                        //                 end;
+                        //             end;
+                        //         until AssemblyHeader.Next() = 0;
+                        //     end else begin
+                        //         SalesUnit.SetFilter("Sales Line Unit", ScanRef);
+                        //         if SalesUnit.FindFirst() then begin
 
-                                    // Perform the scan for every unit
-                                END;
-                            END;
-                        end;
+                        //             // Perform the scan for every unit
+                        //         END;
+                        //     END;
+                        // end;
                     end;
 
                 }

@@ -423,6 +423,8 @@ page 50357 "Scan Unit Ref"
                         CheckIfActivityScanned;
                         if (UnitRef = '') or (User = '') then
                             Error('Please fill Mandatory Fields');
+                        //check if its assemble to stock so he cannot scan for example packaging stage
+                        CheckIfitsAssembleToStock;
                         AuthToken := '';
                         Clear(ProcessedSourceNos);
                         Clear(ActivitiesArray);
@@ -451,7 +453,9 @@ page 50357 "Scan Unit Ref"
                                                     until SalesUnit.Next() = 0;
                                                 end;
                                             until SalesLine.Next() = 0;
-                                        end;
+                                        end
+
+
                                     end;
                                 until AssemblyHeader.Next() = 0;
                             end;
@@ -462,27 +466,25 @@ page 50357 "Scan Unit Ref"
                             Clear(AssemblyHeader);
                             AssemblyHeader.SetFilter("No.", UnitRef);
                             if AssemblyHeader.FindFirst() then begin
-                                repeat
-                                    if not ProcessedSourceNos.ContainsKey(AssemblyHeader."Source No.") then begin
-                                        ProcessedSourceNos.Add(AssemblyHeader."Source No.", true);
-                                        MasterItemCU.CheckUserResponibilityScanning(GetActivitySelected, User);
-                                        Clear(SalesLine);
-                                        SalesLine.SetFilter("Document No.", AssemblyHeader."Source No.");
-                                        SalesLine.SetRange("Document Type", SalesLine."Document Type"::Order);
-                                        SalesLine.SetRange("Line No.", AssemblyHeader."Source Line No.");
-                                        if SalesLine.FindSet() then begin
-                                            repeat
-                                                SalesUnit.SetFilter("Sales Line Ref.", SalesLine."Sales Line Reference Text");
-                                                if SalesUnit.FindFirst() then begin
-                                                    repeat
-                                                        IF (STRPOS(SalesUnit."Scan In", ActivityCode) = 0) or (STRPOS(SalesUnit."Scan Out", ActivityCode) = 0) then
-                                                            HandleScanActivity(SalesLine, SalesUnit, AssemblyHeader, MO, Rec, ActivitiesArray);
-                                                    until SalesUnit.Next() = 0;
-                                                end;
-                                            until SalesLine.Next() = 0;
-                                        end;
+                                if not ProcessedSourceNos.ContainsKey(AssemblyHeader."Source No.") then begin
+                                    ProcessedSourceNos.Add(AssemblyHeader."Source No.", true);
+                                    MasterItemCU.CheckUserResponibilityScanning(GetActivitySelected, User);
+                                    Clear(SalesLine);
+                                    SalesLine.SetFilter("Document No.", AssemblyHeader."Source No.");
+                                    SalesLine.SetRange("Document Type", SalesLine."Document Type"::Order);
+                                    SalesLine.SetRange("Line No.", AssemblyHeader."Source Line No.");
+                                    if SalesLine.FindSet() then begin
+                                        repeat
+                                            SalesUnit.SetFilter("Sales Line Ref.", SalesLine."Sales Line Reference Text");
+                                            if SalesUnit.FindFirst() then begin
+                                                repeat
+                                                    IF (STRPOS(SalesUnit."Scan In", ActivityCode) = 0) or (STRPOS(SalesUnit."Scan Out", ActivityCode) = 0) then
+                                                        HandleScanActivity(SalesLine, SalesUnit, AssemblyHeader, MO, Rec, ActivitiesArray);
+                                                until SalesUnit.Next() = 0;
+                                            end;
+                                        until SalesLine.Next() = 0;
                                     end;
-                                until AssemblyHeader.Next() = 0;
+                                end
                             end
                             // CASE 3: Sales Line Ref
                             else begin
@@ -507,51 +509,76 @@ page 50357 "Scan Unit Ref"
                                             GetSalesLineFromSalesUnit(SalesUnit, SalesLine);
                                             HandleScanActivity(SalesLine, SalesUnit, AssemblyHeader, MO, Rec, ActivitiesArray);
                                         end;
+                                    end
+
+
+                                    // CASE 5: Assembly Line Ref
+                                    else begin
+                                        Clear(AssemblyHeader);
+                                        AssemblyHeader.SetFilter("Assembly Line Reference Text", UnitRef);
+                                        if AssemblyHeader.FindFirst() then begin
+                                            if not ProcessedSourceNos.ContainsKey(AssemblyHeader."Source No.") then begin
+                                                ProcessedSourceNos.Add(AssemblyHeader."Source No.", true);
+                                                MasterItemCU.CheckUserResponibilityScanning(GetActivitySelected, User);
+                                                Clear(SalesLine);
+                                                SalesLine.SetFilter("Document No.", AssemblyHeader."Source No.");
+                                                SalesLine.SetRange("Document Type", SalesLine."Document Type"::Order);
+                                                SalesLine.SetRange("Line No.", AssemblyHeader."Source Line No.");
+                                                if SalesLine.FindSet() then begin
+                                                    repeat
+                                                        SalesUnit.SetFilter("Sales Line Ref.", SalesLine."Sales Line Reference Text");
+                                                        if SalesUnit.FindFirst() then begin
+                                                            repeat
+                                                                IF (STRPOS(SalesUnit."Scan In", ActivityCode) = 0) or (STRPOS(SalesUnit."Scan Out", ActivityCode) = 0) then
+                                                                    HandleScanActivity(SalesLine, SalesUnit, AssemblyHeader, MO, Rec, ActivitiesArray);
+                                                            until SalesUnit.Next() = 0;
+                                                        end;
+                                                    until SalesLine.Next() = 0;
+                                                end;
+                                            end
+                                        end
                                     end;
                                 end;
+                                // Batch API call
+                                if ActivitiesArray.Count > 0 then begin
+                                    AuthToken := '';
+                                    AuthToken := GenerateToken();
+                                    RequestSucsessed := FillBatchRequest(AuthToken, ActivitiesArray);
+                                    if RequestSucsessed then begin
+                                        // i need here to fetch in scan activities to delete every out scan has an in scan to delete thme both for example if we have just in to skip it
+                                        if not RequestSucsessed then
+                                            Error('API Error: Scanning not completed. Please check the API response.');
+                                        DeletedCount := 0;
+                                        // Loop through all "In" scan activities
+                                        ScanActivities.SetRange("Activity Type", ScanActivities."Activity Type"::"In");
+                                        if ScanActivities.FindSet() then
+                                            repeat
+                                                // Try to find a matching "Out" scan for the same Sales Line Unit and Activity Code
+                                                OutScan.Reset();
+                                                OutScan.SetRange("Activity Type", OutScan."Activity Type"::"Out");
+                                                OutScan.SetRange("Sales Line Unit Id.", ScanActivities."Sales Line Unit Id.");
+                                                OutScan.SetRange("Activity Code", ScanActivities."Activity Code");
+                                                if OutScan.FindFirst() then begin
+                                                    // Delete both "In" and "Out" scans
+                                                    ScanActivities.Delete();
+                                                    OutScan.Delete();
+                                                    DeletedCount += 2;
+                                                end;
+                                            until ScanActivities.Next() = 0;
+                                        User := '';
+                                        UnitRef := '';
+                                        ActivityCode := '';
+                                        Activity_Remark := '';
+                                        ResetScanActivitiesToView;
+                                        Rec."User Name" := '';
+                                        Rec.Modify();
 
-
+                                    end;
+                                end;
                             end;
-                        end;
-                        // Batch API call
-                        if ActivitiesArray.Count > 0 then begin
-                            AuthToken := '';
-                            AuthToken := GenerateToken();
-                            RequestSucsessed := FillBatchRequest(AuthToken, ActivitiesArray);
-                            if RequestSucsessed then begin
-                                // i need here to fetch in scan activities to delete every out scan has an in scan to delete thme both for example if we have just in to skip it
-                                if not RequestSucsessed then
-                                    Error('API Error: Scanning not completed. Please check the API response.');
-                                DeletedCount := 0;
-                                // Loop through all "In" scan activities
-                                ScanActivities.SetRange("Activity Type", ScanActivities."Activity Type"::"In");
-                                if ScanActivities.FindSet() then
-                                    repeat
-                                        // Try to find a matching "Out" scan for the same Sales Line Unit and Activity Code
-                                        OutScan.Reset();
-                                        OutScan.SetRange("Activity Type", OutScan."Activity Type"::"Out");
-                                        OutScan.SetRange("Sales Line Unit Id.", ScanActivities."Sales Line Unit Id.");
-                                        OutScan.SetRange("Activity Code", ScanActivities."Activity Code");
-                                        if OutScan.FindFirst() then begin
-                                            // Delete both "In" and "Out" scans
-                                            ScanActivities.Delete();
-                                            OutScan.Delete();
-                                            DeletedCount += 2;
-                                        end;
-                                    until ScanActivities.Next() = 0;
-                                User := '';
-                                UnitRef := '';
-                                ActivityCode := '';
-                                Activity_Remark := '';
-                                ResetScanActivitiesToView;
-                                Rec."User Name" := '';
-                                Rec.Modify();
 
-                            end;
                         end;
                     end;
-
-
 
                 }
             }
@@ -1279,7 +1306,7 @@ page 50357 "Scan Unit Ref"
         //if the activity code needed to be scanned is contained in scan in i need to exit this function
         SalesRecSetup.get;
         Clear(ScanActivities);
-        ScanActivities.SetFilter("Sales Line Unit Id.", SalesUnit."Sales Line Unit");
+        ScanActivities.SetFilter("Sales Line Unit Id.", SalesUnit."Serial No.");
         ScanActivities.SetFilter("Sales Line Id", SalesLine."Sales Line Reference");
         ScanActivities.SetRange("Activity Type", ScanActivities."Activity Type"::"In");
         ScanActivities.setrange("Activity Code", ActivityCode); // <-- Add this line to filter by Activity Code
@@ -1314,7 +1341,7 @@ page 50357 "Scan Unit Ref"
     begin
         Clear(ScanActivities);
         ScanActivities.Init();
-        ScanActivities."Sales Line Unit Id." := SalesUnit."Sales Line Unit";
+        ScanActivities."Sales Line Unit Id." := SalesUnit."Serial No.";
         ScanActivities."Sales Line Id" := SalesLine."Sales Line Reference Text";
         ScanActivities."Activity Type" := ActivityType;
         ScanActivities."Assembly No." := AssemblyHeader."No.";
@@ -1351,7 +1378,7 @@ page 50357 "Scan Unit Ref"
 
         clear(ActivitiesArray);
         // Gather all scan activities related to this SalesUnit and SalesLine
-        ScanActivities.SetFilter("Sales Line Unit Id.", SalesUnit."Sales Line Unit");
+        ScanActivities.SetFilter("Sales Line Unit Id.", SalesUnit."Serial No.");
         ScanActivities.SetFilter("Sales Line Id", SalesLine."Sales Line Reference Text");
 
         if ScanActivities.FindSet() then
@@ -1435,7 +1462,7 @@ page 50357 "Scan Unit Ref"
                 Error('Already Scanned!');
 
             if not DesignActivitiesToScan."Allow Non-Sequential Scanning" then begin
-                
+
                 if (DesignActivitiesToScan."Sequence No." > 1) then begin
                     // Check all previous activities (not just mandatory)
                     Clear(DesignActivitiesRecs);
@@ -1531,6 +1558,56 @@ page 50357 "Scan Unit Ref"
 
                 end;
 
+            end;
+        end;
+    end;
+
+    local procedure CheckIfitsAssembleToStock()
+    var
+        ScanDesignStagesER: Record "Scan Design Stages- ER";
+        Mo: Record "ER - Manufacturing Order";
+        AssemblyHeader: Record "Assembly Header";
+        ReservationEntry: Record "Reservation Entry";
+        SalesHeader: Record "Sales Header";
+    begin
+        Clear(ScanDesignStagesER);
+        ScanDesignStagesER.Get(ActivityCode);
+        if ScanDesignStagesER."Sales Related Stage" then begin
+            // i need to check if its MO or assembly or sales ref or assm ref or serial 
+            clear(Mo);
+            if MO.Get(UnitRef) then begin
+                Clear(AssemblyHeader);
+                AssemblyHeader.SetFilter("ER - Manufacturing Order No.", MO."No.");
+                if AssemblyHeader.FindFirst() then begin
+                    repeat
+                        if AssemblyHeader."Source No." = '' then
+                            Error('Cannot scan for this Manufacturing Order because it contains at least one assembly that is not Assemble to Order.');
+                    until AssemblyHeader.Next() = 0;
+                end;
+            end else begin
+                AssemblyHeader.SetFilter("No.", UnitRef);
+                if AssemblyHeader.FindFirst() then begin
+                    if AssemblyHeader."Source No." = '' then
+                        Error('Cannot scan this Assembly Order because it is not Assemble to Order.');
+
+                end else begin
+                    Clear(ReservationEntry);
+                    ReservationEntry.SetFilter("Serial No.", UnitRef);
+                    if ReservationEntry.FindFirst() then begin
+                        SalesHeader.SetFilter("No.", ReservationEntry."Source ID");
+                        if not SalesHeader.FindFirst() then begin
+                            Error('Cannot scan this Assembly Order because it is not Assemble to Order.');
+                        end;
+
+                    end else begin
+                        Clear(AssemblyHeader);
+                        AssemblyHeader.SetFilter("Assembly Line Reference Text", UnitRef);
+                        if AssemblyHeader.FindFirst() then begin
+                            if AssemblyHeader."Source No." = '' then
+                                Error('Cannot scan this Assembly Order because it is not Assemble to Order.');
+                        end;
+                    end;
+                end;
             end;
         end;
     end;

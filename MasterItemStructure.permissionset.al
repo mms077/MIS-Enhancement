@@ -430,7 +430,7 @@ permissionset 50200 MasterItemStructure
         page Dresses = X,
         page "Existing Scans" = X,
         page "Location Selection Dialog" = X,
-        page "Sales Line Unit Ref. List" = X,
+        page "Line Unit Ref. List" = X,
         page "Scan Activities List" = X,
         page "Scan Design Stages- ER List" = X,
         page "Scan Unit Ref" = X,

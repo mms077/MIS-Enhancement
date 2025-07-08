@@ -346,7 +346,7 @@ codeunit 50202 EventSubscribers
                     repeat
                         // Insert one unit reference record per reservation entry (serial number)
                         SalesLineUnitRef.Init();
-                        SalesLineUnitRef."Sales Line Unit" := GraphGeneralTools.GetIdWithoutBrackets(CreateGuid());
+                        // SalesLineUnitRef."Sales Line Unit" := GraphGeneralTools.GetIdWithoutBrackets(CreateGuid());
                         SalesLineUnitRef."Sales Line Ref." := SalesLineOrder."Sales Line Reference";
                         SalesLineUnitRef."Document No." := SalesLineOrder."Document No.";
                         SalesLineUnitRef."Line No." := SalesLineOrder."Line No.";
@@ -1364,6 +1364,9 @@ codeunit 50202 EventSubscribers
         ProccessAssembleToStock: Codeunit "Process Assemble to Stock";
     begin
         ProccessAssembleToStock.ProcessAssembleToStock(AssemblyHeader);
+        //Check if its assemble to stock or not
+        if AssemblyHeader."Assembly Line Reference" = '' then
+            CheckIfAssembleToStockAndCreateUnitRef(AssemblyHeader);
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::ReportManagement, 'OnAfterSubstituteReport', '', false, false)]
@@ -1373,4 +1376,48 @@ codeunit 50202 EventSubscribers
             NewReportId := Report::"New Close Income Statement";
     end;
 
+    local procedure CheckIfAssembleToStockAndCreateUnitRef(AssemblyHeader: record "Assembly Header")
+    var
+        CUManagement: Codeunit Management;
+        SplitLineCU: Codeunit "Split Line";
+        SalesLineUnitRef: Record "Sales Line Unit Ref.";
+        Counter: Integer;
+        GraphGeneralTools: Codeunit "Graph Mgt - General Tools";
+        ReservationEntry: Record "Reservation Entry";
+    begin
+        if AssemblyHeader."Source No." = '' then begin
+            if CUManagement.IsCompanyFullProduction then begin
+                //create GUID 
+                AssemblyHeader."Assembly Line Reference" := GraphGeneralTools.GetIdWithoutBrackets(CreateGuid());
+                AssemblyHeader."Assembly Line Reference Text" := GraphGeneralTools.GetIdWithoutBrackets(AssemblyHeader."Assembly Line Reference");
+                AssemblyHeader.Modify();
+
+                // Filter reservation entries for this sales line
+                ReservationEntry.Reset();
+                ReservationEntry.SetFilter("Source ID", AssemblyHeader."No.");
+                ReservationEntry.SetRange("Source Type", 900);
+                if ReservationEntry.FindSet() then begin
+                    Counter := 1;
+                    repeat
+                        // Insert one unit reference record per reservation entry (serial number)
+                        SalesLineUnitRef.Init();
+                        // SalesLineUnitRef."Sales Line Unit" := GraphGeneralTools.GetIdWithoutBrackets(CreateGuid());
+                        SalesLineUnitRef."Sales Line Ref." := AssemblyHeader."Assembly Line Reference";
+                        SalesLineUnitRef."Document No." := AssemblyHeader."No.";
+                        //SalesLineUnitRef."Line No." := SalesLineOrder."Line No.";
+                        SalesLineUnitRef."Serial No." := ReservationEntry."Serial No.";
+                        // Set other fields as needed
+                        SalesLineUnitRef."Item No." := AssemblyHeader."Item No.";
+                        SalesLineUnitRef."Variant Code" := AssemblyHeader."Variant Code";
+                        SalesLineUnitRef.Description := AssemblyHeader.Description;
+                        SalesLineUnitRef.Quantity := 1;
+                        SalesLineUnitRef."Unit of Measure Code" := AssemblyHeader."Unit of Measure Code";
+                        // Add any other fields you want to copy from the sales line
+                        SalesLineUnitRef.Insert();
+                        Counter += 1;
+                    until (Counter > AssemblyHeader.Quantity) or (ReservationEntry.Next() = 0);
+                end;
+            end;
+        end;
+    end;
 }

@@ -115,7 +115,7 @@ pageextension 50202 "Sales Order Subform" extends "Sales Order Subform"
                 begin
                     TargetRec.SetFilter("Sales Line Ref.", Rec."Sales Line Reference");
                     if TargetRec.FindSet() then
-                        PAGE.Run(PAGE::"Sales Line Unit Ref. List", TargetRec);
+                        PAGE.Run(PAGE::"Line Unit Ref. List", TargetRec);
                 end;
             }
             field("Packaging Qty"; Rec."Packaging Qty") { ApplicationArea = all; Editable = false; }
@@ -368,7 +368,7 @@ pageextension 50202 "Sales Order Subform" extends "Sales Order Subform"
                 Caption = 'Unit Sales Line Ref.';
                 Image = TaskQualityMeasure;
                 RunPageLink = "Sales Line Ref." = field("Sales Line Reference");
-                RunObject = Page "Sales Line Unit Ref. List";
+                RunObject = Page "Line Unit Ref. List";
             }
             // action("DashboardUnit")
             // {

@@ -228,13 +228,13 @@ pageextension 50217 "Sales Order List" extends "Sales Order List"
         User: Record User;
         User2: Record User;
     begin
-        Clear(ICCustomerName);
-        if (Rec."IC Source No." <> '') and (Rec."IC Company Name" <> '') then begin
-            if Rec."IC Company Name" <> CompanyName then
-                Customer.ChangeCompany(Rec."IC Company Name");
-            if Customer.Get(Rec."IC Source No.") then
-                ICCustomerName := Customer.Name;
-        end;
+        // Clear(ICCustomerName);
+        // if (Rec."IC Source No." <> '') and (Rec."IC Company Name" <> '') then begin
+        //     if Rec."IC Company Name" <> CompanyName then
+        //         Customer.ChangeCompany(Rec."IC Company Name");
+        //     if Customer.Get(Rec."IC Source No.") then
+        //         ICCustomerName := Customer.Name;
+        //  end;
 
         //Get User Created By and Modified By
         Clear(User);

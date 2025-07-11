@@ -1364,10 +1364,19 @@ codeunit 50202 EventSubscribers
         ProccessAssembleToStock: Codeunit "Process Assemble to Stock";
     begin
         ProccessAssembleToStock.ProcessAssembleToStock(AssemblyHeader);
+
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Release Assembly Document", 'OnAfterReleaseAssemblyDoc', '', false, false)]
+    local procedure OnAfterReleaseAssemblyDoc(var AssemblyHeader: Record "Assembly Header")
+    var
+        ProccessAssembleToStock: Codeunit "Process Assemble to Stock";
+    begin
         //Check if its assemble to stock or not
-        if AssemblyHeader."Assembly Line Reference" = '' then
+        if AssemblyHeader."Assembly Line Reference Text" = '' then
             CheckIfAssembleToStockAndCreateUnitRef(AssemblyHeader);
     end;
+
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::ReportManagement, 'OnAfterSubstituteReport', '', false, false)]
     local procedure OnSubstituteReport(ReportId: Integer; var NewReportId: Integer)
@@ -1388,7 +1397,7 @@ codeunit 50202 EventSubscribers
         if AssemblyHeader."Source No." = '' then begin
             if CUManagement.IsCompanyFullProduction then begin
                 //create GUID 
-                AssemblyHeader."Assembly Line Reference" := GraphGeneralTools.GetIdWithoutBrackets(CreateGuid());
+                AssemblyHeader."Assembly Line Reference" := CreateGuid();
                 AssemblyHeader."Assembly Line Reference Text" := GraphGeneralTools.GetIdWithoutBrackets(AssemblyHeader."Assembly Line Reference");
                 AssemblyHeader.Modify();
 

@@ -185,7 +185,7 @@ pageextension 50207 "Assembly Order" extends "Assembly Order"
                 ApplicationArea = all;
                 Caption = 'Unit Sales Line Ref.';
                 Image = TaskQualityMeasure;
-                RunPageLink = "Sales Line Ref." = field("Assembly Line Reference");
+                RunPageLink = "Sales Line Ref." = field("Assembly Reference");
                 RunObject = Page "Line Unit Ref. List";
                 Promoted = true;
                 PromotedCategory = Process;

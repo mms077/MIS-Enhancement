@@ -129,12 +129,12 @@ tableextension 50205 "Assembly Header" extends "Assembly Header"
             CalcFormula = lookup("Item Variant"."Item Brandings Set ID" where(Code = field("Variant Code"), "Item No." = field("Item No.")));
             TableRelation = "Item Brandings Set"."Item Branding Set ID";
         }
-          field(50219; "Assembly Line Reference"; Guid)
+          field(50219; "Assembly Reference"; Guid)
         {
             DataClassification = ToBeClassified;
             // i need to make this as a link to open a page
         }
-        field(50220; "Assembly Line Reference Text"; Text[250])
+        field(50220; "Assembly Reference Text"; Text[250])
         {
             DataClassification = ToBeClassified;
             Caption = 'Assembly Line Reference';

@@ -16,7 +16,7 @@ page 50356 "Scan Activities List"
             repeater(General)
             {
 
-                field("Sales Line Unit Ref."; Rec."Sales Line Unit Id.") { ApplicationArea = all; }
+                field("Serial No."; Rec."Serial No.") { ApplicationArea = all; }
                 field("Sales Line  Ref."; Rec."Sales Line Id") { ApplicationArea = all; }
                 field("Assembly No."; Rec."Assembly No.") { ApplicationArea = all; }
                 field("ER - Manufacturing Order No."; rec."ER - Manufacturing Order No.") { ApplicationArea = all; }

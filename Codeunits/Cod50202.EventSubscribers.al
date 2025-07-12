@@ -873,15 +873,15 @@ codeunit 50202 EventSubscribers
 
         //based on the parameter header the assembly is assemble to order or not
         //if (AssemblyHeader."Parameters Header ID" = 0) and
-        // if (not (AssemblyHeader."Document Type" = AssemblyHeader."Document Type"::Quote)) then begin
-        //     //Mandatory fields before creating assembly order lines
-        //     AssemblyHeader.TestField("Location Code");
-        //     //If parameter header id is not 0 this means that this assembly is linked to sales line so no need in this case to check qty
-        //     if AssemblyHeader."Parameters Header ID" = 0 then
-        //         AssemblyHeader.TestField(Quantity);
-        //     CreateAssemblyOrderNeededRawMaterial(AssemblyHeader);
-        //     IsHandled := true;
-        // end;
+        //if (not (AssemblyHeader."Document Type" = AssemblyHeader."Document Type"::Quote)) then begin
+            //Mandatory fields before creating assembly order lines
+            AssemblyHeader.TestField("Location Code");
+            //If parameter header id is not 0 this means that this assembly is linked to sales line so no need in this case to check qty
+            if AssemblyHeader."Parameters Header ID" = 0 then
+                AssemblyHeader.TestField(Quantity);
+            CreateAssemblyOrderNeededRawMaterial(AssemblyHeader);
+            IsHandled := true;
+       // end;
     end;
 
     procedure CreateAssemblyOrderNeededRawMaterial(var AssemblyHeaderPar: Record "Assembly Header")
@@ -1373,7 +1373,7 @@ codeunit 50202 EventSubscribers
         ProccessAssembleToStock: Codeunit "Process Assemble to Stock";
     begin
         //Check if its assemble to stock or not
-        if AssemblyHeader."Assembly Line Reference Text" = '' then
+        if AssemblyHeader."Assembly Reference Text" = '' then
             CheckIfAssembleToStockAndCreateUnitRef(AssemblyHeader);
     end;
 
@@ -1397,8 +1397,8 @@ codeunit 50202 EventSubscribers
         if AssemblyHeader."Source No." = '' then begin
             if CUManagement.IsCompanyFullProduction then begin
                 //create GUID 
-                AssemblyHeader."Assembly Line Reference" := CreateGuid();
-                AssemblyHeader."Assembly Line Reference Text" := GraphGeneralTools.GetIdWithoutBrackets(AssemblyHeader."Assembly Line Reference");
+                AssemblyHeader."Assembly Reference" := CreateGuid();
+                AssemblyHeader."Assembly Reference Text" := GraphGeneralTools.GetIdWithoutBrackets(AssemblyHeader."Assembly Reference");
                 AssemblyHeader.Modify();
 
                 // Filter reservation entries for this sales line
@@ -1411,7 +1411,7 @@ codeunit 50202 EventSubscribers
                         // Insert one unit reference record per reservation entry (serial number)
                         SalesLineUnitRef.Init();
                         // SalesLineUnitRef."Sales Line Unit" := GraphGeneralTools.GetIdWithoutBrackets(CreateGuid());
-                        SalesLineUnitRef."Sales Line Ref." := AssemblyHeader."Assembly Line Reference";
+                        SalesLineUnitRef."Sales Line Ref." := AssemblyHeader."Assembly Reference";
                         SalesLineUnitRef."Document No." := AssemblyHeader."No.";
                         //SalesLineUnitRef."Line No." := SalesLineOrder."Line No.";
                         SalesLineUnitRef."Serial No." := ReservationEntry."Serial No.";

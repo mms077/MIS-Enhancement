@@ -1496,7 +1496,7 @@
 //         TotalAmountVAT: Decimal;
 //         TotalInvDiscAmount: Decimal;
 //         TotalPaymentDiscOnVAT: Decimal;
-//         [InDataSet]
+//         
 //         LogInteractionEnable: Boolean;
 //         DisplayAssemblyInformation: Boolean;
 //         CompanyInfoPhoneNoCaptionLbl: Label 'Phone No.';

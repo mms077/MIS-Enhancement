@@ -197,12 +197,14 @@ codeunit 50211 "Sharepoint Management"
         SharepointSetup: Record "Sharepoint Connector Setup";
         SharePointAuth: Codeunit "SharePoint Auth.";
         Scopes: List of [Text];
+        SharepointSecret: SecretText;
     begin
         SharepointSetup.Get(); //Get Sharepoint Setup data. Optionally, this can be made into a global variable as well.
 
         Scopes.Add('00000003-0000-0ff1-ce00-000000000000/.default'); //Using a default scope provided as an example
         //We return an authorization code that will be used to initialize the Sharepoint Client
-        exit(SharePointAuth.CreateAuthorizationCode(AadTenantId, SharepointSetup."Client ID", SharepointSetup."Client Secret", Scopes));
+        SharepointSecret := SharepointSetup."Client Secret";
+        exit(SharePointAuth.CreateAuthorizationCode(AadTenantId, SharepointSetup."Client ID", SharepointSecret, Scopes));
     end;
 
     local procedure GetAadTenantNameFromBaseUrl(BaseUrl: Text): Text

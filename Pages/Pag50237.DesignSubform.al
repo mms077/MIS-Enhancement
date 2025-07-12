@@ -154,7 +154,7 @@ page 50237 "Design Subform"
                      EditInExcel.EditPageInExcel(CurrPage.ObjectId(true), CurrPage.ObjectId(false), ODataFilter);*/
 
                     //correct the edit in excel to remove the warning
-                    EditinExcelFilters.AddField('Design_Code', Enum::"Edit in Excel Filter Type"::Equal, Rec."Design Code", Enum::"Edit in Excel Edm Type"::"Edm.String");
+                    EditinExcelFilters.AddFieldv2('Design_Code', Enum::"Edit in Excel Filter Type"::Equal, Rec."Design Code", Enum::"Edit in Excel Edm Type"::"Edm.String");
                     EditinExcel.EditPageInExcel(
                         'Design_Details',
                         page::"Design Subform",

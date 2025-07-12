@@ -82,12 +82,12 @@ page 50338 "Look Picture"
                     FileFilter: Text;
                     DialogCaption: Label 'Select a picture to upload';
                 begin
-                      Rec.TestField(Code);
-                      if UploadIntoStream(DialogCaption, '', FileFilter, FileName, PictureStream) then begin
-                          Clear(Rec."Front Picture");
-                          Rec."Front Picture".ImportStream(PictureStream, FileName);
-                          Rec.Modify(TRUE);
-                      end;
+                    Rec.TestField(Code);
+                    if UploadIntoStream(DialogCaption, '', FileFilter, FileName, PictureStream) then begin
+                        Clear(Rec."Front Picture");
+                        Rec."Front Picture".ImportStream(PictureStream, FileName);
+                        Rec.Modify(TRUE);
+                    end;
                 end;
             }
 
@@ -144,42 +144,42 @@ page 50338 "Look Picture"
 
     var
         Camera: Codeunit Camera;
-        [InDataSet]
+
         CameraAvailable: Boolean;
         OverrideImageQst: Label 'The existing picture will be replaced. Do you want to continue?';
         DeleteImageQst: Label 'Are you sure you want to delete the picture?';
         SelectPictureTxt: Label 'Select a picture to upload';
         DeleteExportEnabled: Boolean;
-        HideActions: Boolean;
+                HideActions: Boolean;
         MustSpecifyDescriptionErr: Label 'You must add a description to the item before you can import a picture.';
         MimeTypeTok: Label 'image/jpeg', Locked = true;
 
-    /* procedure TakeNewPicture()
-     begin
-         Rec.Find();
-         Rec.TestField(Code);
-         // Rec.TestField(Name);
+    /* procedubegin
+Rec.Find();
+Rec.TestField(Code);
+// Rec.TestField(Name);
 
-         OnAfterTakeNewPicture(Rec, DoTakeNewPicture());
-     end;*/
+OnAfterTakeNewPicture(Rec, DoTakeNewPicture());
+end;*/
 
     /*local procedure DoTakeNewPicture(): Boolean
-    var
-        PictureInstream: InStream;
-        PictureDescription: Text;
-    begin
-        if Rec.Picture.Count() > 0 then
-            if not Confirm(OverrideImageQst) then
-                exit(false);
+var
+PictureInstream: InStream;
+PictureDescription: Text;
+begin
+if Rec.Picture.Count() > 0 then
+if not Confirm(OverrideImageQst) then
+exit(false);
 
-        if Camera.GetPicture(PictureInstream, PictureDescription) then begin
-            Clear(Rec.Picture);
-            Rec.Picture.ImportStream(PictureInstream, PictureDescription, MimeTypeTok);
-            Rec.Modify(true);
-            exit(true);
-        end;
+if Camera.GetPicture(PictureInstream, PictureDescription) then begin
+Clear(Rec.Picture);
+Rec.Picture.ImportStream(PictureInstream, PictureDescription, MimeTypeTok);
+Rec.Modify(true);
+exit(true);
+end;
 
-        exit(false);
+exit(false);
+e  exit(false);
     end;*/
 
 
@@ -206,32 +206,32 @@ page 50338 "Look Picture"
         OnAfterDeleteDesignPicture(Rec);
     end;
 
-    /*local procedure ExporItemPicture()
-    var
-        index: Integer;
-        Media: Record "Tenant Media";
-        InStream: InStream;
-        Base64: Codeunit "Base64 Convert";
-        output: Text[250];
-        Mime: Text[250];
-        FileName: Text[250];
-    begin
-        if Rec.Picture.count = 0 then begin
-            output := 'No Content';
-            Mime := '';
-            FileName := '';
-        end else
-            for index := 1 to Rec.Picture.COUNT do begin
-                if Media.Get(Rec.Picture.Item(index)) then begin
-                    Media.CalcFields(Content);
-                    if Media.Content.HasValue() then begin
-                        Media.Content.createInStream(InStream, TextEncoding::WINDOWS);
-                        output := Base64.ToBase64(InStream);
-                        Mime := Media."Mime Type";
-                        FileName := Rec."Code" + '' + Rec.Description + GetImgFileExt(Mime);
-                    end;
-                end;
-            end;
+    /*local procedurevar
+index: Integer;
+Media: Record "Tenant Media";
+InStream: InStream;
+Base64: Codeunit "Base64 Convert";
+output: Text[250];
+Mime: Text[250];
+FileName: Text[250];
+begin
+if Rec.Picture.count = 0 then begin
+output := 'No Content';
+Mime := '';
+FileName := '';
+end else
+for index := 1 to Rec.Picture.COUNT do begin
+    if Media.Get(Rec.Picture.Item(index)) then begin
+        Media.CalcFields(Content);
+        if Media.Content.HasValue() then begin
+            Media.Content.createInStream(InStream, TextEncoding::WINDOWS);
+            output := Base64.ToBase64(InStream);
+            Mime := Media."Mime Type";
+            FileName := Rec."Code" + '' + Rec.Description + GetImgFileExt(Mime);
+        end;
+    end;
+end;
+e          end;
     end;*/
 
     procedure GetImgFileExt(var "Mime Type": Text[250]): Text
@@ -299,78 +299,78 @@ page 50338 "Look Picture"
 
 
 
-        /*RecordRef.Open(50290);
-        FieldRef := RecordRef.Field(1);
-        FieldRef.Value := rec.Code;
-        if RecordRef.Find('=') then begin
-            DocAttachement.setrange("Record ID", RecordRef.RecordId);
-            DocAttachement.SetFilter(Description, 'Front');
-            if DocAttachement.FindFirst() then begin
-                Front := DocAttachement.URL1;
-                //Message(Front);
-            end;
-        end;
-       */
+        /*RecFieldRef := RecordRef.Field(1);
+FieldRef.Value := rec.Code;
+if RecordRef.Find('=') then begin
+DocAttachement.setrange("Record ID", RecordRef.RecordId);
+DocAttachement.SetFilter(Description, 'Front');
+if DocAttachement.FindFirst() then begin
+Front := DocAttachement.URL1;
+//Message(Front);
+end;
+end;
+*/
 
         //HttpClient.Get(Front, Response);
 
 
         // Check if the request was successful (status code 200)
         /*if Response.HttpStatusCode = 200 then begin
-            // Open a stream to save the downloaded image
-            //ImageStream.CREATEOUTSTREAM(ImageStream);
+// Open a stream to save the downloaded image
+//ImageStream.CREATEOUTSTREAM(ImageStream);
 
-            // Read the response stream and save it to the image stream
-            Response.Content.ReadAs(ImageStream);
+// Read the response stream and save it to the image stream
+Response.Content.ReadAs(ImageStream);
 
-            // Close the response
-
-
-            // Save the image to a file
-            ImageStream.Position := 0;
-            //CopyStream(ImageStream, 'C:\Path\To\Local\Image.jpg');
-
-            TempBlob.CreateOutStream(OutS);
-            OutS.Write(ImageStream);
-            TempBlob.CreateInStream(ImageStream);
-            DownloadFromStream(ImageStream, '', '', '', FileName);
+// Close the response
 
 
+// Save the image to a file
+ImageStream.Position := 0;
+//CopyStream(ImageStream, 'C:\Path\To\Local\Image.jpg');
 
-            Message('Image downloaded successfully.');
-        end
-        else begin
-            Message('Failed to download image. Status code: %1', Response.HttpStatusCode);
-        end;
+TempBlob.CreateOutStream(OutS);
+OutS.Write(ImageStream);
+TempBlob.CreateInStream(ImageStream);
+DownloadFromStream(ImageStream, '', '', '', FileName);
+
+
+
+Message('Image downloaded successfully.');
+end
+else begin
+Message('Failed to download image. Status code: %1', Response.HttpStatusCode);
+end;
 */
 
 
 
 
         /*OutS := TempBlob.CreateOutStream();
-        OutS.Write('Testing file contents');
-        InStr := TempBlob.CreateInStream();
+   OutS.Write('Testing file contents');
+   InStr := TempBlob.CreateInStream();
 
-        if SaveFile('sites/Designs2/Shared%20Documents/Looks/LOK000035/VER0001/front.png', 'New File.txt', InStr) then
-            Message('File created successfully!');
-
-
-
-        //Clear(Response);
-        Clear(Client);
-        Clear(Rec.Picture);
-        Look.Get(Rec.Code);
-        //Client.Get(Front, Response);
-        Response.Content.ReadAs(InStr);
-        rec.Picture.ImportStream(InStr, 'Demo picture for item ' + Format(Rec.Code));
-        rec.Modify(true);
+   if SaveFile('sites/Designs2/Shared%20Documents/Looks/LOK000035/VER0001/front.png', 'New File.txt', InStr) then
+       Message('File created successfully!');
 
 
-        /*  Rec.TestField(Code);
-          if UploadIntoStream(DialogCaption, '', FileFilter, FileName, PictureStream) then begin
-              Clear(Rec.Picture);
-              Rec.Picture.ImportStream(PictureStream, FileName);
-              Rec.Modify(TRUE);
+
+   //Clear(Response);
+   Clear(Client);
+   Clear(Rec.Picture);
+   Look.Get(Rec.Code);
+   //Client.Get(Front, Response);
+   Response.Content.ReadAs(InStr);
+   rec.Picture.ImportStream(InStr, 'Demo picture for item ' + Format(Rec.Code));
+   rec.Modify(true);
+
+
+   /*  Rec.TestField(Code);
+     if UploadIntoStream(DialogCaption, '', FileFilter, FileName, PictureStream) then begin
+         Clear(Rec.Picture);
+         Rec.Picture.ImportStream(PictureStream, FileName);
+         Rec.Modify(TRUE);
+ Modify(TRUE);
           end;*/
         //ParentFolderURL := SharePointManagement.GetDocumentsRootFiles(SharepointFolder, SharepointFile);
 

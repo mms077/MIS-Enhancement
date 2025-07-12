@@ -133,7 +133,7 @@ page 50247 "Item Design Section Colors"
                  "Item No." = field("Item No."),
                 "Color ID" = field("Color ID");
             }
-            part("Attached Documents"; "Document Attachment Factbox")
+            part("Attached Documents"; "Doc. Attachment List Factbox")
             {
                 ApplicationArea = All;
                 Caption = 'Attachments';

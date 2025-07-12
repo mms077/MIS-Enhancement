@@ -49,7 +49,7 @@ page 50220 "Item Colors"
                  "Item No." = field("Item No."),
                 "Color ID" = field("Color ID");
             }
-            part("Attached Documents"; "Document Attachment Factbox")
+            part("Attached Documents"; "Doc. Attachment List Factbox")
             {
                 ApplicationArea = All;
                 Caption = 'Attachments';

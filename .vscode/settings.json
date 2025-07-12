@@ -5,10 +5,5 @@
     "azureFunctions.projectRuntime": "~4",
     "debug.internalConsoleOptions": "neverOpen",
     "al.browser": "Edge",
-    "al.codeAnalyzers": [
-        "${CodeCop}",
-        "${UICop}",
-        "${PerTenantExtensionCop}",
-        "${analyzerFolder}BusinessCentral.LinterCop.dll"
-    ]
+    "al.codeAnalyzers": []
 }

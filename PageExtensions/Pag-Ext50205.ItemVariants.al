@@ -89,7 +89,7 @@ pageextension 50205 "Item Variants" extends "Item Variants"
                 Caption = 'Picture';
                 SubPageLink = "Code" = FIELD("Code"), "Item No." = field("Item No.");
             }
-            part("Attached Documents"; "Document Attachment Factbox")
+            part("Attached Documents"; "Doc. Attachment List Factbox")
             {
                 ApplicationArea = All;
                 Caption = 'Attachments';

@@ -156,7 +156,7 @@ page 50222 "Item Design Section RM"
                     /* ODataFilter := StrSubstNo(Filters, Rec."Item No.");
                      EditInExcel.EditPageInExcel(CurrPage.ObjectId(true), CurrPage.ObjectId(false), ODataFilter);*/
                     //correct the edit in excel to remove the warning
-                    EditinExcelFilters.AddField('Item_No', Enum::"Edit in Excel Filter Type"::Equal, Rec."Item No.", Enum::"Edit in Excel Edm Type"::"Edm.String");
+                    EditinExcelFilters.AddFieldv2('Item_No', Enum::"Edit in Excel Filter Type"::Equal, Rec."Item No.", Enum::"Edit in Excel Edm Type"::"Edm.String");
                     EditinExcel.EditPageInExcel(
                         'Item Design Section RM',
                         page::"Item Design Section RM",

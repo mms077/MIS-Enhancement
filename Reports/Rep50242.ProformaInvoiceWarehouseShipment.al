@@ -395,7 +395,7 @@ report 50242 "Pro Forma Inv-Whse Ship"
 
     var
         Customer: Record Customer;
-        DummyVATAmountLine: Record "VAT Amount Line";
+        DummyVATAmountLine: Record "VAT Amount Line" temporary;
         DummyShipmentMethod: Record "Shipment Method";
         DummyCurrency: Record Currency;
         AutoFormat: Codeunit "Auto Format";

@@ -23,9 +23,8 @@ tableextension 50203 "Sales Line" extends "Sales Line"
         field(50203; "Assembly No."; Code[20])
         {
             FieldClass = FlowField;
-            CalcFormula = lookup("Assemble-to-Order Link"."Assembly Document No."
-                          where("Document No." = field("Document No."),
-                          "Document Line No." = field("Line No.")));
+            CalcFormula = lookup("Assembly Header"."No." where("Source No." = field("Document No."),
+                                                                "Source Line No." = field("Line No.")));
             Editable = false;
         }
         field(50204; Cut; Code[50])

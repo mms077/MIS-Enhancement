@@ -144,7 +144,6 @@ page 50342 "Look Version Picture"
 
     var
         Camera: Codeunit Camera;
-        [InDataSet]
         CameraAvailable: Boolean;
         OverrideImageQst: Label 'The existing picture will be replaced. Do you want to continue?';
         DeleteImageQst: Label 'Are you sure you want to delete the picture?';
@@ -269,7 +268,7 @@ page 50342 "Look Version Picture"
 
 
 
-    
+
 
 
 
@@ -277,7 +276,7 @@ page 50342 "Look Version Picture"
     var
         myInt: Integer;
     begin
-         
+
     end;
 
 

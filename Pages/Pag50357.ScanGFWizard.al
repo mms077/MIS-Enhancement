@@ -366,45 +366,29 @@ page 50357 "Scan Unit Ref"
                                                         // Get the ScanDesignStages record for the current activity
                                                         ScanDesignStages.setfilter("Activity Code", DesignActivities."Activity Code");
                                                         if ScanDesignStages.FindFirst() then begin
-
-                                                            // Initialize as ✅ first
-                                                            Status := '✅';
-                                                            FoundMissing := false; // Boolean flag to track if any SalesUnit is missing the index
-
-                                                            // Loop Sales Lines
-
+                                                            // Default to ❌
+                                                            Status := '❌';
                                                             // Loop Sales Units for the Sales Line
                                                             SalesUnit.SetFilter("Sales Line Ref.", SalesLine."Sales Line Reference");
                                                             if SalesUnit.FindFirst() then begin
                                                                 repeat
-                                                                    // Check if Scan Out contains the index
-                                                                    if STRPOS(SalesUnit."Scan Out", Format(ScanDesignStages."Activity Code")) = 0 then begin
-                                                                        // Found a missing index -> mark as ❌
-                                                                        Status := '❌';
-                                                                        FoundMissing := true;
-                                                                        break; // exit SalesUnit loop
+                                                                    // If any SalesUnit's Scan Out contains the activity code, mark as ✅ and break
+                                                                    if STRPOS(SalesUnit."Scan Out", Format(ScanDesignStages."Activity Code")) <> 0 then begin
+                                                                        Status := '✅';
+                                                                        break;
                                                                     end;
                                                                 until SalesUnit.Next() = 0;
-
-                                                                if FoundMissing then
-                                                                    break; // exit SalesLine loop
                                                             end else begin
                                                                 // No SalesUnit found for this SalesLine, set status to ❓
                                                                 Status := '❓';
-                                                                // Optionally, break here if you want to stop at the first missing SalesUnit
-                                                                break;
                                                             end;
-
                                                         end;
-
                                                         // After processing all, set the status
                                                         DesignActivities.Done := Status;
                                                         if DesignActivities.Done = '✅' then
                                                             DesignActivities.Scanned := true;
                                                         DesignActivities.Modify();
-
                                                     until DesignActivities.Next() = 0;
-
                                                 end;
                                             end;
                                         end;
@@ -1342,10 +1326,7 @@ page 50357 "Scan Unit Ref"
         SalesRecSetup.get;
         Clear(ScanActivities);
         ScanActivities.SetFilter("Serial No.", SalesUnit."Serial No.");
-        if AssemblyHeader."Source No." <> '' then
-            ScanActivities.SetFilter("Sales Line Id", SalesLine."Sales Line Reference")
-        else
-            ScanActivities.SetFilter("Sales Line Id", AssemblyHeader."Assembly Reference");
+        ScanActivities.SetFilter("Sales Line Id", SalesUnit."Sales Line Ref.");
         ScanActivities.SetRange("Activity Type", ScanActivities."Activity Type"::"In");
         ScanActivities.setrange("Activity Code", ActivityCode); // <-- Add this line to filter by Activity Code
 
@@ -1380,23 +1361,17 @@ page 50357 "Scan Unit Ref"
         Clear(ScanActivities);
         ScanActivities.Init();
         ScanActivities."Serial No." := SalesUnit."Serial No.";
-        if AssemblyHeader."Source No." <> '' then
-            ScanActivities."Sales Line Id" := SalesLine."Sales Line Reference"
-        else
-            ScanActivities."Sales Line Id" := AssemblyHeader."Assembly Reference";
+        ScanActivities."Sales Line Id" := SalesUnit."Sales Line Ref.";
         ScanActivities."Activity Type" := ActivityType;
         ScanActivities."Assembly No." := AssemblyHeader."No.";
         ScanActivities."ER - Manufacturing Order No." := MO."No.";
         ScanActivities."Item No." := SalesLine."No.";
-        if AssemblyHeader."Source No." <> '' then
-            ScanActivities."Design Code" := GetItemDesign(SalesLine."No.")
-        else
-            ScanActivities."Design Code" := GetItemDesign(AssemblyHeader."item No.");
+        ScanActivities."Design Code" := GetItemDesign(SalesUnit."item No.");
         ScanActivities."Variant Code" := AssemblyHeader."Variant Code";
-        if AssemblyHeader."Source No." <> '' then
-            ScanActivities."Source No." := SalesLine."Document No."
+        if SalesUnit."Document No." <> '' then
+            ScanActivities."Source No." := SalesUnit."Document No."
         else
-            ScanActivities."Source No." := AssemblyHeader."No.";
+            ScanActivities."Source No." := SalesUnit."Assembly No.";
         ScanActivities."Activity Code" := ActivityCode;
         ScanActivities."Activity Name" := GetActivitySelected;
         ScanActivities."Activity Remark" := '';

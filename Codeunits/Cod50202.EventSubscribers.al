@@ -302,70 +302,37 @@ codeunit 50202 EventSubscribers
         SalesLineUnitRef: Record "Sales Line Unit Ref.";
         Counter: Integer;
         GraphGeneralTools: Codeunit "Graph Mgt - General Tools";
-        //ReservationMgmt: Codeunit "Reservation Management";
-        ReservationEntry: Record "Reservation Entry";
     begin
-
+        // if CUManagement.IsCompanyFullProduction then begin
+        //     //create GUID 
+        //     //SalesOrderLine."Sales Line Reference" := CreateGuid();
+        //     SalesOrderLine."Sales Line Reference" := GraphGeneralTools.GetIdWithoutBrackets(CreateGuid());
+        //     // SalesOrderLine.Validate("Qty. to Assemble to Order", SalesOrderLine.Quantity);
+        //     // SalesOrderLine.Modify();
+        //     // Only create unit refs for item type lines with quantity > 0
+        //     if (SalesOrderLine.Type = SalesOrderLine.Type::Item) and (SalesOrderLine.Quantity > 0) then begin
+        //         // Create one unit reference record per quantity
+        //         for Counter := 1 to SalesOrderLine.Quantity do begin
+        //             SalesLineUnitRef.Init();
+        //             //create GUID
+        //             SalesLineUnitRef."Sales Line Unit" := GraphGeneralTools.GetIdWithoutBrackets(CreateGuid());
+        //             SalesLineUnitRef."Sales Line Ref." := SalesOrderLine."Sales Line Reference";
+        //             SalesLineUnitRef."Item No." := SalesOrderLine."No.";
+        //             SalesLineUnitRef."Variant Code" := SalesOrderLine."Variant Code";
+        //             SalesLineUnitRef.Description := SalesOrderLine.Description;
+        //             SalesLineUnitRef.Quantity := 1;
+        //             SalesLineUnitRef."Unit of Measure Code" := SalesOrderLine."Unit of Measure Code";
+        //             // Add any other fields you want to copy from the sales line
+        //             SalesLineUnitRef.Insert();
+        //         end;
+        //     end;
 
 
         if CUManagement.IsCompanyFullProduction then
             SplitLineCU.SplitLineFullProduction(SalesOrderLine, SalesOrderHeader, SalesQuoteHeader)
         else
             SplitLineCU.SplitLinePurchase(SalesOrderLine, SalesOrderHeader, SalesQuoteHeader);
-
-    end;
-
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", OnTransferQuoteToOrderLinesOnAfterSalesOrderLineReserve, '', false, false)]
-    local procedure OnTransferQuoteToOrderLinesOnAfterSalesOrderLineReserve(SalesLineQuote: Record "Sales Line"; var SalesLineOrder: Record "Sales Line")
-    var
-        CUManagement: Codeunit Management;
-        SplitLineCU: Codeunit "Split Line";
-        SalesLineUnitRef: Record "Sales Line Unit Ref.";
-        Counter: Integer;
-        GraphGeneralTools: Codeunit "Graph Mgt - General Tools";
-        //ReservationMgmt: Codeunit "Reservation Management";
-        ReservationEntry: Record "Reservation Entry";
-    begin
-        if CUManagement.IsCompanyFullProduction then begin
-            //create GUID 
-            //SalesOrderLine."Sales Line Reference" := CreateGuid();
-            SalesLineOrder."Sales Line Reference" := GraphGeneralTools.GetIdWithoutBrackets(CreateGuid());
-            SalesLineOrder."Sales Line Reference Text" := GraphGeneralTools.GetIdWithoutBrackets(SalesLineOrder."Sales Line Reference");
-            SalesLineOrder.Modify();
-            // SalesOrderLine.Validate("Qty. to Assemble to Order", SalesOrderLine.Quantity);
-            // SalesOrderLine.Modify();
-            // Only create unit refs for item type lines with quantity > 0
-            if (SalesLineOrder.Type = SalesLineOrder.Type::Item) and (SalesLineOrder.Quantity > 0) then begin
-                // Filter reservation entries for this sales line
-                ReservationEntry.Reset();
-                ReservationEntry.SetFilter("Source ID", SalesLineOrder."Document No.");
-                ReservationEntry.SetRange("Source Type", 37);
-                ReservationEntry.SetRange("Source Ref. No.", SalesLineOrder."Line No.");
-                if ReservationEntry.FindSet() then begin
-                    Counter := 1;
-                    repeat
-                        // Insert one unit reference record per reservation entry (serial number)
-                        SalesLineUnitRef.Init();
-                        // SalesLineUnitRef."Sales Line Unit" := GraphGeneralTools.GetIdWithoutBrackets(CreateGuid());
-                        SalesLineUnitRef."Sales Line Ref." := SalesLineOrder."Sales Line Reference";
-                        SalesLineUnitRef."Document No." := SalesLineOrder."Document No.";
-                        SalesLineUnitRef."Line No." := SalesLineOrder."Line No.";
-                        SalesLineUnitRef."Serial No." := ReservationEntry."Serial No.";
-                        // Set other fields as needed
-                        SalesLineUnitRef."Item No." := SalesLineOrder."No.";
-                        SalesLineUnitRef."Variant Code" := SalesLineOrder."Variant Code";
-                        SalesLineUnitRef.Description := SalesLineOrder.Description;
-                        SalesLineUnitRef.Quantity := 1;
-                        SalesLineUnitRef."Unit of Measure Code" := SalesLineOrder."Unit of Measure Code";
-                        // Add any other fields you want to copy from the sales line
-                        SalesLineUnitRef.Insert();
-                        Counter += 1;
-                    until (Counter > SalesLineOrder.Quantity) or (ReservationEntry.Next() = 0);
-                end;
-            end;
-
-
-        end;
+        // end;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", 'OnAfterInsertSalesOrderLine', '', false, false)]
@@ -873,15 +840,15 @@ codeunit 50202 EventSubscribers
 
         //based on the parameter header the assembly is assemble to order or not
         //if (AssemblyHeader."Parameters Header ID" = 0) and
-        //if (not (AssemblyHeader."Document Type" = AssemblyHeader."Document Type"::Quote)) then begin
-            //Mandatory fields before creating assembly order lines
-            AssemblyHeader.TestField("Location Code");
-            //If parameter header id is not 0 this means that this assembly is linked to sales line so no need in this case to check qty
-            if AssemblyHeader."Parameters Header ID" = 0 then
-                AssemblyHeader.TestField(Quantity);
-            CreateAssemblyOrderNeededRawMaterial(AssemblyHeader);
-            IsHandled := true;
-       // end;
+        // if (not (AssemblyHeader."Document Type" = AssemblyHeader."Document Type"::Quote)) then begin
+        //     //Mandatory fields before creating assembly order lines
+        //     AssemblyHeader.TestField("Location Code");
+        //     //If parameter header id is not 0 this means that this assembly is linked to sales line so no need in this case to check qty
+        //     if AssemblyHeader."Parameters Header ID" = 0 then
+        //         AssemblyHeader.TestField(Quantity);
+        //     CreateAssemblyOrderNeededRawMaterial(AssemblyHeader);
+        //     IsHandled := true;
+        // end;
     end;
 
     procedure CreateAssemblyOrderNeededRawMaterial(var AssemblyHeaderPar: Record "Assembly Header")
@@ -1363,8 +1330,66 @@ codeunit 50202 EventSubscribers
     var
         ProccessAssembleToStock: Codeunit "Process Assemble to Stock";
     begin
-        ProccessAssembleToStock.ProcessAssembleToStock(AssemblyHeader);
+        if AssemblyHeader."Source No." = '' then
+            ProccessAssembleToStock.ProcessAssembleToStock(AssemblyHeader);
+    end;
 
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::ReportManagement, 'OnAfterSubstituteReport', '', false, false)]
+    local procedure OnSubstituteReport(ReportId: Integer; var NewReportId: Integer)
+    begin
+        if ReportId = Report::"Close Income Statement" then
+            NewReportId := Report::"New Close Income Statement";
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", OnTransferQuoteToOrderLinesOnAfterSalesOrderLineReserve, '', false, false)]
+    local procedure OnTransferQuoteToOrderLinesOnAfterSalesOrderLineReserve(SalesLineQuote: Record "Sales Line"; var SalesLineOrder: Record "Sales Line")
+    var
+        CUManagement: Codeunit Management;
+        SplitLineCU: Codeunit "Split Line";
+        SalesLineUnitRef: Record "Sales Line Unit Ref.";
+        Counter: Integer;
+        GraphGeneralTools: Codeunit "Graph Mgt - General Tools";
+        //ReservationMgmt: Codeunit "Reservation Management";
+        ReservationEntry: Record "Reservation Entry";
+    begin
+        if CUManagement.IsCompanyFullProduction then begin
+            //create GUID 
+            //SalesOrderLine."Sales Line Reference" := CreateGuid();
+            SalesLineOrder."Sales Line Reference" := GraphGeneralTools.GetIdWithoutBrackets(CreateGuid());
+            SalesLineOrder."Sales Line Reference Text" := GraphGeneralTools.GetIdWithoutBrackets(SalesLineOrder."Sales Line Reference");
+            SalesLineOrder.Modify();
+            // SalesOrderLine.Validate("Qty. to Assemble to Order", SalesOrderLine.Quantity);
+            // SalesOrderLine.Modify();
+            // Only create unit refs for item type lines with quantity > 0
+            if (SalesLineOrder.Type = SalesLineOrder.Type::Item) and (SalesLineOrder.Quantity > 0) then begin
+                // Filter reservation entries for this sales line
+                ReservationEntry.Reset();
+                ReservationEntry.SetFilter("Source ID", SalesLineOrder."Document No.");
+                ReservationEntry.SetRange("Source Type", 37);
+                //ReservationEntry.SetRange("Source Ref. No.", SalesLineOrder."Line No.");
+                if ReservationEntry.FindSet() then begin
+                    Counter := 1;
+                    repeat
+                        // Insert one unit reference record per reservation entry (serial number)
+                        SalesLineUnitRef.Init();
+                        // SalesLineUnitRef."Sales Line Unit" := GraphGeneralTools.GetIdWithoutBrackets(CreateGuid());
+                        SalesLineUnitRef."Sales Line Ref." := SalesLineOrder."Sales Line Reference";
+                        SalesLineUnitRef."Document No." := SalesLineOrder."Document No.";
+                        SalesLineUnitRef."Line No." := SalesLineOrder."Line No.";
+                        SalesLineUnitRef."Serial No." := ReservationEntry."Serial No.";
+                        // Set other fields as needed
+                        SalesLineUnitRef."Item No." := SalesLineOrder."No.";
+                        SalesLineUnitRef."Variant Code" := SalesLineOrder."Variant Code";
+                        SalesLineUnitRef.Description := SalesLineOrder.Description;
+                        SalesLineUnitRef.Quantity := 1;
+                        SalesLineUnitRef."Unit of Measure Code" := SalesLineOrder."Unit of Measure Code";
+                        // Add any other fields you want to copy from the sales line
+                        SalesLineUnitRef.Insert();
+                        Counter += 1;
+                    until (Counter > SalesLineOrder.Quantity) or (ReservationEntry.Next() = 0);
+                end;
+            end;
+        end;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Release Assembly Document", 'OnAfterReleaseAssemblyDoc', '', false, false)]
@@ -1375,14 +1400,6 @@ codeunit 50202 EventSubscribers
         //Check if its assemble to stock or not
         if AssemblyHeader."Assembly Reference Text" = '' then
             CheckIfAssembleToStockAndCreateUnitRef(AssemblyHeader);
-    end;
-
-
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::ReportManagement, 'OnAfterSubstituteReport', '', false, false)]
-    local procedure OnSubstituteReport(ReportId: Integer; var NewReportId: Integer)
-    begin
-        if ReportId = Report::"Close Income Statement" then
-            NewReportId := Report::"New Close Income Statement";
     end;
 
     local procedure CheckIfAssembleToStockAndCreateUnitRef(AssemblyHeader: record "Assembly Header")

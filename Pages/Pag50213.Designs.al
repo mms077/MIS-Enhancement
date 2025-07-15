@@ -100,7 +100,7 @@ page 50213 Designs
                 Caption = 'Picture';
                 SubPageLink = "Code" = FIELD("Code");
             }
-            part("Attached Documents"; "Document Attachment Factbox")
+            part("Attached Documents"; "Doc. Attachment List Factbox")
             {
                 ApplicationArea = All;
                 Caption = 'Attachments';
@@ -186,6 +186,21 @@ page 50213 Designs
                 trigger OnAction()
                 begin
                     UpdateHasPicture();
+                end;
+            }
+            action("Add Design activities")
+            {
+                ApplicationArea = All;
+                Image = Add;
+                Promoted = true;
+                PromotedIsBig = true;
+                PromotedCategory = Process;
+                PromotedOnly = true;
+                RunObject = page "Design Activities";
+                RunPageLink = "Design Code" = field(Code);
+                trigger OnAction()
+                begin
+
                 end;
             }
         }

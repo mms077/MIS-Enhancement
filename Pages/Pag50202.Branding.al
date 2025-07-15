@@ -78,7 +78,7 @@ page 50202 "Branding"
                 Caption = 'Picture';
                 SubPageLink = "Code" = FIELD("Code"), "Customer No." = field("Customer No.");
             }
-            part("Attached Documents"; "Document Attachment Factbox")
+            part("Attached Documents"; "Doc. Attachment List Factbox")
             {
                 ApplicationArea = All;
                 Caption = 'Attachments';

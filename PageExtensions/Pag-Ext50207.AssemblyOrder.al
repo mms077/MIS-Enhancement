@@ -180,6 +180,18 @@ pageextension 50207 "Assembly Order" extends "Assembly Order"
                     ScanCuttingSheet.RunModal();
                 end;
             }
+            action("Unit Sales Line Ref.")
+            {
+                ApplicationArea = all;
+                Caption = 'Unit Sales Line Ref.';
+                Image = TaskQualityMeasure;
+                RunPageLink = "Sales Line Ref." = field("Assembly Reference");
+                RunObject = Page "Line Unit Ref. List";
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+            }
         }
     }
     trigger OnOpenPage()
@@ -241,7 +253,6 @@ pageextension 50207 "Assembly Order" extends "Assembly Order"
     end;
 
     var
-        [InDataSet]
         ApproveVisible, AllowDirectRelease : Boolean;
         MasterItemCU: Codeunit MasterItem;
 

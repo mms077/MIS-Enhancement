@@ -19,20 +19,27 @@ table 50239 "Parameter Header"
             TableRelation = Item."No.";
             trigger OnValidate()
             var
-                GenLedgSetup: Record "General Ledger Setup";
+                //GenLedgSetup: Record "General Ledger Setup";
+                LocationRec: Record Location;
             begin
                 Rec.CalcFields("Item Description");
                 GetDefaultUOM(Rec."Item No.");
                 GetRelatedInfo(Rec."Item No.");
-                GenLedgSetup.Get();
-                if GenLedgSetup."Company Type" = GenLedgSetup."Company Type"::"Full Production" then
-                    OnBeforeSettingLineLocation(Rec)//Setting the location code based on the assembly location code from WMS
-                else begin
-                    if GenLedgSetup."IC SQ Location" <> '' then
-                        Rec.Validate("Sales Line Location Code", GenLedgSetup."IC SQ Location")
-                    else
-                        Error('The field (IC SQ Location) is not filled in the General Ledger Setup.');
-                end;
+                Clear(LocationRec);
+                LocationRec.SetRange("Shipping Location", true);
+                if LocationRec.FindFirst() then
+                    Rec.Validate("Sales Line Location Code", LocationRec.Code)
+                else
+                    Error('No Location is selected as Shipping Location in Locations table.');
+                // GenLedgSetup.Get();
+                // if GenLedgSetup."Company Type" = GenLedgSetup."Company Type"::"Full Production" then
+                //     OnBeforeSettingLineLocation(Rec)//Setting the location code based on the assembly location code from WMS
+                // else begin
+                //     if GenLedgSetup."IC SQ Location" <> '' then
+                //         Rec.Validate("Sales Line Location Code", GenLedgSetup."IC SQ Location")
+                //     else
+                //         Error('The field (IC SQ Location) is not filled in the General Ledger Setup.');
+                // end;
             end;
         }
         field(15; "Item Description"; Text[100])

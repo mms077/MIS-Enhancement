@@ -18,11 +18,11 @@ pageextension 50248 "Tenant Permission Subform" extends "Tenant Permission Subfo
                     Filters: Label 'Role_ID eq ''%1''';
                     EditinExcelFilters: Codeunit "Edit in Excel Filters";
                 begin
-                   /* ODataFilter := StrSubstNo(Filters, Rec."Role ID");
-                    EditInExcel.EditPageInExcel(CurrPage.ObjectId(true), CurrPage.ObjectId(false), ODataFilter);*/
+                    /* ODataFilter := StrSubstNo(Filters, Rec."Role ID");
+                     EditInExcel.EditPageInExcel(CurrPage.ObjectId(true), CurrPage.ObjectId(false), ODataFilter);*/
                     //EditInExcelImpl.EditPageInExcel(PageCaption, PageId, Filter, '');
                     //correct the edit in excel to remove the warning
-                    EditinExcelFilters.AddField('AppId', Enum::"Edit in Excel Filter Type"::Equal, Rec."App ID", Enum::"Edit in Excel Edm Type"::"Edm.String");
+                    EditinExcelFilters.AddFieldv2('AppId', Enum::"Edit in Excel Filter Type"::Equal, Rec."App ID", Enum::"Edit in Excel Edm Type"::"Edm.String");
                     EditinExcel.EditPageInExcel(
                         'Tenant Permission Subform',
                         50248,

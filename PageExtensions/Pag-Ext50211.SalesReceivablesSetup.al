@@ -17,6 +17,8 @@ pageextension 50211 "Sales & Receivables Setup - ER" extends "Sales & Receivable
                     ApplicationArea = All;
                     ToolTip = 'Cutting Sheet Workflow to be used on the cutting sheet scanning';
                 }
+                field("Scanning Workflow Group"; Rec."Scanning Workflow Group") { ApplicationArea = all; }
+                field("Packaging Stage"; Rec."Packaging Stage") { ApplicationArea = all; }
                 field("Scan In/Out Interval"; Rec."Scan In/Out Interval")
                 {
                     ApplicationArea = all;

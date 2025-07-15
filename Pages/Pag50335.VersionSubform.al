@@ -33,7 +33,7 @@ page 50335 "Version Subform"
                 var
                     myInt: Integer;
                     NoSeries: Record "No. Series";
-                    Noseriesmgt: Codeunit NoSeriesManagement;
+                    Noseriesmgt: Codeunit "No. Series";
                     Item: Record Item;
                     NewNumber: Code[20];
                     Txt0002: Label 'There is no No. Series related to this category';

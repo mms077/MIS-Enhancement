@@ -7,31 +7,12 @@
             "type": "al",
             "environmentType": "Sandbox",
             "environmentName": "Copy_Prod_140425",
-            "startupObjectId": 7339,
+            "startupObjectId": 50311,
             "startupObjectType": "Page",
             "breakOnError": true,
             "launchBrowser": true,
             "schemaUpdateMode": "ForceSync",
-            "enableLongRunningSqlStatements": true,
-            "enableSqlInformationDebugger": true
-        },
-        {
-            "name": "snapshotInitialize: MyServer",
-            "type": "al",
-            "request": "snapshotInitialize",
-            "environmentType": "Production",
-            "environmentName": "Production",
-            "tenant": "c2f8c1dc-1645-49aa-9793-f6098a0f4d92",
-            "breakOnNext": "WebClient",
-            "executionContext": "DebugAndProfile"
-        },
-        {
-            "name": "Attach to PowerShell Functions",
-            "type": "PowerShell",
-            "request": "attach",
-            "customPipeName": "AzureFunctionsPSWorker",
-            "runspaceId": 1,
-            "preLaunchTask": "func: host start"
+            
         }
     ]
 }

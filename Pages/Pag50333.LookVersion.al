@@ -56,7 +56,7 @@ page 50333 "Look Version"
                 Caption = 'Picture';
                 SubPageLink = "Code" = FIELD("Code");
             }
-            part("Attached Documents"; "Document Attachment Factbox")
+            part("Attached Documents"; "Doc. Attachment List Factbox")
             {
                 ApplicationArea = All;
                 Caption = 'Attachments';
@@ -240,7 +240,7 @@ page 50333 "Look Version"
     trigger OnAfterGetCurrRecord()
     var
         SalesSetup: Record "Sales & Receivables Setup";
-        NoSeriesMgt: Codeunit NoSeriesManagement;
+        NoSeriesMgt: Codeunit "No. Series";
         LookVersion: Record "Look Version";
         Noseries: Record "No. Series Line";
         DocAttachement: Record "Record Link";

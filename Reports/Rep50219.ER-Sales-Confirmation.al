@@ -307,10 +307,10 @@ report 50219 "ER - Sales - Confirmation"
             column(VATRegistrationNo_Lbl; GetCustomerVATRegistrationNumberLbl())
             {
             }
-            column(GlobalLocationNumber; GetCustomerGlobalLocationNumber())
+            column(GlobalLocationNumber; '')//TODO:Fix
             {
             }
-            column(GlobalLocationNumber_Lbl; GetCustomerGlobalLocationNumberLbl())
+            column(GlobalLocationNumber_Lbl; '')//TODO:Fix
             {
             }
             column(SellToFaxNo; GetSellToCustomerFaxNo())
@@ -1141,7 +1141,6 @@ report 50219 "ER - Sales - Confirmation"
         ArchiveDocument: Boolean;
         LogInteraction: Boolean;
         TransHeaderAmount: Decimal;
-        [InDataSet]
         LogInteractionEnable: Boolean;
         DisplayAssemblyInformation: Boolean;
         AsmInfoExistsForLine: Boolean;

@@ -66,7 +66,7 @@ page 50239 "Branding Subform"
                 SubPageLink = "Line No." = FIELD("Line No."),
                               "Branding Code" = FIELD("Branding Code");
             }
-            part(Control1906127307; "Document Attachment Factbox")
+            part(Control1906127307; "Doc. Attachment List Factbox")
             {
                 Caption = 'Film File';
                 ApplicationArea = Suite;

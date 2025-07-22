@@ -52,10 +52,6 @@ tableextension 50212 "Sales & Receivables Setup - ER" extends "Sales & Receivabl
             DataClassification = ToBeClassified;
             TableRelation = "Workflow User Group scan".Code;
         }
-        field(50310; "Packaging Stage"; Code[20])
-        {
-            DataClassification = ToBeClassified;
-            TableRelation = "Scan Design Stages- ER"."Activity Code";
-        }
+       
     }
 }

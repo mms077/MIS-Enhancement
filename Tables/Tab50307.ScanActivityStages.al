@@ -63,7 +63,11 @@ table 50307 "Scan Design Stages- ER"
         {
             DataClassification = ToBeClassified;
         }
-        field(13; "Sales Related Stage"; Boolean)
+        field(13; "Packaging Stage"; Boolean)
+        {
+            DataClassification = ToBeClassified;
+        }
+        field(14; "Packing Stage"; Boolean)
         {
             DataClassification = ToBeClassified;
         }

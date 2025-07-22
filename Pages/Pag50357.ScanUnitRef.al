@@ -418,7 +418,6 @@ page 50357 "Scan Unit Ref"
                         MasterItemCU: Codeunit MasterItem;
                         AssemblyHeader: Record "Assembly Header";
                         Txt001: Label 'No Assembly found in the group %1';
-                        ScanOption: Option "In","Out";
                         WorkflowActivitiesER: Record "Workflow Activities - ER";
                         MO: Record "ER - Manufacturing Order";
                         SalesLine: Record "Sales Line";
@@ -441,9 +440,18 @@ page 50357 "Scan Unit Ref"
                         InScan: Record "Scan Activities";
                         OutScan: Record "Scan Activities";
                         DeletedCount: Integer;
+                        IsMO: Boolean;
+                        IsAssembly: Boolean;
+                        IsSerial: Boolean;
+                        IsAssemblyRef: Boolean;
+                        IsSalesRef: Boolean;
                     // ScanActivities: Record "Scan Activities";
                     begin
-
+                        IsMO := false;
+                        IsAssembly := false;
+                        IsSerial := false;
+                        IsAssemblyRef := false;
+                        IsSalesRef := false;
                         CheckIfScanningActivityAllowed;
                         //check if on "Scan Design Stages- ER"; is scanned to give an error already scanned
                         CheckIfActivityScanned;
@@ -458,6 +466,7 @@ page 50357 "Scan Unit Ref"
                         Clear(MO);
                         // CASE 1: Manufacturing Order
                         if MO.Get(UnitRef) then begin
+                            IsMO := true;
                             Clear(AssemblyHeader);
                             AssemblyHeader.SetFilter("ER - Manufacturing Order No.", MO."No.");
                             if AssemblyHeader.FindFirst() then begin
@@ -475,7 +484,7 @@ page 50357 "Scan Unit Ref"
                                                 if SalesUnit.FindFirst() then begin
                                                     repeat
                                                         IF (STRPOS(SalesUnit."Scan In", ActivityCode) = 0) or (STRPOS(SalesUnit."Scan Out", ActivityCode) = 0) then
-                                                            HandleScanActivity(SalesLine, SalesUnit, AssemblyHeader, MO, Rec, ActivitiesArray);
+                                                            HandleScanActivity(SalesLine, SalesUnit, AssemblyHeader, MO, Rec, ActivitiesArray, true, false, false, false, false);
                                                     until SalesUnit.Next() = 0;
                                                 end;
                                             until SalesLine.Next() = 0;
@@ -483,15 +492,14 @@ page 50357 "Scan Unit Ref"
 
                                             SalesUnit.SetFilter("Sales Line Ref.", AssemblyHeader."Assembly Reference");
                                             if SalesUnit.FindFirst() then begin
+                                                IsAssemblyRef := true;
                                                 repeat
                                                     IF (STRPOS(SalesUnit."Scan In", ActivityCode) = 0) or (STRPOS(SalesUnit."Scan Out", ActivityCode) = 0) then
-                                                        HandleScanActivity(SalesLine, SalesUnit, AssemblyHeader, MO, Rec, ActivitiesArray);
+                                                        HandleScanActivity(SalesLine, SalesUnit, AssemblyHeader, MO, Rec, ActivitiesArray, false, false, true, false, false);
                                                 until SalesUnit.Next() = 0;
                                             end;
 
                                         end;
-
-
                                     end;
                                 until AssemblyHeader.Next() = 0;
                             end;
@@ -502,6 +510,7 @@ page 50357 "Scan Unit Ref"
                             Clear(AssemblyHeader);
                             AssemblyHeader.SetFilter("No.", UnitRef);
                             if AssemblyHeader.FindFirst() then begin
+                                IsAssembly := true;
                                 if not ProcessedSourceNos.ContainsKey(AssemblyHeader."Source No.") then begin
                                     ProcessedSourceNos.Add(AssemblyHeader."Source No.", true);
                                     MasterItemCU.CheckUserResponibilityScanning(GetActivitySelected, User);
@@ -515,16 +524,17 @@ page 50357 "Scan Unit Ref"
                                             if SalesUnit.FindFirst() then begin
                                                 repeat
                                                     IF (STRPOS(SalesUnit."Scan In", ActivityCode) = 0) or (STRPOS(SalesUnit."Scan Out", ActivityCode) = 0) then
-                                                        HandleScanActivity(SalesLine, SalesUnit, AssemblyHeader, MO, Rec, ActivitiesArray);
+                                                        HandleScanActivity(SalesLine, SalesUnit, AssemblyHeader, MO, Rec, ActivitiesArray, false, true, false, false, false);
                                                 until SalesUnit.Next() = 0;
                                             end;
                                         until SalesLine.Next() = 0;
                                     end else begin
                                         SalesUnit.SetFilter("Sales Line Ref.", AssemblyHeader."Assembly Reference");
                                         if SalesUnit.FindFirst() then begin
+                                            IsAssemblyRef := true;
                                             repeat
                                                 IF (STRPOS(SalesUnit."Scan In", ActivityCode) = 0) or (STRPOS(SalesUnit."Scan Out", ActivityCode) = 0) then
-                                                    HandleScanActivity(SalesLine, SalesUnit, AssemblyHeader, MO, Rec, ActivitiesArray);
+                                                    HandleScanActivity(SalesLine, SalesUnit, AssemblyHeader, MO, Rec, ActivitiesArray, false, false, true, false, false);
                                             until SalesUnit.Next() = 0;
                                         end;
                                     end;
@@ -536,22 +546,24 @@ page 50357 "Scan Unit Ref"
                                 Clear(SalesUnit);
                                 SalesUnit.SetFilter("Sales Line Ref.", UnitRef);
                                 if SalesUnit.FindFirst() then begin
+                                    IsSalesRef := true;
                                     repeat
                                         IF (STRPOS(SalesUnit."Scan In", ActivityCode) = 0) or (STRPOS(SalesUnit."Scan Out", ActivityCode) = 0) then begin
                                             GetSalesLineFromSalesUnit(SalesUnit, SalesLine);
-                                            HandleScanActivity(SalesLine, SalesUnit, AssemblyHeader, MO, Rec, ActivitiesArray);
+                                            HandleScanActivity(SalesLine, SalesUnit, AssemblyHeader, MO, Rec, ActivitiesArray, false, false, false, true, false);
                                         end;
                                     until SalesUnit.Next() = 0;
                                 end
-                                // CASE 4: Sales Line Unit Ref
+                                // CASE 4: Serial
                                 else begin
                                     MasterItemCU.CheckUserResponibilityScanning(GetActivitySelected, User);
                                     Clear(SalesUnit);
                                     SalesUnit.SetFilter("Serial No.", UnitRef);
                                     if SalesUnit.FindFirst() then begin
+                                        IsSerial := true;
                                         IF (STRPOS(SalesUnit."Scan In", ActivityCode) = 0) or (STRPOS(SalesUnit."Scan Out", ActivityCode) = 0) then begin
                                             GetSalesLineFromSalesUnit(SalesUnit, SalesLine);
-                                            HandleScanActivity(SalesLine, SalesUnit, AssemblyHeader, MO, Rec, ActivitiesArray);
+                                            HandleScanActivity(SalesLine, SalesUnit, AssemblyHeader, MO, Rec, ActivitiesArray, false, false, false, false, true);
                                         end;
                                     end
 
@@ -1316,17 +1328,17 @@ page 50357 "Scan Unit Ref"
         exit(ResultText);
     end;
 
-    procedure HandleScanActivity(SalesLine: Record "Sales Line"; SalesUnit: Record "Sales Line Unit Ref."; AssemblyHeader: Record "Assembly Header"; MO: Record "ER - Manufacturing Order"; Rec: Record "Scan Design Stages- ER Temp"; var ActivitiesArray: JsonArray)
+    procedure HandleScanActivity(SalesLine: Record "Sales Line"; SalesUnit: Record "Sales Line Unit Ref."; AssemblyHeader: Record "Assembly Header"; MO: Record "ER - Manufacturing Order"; Rec: Record "Scan Design Stages- ER Temp"; var ActivitiesArray: JsonArray; IsMO: Boolean; IsAssembly: Boolean; IsAssemblyRef: Boolean; IsSalesRef: Boolean; IsSerial: Boolean)
     var
         ScanActivities: Record "Scan Activities";
-        SalesRecSetup: Record "Sales & Receivables Setup";
+        ScanStagesER: Record "Scan Design Stages- ER";
     begin
         // call a function that return the stages scanned
         //if the activity code needed to be scanned is contained in scan in i need to exit this function
-        SalesRecSetup.get;
         Clear(ScanActivities);
+        Clear(ScanStagesER);
         ScanActivities.SetFilter("Serial No.", SalesUnit."Serial No.");
-        ScanActivities.SetFilter("Sales Line Id", SalesUnit."Sales Line Ref.");
+        ScanActivities.SetFilter("Sales Line Id", SalesUnit."Sales Line Reference");
         ScanActivities.SetRange("Activity Type", ScanActivities."Activity Type"::"In");
         ScanActivities.setrange("Activity Code", ActivityCode); // <-- Add this line to filter by Activity Code
 
@@ -1335,9 +1347,22 @@ page 50357 "Scan Unit Ref"
             InsertActivity(ScanActivities."Activity Type"::Out, SalesLine, SalesUnit, AssemblyHeader, MO, Rec, ActivityCode);
             AddActivityToArray(ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec, Activity_Remark, ActivitiesArray);
             UpdateScanOutField(SalesUnit);
-            //check if activity code is packaging to post assemblies
-            if ActivityCode = SalesRecSetup."Packaging Stage" then
-                PostRelatedAssemblies(UnitRef);
+
+            ScanStagesER.Get(ActivityCode);
+            //if ScanStagesER."Packaging Stage" then begin
+            // Determine the best filter to use for posting assemblies
+            if IsMO then
+                PostRelatedAssemblies(MO."No.")
+            else if IsAssembly then
+                PostRelatedAssemblies(AssemblyHeader."No.")
+            else if IsSerial then
+                PostRelatedAssemblies(SalesUnit."Serial No.")
+            else if IsAssemblyRef then
+                PostRelatedAssemblies(AssemblyHeader."Assembly Reference")
+            else if IsSalesRef then
+                PostRelatedAssemblies(SalesUnit."Sales Line Reference");
+            //  end;
+
         end else begin
             InsertActivity(ScanActivities."Activity Type"::"In", SalesLine, SalesUnit, AssemblyHeader, MO, Rec, ActivityCode);
             AddActivityToArray(ScanActivities, SalesUnit, AssemblyHeader, MO, SalesLine, Rec, Activity_Remark, ActivitiesArray);
@@ -1541,113 +1566,111 @@ page 50357 "Scan Unit Ref"
         AssemblyHeader: Record "Assembly Header";
         SalesLine: Record "Sales Line";
         SalesUnit: Record "Sales Line Unit Ref.";
+        SalesUnitCount: Integer;
+        ScannedCount: Integer;
         ReservationEntry: Record "Reservation Entry";
     begin
         Clear(ManufacturingOrder);
         Clear(AssemblyHeader);
         Clear(ReservationEntry);
+
+        // Case 1: Manufacturing Order - Post all assemblies immediately
         if ManufacturingOrder.Get(Filter) then begin
             AssemblyHeader.SetFilter("ER - Manufacturing Order No.", ManufacturingOrder."No.");
-            if AssemblyHeader.FindFirst() then
+            if AssemblyHeader.FindSet() then
                 repeat
                     if AssemblyHeader.Status <> AssemblyHeader.Status::Released then
                         CODEUNIT.Run(CODEUNIT::"Release Assembly Document", AssemblyHeader);
                     CODEUNIT.Run(CODEUNIT::"Assembly-Post", AssemblyHeader);
                 until AssemblyHeader.Next() = 0;
-        end else begin
+            exit;
+        end;
+
+        // Case 2: Direct Assembly Order - Post single assembly immediately
+        Clear(AssemblyHeader);
+        if AssemblyHeader.get(AssemblyHeader."Document Type"::Order, Filter) then begin
+            if AssemblyHeader.Status <> AssemblyHeader.Status::Released then
+                CODEUNIT.Run(CODEUNIT::"Release Assembly Document", AssemblyHeader);
+            CODEUNIT.Run(CODEUNIT::"Assembly-Post", AssemblyHeader);
+            exit;
+        end;
+
+        // Case 3: Serial Number - Wait for all serials before posting
+        Clear(SalesUnit);
+        SalesUnit.SetFilter("Serial No.", Filter);
+        if SalesUnit.FindFirst() then begin
             Clear(AssemblyHeader);
-            if AssemblyHeader.get(AssemblyHeader."Document Type"::Order, Filter) then begin
-                if AssemblyHeader.Status <> AssemblyHeader.Status::Released then
-                    CODEUNIT.Run(CODEUNIT::"Release Assembly Document", AssemblyHeader);
-                CODEUNIT.Run(CODEUNIT::"Assembly-Post", AssemblyHeader);
-            end else begin
-                Clear(SalesLine);
-                SalesLine.SetFilter("Sales Line Reference", Filter);
-                if SalesLine.FindFirst() then begin
-                    Clear(AssemblyHeader);
-                    AssemblyHeader.SetFilter("Source No.", SalesLine."Document No.");
-                    AssemblyHeader.setrange("Source Line No.", SalesLine."Line No.");
-                    if AssemblyHeader.FindFirst() then begin
+            if AssemblyHeader.Get(AssemblyHeader."Document Type"::Order, SalesUnit."Assembly No.") then begin
+                // Count total serials for this assembly
+                Clear(SalesUnit);
+                SalesUnit.SetRange("Assembly No.", AssemblyHeader."No.");
+                if SalesUnit.FindSet() then begin
+                    repeat
+                        SalesUnitCount += 1;
+                        if StrPos(SalesUnit."Scan Out", ActivityCode) > 0 then
+                            ScannedCount += 1;
+                    until SalesUnit.Next() = 0;
+
+                    // Only post if all serials are scanned
+                    if (SalesUnitCount > 0) and (SalesUnitCount = ScannedCount) then begin
                         if AssemblyHeader.Status <> AssemblyHeader.Status::Released then
                             CODEUNIT.Run(CODEUNIT::"Release Assembly Document", AssemblyHeader);
                         CODEUNIT.Run(CODEUNIT::"Assembly-Post", AssemblyHeader);
                     end;
-                end else begin
-                    SalesUnit.SetFilter("Serial No.", Filter);
-                    if SalesUnit.FindFirst() then begin
-
-                    end;
-
                 end;
-
             end;
+            exit;
         end;
-    end;
 
-    local procedure CheckIfitsAssembleToStock()
-    var
-        ScanDesignStagesER: Record "Scan Design Stages- ER";
-        Mo: Record "ER - Manufacturing Order";
-        AssemblyHeader: Record "Assembly Header";
-        ReservationEntry: Record "Reservation Entry";
-        SalesHeader: Record "Sales Header";
-    begin
-        Clear(ScanDesignStagesER);
-        ScanDesignStagesER.Get(ActivityCode);
-        if ScanDesignStagesER."Sales Related Stage" then begin
-            // i need to check if its MO or assembly or sales ref or assm ref or serial 
-            clear(Mo);
-            if MO.Get(UnitRef) then begin
-                Clear(AssemblyHeader);
-                AssemblyHeader.SetFilter("ER - Manufacturing Order No.", MO."No.");
-                if AssemblyHeader.FindFirst() then begin
+        // Case 4: Sales Line Reference - Wait for all serials before posting
+        Clear(SalesLine);
+        SalesLine.SetFilter("Sales Line Reference", Filter);
+        if SalesLine.FindFirst() then begin
+            Clear(AssemblyHeader);
+            AssemblyHeader.SetFilter("Source No.", SalesLine."Document No.");
+            AssemblyHeader.setrange("Source Line No.", SalesLine."Line No.");
+            if AssemblyHeader.FindFirst() then begin
+                // Count total serials for this assembly
+                Clear(SalesUnit);
+                SalesUnit.SetRange("Assembly No.", AssemblyHeader."No.");
+                if SalesUnit.FindSet() then begin
                     repeat
-                        if AssemblyHeader."Source No." = '' then
-                            Error('Cannot scan for this Manufacturing Order because it contains at least one assembly that is not Assemble to Order.');
-                    until AssemblyHeader.Next() = 0;
-                end;
-            end else begin
-                AssemblyHeader.SetFilter("No.", UnitRef);
-                if AssemblyHeader.FindFirst() then begin
-                    if AssemblyHeader."Source No." = '' then
-                        Error('Cannot scan this Assembly Order because it is not Assemble to Order.');
+                        SalesUnitCount += 1;
+                        if StrPos(SalesUnit."Scan Out", ActivityCode) > 0 then
+                            ScannedCount += 1;
+                    until SalesUnit.Next() = 0;
 
-                end else begin
-                    Clear(ReservationEntry);
-                    ReservationEntry.SetFilter("Serial No.", UnitRef);
-                    if ReservationEntry.FindFirst() then begin
-                        SalesHeader.SetFilter("No.", ReservationEntry."Source ID");
-                        if not SalesHeader.FindFirst() then begin
-                            Error('Cannot scan this Assembly Order because it is not Assemble to Order.');
-                        end;
-
-                    end else begin
-                        Clear(AssemblyHeader);
-                        AssemblyHeader.SetFilter("Assembly Reference Text", UnitRef);
-                        if AssemblyHeader.FindFirst() then begin
-                            if AssemblyHeader."Source No." = '' then
-                                Error('Cannot scan this Assembly Order because it is not Assemble to Order.');
-                        end;
+                    // Only post if all serials are scanned
+                    if (SalesUnitCount > 0) and (SalesUnitCount = ScannedCount) then begin
+                        if AssemblyHeader.Status <> AssemblyHeader.Status::Released then
+                            CODEUNIT.Run(CODEUNIT::"Release Assembly Document", AssemblyHeader);
+                        CODEUNIT.Run(CODEUNIT::"Assembly-Post", AssemblyHeader);
                     end;
+                end;
+            end;
+            exit;
+        end;
+
+        // Case 5: Assembly Reference - Wait for all serials before posting
+        Clear(AssemblyHeader);
+        AssemblyHeader.SetFilter("Assembly Reference Text", Filter);
+        if AssemblyHeader.FindFirst() then begin
+            // Count total serials for this assembly
+            Clear(SalesUnit);
+            SalesUnit.SetRange("Assembly No.", AssemblyHeader."No.");
+            if SalesUnit.FindSet() then begin
+                repeat
+                    SalesUnitCount += 1;
+                    if StrPos(SalesUnit."Scan Out", ActivityCode) > 0 then
+                        ScannedCount += 1;
+                until SalesUnit.Next() = 0;
+
+                // Only post if all serials are scanned
+                if (SalesUnitCount > 0) and (SalesUnitCount = ScannedCount) then begin
+                    if AssemblyHeader.Status <> AssemblyHeader.Status::Released then
+                        CODEUNIT.Run(CODEUNIT::"Release Assembly Document", AssemblyHeader);
+                    CODEUNIT.Run(CODEUNIT::"Assembly-Post", AssemblyHeader);
                 end;
             end;
         end;
     end;
-
-    trigger OnOpenPage()
-    var
-        myInt: Integer;
-    begin
-        DeleteExistingScans();
-        rec.DeleteAll();
-    end;
-
-    var
-        UnitRef: Code[100];
-        Activity_Remark: Text[1000];
-        User: Code[50];
-        ActivityCode: Code[50];
-        DesignCode: code[50];
-        rep: Codeunit ReportManagement;
-        UserActivities: Code[50];
-}

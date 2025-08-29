@@ -4,7 +4,7 @@ report 50207 "Zatca Tax Invoice - ER"
     RDLCLayout = 'Zatca/Layouts/ZatcaTaxInvoice.rdl';
     //ApplicationArea = All;
     UsageCategory = ReportsAndAnalysis;
-    Caption = 'ZATCA Tax Invoice-1';
+    Caption = 'ZATCA Tax Invoice';
     ApplicationArea = All;
     dataset
     {

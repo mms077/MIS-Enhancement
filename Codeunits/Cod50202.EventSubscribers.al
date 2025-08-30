@@ -1222,6 +1222,9 @@ codeunit 50202 EventSubscribers
         ValueEntry.SetRange("Item No.", ItemJournalLine."Item No.");
         ValueEntry.SetRange("Posting Date", StartDate, EndDate);
         ValueEntry.SetFilter("Location Code", ItemJournalLine."Location Code");
+        // Filter by variant code if it's not empty
+        if ItemJournalLine."Variant Code" <> '' then
+            ValueEntry.SetRange("Variant Code", ItemJournalLine."Variant Code");
         if ValueEntry.FindSet() then begin
             repeat
                 SumCostACY += ValueEntry."Cost Amount (Actual) (ACY)";

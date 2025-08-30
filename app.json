@@ -4,7 +4,11 @@
   "id": "7e779673-0dcf-4203-a446-b62151f37caf",
   "name": "Master Item Structure - ER",
   "publisher": "Exquitech",
+<<<<<<< HEAD
   "version": "2.0.1.81",
+=======
+  "version": "2.0.1.48",
+>>>>>>> 9b665dd0f7506a3cb4948eb39e3b8a3edcdaaa6e
   "brief": "Master Item Structure",
   "description": "Related to Design Business",
   "privacyStatement": "",

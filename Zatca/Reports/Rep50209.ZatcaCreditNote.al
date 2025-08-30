@@ -75,6 +75,7 @@ report 50209 "Zatca Credit Note - ER"
                 //Body Labels
                 //English
                 column(LineItemsLabel; LineItemsLabel) { }
+                column(HSCodeLabel; HSCodeLabel) { }
                 column(ProductOrServiceDescriptionLabel; ProductOrServiceDescriptionLabel) { }
                 column(UnitPriceLabel; UnitPriceLabel) { }
                 column(QuantityLabel; QuantityLabel) { }
@@ -110,6 +111,7 @@ report 50209 "Zatca Credit Note - ER"
                 //Arabic
                 column(LineItemsLabelArabic; LineItemsLabelArabic) { }
                 column(ProductOrServiceDescriptionLabelArabic; ProductOrServiceDescriptionLabelArabic) { }
+                column(HSCodeLabelArabic; HSCodeLabelArabic) { }
                 column(UnitPriceLabelArabic; UnitPriceLabelArabic) { }
                 column(QuantityLabelArabic; QuantityLabelArabic) { }
                 column(VatRateLabelArabic; VatRateLabelArabic) { }
@@ -237,17 +239,20 @@ report 50209 "Zatca Credit Note - ER"
                     column(SpecialTaxTreatmentReasonDescription_Ar; SpecialTaxTreatmentReasonDescription_Ar) { }
 
                     column(ShowOnPrepaymentLine; ("VAT %" = 0)) { }
+                    column(G_HSCode; G_HSCode) { }
 
                     trigger OnAfterGetRecord()
                     var
                         ZatcaVatCategories: Record "ZATCA VAT Category";
                         ZatcaVatCategoryReasons: Record "ZATCA VAT Category Reason";
                     begin
+                        Clear(G_HSCode);
                         if "No." = '' then
                             CurrReport.skip();
-                        if G_RecItem.GET("No.") then
-                            G_ItemNameArabic := G_RecItem."ZATCA Arabic Description"
-                        else
+                        if G_RecItem.GET("No.") then begin
+                            G_ItemNameArabic := G_RecItem."ZATCA Arabic Description";
+                            G_HSCode := G_RecItem."Hs Code";
+                        end else
                             G_ItemNameArabic := '';
                         // //add the item description under the G_ItemName2 variable
                         G_TotalExclVAT := Amount + "Line Discount Amount";//Calculating total excluding VAT of invoice
@@ -442,6 +447,7 @@ report 50209 "Zatca Credit Note - ER"
         G_CompanyInformation: Record "Company Information";
         G_Customer: Record Customer;
         G_RecItem: Record item;
+        G_HSCode: Code[50];
         G_RecGnrlLdgrSetup: Record "General Ledger Setup";
         G_RecPaymentTerms: Record "Payment Terms";
         G_RecPaymentMethod: Record "Payment Method";
@@ -573,6 +579,7 @@ report 50209 "Zatca Credit Note - ER"
         //Body Labels
         //English
         LineItemsLabel: label 'Line Items';
+        HSCodeLabel: label 'HS Code';
         ProductOrServiceDescriptionLabel: label 'Product or Service Description';
         UnitPriceLabel: label 'Unit Price';
         QuantityLabel: label 'Quantity';
@@ -595,6 +602,8 @@ report 50209 "Zatca Credit Note - ER"
         //Arabic
         LineItemsLabelArabic: label 'معلومات وبيانات السلعة أو الخدمة';
         ProductOrServiceDescriptionLabelArabic: label 'وصف السلعة أو الخدمة';
+        HSCodeLabelArabic: Label 'بند التعرفة';
+
         UnitPriceLabelArabic: label 'سعر الوحدة';
         QuantityLabelArabic: label 'الكمية';
         VatRateLabelArabic: label 'معدل ضريبة القيمة المضافة المطبق';

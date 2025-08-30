@@ -77,6 +77,7 @@ report 50207 "Zatca Tax Invoice - ER"
                 column(LineItemsLabel; LineItemsLabel) { }
                 column(ProductOrServiceDescriptionLabel; ProductOrServiceDescriptionLabel) { }
                 column(UnitPriceLabel; UnitPriceLabel) { }
+                column(HSCodeLabel; HSCodeLabel) { }
                 column(QuantityLabel; QuantityLabel) { }
                 column(VatRateLabel; VatRateLabel) { }
                 column(VatAmountLabel; VatAmountLabel) { }
@@ -112,6 +113,7 @@ report 50207 "Zatca Tax Invoice - ER"
                 column(ProductOrServiceDescriptionLabelArabic; ProductOrServiceDescriptionLabelArabic) { }
                 column(UnitPriceLabelArabic; UnitPriceLabelArabic) { }
                 column(QuantityLabelArabic; QuantityLabelArabic) { }
+                column(HSCodeLabelArabic; HSCodeLabelArabic) { }
                 column(VatRateLabelArabic; VatRateLabelArabic) { }
                 column(VatAmountLabelArabic; VatAmountLabelArabic) { }
                 column(SubtotalExclusiveofVatLabelArabic; SubtotalExclusiveofVatLabelArabic) { }
@@ -237,6 +239,7 @@ report 50207 "Zatca Tax Invoice - ER"
                     column(SpecialTaxTreatmentReasonDescription_Ar; SpecialTaxTreatmentReasonDescription_Ar) { }
 
                     column(ShowOnPrepaymentLine; ("VAT %" = 0)) { }
+                    column(G_HSCode; G_HSCode) { }
 
                     trigger OnAfterGetRecord()
                     var
@@ -245,10 +248,15 @@ report 50207 "Zatca Tax Invoice - ER"
                     begin
                         if "No." = '' then
                             CurrReport.skip();
-                        if G_RecItem.GET("No.") then
-                            G_ItemNameArabic := G_RecItem."ZATCA Arabic Description"
-                        else
+
+                        // Get Item HS Code
+                        Clear(G_HSCode);
+                        if G_RecItem.GET("No.") then begin
+                            G_ItemNameArabic := G_RecItem."ZATCA Arabic Description";
+                            G_HSCode := G_RecItem."Hs Code";
+                        end else
                             G_ItemNameArabic := '';
+
                         // //add the item description under the G_ItemName2 variable
                         G_TotalExclVAT := Amount + "Line Discount Amount";//Calculating total excluding VAT of invoice
                         G_DiscountTotal += "Line Discount Amount";//Calculating total discount of invoice
@@ -474,6 +482,7 @@ report 50207 "Zatca Tax Invoice - ER"
         CustCity: Text[80];
         CustCityArabic: Text[80];
         G_ItemNameArabic: Text[100];
+        G_HSCode: Code[50];
         G_SelectedCurrency: Code[10];
         G_PTEnglishDesc: Text[100];
         G_PTArabicDesc: Text[100];
@@ -587,6 +596,7 @@ report 50207 "Zatca Tax Invoice - ER"
         LineItemsLabel: label 'Line Items';
         ProductOrServiceDescriptionLabel: label 'Product or Service Description';
         UnitPriceLabel: label 'Unit Price';
+        HSCodeLabel: label 'HS Code';
         QuantityLabel: label 'Quantity';
         VatRateLabel: label 'VAT rate';
         VatAmountLabel: label 'VAT amount';
@@ -609,6 +619,7 @@ report 50207 "Zatca Tax Invoice - ER"
         ProductOrServiceDescriptionLabelArabic: label 'وصف السلعة أو الخدمة';
         UnitPriceLabelArabic: label 'سعر الوحدة';
         QuantityLabelArabic: label 'الكمية';
+        HSCodeLabelArabic: Label 'بند التعرفة';
         VatRateLabelArabic: label 'معدل ضريبة القيمة المضافة المطبق';
         VatAmountLabelArabic: label 'مبلغ ضريبة القيمة';
         SubtotalExclusiveofVatLabelArabic: label 'إجمالي المبلغ غير شامل ضريبة القيمة المضافة';

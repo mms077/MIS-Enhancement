@@ -1214,7 +1214,7 @@ codeunit 50202 EventSubscribers
         EndDate: Date;
     begin
         // Use the ItemJournalLine parameter directly
-        StartDate := DMY2DATE(1, 1, 2023);
+        StartDate := DMY2DATE(1, 1, 2021);
         EndDate := DMY2DATE(31, 12, 2023);
         SumCostACY := 0;
         SumCostLCY := 0;

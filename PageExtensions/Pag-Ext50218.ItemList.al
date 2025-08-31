@@ -8,6 +8,26 @@ pageextension 50218 "Item List" extends "Item List"
             {
                 ApplicationArea = all;
             }
+            field("Cost Amount (Actual) 2023"; Rec."Cost Amount (Actual) 2023")
+            {
+                ApplicationArea = all;
+                Editable = false;
+            }
+            field("Cost Amount (Actual) ACY 2023"; Rec."Cost Amount (Actual) ACY 2023")
+            {
+                ApplicationArea = all;
+                Editable = false;
+            }
+            field("Cost Amount (Actual) 2024"; Rec."Cost Amount (Actual) 2024")
+            {
+                ApplicationArea = all;
+                Editable = false;
+            }
+            field("Cost Amount (Actual) ACY 2024"; Rec."Cost Amount (Actual) ACY 2024")
+            {
+                ApplicationArea = all;
+                Editable = false;
+            }
             field("Created By"; UserCreater)
             {
                 ApplicationArea = all;

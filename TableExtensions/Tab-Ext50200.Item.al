@@ -181,6 +181,54 @@ tableextension 50200 Item extends Item
                 CheckItemDescriptionLength(Rec."Arabic Name");
             end;
         }
+        field(50218; "Cost Amount (Actual) 2023"; Decimal)
+        {
+            Caption = 'Cost Amount (Actual) 2023';
+            FieldClass = FlowField;
+            CalcFormula = sum("Value Entry"."Cost Amount (Actual)" where("Item No." = field("No."),
+                                                                        "Posting Date" = filter('01/01/2023' .. '31/12/2023'),
+                                                                        "Variant Code" = field("Variant Filter"),
+                                                                        "Location Code" = field("Location Filter"),
+                                                                        "Global Dimension 1 Code" = field("Global Dimension 1 Filter"),
+                                                                        "Global Dimension 2 Code" = field("Global Dimension 2 Filter")));
+            Editable = false;
+        }
+        field(50219; "Cost Amount (Actual) ACY 2023"; Decimal)
+        {
+            Caption = 'Cost Amount (Actual) ACY 2023';
+            FieldClass = FlowField;
+            CalcFormula = sum("Value Entry"."Cost Amount (Actual) (ACY)" where("Item No." = field("No."),
+                                                                              "Posting Date" = filter('01/01/2023' .. '31/12/2023'),
+                                                                              "Variant Code" = field("Variant Filter"),
+                                                                              "Location Code" = field("Location Filter"),
+                                                                              "Global Dimension 1 Code" = field("Global Dimension 1 Filter"),
+                                                                              "Global Dimension 2 Code" = field("Global Dimension 2 Filter")));
+            Editable = false;
+        }
+        field(50220; "Cost Amount (Actual) 2024"; Decimal)
+        {
+            Caption = 'Cost Amount (Actual) 2024';
+            FieldClass = FlowField;
+            CalcFormula = sum("Value Entry"."Cost Amount (Actual)" where("Item No." = field("No."),
+                                                                        "Posting Date" = filter('01/01/2024' .. '31/12/2024'),
+                                                                        "Variant Code" = field("Variant Filter"),
+                                                                        "Location Code" = field("Location Filter"),
+                                                                        "Global Dimension 1 Code" = field("Global Dimension 1 Filter"),
+                                                                        "Global Dimension 2 Code" = field("Global Dimension 2 Filter")));
+            Editable = false;
+        }
+        field(50221; "Cost Amount (Actual) ACY 2024"; Decimal)
+        {
+            Caption = 'Cost Amount (Actual) ACY 2024';
+            FieldClass = FlowField;
+            CalcFormula = sum("Value Entry"."Cost Amount (Actual) (ACY)" where("Item No." = field("No."),
+                                                                              "Posting Date" = filter('01/01/2024' .. '31/12/2024'),
+                                                                              "Variant Code" = field("Variant Filter"),
+                                                                              "Location Code" = field("Location Filter"),
+                                                                              "Global Dimension 1 Code" = field("Global Dimension 1 Filter"),
+                                                                              "Global Dimension 2 Code" = field("Global Dimension 2 Filter")));
+            Editable = false;
+        }
 
     }
     trigger OnDelete()

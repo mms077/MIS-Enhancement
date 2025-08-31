@@ -186,7 +186,7 @@ tableextension 50200 Item extends Item
             Caption = 'Cost Amount (Actual) 2023';
             FieldClass = FlowField;
             CalcFormula = sum("Value Entry"."Cost Amount (Actual)" where("Item No." = field("No."),
-                                                                        "Posting Date" = filter('01/01/2023' .. '31/12/2023'),
+                                                                        "Posting Date" = filter('01/01/2020' .. '31/12/2023'),
                                                                         "Variant Code" = field("Variant Filter"),
                                                                         "Location Code" = field("Location Filter"),
                                                                         "Global Dimension 1 Code" = field("Global Dimension 1 Filter"),
@@ -198,7 +198,7 @@ tableextension 50200 Item extends Item
             Caption = 'Cost Amount (Actual) ACY 2023';
             FieldClass = FlowField;
             CalcFormula = sum("Value Entry"."Cost Amount (Actual) (ACY)" where("Item No." = field("No."),
-                                                                              "Posting Date" = filter('01/01/2023' .. '31/12/2023'),
+                                                                              "Posting Date" = filter('01/01/2020' .. '31/12/2023'),
                                                                               "Variant Code" = field("Variant Filter"),
                                                                               "Location Code" = field("Location Filter"),
                                                                               "Global Dimension 1 Code" = field("Global Dimension 1 Filter"),

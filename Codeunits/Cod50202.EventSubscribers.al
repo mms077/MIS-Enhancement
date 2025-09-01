@@ -1203,45 +1203,45 @@ codeunit 50202 EventSubscribers
             NewReportId := Report::"New Close Income Statement";
     end;
 
-    [EventSubscriber(ObjectType::Report, report::"Calculate Inventory Value", 'OnAfterInsertItemJnlLine', '', false, false)]
-    local procedure OnAfterInsertItemJnlLine(var ItemJournalLine: Record "Item Journal Line")
-    var
-        ValueEntry: Record "Value Entry";
-        SumCostACY: Decimal;
-        SumCostLCY: Decimal;
-        InventoryValueRevalued: Decimal;
-        StartDate: Date;
-        EndDate: Date;
-    begin
-        // Use the ItemJournalLine parameter directly
-        StartDate := DMY2DATE(1, 1, 2024);
-        EndDate := DMY2DATE(31, 12, 2024);
-        SumCostACY := 0;
-        SumCostLCY := 0;
-        ValueEntry.Reset();
-        ValueEntry.SetRange("Item No.", ItemJournalLine."Item No.");
-        ValueEntry.SetRange("Posting Date", StartDate, EndDate);
-        ValueEntry.SetFilter("Location Code", ItemJournalLine."Location Code");
-        // Filter by variant code if it's not empty
-        if ItemJournalLine."Variant Code" <> '' then
-            ValueEntry.SetRange("Variant Code", ItemJournalLine."Variant Code");
-        if ValueEntry.FindSet() then begin
-            repeat
-                SumCostACY += ValueEntry."Cost Amount (Actual) (ACY)";
-                SumCostLCY += ValueEntry."Cost Amount (Actual)";
-            until ValueEntry.Next() = 0;
+    // [EventSubscriber(ObjectType::Report, report::"Calculate Inventory Value", 'OnAfterInsertItemJnlLine', '', false, false)]
+    // local procedure OnAfterInsertItemJnlLine(var ItemJournalLine: Record "Item Journal Line")
+    // var
+    //     ValueEntry: Record "Value Entry";
+    //     SumCostACY: Decimal;
+    //     SumCostLCY: Decimal;
+    //     InventoryValueRevalued: Decimal;
+    //     StartDate: Date;
+    //     EndDate: Date;
+    // begin
+    //     // Use the ItemJournalLine parameter directly
+    //     StartDate := DMY2DATE(1, 1, 2024);
+    //     EndDate := DMY2DATE(31, 12, 2024);
+    //     SumCostACY := 0;
+    //     SumCostLCY := 0;
+    //     ValueEntry.Reset();
+    //     ValueEntry.SetRange("Item No.", ItemJournalLine."Item No.");
+    //     ValueEntry.SetRange("Posting Date", StartDate, EndDate);
+    //     ValueEntry.SetFilter("Location Code", ItemJournalLine."Location Code");
+    //     // Filter by variant code if it's not empty
+    //     if ItemJournalLine."Variant Code" <> '' then
+    //         ValueEntry.SetRange("Variant Code", ItemJournalLine."Variant Code");
+    //     if ValueEntry.FindSet() then begin
+    //         repeat
+    //             SumCostACY += ValueEntry."Cost Amount (Actual) (ACY)";
+    //             SumCostLCY += ValueEntry."Cost Amount (Actual)";
+    //         until ValueEntry.Next() = 0;
 
-            // Apply formula: (SumCostACY * 89500) - SumCostLCY
-            InventoryValueRevalued := (SumCostACY * 89500) - SumCostLCY;
+    //         // Apply formula: (SumCostACY * 89500) - SumCostLCY
+    //         InventoryValueRevalued := (SumCostACY * 89500) - SumCostLCY;
 
-            // Add to existing Inventory Value (Revalued)
-            InventoryValueRevalued := ItemJournalLine."Inventory Value (Revalued)" + InventoryValueRevalued;
-            ItemJournalLine.Validate("Inventory Value (Revalued)", InventoryValueRevalued);
-            ItemJournalLine.Adjustment := true;
-            ItemJournalLine.Modify(true);
-        end else begin
-            // No value entries found for this item/location/date, delete the journal line
-            ItemJournalLine.Delete(true);
-        end;
-    end;
+    //         // Add to existing Inventory Value (Revalued)
+    //         InventoryValueRevalued := ItemJournalLine."Inventory Value (Revalued)" + InventoryValueRevalued;
+    //         ItemJournalLine.Validate("Inventory Value (Revalued)", InventoryValueRevalued);
+    //         ItemJournalLine.Adjustment := true;
+    //         ItemJournalLine.Modify(true);
+    //     end else begin
+    //         // No value entries found for this item/location/date, delete the journal line
+    //         ItemJournalLine.Delete(true);
+    //     end;
+    // end;
 }

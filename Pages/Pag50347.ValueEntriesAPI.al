@@ -33,6 +33,7 @@ page 50347 "Value_Entries API"
                 {
                     ApplicationArea = All;
                 }
+                field("Location_Code"; Rec."Location Code") { ApplicationArea = all; }
                 field("Posting_Date"; rec."Posting Date")
                 {
                     ApplicationArea = All;
@@ -44,6 +45,11 @@ page 50347 "Value_Entries API"
                 field("InvoicedQuantity"; rec."Invoiced Quantity")
                 {
                     ApplicationArea = All;
+                }
+                field("CostAmount_Actual"; Rec."Cost Amount (Actual)") { ApplicationArea = all; }
+                field("CostAmount_Actual_ACY"; rec."Cost Amount (Actual) (ACY)")
+                {
+                    ApplicationArea = all;
                 }
 
             }

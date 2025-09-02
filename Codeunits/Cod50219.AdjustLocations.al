@@ -136,6 +136,7 @@ codeunit 50220 AdjustLocations
     begin
         Clear(Bin);
         Bin.SetFilter("Location Code", LocationCode);
+        Bin.SetRange("Zone Code", 'ADJ');
         bin.SetFilter("Warehouse Class Code", Item."Warehouse Class Code");
         if bin.FindFirst() then begin
             exit(Bin.Code);

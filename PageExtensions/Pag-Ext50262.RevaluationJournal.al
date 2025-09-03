@@ -98,6 +98,6 @@ pageextension 50262 "Revaluation Journal Ext" extends "Revaluation Journal"
     begin
         ItemJournalLine.Validate("Inventory Value (Revalued)", InventoryValueRevalued);
         ItemJournalLine.Adjustment := true;
-        ItemJournalLine.Modify(true);
+        ItemJournalLine.Modify();
     end;
 }

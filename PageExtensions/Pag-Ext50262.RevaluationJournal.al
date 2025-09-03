@@ -23,13 +23,17 @@ pageextension 50262 "Revaluation Journal Ext" extends "Revaluation Journal"
                     StartDate: Date;
                     EndDate: Date;
                     ItemJournalLine: Record "Item Journal Line";
+                    ErrorText: Text;
+                    LineCounter: Integer;
                 begin
                     // Use the ItemJournalLine parameter directly
                     Clear(ItemJournalLine);
                     ItemJournalLine.SetFilter("Journal Template Name", 'REVALUATIO');
                     ItemJournalLine.SetFilter("Journal Batch Name", 'DEFAULT');
+                    LineCounter := 0;
                     if ItemJournalLine.FindSet() then
                         repeat
+                            LineCounter += 1;
                             StartDate := DMY2DATE(1, 1, 2024);
                             EndDate := DMY2DATE(31, 12, 2024);
                             SumCostACY := 0;
@@ -52,9 +56,14 @@ pageextension 50262 "Revaluation Journal Ext" extends "Revaluation Journal"
 
                                 // Add to existing Inventory Value (Revalued)
                                 InventoryValueRevalued := ItemJournalLine."Inventory Value (Revalued)" + InventoryValueRevalued;
-                                ItemJournalLine.Validate("Inventory Value (Revalued)", InventoryValueRevalued);
-                                  ItemJournalLine.Adjustment := true;
-                                ItemJournalLine.Modify(true);
+
+                                // Try to modify the line with error handling
+                                if not TryModifyJournalLine(ItemJournalLine, InventoryValueRevalued) then begin
+                                    ErrorText := GetLastErrorText();
+                                    Message('Error modifying journal line %1 (Item: %2, Line No: %3): %4',
+                                           LineCounter, ItemJournalLine."Item No.", ItemJournalLine."Line No.", ErrorText);
+                                    ClearLastError();
+                                end;
                             end;
                         until ItemJournalLine.Next() = 0;
                 end;
@@ -83,4 +92,12 @@ pageextension 50262 "Revaluation Journal Ext" extends "Revaluation Journal"
             // }
         }
     }
+
+    [TryFunction]
+    local procedure TryModifyJournalLine(var ItemJournalLine: Record "Item Journal Line"; InventoryValueRevalued: Decimal)
+    begin
+        ItemJournalLine.Validate("Inventory Value (Revalued)", InventoryValueRevalued);
+        ItemJournalLine.Adjustment := true;
+        ItemJournalLine.Modify(true);
+    end;
 }

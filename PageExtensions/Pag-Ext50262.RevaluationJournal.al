@@ -26,7 +26,7 @@ pageextension 50262 "Revaluation Journal Ext" extends "Revaluation Journal"
                 begin
                     // Use the ItemJournalLine parameter directly
                     Clear(ItemJournalLine);
-                    ItemJournalLine.SetFilter("Journal Template Name", 'ITEM');
+                    ItemJournalLine.SetFilter("Journal Template Name", 'REVALUATIO');
                     ItemJournalLine.SetFilter("Journal Batch Name", 'DEFAULT');
                     if ItemJournalLine.FindSet() then
                         repeat
@@ -53,7 +53,7 @@ pageextension 50262 "Revaluation Journal Ext" extends "Revaluation Journal"
                                 // Add to existing Inventory Value (Revalued)
                                 InventoryValueRevalued := ItemJournalLine."Inventory Value (Revalued)" + InventoryValueRevalued;
                                 ItemJournalLine.Validate("Inventory Value (Revalued)", InventoryValueRevalued);
-                                ItemJournalLine.Adjustment := true;
+                                  ItemJournalLine.Adjustment := true;
                                 ItemJournalLine.Modify(true);
                             end;
                         until ItemJournalLine.Next() = 0;

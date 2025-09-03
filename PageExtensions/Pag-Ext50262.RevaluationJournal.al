@@ -4,28 +4,61 @@ pageextension 50262 "Revaluation Journal Ext" extends "Revaluation Journal"
     {
         addafter("Calculate Inventory Value")
         {
-            // action("Revalue Items 2023")
-            // {
-            //     ApplicationArea = All;
-            //     Caption = 'Revalue Items 2023';
-            //     Image = Report;
-            //     Promoted = true;
-            //     PromotedCategory = Process;
-            //     PromotedIsBig = true;
-            //     ToolTip = 'Revalues items from 2023 with specific pricing rules.';
+            action("Revalue Items 2024")
+            {
+                ApplicationArea = All;
+                Caption = 'Revalue Items 2024';
+                Image = Report;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                ToolTip = 'Revalues items from 2023 with specific pricing rules.';
 
-            //     trigger OnAction()
-            //     var
-            //         RevalJnlLine: Record "Item Journal Line";
-            //         RevalueItems2023: Report "Revalue Items 2023";
-            //     begin
-            //         RevalJnlLine.SetRange("Journal Template Name", Rec."Journal Template Name");
-            //         RevalJnlLine.SetRange("Journal Batch Name", Rec."Journal Batch Name");
+                trigger OnAction()
+                var
+                    ValueEntry: Record "Value Entry";
+                    SumCostACY: Decimal;
+                    SumCostLCY: Decimal;
+                    InventoryValueRevalued: Decimal;
+                    StartDate: Date;
+                    EndDate: Date;
+                    ItemJournalLine: Record "Item Journal Line";
+                begin
+                    // Use the ItemJournalLine parameter directly
+                    Clear(ItemJournalLine);
+                    ItemJournalLine.SetFilter("Journal Template Name", 'ITEM');
+                    ItemJournalLine.SetFilter("Journal Batch Name", 'DEFAULT');
+                    if ItemJournalLine.FindSet() then
+                        repeat
+                            StartDate := DMY2DATE(1, 1, 2024);
+                            EndDate := DMY2DATE(31, 12, 2024);
+                            SumCostACY := 0;
+                            SumCostLCY := 0;
+                            ValueEntry.Reset();
+                            ValueEntry.SetRange("Item No.", ItemJournalLine."Item No.");
+                            ValueEntry.SetRange("Posting Date", StartDate, EndDate);
+                            ValueEntry.SetFilter("Location Code", ItemJournalLine."Location Code");
+                            // Filter by variant code if it's not empty
+                            if ItemJournalLine."Variant Code" <> '' then
+                                ValueEntry.SetRange("Variant Code", ItemJournalLine."Variant Code");
+                            if ValueEntry.FindSet() then begin
+                                repeat
+                                    SumCostACY += ValueEntry."Cost Amount (Actual) (ACY)";
+                                    SumCostLCY += ValueEntry."Cost Amount (Actual)";
+                                until ValueEntry.Next() = 0;
 
-            //         // Pass template and batch name to the report
-            //         RevalueItems2023.RunModal();
-            //     end;
-            // }
+                                // Apply formula: (SumCostACY * 89500) - SumCostLCY
+                                InventoryValueRevalued := (SumCostACY * 89500) - SumCostLCY;
+
+                                // Add to existing Inventory Value (Revalued)
+                                InventoryValueRevalued := ItemJournalLine."Inventory Value (Revalued)" + InventoryValueRevalued;
+                                ItemJournalLine.Validate("Inventory Value (Revalued)", InventoryValueRevalued);
+                                ItemJournalLine.Adjustment := true;
+                                ItemJournalLine.Modify(true);
+                            end;
+                        until ItemJournalLine.Next() = 0;
+                end;
+            }
             // action("Revalue Items 2023 on 89,500")
             // {
             //     ApplicationArea = All;

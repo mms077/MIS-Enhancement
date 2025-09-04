@@ -18,7 +18,7 @@ pageextension 50264 "Item Journal" extends "Item Journal"
                 Image = AdjustEntries;
                 trigger OnAction()
                 var
-                    AdjustLocCU: Codeunit AdjustLocations;
+                    AdjustLocCU: Codeunit AdjustLocationsGF;
                 begin
                     AdjustLocCU.Run();
                 end;

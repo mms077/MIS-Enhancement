@@ -99,7 +99,7 @@ pageextension 50218 "Item List" extends "Item List"
                     Management.RunTheProcess(State::Start, SalesHeader, Process::"Just Create Variant", SalesLine, '')
                 end;
             }
-            action("Validate Revalue")
+            action("Validate Revalue 2023")
             {
                 ApplicationArea = All;
                 Image = VariableList;
@@ -128,6 +128,44 @@ pageextension 50218 "Item List" extends "Item List"
                                 // Set to true only if ratio equals 89500
                                 if Abs(CalculatedRatio - 89500) < 0.01 then
                                     ItemRecord."Revalued 2023" := true;
+                            end;
+
+                            ItemRecord.Modify(true);
+                        until ItemRecord.Next() = 0;
+
+                    // Refresh the current page
+                    CurrPage.Update(false);
+                end;
+            }
+             action("Validate Revalue 2024")
+            {
+                ApplicationArea = All;
+                Image = VariableList;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                trigger OnAction()
+
+                var
+                    ItemRecord: Record Item;
+                    CalculatedRatio: Decimal;
+                begin
+                    // Get all items from the current page filter
+                    ItemRecord.CopyFilters(Rec);
+                    if ItemRecord.FindSet() then
+                        repeat
+                            // Calculate flow fields for 2023 amounts
+                            ItemRecord.CalcFields("Cost Amount (Actual) 2024", "Cost Amount (Actual) ACY 2024");
+
+                            // Check if both amounts are not zero to avoid division by zero
+                            if (ItemRecord."Cost Amount (Actual) ACY 2024" <> 0) and (ItemRecord."Cost Amount (Actual) 2024" <> 0) then begin
+                                // Calculate the ratio: Cost Amount LCY 2024 / Cost Amount ACY 2024
+                                CalculatedRatio := ItemRecord."Cost Amount (Actual) 2024" / ItemRecord."Cost Amount (Actual) ACY 2024";
+
+                                // Set to true only if ratio equals 89500
+                                if Abs(CalculatedRatio - 89500) < 0.01 then
+                                    ItemRecord."Revalued 2024" := true;
                             end;
 
                             ItemRecord.Modify(true);

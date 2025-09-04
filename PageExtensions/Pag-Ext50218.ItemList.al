@@ -28,6 +28,18 @@ pageextension 50218 "Item List" extends "Item List"
                 ApplicationArea = all;
                 Editable = false;
             }
+            field("Revalued 2023"; Rec."Revalued 2023")
+            {
+                ApplicationArea = all;
+                Editable = false;
+                Caption = 'Revalued 2023 (89500 Ratio)';
+            }
+            field("Revalued 2024"; Rec."Revalued 2024")
+            {
+                ApplicationArea = all;
+                Editable = false;
+                Caption = 'Revalued 2024 (89500 Ratio)';
+            }
             field("Created By"; UserCreater)
             {
                 ApplicationArea = all;
@@ -85,6 +97,37 @@ pageextension 50218 "Item List" extends "Item List"
                     SalesLine: Record "Sales Line";
                 begin
                     Management.RunTheProcess(State::Start, SalesHeader, Process::"Just Create Variant", SalesLine, '')
+                end;
+            }
+            action("Validate Revalue")
+            {
+                trigger OnAction()
+                var
+                    ItemRecord: Record Item;
+                    CalculatedRatio: Decimal;
+                begin
+                    // Get all items from the current page filter
+                    ItemRecord.CopyFilters(Rec);
+                    if ItemRecord.FindSet() then
+                        repeat
+                            // Calculate flow fields for 2023 amounts
+                            ItemRecord.CalcFields("Cost Amount (Actual) 2023", "Cost Amount (Actual) ACY 2023");
+
+                            // Check if both amounts are not zero to avoid division by zero
+                            if (ItemRecord."Cost Amount (Actual) ACY 2023" <> 0) and (ItemRecord."Cost Amount (Actual) 2023" <> 0) then begin
+                                // Calculate the ratio: Cost Amount LCY 2023 / Cost Amount ACY 2023
+                                CalculatedRatio := ItemRecord."Cost Amount (Actual) 2023" / ItemRecord."Cost Amount (Actual) ACY 2023";
+
+                                // Set to true only if ratio equals 89500
+                                if Abs(CalculatedRatio - 89500) < 0.01 then
+                                    ItemRecord."Revalued 2023" := true;
+                            end;
+
+                            ItemRecord.Modify(true);
+                        until ItemRecord.Next() = 0;
+
+                    // Refresh the current page
+                    CurrPage.Update(false);
                 end;
             }
             // action("Clear Pic Issue")

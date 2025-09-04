@@ -1239,11 +1239,21 @@ codeunit 50202 EventSubscribers
             InventoryValueRevalued := ItemJournalLine."Inventory Value (Revalued)" + InventoryValueRevalued;
 
             // Check if the amount is within the allowed range before assigning
+            if (InventoryValueRevalued > 999999999.99) or (InventoryValueRevalued < -999999999.99) then begin
+                // Skip setting the field if out of range to avoid error
+                ErrorText := StrSubstNo('Revalued amount %1 for Item %2 exceeds field range - skipped assignment',
+                                       InventoryValueRevalued, ItemJournalLine."Item No.");
+            end else begin
+                // Only assign if within range
+                ItemJournalLine."Revalued 2024 Amount" := Format(InventoryValueRevalued);
+            end;
 
-
-            ItemJournalLine."Revalued 2024 Amount" := Format(InventoryValueRevalued);
             // Try to modify the line with error handling
-            ItemJournalLine.Modify();
+            if not TryModifyItemJournalLine(ItemJournalLine, InventoryValueRevalued) then begin
+                ErrorText := GetLastErrorText();
+                // Log error but don't break the process
+                ClearLastError();
+            end;
 
         end;
     end;
@@ -1253,7 +1263,20 @@ codeunit 50202 EventSubscribers
     var
         ValidatedAmount: Decimal;
     begin
+        // Validate the amount is within allowed range for Inventory Value (Revalued)
+        if (InventoryValueRevalued > 999999999.99) or (InventoryValueRevalued < -999999999.99) then begin
+            // Use maximum allowed value if out of range
+            if InventoryValueRevalued > 0 then
+                ValidatedAmount := 999999999.99
+            else
+                ValidatedAmount := -999999999.99;
+        end else
+            ValidatedAmount := InventoryValueRevalued;
 
+        // Only modify Inventory Value (Revalued) field, not the text field
+        ItemJournalLine.Validate("Inventory Value (Revalued)", ValidatedAmount);
+        ItemJournalLine.Adjustment := true;
+        ItemJournalLine.Modify(true);
     end;
 
 

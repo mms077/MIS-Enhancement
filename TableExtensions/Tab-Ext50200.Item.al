@@ -229,6 +229,14 @@ tableextension 50200 Item extends Item
                                                                               "Global Dimension 2 Code" = field("Global Dimension 2 Filter")));
             Editable = false;
         }
+        field(50222; "Revalued 2023"; Boolean)
+        {
+            DataClassification = ToBeClassified;
+        }
+        field(50223; "Revalued 2024"; Boolean)
+        {
+            DataClassification = ToBeClassified;
+        }
 
     }
     trigger OnDelete()

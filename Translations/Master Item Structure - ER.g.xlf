@@ -15178,6 +15178,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType DistrictLabelAraic</note>
         </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 3971409636" size-unit="char" translate="yes" xml:space="preserve">
+          <source>HS Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType HSCodeLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1297000446 - NamedType 1508833414" size-unit="char" translate="yes" xml:space="preserve">
+          <source>بند التعرفة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Credit Note - ER - NamedType HSCodeLabelArabic</note>
+        </trans-unit>
         <trans-unit id="Report 1297000446 - NamedType 1549603822" size-unit="char" translate="yes" xml:space="preserve">
           <source>Discount at Document Level</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -15697,6 +15707,16 @@
           <source>المقاطعة</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType DistrictLabelAraic</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 3971409636" size-unit="char" translate="yes" xml:space="preserve">
+          <source>HS Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType HSCodeLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1680548181 - NamedType 1508833414" size-unit="char" translate="yes" xml:space="preserve">
+          <source>بند التعرفة</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Zatca Tax Invoice - ER - NamedType HSCodeLabelArabic</note>
         </trans-unit>
         <trans-unit id="Report 1680548181 - NamedType 1549603822" size-unit="char" translate="yes" xml:space="preserve">
           <source>Discount at Document Level</source>
@@ -16297,6 +16317,16 @@
           <source>Modified By</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Item List - Control Modified By - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4178721393 - Control 3618918325 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4178721393">
+          <source>Revalued 2023 (89500 Ratio)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Item List - Control Revalued 2023 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4178721393 - Control 430435240 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4178721393">
+          <source>Revalued 2024 (89500 Ratio)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Item List - Control Revalued 2024 - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 4178721393 - Control 577209412 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4178721393">
           <source>Created At</source>
@@ -17668,6 +17698,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item - Field Brand Name - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 3276313895 - Field 1532825245 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
+          <source>Cost Amount (Actual) 2023</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item - Field Cost Amount (Actual) 2023 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3276313895 - Field 2639309456 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
+          <source>Cost Amount (Actual) 2024</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item - Field Cost Amount (Actual) 2024 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3276313895 - Field 2046696300 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
+          <source>Cost Amount (Actual) ACY 2023</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item - Field Cost Amount (Actual) ACY 2023 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3276313895 - Field 133606449 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
+          <source>Cost Amount (Actual) ACY 2024</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item - Field Cost Amount (Actual) ACY 2024 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 3276313895 - Field 2090732705 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
           <source>Design</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -17718,6 +17768,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item - Field Personalizable - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 3276313895 - Field 3618918325 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
+          <source>Revalued 2023</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item - Field Revalued 2023 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3276313895 - Field 430435240 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
+          <source>Revalued 2024</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item - Field Revalued 2024 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 3276313895 - Field 3764847370 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
           <source>Tariff</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -17757,6 +17817,11 @@
           <source>Ean Start</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Category - Field Ean Start - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 346005766 - Field 2896754668 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 346005766">
+          <source>Revalued 2024 Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Journal Line - Field Revalued 2024 Amount - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1067425594 - Field 2868240730 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1067425594">
           <source>Unique Code</source>

@@ -101,7 +101,14 @@ pageextension 50218 "Item List" extends "Item List"
             }
             action("Validate Revalue")
             {
+                ApplicationArea = All;
+                Image = VariableList;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
                 trigger OnAction()
+
                 var
                     ItemRecord: Record Item;
                     CalculatedRatio: Decimal;

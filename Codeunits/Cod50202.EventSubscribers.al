@@ -1237,22 +1237,39 @@ codeunit 50202 EventSubscribers
 
             // Add to existing Inventory Value (Revalued)
             InventoryValueRevalued := ItemJournalLine."Inventory Value (Revalued)" + InventoryValueRevalued;
-            ItemJournalLine."Revalued 2024 Amount" := InventoryValueRevalued;
-            // Try to modify the line with error handling
-            if not TryModifyItemJournalLine(ItemJournalLine, InventoryValueRevalued) then begin
-                ErrorText := GetLastErrorText();
-                Message('Error modifying journal line (Item: %1, Line No: %2, Variant: %3, Location: %4): %5',
-                       ItemJournalLine."Item No.", ItemJournalLine."Line No.", ItemJournalLine."Variant Code",
-                       ItemJournalLine."Location Code", ErrorText);
-                ClearLastError();
+
+            // Check if the amount is within the allowed range before assigning
+            if (InventoryValueRevalued > 999999999.99) or (InventoryValueRevalued < -999999999.99) then begin
+                Message('Warning: Revalued amount %1 for Item %2 exceeds field range. Amount truncated to maximum allowed value.',
+                       InventoryValueRevalued, ItemJournalLine."Item No.");
+
+                ItemJournalLine."Revalued 2024 Amount" := InventoryValueRevalued;
+                // Try to modify the line with error handling
+                if not TryModifyItemJournalLine(ItemJournalLine, InventoryValueRevalued) then begin
+                    ErrorText := GetLastErrorText();
+                    Message('Error modifying journal line (Item: %1, Line No: %2, Variant: %3, Location: %4): %5',
+                           ItemJournalLine."Item No.", ItemJournalLine."Line No.", ItemJournalLine."Variant Code",
+                           ItemJournalLine."Location Code", ErrorText);
+                    ClearLastError();
+                end;
             end;
         end;
     end;
-
     [TryFunction]
     local procedure TryModifyItemJournalLine(var ItemJournalLine: Record "Item Journal Line"; InventoryValueRevalued: Decimal)
+    var
+        ValidatedAmount: Decimal;
     begin
-        ItemJournalLine.Validate("Inventory Value (Revalued)", InventoryValueRevalued);
+        // Validate the amount is within allowed range
+        if (InventoryValueRevalued > 999999999.99) or (InventoryValueRevalued < -999999999.99) then begin
+            if InventoryValueRevalued > 0 then
+                ValidatedAmount := 999999999.99
+            else
+                ValidatedAmount := -999999999.99;
+        end else
+            ValidatedAmount := InventoryValueRevalued;
+
+        ItemJournalLine.Validate("Inventory Value (Revalued)", ValidatedAmount);
         ItemJournalLine.Adjustment := true;
         ItemJournalLine.Modify(true);
     end;

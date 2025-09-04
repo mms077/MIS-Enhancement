@@ -1237,7 +1237,7 @@ codeunit 50202 EventSubscribers
 
             // Add to existing Inventory Value (Revalued)
             InventoryValueRevalued := ItemJournalLine."Inventory Value (Revalued)" + InventoryValueRevalued;
-
+            ItemJournalLine."Revalued 2024 Amount" := InventoryValueRevalued;
             // Try to modify the line with error handling
             if not TryModifyItemJournalLine(ItemJournalLine, InventoryValueRevalued) then begin
                 ErrorText := GetLastErrorText();
@@ -1257,5 +1257,5 @@ codeunit 50202 EventSubscribers
         ItemJournalLine.Modify(true);
     end;
 
-   
+
 }

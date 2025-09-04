@@ -2,7 +2,7 @@ tableextension 50260 "Item Journal Line" extends "Item Journal Line"
 {
     fields
     {
-        field(50200; "Revalued 2024 Amount"; Decimal)
+        field(50200; "Revalued 2024 Amount"; Text[1000])
         {
             DataClassification = ToBeClassified;
         }

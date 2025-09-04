@@ -1,1 +1,1 @@
-﻿{"Added":[],"Modified":[],"Removed":[]}
+﻿{"Added":[{"Id":50264,"Kind":16,"Name":"Item Journal","Namespace":""}],"Modified":[{"Id":50260,"Kind":17,"Name":"Item Journal Line","Namespace":""},{"Id":50202,"Kind":11,"Name":"EventSubscribers","Namespace":""},{"Id":50221,"Kind":11,"Name":"AdjustLocationsGF","Namespace":""},{"Id":50220,"Kind":11,"Name":"AdjustLocations","Namespace":""},{"Id":50262,"Kind":16,"Name":"Revaluation Journal Ext","Namespace":""}],"Removed":[{"Id":50263,"Kind":16,"Name":"Whse. Item Journal","Namespace":""}]}

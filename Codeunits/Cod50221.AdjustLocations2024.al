@@ -1,4 +1,4 @@
-codeunit 50220 AdjustLocations2023
+codeunit 50221 AdjustLocations2024
 {
     trigger OnRun()
     var
@@ -23,8 +23,8 @@ codeunit 50220 AdjustLocations2023
         LocationCodes.Add('PL2');
         LocationCodes.Add('B2');
 
-        StartDate := DMY2DATE(1, 1, 2020);
-        EndDate := DMY2DATE(31, 12, 2023);
+        StartDate := DMY2DATE(1, 1, 2024);
+        EndDate := DMY2DATE(31, 12, 2024);
 
         // Process each location
         for i := 1 to LocationCodes.Count() do begin
@@ -51,7 +51,7 @@ codeunit 50220 AdjustLocations2023
     begin
         // Loop through all non-blocked items
         Item.SetRange(Blocked, false);
-        Item.SetRange("Revalued 2023", false);
+        Item.SetRange("Revalued 2024", false);
         if Item.FindSet() then
             repeat
                 // Check if item has value entries with variants

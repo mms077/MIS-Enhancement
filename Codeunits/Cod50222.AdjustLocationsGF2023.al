@@ -33,23 +33,16 @@ codeunit 50222 AdjustLocationsGF2023
 
         // Loop through all non-blocked items
         Item.SetRange(Blocked, false);
+        item.SetRange("Revalued 2023", false);
         if Item.FindSet() then
             repeat
-                // Calculate IsRawMaterial flow field
-                Item.CalcFields(IsRawMaterial);
-
-                // If item is raw material, process without variants
-                if Item.IsRawMaterial then
-                    ProcessItemEntries(Item, '', LocationCode, StartDate, EndDate, LineNo)
-                else begin
-                    // If item is not raw material, check per variant
-                    Clear(ItemVariant);
-                    ItemVariant.SetRange("Item No.", Item."No.");
-                    if ItemVariant.FindSet() then
-                        repeat
-                            ProcessItemEntries(Item, ItemVariant.Code, LocationCode, StartDate, EndDate, LineNo);
-                        until ItemVariant.Next() = 0
-
+                // Check if item has value entries with variants
+                if HasValueEntriesWithVariants(Item."No.", LocationCode, StartDate, EndDate) then begin
+                    // Process each variant that has value entries
+                    ProcessItemVariantsWithValueEntries(Item, LocationCode, StartDate, EndDate, LineNo);
+                end else begin
+                    // If no variants in value entries, process without variant
+                    ProcessItemEntries(Item, '', LocationCode, StartDate, EndDate, LineNo);
                 end;
             until Item.Next() = 0;
     end;
@@ -108,6 +101,42 @@ codeunit 50222 AdjustLocationsGF2023
 
             end;
         end;
+    end;
+
+    local procedure HasValueEntriesWithVariants(ItemNo: Code[20]; LocationCode: Code[10]; StartDate: Date; EndDate: Date): Boolean
+    var
+        ValueEntry: Record "Value Entry";
+    begin
+        Clear(ValueEntry);
+        ValueEntry.SetRange("Item No.", ItemNo);
+        ValueEntry.SetRange("Location Code", LocationCode);
+        ValueEntry.SetRange("Posting Date", StartDate, EndDate);
+        ValueEntry.SetFilter("Variant Code", '<>%1', ''); // Filter for non-empty variant codes
+        exit(not ValueEntry.IsEmpty());
+    end;
+
+    local procedure ProcessItemVariantsWithValueEntries(ItemRec: Record Item; LocationCode: Code[10]; StartDate: Date; EndDate: Date; var LineNo: Integer)
+    var
+        ValueEntry: Record "Value Entry";
+        VariantCode: Code[10];
+        ProcessedVariants: List of [Code[10]];
+    begin
+        // Get all unique variant codes from value entries for this item
+        Clear(ValueEntry);
+        ValueEntry.SetRange("Item No.", ItemRec."No.");
+        ValueEntry.SetRange("Location Code", LocationCode);
+        ValueEntry.SetRange("Posting Date", StartDate, EndDate);
+        ValueEntry.SetFilter("Variant Code", '<>%1', ''); // Only entries with variant codes
+
+        if ValueEntry.FindSet() then
+            repeat
+                VariantCode := ValueEntry."Variant Code";
+                // Process each unique variant only once
+                if not ProcessedVariants.Contains(VariantCode) then begin
+                    ProcessedVariants.Add(VariantCode);
+                    ProcessItemEntries(ItemRec, VariantCode, LocationCode, StartDate, EndDate, LineNo);
+                end;
+            until ValueEntry.Next() = 0;
     end;
 
 

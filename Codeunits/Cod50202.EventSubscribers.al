@@ -1215,8 +1215,8 @@ codeunit 50202 EventSubscribers
         ErrorText: Text;
     begin
         // Use the ItemJournalLine parameter directly
-        StartDate := DMY2DATE(1, 1, 2024);
-        EndDate := DMY2DATE(31, 12, 2024);
+        StartDate := DMY2DATE(1, 1, 2020);
+        EndDate := DMY2DATE(31, 12, 2023);
         SumCostACY := 0;
         SumCostLCY := 0;
         ValueEntry.Reset();
@@ -1251,24 +1251,4 @@ codeunit 50202 EventSubscribers
 
         end;
     end;
-
-    // [TryFunction]
-    // local procedure TryModifyItemJournalLine(var ItemJournalLine: Record "Item Journal Line"; InventoryValueRevalued: Decimal)
-    // var
-    //     ValidatedAmount: Decimal;
-    // begin
-    //     // Validate the amount is within allowed range for Inventory Value (Revalued)
-    //     if (InventoryValueRevalued > 999999999.99) or (InventoryValueRevalued < -999999999.99) then begin
-    //         // Use maximum allowed value if out of range
-    //         if InventoryValueRevalued > 0 then
-    //             ValidatedAmount := 999999999.99
-    //         else
-    //             ValidatedAmount := -999999999.99;
-    //     end else
-    //         ValidatedAmount := InventoryValueRevalued;
-
-
-    // end;
-
-
 }

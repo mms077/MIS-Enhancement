@@ -1,4 +1,4 @@
-codeunit 50221 AdjustLocationsGF
+codeunit 50222 AdjustLocationsGF2023
 {
     trigger OnRun()
     var
@@ -17,8 +17,8 @@ codeunit 50221 AdjustLocationsGF
         EndDate: Date;
     begin
         LocationCode := 'GF';
-        StartDate := DMY2DATE(1, 1, 2024);
-        EndDate := DMY2DATE(31, 12, 2024);
+        StartDate := DMY2DATE(1, 1, 2020);
+        EndDate := DMY2DATE(31, 12, 2023);
 
 
 
@@ -110,7 +110,7 @@ codeunit 50221 AdjustLocationsGF
         end;
     end;
 
-    
+
 
     var
         myInt: Integer;

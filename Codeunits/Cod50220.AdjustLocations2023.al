@@ -1,4 +1,4 @@
-codeunit 50220 AdjustLocations
+codeunit 50220 AdjustLocations2023
 {
     trigger OnRun()
     var
@@ -23,8 +23,8 @@ codeunit 50220 AdjustLocations
         LocationCodes.Add('PL2');
         LocationCodes.Add('B2');
 
-        StartDate := DMY2DATE(1, 1, 2024);
-        EndDate := DMY2DATE(31, 12, 2024);
+        StartDate := DMY2DATE(1, 1, 2020);
+        EndDate := DMY2DATE(31, 12, 2023);
 
         // Process each location
         for i := 1 to LocationCodes.Count() do begin

@@ -10,7 +10,7 @@ pageextension 50263 "Whse. Item Journal" extends "Whse. Item Journal"
         addafter("Register and &Print")
         {
 
-            action("AdjustLocations")
+            action("AdjustLocations2023")
             {
                 Promoted = true;
                 PromotedCategory = Process;
@@ -18,7 +18,20 @@ pageextension 50263 "Whse. Item Journal" extends "Whse. Item Journal"
                 Image = AdjustEntries;
                 trigger OnAction()
                 var
-                    AdjustLocCU: Codeunit AdjustLocations;
+                    AdjustLocCU: Codeunit AdjustLocations2023;
+                begin
+                    AdjustLocCU.Run();
+                end;
+            }
+            action("AdjustLocations2024")
+            {
+                Promoted = true;
+                PromotedCategory = Process;
+                ApplicationArea = all;
+                Image = AdjustEntries;
+                trigger OnAction()
+                var
+                    AdjustLocCU: Codeunit AdjustLocations2024;
                 begin
                     AdjustLocCU.Run();
                 end;

@@ -1215,8 +1215,8 @@ codeunit 50202 EventSubscribers
         ErrorText: Text;
     begin
         // Use the ItemJournalLine parameter directly
-        StartDate := DMY2DATE(1, 1, 2020);
-        EndDate := DMY2DATE(31, 12, 2023);
+        StartDate := DMY2DATE(1, 1, 2024);
+        EndDate := DMY2DATE(31, 12, 2024);
         SumCostACY := 0;
         SumCostLCY := 0;
         ValueEntry.Reset();

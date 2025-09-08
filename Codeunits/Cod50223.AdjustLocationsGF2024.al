@@ -34,6 +34,7 @@ codeunit 50223 AdjustLocationsGF2024
         // Loop through all non-blocked items
         Item.SetRange(Blocked, false);
         Item.SetRange("Revalued 2024", false);
+        Item.SetRange(Type,Item.Type::Inventory);
         if Item.FindSet() then
             repeat
                 // Check if item has value entries with variants

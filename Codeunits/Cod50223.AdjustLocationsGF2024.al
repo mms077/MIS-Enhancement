@@ -66,7 +66,7 @@ codeunit 50223 AdjustLocationsGF2024
         SumCostAmountLCY := ValueEntry."Cost Amount (Actual)";
 
         // If cost amount is not zero, check Item Ledger Entry remaining quantity
-        if SumCostAmountLCY <> 0 then begin
+        //if SumCostAmountLCY <> 0 then begin
             Clear(ItemLedgerEntry);
             ItemLedgerEntry.SetRange("Item No.", ItemRec."No.");
             ItemLedgerEntry.SetRange("Location Code", LocationCode);
@@ -100,7 +100,7 @@ codeunit 50223 AdjustLocationsGF2024
                 LineNo += 10000;
 
             end;
-        end;
+        //end;
     end;
 
     local procedure HasValueEntriesWithVariants(ItemNo: Code[20]; LocationCode: Code[10]; StartDate: Date; EndDate: Date): Boolean
